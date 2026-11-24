@@ -1,0 +1,38 @@
+[
+  {
+    "id": "PRI-00001",
+    "returnId": "PR-2026-0001",
+    "billItemId": "PBI-000557",
+    "medicineId": "MED-0010",
+    "batchId": "BAT-0012",
+    "qty": 2,
+    "refundAmount": 98,
+    "condition": "GOOD",
+    "disposition": "RESTOCK",
+    "movementId": "MOV-00778"
+  },
+  {
+    "id": "PRI-00002",
+    "returnId": "PR-2026-0002",
+    "billItemId": "PBI-000570",
+    "medicineId": "MED-0005",
+    "batchId": "BAT-0007",
+    "qty": 1,
+    "refundAmount": 31,
+    "condition": "DAMAGED",
+    "disposition": "WRITE_OFF",
+    "movementId": null
+  },
+  {
+    "id": "PRI-00003",
+    "returnId": "PR-2026-0003",
+    "billItemId": "PBI-000588",
+    "medicineId": "MED-0004",
+    "batchId": "BAT-0006",
+    "qty": 1,
+    "refundAmount": 113.53,
+    "condition": "GOOD",
+    "disposition": null,
+    "movementId": null
+  }
+]

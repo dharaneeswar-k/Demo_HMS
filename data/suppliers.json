@@ -1,0 +1,74 @@
+[
+  {
+    "id": "SUP-0001",
+    "code": "SUP-0001",
+    "name": "Sri Murugan Pharma Distributors",
+    "contactPerson": "S. Senthil Kumar",
+    "phone": "+91 94430 10001",
+    "email": "",
+    "address": "14, Bagalur Road, Hosur, Krishnagiri Dt, Tamil Nadu 635109",
+    "gstNumber": "33AAKFS4821M1Z2",
+    "status": "ACTIVE",
+    "remarks": "Primary distributor for tablets and capsules. Delivers twice a week."
+  },
+  {
+    "id": "SUP-0002",
+    "code": "SUP-0002",
+    "name": "Krishna Medical Agencies",
+    "contactPerson": "R. Gopinath",
+    "phone": "+91 94431 20002",
+    "email": "",
+    "address": "7/112, Gandhi Road, Krishnagiri, Tamil Nadu 635001",
+    "gstNumber": "33ABDPG7712K1Z9",
+    "status": "ACTIVE",
+    "remarks": "Injections and cold-chain items."
+  },
+  {
+    "id": "SUP-0003",
+    "code": "SUP-0003",
+    "name": "Lakshmi Surgicals & Consumables",
+    "contactPerson": "Lakshmi Narayanan",
+    "phone": "+91 98450 30003",
+    "email": "",
+    "address": "221, Electronic City Phase 1, Bengaluru, Karnataka 560100",
+    "gstNumber": "29AAGFL5520D1Z4",
+    "status": "ACTIVE",
+    "remarks": "Surgical consumables, gloves, cannulas, syringes."
+  },
+  {
+    "id": "SUP-0004",
+    "code": "SUP-0004",
+    "name": "Sai Balaji Pharma",
+    "contactPerson": "P. Venkatesh",
+    "phone": "+91 94860 40004",
+    "email": "",
+    "address": "3, Rayakottai Road, Hosur, Tamil Nadu 635109",
+    "gstNumber": "33BBTPV3319Q1Z1",
+    "status": "ACTIVE",
+    "remarks": "Syrups, creams and drops."
+  },
+  {
+    "id": "SUP-0005",
+    "code": "SUP-0005",
+    "name": "Kaveri Healthcare Distributors",
+    "contactPerson": "M. Karthikeyan",
+    "phone": "+91 90030 50005",
+    "email": "",
+    "address": "56, Omalur Main Road, Salem, Tamil Nadu 636009",
+    "gstNumber": "33AAJFK9035H1Z7",
+    "status": "ACTIVE",
+    "remarks": "IV fluids and bulk items."
+  },
+  {
+    "id": "SUP-0006",
+    "code": "SUP-0006",
+    "name": "Annapoorna Medical Distributors",
+    "contactPerson": "K. Annamalai",
+    "phone": "+91 94440 60006",
+    "email": "",
+    "address": "18, Anna Salai, Chennai, Tamil Nadu 600002",
+    "gstNumber": "33AAMFA2287C1Z3",
+    "status": "INACTIVE",
+    "remarks": "Inactive — credit terms under review."
+  }
+]

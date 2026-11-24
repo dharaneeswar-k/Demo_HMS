@@ -1,0 +1,29 @@
+[
+  {
+    "id": "LOC-01",
+    "name": "Pharmacy",
+    "code": "PHARM",
+    "type": "PHARMACY",
+    "active": true,
+    "isDefault": false,
+    "description": "Ground floor pharmacy counter — sells to patients"
+  },
+  {
+    "id": "LOC-02",
+    "name": "Central Store",
+    "code": "STORE",
+    "type": "STORE",
+    "active": true,
+    "isDefault": true,
+    "description": "Receives all supplier deliveries and transfers stock to the pharmacy"
+  },
+  {
+    "id": "LOC-03",
+    "name": "Ward Sub-store (2nd Floor)",
+    "code": "WARD2",
+    "type": "SUB_STORE",
+    "active": false,
+    "isDefault": false,
+    "description": "Configured for future use"
+  }
+]

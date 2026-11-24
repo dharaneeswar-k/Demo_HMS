@@ -1,0 +1,812 @@
+[
+  {
+    "id": "AUD-00001",
+    "at": "2026-08-01T03:30:00.000Z",
+    "userId": "USR-0002",
+    "action": "OPENING_STOCK_IMPORTED",
+    "entity": "INVENTORY",
+    "entityId": "OPEN-2026-08",
+    "details": "Opening balances loaded for 32 medicines"
+  },
+  {
+    "id": "AUD-00002",
+    "at": "2026-08-12T05:50:00.000Z",
+    "userId": "USR-0001",
+    "action": "GRN_DRAFT",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0001",
+    "details": "GRN created at receiving counter"
+  },
+  {
+    "id": "AUD-00003",
+    "at": "2026-08-12T06:15:00.000Z",
+    "userId": "USR-0001",
+    "action": "GRN_SUBMITTED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0001",
+    "details": "Submitted for verification"
+  },
+  {
+    "id": "AUD-00004",
+    "at": "2026-08-12T07:00:00.000Z",
+    "userId": "USR-0002",
+    "action": "GRN_POSTED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0001",
+    "details": "Stock posted to inventory"
+  },
+  {
+    "id": "AUD-00005",
+    "at": "2026-08-26T09:35:00.000Z",
+    "userId": "USR-0004",
+    "action": "GRN_DRAFT",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0002",
+    "details": "GRN created at receiving counter"
+  },
+  {
+    "id": "AUD-00006",
+    "at": "2026-08-26T10:00:00.000Z",
+    "userId": "USR-0004",
+    "action": "GRN_SUBMITTED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0002",
+    "details": "Submitted for verification"
+  },
+  {
+    "id": "AUD-00007",
+    "at": "2026-08-26T10:45:00.000Z",
+    "userId": "USR-0002",
+    "action": "GRN_POSTED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0002",
+    "details": "Stock posted to inventory"
+  },
+  {
+    "id": "AUD-00008",
+    "at": "2026-09-09T05:10:00.000Z",
+    "userId": "USR-0001",
+    "action": "GRN_DRAFT",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0003",
+    "details": "GRN created at receiving counter"
+  },
+  {
+    "id": "AUD-00009",
+    "at": "2026-09-09T05:35:00.000Z",
+    "userId": "USR-0001",
+    "action": "GRN_SUBMITTED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0003",
+    "details": "Submitted for verification"
+  },
+  {
+    "id": "AUD-00010",
+    "at": "2026-09-09T06:20:00.000Z",
+    "userId": "USR-0002",
+    "action": "GRN_POSTED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0003",
+    "details": "Stock posted to inventory"
+  },
+  {
+    "id": "AUD-00011",
+    "at": "2026-09-24T06:45:00.000Z",
+    "userId": "USR-0001",
+    "action": "GRN_DRAFT",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0004",
+    "details": "GRN created at receiving counter"
+  },
+  {
+    "id": "AUD-00012",
+    "at": "2026-09-24T07:10:00.000Z",
+    "userId": "USR-0001",
+    "action": "GRN_SUBMITTED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0004",
+    "details": "Submitted for verification"
+  },
+  {
+    "id": "AUD-00013",
+    "at": "2026-09-24T07:55:00.000Z",
+    "userId": "USR-0002",
+    "action": "GRN_POSTED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0004",
+    "details": "Stock posted to inventory"
+  },
+  {
+    "id": "AUD-00014",
+    "at": "2026-09-30T12:30:00.000Z",
+    "userId": "USR-0001",
+    "action": "ADJUSTMENT_REQUESTED",
+    "entity": "ADJUSTMENT",
+    "entityId": "ADJ-0001",
+    "details": "Damaged stock: -4"
+  },
+  {
+    "id": "AUD-00015",
+    "at": "2026-09-30T15:30:00.000Z",
+    "userId": "USR-0002",
+    "action": "ADJUSTMENT_APPROVED",
+    "entity": "ADJUSTMENT",
+    "entityId": "ADJ-0001",
+    "details": "Movement MOV-00461"
+  },
+  {
+    "id": "AUD-00016",
+    "at": "2026-10-14T04:20:00.000Z",
+    "userId": "USR-0004",
+    "action": "GRN_DRAFT",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0005",
+    "details": "GRN created at receiving counter"
+  },
+  {
+    "id": "AUD-00017",
+    "at": "2026-10-14T04:45:00.000Z",
+    "userId": "USR-0004",
+    "action": "GRN_SUBMITTED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0005",
+    "details": "Submitted for verification"
+  },
+  {
+    "id": "AUD-00018",
+    "at": "2026-10-14T05:20:00.000Z",
+    "userId": "USR-0002",
+    "action": "GRN_PENDING_APPROVAL",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0005",
+    "details": "Verified. Exceptional case escalated to owner: Invoice quantity mismatch above 10% on Normal Saline (ordered 200, received 160)"
+  },
+  {
+    "id": "AUD-00019",
+    "at": "2026-10-14T07:20:00.000Z",
+    "userId": "USR-0003",
+    "action": "GRN_APPROVED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0005",
+    "details": "Approved by owner"
+  },
+  {
+    "id": "AUD-00020",
+    "at": "2026-10-14T07:30:00.000Z",
+    "userId": "USR-0003",
+    "action": "GRN_POSTED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0005",
+    "details": "Stock posted to inventory"
+  },
+  {
+    "id": "AUD-00021",
+    "at": "2026-10-18T06:30:00.000Z",
+    "userId": "USR-0001",
+    "action": "ADJUSTMENT_REQUESTED",
+    "entity": "ADJUSTMENT",
+    "entityId": "ADJ-0002",
+    "details": "Data correction: 3"
+  },
+  {
+    "id": "AUD-00022",
+    "at": "2026-10-18T11:30:00.000Z",
+    "userId": "USR-0002",
+    "action": "ADJUSTMENT_REJECTED",
+    "entity": "ADJUSTMENT",
+    "entityId": "ADJ-0002",
+    "details": "Recount done jointly; no variance found."
+  },
+  {
+    "id": "AUD-00023",
+    "at": "2026-10-28T07:30:00.000Z",
+    "userId": "USR-0001",
+    "action": "GRN_DRAFT",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0012",
+    "details": "GRN created at receiving counter"
+  },
+  {
+    "id": "AUD-00024",
+    "at": "2026-10-28T07:55:00.000Z",
+    "userId": "USR-0001",
+    "action": "GRN_SUBMITTED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0012",
+    "details": "Submitted for verification"
+  },
+  {
+    "id": "AUD-00025",
+    "at": "2026-10-28T09:00:00.000Z",
+    "userId": "USR-0002",
+    "action": "GRN_REJECTED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0012",
+    "details": "Supplier inactive and items received without purchase order. Returned to supplier."
+  },
+  {
+    "id": "AUD-00026",
+    "at": "2026-10-31T13:30:00.000Z",
+    "userId": "USR-0002",
+    "action": "ADJUSTMENT_REQUESTED",
+    "entity": "ADJUSTMENT",
+    "entityId": "ADJ-0003",
+    "details": "Physical count variance: -12"
+  },
+  {
+    "id": "AUD-00027",
+    "at": "2026-10-31T16:30:00.000Z",
+    "userId": "USR-0002",
+    "action": "ADJUSTMENT_APPROVED",
+    "entity": "ADJUSTMENT",
+    "entityId": "ADJ-0003",
+    "details": "Movement MOV-00663"
+  },
+  {
+    "id": "AUD-00028",
+    "at": "2026-11-01T16:05:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0148",
+    "details": "2026-11-01 cash variance 0"
+  },
+  {
+    "id": "AUD-00029",
+    "at": "2026-11-01T16:14:00.000Z",
+    "userId": "USR-0004",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0149",
+    "details": "2026-11-01 cash variance 0"
+  },
+  {
+    "id": "AUD-00030",
+    "at": "2026-11-02T15:40:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0150",
+    "details": "2026-11-02 cash variance 0"
+  },
+  {
+    "id": "AUD-00031",
+    "at": "2026-11-02T15:40:00.000Z",
+    "userId": "USR-0004",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0151",
+    "details": "2026-11-02 cash variance 0"
+  },
+  {
+    "id": "AUD-00032",
+    "at": "2026-11-03T15:44:00.000Z",
+    "userId": "USR-0004",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0153",
+    "details": "2026-11-03 cash variance 0"
+  },
+  {
+    "id": "AUD-00033",
+    "at": "2026-11-03T16:04:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0152",
+    "details": "2026-11-03 cash variance 0"
+  },
+  {
+    "id": "AUD-00034",
+    "at": "2026-11-04T15:40:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0154",
+    "details": "2026-11-04 cash variance 0"
+  },
+  {
+    "id": "AUD-00035",
+    "at": "2026-11-04T16:25:00.000Z",
+    "userId": "USR-0004",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0155",
+    "details": "2026-11-04 cash variance 0"
+  },
+  {
+    "id": "AUD-00036",
+    "at": "2026-11-05T11:00:00.000Z",
+    "userId": "USR-0001",
+    "action": "GRN_DRAFT",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0006",
+    "details": "GRN created at receiving counter"
+  },
+  {
+    "id": "AUD-00037",
+    "at": "2026-11-05T11:25:00.000Z",
+    "userId": "USR-0001",
+    "action": "GRN_SUBMITTED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0006",
+    "details": "Submitted for verification"
+  },
+  {
+    "id": "AUD-00038",
+    "at": "2026-11-05T12:10:00.000Z",
+    "userId": "USR-0002",
+    "action": "GRN_POSTED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0006",
+    "details": "Stock posted to inventory"
+  },
+  {
+    "id": "AUD-00039",
+    "at": "2026-11-05T16:20:00.000Z",
+    "userId": "USR-0004",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0156",
+    "details": "2026-11-05 cash variance 0"
+  },
+  {
+    "id": "AUD-00040",
+    "at": "2026-11-06T15:47:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0157",
+    "details": "2026-11-06 cash variance -10"
+  },
+  {
+    "id": "AUD-00041",
+    "at": "2026-11-07T15:58:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0158",
+    "details": "2026-11-07 cash variance 0"
+  },
+  {
+    "id": "AUD-00042",
+    "at": "2026-11-07T16:02:00.000Z",
+    "userId": "USR-0004",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0159",
+    "details": "2026-11-07 cash variance -50"
+  },
+  {
+    "id": "AUD-00043",
+    "at": "2026-11-08T15:57:00.000Z",
+    "userId": "USR-0004",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0161",
+    "details": "2026-11-08 cash variance 0"
+  },
+  {
+    "id": "AUD-00044",
+    "at": "2026-11-08T16:18:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0160",
+    "details": "2026-11-08 cash variance 0"
+  },
+  {
+    "id": "AUD-00045",
+    "at": "2026-11-09T16:03:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0162",
+    "details": "2026-11-09 cash variance 0"
+  },
+  {
+    "id": "AUD-00046",
+    "at": "2026-11-10T04:30:00.000Z",
+    "userId": "USR-0002",
+    "action": "BATCH_QUARANTINED",
+    "entity": "BATCH",
+    "entityId": "BAT-0016",
+    "details": "Quarantined: cap seal defects reported on 3 bottles; awaiting supplier inspection"
+  },
+  {
+    "id": "AUD-00047",
+    "at": "2026-11-10T06:30:00.000Z",
+    "userId": "USR-0004",
+    "action": "GRN_DRAFT",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0013",
+    "details": "GRN created at receiving counter"
+  },
+  {
+    "id": "AUD-00048",
+    "at": "2026-11-10T07:10:00.000Z",
+    "userId": "USR-0004",
+    "action": "GRN_CANCELLED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0013",
+    "details": "Duplicate entry — invoice already recorded in GRN-2026-0006"
+  },
+  {
+    "id": "AUD-00049",
+    "at": "2026-11-10T15:55:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0163",
+    "details": "2026-11-10 cash variance 0"
+  },
+  {
+    "id": "AUD-00050",
+    "at": "2026-11-10T16:17:00.000Z",
+    "userId": "USR-0004",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0164",
+    "details": "2026-11-10 cash variance 0"
+  },
+  {
+    "id": "AUD-00051",
+    "at": "2026-11-11T15:45:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0165",
+    "details": "2026-11-11 cash variance 0"
+  },
+  {
+    "id": "AUD-00052",
+    "at": "2026-11-12T15:45:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0166",
+    "details": "2026-11-12 cash variance 0"
+  },
+  {
+    "id": "AUD-00053",
+    "at": "2026-11-12T16:23:00.000Z",
+    "userId": "USR-0004",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0167",
+    "details": "2026-11-12 cash variance 0"
+  },
+  {
+    "id": "AUD-00054",
+    "at": "2026-11-13T16:03:00.000Z",
+    "userId": "USR-0004",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0169",
+    "details": "2026-11-13 cash variance 0"
+  },
+  {
+    "id": "AUD-00055",
+    "at": "2026-11-13T16:06:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0168",
+    "details": "2026-11-13 cash variance 0"
+  },
+  {
+    "id": "AUD-00056",
+    "at": "2026-11-14T16:00:00.000Z",
+    "userId": "USR-0004",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0171",
+    "details": "2026-11-14 cash variance 0"
+  },
+  {
+    "id": "AUD-00057",
+    "at": "2026-11-14T16:20:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0170",
+    "details": "2026-11-14 cash variance 0"
+  },
+  {
+    "id": "AUD-00058",
+    "at": "2026-11-15T08:40:00.000Z",
+    "userId": "USR-0001",
+    "action": "RETURN_REQUESTED",
+    "entity": "RETURN",
+    "entityId": "PR-2026-0001",
+    "details": "PB-2026-00321: Excess quantity"
+  },
+  {
+    "id": "AUD-00059",
+    "at": "2026-11-15T09:00:00.000Z",
+    "userId": "USR-0003",
+    "action": "RETURN_APPROVED",
+    "entity": "RETURN",
+    "entityId": "PR-2026-0001",
+    "details": "Refund ₹98 (CASH)"
+  },
+  {
+    "id": "AUD-00060",
+    "at": "2026-11-15T15:47:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0172",
+    "details": "2026-11-15 cash variance -50"
+  },
+  {
+    "id": "AUD-00061",
+    "at": "2026-11-15T15:56:00.000Z",
+    "userId": "USR-0004",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0173",
+    "details": "2026-11-15 cash variance 0"
+  },
+  {
+    "id": "AUD-00062",
+    "at": "2026-11-16T15:52:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0174",
+    "details": "2026-11-16 cash variance 0"
+  },
+  {
+    "id": "AUD-00063",
+    "at": "2026-11-17T15:57:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0175",
+    "details": "2026-11-17 cash variance 0"
+  },
+  {
+    "id": "AUD-00064",
+    "at": "2026-11-17T16:11:00.000Z",
+    "userId": "USR-0004",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0176",
+    "details": "2026-11-17 cash variance 0"
+  },
+  {
+    "id": "AUD-00065",
+    "at": "2026-11-18T15:45:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0177",
+    "details": "2026-11-18 cash variance 0"
+  },
+  {
+    "id": "AUD-00066",
+    "at": "2026-11-18T15:59:00.000Z",
+    "userId": "USR-0004",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0178",
+    "details": "2026-11-18 cash variance 0"
+  },
+  {
+    "id": "AUD-00067",
+    "at": "2026-11-19T12:00:00.000Z",
+    "userId": "USR-0004",
+    "action": "RETURN_REQUESTED",
+    "entity": "RETURN",
+    "entityId": "PR-2026-0002",
+    "details": "PB-2026-00330: Damaged item"
+  },
+  {
+    "id": "AUD-00068",
+    "at": "2026-11-19T12:20:00.000Z",
+    "userId": "USR-0003",
+    "action": "RETURN_APPROVED",
+    "entity": "RETURN",
+    "entityId": "PR-2026-0002",
+    "details": "Refund ₹31 (UPI)"
+  },
+  {
+    "id": "AUD-00069",
+    "at": "2026-11-19T15:41:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0179",
+    "details": "2026-11-19 cash variance 0"
+  },
+  {
+    "id": "AUD-00070",
+    "at": "2026-11-19T16:18:00.000Z",
+    "userId": "USR-0004",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0180",
+    "details": "2026-11-19 cash variance 0"
+  },
+  {
+    "id": "AUD-00071",
+    "at": "2026-11-20T05:30:00.000Z",
+    "userId": "USR-0001",
+    "action": "GRN_DRAFT",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0007",
+    "details": "GRN created at receiving counter"
+  },
+  {
+    "id": "AUD-00072",
+    "at": "2026-11-20T05:55:00.000Z",
+    "userId": "USR-0001",
+    "action": "GRN_SUBMITTED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0007",
+    "details": "Submitted for verification"
+  },
+  {
+    "id": "AUD-00073",
+    "at": "2026-11-20T16:10:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0181",
+    "details": "2026-11-20 cash variance 0"
+  },
+  {
+    "id": "AUD-00074",
+    "at": "2026-11-21T10:10:00.000Z",
+    "userId": "USR-0001",
+    "action": "GRN_DRAFT",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0009",
+    "details": "GRN created at receiving counter"
+  },
+  {
+    "id": "AUD-00075",
+    "at": "2026-11-21T10:35:00.000Z",
+    "userId": "USR-0001",
+    "action": "GRN_SUBMITTED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0009",
+    "details": "Submitted for verification"
+  },
+  {
+    "id": "AUD-00076",
+    "at": "2026-11-21T11:10:00.000Z",
+    "userId": "USR-0002",
+    "action": "GRN_PENDING_APPROVAL",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0009",
+    "details": "Verified. Exceptional case escalated to owner: Delivery contains a batch expiring within 30 days (Azithral 500)"
+  },
+  {
+    "id": "AUD-00077",
+    "at": "2026-11-21T12:00:00.000Z",
+    "userId": "USR-0002",
+    "action": "ADJUSTMENT_REQUESTED",
+    "entity": "ADJUSTMENT",
+    "entityId": "ADJ-0004",
+    "details": "Missing stock: -60"
+  },
+  {
+    "id": "AUD-00078",
+    "at": "2026-11-21T12:45:00.000Z",
+    "userId": "USR-0004",
+    "action": "BILL_CANCEL_REQUESTED",
+    "entity": "BILL",
+    "entityId": "PB-2026-00346",
+    "details": "Duplicate bill created for the same prescription"
+  },
+  {
+    "id": "AUD-00079",
+    "at": "2026-11-21T13:00:00.000Z",
+    "userId": "USR-0003",
+    "action": "BILL_CANCELLED",
+    "entity": "BILL",
+    "entityId": "PB-2026-00346",
+    "details": "Duplicate bill created for the same prescription"
+  },
+  {
+    "id": "AUD-00080",
+    "at": "2026-11-21T15:45:00.000Z",
+    "userId": "USR-0004",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0183",
+    "details": "2026-11-21 cash variance 0"
+  },
+  {
+    "id": "AUD-00081",
+    "at": "2026-11-21T16:24:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0182",
+    "details": "2026-11-21 cash variance 0"
+  },
+  {
+    "id": "AUD-00082",
+    "at": "2026-11-22T04:40:00.000Z",
+    "userId": "USR-0004",
+    "action": "GRN_DRAFT",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0008",
+    "details": "GRN created at receiving counter"
+  },
+  {
+    "id": "AUD-00083",
+    "at": "2026-11-22T05:05:00.000Z",
+    "userId": "USR-0004",
+    "action": "GRN_SUBMITTED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0008",
+    "details": "Submitted for verification"
+  },
+  {
+    "id": "AUD-00084",
+    "at": "2026-11-22T07:45:00.000Z",
+    "userId": "USR-0001",
+    "action": "ADJUSTMENT_REQUESTED",
+    "entity": "ADJUSTMENT",
+    "entityId": "ADJ-0005",
+    "details": "Damaged stock: -2"
+  },
+  {
+    "id": "AUD-00085",
+    "at": "2026-11-22T11:50:00.000Z",
+    "userId": "USR-0004",
+    "action": "GRN_DRAFT",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0011",
+    "details": "GRN created at receiving counter"
+  },
+  {
+    "id": "AUD-00086",
+    "at": "2026-11-22T12:10:00.000Z",
+    "userId": "USR-0004",
+    "action": "GRN_VALIDATION_REQUIRED",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0011",
+    "details": "Submission blocked: missing mandatory details"
+  },
+  {
+    "id": "AUD-00087",
+    "at": "2026-11-22T15:51:00.000Z",
+    "userId": "USR-0001",
+    "action": "DAILY_CLOSING_SUBMITTED",
+    "entity": "CLOSING",
+    "entityId": "DC-2026-0184",
+    "details": "2026-11-22 cash variance 0"
+  },
+  {
+    "id": "AUD-00088",
+    "at": "2026-11-23T04:00:00.000Z",
+    "userId": "USR-0001",
+    "action": "GRN_DRAFT",
+    "entity": "GRN",
+    "entityId": "GRN-2026-0010",
+    "details": "GRN created at receiving counter"
+  },
+  {
+    "id": "AUD-00089",
+    "at": "2026-11-23T05:10:00.000Z",
+    "userId": "USR-0001",
+    "action": "RETURN_REQUESTED",
+    "entity": "RETURN",
+    "entityId": "PR-2026-0003",
+    "details": "PB-2026-00342: Doctor changed prescription"
+  },
+  {
+    "id": "AUD-00090",
+    "at": "2026-11-23T05:55:00.000Z",
+    "userId": "USR-0001",
+    "action": "BILL_CANCEL_REQUESTED",
+    "entity": "BILL",
+    "entityId": "PB-2026-00354",
+    "details": "Patient decided to buy only part of the prescription; bill to be re-issued"
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "id": "PR-2026-0001",
+    "billId": "PB-2026-00321",
+    "at": "2026-11-15T08:40:00.000Z",
+    "businessDate": "2026-11-15",
+    "requestedBy": "USR-0001",
+    "reason": "Excess quantity",
+    "notes": "Unopened strips returned the next day; seals intact",
+    "refundMode": "CASH",
+    "refundAmount": 98,
+    "status": "COMPLETED",
+    "requiresOwner": false,
+    "approvedBy": "USR-0003",
+    "approvedAt": "2026-11-15T09:00:00.000Z",
+    "rejectionReason": null,
+    "refundTxnId": "PAY-000378"
+  },
+  {
+    "id": "PR-2026-0002",
+    "billId": "PB-2026-00330",
+    "at": "2026-11-19T12:00:00.000Z",
+    "businessDate": "2026-11-19",
+    "requestedBy": "USR-0004",
+    "reason": "Damaged item",
+    "notes": "Bottle cap cracked — not fit for resale",
+    "refundMode": "UPI",
+    "refundAmount": 31,
+    "status": "COMPLETED",
+    "requiresOwner": false,
+    "approvedBy": "USR-0003",
+    "approvedAt": "2026-11-19T12:20:00.000Z",
+    "rejectionReason": null,
+    "refundTxnId": "PAY-000378"
+  },
+  {
+    "id": "PR-2026-0003",
+    "billId": "PB-2026-00342",
+    "at": "2026-11-23T05:10:00.000Z",
+    "businessDate": "2026-11-23",
+    "requestedBy": "USR-0001",
+    "reason": "Doctor changed prescription",
+    "notes": "Patient returned with revised prescription from OPD",
+    "refundMode": "CASH",
+    "refundAmount": 113.53,
+    "status": "PENDING_APPROVAL",
+    "requiresOwner": false,
+    "approvedBy": null,
+    "approvedAt": null,
+    "rejectionReason": null,
+    "refundTxnId": null
+  }
+]

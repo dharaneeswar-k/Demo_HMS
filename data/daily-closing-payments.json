@@ -1,0 +1,7362 @@
+[
+  {
+    "id": "DCP-00001",
+    "closingId": "DC-2026-0001",
+    "mode": "CASH",
+    "recorded": 322,
+    "refunds": 0,
+    "expected": 2322,
+    "actual": 2322,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00002",
+    "closingId": "DC-2026-0001",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00003",
+    "closingId": "DC-2026-0001",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00004",
+    "closingId": "DC-2026-0001",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00005",
+    "closingId": "DC-2026-0002",
+    "mode": "CASH",
+    "recorded": 133,
+    "refunds": 0,
+    "expected": 2133,
+    "actual": 2133,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00006",
+    "closingId": "DC-2026-0002",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00007",
+    "closingId": "DC-2026-0002",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00008",
+    "closingId": "DC-2026-0002",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00009",
+    "closingId": "DC-2026-0003",
+    "mode": "CASH",
+    "recorded": 732,
+    "refunds": 0,
+    "expected": 2732,
+    "actual": 2732,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00010",
+    "closingId": "DC-2026-0003",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00011",
+    "closingId": "DC-2026-0003",
+    "mode": "CARD",
+    "recorded": 135,
+    "refunds": 0,
+    "expected": 135,
+    "actual": 135,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00012",
+    "closingId": "DC-2026-0003",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00013",
+    "closingId": "DC-2026-0004",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00014",
+    "closingId": "DC-2026-0004",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00015",
+    "closingId": "DC-2026-0004",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00016",
+    "closingId": "DC-2026-0004",
+    "mode": "OTHER",
+    "recorded": 184,
+    "refunds": 0,
+    "expected": 184,
+    "actual": 184,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00017",
+    "closingId": "DC-2026-0005",
+    "mode": "CASH",
+    "recorded": 259,
+    "refunds": 0,
+    "expected": 2259,
+    "actual": 2259,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00018",
+    "closingId": "DC-2026-0005",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00019",
+    "closingId": "DC-2026-0005",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00020",
+    "closingId": "DC-2026-0005",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00021",
+    "closingId": "DC-2026-0006",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00022",
+    "closingId": "DC-2026-0006",
+    "mode": "UPI",
+    "recorded": 206,
+    "refunds": 0,
+    "expected": 206,
+    "actual": 206,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00023",
+    "closingId": "DC-2026-0006",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00024",
+    "closingId": "DC-2026-0006",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00025",
+    "closingId": "DC-2026-0007",
+    "mode": "CASH",
+    "recorded": 290,
+    "refunds": 0,
+    "expected": 2290,
+    "actual": 2290,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00026",
+    "closingId": "DC-2026-0007",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00027",
+    "closingId": "DC-2026-0007",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00028",
+    "closingId": "DC-2026-0007",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00029",
+    "closingId": "DC-2026-0008",
+    "mode": "CASH",
+    "recorded": 178,
+    "refunds": 0,
+    "expected": 2178,
+    "actual": 2178,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00030",
+    "closingId": "DC-2026-0008",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00031",
+    "closingId": "DC-2026-0008",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00032",
+    "closingId": "DC-2026-0008",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00033",
+    "closingId": "DC-2026-0009",
+    "mode": "CASH",
+    "recorded": 80,
+    "refunds": 0,
+    "expected": 2080,
+    "actual": 2080,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00034",
+    "closingId": "DC-2026-0009",
+    "mode": "UPI",
+    "recorded": 124,
+    "refunds": 0,
+    "expected": 124,
+    "actual": 124,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00035",
+    "closingId": "DC-2026-0009",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00036",
+    "closingId": "DC-2026-0009",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00037",
+    "closingId": "DC-2026-0010",
+    "mode": "CASH",
+    "recorded": 815,
+    "refunds": 0,
+    "expected": 2815,
+    "actual": 2815,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00038",
+    "closingId": "DC-2026-0010",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00039",
+    "closingId": "DC-2026-0010",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00040",
+    "closingId": "DC-2026-0010",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00041",
+    "closingId": "DC-2026-0011",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00042",
+    "closingId": "DC-2026-0011",
+    "mode": "UPI",
+    "recorded": 28,
+    "refunds": 0,
+    "expected": 28,
+    "actual": 28,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00043",
+    "closingId": "DC-2026-0011",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00044",
+    "closingId": "DC-2026-0011",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00045",
+    "closingId": "DC-2026-0012",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00046",
+    "closingId": "DC-2026-0012",
+    "mode": "UPI",
+    "recorded": 526,
+    "refunds": 0,
+    "expected": 526,
+    "actual": 526,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00047",
+    "closingId": "DC-2026-0012",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00048",
+    "closingId": "DC-2026-0012",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00049",
+    "closingId": "DC-2026-0013",
+    "mode": "CASH",
+    "recorded": 518,
+    "refunds": 0,
+    "expected": 2518,
+    "actual": 2518,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00050",
+    "closingId": "DC-2026-0013",
+    "mode": "UPI",
+    "recorded": 119,
+    "refunds": 0,
+    "expected": 119,
+    "actual": 119,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00051",
+    "closingId": "DC-2026-0013",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00052",
+    "closingId": "DC-2026-0013",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00053",
+    "closingId": "DC-2026-0014",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2020,
+    "difference": 20
+  },
+  {
+    "id": "DCP-00054",
+    "closingId": "DC-2026-0014",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00055",
+    "closingId": "DC-2026-0014",
+    "mode": "CARD",
+    "recorded": 218,
+    "refunds": 0,
+    "expected": 218,
+    "actual": 218,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00056",
+    "closingId": "DC-2026-0014",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00057",
+    "closingId": "DC-2026-0015",
+    "mode": "CASH",
+    "recorded": 903,
+    "refunds": 0,
+    "expected": 2903,
+    "actual": 2903,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00058",
+    "closingId": "DC-2026-0015",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00059",
+    "closingId": "DC-2026-0015",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00060",
+    "closingId": "DC-2026-0015",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00061",
+    "closingId": "DC-2026-0016",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00062",
+    "closingId": "DC-2026-0016",
+    "mode": "UPI",
+    "recorded": 130,
+    "refunds": 0,
+    "expected": 130,
+    "actual": 130,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00063",
+    "closingId": "DC-2026-0016",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00064",
+    "closingId": "DC-2026-0016",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00065",
+    "closingId": "DC-2026-0017",
+    "mode": "CASH",
+    "recorded": 140,
+    "refunds": 0,
+    "expected": 2140,
+    "actual": 2140,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00066",
+    "closingId": "DC-2026-0017",
+    "mode": "UPI",
+    "recorded": 308,
+    "refunds": 0,
+    "expected": 308,
+    "actual": 308,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00067",
+    "closingId": "DC-2026-0017",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00068",
+    "closingId": "DC-2026-0017",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00069",
+    "closingId": "DC-2026-0018",
+    "mode": "CASH",
+    "recorded": 1054,
+    "refunds": 0,
+    "expected": 3054,
+    "actual": 3054,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00070",
+    "closingId": "DC-2026-0018",
+    "mode": "UPI",
+    "recorded": 61,
+    "refunds": 0,
+    "expected": 61,
+    "actual": 61,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00071",
+    "closingId": "DC-2026-0018",
+    "mode": "CARD",
+    "recorded": 134,
+    "refunds": 0,
+    "expected": 134,
+    "actual": 134,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00072",
+    "closingId": "DC-2026-0018",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00073",
+    "closingId": "DC-2026-0019",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00074",
+    "closingId": "DC-2026-0019",
+    "mode": "UPI",
+    "recorded": 178,
+    "refunds": 0,
+    "expected": 178,
+    "actual": 178,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00075",
+    "closingId": "DC-2026-0019",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00076",
+    "closingId": "DC-2026-0019",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00077",
+    "closingId": "DC-2026-0020",
+    "mode": "CASH",
+    "recorded": 215,
+    "refunds": 0,
+    "expected": 2215,
+    "actual": 2215,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00078",
+    "closingId": "DC-2026-0020",
+    "mode": "UPI",
+    "recorded": 422,
+    "refunds": 0,
+    "expected": 422,
+    "actual": 422,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00079",
+    "closingId": "DC-2026-0020",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00080",
+    "closingId": "DC-2026-0020",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00081",
+    "closingId": "DC-2026-0021",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00082",
+    "closingId": "DC-2026-0021",
+    "mode": "UPI",
+    "recorded": 407,
+    "refunds": 0,
+    "expected": 407,
+    "actual": 407,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00083",
+    "closingId": "DC-2026-0021",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00084",
+    "closingId": "DC-2026-0021",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00085",
+    "closingId": "DC-2026-0022",
+    "mode": "CASH",
+    "recorded": 710,
+    "refunds": 0,
+    "expected": 2710,
+    "actual": 2710,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00086",
+    "closingId": "DC-2026-0022",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00087",
+    "closingId": "DC-2026-0022",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00088",
+    "closingId": "DC-2026-0022",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00089",
+    "closingId": "DC-2026-0023",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00090",
+    "closingId": "DC-2026-0023",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00091",
+    "closingId": "DC-2026-0023",
+    "mode": "CARD",
+    "recorded": 353,
+    "refunds": 0,
+    "expected": 353,
+    "actual": 353,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00092",
+    "closingId": "DC-2026-0023",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00093",
+    "closingId": "DC-2026-0024",
+    "mode": "CASH",
+    "recorded": 1844,
+    "refunds": 0,
+    "expected": 3844,
+    "actual": 3844,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00094",
+    "closingId": "DC-2026-0024",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00095",
+    "closingId": "DC-2026-0024",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00096",
+    "closingId": "DC-2026-0024",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00097",
+    "closingId": "DC-2026-0025",
+    "mode": "CASH",
+    "recorded": 79,
+    "refunds": 0,
+    "expected": 2079,
+    "actual": 2079,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00098",
+    "closingId": "DC-2026-0025",
+    "mode": "UPI",
+    "recorded": 896,
+    "refunds": 0,
+    "expected": 896,
+    "actual": 896,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00099",
+    "closingId": "DC-2026-0025",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00100",
+    "closingId": "DC-2026-0025",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00101",
+    "closingId": "DC-2026-0026",
+    "mode": "CASH",
+    "recorded": 199,
+    "refunds": 0,
+    "expected": 2199,
+    "actual": 2199,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00102",
+    "closingId": "DC-2026-0026",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00103",
+    "closingId": "DC-2026-0026",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00104",
+    "closingId": "DC-2026-0026",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00105",
+    "closingId": "DC-2026-0027",
+    "mode": "CASH",
+    "recorded": 344,
+    "refunds": 0,
+    "expected": 2344,
+    "actual": 2344,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00106",
+    "closingId": "DC-2026-0027",
+    "mode": "UPI",
+    "recorded": 728,
+    "refunds": 0,
+    "expected": 728,
+    "actual": 728,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00107",
+    "closingId": "DC-2026-0027",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00108",
+    "closingId": "DC-2026-0027",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00109",
+    "closingId": "DC-2026-0028",
+    "mode": "CASH",
+    "recorded": 1022,
+    "refunds": 0,
+    "expected": 3022,
+    "actual": 3022,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00110",
+    "closingId": "DC-2026-0028",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00111",
+    "closingId": "DC-2026-0028",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00112",
+    "closingId": "DC-2026-0028",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00113",
+    "closingId": "DC-2026-0029",
+    "mode": "CASH",
+    "recorded": 421,
+    "refunds": 0,
+    "expected": 2421,
+    "actual": 2421,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00114",
+    "closingId": "DC-2026-0029",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00115",
+    "closingId": "DC-2026-0029",
+    "mode": "CARD",
+    "recorded": 192,
+    "refunds": 0,
+    "expected": 192,
+    "actual": 192,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00116",
+    "closingId": "DC-2026-0029",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00117",
+    "closingId": "DC-2026-0030",
+    "mode": "CASH",
+    "recorded": 302,
+    "refunds": 0,
+    "expected": 2302,
+    "actual": 2302,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00118",
+    "closingId": "DC-2026-0030",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00119",
+    "closingId": "DC-2026-0030",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00120",
+    "closingId": "DC-2026-0030",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00121",
+    "closingId": "DC-2026-0031",
+    "mode": "CASH",
+    "recorded": 1012,
+    "refunds": 0,
+    "expected": 3012,
+    "actual": 3012,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00122",
+    "closingId": "DC-2026-0031",
+    "mode": "UPI",
+    "recorded": 86,
+    "refunds": 0,
+    "expected": 86,
+    "actual": 86,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00123",
+    "closingId": "DC-2026-0031",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00124",
+    "closingId": "DC-2026-0031",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00125",
+    "closingId": "DC-2026-0032",
+    "mode": "CASH",
+    "recorded": 421,
+    "refunds": 0,
+    "expected": 2421,
+    "actual": 2421,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00126",
+    "closingId": "DC-2026-0032",
+    "mode": "UPI",
+    "recorded": 128,
+    "refunds": 0,
+    "expected": 128,
+    "actual": 128,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00127",
+    "closingId": "DC-2026-0032",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00128",
+    "closingId": "DC-2026-0032",
+    "mode": "OTHER",
+    "recorded": 1077,
+    "refunds": 0,
+    "expected": 1077,
+    "actual": 1077,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00129",
+    "closingId": "DC-2026-0033",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00130",
+    "closingId": "DC-2026-0033",
+    "mode": "UPI",
+    "recorded": 215,
+    "refunds": 0,
+    "expected": 215,
+    "actual": 215,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00131",
+    "closingId": "DC-2026-0033",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00132",
+    "closingId": "DC-2026-0033",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00133",
+    "closingId": "DC-2026-0034",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00134",
+    "closingId": "DC-2026-0034",
+    "mode": "UPI",
+    "recorded": 448,
+    "refunds": 0,
+    "expected": 448,
+    "actual": 448,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00135",
+    "closingId": "DC-2026-0034",
+    "mode": "CARD",
+    "recorded": 800,
+    "refunds": 0,
+    "expected": 800,
+    "actual": 800,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00136",
+    "closingId": "DC-2026-0034",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00137",
+    "closingId": "DC-2026-0035",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00138",
+    "closingId": "DC-2026-0035",
+    "mode": "UPI",
+    "recorded": 659,
+    "refunds": 0,
+    "expected": 659,
+    "actual": 659,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00139",
+    "closingId": "DC-2026-0035",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00140",
+    "closingId": "DC-2026-0035",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00141",
+    "closingId": "DC-2026-0036",
+    "mode": "CASH",
+    "recorded": 250,
+    "refunds": 0,
+    "expected": 2250,
+    "actual": 2250,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00142",
+    "closingId": "DC-2026-0036",
+    "mode": "UPI",
+    "recorded": 372,
+    "refunds": 0,
+    "expected": 372,
+    "actual": 372,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00143",
+    "closingId": "DC-2026-0036",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00144",
+    "closingId": "DC-2026-0036",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00145",
+    "closingId": "DC-2026-0037",
+    "mode": "CASH",
+    "recorded": 263,
+    "refunds": 0,
+    "expected": 2263,
+    "actual": 2263,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00146",
+    "closingId": "DC-2026-0037",
+    "mode": "UPI",
+    "recorded": 130,
+    "refunds": 0,
+    "expected": 130,
+    "actual": 130,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00147",
+    "closingId": "DC-2026-0037",
+    "mode": "CARD",
+    "recorded": 671,
+    "refunds": 0,
+    "expected": 671,
+    "actual": 671,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00148",
+    "closingId": "DC-2026-0037",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00149",
+    "closingId": "DC-2026-0038",
+    "mode": "CASH",
+    "recorded": 98,
+    "refunds": 0,
+    "expected": 2098,
+    "actual": 2098,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00150",
+    "closingId": "DC-2026-0038",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00151",
+    "closingId": "DC-2026-0038",
+    "mode": "CARD",
+    "recorded": 738,
+    "refunds": 0,
+    "expected": 738,
+    "actual": 738,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00152",
+    "closingId": "DC-2026-0038",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00153",
+    "closingId": "DC-2026-0039",
+    "mode": "CASH",
+    "recorded": 704,
+    "refunds": 0,
+    "expected": 2704,
+    "actual": 2704,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00154",
+    "closingId": "DC-2026-0039",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00155",
+    "closingId": "DC-2026-0039",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00156",
+    "closingId": "DC-2026-0039",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00157",
+    "closingId": "DC-2026-0040",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 1950,
+    "difference": -50
+  },
+  {
+    "id": "DCP-00158",
+    "closingId": "DC-2026-0040",
+    "mode": "UPI",
+    "recorded": 610,
+    "refunds": 0,
+    "expected": 610,
+    "actual": 610,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00159",
+    "closingId": "DC-2026-0040",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00160",
+    "closingId": "DC-2026-0040",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00161",
+    "closingId": "DC-2026-0041",
+    "mode": "CASH",
+    "recorded": 98,
+    "refunds": 0,
+    "expected": 2098,
+    "actual": 2098,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00162",
+    "closingId": "DC-2026-0041",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00163",
+    "closingId": "DC-2026-0041",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00164",
+    "closingId": "DC-2026-0041",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00165",
+    "closingId": "DC-2026-0042",
+    "mode": "CASH",
+    "recorded": 168,
+    "refunds": 0,
+    "expected": 2168,
+    "actual": 2168,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00166",
+    "closingId": "DC-2026-0042",
+    "mode": "UPI",
+    "recorded": 373,
+    "refunds": 0,
+    "expected": 373,
+    "actual": 373,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00167",
+    "closingId": "DC-2026-0042",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00168",
+    "closingId": "DC-2026-0042",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00169",
+    "closingId": "DC-2026-0043",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 1990,
+    "difference": -10
+  },
+  {
+    "id": "DCP-00170",
+    "closingId": "DC-2026-0043",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00171",
+    "closingId": "DC-2026-0043",
+    "mode": "CARD",
+    "recorded": 66,
+    "refunds": 0,
+    "expected": 66,
+    "actual": 66,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00172",
+    "closingId": "DC-2026-0043",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00173",
+    "closingId": "DC-2026-0044",
+    "mode": "CASH",
+    "recorded": 213,
+    "refunds": 0,
+    "expected": 2213,
+    "actual": 2213,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00174",
+    "closingId": "DC-2026-0044",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00175",
+    "closingId": "DC-2026-0044",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00176",
+    "closingId": "DC-2026-0044",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00177",
+    "closingId": "DC-2026-0045",
+    "mode": "CASH",
+    "recorded": 402,
+    "refunds": 0,
+    "expected": 2402,
+    "actual": 2402,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00178",
+    "closingId": "DC-2026-0045",
+    "mode": "UPI",
+    "recorded": 229,
+    "refunds": 0,
+    "expected": 229,
+    "actual": 229,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00179",
+    "closingId": "DC-2026-0045",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00180",
+    "closingId": "DC-2026-0045",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00181",
+    "closingId": "DC-2026-0046",
+    "mode": "CASH",
+    "recorded": 119,
+    "refunds": 0,
+    "expected": 2119,
+    "actual": 2119,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00182",
+    "closingId": "DC-2026-0046",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00183",
+    "closingId": "DC-2026-0046",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00184",
+    "closingId": "DC-2026-0046",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00185",
+    "closingId": "DC-2026-0047",
+    "mode": "CASH",
+    "recorded": 204,
+    "refunds": 0,
+    "expected": 2204,
+    "actual": 2204,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00186",
+    "closingId": "DC-2026-0047",
+    "mode": "UPI",
+    "recorded": 363,
+    "refunds": 0,
+    "expected": 363,
+    "actual": 363,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00187",
+    "closingId": "DC-2026-0047",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00188",
+    "closingId": "DC-2026-0047",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00189",
+    "closingId": "DC-2026-0048",
+    "mode": "CASH",
+    "recorded": 239,
+    "refunds": 0,
+    "expected": 2239,
+    "actual": 2239,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00190",
+    "closingId": "DC-2026-0048",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00191",
+    "closingId": "DC-2026-0048",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00192",
+    "closingId": "DC-2026-0048",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00193",
+    "closingId": "DC-2026-0049",
+    "mode": "CASH",
+    "recorded": 655,
+    "refunds": 0,
+    "expected": 2655,
+    "actual": 2645,
+    "difference": -10
+  },
+  {
+    "id": "DCP-00194",
+    "closingId": "DC-2026-0049",
+    "mode": "UPI",
+    "recorded": 168,
+    "refunds": 0,
+    "expected": 168,
+    "actual": 168,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00195",
+    "closingId": "DC-2026-0049",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00196",
+    "closingId": "DC-2026-0049",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00197",
+    "closingId": "DC-2026-0050",
+    "mode": "CASH",
+    "recorded": 447,
+    "refunds": 0,
+    "expected": 2447,
+    "actual": 2447,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00198",
+    "closingId": "DC-2026-0050",
+    "mode": "UPI",
+    "recorded": 664,
+    "refunds": 0,
+    "expected": 664,
+    "actual": 664,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00199",
+    "closingId": "DC-2026-0050",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00200",
+    "closingId": "DC-2026-0050",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00201",
+    "closingId": "DC-2026-0051",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00202",
+    "closingId": "DC-2026-0051",
+    "mode": "UPI",
+    "recorded": 165,
+    "refunds": 0,
+    "expected": 165,
+    "actual": 165,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00203",
+    "closingId": "DC-2026-0051",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00204",
+    "closingId": "DC-2026-0051",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00205",
+    "closingId": "DC-2026-0052",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00206",
+    "closingId": "DC-2026-0052",
+    "mode": "UPI",
+    "recorded": 146,
+    "refunds": 0,
+    "expected": 146,
+    "actual": 146,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00207",
+    "closingId": "DC-2026-0052",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00208",
+    "closingId": "DC-2026-0052",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00209",
+    "closingId": "DC-2026-0053",
+    "mode": "CASH",
+    "recorded": 337,
+    "refunds": 0,
+    "expected": 2337,
+    "actual": 2337,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00210",
+    "closingId": "DC-2026-0053",
+    "mode": "UPI",
+    "recorded": 168,
+    "refunds": 0,
+    "expected": 168,
+    "actual": 168,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00211",
+    "closingId": "DC-2026-0053",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00212",
+    "closingId": "DC-2026-0053",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00213",
+    "closingId": "DC-2026-0054",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00214",
+    "closingId": "DC-2026-0054",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00215",
+    "closingId": "DC-2026-0054",
+    "mode": "CARD",
+    "recorded": 230,
+    "refunds": 0,
+    "expected": 230,
+    "actual": 230,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00216",
+    "closingId": "DC-2026-0054",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00217",
+    "closingId": "DC-2026-0055",
+    "mode": "CASH",
+    "recorded": 1357,
+    "refunds": 0,
+    "expected": 3357,
+    "actual": 3347,
+    "difference": -10
+  },
+  {
+    "id": "DCP-00218",
+    "closingId": "DC-2026-0055",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00219",
+    "closingId": "DC-2026-0055",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00220",
+    "closingId": "DC-2026-0055",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00221",
+    "closingId": "DC-2026-0056",
+    "mode": "CASH",
+    "recorded": 685,
+    "refunds": 0,
+    "expected": 2685,
+    "actual": 2685,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00222",
+    "closingId": "DC-2026-0056",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00223",
+    "closingId": "DC-2026-0056",
+    "mode": "CARD",
+    "recorded": 379,
+    "refunds": 0,
+    "expected": 379,
+    "actual": 379,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00224",
+    "closingId": "DC-2026-0056",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00225",
+    "closingId": "DC-2026-0057",
+    "mode": "CASH",
+    "recorded": 168,
+    "refunds": 0,
+    "expected": 2168,
+    "actual": 2168,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00226",
+    "closingId": "DC-2026-0057",
+    "mode": "UPI",
+    "recorded": 371,
+    "refunds": 0,
+    "expected": 371,
+    "actual": 371,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00227",
+    "closingId": "DC-2026-0057",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00228",
+    "closingId": "DC-2026-0057",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00229",
+    "closingId": "DC-2026-0058",
+    "mode": "CASH",
+    "recorded": 518,
+    "refunds": 0,
+    "expected": 2518,
+    "actual": 2518,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00230",
+    "closingId": "DC-2026-0058",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00231",
+    "closingId": "DC-2026-0058",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00232",
+    "closingId": "DC-2026-0058",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00233",
+    "closingId": "DC-2026-0059",
+    "mode": "CASH",
+    "recorded": 108,
+    "refunds": 0,
+    "expected": 2108,
+    "actual": 2108,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00234",
+    "closingId": "DC-2026-0059",
+    "mode": "UPI",
+    "recorded": 101,
+    "refunds": 0,
+    "expected": 101,
+    "actual": 101,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00235",
+    "closingId": "DC-2026-0059",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00236",
+    "closingId": "DC-2026-0059",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00237",
+    "closingId": "DC-2026-0060",
+    "mode": "CASH",
+    "recorded": 30,
+    "refunds": 0,
+    "expected": 2030,
+    "actual": 2030,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00238",
+    "closingId": "DC-2026-0060",
+    "mode": "UPI",
+    "recorded": 49,
+    "refunds": 0,
+    "expected": 49,
+    "actual": 49,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00239",
+    "closingId": "DC-2026-0060",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00240",
+    "closingId": "DC-2026-0060",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00241",
+    "closingId": "DC-2026-0061",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00242",
+    "closingId": "DC-2026-0061",
+    "mode": "UPI",
+    "recorded": 475,
+    "refunds": 0,
+    "expected": 475,
+    "actual": 475,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00243",
+    "closingId": "DC-2026-0061",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00244",
+    "closingId": "DC-2026-0061",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00245",
+    "closingId": "DC-2026-0062",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00246",
+    "closingId": "DC-2026-0062",
+    "mode": "UPI",
+    "recorded": 1116,
+    "refunds": 0,
+    "expected": 1116,
+    "actual": 1116,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00247",
+    "closingId": "DC-2026-0062",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00248",
+    "closingId": "DC-2026-0062",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00249",
+    "closingId": "DC-2026-0063",
+    "mode": "CASH",
+    "recorded": 110,
+    "refunds": 0,
+    "expected": 2110,
+    "actual": 2110,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00250",
+    "closingId": "DC-2026-0063",
+    "mode": "UPI",
+    "recorded": 141,
+    "refunds": 0,
+    "expected": 141,
+    "actual": 141,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00251",
+    "closingId": "DC-2026-0063",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00252",
+    "closingId": "DC-2026-0063",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00253",
+    "closingId": "DC-2026-0064",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 1990,
+    "difference": -10
+  },
+  {
+    "id": "DCP-00254",
+    "closingId": "DC-2026-0064",
+    "mode": "UPI",
+    "recorded": 309,
+    "refunds": 0,
+    "expected": 309,
+    "actual": 309,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00255",
+    "closingId": "DC-2026-0064",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00256",
+    "closingId": "DC-2026-0064",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00257",
+    "closingId": "DC-2026-0065",
+    "mode": "CASH",
+    "recorded": 80,
+    "refunds": 0,
+    "expected": 2080,
+    "actual": 2080,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00258",
+    "closingId": "DC-2026-0065",
+    "mode": "UPI",
+    "recorded": 61,
+    "refunds": 0,
+    "expected": 61,
+    "actual": 61,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00259",
+    "closingId": "DC-2026-0065",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00260",
+    "closingId": "DC-2026-0065",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00261",
+    "closingId": "DC-2026-0066",
+    "mode": "CASH",
+    "recorded": 577,
+    "refunds": 0,
+    "expected": 2577,
+    "actual": 2577,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00262",
+    "closingId": "DC-2026-0066",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00263",
+    "closingId": "DC-2026-0066",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00264",
+    "closingId": "DC-2026-0066",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00265",
+    "closingId": "DC-2026-0067",
+    "mode": "CASH",
+    "recorded": 719,
+    "refunds": 0,
+    "expected": 2719,
+    "actual": 2719,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00266",
+    "closingId": "DC-2026-0067",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00267",
+    "closingId": "DC-2026-0067",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00268",
+    "closingId": "DC-2026-0067",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00269",
+    "closingId": "DC-2026-0068",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00270",
+    "closingId": "DC-2026-0068",
+    "mode": "UPI",
+    "recorded": 656,
+    "refunds": 0,
+    "expected": 656,
+    "actual": 656,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00271",
+    "closingId": "DC-2026-0068",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00272",
+    "closingId": "DC-2026-0068",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00273",
+    "closingId": "DC-2026-0069",
+    "mode": "CASH",
+    "recorded": 386,
+    "refunds": 0,
+    "expected": 2386,
+    "actual": 2386,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00274",
+    "closingId": "DC-2026-0069",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00275",
+    "closingId": "DC-2026-0069",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00276",
+    "closingId": "DC-2026-0069",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00277",
+    "closingId": "DC-2026-0070",
+    "mode": "CASH",
+    "recorded": 43,
+    "refunds": 0,
+    "expected": 2043,
+    "actual": 2043,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00278",
+    "closingId": "DC-2026-0070",
+    "mode": "UPI",
+    "recorded": 223,
+    "refunds": 0,
+    "expected": 223,
+    "actual": 223,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00279",
+    "closingId": "DC-2026-0070",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00280",
+    "closingId": "DC-2026-0070",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00281",
+    "closingId": "DC-2026-0071",
+    "mode": "CASH",
+    "recorded": 668,
+    "refunds": 0,
+    "expected": 2668,
+    "actual": 2668,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00282",
+    "closingId": "DC-2026-0071",
+    "mode": "UPI",
+    "recorded": 578,
+    "refunds": 0,
+    "expected": 578,
+    "actual": 578,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00283",
+    "closingId": "DC-2026-0071",
+    "mode": "CARD",
+    "recorded": 124,
+    "refunds": 0,
+    "expected": 124,
+    "actual": 124,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00284",
+    "closingId": "DC-2026-0071",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00285",
+    "closingId": "DC-2026-0072",
+    "mode": "CASH",
+    "recorded": 1267,
+    "refunds": 0,
+    "expected": 3267,
+    "actual": 3267,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00286",
+    "closingId": "DC-2026-0072",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00287",
+    "closingId": "DC-2026-0072",
+    "mode": "CARD",
+    "recorded": 21,
+    "refunds": 0,
+    "expected": 21,
+    "actual": 21,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00288",
+    "closingId": "DC-2026-0072",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00289",
+    "closingId": "DC-2026-0073",
+    "mode": "CASH",
+    "recorded": 818,
+    "refunds": 0,
+    "expected": 2818,
+    "actual": 2818,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00290",
+    "closingId": "DC-2026-0073",
+    "mode": "UPI",
+    "recorded": 393,
+    "refunds": 0,
+    "expected": 393,
+    "actual": 393,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00291",
+    "closingId": "DC-2026-0073",
+    "mode": "CARD",
+    "recorded": 411,
+    "refunds": 0,
+    "expected": 411,
+    "actual": 411,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00292",
+    "closingId": "DC-2026-0073",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00293",
+    "closingId": "DC-2026-0074",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00294",
+    "closingId": "DC-2026-0074",
+    "mode": "UPI",
+    "recorded": 603,
+    "refunds": 0,
+    "expected": 603,
+    "actual": 603,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00295",
+    "closingId": "DC-2026-0074",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00296",
+    "closingId": "DC-2026-0074",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00297",
+    "closingId": "DC-2026-0075",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00298",
+    "closingId": "DC-2026-0075",
+    "mode": "UPI",
+    "recorded": 155,
+    "refunds": 0,
+    "expected": 155,
+    "actual": 155,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00299",
+    "closingId": "DC-2026-0075",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00300",
+    "closingId": "DC-2026-0075",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00301",
+    "closingId": "DC-2026-0076",
+    "mode": "CASH",
+    "recorded": 235,
+    "refunds": 0,
+    "expected": 2235,
+    "actual": 2235,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00302",
+    "closingId": "DC-2026-0076",
+    "mode": "UPI",
+    "recorded": 431,
+    "refunds": 0,
+    "expected": 431,
+    "actual": 431,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00303",
+    "closingId": "DC-2026-0076",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00304",
+    "closingId": "DC-2026-0076",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00305",
+    "closingId": "DC-2026-0077",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00306",
+    "closingId": "DC-2026-0077",
+    "mode": "UPI",
+    "recorded": 178,
+    "refunds": 0,
+    "expected": 178,
+    "actual": 178,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00307",
+    "closingId": "DC-2026-0077",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00308",
+    "closingId": "DC-2026-0077",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00309",
+    "closingId": "DC-2026-0078",
+    "mode": "CASH",
+    "recorded": 157,
+    "refunds": 0,
+    "expected": 2157,
+    "actual": 2157,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00310",
+    "closingId": "DC-2026-0078",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00311",
+    "closingId": "DC-2026-0078",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00312",
+    "closingId": "DC-2026-0078",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00313",
+    "closingId": "DC-2026-0079",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00314",
+    "closingId": "DC-2026-0079",
+    "mode": "UPI",
+    "recorded": 752,
+    "refunds": 0,
+    "expected": 752,
+    "actual": 752,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00315",
+    "closingId": "DC-2026-0079",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00316",
+    "closingId": "DC-2026-0079",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00317",
+    "closingId": "DC-2026-0080",
+    "mode": "CASH",
+    "recorded": 167,
+    "refunds": 0,
+    "expected": 2167,
+    "actual": 2167,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00318",
+    "closingId": "DC-2026-0080",
+    "mode": "UPI",
+    "recorded": 165,
+    "refunds": 0,
+    "expected": 165,
+    "actual": 165,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00319",
+    "closingId": "DC-2026-0080",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00320",
+    "closingId": "DC-2026-0080",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00321",
+    "closingId": "DC-2026-0081",
+    "mode": "CASH",
+    "recorded": 128,
+    "refunds": 0,
+    "expected": 2128,
+    "actual": 2128,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00322",
+    "closingId": "DC-2026-0081",
+    "mode": "UPI",
+    "recorded": 58,
+    "refunds": 0,
+    "expected": 58,
+    "actual": 58,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00323",
+    "closingId": "DC-2026-0081",
+    "mode": "CARD",
+    "recorded": 21,
+    "refunds": 0,
+    "expected": 21,
+    "actual": 21,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00324",
+    "closingId": "DC-2026-0081",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00325",
+    "closingId": "DC-2026-0082",
+    "mode": "CASH",
+    "recorded": 21,
+    "refunds": 0,
+    "expected": 2021,
+    "actual": 2021,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00326",
+    "closingId": "DC-2026-0082",
+    "mode": "UPI",
+    "recorded": 337,
+    "refunds": 0,
+    "expected": 337,
+    "actual": 337,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00327",
+    "closingId": "DC-2026-0082",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00328",
+    "closingId": "DC-2026-0082",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00329",
+    "closingId": "DC-2026-0083",
+    "mode": "CASH",
+    "recorded": 168,
+    "refunds": 0,
+    "expected": 2168,
+    "actual": 2168,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00330",
+    "closingId": "DC-2026-0083",
+    "mode": "UPI",
+    "recorded": 482,
+    "refunds": 0,
+    "expected": 482,
+    "actual": 482,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00331",
+    "closingId": "DC-2026-0083",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00332",
+    "closingId": "DC-2026-0083",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00333",
+    "closingId": "DC-2026-0084",
+    "mode": "CASH",
+    "recorded": 997,
+    "refunds": 0,
+    "expected": 2997,
+    "actual": 2877,
+    "difference": -120
+  },
+  {
+    "id": "DCP-00334",
+    "closingId": "DC-2026-0084",
+    "mode": "UPI",
+    "recorded": 369,
+    "refunds": 0,
+    "expected": 369,
+    "actual": 369,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00335",
+    "closingId": "DC-2026-0084",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00336",
+    "closingId": "DC-2026-0084",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00337",
+    "closingId": "DC-2026-0085",
+    "mode": "CASH",
+    "recorded": 1005,
+    "refunds": 0,
+    "expected": 3005,
+    "actual": 3005,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00338",
+    "closingId": "DC-2026-0085",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00339",
+    "closingId": "DC-2026-0085",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00340",
+    "closingId": "DC-2026-0085",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00341",
+    "closingId": "DC-2026-0086",
+    "mode": "CASH",
+    "recorded": 40,
+    "refunds": 0,
+    "expected": 2040,
+    "actual": 2040,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00342",
+    "closingId": "DC-2026-0086",
+    "mode": "UPI",
+    "recorded": 68,
+    "refunds": 0,
+    "expected": 68,
+    "actual": 68,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00343",
+    "closingId": "DC-2026-0086",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00344",
+    "closingId": "DC-2026-0086",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00345",
+    "closingId": "DC-2026-0087",
+    "mode": "CASH",
+    "recorded": 191,
+    "refunds": 0,
+    "expected": 2191,
+    "actual": 2191,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00346",
+    "closingId": "DC-2026-0087",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00347",
+    "closingId": "DC-2026-0087",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00348",
+    "closingId": "DC-2026-0087",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00349",
+    "closingId": "DC-2026-0088",
+    "mode": "CASH",
+    "recorded": 178,
+    "refunds": 0,
+    "expected": 2178,
+    "actual": 2178,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00350",
+    "closingId": "DC-2026-0088",
+    "mode": "UPI",
+    "recorded": 1015,
+    "refunds": 0,
+    "expected": 1015,
+    "actual": 1015,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00351",
+    "closingId": "DC-2026-0088",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00352",
+    "closingId": "DC-2026-0088",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00353",
+    "closingId": "DC-2026-0089",
+    "mode": "CASH",
+    "recorded": 600,
+    "refunds": 0,
+    "expected": 2600,
+    "actual": 2600,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00354",
+    "closingId": "DC-2026-0089",
+    "mode": "UPI",
+    "recorded": 263,
+    "refunds": 0,
+    "expected": 263,
+    "actual": 263,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00355",
+    "closingId": "DC-2026-0089",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00356",
+    "closingId": "DC-2026-0089",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00357",
+    "closingId": "DC-2026-0090",
+    "mode": "CASH",
+    "recorded": 252,
+    "refunds": 0,
+    "expected": 2252,
+    "actual": 2252,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00358",
+    "closingId": "DC-2026-0090",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00359",
+    "closingId": "DC-2026-0090",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00360",
+    "closingId": "DC-2026-0090",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00361",
+    "closingId": "DC-2026-0091",
+    "mode": "CASH",
+    "recorded": 88,
+    "refunds": 0,
+    "expected": 2088,
+    "actual": 2088,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00362",
+    "closingId": "DC-2026-0091",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00363",
+    "closingId": "DC-2026-0091",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00364",
+    "closingId": "DC-2026-0091",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00365",
+    "closingId": "DC-2026-0092",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00366",
+    "closingId": "DC-2026-0092",
+    "mode": "UPI",
+    "recorded": 76,
+    "refunds": 0,
+    "expected": 76,
+    "actual": 76,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00367",
+    "closingId": "DC-2026-0092",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00368",
+    "closingId": "DC-2026-0092",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00369",
+    "closingId": "DC-2026-0093",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00370",
+    "closingId": "DC-2026-0093",
+    "mode": "UPI",
+    "recorded": 225,
+    "refunds": 0,
+    "expected": 225,
+    "actual": 225,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00371",
+    "closingId": "DC-2026-0093",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00372",
+    "closingId": "DC-2026-0093",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00373",
+    "closingId": "DC-2026-0094",
+    "mode": "CASH",
+    "recorded": 140,
+    "refunds": 0,
+    "expected": 2140,
+    "actual": 2140,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00374",
+    "closingId": "DC-2026-0094",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00375",
+    "closingId": "DC-2026-0094",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00376",
+    "closingId": "DC-2026-0094",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00377",
+    "closingId": "DC-2026-0095",
+    "mode": "CASH",
+    "recorded": 160,
+    "refunds": 0,
+    "expected": 2160,
+    "actual": 2160,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00378",
+    "closingId": "DC-2026-0095",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00379",
+    "closingId": "DC-2026-0095",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00380",
+    "closingId": "DC-2026-0095",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00381",
+    "closingId": "DC-2026-0096",
+    "mode": "CASH",
+    "recorded": 204,
+    "refunds": 0,
+    "expected": 2204,
+    "actual": 2204,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00382",
+    "closingId": "DC-2026-0096",
+    "mode": "UPI",
+    "recorded": 668,
+    "refunds": 0,
+    "expected": 668,
+    "actual": 668,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00383",
+    "closingId": "DC-2026-0096",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00384",
+    "closingId": "DC-2026-0096",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00385",
+    "closingId": "DC-2026-0097",
+    "mode": "CASH",
+    "recorded": 603,
+    "refunds": 0,
+    "expected": 2603,
+    "actual": 2603,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00386",
+    "closingId": "DC-2026-0097",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00387",
+    "closingId": "DC-2026-0097",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00388",
+    "closingId": "DC-2026-0097",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00389",
+    "closingId": "DC-2026-0098",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00390",
+    "closingId": "DC-2026-0098",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00391",
+    "closingId": "DC-2026-0098",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00392",
+    "closingId": "DC-2026-0098",
+    "mode": "OTHER",
+    "recorded": 245,
+    "refunds": 0,
+    "expected": 245,
+    "actual": 245,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00393",
+    "closingId": "DC-2026-0099",
+    "mode": "CASH",
+    "recorded": 1419,
+    "refunds": 0,
+    "expected": 3419,
+    "actual": 3409,
+    "difference": -10
+  },
+  {
+    "id": "DCP-00394",
+    "closingId": "DC-2026-0099",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00395",
+    "closingId": "DC-2026-0099",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00396",
+    "closingId": "DC-2026-0099",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00397",
+    "closingId": "DC-2026-0100",
+    "mode": "CASH",
+    "recorded": 256,
+    "refunds": 0,
+    "expected": 2256,
+    "actual": 2256,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00398",
+    "closingId": "DC-2026-0100",
+    "mode": "UPI",
+    "recorded": 547,
+    "refunds": 0,
+    "expected": 547,
+    "actual": 547,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00399",
+    "closingId": "DC-2026-0100",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00400",
+    "closingId": "DC-2026-0100",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00401",
+    "closingId": "DC-2026-0101",
+    "mode": "CASH",
+    "recorded": 106,
+    "refunds": 0,
+    "expected": 2106,
+    "actual": 1986,
+    "difference": -120
+  },
+  {
+    "id": "DCP-00402",
+    "closingId": "DC-2026-0101",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00403",
+    "closingId": "DC-2026-0101",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00404",
+    "closingId": "DC-2026-0101",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00405",
+    "closingId": "DC-2026-0102",
+    "mode": "CASH",
+    "recorded": 368,
+    "refunds": 0,
+    "expected": 2368,
+    "actual": 2368,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00406",
+    "closingId": "DC-2026-0102",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00407",
+    "closingId": "DC-2026-0102",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00408",
+    "closingId": "DC-2026-0102",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00409",
+    "closingId": "DC-2026-0103",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00410",
+    "closingId": "DC-2026-0103",
+    "mode": "UPI",
+    "recorded": 75,
+    "refunds": 0,
+    "expected": 75,
+    "actual": 75,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00411",
+    "closingId": "DC-2026-0103",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00412",
+    "closingId": "DC-2026-0103",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00413",
+    "closingId": "DC-2026-0104",
+    "mode": "CASH",
+    "recorded": 176,
+    "refunds": 0,
+    "expected": 2176,
+    "actual": 2176,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00414",
+    "closingId": "DC-2026-0104",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00415",
+    "closingId": "DC-2026-0104",
+    "mode": "CARD",
+    "recorded": 440,
+    "refunds": 0,
+    "expected": 440,
+    "actual": 440,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00416",
+    "closingId": "DC-2026-0104",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00417",
+    "closingId": "DC-2026-0105",
+    "mode": "CASH",
+    "recorded": 280,
+    "refunds": 0,
+    "expected": 2280,
+    "actual": 2280,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00418",
+    "closingId": "DC-2026-0105",
+    "mode": "UPI",
+    "recorded": 430,
+    "refunds": 0,
+    "expected": 430,
+    "actual": 430,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00419",
+    "closingId": "DC-2026-0105",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00420",
+    "closingId": "DC-2026-0105",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00421",
+    "closingId": "DC-2026-0106",
+    "mode": "CASH",
+    "recorded": 1263,
+    "refunds": 0,
+    "expected": 3263,
+    "actual": 3263,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00422",
+    "closingId": "DC-2026-0106",
+    "mode": "UPI",
+    "recorded": 98,
+    "refunds": 0,
+    "expected": 98,
+    "actual": 98,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00423",
+    "closingId": "DC-2026-0106",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00424",
+    "closingId": "DC-2026-0106",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00425",
+    "closingId": "DC-2026-0107",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00426",
+    "closingId": "DC-2026-0107",
+    "mode": "UPI",
+    "recorded": 407,
+    "refunds": 0,
+    "expected": 407,
+    "actual": 407,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00427",
+    "closingId": "DC-2026-0107",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00428",
+    "closingId": "DC-2026-0107",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00429",
+    "closingId": "DC-2026-0108",
+    "mode": "CASH",
+    "recorded": 648,
+    "refunds": 0,
+    "expected": 2648,
+    "actual": 2648,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00430",
+    "closingId": "DC-2026-0108",
+    "mode": "UPI",
+    "recorded": 738,
+    "refunds": 0,
+    "expected": 738,
+    "actual": 738,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00431",
+    "closingId": "DC-2026-0108",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00432",
+    "closingId": "DC-2026-0108",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00433",
+    "closingId": "DC-2026-0109",
+    "mode": "CASH",
+    "recorded": 106,
+    "refunds": 0,
+    "expected": 2106,
+    "actual": 2106,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00434",
+    "closingId": "DC-2026-0109",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00435",
+    "closingId": "DC-2026-0109",
+    "mode": "CARD",
+    "recorded": 181,
+    "refunds": 0,
+    "expected": 181,
+    "actual": 181,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00436",
+    "closingId": "DC-2026-0109",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00437",
+    "closingId": "DC-2026-0110",
+    "mode": "CASH",
+    "recorded": 227,
+    "refunds": 0,
+    "expected": 2227,
+    "actual": 2227,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00438",
+    "closingId": "DC-2026-0110",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00439",
+    "closingId": "DC-2026-0110",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00440",
+    "closingId": "DC-2026-0110",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00441",
+    "closingId": "DC-2026-0111",
+    "mode": "CASH",
+    "recorded": 304,
+    "refunds": 0,
+    "expected": 2304,
+    "actual": 2304,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00442",
+    "closingId": "DC-2026-0111",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00443",
+    "closingId": "DC-2026-0111",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00444",
+    "closingId": "DC-2026-0111",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00445",
+    "closingId": "DC-2026-0112",
+    "mode": "CASH",
+    "recorded": 833,
+    "refunds": 0,
+    "expected": 2833,
+    "actual": 2833,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00446",
+    "closingId": "DC-2026-0112",
+    "mode": "UPI",
+    "recorded": 288,
+    "refunds": 0,
+    "expected": 288,
+    "actual": 288,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00447",
+    "closingId": "DC-2026-0112",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00448",
+    "closingId": "DC-2026-0112",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00449",
+    "closingId": "DC-2026-0113",
+    "mode": "CASH",
+    "recorded": 175,
+    "refunds": 0,
+    "expected": 2175,
+    "actual": 2175,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00450",
+    "closingId": "DC-2026-0113",
+    "mode": "UPI",
+    "recorded": 845,
+    "refunds": 0,
+    "expected": 845,
+    "actual": 845,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00451",
+    "closingId": "DC-2026-0113",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00452",
+    "closingId": "DC-2026-0113",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00453",
+    "closingId": "DC-2026-0114",
+    "mode": "CASH",
+    "recorded": 114,
+    "refunds": 0,
+    "expected": 2114,
+    "actual": 2114,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00454",
+    "closingId": "DC-2026-0114",
+    "mode": "UPI",
+    "recorded": 837,
+    "refunds": 0,
+    "expected": 837,
+    "actual": 837,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00455",
+    "closingId": "DC-2026-0114",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00456",
+    "closingId": "DC-2026-0114",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00457",
+    "closingId": "DC-2026-0115",
+    "mode": "CASH",
+    "recorded": 202,
+    "refunds": 0,
+    "expected": 2202,
+    "actual": 2202,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00458",
+    "closingId": "DC-2026-0115",
+    "mode": "UPI",
+    "recorded": 468,
+    "refunds": 0,
+    "expected": 468,
+    "actual": 468,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00459",
+    "closingId": "DC-2026-0115",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00460",
+    "closingId": "DC-2026-0115",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00461",
+    "closingId": "DC-2026-0116",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00462",
+    "closingId": "DC-2026-0116",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00463",
+    "closingId": "DC-2026-0116",
+    "mode": "CARD",
+    "recorded": 283,
+    "refunds": 0,
+    "expected": 283,
+    "actual": 283,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00464",
+    "closingId": "DC-2026-0116",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00465",
+    "closingId": "DC-2026-0117",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00466",
+    "closingId": "DC-2026-0117",
+    "mode": "UPI",
+    "recorded": 229,
+    "refunds": 0,
+    "expected": 229,
+    "actual": 229,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00467",
+    "closingId": "DC-2026-0117",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00468",
+    "closingId": "DC-2026-0117",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00469",
+    "closingId": "DC-2026-0118",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00470",
+    "closingId": "DC-2026-0118",
+    "mode": "UPI",
+    "recorded": 392,
+    "refunds": 0,
+    "expected": 392,
+    "actual": 392,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00471",
+    "closingId": "DC-2026-0118",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00472",
+    "closingId": "DC-2026-0118",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00473",
+    "closingId": "DC-2026-0119",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00474",
+    "closingId": "DC-2026-0119",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00475",
+    "closingId": "DC-2026-0119",
+    "mode": "CARD",
+    "recorded": 717,
+    "refunds": 0,
+    "expected": 717,
+    "actual": 717,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00476",
+    "closingId": "DC-2026-0119",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00477",
+    "closingId": "DC-2026-0120",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00478",
+    "closingId": "DC-2026-0120",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00479",
+    "closingId": "DC-2026-0120",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00480",
+    "closingId": "DC-2026-0120",
+    "mode": "OTHER",
+    "recorded": 293,
+    "refunds": 0,
+    "expected": 293,
+    "actual": 293,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00481",
+    "closingId": "DC-2026-0121",
+    "mode": "CASH",
+    "recorded": 560,
+    "refunds": 0,
+    "expected": 2560,
+    "actual": 2510,
+    "difference": -50
+  },
+  {
+    "id": "DCP-00482",
+    "closingId": "DC-2026-0121",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00483",
+    "closingId": "DC-2026-0121",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00484",
+    "closingId": "DC-2026-0121",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00485",
+    "closingId": "DC-2026-0122",
+    "mode": "CASH",
+    "recorded": 1505,
+    "refunds": 0,
+    "expected": 3505,
+    "actual": 3505,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00486",
+    "closingId": "DC-2026-0122",
+    "mode": "UPI",
+    "recorded": 375,
+    "refunds": 0,
+    "expected": 375,
+    "actual": 375,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00487",
+    "closingId": "DC-2026-0122",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00488",
+    "closingId": "DC-2026-0122",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00489",
+    "closingId": "DC-2026-0123",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00490",
+    "closingId": "DC-2026-0123",
+    "mode": "UPI",
+    "recorded": 592,
+    "refunds": 0,
+    "expected": 592,
+    "actual": 592,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00491",
+    "closingId": "DC-2026-0123",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00492",
+    "closingId": "DC-2026-0123",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00493",
+    "closingId": "DC-2026-0124",
+    "mode": "CASH",
+    "recorded": 332,
+    "refunds": 0,
+    "expected": 2332,
+    "actual": 2332,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00494",
+    "closingId": "DC-2026-0124",
+    "mode": "UPI",
+    "recorded": 204,
+    "refunds": 0,
+    "expected": 204,
+    "actual": 204,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00495",
+    "closingId": "DC-2026-0124",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00496",
+    "closingId": "DC-2026-0124",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00497",
+    "closingId": "DC-2026-0125",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 1800,
+    "difference": -200
+  },
+  {
+    "id": "DCP-00498",
+    "closingId": "DC-2026-0125",
+    "mode": "UPI",
+    "recorded": 260,
+    "refunds": 0,
+    "expected": 260,
+    "actual": 260,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00499",
+    "closingId": "DC-2026-0125",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00500",
+    "closingId": "DC-2026-0125",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00501",
+    "closingId": "DC-2026-0126",
+    "mode": "CASH",
+    "recorded": 128,
+    "refunds": 0,
+    "expected": 2128,
+    "actual": 2148,
+    "difference": 20
+  },
+  {
+    "id": "DCP-00502",
+    "closingId": "DC-2026-0126",
+    "mode": "UPI",
+    "recorded": 934,
+    "refunds": 0,
+    "expected": 934,
+    "actual": 934,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00503",
+    "closingId": "DC-2026-0126",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00504",
+    "closingId": "DC-2026-0126",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00505",
+    "closingId": "DC-2026-0127",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00506",
+    "closingId": "DC-2026-0127",
+    "mode": "UPI",
+    "recorded": 239,
+    "refunds": 0,
+    "expected": 239,
+    "actual": 239,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00507",
+    "closingId": "DC-2026-0127",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00508",
+    "closingId": "DC-2026-0127",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00509",
+    "closingId": "DC-2026-0128",
+    "mode": "CASH",
+    "recorded": 740,
+    "refunds": 0,
+    "expected": 2740,
+    "actual": 2740,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00510",
+    "closingId": "DC-2026-0128",
+    "mode": "UPI",
+    "recorded": 156,
+    "refunds": 0,
+    "expected": 156,
+    "actual": 156,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00511",
+    "closingId": "DC-2026-0128",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00512",
+    "closingId": "DC-2026-0128",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00513",
+    "closingId": "DC-2026-0129",
+    "mode": "CASH",
+    "recorded": 454,
+    "refunds": 0,
+    "expected": 2454,
+    "actual": 2454,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00514",
+    "closingId": "DC-2026-0129",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00515",
+    "closingId": "DC-2026-0129",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00516",
+    "closingId": "DC-2026-0129",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00517",
+    "closingId": "DC-2026-0130",
+    "mode": "CASH",
+    "recorded": 889,
+    "refunds": 0,
+    "expected": 2889,
+    "actual": 2689,
+    "difference": -200
+  },
+  {
+    "id": "DCP-00518",
+    "closingId": "DC-2026-0130",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00519",
+    "closingId": "DC-2026-0130",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00520",
+    "closingId": "DC-2026-0130",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00521",
+    "closingId": "DC-2026-0131",
+    "mode": "CASH",
+    "recorded": 90,
+    "refunds": 0,
+    "expected": 2090,
+    "actual": 2090,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00522",
+    "closingId": "DC-2026-0131",
+    "mode": "UPI",
+    "recorded": 1135,
+    "refunds": 0,
+    "expected": 1135,
+    "actual": 1135,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00523",
+    "closingId": "DC-2026-0131",
+    "mode": "CARD",
+    "recorded": 21,
+    "refunds": 0,
+    "expected": 21,
+    "actual": 21,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00524",
+    "closingId": "DC-2026-0131",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00525",
+    "closingId": "DC-2026-0132",
+    "mode": "CASH",
+    "recorded": 1155,
+    "refunds": 0,
+    "expected": 3155,
+    "actual": 3155,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00526",
+    "closingId": "DC-2026-0132",
+    "mode": "UPI",
+    "recorded": 521,
+    "refunds": 0,
+    "expected": 521,
+    "actual": 521,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00527",
+    "closingId": "DC-2026-0132",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00528",
+    "closingId": "DC-2026-0132",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00529",
+    "closingId": "DC-2026-0133",
+    "mode": "CASH",
+    "recorded": 1061,
+    "refunds": 0,
+    "expected": 3061,
+    "actual": 3061,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00530",
+    "closingId": "DC-2026-0133",
+    "mode": "UPI",
+    "recorded": 128,
+    "refunds": 0,
+    "expected": 128,
+    "actual": 128,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00531",
+    "closingId": "DC-2026-0133",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00532",
+    "closingId": "DC-2026-0133",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00533",
+    "closingId": "DC-2026-0134",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00534",
+    "closingId": "DC-2026-0134",
+    "mode": "UPI",
+    "recorded": 175,
+    "refunds": 0,
+    "expected": 175,
+    "actual": 175,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00535",
+    "closingId": "DC-2026-0134",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00536",
+    "closingId": "DC-2026-0134",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00537",
+    "closingId": "DC-2026-0135",
+    "mode": "CASH",
+    "recorded": 137,
+    "refunds": 0,
+    "expected": 2137,
+    "actual": 2137,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00538",
+    "closingId": "DC-2026-0135",
+    "mode": "UPI",
+    "recorded": 1094,
+    "refunds": 0,
+    "expected": 1094,
+    "actual": 1094,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00539",
+    "closingId": "DC-2026-0135",
+    "mode": "CARD",
+    "recorded": 343,
+    "refunds": 0,
+    "expected": 343,
+    "actual": 343,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00540",
+    "closingId": "DC-2026-0135",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00541",
+    "closingId": "DC-2026-0136",
+    "mode": "CASH",
+    "recorded": 478,
+    "refunds": 0,
+    "expected": 2478,
+    "actual": 2478,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00542",
+    "closingId": "DC-2026-0136",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00543",
+    "closingId": "DC-2026-0136",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00544",
+    "closingId": "DC-2026-0136",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00545",
+    "closingId": "DC-2026-0137",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00546",
+    "closingId": "DC-2026-0137",
+    "mode": "UPI",
+    "recorded": 344,
+    "refunds": 0,
+    "expected": 344,
+    "actual": 344,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00547",
+    "closingId": "DC-2026-0137",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00548",
+    "closingId": "DC-2026-0137",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00549",
+    "closingId": "DC-2026-0138",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00550",
+    "closingId": "DC-2026-0138",
+    "mode": "UPI",
+    "recorded": 188,
+    "refunds": 0,
+    "expected": 188,
+    "actual": 188,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00551",
+    "closingId": "DC-2026-0138",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00552",
+    "closingId": "DC-2026-0138",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00553",
+    "closingId": "DC-2026-0139",
+    "mode": "CASH",
+    "recorded": 354,
+    "refunds": 0,
+    "expected": 2354,
+    "actual": 2354,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00554",
+    "closingId": "DC-2026-0139",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00555",
+    "closingId": "DC-2026-0139",
+    "mode": "CARD",
+    "recorded": 334,
+    "refunds": 0,
+    "expected": 334,
+    "actual": 334,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00556",
+    "closingId": "DC-2026-0139",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00557",
+    "closingId": "DC-2026-0140",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00558",
+    "closingId": "DC-2026-0140",
+    "mode": "UPI",
+    "recorded": 164,
+    "refunds": 0,
+    "expected": 164,
+    "actual": 164,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00559",
+    "closingId": "DC-2026-0140",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00560",
+    "closingId": "DC-2026-0140",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00561",
+    "closingId": "DC-2026-0141",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00562",
+    "closingId": "DC-2026-0141",
+    "mode": "UPI",
+    "recorded": 358,
+    "refunds": 0,
+    "expected": 358,
+    "actual": 358,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00563",
+    "closingId": "DC-2026-0141",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00564",
+    "closingId": "DC-2026-0141",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00565",
+    "closingId": "DC-2026-0142",
+    "mode": "CASH",
+    "recorded": 512,
+    "refunds": 0,
+    "expected": 2512,
+    "actual": 2512,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00566",
+    "closingId": "DC-2026-0142",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00567",
+    "closingId": "DC-2026-0142",
+    "mode": "CARD",
+    "recorded": 98,
+    "refunds": 0,
+    "expected": 98,
+    "actual": 98,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00568",
+    "closingId": "DC-2026-0142",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00569",
+    "closingId": "DC-2026-0143",
+    "mode": "CASH",
+    "recorded": 140,
+    "refunds": 0,
+    "expected": 2140,
+    "actual": 2140,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00570",
+    "closingId": "DC-2026-0143",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00571",
+    "closingId": "DC-2026-0143",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00572",
+    "closingId": "DC-2026-0143",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00573",
+    "closingId": "DC-2026-0144",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00574",
+    "closingId": "DC-2026-0144",
+    "mode": "UPI",
+    "recorded": 178,
+    "refunds": 0,
+    "expected": 178,
+    "actual": 178,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00575",
+    "closingId": "DC-2026-0144",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00576",
+    "closingId": "DC-2026-0144",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00577",
+    "closingId": "DC-2026-0145",
+    "mode": "CASH",
+    "recorded": 539,
+    "refunds": 0,
+    "expected": 2539,
+    "actual": 2539,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00578",
+    "closingId": "DC-2026-0145",
+    "mode": "UPI",
+    "recorded": 40,
+    "refunds": 0,
+    "expected": 40,
+    "actual": 40,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00579",
+    "closingId": "DC-2026-0145",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00580",
+    "closingId": "DC-2026-0145",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00581",
+    "closingId": "DC-2026-0146",
+    "mode": "CASH",
+    "recorded": 1177,
+    "refunds": 0,
+    "expected": 3177,
+    "actual": 3177,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00582",
+    "closingId": "DC-2026-0146",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00583",
+    "closingId": "DC-2026-0146",
+    "mode": "CARD",
+    "recorded": 460,
+    "refunds": 0,
+    "expected": 460,
+    "actual": 460,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00584",
+    "closingId": "DC-2026-0146",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00585",
+    "closingId": "DC-2026-0147",
+    "mode": "CASH",
+    "recorded": 168,
+    "refunds": 0,
+    "expected": 2168,
+    "actual": 2168,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00586",
+    "closingId": "DC-2026-0147",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00587",
+    "closingId": "DC-2026-0147",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00588",
+    "closingId": "DC-2026-0147",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00589",
+    "closingId": "DC-2026-0148",
+    "mode": "CASH",
+    "recorded": 325,
+    "refunds": 0,
+    "expected": 2325,
+    "actual": 2325,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00590",
+    "closingId": "DC-2026-0148",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00591",
+    "closingId": "DC-2026-0148",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00592",
+    "closingId": "DC-2026-0148",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00593",
+    "closingId": "DC-2026-0149",
+    "mode": "CASH",
+    "recorded": 837,
+    "refunds": 0,
+    "expected": 2837,
+    "actual": 2837,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00594",
+    "closingId": "DC-2026-0149",
+    "mode": "UPI",
+    "recorded": 335,
+    "refunds": 0,
+    "expected": 335,
+    "actual": 335,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00595",
+    "closingId": "DC-2026-0149",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00596",
+    "closingId": "DC-2026-0149",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00597",
+    "closingId": "DC-2026-0150",
+    "mode": "CASH",
+    "recorded": 1117,
+    "refunds": 0,
+    "expected": 3117,
+    "actual": 3117,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00598",
+    "closingId": "DC-2026-0150",
+    "mode": "UPI",
+    "recorded": 128,
+    "refunds": 0,
+    "expected": 128,
+    "actual": 128,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00599",
+    "closingId": "DC-2026-0150",
+    "mode": "CARD",
+    "recorded": 332,
+    "refunds": 0,
+    "expected": 332,
+    "actual": 332,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00600",
+    "closingId": "DC-2026-0150",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00601",
+    "closingId": "DC-2026-0151",
+    "mode": "CASH",
+    "recorded": 687,
+    "refunds": 0,
+    "expected": 2687,
+    "actual": 2687,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00602",
+    "closingId": "DC-2026-0151",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00603",
+    "closingId": "DC-2026-0151",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00604",
+    "closingId": "DC-2026-0151",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00605",
+    "closingId": "DC-2026-0152",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00606",
+    "closingId": "DC-2026-0152",
+    "mode": "UPI",
+    "recorded": 486,
+    "refunds": 0,
+    "expected": 486,
+    "actual": 486,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00607",
+    "closingId": "DC-2026-0152",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00608",
+    "closingId": "DC-2026-0152",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00609",
+    "closingId": "DC-2026-0153",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00610",
+    "closingId": "DC-2026-0153",
+    "mode": "UPI",
+    "recorded": 178,
+    "refunds": 0,
+    "expected": 178,
+    "actual": 178,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00611",
+    "closingId": "DC-2026-0153",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00612",
+    "closingId": "DC-2026-0153",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00613",
+    "closingId": "DC-2026-0154",
+    "mode": "CASH",
+    "recorded": 183,
+    "refunds": 0,
+    "expected": 2183,
+    "actual": 2183,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00614",
+    "closingId": "DC-2026-0154",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00615",
+    "closingId": "DC-2026-0154",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00616",
+    "closingId": "DC-2026-0154",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00617",
+    "closingId": "DC-2026-0155",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00618",
+    "closingId": "DC-2026-0155",
+    "mode": "UPI",
+    "recorded": 211,
+    "refunds": 0,
+    "expected": 211,
+    "actual": 211,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00619",
+    "closingId": "DC-2026-0155",
+    "mode": "CARD",
+    "recorded": 176,
+    "refunds": 0,
+    "expected": 176,
+    "actual": 176,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00620",
+    "closingId": "DC-2026-0155",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00621",
+    "closingId": "DC-2026-0156",
+    "mode": "CASH",
+    "recorded": 210,
+    "refunds": 0,
+    "expected": 2210,
+    "actual": 2210,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00622",
+    "closingId": "DC-2026-0156",
+    "mode": "UPI",
+    "recorded": 302,
+    "refunds": 0,
+    "expected": 302,
+    "actual": 302,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00623",
+    "closingId": "DC-2026-0156",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00624",
+    "closingId": "DC-2026-0156",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00625",
+    "closingId": "DC-2026-0157",
+    "mode": "CASH",
+    "recorded": 568,
+    "refunds": 0,
+    "expected": 2568,
+    "actual": 2558,
+    "difference": -10
+  },
+  {
+    "id": "DCP-00626",
+    "closingId": "DC-2026-0157",
+    "mode": "UPI",
+    "recorded": 338,
+    "refunds": 0,
+    "expected": 338,
+    "actual": 338,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00627",
+    "closingId": "DC-2026-0157",
+    "mode": "CARD",
+    "recorded": 98,
+    "refunds": 0,
+    "expected": 98,
+    "actual": 98,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00628",
+    "closingId": "DC-2026-0157",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00629",
+    "closingId": "DC-2026-0158",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00630",
+    "closingId": "DC-2026-0158",
+    "mode": "UPI",
+    "recorded": 154,
+    "refunds": 0,
+    "expected": 154,
+    "actual": 154,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00631",
+    "closingId": "DC-2026-0158",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00632",
+    "closingId": "DC-2026-0158",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00633",
+    "closingId": "DC-2026-0159",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 1950,
+    "difference": -50
+  },
+  {
+    "id": "DCP-00634",
+    "closingId": "DC-2026-0159",
+    "mode": "UPI",
+    "recorded": 77,
+    "refunds": 0,
+    "expected": 77,
+    "actual": 77,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00635",
+    "closingId": "DC-2026-0159",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00636",
+    "closingId": "DC-2026-0159",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00637",
+    "closingId": "DC-2026-0160",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00638",
+    "closingId": "DC-2026-0160",
+    "mode": "UPI",
+    "recorded": 654,
+    "refunds": 0,
+    "expected": 654,
+    "actual": 654,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00639",
+    "closingId": "DC-2026-0160",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00640",
+    "closingId": "DC-2026-0160",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00641",
+    "closingId": "DC-2026-0161",
+    "mode": "CASH",
+    "recorded": 57,
+    "refunds": 0,
+    "expected": 2057,
+    "actual": 2057,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00642",
+    "closingId": "DC-2026-0161",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00643",
+    "closingId": "DC-2026-0161",
+    "mode": "CARD",
+    "recorded": 40,
+    "refunds": 0,
+    "expected": 40,
+    "actual": 40,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00644",
+    "closingId": "DC-2026-0161",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00645",
+    "closingId": "DC-2026-0162",
+    "mode": "CASH",
+    "recorded": 624,
+    "refunds": 0,
+    "expected": 2624,
+    "actual": 2624,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00646",
+    "closingId": "DC-2026-0162",
+    "mode": "UPI",
+    "recorded": 348,
+    "refunds": 0,
+    "expected": 348,
+    "actual": 348,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00647",
+    "closingId": "DC-2026-0162",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00648",
+    "closingId": "DC-2026-0162",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00649",
+    "closingId": "DC-2026-0163",
+    "mode": "CASH",
+    "recorded": 239,
+    "refunds": 0,
+    "expected": 2239,
+    "actual": 2239,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00650",
+    "closingId": "DC-2026-0163",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00651",
+    "closingId": "DC-2026-0163",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00652",
+    "closingId": "DC-2026-0163",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00653",
+    "closingId": "DC-2026-0164",
+    "mode": "CASH",
+    "recorded": 102,
+    "refunds": 0,
+    "expected": 2102,
+    "actual": 2102,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00654",
+    "closingId": "DC-2026-0164",
+    "mode": "UPI",
+    "recorded": 278,
+    "refunds": 0,
+    "expected": 278,
+    "actual": 278,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00655",
+    "closingId": "DC-2026-0164",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00656",
+    "closingId": "DC-2026-0164",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00657",
+    "closingId": "DC-2026-0165",
+    "mode": "CASH",
+    "recorded": 1361,
+    "refunds": 0,
+    "expected": 3361,
+    "actual": 3361,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00658",
+    "closingId": "DC-2026-0165",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00659",
+    "closingId": "DC-2026-0165",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00660",
+    "closingId": "DC-2026-0165",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00661",
+    "closingId": "DC-2026-0166",
+    "mode": "CASH",
+    "recorded": 259,
+    "refunds": 0,
+    "expected": 2259,
+    "actual": 2259,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00662",
+    "closingId": "DC-2026-0166",
+    "mode": "UPI",
+    "recorded": 305,
+    "refunds": 0,
+    "expected": 305,
+    "actual": 305,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00663",
+    "closingId": "DC-2026-0166",
+    "mode": "CARD",
+    "recorded": 272,
+    "refunds": 0,
+    "expected": 272,
+    "actual": 272,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00664",
+    "closingId": "DC-2026-0166",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00665",
+    "closingId": "DC-2026-0167",
+    "mode": "CASH",
+    "recorded": 156,
+    "refunds": 0,
+    "expected": 2156,
+    "actual": 2156,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00666",
+    "closingId": "DC-2026-0167",
+    "mode": "UPI",
+    "recorded": 559,
+    "refunds": 0,
+    "expected": 559,
+    "actual": 559,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00667",
+    "closingId": "DC-2026-0167",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00668",
+    "closingId": "DC-2026-0167",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00669",
+    "closingId": "DC-2026-0168",
+    "mode": "CASH",
+    "recorded": 267,
+    "refunds": 0,
+    "expected": 2267,
+    "actual": 2267,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00670",
+    "closingId": "DC-2026-0168",
+    "mode": "UPI",
+    "recorded": 699,
+    "refunds": 0,
+    "expected": 699,
+    "actual": 699,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00671",
+    "closingId": "DC-2026-0168",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00672",
+    "closingId": "DC-2026-0168",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00673",
+    "closingId": "DC-2026-0169",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00674",
+    "closingId": "DC-2026-0169",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00675",
+    "closingId": "DC-2026-0169",
+    "mode": "CARD",
+    "recorded": 445,
+    "refunds": 0,
+    "expected": 445,
+    "actual": 445,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00676",
+    "closingId": "DC-2026-0169",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00677",
+    "closingId": "DC-2026-0170",
+    "mode": "CASH",
+    "recorded": 1336,
+    "refunds": 0,
+    "expected": 3336,
+    "actual": 3336,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00678",
+    "closingId": "DC-2026-0170",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00679",
+    "closingId": "DC-2026-0170",
+    "mode": "CARD",
+    "recorded": 128,
+    "refunds": 0,
+    "expected": 128,
+    "actual": 128,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00680",
+    "closingId": "DC-2026-0170",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00681",
+    "closingId": "DC-2026-0171",
+    "mode": "CASH",
+    "recorded": 112,
+    "refunds": 0,
+    "expected": 2112,
+    "actual": 2112,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00682",
+    "closingId": "DC-2026-0171",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00683",
+    "closingId": "DC-2026-0171",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00684",
+    "closingId": "DC-2026-0171",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00685",
+    "closingId": "DC-2026-0172",
+    "mode": "CASH",
+    "recorded": 1024,
+    "refunds": 98,
+    "expected": 2926,
+    "actual": 2876,
+    "difference": -50
+  },
+  {
+    "id": "DCP-00686",
+    "closingId": "DC-2026-0172",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00687",
+    "closingId": "DC-2026-0172",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00688",
+    "closingId": "DC-2026-0172",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00689",
+    "closingId": "DC-2026-0173",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00690",
+    "closingId": "DC-2026-0173",
+    "mode": "UPI",
+    "recorded": 447,
+    "refunds": 0,
+    "expected": 447,
+    "actual": 447,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00691",
+    "closingId": "DC-2026-0173",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00692",
+    "closingId": "DC-2026-0173",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00693",
+    "closingId": "DC-2026-0174",
+    "mode": "CASH",
+    "recorded": 59,
+    "refunds": 0,
+    "expected": 2059,
+    "actual": 2059,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00694",
+    "closingId": "DC-2026-0174",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00695",
+    "closingId": "DC-2026-0174",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00696",
+    "closingId": "DC-2026-0174",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00697",
+    "closingId": "DC-2026-0175",
+    "mode": "CASH",
+    "recorded": 116,
+    "refunds": 0,
+    "expected": 2116,
+    "actual": 2116,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00698",
+    "closingId": "DC-2026-0175",
+    "mode": "UPI",
+    "recorded": 155,
+    "refunds": 0,
+    "expected": 155,
+    "actual": 155,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00699",
+    "closingId": "DC-2026-0175",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00700",
+    "closingId": "DC-2026-0175",
+    "mode": "OTHER",
+    "recorded": 273,
+    "refunds": 0,
+    "expected": 273,
+    "actual": 273,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00701",
+    "closingId": "DC-2026-0176",
+    "mode": "CASH",
+    "recorded": 518,
+    "refunds": 0,
+    "expected": 2518,
+    "actual": 2518,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00702",
+    "closingId": "DC-2026-0176",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00703",
+    "closingId": "DC-2026-0176",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00704",
+    "closingId": "DC-2026-0176",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00705",
+    "closingId": "DC-2026-0177",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00706",
+    "closingId": "DC-2026-0177",
+    "mode": "UPI",
+    "recorded": 1670,
+    "refunds": 0,
+    "expected": 1670,
+    "actual": 1670,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00707",
+    "closingId": "DC-2026-0177",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00708",
+    "closingId": "DC-2026-0177",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00709",
+    "closingId": "DC-2026-0178",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00710",
+    "closingId": "DC-2026-0178",
+    "mode": "UPI",
+    "recorded": 590,
+    "refunds": 0,
+    "expected": 590,
+    "actual": 590,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00711",
+    "closingId": "DC-2026-0178",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00712",
+    "closingId": "DC-2026-0178",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00713",
+    "closingId": "DC-2026-0179",
+    "mode": "CASH",
+    "recorded": 459,
+    "refunds": 0,
+    "expected": 2459,
+    "actual": 2459,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00714",
+    "closingId": "DC-2026-0179",
+    "mode": "UPI",
+    "recorded": 314,
+    "refunds": 0,
+    "expected": 314,
+    "actual": 314,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00715",
+    "closingId": "DC-2026-0179",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00716",
+    "closingId": "DC-2026-0179",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00717",
+    "closingId": "DC-2026-0180",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00718",
+    "closingId": "DC-2026-0180",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 31,
+    "expected": -31,
+    "actual": -31,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00719",
+    "closingId": "DC-2026-0180",
+    "mode": "CARD",
+    "recorded": 204,
+    "refunds": 0,
+    "expected": 204,
+    "actual": 204,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00720",
+    "closingId": "DC-2026-0180",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00721",
+    "closingId": "DC-2026-0181",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00722",
+    "closingId": "DC-2026-0181",
+    "mode": "UPI",
+    "recorded": 1037,
+    "refunds": 0,
+    "expected": 1037,
+    "actual": 1037,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00723",
+    "closingId": "DC-2026-0181",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00724",
+    "closingId": "DC-2026-0181",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00725",
+    "closingId": "DC-2026-0182",
+    "mode": "CASH",
+    "recorded": 464,
+    "refunds": 0,
+    "expected": 2464,
+    "actual": 2464,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00726",
+    "closingId": "DC-2026-0182",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00727",
+    "closingId": "DC-2026-0182",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00728",
+    "closingId": "DC-2026-0182",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00729",
+    "closingId": "DC-2026-0183",
+    "mode": "CASH",
+    "recorded": 735,
+    "refunds": 735,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00730",
+    "closingId": "DC-2026-0183",
+    "mode": "UPI",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00731",
+    "closingId": "DC-2026-0183",
+    "mode": "CARD",
+    "recorded": 208,
+    "refunds": 0,
+    "expected": 208,
+    "actual": 208,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00732",
+    "closingId": "DC-2026-0183",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00733",
+    "closingId": "DC-2026-0184",
+    "mode": "CASH",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 2000,
+    "actual": 2000,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00734",
+    "closingId": "DC-2026-0184",
+    "mode": "UPI",
+    "recorded": 39,
+    "refunds": 0,
+    "expected": 39,
+    "actual": 39,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00735",
+    "closingId": "DC-2026-0184",
+    "mode": "CARD",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  },
+  {
+    "id": "DCP-00736",
+    "closingId": "DC-2026-0184",
+    "mode": "OTHER",
+    "recorded": 0,
+    "refunds": 0,
+    "expected": 0,
+    "actual": 0,
+    "difference": 0
+  }
+]

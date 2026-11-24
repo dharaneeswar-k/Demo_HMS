@@ -1,0 +1,59 @@
+{
+  "hospitalName": "Nallam Hospital",
+  "tagline": "Hospital Management System",
+  "city": "Hosur, Tamil Nadu",
+  "logo": null,
+  "banner": {
+    "title": "Pharmacy & Inventory Management",
+    "subtitle": "Receive stock, track every batch and never miss an expiry — all in one place.",
+    "image": null
+  },
+  "theme": {
+    "primary": "#023459",
+    "accent": "#049794"
+  },
+  "expiryThresholdDays": 90,
+  "criticalExpiryDays": 30,
+  "lowStockBasis": "REORDER_LEVEL",
+  "defaultLocationId": "LOC-02",
+  "pharmacyLocationId": "LOC-01",
+  "storeLocationId": "LOC-02",
+  "maxUsers": 10,
+  "maxDeliveryPhotos": 10,
+  "maxFileSizeMB": 5,
+  "network": {
+    "restrictStaff": true,
+    "ownerAnywhere": true,
+    "allowed": [
+      {
+        "id": "NET-01",
+        "label": "Hospital broadband (main line)",
+        "address": "117.193.52.40",
+        "active": true,
+        "addedBy": "USR-0003",
+        "addedAt": "2026-08-01"
+      },
+      {
+        "id": "NET-02",
+        "label": "Backup 4G router — pharmacy",
+        "address": "49.204.118.0/24",
+        "active": true,
+        "addedBy": "USR-0003",
+        "addedAt": "2026-09-12"
+      }
+    ]
+  },
+  "approval": {
+    "ownerApprovalForExpiredOrShortDated": true,
+    "shortDatedDays": 30,
+    "discrepancyPctThreshold": 10,
+    "highValueThreshold": 250000,
+    "adjustmentQtyThreshold": 50,
+    "adjustmentValueThreshold": 5000,
+    "notifyOwnerOnPost": true
+  },
+  "demo": {
+    "dataVersion": 6,
+    "generatedAt": "2026-11-23"
+  }
+}

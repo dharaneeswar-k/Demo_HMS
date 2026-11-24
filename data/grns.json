@@ -1,0 +1,1283 @@
+[
+  {
+    "id": "GRN-2026-0001",
+    "grnNumber": "GRN-2026-0001",
+    "supplierId": "SUP-0001",
+    "invoiceNo": "SMP/26-27/1184",
+    "invoiceDate": "2026-08-11",
+    "invoiceAmount": 22683.77,
+    "poRef": "PO-NH-0560",
+    "locationId": "LOC-02",
+    "receivedAt": "2026-08-12T05:50:00.000Z",
+    "receivedBy": "USR-0001",
+    "remarks": "",
+    "status": "POSTED",
+    "items": [
+      {
+        "lineId": "GRN-2026-0001-L1",
+        "medicineId": "MED-0001",
+        "batchNo": "DO5B5584",
+        "mfgDate": "2025-10-01",
+        "expiryDate": "2028-06-30",
+        "invoiceQty": 150,
+        "receivedQty": 150,
+        "freeQty": 10,
+        "ptr": 24.95,
+        "mrp": 33.6,
+        "discountPct": 2,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": "BAT-0036"
+      },
+      {
+        "lineId": "GRN-2026-0001-L2",
+        "medicineId": "MED-0002",
+        "batchNo": "PA9X1577",
+        "mfgDate": "2025-10-01",
+        "expiryDate": "2028-01-31",
+        "invoiceQty": 100,
+        "receivedQty": 100,
+        "freeQty": 0,
+        "ptr": 114.45,
+        "mrp": 160,
+        "discountPct": 2,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": "BAT-0037"
+      },
+      {
+        "lineId": "GRN-2026-0001-L3",
+        "medicineId": "MED-0005",
+        "batchNo": "GL8R2881",
+        "mfgDate": "2026-06-01",
+        "expiryDate": "2028-04-30",
+        "invoiceQty": 120,
+        "receivedQty": 120,
+        "freeQty": 0,
+        "ptr": 20.38,
+        "mrp": 31,
+        "discountPct": 2,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": "BAT-0038"
+      },
+      {
+        "lineId": "GRN-2026-0001-L4",
+        "medicineId": "MED-0007",
+        "batchNo": "AM5F3332",
+        "mfgDate": "2026-05-29",
+        "expiryDate": "2028-05-31",
+        "invoiceQty": 80,
+        "receivedQty": 80,
+        "freeQty": 0,
+        "ptr": 37.92,
+        "mrp": 54,
+        "discountPct": 2,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": "BAT-0039"
+      }
+    ],
+    "attachments": {
+      "invoice": "ATT-0001",
+      "photos": [
+        "ATT-0002",
+        "ATT-0003"
+      ]
+    },
+    "verifiedBy": "USR-0002",
+    "verifiedAt": "2026-08-12T06:50:00.000Z",
+    "approvedBy": null,
+    "approvedAt": null,
+    "postedBy": "USR-0002",
+    "postedAt": "2026-08-12T07:00:00.000Z",
+    "rejectedReason": null,
+    "requiresOwnerApproval": false,
+    "exceptionReasons": [],
+    "history": [
+      {
+        "status": "DRAFT",
+        "by": "USR-0001",
+        "at": "2026-08-12T05:50:00.000Z",
+        "note": "GRN created at receiving counter"
+      },
+      {
+        "status": "SUBMITTED",
+        "by": "USR-0001",
+        "at": "2026-08-12T06:15:00.000Z",
+        "note": "Submitted for verification"
+      },
+      {
+        "status": "POSTED",
+        "by": "USR-0002",
+        "at": "2026-08-12T07:00:00.000Z",
+        "note": "Stock posted to inventory"
+      }
+    ],
+    "createdBy": "USR-0001",
+    "createdAt": "2026-08-12T05:50:00.000Z",
+    "updatedAt": "2026-08-12T05:50:00.000Z"
+  },
+  {
+    "id": "GRN-2026-0002",
+    "grnNumber": "GRN-2026-0002",
+    "supplierId": "SUP-0003",
+    "invoiceNo": "LSC/BLR/0937",
+    "invoiceDate": "2026-08-25",
+    "invoiceAmount": 16895.42,
+    "poRef": "PO-NH-0384",
+    "locationId": "LOC-02",
+    "receivedAt": "2026-08-26T09:35:00.000Z",
+    "receivedBy": "USR-0004",
+    "remarks": "",
+    "status": "POSTED",
+    "items": [
+      {
+        "lineId": "GRN-2026-0002-L1",
+        "medicineId": "MED-0028",
+        "batchNo": "DI2M8896",
+        "mfgDate": "2026-06-12",
+        "expiryDate": "2030-12-31",
+        "invoiceQty": 500,
+        "receivedQty": 500,
+        "freeQty": 0,
+        "ptr": 5.26,
+        "mrp": 9,
+        "discountPct": 0,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": "BAT-0040"
+      },
+      {
+        "lineId": "GRN-2026-0002-L2",
+        "medicineId": "MED-0029",
+        "batchNo": "VE7C4266",
+        "mfgDate": "2026-06-12",
+        "expiryDate": "2030-03-31",
+        "invoiceQty": 150,
+        "receivedQty": 150,
+        "freeQty": 0,
+        "ptr": 57.44,
+        "mrp": 145,
+        "discountPct": 5,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": "BAT-0041"
+      },
+      {
+        "lineId": "GRN-2026-0002-L3",
+        "medicineId": "MED-0030",
+        "batchNo": "ST7L1861",
+        "mfgDate": "2026-06-12",
+        "expiryDate": "2030-01-31",
+        "invoiceQty": 200,
+        "receivedQty": 200,
+        "freeQty": 20,
+        "ptr": 21.35,
+        "mrp": 38,
+        "discountPct": 0,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": "BAT-0042"
+      }
+    ],
+    "attachments": {
+      "invoice": "ATT-0004",
+      "photos": [
+        "ATT-0005",
+        "ATT-0006"
+      ]
+    },
+    "verifiedBy": "USR-0002",
+    "verifiedAt": "2026-08-26T10:35:00.000Z",
+    "approvedBy": null,
+    "approvedAt": null,
+    "postedBy": "USR-0002",
+    "postedAt": "2026-08-26T10:45:00.000Z",
+    "rejectedReason": null,
+    "requiresOwnerApproval": false,
+    "exceptionReasons": [],
+    "history": [
+      {
+        "status": "DRAFT",
+        "by": "USR-0004",
+        "at": "2026-08-26T09:35:00.000Z",
+        "note": "GRN created at receiving counter"
+      },
+      {
+        "status": "SUBMITTED",
+        "by": "USR-0004",
+        "at": "2026-08-26T10:00:00.000Z",
+        "note": "Submitted for verification"
+      },
+      {
+        "status": "POSTED",
+        "by": "USR-0002",
+        "at": "2026-08-26T10:45:00.000Z",
+        "note": "Stock posted to inventory"
+      }
+    ],
+    "createdBy": "USR-0004",
+    "createdAt": "2026-08-26T09:35:00.000Z",
+    "updatedAt": "2026-08-26T09:35:00.000Z"
+  },
+  {
+    "id": "GRN-2026-0003",
+    "grnNumber": "GRN-2026-0003",
+    "supplierId": "SUP-0002",
+    "invoiceNo": "KMA/2627/0412",
+    "invoiceDate": "2026-09-08",
+    "invoiceAmount": 8996.72,
+    "poRef": "PO-NH-0642",
+    "locationId": "LOC-02",
+    "receivedAt": "2026-09-09T05:10:00.000Z",
+    "receivedBy": "USR-0001",
+    "remarks": "",
+    "status": "POSTED",
+    "items": [
+      {
+        "lineId": "GRN-2026-0003-L1",
+        "medicineId": "MED-0017",
+        "batchNo": "MO6R5190",
+        "mfgDate": "2026-07-01",
+        "expiryDate": "2028-08-31",
+        "invoiceQty": 100,
+        "receivedQty": 100,
+        "freeQty": 0,
+        "ptr": 48.75,
+        "mrp": 68,
+        "discountPct": 5,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": "BAT-0043"
+      },
+      {
+        "lineId": "GRN-2026-0003-L2",
+        "medicineId": "MED-0019",
+        "batchNo": "HU6W6969",
+        "mfgDate": "2026-01-01",
+        "expiryDate": "2027-09-30",
+        "invoiceQty": 20,
+        "receivedQty": 20,
+        "freeQty": 0,
+        "ptr": 140.03,
+        "mrp": 168,
+        "discountPct": 5,
+        "gstPct": 5,
+        "remarks": "Received in cold box, temp log 4°C",
+        "batchId": "BAT-0044"
+      },
+      {
+        "lineId": "GRN-2026-0003-L3",
+        "medicineId": "MED-0020",
+        "batchNo": "EM9K7502",
+        "mfgDate": "2026-03-01",
+        "expiryDate": "2028-02-29",
+        "invoiceQty": 100,
+        "receivedQty": 100,
+        "freeQty": 0,
+        "ptr": 9.55,
+        "mrp": 14.2,
+        "discountPct": 5,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": "BAT-0045"
+      }
+    ],
+    "attachments": {
+      "invoice": "ATT-0007",
+      "photos": [
+        "ATT-0008",
+        "ATT-0009"
+      ]
+    },
+    "verifiedBy": "USR-0002",
+    "verifiedAt": "2026-09-09T06:10:00.000Z",
+    "approvedBy": null,
+    "approvedAt": null,
+    "postedBy": "USR-0002",
+    "postedAt": "2026-09-09T06:20:00.000Z",
+    "rejectedReason": null,
+    "requiresOwnerApproval": false,
+    "exceptionReasons": [],
+    "history": [
+      {
+        "status": "DRAFT",
+        "by": "USR-0001",
+        "at": "2026-09-09T05:10:00.000Z",
+        "note": "GRN created at receiving counter"
+      },
+      {
+        "status": "SUBMITTED",
+        "by": "USR-0001",
+        "at": "2026-09-09T05:35:00.000Z",
+        "note": "Submitted for verification"
+      },
+      {
+        "status": "POSTED",
+        "by": "USR-0002",
+        "at": "2026-09-09T06:20:00.000Z",
+        "note": "Stock posted to inventory"
+      }
+    ],
+    "createdBy": "USR-0001",
+    "createdAt": "2026-09-09T05:10:00.000Z",
+    "updatedAt": "2026-09-09T05:10:00.000Z"
+  },
+  {
+    "id": "GRN-2026-0004",
+    "grnNumber": "GRN-2026-0004",
+    "supplierId": "SUP-0004",
+    "invoiceNo": "SBP/0688",
+    "invoiceDate": "2026-09-23",
+    "invoiceAmount": 7487.57,
+    "poRef": "PO-NH-0530",
+    "locationId": "LOC-02",
+    "receivedAt": "2026-09-24T06:45:00.000Z",
+    "receivedBy": "USR-0001",
+    "remarks": "",
+    "status": "POSTED",
+    "items": [
+      {
+        "lineId": "GRN-2026-0004-L1",
+        "medicineId": "MED-0013",
+        "batchNo": "AS1R3949",
+        "mfgDate": "2026-03-01",
+        "expiryDate": "2027-12-31",
+        "invoiceQty": 40,
+        "receivedQty": 40,
+        "freeQty": 0,
+        "ptr": 91.88,
+        "mrp": 128,
+        "discountPct": 0,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": "BAT-0046"
+      },
+      {
+        "lineId": "GRN-2026-0004-L2",
+        "medicineId": "MED-0022",
+        "batchNo": "SO8K1657",
+        "mfgDate": "2025-10-01",
+        "expiryDate": "2028-03-31",
+        "invoiceQty": 20,
+        "receivedQty": 20,
+        "freeQty": 0,
+        "ptr": 55.17,
+        "mrp": 79,
+        "discountPct": 2,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": "BAT-0047"
+      },
+      {
+        "lineId": "GRN-2026-0004-L3",
+        "medicineId": "MED-0025",
+        "batchNo": "MO2X4221",
+        "mfgDate": "2026-01-01",
+        "expiryDate": "2027-10-31",
+        "invoiceQty": 20,
+        "receivedQty": 20,
+        "freeQty": 0,
+        "ptr": 82.03,
+        "mrp": 115,
+        "discountPct": 0,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": "BAT-0048"
+      },
+      {
+        "lineId": "GRN-2026-0004-L4",
+        "medicineId": "MED-0027",
+        "batchNo": "CI9R9236",
+        "mfgDate": "2025-08-01",
+        "expiryDate": "2028-02-29",
+        "invoiceQty": 20,
+        "receivedQty": 20,
+        "freeQty": 0,
+        "ptr": 14.41,
+        "mrp": 20.5,
+        "discountPct": 0,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": "BAT-0049"
+      }
+    ],
+    "attachments": {
+      "invoice": "ATT-0010",
+      "photos": [
+        "ATT-0011",
+        "ATT-0012"
+      ]
+    },
+    "verifiedBy": "USR-0002",
+    "verifiedAt": "2026-09-24T07:45:00.000Z",
+    "approvedBy": null,
+    "approvedAt": null,
+    "postedBy": "USR-0002",
+    "postedAt": "2026-09-24T07:55:00.000Z",
+    "rejectedReason": null,
+    "requiresOwnerApproval": false,
+    "exceptionReasons": [],
+    "history": [
+      {
+        "status": "DRAFT",
+        "by": "USR-0001",
+        "at": "2026-09-24T06:45:00.000Z",
+        "note": "GRN created at receiving counter"
+      },
+      {
+        "status": "SUBMITTED",
+        "by": "USR-0001",
+        "at": "2026-09-24T07:10:00.000Z",
+        "note": "Submitted for verification"
+      },
+      {
+        "status": "POSTED",
+        "by": "USR-0002",
+        "at": "2026-09-24T07:55:00.000Z",
+        "note": "Stock posted to inventory"
+      }
+    ],
+    "createdBy": "USR-0001",
+    "createdAt": "2026-09-24T06:45:00.000Z",
+    "updatedAt": "2026-09-24T06:45:00.000Z"
+  },
+  {
+    "id": "GRN-2026-0005",
+    "grnNumber": "GRN-2026-0005",
+    "supplierId": "SUP-0005",
+    "invoiceNo": "KHD/SLM/2291",
+    "invoiceDate": "2026-10-13",
+    "invoiceAmount": 3948,
+    "poRef": "",
+    "locationId": "LOC-02",
+    "receivedAt": "2026-10-14T04:20:00.000Z",
+    "receivedBy": "USR-0004",
+    "remarks": "",
+    "status": "POSTED",
+    "items": [
+      {
+        "lineId": "GRN-2026-0005-L1",
+        "medicineId": "MED-0031",
+        "batchNo": "NO8W7265",
+        "mfgDate": "2026-10-01",
+        "expiryDate": "2028-10-31",
+        "invoiceQty": 200,
+        "receivedQty": 160,
+        "freeQty": 0,
+        "ptr": 23.5,
+        "mrp": 35,
+        "discountPct": 0,
+        "gstPct": 5,
+        "remarks": "40 bottles short-supplied; supplier credit note awaited",
+        "batchId": "BAT-0050"
+      }
+    ],
+    "attachments": {
+      "invoice": "ATT-0013",
+      "photos": [
+        "ATT-0014",
+        "ATT-0015"
+      ]
+    },
+    "verifiedBy": "USR-0002",
+    "verifiedAt": "2026-10-14T05:20:00.000Z",
+    "approvedBy": "USR-0003",
+    "approvedAt": "2026-10-14T07:20:00.000Z",
+    "postedBy": "USR-0003",
+    "postedAt": "2026-10-14T07:30:00.000Z",
+    "rejectedReason": null,
+    "requiresOwnerApproval": true,
+    "exceptionReasons": [
+      "Invoice quantity mismatch above 10% on Normal Saline (ordered 200, received 160)"
+    ],
+    "history": [
+      {
+        "status": "DRAFT",
+        "by": "USR-0004",
+        "at": "2026-10-14T04:20:00.000Z",
+        "note": "GRN created at receiving counter"
+      },
+      {
+        "status": "SUBMITTED",
+        "by": "USR-0004",
+        "at": "2026-10-14T04:45:00.000Z",
+        "note": "Submitted for verification"
+      },
+      {
+        "status": "PENDING_APPROVAL",
+        "by": "USR-0002",
+        "at": "2026-10-14T05:20:00.000Z",
+        "note": "Verified. Exceptional case escalated to owner: Invoice quantity mismatch above 10% on Normal Saline (ordered 200, received 160)"
+      },
+      {
+        "status": "APPROVED",
+        "by": "USR-0003",
+        "at": "2026-10-14T07:20:00.000Z",
+        "note": "Approved by owner"
+      },
+      {
+        "status": "POSTED",
+        "by": "USR-0003",
+        "at": "2026-10-14T07:30:00.000Z",
+        "note": "Stock posted to inventory"
+      }
+    ],
+    "createdBy": "USR-0004",
+    "createdAt": "2026-10-14T04:20:00.000Z",
+    "updatedAt": "2026-10-14T04:20:00.000Z"
+  },
+  {
+    "id": "GRN-2026-0006",
+    "grnNumber": "GRN-2026-0006",
+    "supplierId": "SUP-0001",
+    "invoiceNo": "SMP/26-27/1402",
+    "invoiceDate": "2026-11-04",
+    "invoiceAmount": 33658.18,
+    "poRef": "",
+    "locationId": "LOC-02",
+    "receivedAt": "2026-11-05T11:00:00.000Z",
+    "receivedBy": "USR-0001",
+    "remarks": "",
+    "status": "POSTED",
+    "items": [
+      {
+        "lineId": "GRN-2026-0006-L1",
+        "medicineId": "MED-0003",
+        "batchNo": "AU6I6402",
+        "mfgDate": "2026-05-01",
+        "expiryDate": "2028-01-31",
+        "invoiceQty": 40,
+        "receivedQty": 40,
+        "freeQty": 0,
+        "ptr": 167.27,
+        "mrp": 223.5,
+        "discountPct": 0,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": "BAT-0051"
+      },
+      {
+        "lineId": "GRN-2026-0006-L2",
+        "medicineId": "MED-0006",
+        "batchNo": "TE6O2382",
+        "mfgDate": "2025-12-01",
+        "expiryDate": "2028-07-31",
+        "invoiceQty": 60,
+        "receivedQty": 60,
+        "freeQty": 0,
+        "ptr": 167.24,
+        "mrp": 239,
+        "discountPct": 2,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": "BAT-0052"
+      },
+      {
+        "lineId": "GRN-2026-0006-L3",
+        "medicineId": "MED-0009",
+        "batchNo": "MO8X1305",
+        "mfgDate": "2026-01-01",
+        "expiryDate": "2028-04-30",
+        "invoiceQty": 50,
+        "receivedQty": 50,
+        "freeQty": 0,
+        "ptr": 184.54,
+        "mrp": 259,
+        "discountPct": 2,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": "BAT-0053"
+      },
+      {
+        "lineId": "GRN-2026-0006-L4",
+        "medicineId": "MED-0010",
+        "batchNo": "BE7O6345",
+        "mfgDate": "2025-05-01",
+        "expiryDate": "2027-12-31",
+        "invoiceQty": 60,
+        "receivedQty": 60,
+        "freeQty": 0,
+        "ptr": 33.69,
+        "mrp": 49,
+        "discountPct": 2,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": "BAT-0054"
+      },
+      {
+        "lineId": "GRN-2026-0006-L5",
+        "medicineId": "MED-0001",
+        "batchNo": "DO8N1469",
+        "mfgDate": "2026-01-01",
+        "expiryDate": "2028-09-30",
+        "invoiceQty": 100,
+        "receivedQty": 100,
+        "freeQty": 0,
+        "ptr": 25.04,
+        "mrp": 33.6,
+        "discountPct": 0,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": "BAT-0055"
+      }
+    ],
+    "attachments": {
+      "invoice": "ATT-0016",
+      "photos": [
+        "ATT-0017",
+        "ATT-0018"
+      ]
+    },
+    "verifiedBy": "USR-0002",
+    "verifiedAt": "2026-11-05T12:00:00.000Z",
+    "approvedBy": null,
+    "approvedAt": null,
+    "postedBy": "USR-0002",
+    "postedAt": "2026-11-05T12:10:00.000Z",
+    "rejectedReason": null,
+    "requiresOwnerApproval": false,
+    "exceptionReasons": [],
+    "history": [
+      {
+        "status": "DRAFT",
+        "by": "USR-0001",
+        "at": "2026-11-05T11:00:00.000Z",
+        "note": "GRN created at receiving counter"
+      },
+      {
+        "status": "SUBMITTED",
+        "by": "USR-0001",
+        "at": "2026-11-05T11:25:00.000Z",
+        "note": "Submitted for verification"
+      },
+      {
+        "status": "POSTED",
+        "by": "USR-0002",
+        "at": "2026-11-05T12:10:00.000Z",
+        "note": "Stock posted to inventory"
+      }
+    ],
+    "createdBy": "USR-0001",
+    "createdAt": "2026-11-05T11:00:00.000Z",
+    "updatedAt": "2026-11-05T11:00:00.000Z"
+  },
+  {
+    "id": "GRN-2026-0007",
+    "grnNumber": "GRN-2026-0007",
+    "supplierId": "SUP-0002",
+    "invoiceNo": "KMA/2627/0577",
+    "invoiceDate": "2026-11-19",
+    "invoiceAmount": 2825.65,
+    "poRef": "PO-NH-0106",
+    "locationId": "LOC-02",
+    "receivedAt": "2026-11-20T05:30:00.000Z",
+    "receivedBy": "USR-0001",
+    "remarks": "",
+    "status": "SUBMITTED",
+    "items": [
+      {
+        "lineId": "GRN-2026-0007-L1",
+        "medicineId": "MED-0018",
+        "batchNo": "PA9E1763",
+        "mfgDate": "2025-10-01",
+        "expiryDate": "2028-06-30",
+        "invoiceQty": 50,
+        "receivedQty": 50,
+        "freeQty": 0,
+        "ptr": 38.29,
+        "mrp": 56,
+        "discountPct": 5,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": null
+      },
+      {
+        "lineId": "GRN-2026-0007-L2",
+        "medicineId": "MED-0021",
+        "batchNo": "VO7I1863",
+        "mfgDate": "2026-04-01",
+        "expiryDate": "2028-09-30",
+        "invoiceQty": 50,
+        "receivedQty": 50,
+        "freeQty": 0,
+        "ptr": 14.37,
+        "mrp": 19.8,
+        "discountPct": 2,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": null
+      }
+    ],
+    "attachments": {
+      "invoice": "ATT-0019",
+      "photos": [
+        "ATT-0020",
+        "ATT-0021"
+      ]
+    },
+    "verifiedBy": null,
+    "verifiedAt": null,
+    "approvedBy": null,
+    "approvedAt": null,
+    "postedBy": null,
+    "postedAt": null,
+    "rejectedReason": null,
+    "requiresOwnerApproval": false,
+    "exceptionReasons": [],
+    "history": [
+      {
+        "status": "DRAFT",
+        "by": "USR-0001",
+        "at": "2026-11-20T05:30:00.000Z",
+        "note": "GRN created at receiving counter"
+      },
+      {
+        "status": "SUBMITTED",
+        "by": "USR-0001",
+        "at": "2026-11-20T05:55:00.000Z",
+        "note": "Submitted for verification"
+      }
+    ],
+    "createdBy": "USR-0001",
+    "createdAt": "2026-11-20T05:30:00.000Z",
+    "updatedAt": "2026-11-20T05:30:00.000Z"
+  },
+  {
+    "id": "GRN-2026-0008",
+    "grnNumber": "GRN-2026-0008",
+    "supplierId": "SUP-0004",
+    "invoiceNo": "SBP/0741",
+    "invoiceDate": "2026-11-21",
+    "invoiceAmount": 10119.24,
+    "poRef": "PO-NH-0172",
+    "locationId": "LOC-02",
+    "receivedAt": "2026-11-22T04:40:00.000Z",
+    "receivedBy": "USR-0004",
+    "remarks": "",
+    "status": "SUBMITTED",
+    "items": [
+      {
+        "lineId": "GRN-2026-0008-L1",
+        "medicineId": "MED-0014",
+        "batchNo": "CA8R7299",
+        "mfgDate": "2025-10-01",
+        "expiryDate": "2028-01-31",
+        "invoiceQty": 40,
+        "receivedQty": 40,
+        "freeQty": 0,
+        "ptr": 43.12,
+        "mrp": 58,
+        "discountPct": 5,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": null
+      },
+      {
+        "lineId": "GRN-2026-0008-L2",
+        "medicineId": "MED-0015",
+        "batchNo": "DI2U5690",
+        "mfgDate": "2025-11-01",
+        "expiryDate": "2028-02-29",
+        "invoiceQty": 24,
+        "receivedQty": 24,
+        "freeQty": 0,
+        "ptr": 130.84,
+        "mrp": 178,
+        "discountPct": 2,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": null
+      },
+      {
+        "lineId": "GRN-2026-0008-L3",
+        "medicineId": "MED-0016",
+        "batchNo": "BE8D7811",
+        "mfgDate": "2026-07-01",
+        "expiryDate": "2028-03-31",
+        "invoiceQty": 24,
+        "receivedQty": 24,
+        "freeQty": 0,
+        "ptr": 117.48,
+        "mrp": 165,
+        "discountPct": 0,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": null
+      },
+      {
+        "lineId": "GRN-2026-0008-L4",
+        "medicineId": "MED-0026",
+        "batchNo": "OT4Y5845",
+        "mfgDate": "2025-10-01",
+        "expiryDate": "2028-05-31",
+        "invoiceQty": 20,
+        "receivedQty": 20,
+        "freeQty": 0,
+        "ptr": 76.51,
+        "mrp": 106,
+        "discountPct": 2,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": null
+      }
+    ],
+    "attachments": {
+      "invoice": "ATT-0022",
+      "photos": [
+        "ATT-0023",
+        "ATT-0024"
+      ]
+    },
+    "verifiedBy": null,
+    "verifiedAt": null,
+    "approvedBy": null,
+    "approvedAt": null,
+    "postedBy": null,
+    "postedAt": null,
+    "rejectedReason": null,
+    "requiresOwnerApproval": false,
+    "exceptionReasons": [],
+    "history": [
+      {
+        "status": "DRAFT",
+        "by": "USR-0004",
+        "at": "2026-11-22T04:40:00.000Z",
+        "note": "GRN created at receiving counter"
+      },
+      {
+        "status": "SUBMITTED",
+        "by": "USR-0004",
+        "at": "2026-11-22T05:05:00.000Z",
+        "note": "Submitted for verification"
+      }
+    ],
+    "createdBy": "USR-0004",
+    "createdAt": "2026-11-22T04:40:00.000Z",
+    "updatedAt": "2026-11-22T04:40:00.000Z"
+  },
+  {
+    "id": "GRN-2026-0009",
+    "grnNumber": "GRN-2026-0009",
+    "supplierId": "SUP-0001",
+    "invoiceNo": "SMP/26-27/1466",
+    "invoiceDate": "2026-11-20",
+    "invoiceAmount": 15284.42,
+    "poRef": "",
+    "locationId": "LOC-02",
+    "receivedAt": "2026-11-21T10:10:00.000Z",
+    "receivedBy": "USR-0001",
+    "remarks": "",
+    "status": "PENDING_APPROVAL",
+    "items": [
+      {
+        "lineId": "GRN-2026-0009-L1",
+        "medicineId": "MED-0004",
+        "batchNo": "AZ1V3518",
+        "mfgDate": "2026-01-01",
+        "expiryDate": "2028-02-29",
+        "invoiceQty": 60,
+        "receivedQty": 60,
+        "freeQty": 0,
+        "ptr": 84.21,
+        "mrp": 119.5,
+        "discountPct": 0,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": null
+      },
+      {
+        "lineId": "GRN-2026-0009-L2",
+        "medicineId": "MED-0004",
+        "batchNo": "AZ9J3466",
+        "mfgDate": "2025-01-01",
+        "expiryDate": "2026-12-15",
+        "invoiceQty": 20,
+        "receivedQty": 20,
+        "freeQty": 0,
+        "ptr": 86.9,
+        "mrp": 119.5,
+        "discountPct": 5,
+        "gstPct": 12,
+        "remarks": "Short-dated batch supplied as replacement",
+        "batchId": null
+      },
+      {
+        "lineId": "GRN-2026-0009-L3",
+        "medicineId": "MED-0008",
+        "batchNo": "AT1J8075",
+        "mfgDate": "2026-05-01",
+        "expiryDate": "2028-03-31",
+        "invoiceQty": 40,
+        "receivedQty": 40,
+        "freeQty": 0,
+        "ptr": 91.35,
+        "mrp": 130,
+        "discountPct": 2,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": null
+      },
+      {
+        "lineId": "GRN-2026-0009-L4",
+        "medicineId": "MED-0011",
+        "batchNo": "OM4Y2860",
+        "mfgDate": "2025-10-01",
+        "expiryDate": "2028-05-31",
+        "invoiceQty": 60,
+        "receivedQty": 60,
+        "freeQty": 0,
+        "ptr": 57.18,
+        "mrp": 82,
+        "discountPct": 2,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": null
+      }
+    ],
+    "attachments": {
+      "invoice": "ATT-0025",
+      "photos": [
+        "ATT-0026",
+        "ATT-0027"
+      ]
+    },
+    "verifiedBy": "USR-0002",
+    "verifiedAt": "2026-11-21T11:10:00.000Z",
+    "approvedBy": null,
+    "approvedAt": null,
+    "postedBy": null,
+    "postedAt": null,
+    "rejectedReason": null,
+    "requiresOwnerApproval": true,
+    "exceptionReasons": [
+      "Delivery contains a batch expiring within 30 days (Azithral 500)"
+    ],
+    "history": [
+      {
+        "status": "DRAFT",
+        "by": "USR-0001",
+        "at": "2026-11-21T10:10:00.000Z",
+        "note": "GRN created at receiving counter"
+      },
+      {
+        "status": "SUBMITTED",
+        "by": "USR-0001",
+        "at": "2026-11-21T10:35:00.000Z",
+        "note": "Submitted for verification"
+      },
+      {
+        "status": "PENDING_APPROVAL",
+        "by": "USR-0002",
+        "at": "2026-11-21T11:10:00.000Z",
+        "note": "Verified. Exceptional case escalated to owner: Delivery contains a batch expiring within 30 days (Azithral 500)"
+      }
+    ],
+    "createdBy": "USR-0001",
+    "createdAt": "2026-11-21T10:10:00.000Z",
+    "updatedAt": "2026-11-21T10:10:00.000Z"
+  },
+  {
+    "id": "GRN-2026-0010",
+    "grnNumber": "GRN-2026-0010",
+    "supplierId": "SUP-0003",
+    "invoiceNo": "LSC/BLR/1102",
+    "invoiceDate": "2026-11-22",
+    "invoiceAmount": 9119.2,
+    "poRef": "",
+    "locationId": "LOC-02",
+    "receivedAt": "2026-11-23T04:00:00.000Z",
+    "receivedBy": "USR-0001",
+    "remarks": "",
+    "status": "DRAFT",
+    "items": [
+      {
+        "lineId": "GRN-2026-0010-L1",
+        "medicineId": "MED-0029",
+        "batchNo": "VE8S6048",
+        "mfgDate": "2026-09-09",
+        "expiryDate": "2030-06-30",
+        "invoiceQty": 100,
+        "receivedQty": 100,
+        "freeQty": 0,
+        "ptr": 59.18,
+        "mrp": 145,
+        "discountPct": 0,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": null
+      },
+      {
+        "lineId": "GRN-2026-0010-L2",
+        "medicineId": "MED-0032",
+        "batchNo": "AB5K4005",
+        "mfgDate": "2026-09-09",
+        "expiryDate": "2030-08-31",
+        "invoiceQty": 20,
+        "receivedQty": 20,
+        "freeQty": 0,
+        "ptr": 117.06,
+        "mrp": 175,
+        "discountPct": 5,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": null
+      }
+    ],
+    "attachments": {
+      "invoice": null,
+      "photos": []
+    },
+    "verifiedBy": null,
+    "verifiedAt": null,
+    "approvedBy": null,
+    "approvedAt": null,
+    "postedBy": null,
+    "postedAt": null,
+    "rejectedReason": null,
+    "requiresOwnerApproval": false,
+    "exceptionReasons": [],
+    "history": [
+      {
+        "status": "DRAFT",
+        "by": "USR-0001",
+        "at": "2026-11-23T04:00:00.000Z",
+        "note": "GRN created at receiving counter"
+      }
+    ],
+    "createdBy": "USR-0001",
+    "createdAt": "2026-11-23T04:00:00.000Z",
+    "updatedAt": "2026-11-23T04:00:00.000Z"
+  },
+  {
+    "id": "GRN-2026-0011",
+    "grnNumber": "GRN-2026-0011",
+    "supplierId": "SUP-0005",
+    "invoiceNo": "KHD/SLM/2340",
+    "invoiceDate": "2026-11-21",
+    "invoiceAmount": 4966.51,
+    "poRef": "",
+    "locationId": "LOC-02",
+    "receivedAt": "2026-11-22T11:50:00.000Z",
+    "receivedBy": "USR-0004",
+    "remarks": "",
+    "status": "VALIDATION_REQUIRED",
+    "items": [
+      {
+        "lineId": "GRN-2026-0011-L1",
+        "medicineId": "MED-0031",
+        "batchNo": "NO4W9887",
+        "mfgDate": "2026-09-08",
+        "expiryDate": "2028-11-30",
+        "invoiceQty": 100,
+        "receivedQty": 100,
+        "freeQty": 0,
+        "ptr": 24.1,
+        "mrp": 35,
+        "discountPct": 5,
+        "gstPct": 5,
+        "remarks": "",
+        "batchId": null
+      },
+      {
+        "lineId": "GRN-2026-0011-L2",
+        "medicineId": "MED-0012",
+        "batchNo": "",
+        "mfgDate": "",
+        "expiryDate": "",
+        "invoiceQty": 40,
+        "receivedQty": 40,
+        "freeQty": 0,
+        "ptr": 60.21,
+        "mrp": 88,
+        "discountPct": 5,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": null
+      }
+    ],
+    "attachments": {
+      "invoice": null,
+      "photos": []
+    },
+    "verifiedBy": null,
+    "verifiedAt": null,
+    "approvedBy": null,
+    "approvedAt": null,
+    "postedBy": null,
+    "postedAt": null,
+    "rejectedReason": null,
+    "requiresOwnerApproval": false,
+    "exceptionReasons": [],
+    "history": [
+      {
+        "status": "DRAFT",
+        "by": "USR-0004",
+        "at": "2026-11-22T11:50:00.000Z",
+        "note": "GRN created at receiving counter"
+      },
+      {
+        "status": "VALIDATION_REQUIRED",
+        "by": "USR-0004",
+        "at": "2026-11-22T12:10:00.000Z",
+        "note": "Submission blocked: missing mandatory details"
+      }
+    ],
+    "createdBy": "USR-0004",
+    "createdAt": "2026-11-22T11:50:00.000Z",
+    "updatedAt": "2026-11-22T11:50:00.000Z"
+  },
+  {
+    "id": "GRN-2026-0012",
+    "grnNumber": "GRN-2026-0012",
+    "supplierId": "SUP-0006",
+    "invoiceNo": "AMD/CHN/7781",
+    "invoiceDate": "2026-10-27",
+    "invoiceAmount": 3316.04,
+    "poRef": "",
+    "locationId": "LOC-02",
+    "receivedAt": "2026-10-28T07:30:00.000Z",
+    "receivedBy": "USR-0001",
+    "remarks": "",
+    "status": "REJECTED",
+    "items": [
+      {
+        "lineId": "GRN-2026-0012-L1",
+        "medicineId": "MED-0024",
+        "batchNo": "CA6N8165",
+        "mfgDate": "2025-03-01",
+        "expiryDate": "2027-06-30",
+        "invoiceQty": 30,
+        "receivedQty": 30,
+        "freeQty": 0,
+        "ptr": 71.41,
+        "mrp": 101,
+        "discountPct": 2,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": null
+      },
+      {
+        "lineId": "GRN-2026-0012-L2",
+        "medicineId": "MED-0023",
+        "batchNo": "BE1V1227",
+        "mfgDate": "2025-07-01",
+        "expiryDate": "2027-08-31",
+        "invoiceQty": 30,
+        "receivedQty": 30,
+        "freeQty": 0,
+        "ptr": 28.71,
+        "mrp": 39.5,
+        "discountPct": 0,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": null
+      }
+    ],
+    "attachments": {
+      "invoice": "ATT-0028",
+      "photos": [
+        "ATT-0029",
+        "ATT-0030"
+      ]
+    },
+    "verifiedBy": "USR-0002",
+    "verifiedAt": null,
+    "approvedBy": null,
+    "approvedAt": null,
+    "postedBy": null,
+    "postedAt": null,
+    "rejectedReason": "Supplier inactive and items received without purchase order. Returned to supplier.",
+    "requiresOwnerApproval": false,
+    "exceptionReasons": [],
+    "history": [
+      {
+        "status": "DRAFT",
+        "by": "USR-0001",
+        "at": "2026-10-28T07:30:00.000Z",
+        "note": "GRN created at receiving counter"
+      },
+      {
+        "status": "SUBMITTED",
+        "by": "USR-0001",
+        "at": "2026-10-28T07:55:00.000Z",
+        "note": "Submitted for verification"
+      },
+      {
+        "status": "REJECTED",
+        "by": "USR-0002",
+        "at": "2026-10-28T09:00:00.000Z",
+        "note": "Supplier inactive and items received without purchase order. Returned to supplier."
+      }
+    ],
+    "createdBy": "USR-0001",
+    "createdAt": "2026-10-28T07:30:00.000Z",
+    "updatedAt": "2026-10-28T07:30:00.000Z"
+  },
+  {
+    "id": "GRN-2026-0013",
+    "grnNumber": "GRN-2026-0013",
+    "supplierId": "SUP-0001",
+    "invoiceNo": "SMP/26-27/1420",
+    "invoiceDate": "2026-11-09",
+    "invoiceAmount": 10689.37,
+    "poRef": "PO-NH-0737",
+    "locationId": "LOC-02",
+    "receivedAt": "2026-11-10T06:30:00.000Z",
+    "receivedBy": "USR-0004",
+    "remarks": "Duplicate entry — invoice already recorded in GRN-2026-0006",
+    "status": "CANCELLED",
+    "items": [
+      {
+        "lineId": "GRN-2026-0013-L1",
+        "medicineId": "MED-0006",
+        "batchNo": "TE2H5426",
+        "mfgDate": "2026-08-01",
+        "expiryDate": "2028-07-31",
+        "invoiceQty": 60,
+        "receivedQty": 60,
+        "freeQty": 0,
+        "ptr": 167.44,
+        "mrp": 239,
+        "discountPct": 5,
+        "gstPct": 12,
+        "remarks": "",
+        "batchId": null
+      }
+    ],
+    "attachments": {
+      "invoice": "ATT-0031",
+      "photos": [
+        "ATT-0032",
+        "ATT-0033"
+      ]
+    },
+    "verifiedBy": null,
+    "verifiedAt": null,
+    "approvedBy": null,
+    "approvedAt": null,
+    "postedBy": null,
+    "postedAt": null,
+    "rejectedReason": null,
+    "requiresOwnerApproval": false,
+    "exceptionReasons": [],
+    "history": [
+      {
+        "status": "DRAFT",
+        "by": "USR-0004",
+        "at": "2026-11-10T06:30:00.000Z",
+        "note": "GRN created at receiving counter"
+      },
+      {
+        "status": "CANCELLED",
+        "by": "USR-0004",
+        "at": "2026-11-10T07:10:00.000Z",
+        "note": "Duplicate entry — invoice already recorded in GRN-2026-0006"
+      }
+    ],
+    "createdBy": "USR-0004",
+    "createdAt": "2026-11-10T06:30:00.000Z",
+    "updatedAt": "2026-11-10T06:30:00.000Z"
+  }
+]

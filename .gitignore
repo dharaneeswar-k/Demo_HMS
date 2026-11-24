@@ -1,0 +1,26 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+
+# Logs and temp
+*.log
+tmp/
+*.tmp
+
+# Node (if tooling is added later)
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+
+# Local Claude Code settings (personal, may hold secrets)
+.claude/settings.local.json
+
+# Secrets
+.env
+.env.*

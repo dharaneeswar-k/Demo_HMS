@@ -1,0 +1,7730 @@
+[
+  {
+    "id": "DC-2026-0001",
+    "businessDate": "2026-08-02",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-02T16:09:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 329,
+      "discounts": 6.58,
+      "sales": 322,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 322,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 322,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 322
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2322,
+    "actualCash": 2322,
+    "cashDifference": 0,
+    "totalExpected": 2322,
+    "totalActual": 2322,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-03T04:09:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0002",
+    "businessDate": "2026-08-03",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-03T15:59:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 136,
+      "discounts": 2.72,
+      "sales": 133,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 133,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 133,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 133
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2133,
+    "actualCash": 2133,
+    "cashDifference": 0,
+    "totalExpected": 2133,
+    "totalActual": 2133,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-04T03:59:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0003",
+    "businessDate": "2026-08-03",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-03T16:15:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 867,
+      "discounts": 0,
+      "sales": 867,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 867,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 867,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 811
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 56
+        }
+      }
+    },
+    "expectedCash": 2732,
+    "actualCash": 2732,
+    "cashDifference": 0,
+    "totalExpected": 2867,
+    "totalActual": 2867,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-04T04:15:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0004",
+    "businessDate": "2026-08-04",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-04T16:01:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 184,
+      "discounts": 0,
+      "sales": 184,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 184,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 184,
+      "bySale": {
+        "PATIENT": {
+          "bills": 0,
+          "sales": 0
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 184
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2184,
+    "totalActual": 2184,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-05T04:01:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0005",
+    "businessDate": "2026-08-05",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-05T16:19:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 259,
+      "discounts": 0,
+      "sales": 259,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 259,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 259,
+      "bySale": {
+        "PATIENT": {
+          "bills": 0,
+          "sales": 0
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 259
+        }
+      }
+    },
+    "expectedCash": 2259,
+    "actualCash": 2259,
+    "cashDifference": 0,
+    "totalExpected": 2259,
+    "totalActual": 2259,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-06T04:19:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0006",
+    "businessDate": "2026-08-05",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-05T15:47:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 205.5,
+      "discounts": 0,
+      "sales": 206,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 206,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 206,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 206
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2206,
+    "totalActual": 2206,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-06T03:47:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0007",
+    "businessDate": "2026-08-06",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-06T16:18:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 290,
+      "discounts": 0,
+      "sales": 290,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 290,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 290,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 290
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2290,
+    "actualCash": 2290,
+    "cashDifference": 0,
+    "totalExpected": 2290,
+    "totalActual": 2290,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-07T04:18:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0008",
+    "businessDate": "2026-08-06",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-06T16:17:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 178,
+      "discounts": 0,
+      "sales": 178,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 178,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 178,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 178
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2178,
+    "actualCash": 2178,
+    "cashDifference": 0,
+    "totalExpected": 2178,
+    "totalActual": 2178,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-07T04:17:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0009",
+    "businessDate": "2026-08-07",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-07T16:01:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 204,
+      "discounts": 0,
+      "sales": 204,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 204,
+      "splitBills": 1,
+      "pending": 0,
+      "collections": 204,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 204
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2080,
+    "actualCash": 2080,
+    "cashDifference": 0,
+    "totalExpected": 2204,
+    "totalActual": 2204,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-08T04:01:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0010",
+    "businessDate": "2026-08-07",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-07T16:09:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 815,
+      "discounts": 0,
+      "sales": 815,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 815,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 815,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 424
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 391
+        }
+      }
+    },
+    "expectedCash": 2815,
+    "actualCash": 2815,
+    "cashDifference": 0,
+    "totalExpected": 2815,
+    "totalActual": 2815,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-08T04:09:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0011",
+    "businessDate": "2026-08-08",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-08T15:59:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 28.4,
+      "discounts": 0,
+      "sales": 28,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 28,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 28,
+      "bySale": {
+        "PATIENT": {
+          "bills": 0,
+          "sales": 0
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 28
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2028,
+    "totalActual": 2028,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-09T03:59:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0012",
+    "businessDate": "2026-08-08",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-08T15:49:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 526.2,
+      "discounts": 0,
+      "sales": 526,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 526,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 526,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 526
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2526,
+    "totalActual": 2526,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-09T03:49:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0013",
+    "businessDate": "2026-08-09",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-09T16:03:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 636.5,
+      "discounts": 0,
+      "sales": 637,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 637,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 637,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 518
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 119
+        }
+      }
+    },
+    "expectedCash": 2518,
+    "actualCash": 2518,
+    "cashDifference": 0,
+    "totalExpected": 2637,
+    "totalActual": 2637,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-10T04:03:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0014",
+    "businessDate": "2026-08-10",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-10T15:43:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 217.5,
+      "discounts": 0,
+      "sales": 218,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 218,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 218,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 218
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2020,
+    "cashDifference": 20,
+    "totalExpected": 2218,
+    "totalActual": 2238,
+    "totalDifference": 20,
+    "remarks": "Excess cash, change not given to a customer.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-11T03:43:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0015",
+    "businessDate": "2026-08-10",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-10T16:13:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 903,
+      "discounts": 0,
+      "sales": 903,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 903,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 903,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 903
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2903,
+    "actualCash": 2903,
+    "cashDifference": 0,
+    "totalExpected": 2903,
+    "totalActual": 2903,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-11T04:13:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0016",
+    "businessDate": "2026-08-11",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-11T16:13:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 130,
+      "discounts": 0,
+      "sales": 130,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 130,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 130,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 130
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2130,
+    "totalActual": 2130,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-12T04:13:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0017",
+    "businessDate": "2026-08-11",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-11T16:25:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 447.6,
+      "discounts": 0,
+      "sales": 448,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 448,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 448,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 448
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2140,
+    "actualCash": 2140,
+    "cashDifference": 0,
+    "totalExpected": 2448,
+    "totalActual": 2448,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-12T04:25:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0018",
+    "businessDate": "2026-08-12",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-12T15:40:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 4,
+      "cancelledBills": 0,
+      "gross": 1248.9,
+      "discounts": 0,
+      "sales": 1249,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1249,
+      "splitBills": 1,
+      "pending": 0,
+      "collections": 1249,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 516
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 733
+        }
+      }
+    },
+    "expectedCash": 3054,
+    "actualCash": 3054,
+    "cashDifference": 0,
+    "totalExpected": 3249,
+    "totalActual": 3249,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-13T03:40:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0019",
+    "businessDate": "2026-08-12",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-12T16:20:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 178,
+      "discounts": 0,
+      "sales": 178,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 178,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 178,
+      "bySale": {
+        "PATIENT": {
+          "bills": 0,
+          "sales": 0
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 178
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2178,
+    "totalActual": 2178,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-13T04:20:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0020",
+    "businessDate": "2026-08-13",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-13T15:44:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 1341.6,
+      "discounts": 8.62,
+      "sales": 1333,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1333,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 637,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 1333
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2215,
+    "actualCash": 2215,
+    "cashDifference": 0,
+    "totalExpected": 2637,
+    "totalActual": 2637,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-14T03:44:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0021",
+    "businessDate": "2026-08-13",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-13T16:18:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 407,
+      "discounts": 0,
+      "sales": 407,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 407,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 407,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 407
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2407,
+    "totalActual": 2407,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-14T04:18:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0022",
+    "businessDate": "2026-08-14",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-14T16:21:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 710.1,
+      "discounts": 0,
+      "sales": 710,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 710,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 710,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 710
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2710,
+    "actualCash": 2710,
+    "cashDifference": 0,
+    "totalExpected": 2710,
+    "totalActual": 2710,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-15T04:21:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0023",
+    "businessDate": "2026-08-14",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-14T16:06:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 353,
+      "discounts": 0,
+      "sales": 353,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 353,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 353,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 353
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2353,
+    "totalActual": 2353,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-15T04:06:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0024",
+    "businessDate": "2026-08-15",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-15T16:17:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 1147.6,
+      "discounts": 0,
+      "sales": 1148,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1148,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1844,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 1148
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 3844,
+    "actualCash": 3844,
+    "cashDifference": 0,
+    "totalExpected": 3844,
+    "totalActual": 3844,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-16T04:17:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0025",
+    "businessDate": "2026-08-15",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-15T15:40:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 993,
+      "discounts": 18.28,
+      "sales": 975,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 975,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 975,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 975
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2079,
+    "actualCash": 2079,
+    "cashDifference": 0,
+    "totalExpected": 2975,
+    "totalActual": 2975,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-16T03:40:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0026",
+    "businessDate": "2026-08-16",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-16T15:45:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 198.5,
+      "discounts": 0,
+      "sales": 199,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 199,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 199,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 178
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 21
+        }
+      }
+    },
+    "expectedCash": 2199,
+    "actualCash": 2199,
+    "cashDifference": 0,
+    "totalExpected": 2199,
+    "totalActual": 2199,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-17T03:45:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0027",
+    "businessDate": "2026-08-16",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-16T15:40:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 1071.6,
+      "discounts": 0,
+      "sales": 1072,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1072,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1072,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 1072
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2344,
+    "actualCash": 2344,
+    "cashDifference": 0,
+    "totalExpected": 3072,
+    "totalActual": 3072,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-17T03:40:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0028",
+    "businessDate": "2026-08-17",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-17T16:00:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 1021.6,
+      "discounts": 0,
+      "sales": 1022,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1022,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1022,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 1022
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 3022,
+    "actualCash": 3022,
+    "cashDifference": 0,
+    "totalExpected": 3022,
+    "totalActual": 3022,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-18T04:00:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0029",
+    "businessDate": "2026-08-18",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-18T15:48:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 622.6,
+      "discounts": 10.08,
+      "sales": 613,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 613,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 613,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 421
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 192
+        }
+      }
+    },
+    "expectedCash": 2421,
+    "actualCash": 2421,
+    "cashDifference": 0,
+    "totalExpected": 2613,
+    "totalActual": 2613,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-19T03:48:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0030",
+    "businessDate": "2026-08-19",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-19T16:15:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 302,
+      "discounts": 0,
+      "sales": 302,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 302,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 302,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 302
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2302,
+    "actualCash": 2302,
+    "cashDifference": 0,
+    "totalExpected": 2302,
+    "totalActual": 2302,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-20T04:15:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0031",
+    "businessDate": "2026-08-19",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-19T16:17:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 1097.5,
+      "discounts": 0,
+      "sales": 1098,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1098,
+      "splitBills": 1,
+      "pending": 0,
+      "collections": 1098,
+      "bySale": {
+        "PATIENT": {
+          "bills": 0,
+          "sales": 0
+        },
+        "WALKIN": {
+          "bills": 3,
+          "sales": 1098
+        }
+      }
+    },
+    "expectedCash": 3012,
+    "actualCash": 3012,
+    "cashDifference": 0,
+    "totalExpected": 3098,
+    "totalActual": 3098,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-20T04:17:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0032",
+    "businessDate": "2026-08-20",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-20T15:47:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 5,
+      "cancelledBills": 0,
+      "gross": 1626.4,
+      "discounts": 0.57,
+      "sales": 1626,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1626,
+      "splitBills": 1,
+      "pending": 0,
+      "collections": 1626,
+      "bySale": {
+        "PATIENT": {
+          "bills": 5,
+          "sales": 1626
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2421,
+    "actualCash": 2421,
+    "cashDifference": 0,
+    "totalExpected": 3626,
+    "totalActual": 3626,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-21T03:47:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0033",
+    "businessDate": "2026-08-20",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-20T16:11:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 214.5,
+      "discounts": 0,
+      "sales": 215,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 215,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 215,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 215
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2215,
+    "totalActual": 2215,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-21T04:11:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0034",
+    "businessDate": "2026-08-21",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-21T15:58:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 1257,
+      "discounts": 8.75,
+      "sales": 1248,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1248,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1248,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 1248
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 3248,
+    "totalActual": 3248,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-22T03:58:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0035",
+    "businessDate": "2026-08-21",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-21T16:08:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 659,
+      "discounts": 0,
+      "sales": 659,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 659,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 659,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 659
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2659,
+    "totalActual": 2659,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-22T04:08:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0036",
+    "businessDate": "2026-08-22",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-22T16:14:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 622,
+      "discounts": 0,
+      "sales": 622,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 622,
+      "splitBills": 1,
+      "pending": 0,
+      "collections": 622,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 622
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2250,
+    "actualCash": 2250,
+    "cashDifference": 0,
+    "totalExpected": 2622,
+    "totalActual": 2622,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-23T04:14:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0037",
+    "businessDate": "2026-08-23",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-23T16:11:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 1063.5,
+      "discounts": 0,
+      "sales": 1064,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1064,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1064,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 1064
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2263,
+    "actualCash": 2263,
+    "cashDifference": 0,
+    "totalExpected": 3064,
+    "totalActual": 3064,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-24T04:11:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0038",
+    "businessDate": "2026-08-23",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-23T16:25:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 835.5,
+      "discounts": 0,
+      "sales": 836,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 836,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 836,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 738
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 98
+        }
+      }
+    },
+    "expectedCash": 2098,
+    "actualCash": 2098,
+    "cashDifference": 0,
+    "totalExpected": 2836,
+    "totalActual": 2836,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-24T04:25:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0039",
+    "businessDate": "2026-08-24",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-24T16:02:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 704,
+      "discounts": 0,
+      "sales": 704,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 704,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 704,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 447
+        },
+        "WALKIN": {
+          "bills": 2,
+          "sales": 257
+        }
+      }
+    },
+    "expectedCash": 2704,
+    "actualCash": 2704,
+    "cashDifference": 0,
+    "totalExpected": 2704,
+    "totalActual": 2704,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-25T04:02:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0040",
+    "businessDate": "2026-08-24",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-24T16:19:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 610.2,
+      "discounts": 0,
+      "sales": 610,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 610,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 610,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 610
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 1950,
+    "cashDifference": -50,
+    "totalExpected": 2610,
+    "totalActual": 2560,
+    "totalDifference": -50,
+    "remarks": "Short in cash drawer — recounted twice.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-25T04:19:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0041",
+    "businessDate": "2026-08-25",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-25T16:11:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 98,
+      "discounts": 0,
+      "sales": 98,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 98,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 98,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 98
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2098,
+    "actualCash": 2098,
+    "cashDifference": 0,
+    "totalExpected": 2098,
+    "totalActual": 2098,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-26T04:11:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0042",
+    "businessDate": "2026-08-26",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-26T16:11:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 541,
+      "discounts": 0,
+      "sales": 541,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 541,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 541,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 541
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2168,
+    "actualCash": 2168,
+    "cashDifference": 0,
+    "totalExpected": 2541,
+    "totalActual": 2541,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-27T04:11:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0043",
+    "businessDate": "2026-08-27",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-27T16:06:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 65.5,
+      "discounts": 0,
+      "sales": 66,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 66,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 66,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 66
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 1990,
+    "cashDifference": -10,
+    "totalExpected": 2066,
+    "totalActual": 2056,
+    "totalDifference": -10,
+    "remarks": "Short in cash drawer — recounted twice.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-28T04:06:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0044",
+    "businessDate": "2026-08-27",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-27T15:40:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 213,
+      "discounts": 0,
+      "sales": 213,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 213,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 213,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 213
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2213,
+    "actualCash": 2213,
+    "cashDifference": 0,
+    "totalExpected": 2213,
+    "totalActual": 2213,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-28T03:40:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0045",
+    "businessDate": "2026-08-28",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-28T15:43:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 4,
+      "cancelledBills": 0,
+      "gross": 634.6,
+      "discounts": 3.86,
+      "sales": 631,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 631,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 631,
+      "bySale": {
+        "PATIENT": {
+          "bills": 4,
+          "sales": 631
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2402,
+    "actualCash": 2402,
+    "cashDifference": 0,
+    "totalExpected": 2631,
+    "totalActual": 2631,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-29T03:43:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0046",
+    "businessDate": "2026-08-28",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-28T15:54:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 118.5,
+      "discounts": 0,
+      "sales": 119,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 119,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 119,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 119
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2119,
+    "actualCash": 2119,
+    "cashDifference": 0,
+    "totalExpected": 2119,
+    "totalActual": 2119,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-29T03:54:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0047",
+    "businessDate": "2026-08-29",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-29T16:07:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 567,
+      "discounts": 0,
+      "sales": 567,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 567,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 567,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 567
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2204,
+    "actualCash": 2204,
+    "cashDifference": 0,
+    "totalExpected": 2567,
+    "totalActual": 2567,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-30T04:07:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0048",
+    "businessDate": "2026-08-29",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-29T15:48:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 239,
+      "discounts": 0,
+      "sales": 239,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 239,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 239,
+      "bySale": {
+        "PATIENT": {
+          "bills": 0,
+          "sales": 0
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 239
+        }
+      }
+    },
+    "expectedCash": 2239,
+    "actualCash": 2239,
+    "cashDifference": 0,
+    "totalExpected": 2239,
+    "totalActual": 2239,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-30T03:48:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0049",
+    "businessDate": "2026-08-30",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-30T16:24:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 4,
+      "cancelledBills": 0,
+      "gross": 822.6,
+      "discounts": 0,
+      "sales": 823,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 823,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 823,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 648
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 175
+        }
+      }
+    },
+    "expectedCash": 2655,
+    "actualCash": 2645,
+    "cashDifference": -10,
+    "totalExpected": 2823,
+    "totalActual": 2813,
+    "totalDifference": -10,
+    "remarks": "Short in cash drawer — recounted twice.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-08-31T04:24:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0050",
+    "businessDate": "2026-08-31",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-08-31T15:47:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 1110.8,
+      "discounts": 0,
+      "sales": 1111,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1111,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1111,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 1111
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2447,
+    "actualCash": 2447,
+    "cashDifference": 0,
+    "totalExpected": 3111,
+    "totalActual": 3111,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-01T03:47:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0051",
+    "businessDate": "2026-08-31",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-08-31T15:49:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 165,
+      "discounts": 0,
+      "sales": 165,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 165,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 165,
+      "bySale": {
+        "PATIENT": {
+          "bills": 0,
+          "sales": 0
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 165
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2165,
+    "totalActual": 2165,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-01T03:49:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0052",
+    "businessDate": "2026-09-01",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-01T15:50:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 145.5,
+      "discounts": 0,
+      "sales": 146,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 146,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 146,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 146
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2146,
+    "totalActual": 2146,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-02T03:50:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0053",
+    "businessDate": "2026-09-01",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-01T16:16:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 505,
+      "discounts": 0,
+      "sales": 505,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 505,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 505,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 505
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2337,
+    "actualCash": 2337,
+    "cashDifference": 0,
+    "totalExpected": 2505,
+    "totalActual": 2505,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-02T04:16:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0054",
+    "businessDate": "2026-09-02",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-02T15:54:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 230,
+      "discounts": 0,
+      "sales": 230,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 230,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 230,
+      "bySale": {
+        "PATIENT": {
+          "bills": 0,
+          "sales": 0
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 230
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2230,
+    "totalActual": 2230,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-03T03:54:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0055",
+    "businessDate": "2026-09-02",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-02T15:59:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 1389,
+      "discounts": 32.52,
+      "sales": 1357,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1357,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1357,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 420
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 937
+        }
+      }
+    },
+    "expectedCash": 3357,
+    "actualCash": 3347,
+    "cashDifference": -10,
+    "totalExpected": 3357,
+    "totalActual": 3347,
+    "totalDifference": -10,
+    "remarks": "Short in cash drawer — recounted twice.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-03T03:59:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0056",
+    "businessDate": "2026-09-03",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-03T15:54:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 1064,
+      "discounts": 0,
+      "sales": 1064,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1064,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1064,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 1064
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2685,
+    "actualCash": 2685,
+    "cashDifference": 0,
+    "totalExpected": 3064,
+    "totalActual": 3064,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-04T03:54:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0057",
+    "businessDate": "2026-09-04",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-04T15:58:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 539,
+      "discounts": 0,
+      "sales": 539,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 539,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 539,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 371
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 168
+        }
+      }
+    },
+    "expectedCash": 2168,
+    "actualCash": 2168,
+    "cashDifference": 0,
+    "totalExpected": 2539,
+    "totalActual": 2539,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-05T03:58:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0058",
+    "businessDate": "2026-09-04",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-04T15:45:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 518,
+      "discounts": 0,
+      "sales": 518,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 518,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 518,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 518
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2518,
+    "actualCash": 2518,
+    "cashDifference": 0,
+    "totalExpected": 2518,
+    "totalActual": 2518,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-05T03:45:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0059",
+    "businessDate": "2026-09-05",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-05T16:12:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 209,
+      "discounts": 0,
+      "sales": 209,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 209,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 209,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 209
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2108,
+    "actualCash": 2108,
+    "cashDifference": 0,
+    "totalExpected": 2209,
+    "totalActual": 2209,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-06T04:12:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0060",
+    "businessDate": "2026-09-06",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-06T15:56:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 79,
+      "discounts": 0,
+      "sales": 79,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 79,
+      "splitBills": 1,
+      "pending": 0,
+      "collections": 79,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 79
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2030,
+    "actualCash": 2030,
+    "cashDifference": 0,
+    "totalExpected": 2079,
+    "totalActual": 2079,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-07T03:56:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0061",
+    "businessDate": "2026-09-06",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-06T16:14:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 474.5,
+      "discounts": 0,
+      "sales": 475,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 475,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 475,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 475
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2475,
+    "totalActual": 2475,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-07T04:14:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0062",
+    "businessDate": "2026-09-07",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-07T15:47:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 1116,
+      "discounts": 0,
+      "sales": 1116,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1116,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1116,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 1116
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 3116,
+    "totalActual": 3116,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-08T03:47:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0063",
+    "businessDate": "2026-09-08",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-08T16:15:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 250.3,
+      "discounts": 0,
+      "sales": 251,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 251,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 251,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 251
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2110,
+    "actualCash": 2110,
+    "cashDifference": 0,
+    "totalExpected": 2251,
+    "totalActual": 2251,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-09T04:15:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0064",
+    "businessDate": "2026-09-08",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-08T16:08:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 315.5,
+      "discounts": 6.31,
+      "sales": 309,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 309,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 309,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 309
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 1990,
+    "cashDifference": -10,
+    "totalExpected": 2309,
+    "totalActual": 2299,
+    "totalDifference": -10,
+    "remarks": "Short in cash drawer — recounted twice.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-09T04:08:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0065",
+    "businessDate": "2026-09-09",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-09T15:51:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 140.5,
+      "discounts": 0,
+      "sales": 141,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 141,
+      "splitBills": 1,
+      "pending": 0,
+      "collections": 141,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 141
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2080,
+    "actualCash": 2080,
+    "cashDifference": 0,
+    "totalExpected": 2141,
+    "totalActual": 2141,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-10T03:51:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0066",
+    "businessDate": "2026-09-09",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-09T16:11:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 577,
+      "discounts": 0,
+      "sales": 577,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 577,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 577,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 577
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2577,
+    "actualCash": 2577,
+    "cashDifference": 0,
+    "totalExpected": 2577,
+    "totalActual": 2577,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-10T04:11:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0067",
+    "businessDate": "2026-09-10",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-10T15:44:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 719,
+      "discounts": 0,
+      "sales": 719,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 719,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 719,
+      "bySale": {
+        "PATIENT": {
+          "bills": 0,
+          "sales": 0
+        },
+        "WALKIN": {
+          "bills": 2,
+          "sales": 719
+        }
+      }
+    },
+    "expectedCash": 2719,
+    "actualCash": 2719,
+    "cashDifference": 0,
+    "totalExpected": 2719,
+    "totalActual": 2719,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-11T03:44:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0068",
+    "businessDate": "2026-09-11",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-11T16:13:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 656,
+      "discounts": 0,
+      "sales": 656,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 656,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 656,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 656
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2656,
+    "totalActual": 2656,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-12T04:13:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0069",
+    "businessDate": "2026-09-11",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-11T15:49:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 386,
+      "discounts": 0,
+      "sales": 386,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 386,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 386,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 386
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2386,
+    "actualCash": 2386,
+    "cashDifference": 0,
+    "totalExpected": 2386,
+    "totalActual": 2386,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-12T03:49:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0070",
+    "businessDate": "2026-09-12",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-12T16:09:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 277,
+      "discounts": 11.72,
+      "sales": 266,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 266,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 266,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 266
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2043,
+    "actualCash": 2043,
+    "cashDifference": 0,
+    "totalExpected": 2266,
+    "totalActual": 2266,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-13T04:09:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0071",
+    "businessDate": "2026-09-13",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-13T16:21:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 5,
+      "cancelledBills": 0,
+      "gross": 1369.8,
+      "discounts": 0,
+      "sales": 1370,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1370,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1370,
+      "bySale": {
+        "PATIENT": {
+          "bills": 5,
+          "sales": 1370
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2668,
+    "actualCash": 2668,
+    "cashDifference": 0,
+    "totalExpected": 3370,
+    "totalActual": 3370,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-14T04:21:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0072",
+    "businessDate": "2026-09-14",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-14T15:55:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 1298,
+      "discounts": 10.67,
+      "sales": 1288,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1288,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1288,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 1288
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 3267,
+    "actualCash": 3267,
+    "cashDifference": 0,
+    "totalExpected": 3288,
+    "totalActual": 3288,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-15T03:55:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0073",
+    "businessDate": "2026-09-15",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-15T15:59:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 1621.6,
+      "discounts": 0,
+      "sales": 1622,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1622,
+      "splitBills": 1,
+      "pending": 0,
+      "collections": 1622,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 1622
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2818,
+    "actualCash": 2818,
+    "cashDifference": 0,
+    "totalExpected": 3622,
+    "totalActual": 3622,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-16T03:59:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0074",
+    "businessDate": "2026-09-16",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-16T16:17:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 602.5,
+      "discounts": 0,
+      "sales": 603,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 603,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 603,
+      "bySale": {
+        "PATIENT": {
+          "bills": 0,
+          "sales": 0
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 603
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2603,
+    "totalActual": 2603,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-17T04:17:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0075",
+    "businessDate": "2026-09-16",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-16T16:24:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 155,
+      "discounts": 0,
+      "sales": 155,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 155,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 155,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 155
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2155,
+    "totalActual": 2155,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-17T04:24:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0076",
+    "businessDate": "2026-09-17",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-17T15:46:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 666.2,
+      "discounts": 0,
+      "sales": 666,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 666,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 666,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 666
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2235,
+    "actualCash": 2235,
+    "cashDifference": 0,
+    "totalExpected": 2666,
+    "totalActual": 2666,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-18T03:46:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0077",
+    "businessDate": "2026-09-17",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-17T15:46:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 178,
+      "discounts": 0,
+      "sales": 178,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 178,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 178,
+      "bySale": {
+        "PATIENT": {
+          "bills": 0,
+          "sales": 0
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 178
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2178,
+    "totalActual": 2178,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-18T03:46:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0078",
+    "businessDate": "2026-09-18",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-18T16:06:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 165,
+      "discounts": 8.25,
+      "sales": 157,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 157,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 157,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 157
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2157,
+    "actualCash": 2157,
+    "cashDifference": 0,
+    "totalExpected": 2157,
+    "totalActual": 2157,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-19T04:06:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0079",
+    "businessDate": "2026-09-19",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-19T15:47:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 763,
+      "discounts": 10.94,
+      "sales": 752,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 752,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 752,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 752
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2752,
+    "totalActual": 2752,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-20T03:47:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0080",
+    "businessDate": "2026-09-20",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-20T16:16:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 335.4,
+      "discounts": 3.36,
+      "sales": 332,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 332,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 332,
+      "bySale": {
+        "PATIENT": {
+          "bills": 0,
+          "sales": 0
+        },
+        "WALKIN": {
+          "bills": 2,
+          "sales": 332
+        }
+      }
+    },
+    "expectedCash": 2167,
+    "actualCash": 2167,
+    "cashDifference": 0,
+    "totalExpected": 2332,
+    "totalActual": 2332,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-21T04:16:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0081",
+    "businessDate": "2026-09-20",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-20T16:10:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 206.5,
+      "discounts": 0,
+      "sales": 207,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 207,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 207,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 207
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2128,
+    "actualCash": 2128,
+    "cashDifference": 0,
+    "totalExpected": 2207,
+    "totalActual": 2207,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-21T04:10:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0082",
+    "businessDate": "2026-09-21",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-21T16:10:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 357.5,
+      "discounts": 0,
+      "sales": 358,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 358,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 358,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 21
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 337
+        }
+      }
+    },
+    "expectedCash": 2021,
+    "actualCash": 2021,
+    "cashDifference": 0,
+    "totalExpected": 2358,
+    "totalActual": 2358,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-22T04:10:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0083",
+    "businessDate": "2026-09-21",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-21T15:43:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 649.5,
+      "discounts": 0,
+      "sales": 650,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 650,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 650,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 650
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2168,
+    "actualCash": 2168,
+    "cashDifference": 0,
+    "totalExpected": 2650,
+    "totalActual": 2650,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-22T03:43:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0084",
+    "businessDate": "2026-09-22",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-22T16:24:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 1365.3,
+      "discounts": 0,
+      "sales": 1366,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1366,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1366,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 1366
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2997,
+    "actualCash": 2877,
+    "cashDifference": -120,
+    "totalExpected": 3366,
+    "totalActual": 3246,
+    "totalDifference": -120,
+    "remarks": "Short in cash drawer — recounted twice.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-23T04:24:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0085",
+    "businessDate": "2026-09-23",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-23T16:02:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 1004.5,
+      "discounts": 0,
+      "sales": 1005,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1005,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1005,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 1005
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 3005,
+    "actualCash": 3005,
+    "cashDifference": 0,
+    "totalExpected": 3005,
+    "totalActual": 3005,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-24T04:02:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0086",
+    "businessDate": "2026-09-23",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-23T16:25:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 108,
+      "discounts": 0,
+      "sales": 108,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 108,
+      "splitBills": 1,
+      "pending": 0,
+      "collections": 108,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 108
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2040,
+    "actualCash": 2040,
+    "cashDifference": 0,
+    "totalExpected": 2108,
+    "totalActual": 2108,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-24T04:25:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0087",
+    "businessDate": "2026-09-24",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-24T15:45:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 191,
+      "discounts": 0,
+      "sales": 191,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 191,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 191,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 191
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2191,
+    "actualCash": 2191,
+    "cashDifference": 0,
+    "totalExpected": 2191,
+    "totalActual": 2191,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-25T03:45:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0088",
+    "businessDate": "2026-09-24",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-24T16:22:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 1193,
+      "discounts": 0,
+      "sales": 1193,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1193,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1193,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 1015
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 178
+        }
+      }
+    },
+    "expectedCash": 2178,
+    "actualCash": 2178,
+    "cashDifference": 0,
+    "totalExpected": 3193,
+    "totalActual": 3193,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-25T04:22:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0089",
+    "businessDate": "2026-09-25",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-25T16:24:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 863,
+      "discounts": 0,
+      "sales": 863,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 863,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 863,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 600
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 263
+        }
+      }
+    },
+    "expectedCash": 2600,
+    "actualCash": 2600,
+    "cashDifference": 0,
+    "totalExpected": 2863,
+    "totalActual": 2863,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-26T04:24:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0090",
+    "businessDate": "2026-09-25",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-25T15:51:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 252,
+      "discounts": 0,
+      "sales": 252,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 252,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 252,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 252
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2252,
+    "actualCash": 2252,
+    "cashDifference": 0,
+    "totalExpected": 2252,
+    "totalActual": 2252,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-26T03:51:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0091",
+    "businessDate": "2026-09-26",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-26T15:44:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 88,
+      "discounts": 0,
+      "sales": 88,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 88,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 88,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 88
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2088,
+    "actualCash": 2088,
+    "cashDifference": 0,
+    "totalExpected": 2088,
+    "totalActual": 2088,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-27T03:44:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0092",
+    "businessDate": "2026-09-26",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-26T16:16:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 76,
+      "discounts": 0,
+      "sales": 76,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 76,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 76,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 76
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2076,
+    "totalActual": 2076,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-27T04:16:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0093",
+    "businessDate": "2026-09-27",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-27T15:42:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 225,
+      "discounts": 0,
+      "sales": 225,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 225,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 225,
+      "bySale": {
+        "PATIENT": {
+          "bills": 0,
+          "sales": 0
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 225
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2225,
+    "totalActual": 2225,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-28T03:42:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0094",
+    "businessDate": "2026-09-28",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-28T16:17:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 140,
+      "discounts": 0,
+      "sales": 140,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 140,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 140,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 140
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2140,
+    "actualCash": 2140,
+    "cashDifference": 0,
+    "totalExpected": 2140,
+    "totalActual": 2140,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-29T04:17:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0095",
+    "businessDate": "2026-09-28",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-28T15:42:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 168,
+      "discounts": 8.4,
+      "sales": 160,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 160,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 160,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 160
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2160,
+    "actualCash": 2160,
+    "cashDifference": 0,
+    "totalExpected": 2160,
+    "totalActual": 2160,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-29T03:42:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0096",
+    "businessDate": "2026-09-29",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-29T15:44:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 872,
+      "discounts": 0,
+      "sales": 872,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 872,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 872,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 872
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2204,
+    "actualCash": 2204,
+    "cashDifference": 0,
+    "totalExpected": 2872,
+    "totalActual": 2872,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-30T03:44:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0097",
+    "businessDate": "2026-09-29",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-09-29T16:06:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 603,
+      "discounts": 0,
+      "sales": 603,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 603,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 603,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 603
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2603,
+    "actualCash": 2603,
+    "cashDifference": 0,
+    "totalExpected": 2603,
+    "totalActual": 2603,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-09-30T04:06:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0098",
+    "businessDate": "2026-09-30",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-09-30T15:55:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 245,
+      "discounts": 0,
+      "sales": 245,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 245,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 245,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 245
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2245,
+    "totalActual": 2245,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-01T03:55:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0099",
+    "businessDate": "2026-10-01",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-01T16:15:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 1419,
+      "discounts": 0,
+      "sales": 1419,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1419,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1419,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 1419
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 3419,
+    "actualCash": 3409,
+    "cashDifference": -10,
+    "totalExpected": 3419,
+    "totalActual": 3409,
+    "totalDifference": -10,
+    "remarks": "Short in cash drawer — recounted twice.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-02T04:15:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0100",
+    "businessDate": "2026-10-02",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-02T16:00:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 803,
+      "discounts": 0,
+      "sales": 803,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 803,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 803,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 803
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2256,
+    "actualCash": 2256,
+    "cashDifference": 0,
+    "totalExpected": 2803,
+    "totalActual": 2803,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-03T04:00:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0101",
+    "businessDate": "2026-10-02",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-02T15:49:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 106,
+      "discounts": 0,
+      "sales": 106,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 106,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 106,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 106
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2106,
+    "actualCash": 1986,
+    "cashDifference": -120,
+    "totalExpected": 2106,
+    "totalActual": 1986,
+    "totalDifference": -120,
+    "remarks": "Short in cash drawer — recounted twice.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-03T03:49:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0102",
+    "businessDate": "2026-10-03",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-03T16:11:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 367.6,
+      "discounts": 0,
+      "sales": 368,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 368,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 368,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 368
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2368,
+    "actualCash": 2368,
+    "cashDifference": 0,
+    "totalExpected": 2368,
+    "totalActual": 2368,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-04T04:11:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0103",
+    "businessDate": "2026-10-03",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-03T15:52:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 79,
+      "discounts": 3.95,
+      "sales": 75,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 75,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 75,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 75
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2075,
+    "totalActual": 2075,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-04T03:52:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0104",
+    "businessDate": "2026-10-04",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-04T15:51:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 615.6,
+      "discounts": 0,
+      "sales": 616,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 616,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 616,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 518
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 98
+        }
+      }
+    },
+    "expectedCash": 2176,
+    "actualCash": 2176,
+    "cashDifference": 0,
+    "totalExpected": 2616,
+    "totalActual": 2616,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-05T03:51:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0105",
+    "businessDate": "2026-10-04",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-04T16:00:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 710,
+      "discounts": 0,
+      "sales": 710,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 710,
+      "splitBills": 1,
+      "pending": 0,
+      "collections": 710,
+      "bySale": {
+        "PATIENT": {
+          "bills": 0,
+          "sales": 0
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 710
+        }
+      }
+    },
+    "expectedCash": 2280,
+    "actualCash": 2280,
+    "cashDifference": 0,
+    "totalExpected": 2710,
+    "totalActual": 2710,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-05T04:00:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0106",
+    "businessDate": "2026-10-05",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-05T16:22:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 4,
+      "cancelledBills": 0,
+      "gross": 1360.5,
+      "discounts": 0,
+      "sales": 1361,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1361,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1361,
+      "bySale": {
+        "PATIENT": {
+          "bills": 4,
+          "sales": 1361
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 3263,
+    "actualCash": 3263,
+    "cashDifference": 0,
+    "totalExpected": 3361,
+    "totalActual": 3361,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-06T04:22:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0107",
+    "businessDate": "2026-10-06",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-06T16:11:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 411.6,
+      "discounts": 4.93,
+      "sales": 407,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 407,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 407,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 407
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2407,
+    "totalActual": 2407,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-07T04:11:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0108",
+    "businessDate": "2026-10-07",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-07T16:04:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 1425,
+      "discounts": 38.85,
+      "sales": 1386,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1386,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1386,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 648
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 738
+        }
+      }
+    },
+    "expectedCash": 2648,
+    "actualCash": 2648,
+    "cashDifference": 0,
+    "totalExpected": 3386,
+    "totalActual": 3386,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-08T04:04:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0109",
+    "businessDate": "2026-10-08",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-08T15:55:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 290.5,
+      "discounts": 3.69,
+      "sales": 287,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 287,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 287,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 287
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2106,
+    "actualCash": 2106,
+    "cashDifference": 0,
+    "totalExpected": 2287,
+    "totalActual": 2287,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-09T03:55:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0110",
+    "businessDate": "2026-10-09",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-09T16:18:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 227,
+      "discounts": 0,
+      "sales": 227,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 227,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 227,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 227
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2227,
+    "actualCash": 2227,
+    "cashDifference": 0,
+    "totalExpected": 2227,
+    "totalActual": 2227,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-10T04:18:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0111",
+    "businessDate": "2026-10-10",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-10T15:59:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 303.5,
+      "discounts": 0,
+      "sales": 304,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 304,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 304,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 304
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2304,
+    "actualCash": 2304,
+    "cashDifference": 0,
+    "totalExpected": 2304,
+    "totalActual": 2304,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-11T03:59:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0112",
+    "businessDate": "2026-10-10",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-10T16:17:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 1120,
+      "discounts": 0,
+      "sales": 1121,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1121,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1121,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 1121
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2833,
+    "actualCash": 2833,
+    "cashDifference": 0,
+    "totalExpected": 3121,
+    "totalActual": 3121,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-11T04:17:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0113",
+    "businessDate": "2026-10-11",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-11T16:20:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 1019.5,
+      "discounts": 0,
+      "sales": 1020,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1020,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1020,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 1020
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2175,
+    "actualCash": 2175,
+    "cashDifference": 0,
+    "totalExpected": 3020,
+    "totalActual": 3020,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-12T04:20:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0114",
+    "businessDate": "2026-10-11",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-11T16:01:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 950.5,
+      "discounts": 0,
+      "sales": 951,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 951,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 951,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 114
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 837
+        }
+      }
+    },
+    "expectedCash": 2114,
+    "actualCash": 2114,
+    "cashDifference": 0,
+    "totalExpected": 2951,
+    "totalActual": 2951,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-12T04:01:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0115",
+    "businessDate": "2026-10-12",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-12T16:22:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 679.6,
+      "discounts": 9.56,
+      "sales": 670,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 670,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 670,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 468
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 202
+        }
+      }
+    },
+    "expectedCash": 2202,
+    "actualCash": 2202,
+    "cashDifference": 0,
+    "totalExpected": 2670,
+    "totalActual": 2670,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-13T04:22:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0116",
+    "businessDate": "2026-10-12",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-12T15:58:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 283,
+      "discounts": 0,
+      "sales": 283,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 283,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 283,
+      "bySale": {
+        "PATIENT": {
+          "bills": 0,
+          "sales": 0
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 283
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2283,
+    "totalActual": 2283,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-13T03:58:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0117",
+    "businessDate": "2026-10-13",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-13T15:45:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 229,
+      "discounts": 0,
+      "sales": 229,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 229,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 229,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 229
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2229,
+    "totalActual": 2229,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-14T03:45:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0118",
+    "businessDate": "2026-10-13",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-13T16:24:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 400.2,
+      "discounts": 8,
+      "sales": 392,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 392,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 392,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 392
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2392,
+    "totalActual": 2392,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-14T04:24:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0119",
+    "businessDate": "2026-10-14",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-14T15:57:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 717,
+      "discounts": 0,
+      "sales": 717,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 717,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 717,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 717
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2717,
+    "totalActual": 2717,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-15T03:57:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0120",
+    "businessDate": "2026-10-14",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-14T16:20:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 292.5,
+      "discounts": 0,
+      "sales": 293,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 293,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 293,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 293
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2293,
+    "totalActual": 2293,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-15T04:20:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0121",
+    "businessDate": "2026-10-15",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-15T16:17:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 560,
+      "discounts": 0,
+      "sales": 560,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 560,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 560,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 560
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2560,
+    "actualCash": 2510,
+    "cashDifference": -50,
+    "totalExpected": 2560,
+    "totalActual": 2510,
+    "totalDifference": -50,
+    "remarks": "Short in cash drawer — recounted twice.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-16T04:17:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0122",
+    "businessDate": "2026-10-16",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-16T16:03:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 5,
+      "cancelledBills": 0,
+      "gross": 1880,
+      "discounts": 0,
+      "sales": 1880,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1880,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1880,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 1395
+        },
+        "WALKIN": {
+          "bills": 2,
+          "sales": 485
+        }
+      }
+    },
+    "expectedCash": 3505,
+    "actualCash": 3505,
+    "cashDifference": 0,
+    "totalExpected": 3880,
+    "totalActual": 3880,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-17T04:03:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0123",
+    "businessDate": "2026-10-16",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-16T16:05:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 592,
+      "discounts": 0,
+      "sales": 592,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 592,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 592,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 592
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2592,
+    "totalActual": 2592,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-17T04:05:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0124",
+    "businessDate": "2026-10-17",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-17T15:46:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 543,
+      "discounts": 6.78,
+      "sales": 536,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 536,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 536,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 536
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2332,
+    "actualCash": 2332,
+    "cashDifference": 0,
+    "totalExpected": 2536,
+    "totalActual": 2536,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-18T03:46:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0125",
+    "businessDate": "2026-10-17",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-17T16:02:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 260,
+      "discounts": 0,
+      "sales": 260,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 260,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 260,
+      "bySale": {
+        "PATIENT": {
+          "bills": 0,
+          "sales": 0
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 260
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 1800,
+    "cashDifference": -200,
+    "totalExpected": 2260,
+    "totalActual": 2060,
+    "totalDifference": -200,
+    "remarks": "Short in cash drawer — recounted twice.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-18T04:02:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0126",
+    "businessDate": "2026-10-18",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-18T15:42:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 1061.5,
+      "discounts": 0,
+      "sales": 1062,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1062,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1062,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 1062
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2128,
+    "actualCash": 2148,
+    "cashDifference": 20,
+    "totalExpected": 3062,
+    "totalActual": 3082,
+    "totalDifference": 20,
+    "remarks": "Excess cash, change not given to a customer.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-19T03:42:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0127",
+    "businessDate": "2026-10-18",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-18T16:23:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 239,
+      "discounts": 0,
+      "sales": 239,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 239,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 239,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 239
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2239,
+    "totalActual": 2239,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-19T04:23:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0128",
+    "businessDate": "2026-10-19",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-19T15:59:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 895.5,
+      "discounts": 0,
+      "sales": 896,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 896,
+      "splitBills": 1,
+      "pending": 0,
+      "collections": 896,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 896
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2740,
+    "actualCash": 2740,
+    "cashDifference": 0,
+    "totalExpected": 2896,
+    "totalActual": 2896,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-20T03:59:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0129",
+    "businessDate": "2026-10-20",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-20T16:22:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 4,
+      "cancelledBills": 0,
+      "gross": 455.5,
+      "discounts": 2.24,
+      "sales": 454,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 454,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 454,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 189
+        },
+        "WALKIN": {
+          "bills": 2,
+          "sales": 265
+        }
+      }
+    },
+    "expectedCash": 2454,
+    "actualCash": 2454,
+    "cashDifference": 0,
+    "totalExpected": 2454,
+    "totalActual": 2454,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-21T04:22:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0130",
+    "businessDate": "2026-10-21",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-21T16:08:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 889,
+      "discounts": 0,
+      "sales": 889,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 889,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 889,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 632
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 257
+        }
+      }
+    },
+    "expectedCash": 2889,
+    "actualCash": 2689,
+    "cashDifference": -200,
+    "totalExpected": 2889,
+    "totalActual": 2689,
+    "totalDifference": -200,
+    "remarks": "Short in cash drawer — recounted twice.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-22T04:08:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0131",
+    "businessDate": "2026-10-22",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-22T16:23:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 4,
+      "cancelledBills": 0,
+      "gross": 1245.5,
+      "discounts": 0,
+      "sales": 1246,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1246,
+      "splitBills": 1,
+      "pending": 0,
+      "collections": 1246,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 278
+        },
+        "WALKIN": {
+          "bills": 2,
+          "sales": 968
+        }
+      }
+    },
+    "expectedCash": 2090,
+    "actualCash": 2090,
+    "cashDifference": 0,
+    "totalExpected": 3246,
+    "totalActual": 3246,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-23T04:23:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0132",
+    "businessDate": "2026-10-23",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-23T16:25:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 4,
+      "cancelledBills": 0,
+      "gross": 1680.7,
+      "discounts": 4.55,
+      "sales": 1676,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1676,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1676,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 649
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 1027
+        }
+      }
+    },
+    "expectedCash": 3155,
+    "actualCash": 3155,
+    "cashDifference": 0,
+    "totalExpected": 3676,
+    "totalActual": 3676,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-24T04:25:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0133",
+    "businessDate": "2026-10-24",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-24T16:13:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 5,
+      "cancelledBills": 0,
+      "gross": 1189,
+      "discounts": 0,
+      "sales": 1189,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1189,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1189,
+      "bySale": {
+        "PATIENT": {
+          "bills": 4,
+          "sales": 465
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 724
+        }
+      }
+    },
+    "expectedCash": 3061,
+    "actualCash": 3061,
+    "cashDifference": 0,
+    "totalExpected": 3189,
+    "totalActual": 3189,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-25T04:13:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0134",
+    "businessDate": "2026-10-24",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-24T15:42:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 175,
+      "discounts": 0,
+      "sales": 175,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 175,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 175,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 175
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2175,
+    "totalActual": 2175,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-25T03:42:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0135",
+    "businessDate": "2026-10-25",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-25T16:05:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 4,
+      "cancelledBills": 0,
+      "gross": 1573,
+      "discounts": 0,
+      "sales": 1574,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1574,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1574,
+      "bySale": {
+        "PATIENT": {
+          "bills": 4,
+          "sales": 1574
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2137,
+    "actualCash": 2137,
+    "cashDifference": 0,
+    "totalExpected": 3574,
+    "totalActual": 3574,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-26T04:05:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0136",
+    "businessDate": "2026-10-25",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-25T16:23:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 478,
+      "discounts": 0,
+      "sales": 478,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 478,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 478,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 478
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2478,
+    "actualCash": 2478,
+    "cashDifference": 0,
+    "totalExpected": 2478,
+    "totalActual": 2478,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-26T04:23:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0137",
+    "businessDate": "2026-10-26",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-26T16:18:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 344,
+      "discounts": 0,
+      "sales": 344,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 344,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 344,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 344
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2344,
+    "totalActual": 2344,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-27T04:18:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0138",
+    "businessDate": "2026-10-26",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-26T16:12:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 191.6,
+      "discounts": 3.83,
+      "sales": 188,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 188,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 188,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 188
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2188,
+    "totalActual": 2188,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-27T04:12:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0139",
+    "businessDate": "2026-10-27",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-27T16:15:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 688.1,
+      "discounts": 0,
+      "sales": 688,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 688,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 688,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 334
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 354
+        }
+      }
+    },
+    "expectedCash": 2354,
+    "actualCash": 2354,
+    "cashDifference": 0,
+    "totalExpected": 2688,
+    "totalActual": 2688,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-28T04:15:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0140",
+    "businessDate": "2026-10-28",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-28T16:10:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 164,
+      "discounts": 0,
+      "sales": 164,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 164,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 164,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 164
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2164,
+    "totalActual": 2164,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-29T04:10:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0141",
+    "businessDate": "2026-10-28",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-28T15:43:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 364.5,
+      "discounts": 7,
+      "sales": 358,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 358,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 358,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 358
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2358,
+    "totalActual": 2358,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-29T03:43:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0142",
+    "businessDate": "2026-10-29",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-29T15:54:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 637,
+      "discounts": 26.95,
+      "sales": 610,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 610,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 610,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 512
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 98
+        }
+      }
+    },
+    "expectedCash": 2512,
+    "actualCash": 2512,
+    "cashDifference": 0,
+    "totalExpected": 2610,
+    "totalActual": 2610,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-30T03:54:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0143",
+    "businessDate": "2026-10-29",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-29T16:08:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 140,
+      "discounts": 0,
+      "sales": 140,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 140,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 140,
+      "bySale": {
+        "PATIENT": {
+          "bills": 0,
+          "sales": 0
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 140
+        }
+      }
+    },
+    "expectedCash": 2140,
+    "actualCash": 2140,
+    "cashDifference": 0,
+    "totalExpected": 2140,
+    "totalActual": 2140,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-30T04:08:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0144",
+    "businessDate": "2026-10-30",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-30T16:14:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 178,
+      "discounts": 0,
+      "sales": 178,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 178,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 178,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 178
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2178,
+    "totalActual": 2178,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-31T04:14:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0145",
+    "businessDate": "2026-10-30",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-30T16:15:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 578.5,
+      "discounts": 0,
+      "sales": 579,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 579,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 579,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 579
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2539,
+    "actualCash": 2539,
+    "cashDifference": 0,
+    "totalExpected": 2579,
+    "totalActual": 2579,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-10-31T04:15:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0146",
+    "businessDate": "2026-10-31",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-10-31T15:51:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 5,
+      "cancelledBills": 0,
+      "gross": 1648.9,
+      "discounts": 12.7,
+      "sales": 1637,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1637,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1637,
+      "bySale": {
+        "PATIENT": {
+          "bills": 5,
+          "sales": 1637
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 3177,
+    "actualCash": 3177,
+    "cashDifference": 0,
+    "totalExpected": 3637,
+    "totalActual": 3637,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-01T03:51:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0147",
+    "businessDate": "2026-10-31",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-10-31T16:04:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 168,
+      "discounts": 0,
+      "sales": 168,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 168,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 168,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 168
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2168,
+    "actualCash": 2168,
+    "cashDifference": 0,
+    "totalExpected": 2168,
+    "totalActual": 2168,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-01T04:04:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0148",
+    "businessDate": "2026-11-01",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-01T16:05:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 325,
+      "discounts": 0,
+      "sales": 325,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 325,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 325,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 325
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2325,
+    "actualCash": 2325,
+    "cashDifference": 0,
+    "totalExpected": 2325,
+    "totalActual": 2325,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-02T04:05:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0149",
+    "businessDate": "2026-11-01",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-11-01T16:14:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 1172,
+      "discounts": 0,
+      "sales": 1172,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1172,
+      "splitBills": 1,
+      "pending": 0,
+      "collections": 1172,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 303
+        },
+        "WALKIN": {
+          "bills": 2,
+          "sales": 869
+        }
+      }
+    },
+    "expectedCash": 2837,
+    "actualCash": 2837,
+    "cashDifference": 0,
+    "totalExpected": 3172,
+    "totalActual": 3172,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-02T04:14:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0150",
+    "businessDate": "2026-11-02",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-02T15:40:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 5,
+      "cancelledBills": 0,
+      "gross": 1578,
+      "discounts": 2.3,
+      "sales": 1577,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1577,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1577,
+      "bySale": {
+        "PATIENT": {
+          "bills": 5,
+          "sales": 1577
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 3117,
+    "actualCash": 3117,
+    "cashDifference": 0,
+    "totalExpected": 3577,
+    "totalActual": 3577,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-03T03:40:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0151",
+    "businessDate": "2026-11-02",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-11-02T15:40:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 686.6,
+      "discounts": 0,
+      "sales": 687,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 687,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 687,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 687
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2687,
+    "actualCash": 2687,
+    "cashDifference": 0,
+    "totalExpected": 2687,
+    "totalActual": 2687,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-03T03:40:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0152",
+    "businessDate": "2026-11-03",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-03T16:04:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 485.9,
+      "discounts": 0,
+      "sales": 486,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 486,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 486,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 337
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 149
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2486,
+    "totalActual": 2486,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-04T04:04:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0153",
+    "businessDate": "2026-11-03",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-11-03T15:44:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 178,
+      "discounts": 0,
+      "sales": 178,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 178,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 178,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 178
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2178,
+    "totalActual": 2178,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-04T03:44:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0154",
+    "businessDate": "2026-11-04",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-04T15:40:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 186.5,
+      "discounts": 3.73,
+      "sales": 183,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 183,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 183,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 183
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2183,
+    "actualCash": 2183,
+    "cashDifference": 0,
+    "totalExpected": 2183,
+    "totalActual": 2183,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-05T03:40:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0155",
+    "businessDate": "2026-11-04",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-11-04T16:25:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 386.6,
+      "discounts": 0,
+      "sales": 387,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 387,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 387,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 211
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 176
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2387,
+    "totalActual": 2387,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-05T04:25:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0156",
+    "businessDate": "2026-11-05",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-11-05T16:20:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 515,
+      "discounts": 3.36,
+      "sales": 512,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 512,
+      "splitBills": 2,
+      "pending": 0,
+      "collections": 512,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 512
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2210,
+    "actualCash": 2210,
+    "cashDifference": 0,
+    "totalExpected": 2512,
+    "totalActual": 2512,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-06T04:20:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0157",
+    "businessDate": "2026-11-06",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-06T15:47:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 5,
+      "cancelledBills": 0,
+      "gross": 1004,
+      "discounts": 0,
+      "sales": 1004,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1004,
+      "splitBills": 2,
+      "pending": 0,
+      "collections": 1004,
+      "bySale": {
+        "PATIENT": {
+          "bills": 5,
+          "sales": 1004
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2568,
+    "actualCash": 2558,
+    "cashDifference": -10,
+    "totalExpected": 3004,
+    "totalActual": 2994,
+    "totalDifference": -10,
+    "remarks": "Short in cash drawer — recounted twice.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-07T03:47:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0158",
+    "businessDate": "2026-11-07",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-07T15:58:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 153.6,
+      "discounts": 0,
+      "sales": 154,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 154,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 154,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 154
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2154,
+    "totalActual": 2154,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-08T03:58:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0159",
+    "businessDate": "2026-11-07",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-11-07T16:02:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 77.3,
+      "discounts": 0,
+      "sales": 77,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 77,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 77,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 77
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 1950,
+    "cashDifference": -50,
+    "totalExpected": 2077,
+    "totalActual": 2027,
+    "totalDifference": -50,
+    "remarks": "Short in cash drawer — recounted twice.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-08T04:02:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0160",
+    "businessDate": "2026-11-08",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-08T16:18:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 654,
+      "discounts": 0,
+      "sales": 654,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 654,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 654,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 654
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2654,
+    "totalActual": 2654,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-09T04:18:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0161",
+    "businessDate": "2026-11-08",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-11-08T15:57:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 97.5,
+      "discounts": 1.16,
+      "sales": 97,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 97,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 97,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 97
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2057,
+    "actualCash": 2057,
+    "cashDifference": 0,
+    "totalExpected": 2097,
+    "totalActual": 2097,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-09T03:57:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0162",
+    "businessDate": "2026-11-09",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-09T16:03:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 4,
+      "cancelledBills": 0,
+      "gross": 971.3,
+      "discounts": 0,
+      "sales": 972,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 972,
+      "splitBills": 1,
+      "pending": 0,
+      "collections": 972,
+      "bySale": {
+        "PATIENT": {
+          "bills": 4,
+          "sales": 972
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2624,
+    "actualCash": 2624,
+    "cashDifference": 0,
+    "totalExpected": 2972,
+    "totalActual": 2972,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-10T04:03:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0163",
+    "businessDate": "2026-11-10",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-10T15:55:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 239,
+      "discounts": 0,
+      "sales": 239,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 239,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 239,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 239
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2239,
+    "actualCash": 2239,
+    "cashDifference": 0,
+    "totalExpected": 2239,
+    "totalActual": 2239,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-11T03:55:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0164",
+    "businessDate": "2026-11-10",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-11-10T16:17:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 379.1,
+      "discounts": 0,
+      "sales": 380,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 380,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 380,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 102
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 278
+        }
+      }
+    },
+    "expectedCash": 2102,
+    "actualCash": 2102,
+    "cashDifference": 0,
+    "totalExpected": 2380,
+    "totalActual": 2380,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-11T04:17:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0165",
+    "businessDate": "2026-11-11",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-11T15:45:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 1361,
+      "discounts": 0,
+      "sales": 1361,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1361,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1361,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 1077
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 284
+        }
+      }
+    },
+    "expectedCash": 3361,
+    "actualCash": 3361,
+    "cashDifference": 0,
+    "totalExpected": 3361,
+    "totalActual": 3361,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-12T03:45:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0166",
+    "businessDate": "2026-11-12",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-12T15:45:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 4,
+      "cancelledBills": 0,
+      "gross": 835.5,
+      "discounts": 0,
+      "sales": 836,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 836,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 836,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 564
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 272
+        }
+      }
+    },
+    "expectedCash": 2259,
+    "actualCash": 2259,
+    "cashDifference": 0,
+    "totalExpected": 2836,
+    "totalActual": 2836,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-13T03:45:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0167",
+    "businessDate": "2026-11-12",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-11-12T16:23:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 723,
+      "discounts": 8.2,
+      "sales": 715,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 715,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 715,
+      "bySale": {
+        "PATIENT": {
+          "bills": 2,
+          "sales": 715
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2156,
+    "actualCash": 2156,
+    "cashDifference": 0,
+    "totalExpected": 2715,
+    "totalActual": 2715,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-13T04:23:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0168",
+    "businessDate": "2026-11-13",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-13T16:06:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 965.6,
+      "discounts": 0,
+      "sales": 966,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 966,
+      "splitBills": 1,
+      "pending": 0,
+      "collections": 966,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 966
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2267,
+    "actualCash": 2267,
+    "cashDifference": 0,
+    "totalExpected": 2966,
+    "totalActual": 2966,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-14T04:06:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0169",
+    "businessDate": "2026-11-13",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-11-13T16:03:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 445.1,
+      "discounts": 0,
+      "sales": 445,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 445,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 445,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 241
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 204
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2445,
+    "totalActual": 2445,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-14T04:03:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0170",
+    "businessDate": "2026-11-14",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-14T16:20:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 1463.5,
+      "discounts": 0,
+      "sales": 1464,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1464,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1464,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 1464
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 3336,
+    "actualCash": 3336,
+    "cashDifference": 0,
+    "totalExpected": 3464,
+    "totalActual": 3464,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-15T04:20:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0171",
+    "businessDate": "2026-11-14",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-11-14T16:00:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 112,
+      "discounts": 0,
+      "sales": 112,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 112,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 112,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 112
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2112,
+    "actualCash": 2112,
+    "cashDifference": 0,
+    "totalExpected": 2112,
+    "totalActual": 2112,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-15T04:00:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0172",
+    "businessDate": "2026-11-15",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-15T15:47:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 1024,
+      "discounts": 0,
+      "sales": 1024,
+      "returns": 0,
+      "refunds": 98,
+      "netSales": 1024,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1024,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 1024
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2926,
+    "actualCash": 2876,
+    "cashDifference": -50,
+    "totalExpected": 2926,
+    "totalActual": 2876,
+    "totalDifference": -50,
+    "remarks": "Short in cash drawer — recounted twice.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-16T03:47:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0173",
+    "businessDate": "2026-11-15",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-11-15T15:56:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 447,
+      "discounts": 0,
+      "sales": 447,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 447,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 447,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 447
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2447,
+    "totalActual": 2447,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-16T03:56:00.000Z",
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0174",
+    "businessDate": "2026-11-16",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-16T15:52:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 59.4,
+      "discounts": 0,
+      "sales": 59,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 59,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 59,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 59
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2059,
+    "actualCash": 2059,
+    "cashDifference": 0,
+    "totalExpected": 2059,
+    "totalActual": 2059,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "SUBMITTED",
+    "verifiedBy": null,
+    "verifiedAt": null,
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0175",
+    "businessDate": "2026-11-17",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-17T15:57:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 544,
+      "discounts": 0,
+      "sales": 544,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 544,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 544,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 544
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2116,
+    "actualCash": 2116,
+    "cashDifference": 0,
+    "totalExpected": 2544,
+    "totalActual": 2544,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "SUBMITTED",
+    "verifiedBy": null,
+    "verifiedAt": null,
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0176",
+    "businessDate": "2026-11-17",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-11-17T16:11:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 518,
+      "discounts": 0,
+      "sales": 518,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 518,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 518,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 518
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2518,
+    "actualCash": 2518,
+    "cashDifference": 0,
+    "totalExpected": 2518,
+    "totalActual": 2518,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "SUBMITTED",
+    "verifiedBy": null,
+    "verifiedAt": null,
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0177",
+    "businessDate": "2026-11-18",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-18T15:45:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 1831.6,
+      "discounts": 161.52,
+      "sales": 1670,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1670,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1670,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 1670
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 3670,
+    "totalActual": 3670,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "SUBMITTED",
+    "verifiedBy": null,
+    "verifiedAt": null,
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0178",
+    "businessDate": "2026-11-18",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-11-18T15:59:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 590,
+      "discounts": 0,
+      "sales": 590,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 590,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 590,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 590
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2590,
+    "totalActual": 2590,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "SUBMITTED",
+    "verifiedBy": null,
+    "verifiedAt": null,
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0179",
+    "businessDate": "2026-11-19",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-19T15:41:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 779,
+      "discounts": 6.4,
+      "sales": 773,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 773,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 773,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 773
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2459,
+    "actualCash": 2459,
+    "cashDifference": 0,
+    "totalExpected": 2773,
+    "totalActual": 2773,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "SUBMITTED",
+    "verifiedBy": null,
+    "verifiedAt": null,
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0180",
+    "businessDate": "2026-11-19",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-11-19T16:18:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 204,
+      "discounts": 0,
+      "sales": 204,
+      "returns": 0,
+      "refunds": 31,
+      "netSales": 204,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 204,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 204
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2173,
+    "totalActual": 2173,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "SUBMITTED",
+    "verifiedBy": null,
+    "verifiedAt": null,
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0181",
+    "businessDate": "2026-11-20",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-20T16:10:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 3,
+      "cancelledBills": 0,
+      "gross": 1080.5,
+      "discounts": 44.25,
+      "sales": 1037,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 1037,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 1037,
+      "bySale": {
+        "PATIENT": {
+          "bills": 3,
+          "sales": 1037
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 3037,
+    "totalActual": 3037,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "SUBMITTED",
+    "verifiedBy": null,
+    "verifiedAt": null,
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0182",
+    "businessDate": "2026-11-21",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-21T16:24:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 1,
+      "cancelledBills": 0,
+      "gross": 464,
+      "discounts": 0,
+      "sales": 464,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 464,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 464,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 464
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2464,
+    "actualCash": 2464,
+    "cashDifference": 0,
+    "totalExpected": 2464,
+    "totalActual": 2464,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "SUBMITTED",
+    "verifiedBy": null,
+    "verifiedAt": null,
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0183",
+    "businessDate": "2026-11-21",
+    "cashierId": "USR-0004",
+    "submittedBy": "USR-0004",
+    "submittedAt": "2026-11-21T15:45:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 1,
+      "gross": 208,
+      "discounts": 0,
+      "sales": 208,
+      "returns": 0,
+      "refunds": 735,
+      "netSales": 208,
+      "splitBills": 0,
+      "pending": 0,
+      "collections": 943,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 208
+        },
+        "WALKIN": {
+          "bills": 0,
+          "sales": 0
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2208,
+    "totalActual": 2208,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "SUBMITTED",
+    "verifiedBy": null,
+    "verifiedAt": null,
+    "corrections": []
+  },
+  {
+    "id": "DC-2026-0184",
+    "businessDate": "2026-11-22",
+    "cashierId": "USR-0001",
+    "submittedBy": "USR-0001",
+    "submittedAt": "2026-11-22T15:51:00.000Z",
+    "openingFloat": 2000,
+    "summary": {
+      "bills": 2,
+      "cancelledBills": 0,
+      "gross": 672.8,
+      "discounts": 0.79,
+      "sales": 672,
+      "returns": 0,
+      "refunds": 0,
+      "netSales": 672,
+      "splitBills": 0,
+      "pending": 633,
+      "collections": 39,
+      "bySale": {
+        "PATIENT": {
+          "bills": 1,
+          "sales": 633
+        },
+        "WALKIN": {
+          "bills": 1,
+          "sales": 39
+        }
+      }
+    },
+    "expectedCash": 2000,
+    "actualCash": 2000,
+    "cashDifference": 0,
+    "totalExpected": 2039,
+    "totalActual": 2039,
+    "totalDifference": 0,
+    "remarks": "Counter balanced.",
+    "status": "SUBMITTED",
+    "verifiedBy": null,
+    "verifiedAt": null,
+    "corrections": []
+  }
+]

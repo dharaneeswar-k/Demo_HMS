@@ -1,0 +1,62 @@
+{
+  "businessDayStartHour": 0,
+  "openingCashFloat": 2000,
+  "cashVarianceTolerance": 100,
+  "paymentModes": [
+    {
+      "code": "CASH",
+      "label": "Cash",
+      "active": true
+    },
+    {
+      "code": "UPI",
+      "label": "UPI",
+      "active": true
+    },
+    {
+      "code": "CARD",
+      "label": "Card",
+      "active": true
+    },
+    {
+      "code": "OTHER",
+      "label": "Other (TPA / Cheque / Wallet)",
+      "active": true
+    }
+  ],
+  "refundModes": [
+    "CASH",
+    "UPI",
+    "CARD"
+  ],
+  "allowCredit": true,
+  "discountLimits": {
+    "staffPct": 10,
+    "managerPct": 10
+  },
+  "largeDiscountNotifyPct": 10,
+  "refund": {
+    "staffNeedsApproval": true,
+    "ownerApprovalAbove": 1000
+  },
+  "cancellation": {
+    "staffMustRequest": true
+  },
+  "roundToRupee": true,
+  "billPrefix": "PB",
+  "receipt": {
+    "address": "Hosur, Krishnagiri District, Tamil Nadu",
+    "phone": "",
+    "gstin": "",
+    "drugLicense": "",
+    "footer": "Thank you for choosing Nallam Hospital Pharmacy. Get well soon!"
+  },
+  "doctors": [
+    "Dr. A. Ravichandran (General Medicine)",
+    "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "Dr. M. Harish (Orthopaedics)",
+    "Dr. S. Nivetha (Paediatrics)",
+    "Dr. R. Balaji (Surgery)",
+    "Dr. P. Kavya (ENT)"
+  ]
+}

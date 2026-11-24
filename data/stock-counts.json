@@ -1,0 +1,788 @@
+[
+  {
+    "id": "SC-2026-0001",
+    "businessDate": "2026-11-17",
+    "countedBy": "USR-0001",
+    "countedAt": "2026-11-17T15:20:00.000Z",
+    "items": [
+      {
+        "medicineId": "MED-0001",
+        "opening": 120,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 120,
+        "counted": 120,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "opening": 76,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 76,
+        "counted": 76,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0005",
+        "opening": 84,
+        "received": 0,
+        "billed": 5,
+        "otherNet": 0,
+        "expected": 79,
+        "counted": 79,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "opening": 394,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 394,
+        "counted": 394,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "opening": 73,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 73,
+        "counted": 73,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "opening": 69,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 69,
+        "counted": 69,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0031",
+        "opening": 110,
+        "received": 0,
+        "billed": 5,
+        "otherNet": 0,
+        "expected": 105,
+        "counted": 105,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0006",
+        "opening": 78,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 78,
+        "counted": 78,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0007",
+        "opening": 63,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 63,
+        "counted": 63,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0011",
+        "opening": 65,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 65,
+        "counted": 65,
+        "difference": 0,
+        "valueDifference": 0
+      }
+    ],
+    "totals": {
+      "medicines": 10,
+      "matched": 10,
+      "shortItems": 0,
+      "shortUnits": 0,
+      "excessUnits": 0,
+      "valueDifference": 0
+    },
+    "remarks": "All counted medicines matched.",
+    "status": "REVIEWED",
+    "reviewedBy": null,
+    "reviewedAt": null,
+    "reviewNote": ""
+  },
+  {
+    "id": "SC-2026-0002",
+    "businessDate": "2026-11-18",
+    "countedBy": "USR-0004",
+    "countedAt": "2026-11-18T15:20:00.000Z",
+    "items": [
+      {
+        "medicineId": "MED-0001",
+        "opening": 120,
+        "received": 0,
+        "billed": 6,
+        "otherNet": 0,
+        "expected": 114,
+        "counted": 114,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "opening": 76,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 76,
+        "counted": 76,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0005",
+        "opening": 79,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 79,
+        "counted": 79,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "opening": 394,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 394,
+        "counted": 394,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "opening": 73,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 73,
+        "counted": 73,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "opening": 69,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 69,
+        "counted": 69,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0031",
+        "opening": 105,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 105,
+        "counted": 105,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0006",
+        "opening": 78,
+        "received": 0,
+        "billed": 6,
+        "otherNet": 0,
+        "expected": 72,
+        "counted": 72,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0007",
+        "opening": 63,
+        "received": 0,
+        "billed": 2,
+        "otherNet": 0,
+        "expected": 61,
+        "counted": 61,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0011",
+        "opening": 65,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 65,
+        "counted": 65,
+        "difference": 0,
+        "valueDifference": 0
+      }
+    ],
+    "totals": {
+      "medicines": 10,
+      "matched": 10,
+      "shortItems": 0,
+      "shortUnits": 0,
+      "excessUnits": 0,
+      "valueDifference": 0
+    },
+    "remarks": "All counted medicines matched.",
+    "status": "REVIEWED",
+    "reviewedBy": null,
+    "reviewedAt": null,
+    "reviewNote": ""
+  },
+  {
+    "id": "SC-2026-0003",
+    "businessDate": "2026-11-19",
+    "countedBy": "USR-0001",
+    "countedAt": "2026-11-19T15:20:00.000Z",
+    "items": [
+      {
+        "medicineId": "MED-0001",
+        "opening": 114,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 114,
+        "counted": 114,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "opening": 76,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 76,
+        "counted": 76,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0005",
+        "opening": 79,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 79,
+        "counted": 79,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "opening": 394,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 394,
+        "counted": 391,
+        "difference": -3,
+        "valueDifference": -15.67
+      },
+      {
+        "medicineId": "MED-0020",
+        "opening": 73,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 73,
+        "counted": 73,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "opening": 69,
+        "received": 0,
+        "billed": 3,
+        "otherNet": 0,
+        "expected": 66,
+        "counted": 66,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0031",
+        "opening": 105,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 105,
+        "counted": 105,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0006",
+        "opening": 72,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 72,
+        "counted": 72,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0007",
+        "opening": 61,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 61,
+        "counted": 61,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0011",
+        "opening": 65,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 65,
+        "counted": 65,
+        "difference": 0,
+        "valueDifference": 0
+      }
+    ],
+    "totals": {
+      "medicines": 10,
+      "matched": 9,
+      "shortItems": 1,
+      "shortUnits": 3,
+      "excessUnits": 0,
+      "valueDifference": -15.67
+    },
+    "remarks": "Counted twice. Shortage reported to the Pharmacy Manager.",
+    "status": "REVIEWED",
+    "reviewedBy": "USR-0003",
+    "reviewedAt": "2026-11-20T04:20:00.000Z",
+    "reviewNote": "Recount confirmed the shortage. Staff counselled; manager to raise a stock correction."
+  },
+  {
+    "id": "SC-2026-0004",
+    "businessDate": "2026-11-20",
+    "countedBy": "USR-0004",
+    "countedAt": "2026-11-20T15:20:00.000Z",
+    "items": [
+      {
+        "medicineId": "MED-0001",
+        "opening": 114,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 114,
+        "counted": 114,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "opening": 76,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 76,
+        "counted": 76,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0005",
+        "opening": 79,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 79,
+        "counted": 79,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "opening": 394,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 394,
+        "counted": 394,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "opening": 73,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 73,
+        "counted": 73,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "opening": 66,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 66,
+        "counted": 66,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0031",
+        "opening": 105,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 105,
+        "counted": 105,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0006",
+        "opening": 72,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 72,
+        "counted": 72,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0007",
+        "opening": 61,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 61,
+        "counted": 61,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0011",
+        "opening": 65,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 65,
+        "counted": 65,
+        "difference": 0,
+        "valueDifference": 0
+      }
+    ],
+    "totals": {
+      "medicines": 10,
+      "matched": 10,
+      "shortItems": 0,
+      "shortUnits": 0,
+      "excessUnits": 0,
+      "valueDifference": 0
+    },
+    "remarks": "All counted medicines matched.",
+    "status": "REVIEWED",
+    "reviewedBy": null,
+    "reviewedAt": null,
+    "reviewNote": ""
+  },
+  {
+    "id": "SC-2026-0005",
+    "businessDate": "2026-11-21",
+    "countedBy": "USR-0001",
+    "countedAt": "2026-11-21T15:20:00.000Z",
+    "items": [
+      {
+        "medicineId": "MED-0001",
+        "opening": 114,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 114,
+        "counted": 114,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "opening": 76,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 76,
+        "counted": 76,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0005",
+        "opening": 79,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 79,
+        "counted": 79,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "opening": 394,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 394,
+        "counted": 394,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "opening": 73,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 73,
+        "counted": 73,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "opening": 66,
+        "received": 0,
+        "billed": 3,
+        "otherNet": 0,
+        "expected": 63,
+        "counted": 63,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0031",
+        "opening": 105,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 105,
+        "counted": 105,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0006",
+        "opening": 72,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 72,
+        "counted": 72,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0007",
+        "opening": 61,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 61,
+        "counted": 61,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0011",
+        "opening": 65,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 65,
+        "counted": 65,
+        "difference": 0,
+        "valueDifference": 0
+      }
+    ],
+    "totals": {
+      "medicines": 10,
+      "matched": 10,
+      "shortItems": 0,
+      "shortUnits": 0,
+      "excessUnits": 0,
+      "valueDifference": 0
+    },
+    "remarks": "All counted medicines matched.",
+    "status": "REVIEWED",
+    "reviewedBy": null,
+    "reviewedAt": null,
+    "reviewNote": ""
+  },
+  {
+    "id": "SC-2026-0006",
+    "businessDate": "2026-11-22",
+    "countedBy": "USR-0004",
+    "countedAt": "2026-11-22T15:20:00.000Z",
+    "items": [
+      {
+        "medicineId": "MED-0001",
+        "opening": 114,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 114,
+        "counted": 112,
+        "difference": -2,
+        "valueDifference": -49.92
+      },
+      {
+        "medicineId": "MED-0002",
+        "opening": 76,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 76,
+        "counted": 75,
+        "difference": -1,
+        "valueDifference": -115.05
+      },
+      {
+        "medicineId": "MED-0005",
+        "opening": 79,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 79,
+        "counted": 79,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "opening": 394,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 394,
+        "counted": 394,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "opening": 73,
+        "received": 0,
+        "billed": 6,
+        "otherNet": 0,
+        "expected": 67,
+        "counted": 67,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "opening": 63,
+        "received": 0,
+        "billed": 6,
+        "otherNet": 0,
+        "expected": 57,
+        "counted": 57,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0031",
+        "opening": 105,
+        "received": 0,
+        "billed": 4,
+        "otherNet": 0,
+        "expected": 101,
+        "counted": 101,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0006",
+        "opening": 72,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 72,
+        "counted": 72,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0007",
+        "opening": 61,
+        "received": 0,
+        "billed": 0,
+        "otherNet": 0,
+        "expected": 61,
+        "counted": 61,
+        "difference": 0,
+        "valueDifference": 0
+      },
+      {
+        "medicineId": "MED-0011",
+        "opening": 65,
+        "received": 0,
+        "billed": 3,
+        "otherNet": 0,
+        "expected": 62,
+        "counted": 62,
+        "difference": 0,
+        "valueDifference": 0
+      }
+    ],
+    "totals": {
+      "medicines": 10,
+      "matched": 8,
+      "shortItems": 2,
+      "shortUnits": 3,
+      "excessUnits": 0,
+      "valueDifference": -164.97
+    },
+    "remarks": "Counted twice. Shortage reported to the Pharmacy Manager.",
+    "status": "SUBMITTED",
+    "reviewedBy": null,
+    "reviewedAt": null,
+    "reviewNote": ""
+  }
+]

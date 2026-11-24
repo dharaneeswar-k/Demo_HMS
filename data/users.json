@@ -1,0 +1,62 @@
+[
+  {
+    "id": "USR-0001",
+    "username": "pharmacy",
+    "password": "demo123",
+    "name": "Kavitha Selvam",
+    "role": "PHARMACY_STAFF",
+    "designation": "Pharmacist",
+    "email": "",
+    "phone": "+91 90000 11111",
+    "active": true,
+    "createdAt": "2026-07-20T10:00:00.000Z"
+  },
+  {
+    "id": "USR-0002",
+    "username": "store",
+    "password": "demo123",
+    "name": "Arun Prakash",
+    "role": "STORE_INCHARGE",
+    "designation": "Store Incharge",
+    "email": "",
+    "phone": "+91 90000 22222",
+    "active": true,
+    "createdAt": "2026-07-20T10:00:00.000Z"
+  },
+  {
+    "id": "USR-0003",
+    "username": "owner",
+    "password": "demo123",
+    "name": "Dr. Meenakshi Sundaram",
+    "role": "SUPER_ADMIN",
+    "designation": "Hospital Owner / Director",
+    "email": "",
+    "phone": "+91 90000 33333",
+    "active": true,
+    "createdAt": "2026-07-20T10:00:00.000Z"
+  },
+  {
+    "id": "USR-0004",
+    "username": "ravi",
+    "password": "demo123",
+    "name": "Ravi Kumar",
+    "role": "PHARMACY_STAFF",
+    "designation": "Pharmacy Assistant",
+    "email": "",
+    "phone": "+91 90000 44444",
+    "active": true,
+    "createdAt": "2026-07-20T10:00:00.000Z"
+  },
+  {
+    "id": "USR-0005",
+    "username": "reception",
+    "password": "demo123",
+    "name": "Divya Shankar",
+    "role": "RECEPTION",
+    "designation": "Front Office Executive",
+    "email": "",
+    "phone": "+91 90000 55555",
+    "active": true,
+    "createdAt": "2026-07-20T10:00:00.000Z"
+  }
+]
