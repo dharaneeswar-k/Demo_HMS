@@ -32,7 +32,21 @@ const COLLECTIONS = {
   closingPayments: 'daily-closing-payments.json',
   stockCounts: 'stock-counts.json',
   transfers: 'stock-transfers.json',
-  discountRequests: 'discount-requests.json'
+  discountRequests: 'discount-requests.json',
+  // Hospital modules — central billing, lab, services, packages, MRD, shifts
+  services: 'hospital-services.json',
+  labKits: 'lab-kits.json',
+  packages: 'packages.json',
+  hospitalSettings: 'hospital-settings.json',
+  hbills: 'hospital-bills.json',
+  orders: 'service-orders.json',
+  kitMovements: 'lab-kit-movements.json',
+  kitCounts: 'lab-kit-counts.json',
+  patientPackages: 'patient-packages.json',
+  medicalRecords: 'medical-records.json',
+  dischargeSummaries: 'discharge-summaries.json',
+  mrdRetrievals: 'mrd-retrievals.json',
+  shifts: 'shifts.json'
 };
 const LS_KEY = 'nallam_hms_store_v1';
 
@@ -144,6 +158,8 @@ export const store = {
   ph() { return db.pharmacySettings; },
   updatePh(patch) { db.pharmacySettings = { ...db.pharmacySettings, ...patch }; persist(); },
   updateSettings(patch) { db.settings = { ...db.settings, ...patch }; persist(); },
+  hs() { return db.hospitalSettings; },
+  updateHs(patch) { db.hospitalSettings = { ...db.hospitalSettings, ...patch }; persist(); },
   nextId(col, prefix, width = 4) {
     const re = new RegExp('^' + prefix.replace(/[-]/g, '\\-') + '(\\d+)$');
     const max = db[col].reduce((m, r) => { const k = re.exec(r.id); return k ? Math.max(m, +k[1]) : m; }, 0);

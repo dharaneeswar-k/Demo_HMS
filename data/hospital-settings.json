@@ -1,0 +1,234 @@
+{
+  "billPrefix": "HB",
+  "categories": [
+    {
+      "code": "LAB",
+      "label": "Laboratory",
+      "icon": "flask-conical"
+    },
+    {
+      "code": "ECG",
+      "label": "ECG",
+      "icon": "activity"
+    },
+    {
+      "code": "INJECTION",
+      "label": "Injection",
+      "icon": "syringe"
+    },
+    {
+      "code": "NEBULIZATION",
+      "label": "Nebulization",
+      "icon": "wind"
+    },
+    {
+      "code": "OTHER",
+      "label": "Other services",
+      "icon": "stethoscope"
+    },
+    {
+      "code": "PACKAGE",
+      "label": "Packages",
+      "icon": "package"
+    }
+  ],
+  "shifts": [
+    {
+      "id": "MORNING",
+      "name": "Morning",
+      "start": "08:00",
+      "end": "14:00"
+    },
+    {
+      "id": "EVENING",
+      "name": "Evening",
+      "start": "14:00",
+      "end": "20:00"
+    },
+    {
+      "id": "NIGHT",
+      "name": "Night",
+      "start": "20:00",
+      "end": "08:00"
+    }
+  ],
+  "shiftTimingsConfirmed": false,
+  "defaultOpeningFloat": 1000,
+  "shiftVarianceTolerance": 50,
+  "handoverRequired": true,
+  "denominations": [
+    500,
+    200,
+    100,
+    50,
+    20,
+    10,
+    5,
+    2,
+    1
+  ],
+  "credit": {
+    "emergencyAllowed": true,
+    "creditNeedsOwner": true
+  },
+  "cancellation": {
+    "reasonRequired": true,
+    "ownerApproves": true
+  },
+  "lab": {
+    "reportPrefix": "LR",
+    "accessionPrefix": "LAB",
+    "requireSecondPersonVerification": false,
+    "kitVarianceTolerance": 2
+  },
+  "mrd": {
+    "codingDueDays": 5,
+    "retrievalReasons": [
+      "Patient follow-up visit",
+      "Insurance / TPA claim",
+      "Legal / medico-legal request",
+      "Doctor review",
+      "Patient copy request",
+      "Audit"
+    ]
+  },
+  "dischargeTemplates": [
+    {
+      "id": "TPL-GEN",
+      "name": "General Medicine",
+      "sections": [
+        "reason",
+        "history",
+        "investigations",
+        "diagnosis",
+        "treatment",
+        "course",
+        "condition",
+        "medications",
+        "advice",
+        "followup",
+        "urgent"
+      ]
+    },
+    {
+      "id": "TPL-SUR",
+      "name": "Surgery",
+      "sections": [
+        "reason",
+        "history",
+        "investigations",
+        "diagnosis",
+        "procedures",
+        "treatment",
+        "course",
+        "condition",
+        "medications",
+        "advice",
+        "followup",
+        "urgent"
+      ]
+    },
+    {
+      "id": "TPL-DC",
+      "name": "Day Care",
+      "sections": [
+        "reason",
+        "diagnosis",
+        "procedures",
+        "treatment",
+        "condition",
+        "medications",
+        "advice",
+        "followup",
+        "urgent"
+      ]
+    },
+    {
+      "id": "TPL-DEATH",
+      "name": "Death Summary",
+      "sections": [
+        "reason",
+        "history",
+        "investigations",
+        "diagnosis",
+        "treatment",
+        "course",
+        "cause"
+      ]
+    }
+  ],
+  "dischargeSections": {
+    "reason": "Reason for admission / presenting complaints",
+    "history": "Significant history & examination findings",
+    "investigations": "Investigation results",
+    "diagnosis": "Final diagnosis",
+    "procedures": "Procedures / surgery performed",
+    "treatment": "Treatment given",
+    "course": "Course in hospital",
+    "condition": "Condition at discharge",
+    "medications": "Medicines on discharge (dose, frequency, duration)",
+    "advice": "Advice, diet & activity",
+    "followup": "Follow-up",
+    "urgent": "When and how to get urgent care",
+    "cause": "Cause of death (immediate, antecedent, underlying)"
+  },
+  "workstations": {
+    "enforce": false,
+    "list": [
+      {
+        "id": "WS-01",
+        "name": "Main Reception & Billing Counter",
+        "location": "Ground floor, entrance",
+        "roles": [
+          "RECEPTION",
+          "SUPER_ADMIN"
+        ]
+      },
+      {
+        "id": "WS-02",
+        "name": "Pharmacy Counter",
+        "location": "Ground floor, pharmacy",
+        "roles": [
+          "PHARMACY_STAFF",
+          "SUPER_ADMIN"
+        ]
+      },
+      {
+        "id": "WS-03",
+        "name": "Central Store",
+        "location": "First floor, store room",
+        "roles": [
+          "STORE_INCHARGE",
+          "SUPER_ADMIN"
+        ]
+      },
+      {
+        "id": "WS-04",
+        "name": "Laboratory",
+        "location": "Ground floor, lab",
+        "roles": [
+          "LAB",
+          "SUPER_ADMIN"
+        ]
+      },
+      {
+        "id": "WS-05",
+        "name": "Service Counter (ECG / Injection / Nebulization)",
+        "location": "Ground floor, procedure room",
+        "roles": [
+          "SERVICE_COUNTER",
+          "SUPER_ADMIN"
+        ]
+      },
+      {
+        "id": "WS-06",
+        "name": "Medical Records (MRD)",
+        "location": "First floor, records room",
+        "roles": [
+          "MRD",
+          "SUPER_ADMIN"
+        ]
+      }
+    ]
+  }
+}

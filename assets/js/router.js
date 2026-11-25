@@ -39,7 +39,35 @@ export const ROUTES = [
   { path: '/settings', mod: 'settings', fn: 'render', perm: null, title: 'Settings', crumbs: ['Settings'], nav: 'settings' },
   { path: '/audit', mod: 'settings', fn: 'renderAudit', perm: 'audit.view', title: 'Audit Log', crumbs: ['Settings', 'Audit Log'], nav: 'audit' },
   { path: '/profile', mod: 'settings', fn: 'renderProfile', perm: null, title: 'My Profile', crumbs: ['My Profile'], nav: null },
-  { path: '/help', mod: 'help', fn: 'render', perm: null, title: 'Help', crumbs: ['Help'], nav: 'help' }
+  { path: '/help', mod: 'help', fn: 'render', perm: null, title: 'Help', crumbs: ['Help'], nav: 'help' },
+  // Central billing counter (BRD 08) + packages (10)
+  { path: '/hbill', mod: 'hbilling', fn: 'render', perm: 'hbill.create', title: 'Hospital Bill', crumbs: ['Billing', 'Hospital Bill'], nav: 'hb-new' },
+  { path: '/hbills', mod: 'hbills', fn: 'renderList', perm: 'hbill.view', title: 'Hospital Bills', crumbs: ['Billing', 'Hospital Bills'], nav: 'hb-list' },
+  { path: '/hbills/:id', mod: 'hbills', fn: 'renderDetail', perm: 'hbill.view', title: 'Hospital Bill', crumbs: ['Billing', 'Hospital Bills', 'Bill'], nav: 'hb-list' },
+  { path: '/hbills/:id/receipt', mod: 'hbills', fn: 'renderReceipt', perm: 'hbill.view', title: 'Receipt', crumbs: ['Billing', 'Receipt'], nav: 'hb-list' },
+  { path: '/packages', mod: 'packages', fn: 'render', perm: 'package.view', title: 'Packages', crumbs: ['Billing', 'Packages'], nav: 'packages' },
+  { path: '/packages/enrolments/:id', mod: 'packages', fn: 'renderEnrolment', perm: 'package.view', title: 'Package', crumbs: ['Billing', 'Packages', 'Enrolment'], nav: 'packages' },
+  // Shifts (BRD 12)
+  { path: '/shifts', mod: 'shifts', fn: 'render', perm: 'shift.own', title: 'My Shift', crumbs: ['Billing', 'My Shift'], nav: 'shift' },
+  { path: '/shifts/register', mod: 'shifts', fn: 'renderRegister', perm: 'shift.report', title: 'Shift Register', crumbs: ['Business', 'Shift Register'], nav: 'shift-reg' },
+  { path: '/shifts/:id', mod: 'shifts', fn: 'renderDetail', perm: null, title: 'Shift Report', crumbs: ['Shifts', 'Report'], nav: 'shift' },
+  // Laboratory (BRD 06)
+  { path: '/lab', mod: 'lab', fn: 'renderWorklist', perm: 'lab.work', title: 'Lab Worklist', crumbs: ['Laboratory', 'Worklist'], nav: 'lab' },
+  { path: '/lab/orders/:id', mod: 'lab', fn: 'renderOrder', perm: 'lab.view', title: 'Lab Test', crumbs: ['Laboratory', 'Test'], nav: 'lab' },
+  { path: '/lab/report/:id', mod: 'lab', fn: 'renderReport', perm: 'lab.view', title: 'Lab Report', crumbs: ['Laboratory', 'Report'], nav: 'lab-reports' },
+  { path: '/lab/reports', mod: 'lab', fn: 'renderReports', perm: 'lab.view', title: 'Lab Reports', crumbs: ['Laboratory', 'Reports'], nav: 'lab-reports' },
+  { path: '/lab/kits', mod: 'lab', fn: 'renderKits', perm: 'lab.kits', title: 'Reagent Kits', crumbs: ['Laboratory', 'Reagent Kits'], nav: 'lab-kits' },
+  // Service counter (BRD 07)
+  { path: '/services', mod: 'service-counter', fn: 'render', perm: 'orders.view', title: 'Service Counter', crumbs: ['Services', 'Service Counter'], nav: 'svc' },
+  { path: '/services/reconciliation', mod: 'service-counter', fn: 'renderRecon', perm: 'management.view', title: 'Services: Requested vs Billed vs Done', crumbs: ['Business', 'Service Reconciliation'], nav: 'svc-recon' },
+  // MRD (BRD 11)
+  { path: '/mrd', mod: 'mrd', fn: 'render', perm: 'mrd.view', title: 'Medical Records', crumbs: ['Medical Records'], nav: 'mrd' },
+  { path: '/mrd/summary/:id', mod: 'mrd', fn: 'renderSummary', perm: 'mrd.view', title: 'Discharge Summary', crumbs: ['Medical Records', 'Discharge Summary'], nav: 'mrd' },
+  { path: '/mrd/summary/:id/print', mod: 'mrd', fn: 'renderSummaryPrint', perm: 'mrd.view', title: 'Discharge Summary', crumbs: ['Medical Records', 'Print'], nav: 'mrd' },
+  { path: '/mrd/:id', mod: 'mrd', fn: 'renderRecord', perm: 'mrd.view', title: 'Medical Record', crumbs: ['Medical Records', 'Record'], nav: 'mrd' },
+  // Management (BRD 13) and setup
+  { path: '/management', mod: 'management', fn: 'render', perm: 'management.view', title: 'Management Dashboard', crumbs: ['Business', 'Management Dashboard'], nav: 'mgmt' },
+  { path: '/setup', mod: 'setup', fn: 'render', perm: 'catalog.manage', title: 'Hospital Setup', crumbs: ['System', 'Hospital Setup'], nav: 'setup' }
 ];
 
 export function parseHash() {

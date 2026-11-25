@@ -1,0 +1,29 @@
+[
+  {
+    "id": "PP-0001",
+    "packageId": "PKG-0002",
+    "patientId": "PAT-0006",
+    "billId": "HB-2026-00069",
+    "startAt": "2026-11-21T03:10:00.000Z",
+    "validUntil": "2026-11-23",
+    "status": "COMPLETED",
+    "settledAt": "2026-11-22T12:30:00.000Z",
+    "settledBy": "USR-0003",
+    "settlement": {
+      "packagePrice": 2500,
+      "extras": 450
+    }
+  },
+  {
+    "id": "PP-0002",
+    "packageId": "PKG-0001",
+    "patientId": "PAT-0002",
+    "billId": "HB-2026-00072",
+    "startAt": "2026-11-20T04:35:00.000Z",
+    "validUntil": "2026-12-20",
+    "status": "ACTIVE",
+    "settledAt": null,
+    "settledBy": null,
+    "settlement": null
+  }
+]

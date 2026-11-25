@@ -13,7 +13,12 @@ export const APPROVAL_TYPES = {
   CANCEL: { label: 'Bill cancellations', icon: 'circle-slash' },
   CLOSING: { label: 'Day closings', icon: 'lock' },
   STOCKCOUNT: { label: 'Stock shortages', icon: 'clipboard-x' },
-  DISCOUNT: { label: 'Discounts', icon: 'percent' }
+  DISCOUNT: { label: 'Discounts', icon: 'percent' },
+  CREDIT: { label: 'Credit & emergency', icon: 'hand-coins' },
+  HCANCEL: { label: 'Hospital bill cancellations', icon: 'circle-slash' },
+  KITCOUNT: { label: 'Lab kit shortages', icon: 'flask-conical' },
+  DS: { label: 'Discharge summaries', icon: 'file-signature' },
+  SHIFT: { label: 'Cash shortages', icon: 'banknote' }
 };
 
 export function approvalItems(user = currentUser()) {
@@ -46,6 +51,17 @@ export function approvalItems(user = currentUser()) {
   if (can('discount.approve', user)) store.all('discountRequests').filter((r) => r.status === 'PENDING').forEach((r) => out.push({
     type: 'DISCOUNT', id: r.id, title: `${r.requestedPct}% discount for ${r.snapshot.patientName}`, detail: `“${r.reason}” · bill on hold at the counter`,
     who: userName(r.requestedBy), at: r.requestedAt, amount: r.snapshot.discount, href: `#/discounts?focus=${r.id}`, action: 'Decide', tone: 'danger' }));
+  if (can('credit.approve', user)) store.all('hbills').filter((b) => b.credit && ['PENDING', 'EMERGENCY'].includes(b.credit.status)).forEach((b) => out.push({
+    type: 'CREDIT', id: b.id, title: b.credit.status === 'PENDING' ? `Credit for ${b.patientName}` : `Review emergency credit — ${b.patientName}`, detail: `“${b.credit.reason}” · ${b.credit.status === 'PENDING' ? 'services on hold' : 'services already started'}`,
+    who: userName(b.credit.requestedBy), at: b.credit.requestedAt, amount: b.grandTotal - b.payments.filter((p) => p.kind === 'PAYMENT').reduce((t, p) => t + p.amount, 0), href: `#/hbills/${b.id}`, action: 'Decide', tone: b.credit.status === 'PENDING' ? 'danger' : 'warning' }));
+  if (can('hbill.cancel', user)) store.all('hbills').filter((b) => b.cancellation?.status === 'PENDING').forEach((b) => out.push({
+    type: 'HCANCEL', id: b.id, title: `Cancel hospital bill ${b.id}`, detail: b.cancellation.reason, who: userName(b.cancellation.requestedBy), at: b.cancellation.requestedAt, amount: b.grandTotal, href: `#/hbills/${b.id}`, action: 'Review', tone: 'warning' }));
+  if (can('credit.approve', user)) store.all('kitCounts').filter((c) => c.status === 'SUBMITTED').forEach((c) => out.push({
+    type: 'KITCOUNT', id: c.id, title: 'Lab kit shortage in physical count', detail: c.lines.filter((l) => l.diff < 0).map((l) => `${store.get('labKits', l.kitId)?.name} ${l.diff}`).join(', '), who: userName(c.countedBy), at: c.at, amount: null, href: '#/lab/kits?tab=count', action: 'Review', tone: 'danger' }));
+  if (can('mrd.review', user)) store.all('dischargeSummaries').filter((d) => d.status === 'PENDING_REVIEW').forEach((d) => out.push({
+    type: 'DS', id: d.id, title: `Discharge summary — ${store.get('patients', d.patientId)?.name}`, detail: `${d.id} ready for review and sign-off`, who: userName(d.preparedBy), at: d.preparedAt, amount: null, href: `#/mrd/summary/${d.id}`, action: 'Review', tone: 'info' }));
+  if (can('shift.report', user)) store.all('shifts').filter((s) => s.closedAt && !s.verifiedBy && s.difference < -(store.hs().shiftVarianceTolerance || 0)).forEach((s) => out.push({
+    type: 'SHIFT', id: s.id, title: `Cash short at ${s.counter === 'PHARMACY' ? 'pharmacy' : 'main counter'} — ${userName(s.userId)}`, detail: `${s.shiftName} shift · ${s.note || 'no reason given'}`, who: userName(s.userId), at: s.closedAt, amount: -s.difference, href: `#/shifts/${s.id}`, action: 'Verify', tone: 'warning' }));
   const rank = { danger: 0, warning: 1, info: 2, success: 3 };
   return out.sort((a, b) => rank[a.tone] - rank[b.tone] || String(b.at).localeCompare(String(a.at)));
 }

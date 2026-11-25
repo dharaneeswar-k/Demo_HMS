@@ -35,6 +35,13 @@ export function notificationLink(n) {
   if (n.refType === 'TRANSFER') return '#/transfers?focus=' + n.refId;
   if (n.refType === 'STOCKCOUNT') return '#/stock-count?focus=' + n.refId;
   if (n.refType === 'CLOSING') return '#/pharmacy/closing-report?focus=' + n.refId;
+  if (n.refType === 'HBILL') return '#/hbills/' + n.refId;
+  if (n.refType === 'KITCOUNT') return '#/lab/kits?tab=count';
+  if (n.refType === 'ORDER') return '#/services?tab=req';
+  if (n.refType === 'LABORDER') return '#/lab/orders/' + n.refId;
+  if (n.refType === 'SHIFT') return '#/shifts/' + n.refId;
+  if (n.refType === 'DS') return '#/mrd/summary/' + n.refId;
+  if (n.refType === 'PATIENT') return '#/hbill?patient=' + n.refId;
   return '#/alerts';
 }
 

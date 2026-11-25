@@ -1,0 +1,143 @@
+[
+  {
+    "id": "DS-0001",
+    "recordId": "MRD-0002",
+    "patientId": "PAT-0009",
+    "templateId": "TPL-GEN",
+    "sections": {
+      "reason": "Fever with cough and breathlessness for 4 days.",
+      "history": "Crepitations right lower zone. SpO2 92% on room air.",
+      "investigations": "TLC 14,600; CRP 48 mg/L; Chest X-ray: right lower lobe consolidation.",
+      "diagnosis": "Community acquired pneumonia (J18.9)",
+      "treatment": "IV Ceftriaxone 1 g BD × 4 days, nebulization, oxygen for 24 h, paracetamol SOS.",
+      "course": "Afebrile from day 2, oxygen weaned on day 2. Improved.",
+      "condition": "Stable, afebrile, SpO2 98% on room air.",
+      "medications": "Tab. Augmentin 625 BD × 5 days; Tab. Montair LC HS × 5 days; Tab. Dolo 650 SOS.",
+      "advice": "Plenty of fluids, steam inhalation, avoid cold drinks.",
+      "followup": "Review in General Medicine OPD after 7 days with CBC.",
+      "urgent": "Return immediately or call the hospital if breathlessness, high fever or chest pain."
+    },
+    "status": "FINAL",
+    "preparedBy": "USR-0009",
+    "preparedAt": "2026-11-16T05:30:00.000Z",
+    "reviewedBy": "USR-0003",
+    "reviewedAt": "2026-11-16T05:00:00.000Z",
+    "finalizedAt": "2026-11-16T05:10:00.000Z",
+    "printCount": 2,
+    "history": [
+      {
+        "at": "2026-11-16T05:30:00.000Z",
+        "by": "USR-0009",
+        "action": "Prepared"
+      },
+      {
+        "at": "2026-11-16T05:00:00.000Z",
+        "by": "USR-0003",
+        "action": "Reviewed & finalised"
+      }
+    ]
+  },
+  {
+    "id": "DS-0002",
+    "recordId": "MRD-0003",
+    "patientId": "PAT-0004",
+    "templateId": "TPL-SUR",
+    "sections": {
+      "reason": "Term pregnancy in labour.",
+      "history": "G2P1L1, 39 weeks, uneventful antenatal period.",
+      "investigations": "Hb 11.4 g/dL; blood group B+; USG normal.",
+      "diagnosis": "Term pregnancy — normal vaginal delivery (O80)",
+      "procedures": "Normal vaginal delivery with episiotomy. Live female baby 3.1 kg.",
+      "treatment": "Oxytocin, IV fluids, analgesics.",
+      "course": "Uneventful post-natal recovery.",
+      "condition": "Mother and baby stable.",
+      "medications": "Iron and calcium tablets × 3 months; Tab. Dolo 650 SOS.",
+      "advice": "Breastfeeding, perineal hygiene, adequate rest.",
+      "followup": "Review after 6 weeks; baby vaccination as per schedule.",
+      "urgent": "Come immediately for heavy bleeding, fever or foul-smelling discharge."
+    },
+    "status": "FINAL",
+    "preparedBy": "USR-0009",
+    "preparedAt": "2026-11-17T05:00:00.000Z",
+    "reviewedBy": "USR-0003",
+    "reviewedAt": "2026-11-17T04:30:00.000Z",
+    "finalizedAt": "2026-11-17T04:40:00.000Z",
+    "printCount": 2,
+    "history": [
+      {
+        "at": "2026-11-17T05:00:00.000Z",
+        "by": "USR-0009",
+        "action": "Prepared"
+      },
+      {
+        "at": "2026-11-17T04:30:00.000Z",
+        "by": "USR-0003",
+        "action": "Reviewed & finalised"
+      }
+    ]
+  },
+  {
+    "id": "DS-0003",
+    "recordId": "MRD-0004",
+    "patientId": "PAT-0013",
+    "templateId": "TPL-GEN",
+    "sections": {
+      "reason": "Fever, body ache and headache for 3 days.",
+      "history": "No warning signs. Hydration fair.",
+      "investigations": "NS1 antigen positive. Platelets 98,000 → 1,42,000 at discharge.",
+      "diagnosis": "Dengue fever without warning signs (A90)",
+      "treatment": "IV fluids, paracetamol, platelet monitoring.",
+      "course": "Platelets improved from day 3.",
+      "condition": "Afebrile, platelets rising.",
+      "medications": "Tab. Dolo 650 SOS (max 3/day) × 3 days.",
+      "advice": "Oral fluids 3 litres/day. Avoid painkillers other than paracetamol.",
+      "followup": "CBC after 3 days.",
+      "urgent": "Return for bleeding, abdominal pain, vomiting or drowsiness."
+    },
+    "status": "PENDING_REVIEW",
+    "preparedBy": "USR-0009",
+    "preparedAt": "2026-11-22T06:30:00.000Z",
+    "reviewedBy": null,
+    "reviewedAt": null,
+    "finalizedAt": null,
+    "printCount": 0,
+    "history": [
+      {
+        "at": "2026-11-22T06:30:00.000Z",
+        "by": "USR-0009",
+        "action": "Prepared"
+      }
+    ]
+  },
+  {
+    "id": "DS-0004",
+    "recordId": "MRD-0005",
+    "patientId": "PAT-0007",
+    "templateId": "TPL-DC",
+    "sections": {
+      "reason": "Fall on outstretched hand.",
+      "diagnosis": "Closed fracture distal radius, right (S52.50)",
+      "procedures": "Closed reduction under sedation, below-elbow cast.",
+      "treatment": "",
+      "condition": "",
+      "medications": "",
+      "advice": "",
+      "followup": "",
+      "urgent": ""
+    },
+    "status": "DRAFT",
+    "preparedBy": "USR-0009",
+    "preparedAt": "2026-11-20T11:30:00.000Z",
+    "reviewedBy": null,
+    "reviewedAt": null,
+    "finalizedAt": null,
+    "printCount": 0,
+    "history": [
+      {
+        "at": "2026-11-20T11:30:00.000Z",
+        "by": "USR-0009",
+        "action": "Prepared"
+      }
+    ]
+  }
+]

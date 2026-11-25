@@ -1,0 +1,80 @@
+[
+  {
+    "id": "KC-0001",
+    "at": "2026-11-22T14:00:00.000Z",
+    "businessDate": "2026-11-22",
+    "countedBy": "USR-0007",
+    "lines": [
+      {
+        "kitId": "KIT-0001",
+        "system": 360,
+        "counted": 357,
+        "diff": -3
+      },
+      {
+        "kitId": "KIT-0002",
+        "system": 146,
+        "counted": 146,
+        "diff": 0
+      },
+      {
+        "kitId": "KIT-0003",
+        "system": 147,
+        "counted": 147,
+        "diff": 0
+      },
+      {
+        "kitId": "KIT-0004",
+        "system": 569,
+        "counted": 569,
+        "diff": 0
+      },
+      {
+        "kitId": "KIT-0005",
+        "system": 97,
+        "counted": 97,
+        "diff": 0
+      },
+      {
+        "kitId": "KIT-0006",
+        "system": 148,
+        "counted": 148,
+        "diff": 0
+      },
+      {
+        "kitId": "KIT-0007",
+        "system": 96,
+        "counted": 96,
+        "diff": 0
+      },
+      {
+        "kitId": "KIT-0008",
+        "system": 292,
+        "counted": 292,
+        "diff": 0
+      },
+      {
+        "kitId": "KIT-0009",
+        "system": 55,
+        "counted": 55,
+        "diff": 0
+      },
+      {
+        "kitId": "KIT-0010",
+        "system": 55,
+        "counted": 55,
+        "diff": 0
+      },
+      {
+        "kitId": "KIT-0011",
+        "system": 76,
+        "counted": 76,
+        "diff": 0
+      }
+    ],
+    "status": "REVIEWED",
+    "reviewedBy": "USR-0003",
+    "reviewedAt": "2026-11-22T15:30:00.000Z",
+    "reviewNote": "Explained: 3 repeat CBCs not logged as repeats. Lab told to log every repeat."
+  }
+]

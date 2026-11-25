@@ -1,0 +1,1212 @@
+[
+  {
+    "id": "KMV-00001",
+    "at": "2026-11-01T04:00:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "RECEIVED",
+    "qty": 400,
+    "ref": "KIT-GRN-2026-11",
+    "by": "USR-0007",
+    "note": "Monthly reagent receipt · Lot 5100"
+  },
+  {
+    "id": "KMV-00002",
+    "at": "2026-11-01T04:00:00.000Z",
+    "kitId": "KIT-0002",
+    "type": "RECEIVED",
+    "qty": 150,
+    "ref": "KIT-GRN-2026-11",
+    "by": "USR-0007",
+    "note": "Monthly reagent receipt · Lot 5107"
+  },
+  {
+    "id": "KMV-00003",
+    "at": "2026-11-01T04:00:00.000Z",
+    "kitId": "KIT-0003",
+    "type": "RECEIVED",
+    "qty": 150,
+    "ref": "KIT-GRN-2026-11",
+    "by": "USR-0007",
+    "note": "Monthly reagent receipt · Lot 5114"
+  },
+  {
+    "id": "KMV-00004",
+    "at": "2026-11-01T04:00:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "RECEIVED",
+    "qty": 600,
+    "ref": "KIT-GRN-2026-11",
+    "by": "USR-0007",
+    "note": "Monthly reagent receipt · Lot 5121"
+  },
+  {
+    "id": "KMV-00005",
+    "at": "2026-11-01T04:00:00.000Z",
+    "kitId": "KIT-0005",
+    "type": "RECEIVED",
+    "qty": 100,
+    "ref": "KIT-GRN-2026-11",
+    "by": "USR-0007",
+    "note": "Monthly reagent receipt · Lot 5128"
+  },
+  {
+    "id": "KMV-00006",
+    "at": "2026-11-01T04:00:00.000Z",
+    "kitId": "KIT-0006",
+    "type": "RECEIVED",
+    "qty": 150,
+    "ref": "KIT-GRN-2026-11",
+    "by": "USR-0007",
+    "note": "Monthly reagent receipt · Lot 5135"
+  },
+  {
+    "id": "KMV-00007",
+    "at": "2026-11-01T04:00:00.000Z",
+    "kitId": "KIT-0007",
+    "type": "RECEIVED",
+    "qty": 100,
+    "ref": "KIT-GRN-2026-11",
+    "by": "USR-0007",
+    "note": "Monthly reagent receipt · Lot 5142"
+  },
+  {
+    "id": "KMV-00008",
+    "at": "2026-11-01T04:00:00.000Z",
+    "kitId": "KIT-0008",
+    "type": "RECEIVED",
+    "qty": 300,
+    "ref": "KIT-GRN-2026-11",
+    "by": "USR-0007",
+    "note": "Monthly reagent receipt · Lot 5149"
+  },
+  {
+    "id": "KMV-00009",
+    "at": "2026-11-01T04:00:00.000Z",
+    "kitId": "KIT-0009",
+    "type": "RECEIVED",
+    "qty": 60,
+    "ref": "KIT-GRN-2026-11",
+    "by": "USR-0007",
+    "note": "Monthly reagent receipt · Lot 5156"
+  },
+  {
+    "id": "KMV-00010",
+    "at": "2026-11-01T04:00:00.000Z",
+    "kitId": "KIT-0010",
+    "type": "RECEIVED",
+    "qty": 60,
+    "ref": "KIT-GRN-2026-11",
+    "by": "USR-0007",
+    "note": "Monthly reagent receipt · Lot 5163"
+  },
+  {
+    "id": "KMV-00011",
+    "at": "2026-11-01T04:00:00.000Z",
+    "kitId": "KIT-0011",
+    "type": "RECEIVED",
+    "qty": 80,
+    "ref": "KIT-GRN-2026-11",
+    "by": "USR-0007",
+    "note": "Monthly reagent receipt · Lot 5170"
+  },
+  {
+    "id": "KMV-00012",
+    "at": "2026-11-17T03:35:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00001",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00013",
+    "at": "2026-11-17T07:56:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00012",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00014",
+    "at": "2026-11-17T10:16:00.000Z",
+    "kitId": "KIT-0005",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00017",
+    "by": "USR-0007",
+    "note": "HBA1C"
+  },
+  {
+    "id": "KMV-00015",
+    "at": "2026-11-17T10:19:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00018",
+    "by": "USR-0007",
+    "note": "FBS"
+  },
+  {
+    "id": "KMV-00016",
+    "at": "2026-11-17T11:11:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00019",
+    "by": "USR-0007",
+    "note": "FBS"
+  },
+  {
+    "id": "KMV-00017",
+    "at": "2026-11-17T11:12:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00020",
+    "by": "USR-0007",
+    "note": "PPBS"
+  },
+  {
+    "id": "KMV-00018",
+    "at": "2026-11-17T12:23:00.000Z",
+    "kitId": "KIT-0010",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00021",
+    "by": "USR-0007",
+    "note": "WIDAL"
+  },
+  {
+    "id": "KMV-00019",
+    "at": "2026-11-17T12:18:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00022",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00020",
+    "at": "2026-11-17T12:44:00.000Z",
+    "kitId": "KIT-0008",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00023",
+    "by": "USR-0007",
+    "note": "URINE"
+  },
+  {
+    "id": "KMV-00021",
+    "at": "2026-11-17T02:45:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_QC",
+    "qty": -2,
+    "ref": "QC-2026-11-17",
+    "by": "USR-0007",
+    "note": "Daily QC — 2 levels"
+  },
+  {
+    "id": "KMV-00022",
+    "at": "2026-11-17T02:50:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_QC",
+    "qty": -2,
+    "ref": "QC-2026-11-17",
+    "by": "USR-0007",
+    "note": "Daily QC — glucometer control"
+  },
+  {
+    "id": "KMV-00023",
+    "at": "2026-11-18T03:42:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00024",
+    "by": "USR-0007",
+    "note": "FBS"
+  },
+  {
+    "id": "KMV-00024",
+    "at": "2026-11-18T03:34:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00025",
+    "by": "USR-0007",
+    "note": "PPBS"
+  },
+  {
+    "id": "KMV-00025",
+    "at": "2026-11-18T05:31:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00030",
+    "by": "USR-0007",
+    "note": "FBS"
+  },
+  {
+    "id": "KMV-00026",
+    "at": "2026-11-18T05:24:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00031",
+    "by": "USR-0007",
+    "note": "PPBS"
+  },
+  {
+    "id": "KMV-00027",
+    "at": "2026-11-18T05:52:00.000Z",
+    "kitId": "KIT-0010",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00032",
+    "by": "USR-0007",
+    "note": "WIDAL"
+  },
+  {
+    "id": "KMV-00028",
+    "at": "2026-11-18T05:58:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00033",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00029",
+    "at": "2026-11-18T07:42:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00035",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00030",
+    "at": "2026-11-18T07:57:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00036",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00031",
+    "at": "2026-11-18T08:22:00.000Z",
+    "kitId": "KIT-0007",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00037",
+    "by": "USR-0007",
+    "note": "THYROID"
+  },
+  {
+    "id": "KMV-00032",
+    "at": "2026-11-18T09:00:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00039",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00033",
+    "at": "2026-11-18T10:11:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00040",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00034",
+    "at": "2026-11-18T11:56:00.000Z",
+    "kitId": "KIT-0009",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00042",
+    "by": "USR-0007",
+    "note": "NS1"
+  },
+  {
+    "id": "KMV-00035",
+    "at": "2026-11-18T11:51:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00043",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00036",
+    "at": "2026-11-18T12:53:00.000Z",
+    "kitId": "KIT-0008",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00044",
+    "by": "USR-0007",
+    "note": "URINE"
+  },
+  {
+    "id": "KMV-00037",
+    "at": "2026-11-18T02:45:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_QC",
+    "qty": -2,
+    "ref": "QC-2026-11-18",
+    "by": "USR-0007",
+    "note": "Daily QC — 2 levels"
+  },
+  {
+    "id": "KMV-00038",
+    "at": "2026-11-18T02:50:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_QC",
+    "qty": -2,
+    "ref": "QC-2026-11-18",
+    "by": "USR-0007",
+    "note": "Daily QC — glucometer control"
+  },
+  {
+    "id": "KMV-00039",
+    "at": "2026-11-19T03:40:00.000Z",
+    "kitId": "KIT-0002",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00045",
+    "by": "USR-0007",
+    "note": "LFT"
+  },
+  {
+    "id": "KMV-00040",
+    "at": "2026-11-19T04:18:00.000Z",
+    "kitId": "KIT-0008",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00046",
+    "by": "USR-0007",
+    "note": "URINE"
+  },
+  {
+    "id": "KMV-00041",
+    "at": "2026-11-19T04:55:00.000Z",
+    "kitId": "KIT-0002",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00047",
+    "by": "USR-0007",
+    "note": "LFT"
+  },
+  {
+    "id": "KMV-00042",
+    "at": "2026-11-19T06:17:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00048",
+    "by": "USR-0007",
+    "note": "FBS"
+  },
+  {
+    "id": "KMV-00043",
+    "at": "2026-11-19T06:03:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00049",
+    "by": "USR-0007",
+    "note": "PPBS"
+  },
+  {
+    "id": "KMV-00044",
+    "at": "2026-11-19T07:33:00.000Z",
+    "kitId": "KIT-0008",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00050",
+    "by": "USR-0007",
+    "note": "URINE"
+  },
+  {
+    "id": "KMV-00045",
+    "at": "2026-11-19T07:57:00.000Z",
+    "kitId": "KIT-0008",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00051",
+    "by": "USR-0007",
+    "note": "URINE"
+  },
+  {
+    "id": "KMV-00046",
+    "at": "2026-11-19T09:22:00.000Z",
+    "kitId": "KIT-0003",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00052",
+    "by": "USR-0007",
+    "note": "RFT"
+  },
+  {
+    "id": "KMV-00047",
+    "at": "2026-11-19T09:13:00.000Z",
+    "kitId": "KIT-0008",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00053",
+    "by": "USR-0007",
+    "note": "URINE"
+  },
+  {
+    "id": "KMV-00048",
+    "at": "2026-11-19T10:17:00.000Z",
+    "kitId": "KIT-0007",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00054",
+    "by": "USR-0007",
+    "note": "THYROID"
+  },
+  {
+    "id": "KMV-00049",
+    "at": "2026-11-19T11:23:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00056",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00050",
+    "at": "2026-11-19T12:25:00.000Z",
+    "kitId": "KIT-0010",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00057",
+    "by": "USR-0007",
+    "note": "WIDAL"
+  },
+  {
+    "id": "KMV-00051",
+    "at": "2026-11-19T12:35:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00058",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00052",
+    "at": "2026-11-19T02:45:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_QC",
+    "qty": -2,
+    "ref": "QC-2026-11-19",
+    "by": "USR-0007",
+    "note": "Daily QC — 2 levels"
+  },
+  {
+    "id": "KMV-00053",
+    "at": "2026-11-19T02:50:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_QC",
+    "qty": -2,
+    "ref": "QC-2026-11-19",
+    "by": "USR-0007",
+    "note": "Daily QC — glucometer control"
+  },
+  {
+    "id": "KMV-00054",
+    "at": "2026-11-19T10:10:00.000Z",
+    "kitId": "KIT-0002",
+    "type": "REPEAT",
+    "qty": -1,
+    "ref": "RPT-2026-11-19",
+    "by": "USR-0007",
+    "note": "Haemolysed sample — test repeated"
+  },
+  {
+    "id": "KMV-00055",
+    "at": "2026-11-20T03:28:00.000Z",
+    "kitId": "KIT-0009",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00060",
+    "by": "USR-0007",
+    "note": "NS1"
+  },
+  {
+    "id": "KMV-00056",
+    "at": "2026-11-20T03:26:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00061",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00057",
+    "at": "2026-11-20T04:48:00.000Z",
+    "kitId": "KIT-0007",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00062",
+    "by": "USR-0007",
+    "note": "THYROID"
+  },
+  {
+    "id": "KMV-00058",
+    "at": "2026-11-20T05:30:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00063",
+    "by": "USR-0007",
+    "note": "FBS"
+  },
+  {
+    "id": "KMV-00059",
+    "at": "2026-11-20T05:24:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00064",
+    "by": "USR-0007",
+    "note": "PPBS"
+  },
+  {
+    "id": "KMV-00060",
+    "at": "2026-11-20T06:07:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00065",
+    "by": "USR-0007",
+    "note": "FBS"
+  },
+  {
+    "id": "KMV-00061",
+    "at": "2026-11-20T06:08:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00066",
+    "by": "USR-0007",
+    "note": "PPBS"
+  },
+  {
+    "id": "KMV-00062",
+    "at": "2026-11-20T09:19:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00068",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00063",
+    "at": "2026-11-20T09:11:00.000Z",
+    "kitId": "KIT-0011",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00069",
+    "by": "USR-0007",
+    "note": "CRP"
+  },
+  {
+    "id": "KMV-00064",
+    "at": "2026-11-20T11:02:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00072",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00065",
+    "at": "2026-11-20T02:45:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_QC",
+    "qty": -2,
+    "ref": "QC-2026-11-20",
+    "by": "USR-0007",
+    "note": "Daily QC — 2 levels"
+  },
+  {
+    "id": "KMV-00066",
+    "at": "2026-11-20T02:50:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_QC",
+    "qty": -2,
+    "ref": "QC-2026-11-20",
+    "by": "USR-0007",
+    "note": "Daily QC — glucometer control"
+  },
+  {
+    "id": "KMV-00067",
+    "at": "2026-11-21T02:55:00.000Z",
+    "kitId": "KIT-0010",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00076",
+    "by": "USR-0007",
+    "note": "WIDAL"
+  },
+  {
+    "id": "KMV-00068",
+    "at": "2026-11-21T02:52:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00077",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00069",
+    "at": "2026-11-21T03:40:00.000Z",
+    "kitId": "KIT-0006",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00078",
+    "by": "USR-0007",
+    "note": "LIPID"
+  },
+  {
+    "id": "KMV-00070",
+    "at": "2026-11-21T04:14:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00079",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00071",
+    "at": "2026-11-21T05:16:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00080",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00072",
+    "at": "2026-11-21T06:13:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00081",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00073",
+    "at": "2026-11-21T07:10:00.000Z",
+    "kitId": "KIT-0005",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00082",
+    "by": "USR-0007",
+    "note": "HBA1C"
+  },
+  {
+    "id": "KMV-00074",
+    "at": "2026-11-21T07:17:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00083",
+    "by": "USR-0007",
+    "note": "FBS"
+  },
+  {
+    "id": "KMV-00075",
+    "at": "2026-11-21T08:28:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00085",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00076",
+    "at": "2026-11-21T07:55:00.000Z",
+    "kitId": "KIT-0009",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00086",
+    "by": "USR-0007",
+    "note": "NS1"
+  },
+  {
+    "id": "KMV-00077",
+    "at": "2026-11-21T08:09:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00087",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00078",
+    "at": "2026-11-21T09:11:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00088",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00079",
+    "at": "2026-11-21T10:39:00.000Z",
+    "kitId": "KIT-0010",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00089",
+    "by": "USR-0007",
+    "note": "WIDAL"
+  },
+  {
+    "id": "KMV-00080",
+    "at": "2026-11-21T10:37:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00090",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00081",
+    "at": "2026-11-21T10:46:00.000Z",
+    "kitId": "KIT-0008",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00091",
+    "by": "USR-0007",
+    "note": "URINE"
+  },
+  {
+    "id": "KMV-00082",
+    "at": "2026-11-21T12:41:00.000Z",
+    "kitId": "KIT-0009",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00092",
+    "by": "USR-0007",
+    "note": "NS1"
+  },
+  {
+    "id": "KMV-00083",
+    "at": "2026-11-21T12:42:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00093",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00084",
+    "at": "2026-11-21T13:04:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00094",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00085",
+    "at": "2026-11-21T13:02:00.000Z",
+    "kitId": "KIT-0011",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00095",
+    "by": "USR-0007",
+    "note": "CRP"
+  },
+  {
+    "id": "KMV-00086",
+    "at": "2026-11-21T02:45:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_QC",
+    "qty": -2,
+    "ref": "QC-2026-11-21",
+    "by": "USR-0007",
+    "note": "Daily QC — 2 levels"
+  },
+  {
+    "id": "KMV-00087",
+    "at": "2026-11-21T02:50:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_QC",
+    "qty": -2,
+    "ref": "QC-2026-11-21",
+    "by": "USR-0007",
+    "note": "Daily QC — glucometer control"
+  },
+  {
+    "id": "KMV-00088",
+    "at": "2026-11-21T11:35:00.000Z",
+    "kitId": "KIT-0009",
+    "type": "WASTAGE",
+    "qty": -1,
+    "ref": "WST-2026-11-21",
+    "by": "USR-0007",
+    "note": "Card damaged while opening"
+  },
+  {
+    "id": "KMV-00089",
+    "at": "2026-11-22T04:42:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00098",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00090",
+    "at": "2026-11-22T09:56:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00102",
+    "by": "USR-0007",
+    "note": "FBS"
+  },
+  {
+    "id": "KMV-00091",
+    "at": "2026-11-22T10:03:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00103",
+    "by": "USR-0007",
+    "note": "PPBS"
+  },
+  {
+    "id": "KMV-00092",
+    "at": "2026-11-22T12:06:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00105",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00093",
+    "at": "2026-11-22T12:10:00.000Z",
+    "kitId": "KIT-0011",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00106",
+    "by": "USR-0007",
+    "note": "CRP"
+  },
+  {
+    "id": "KMV-00094",
+    "at": "2026-11-22T02:45:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_QC",
+    "qty": -2,
+    "ref": "QC-2026-11-22",
+    "by": "USR-0007",
+    "note": "Daily QC — 2 levels"
+  },
+  {
+    "id": "KMV-00095",
+    "at": "2026-11-22T02:50:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_QC",
+    "qty": -2,
+    "ref": "QC-2026-11-22",
+    "by": "USR-0007",
+    "note": "Daily QC — glucometer control"
+  },
+  {
+    "id": "KMV-00096",
+    "at": "2026-11-21T03:40:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00107",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00097",
+    "at": "2026-11-21T03:21:00.000Z",
+    "kitId": "KIT-0002",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00108",
+    "by": "USR-0007",
+    "note": "LFT"
+  },
+  {
+    "id": "KMV-00098",
+    "at": "2026-11-21T03:27:00.000Z",
+    "kitId": "KIT-0003",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00109",
+    "by": "USR-0007",
+    "note": "RFT"
+  },
+  {
+    "id": "KMV-00099",
+    "at": "2026-11-21T03:37:00.000Z",
+    "kitId": "KIT-0006",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00110",
+    "by": "USR-0007",
+    "note": "LIPID"
+  },
+  {
+    "id": "KMV-00100",
+    "at": "2026-11-21T03:21:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00111",
+    "by": "USR-0007",
+    "note": "FBS"
+  },
+  {
+    "id": "KMV-00101",
+    "at": "2026-11-21T03:40:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00112",
+    "by": "USR-0007",
+    "note": "PPBS"
+  },
+  {
+    "id": "KMV-00102",
+    "at": "2026-11-21T03:39:00.000Z",
+    "kitId": "KIT-0005",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00113",
+    "by": "USR-0007",
+    "note": "HBA1C"
+  },
+  {
+    "id": "KMV-00103",
+    "at": "2026-11-21T03:35:00.000Z",
+    "kitId": "KIT-0007",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00114",
+    "by": "USR-0007",
+    "note": "THYROID"
+  },
+  {
+    "id": "KMV-00104",
+    "at": "2026-11-21T03:36:00.000Z",
+    "kitId": "KIT-0008",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00115",
+    "by": "USR-0007",
+    "note": "URINE"
+  },
+  {
+    "id": "KMV-00105",
+    "at": "2026-11-21T06:22:00.000Z",
+    "kitId": "KIT-0011",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00118",
+    "by": "USR-0007",
+    "note": "CRP"
+  },
+  {
+    "id": "KMV-00106",
+    "at": "2026-11-20T05:15:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00120",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00107",
+    "at": "2026-11-20T05:12:00.000Z",
+    "kitId": "KIT-0003",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00121",
+    "by": "USR-0007",
+    "note": "RFT"
+  },
+  {
+    "id": "KMV-00108",
+    "at": "2026-11-20T05:11:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00122",
+    "by": "USR-0007",
+    "note": "FBS"
+  },
+  {
+    "id": "KMV-00109",
+    "at": "2026-11-22T17:31:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00137",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00110",
+    "at": "2026-11-23T03:23:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00144",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00111",
+    "at": "2026-11-23T03:24:00.000Z",
+    "kitId": "KIT-0011",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00145",
+    "by": "USR-0007",
+    "note": "CRP"
+  },
+  {
+    "id": "KMV-00112",
+    "at": "2026-11-23T03:32:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00146",
+    "by": "USR-0007",
+    "note": "FBS"
+  },
+  {
+    "id": "KMV-00113",
+    "at": "2026-11-23T03:38:00.000Z",
+    "kitId": "KIT-0004",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00147",
+    "by": "USR-0007",
+    "note": "PPBS"
+  },
+  {
+    "id": "KMV-00114",
+    "at": "2026-11-23T03:30:00.000Z",
+    "kitId": "KIT-0005",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00148",
+    "by": "USR-0007",
+    "note": "HBA1C"
+  },
+  {
+    "id": "KMV-00115",
+    "at": "2026-11-23T04:32:00.000Z",
+    "kitId": "KIT-0007",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00150",
+    "by": "USR-0007",
+    "note": "THYROID"
+  },
+  {
+    "id": "KMV-00116",
+    "at": "2026-11-23T05:22:00.000Z",
+    "kitId": "KIT-0006",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00152",
+    "by": "USR-0007",
+    "note": "LIPID"
+  },
+  {
+    "id": "KMV-00117",
+    "at": "2026-11-23T05:22:00.000Z",
+    "kitId": "KIT-0002",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00153",
+    "by": "USR-0007",
+    "note": "LFT"
+  },
+  {
+    "id": "KMV-00118",
+    "at": "2026-11-23T06:25:00.000Z",
+    "kitId": "KIT-0009",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00156",
+    "by": "USR-0007",
+    "note": "NS1"
+  },
+  {
+    "id": "KMV-00119",
+    "at": "2026-11-23T06:27:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00157",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00120",
+    "at": "2026-11-23T02:45:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "USED_QC",
+    "qty": -2,
+    "ref": "QC-2026-11-23",
+    "by": "USR-0007",
+    "note": "Daily QC — 2 levels"
+  },
+  {
+    "id": "KMV-00121",
+    "at": "2026-11-22T14:00:00.000Z",
+    "kitId": "KIT-0001",
+    "type": "COUNT_ADJUST",
+    "qty": -3,
+    "ref": "KC-0001",
+    "by": "USR-0007",
+    "note": "Physical count shortage"
+  }
+]

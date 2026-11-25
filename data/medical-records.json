@@ -1,0 +1,189 @@
+[
+  {
+    "id": "MRD-0001",
+    "mrdNo": "MRD/2026/00311",
+    "patientId": "PAT-0002",
+    "episodeType": "IP",
+    "ipNo": "IP-2026-0141",
+    "admittedAt": "2026-11-21T01:30:00.000Z",
+    "dischargedAt": null,
+    "ward": "Surgical ward — Bed S-4",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "diagnosis": "Right inguinal hernia",
+    "icd10": "K40.9",
+    "procedures": "Open hernioplasty with mesh",
+    "documents": [
+      {
+        "id": "DOC-0001-1",
+        "name": "Consent form.pdf",
+        "type": "application/pdf",
+        "size": 715776,
+        "at": "2026-11-21T01:30:00.000Z",
+        "by": "USR-0009",
+        "demo": true
+      },
+      {
+        "id": "DOC-0001-2",
+        "name": "Anaesthesia record.pdf",
+        "type": "application/pdf",
+        "size": 690176,
+        "at": "2026-11-21T01:30:00.000Z",
+        "by": "USR-0009",
+        "demo": true
+      }
+    ],
+    "status": "OPEN",
+    "location": "With ward",
+    "codedBy": null,
+    "codedAt": null,
+    "createdAt": "2026-11-21T01:30:00.000Z",
+    "createdBy": "USR-0009",
+    "source": "MANUAL"
+  },
+  {
+    "id": "MRD-0002",
+    "mrdNo": "MRD/2026/00312",
+    "patientId": "PAT-0009",
+    "episodeType": "IP",
+    "ipNo": "IP-2026-0142",
+    "admittedAt": "2026-11-12T12:50:00.000Z",
+    "dischargedAt": "2026-11-16T05:30:00.000Z",
+    "ward": "General ward — Bed G-7",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "diagnosis": "Community acquired pneumonia",
+    "icd10": "J18.9",
+    "procedures": "",
+    "documents": [
+      {
+        "id": "DOC-0002-1",
+        "name": "Chest X-ray report.pdf",
+        "type": "application/pdf",
+        "size": 111616,
+        "at": "2026-11-16T05:30:00.000Z",
+        "by": "USR-0009",
+        "demo": true
+      },
+      {
+        "id": "DOC-0002-2",
+        "name": "Case sheet.pdf",
+        "type": "application/pdf",
+        "size": 898048,
+        "at": "2026-11-16T05:30:00.000Z",
+        "by": "USR-0009",
+        "demo": true
+      }
+    ],
+    "status": "FILED",
+    "location": "Rack A-6, Shelf 3",
+    "codedBy": "USR-0009",
+    "codedAt": "2026-11-17T07:30:00.000Z",
+    "createdAt": "2026-11-12T12:50:00.000Z",
+    "createdBy": "USR-0009",
+    "source": "MANUAL"
+  },
+  {
+    "id": "MRD-0003",
+    "mrdNo": "MRD/2026/00313",
+    "patientId": "PAT-0004",
+    "episodeType": "IP",
+    "ipNo": "IP-2026-0143",
+    "admittedAt": "2026-11-14T03:40:00.000Z",
+    "dischargedAt": "2026-11-17T05:00:00.000Z",
+    "ward": "Maternity ward — Bed M-2",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "diagnosis": "Term pregnancy, normal vaginal delivery",
+    "icd10": "O80",
+    "procedures": "Normal vaginal delivery",
+    "documents": [
+      {
+        "id": "DOC-0003-1",
+        "name": "Partograph.pdf",
+        "type": "application/pdf",
+        "size": 693248,
+        "at": "2026-11-17T05:00:00.000Z",
+        "by": "USR-0009",
+        "demo": true
+      },
+      {
+        "id": "DOC-0003-2",
+        "name": "Baby record.pdf",
+        "type": "application/pdf",
+        "size": 898048,
+        "at": "2026-11-17T05:00:00.000Z",
+        "by": "USR-0009",
+        "demo": true
+      }
+    ],
+    "status": "FILED",
+    "location": "Rack C-6, Shelf 2",
+    "codedBy": "USR-0009",
+    "codedAt": "2026-11-18T07:00:00.000Z",
+    "createdAt": "2026-11-14T03:40:00.000Z",
+    "createdBy": "USR-0009",
+    "source": "MANUAL"
+  },
+  {
+    "id": "MRD-0004",
+    "mrdNo": "MRD/2026/00314",
+    "patientId": "PAT-0013",
+    "episodeType": "IP",
+    "ipNo": "IP-2026-0144",
+    "admittedAt": "2026-11-18T15:30:00.000Z",
+    "dischargedAt": "2026-11-22T06:30:00.000Z",
+    "ward": "General ward — Bed G-2",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "diagnosis": "Dengue fever without warning signs",
+    "icd10": "A90",
+    "procedures": "",
+    "documents": [
+      {
+        "id": "DOC-0004-1",
+        "name": "Platelet trend.pdf",
+        "type": "application/pdf",
+        "size": 729088,
+        "at": "2026-11-22T06:30:00.000Z",
+        "by": "USR-0009",
+        "demo": true
+      }
+    ],
+    "status": "FILED",
+    "location": "Rack A-6, Shelf 2",
+    "codedBy": "USR-0009",
+    "codedAt": "2026-11-23T08:30:00.000Z",
+    "createdAt": "2026-11-18T15:30:00.000Z",
+    "createdBy": "USR-0009",
+    "source": "MANUAL"
+  },
+  {
+    "id": "MRD-0005",
+    "mrdNo": "MRD/2026/00315",
+    "patientId": "PAT-0007",
+    "episodeType": "DAYCARE",
+    "ipNo": null,
+    "admittedAt": "2026-11-20T03:30:00.000Z",
+    "dischargedAt": "2026-11-20T11:30:00.000Z",
+    "ward": "Day care — Bay 1",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "diagnosis": "Closed fracture distal radius, right",
+    "icd10": "S52.50",
+    "procedures": "Closed reduction and cast",
+    "documents": [
+      {
+        "id": "DOC-0005-1",
+        "name": "X-ray wrist.pdf",
+        "type": "application/pdf",
+        "size": 115712,
+        "at": "2026-11-20T11:30:00.000Z",
+        "by": "USR-0009",
+        "demo": true
+      }
+    ],
+    "status": "FILED",
+    "location": "Rack C-2, Shelf 1",
+    "codedBy": "USR-0009",
+    "codedAt": "2026-11-21T13:30:00.000Z",
+    "createdAt": "2026-11-20T03:30:00.000Z",
+    "createdBy": "USR-0009",
+    "source": "MANUAL"
+  }
+]

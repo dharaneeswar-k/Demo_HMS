@@ -1,0 +1,320 @@
+// Seed data for the hospital-side modules: Central Billing (08), Laboratory (06), Services (07),
+// Packages (10), MRD (11), Shifts (12) and Workstations (14). All records are FICTIONAL.
+// Uses its own random sequence so the pharmacy data in generate-data.mjs stays identical.
+
+let s = 777123;
+const rnd = () => ((s = (s * 1103515245 + 12345) % 2147483648) / 2147483648);
+const pick = (a) => a[Math.floor(rnd() * a.length)];
+const randInt = (a, b) => a + Math.floor(rnd() * (b - a + 1));
+const pad = (n, l = 4) => String(n).padStart(l, '0');
+const r2 = (v) => Math.round(v * 100) / 100;
+const ist = (day, hm) => new Date(`${day}T${hm}:00+05:30`).toISOString();
+const addMin = (isoStr, m) => new Date(new Date(isoStr).getTime() + m * 60000).toISOString();
+
+// ---------------- catalog ----------------
+// Lab tests carry their report format (parameters + reference ranges) and kit usage per test.
+const KITS = [
+  ['CBC reagent pack (haematology analyser)', 'test', 60], ['LFT reagent kit (biochemistry)', 'test', 40], ['RFT reagent kit (biochemistry)', 'test', 40],
+  ['Glucose reagent / strips', 'test', 80], ['HbA1c cartridge', 'cartridge', 25], ['Lipid profile reagent kit', 'test', 30], ['Thyroid (T3/T4/TSH) cartridge', 'cartridge', 25],
+  ['Urine reagent strips (10-parameter)', 'strip', 50], ['Dengue NS1 rapid card', 'card', 20], ['Widal slide kit', 'test', 20], ['CRP cartridge', 'cartridge', 20]
+];
+const labKits = KITS.map(([name, unit, reorderLevel], i) => ({ id: 'KIT-' + pad(i + 1), name, unit, reorderLevel, active: true }));
+const K = (n) => labKits[n - 1].id;
+
+const P = (name, unit, low, high, critLow = null, critHigh = null) => ({ name, unit, low, high, critLow, critHigh });
+const T = (name, unit, ref) => ({ name, unit, ref });
+const LAB = [
+  ['CBC', 'Complete Blood Count (CBC)', 350, 'Blood (EDTA)', 'Haematology', 4, [[1, 1]], [
+    P('Haemoglobin', 'g/dL', 12, 17, 7, 20), P('Total WBC count', 'cells/cumm', 4000, 11000, 2000, 30000), P('Platelet count', 'lakh/cumm', 1.5, 4.5, 0.5, 10),
+    P('RBC count', 'million/cumm', 4.2, 5.9), P('PCV', '%', 36, 50), P('Neutrophils', '%', 40, 75), P('Lymphocytes', '%', 20, 45)]],
+  ['LFT', 'Liver Function Test (LFT)', 650, 'Blood (Plain)', 'Biochemistry', 6, [[2, 1]], [
+    P('Total bilirubin', 'mg/dL', 0.2, 1.2), P('Direct bilirubin', 'mg/dL', 0, 0.3), P('SGOT (AST)', 'U/L', 5, 40), P('SGPT (ALT)', 'U/L', 7, 56),
+    P('Alkaline phosphatase', 'U/L', 44, 147), P('Total protein', 'g/dL', 6, 8.3), P('Albumin', 'g/dL', 3.5, 5)]],
+  ['RFT', 'Renal Function Test (RFT)', 550, 'Blood (Plain)', 'Biochemistry', 6, [[3, 1]], [
+    P('Blood urea', 'mg/dL', 15, 40), P('Serum creatinine', 'mg/dL', 0.6, 1.3, null, 5), P('Uric acid', 'mg/dL', 3.4, 7), P('Sodium', 'mmol/L', 135, 145, 120, 160), P('Potassium', 'mmol/L', 3.5, 5.1, 2.5, 6.5)]],
+  ['FBS', 'Blood Sugar — Fasting (FBS)', 80, 'Blood (Fluoride)', 'Biochemistry', 2, [[4, 1]], [P('Fasting blood glucose', 'mg/dL', 70, 100, 40, 400)]],
+  ['PPBS', 'Blood Sugar — Post Prandial (PPBS)', 80, 'Blood (Fluoride)', 'Biochemistry', 2, [[4, 1]], [P('Post-prandial blood glucose', 'mg/dL', 70, 140, 40, 400)]],
+  ['HBA1C', 'HbA1c (Glycated Haemoglobin)', 550, 'Blood (EDTA)', 'Biochemistry', 6, [[5, 1]], [P('HbA1c', '%', 4, 5.6), P('Estimated average glucose', 'mg/dL', 68, 114)]],
+  ['LIPID', 'Lipid Profile', 600, 'Blood (Plain)', 'Biochemistry', 6, [[6, 1]], [
+    P('Total cholesterol', 'mg/dL', 0, 200), P('Triglycerides', 'mg/dL', 0, 150), P('HDL cholesterol', 'mg/dL', 40, 60), P('LDL cholesterol', 'mg/dL', 0, 100), P('VLDL cholesterol', 'mg/dL', 5, 40)]],
+  ['THYROID', 'Thyroid Profile (T3, T4, TSH)', 700, 'Blood (Plain)', 'Immunoassay', 8, [[7, 1]], [P('T3', 'ng/mL', 0.8, 2), P('T4', 'µg/dL', 5.1, 14.1), P('TSH', 'µIU/mL', 0.27, 4.2)]],
+  ['URINE', 'Urine Routine Examination', 150, 'Urine (random)', 'Clinical Pathology', 2, [[8, 1]], [
+    T('Colour', '', 'Pale yellow'), T('Appearance', '', 'Clear'), P('pH', '', 4.6, 8), T('Sugar', '', 'Nil'), T('Albumin', '', 'Nil'), P('Pus cells', '/hpf', 0, 5), P('RBCs', '/hpf', 0, 2)]],
+  ['NS1', 'Dengue NS1 Antigen (rapid)', 600, 'Blood (Plain)', 'Serology', 1, [[9, 1]], [T('Dengue NS1 antigen', '', 'Negative')]],
+  ['WIDAL', 'Widal Test (slide)', 250, 'Blood (Plain)', 'Serology', 3, [[10, 1]], [T('S. Typhi O', 'titre', '< 1:80'), T('S. Typhi H', 'titre', '< 1:80')]],
+  ['CRP', 'C-Reactive Protein (CRP)', 450, 'Blood (Plain)', 'Immunoassay', 3, [[11, 1]], [P('CRP', 'mg/L', 0, 6)]]
+];
+const OTHER = [
+  ['ECG', 'ECG', 'ECG — 12 lead', 250], ['INJ', 'INJECTION', 'Injection administration (IM / IV)', 50], ['CANN', 'INJECTION', 'IV cannulation', 150], ['INF', 'INJECTION', 'IV infusion set-up', 200],
+  ['NEB', 'NEBULIZATION', 'Nebulization (per session)', 150],
+  ['DRS', 'OTHER', 'Dressing — small', 100], ['DRL', 'OTHER', 'Dressing — large', 250], ['SUT', 'OTHER', 'Suture removal', 150], ['MINOR', 'OTHER', 'Minor procedure', 1000],
+  ['AMB', 'OTHER', 'Ambulance (within Hosur)', 800], ['CERT', 'OTHER', 'Medical certificate', 200], ['PRECON', 'OTHER', 'Pre-operative consultation', 500],
+  ['SURG-HER', 'OTHER', "Surgeon's fee — hernia repair", 45000], ['OT', 'OTHER', 'Operation theatre charges', 20000], ['ANAES', 'OTHER', 'Anaesthesia charges', 10000],
+  ['DCBED', 'OTHER', 'Day-care / recovery bed (per day)', 1500], ['HCCON', 'OTHER', 'Health check-up physician review', 500]
+];
+const services = [
+  ...LAB.map(([code, name, price, sample, dept, tatHours, kits, params]) => ({ code, name, category: 'LAB', price, active: true,
+    lab: { sample, department: dept, tatHours, kits: kits.map(([k, q]) => ({ kitId: K(k), qty: q })), parameters: params } })),
+  ...OTHER.map(([code, category, name, price]) => ({ code, name, category, price, active: true }))
+].map((x, i) => ({ id: 'SRV-' + pad(i + 1), ...x }));
+const S = (code) => services.find((x) => x.code === code);
+
+const packages = [
+  { id: 'PKG-0001', code: 'HERNIA', name: 'Hernia Surgery Package', price: 100000, validityDays: 30, active: true,
+    description: 'Open hernia repair with pre-operative work-up, surgery, anaesthesia, recovery and follow-up dressings.',
+    includes: [['PRECON', 2], ['CBC', 1], ['RFT', 1], ['FBS', 1], ['ECG', 1], ['SURG-HER', 1], ['OT', 1], ['ANAES', 1], ['DCBED', 3], ['DRS', 3], ['SUT', 1], ['INJ', 6], ['CANN', 1]].map(([c, qty]) => ({ serviceId: S(c).id, qty })),
+    medicineAllowance: 8000, exclusions: 'Implants / mesh above standard, extra stay beyond 3 days, ICU care, treatment of complications.' },
+  { id: 'PKG-0002', code: 'MHC', name: 'Master Health Check-up', price: 2500, validityDays: 2, active: true,
+    description: 'Complete annual health check with physician review.',
+    includes: [['CBC', 1], ['LFT', 1], ['RFT', 1], ['LIPID', 1], ['FBS', 1], ['PPBS', 1], ['HBA1C', 1], ['THYROID', 1], ['URINE', 1], ['ECG', 1], ['HCCON', 1]].map(([c, qty]) => ({ serviceId: S(c).id, qty })),
+    medicineAllowance: 0, exclusions: 'Any test or consultation not listed.' },
+  { id: 'PKG-0003', code: 'DIAB', name: 'Diabetes Check-up', price: 1200, validityDays: 2, active: true,
+    description: 'Sugar control and kidney / lipid screening for diabetic patients.',
+    includes: [['FBS', 1], ['PPBS', 1], ['HBA1C', 1], ['RFT', 1], ['LIPID', 1], ['URINE', 1], ['HCCON', 1]].map(([c, qty]) => ({ serviceId: S(c).id, qty })),
+    medicineAllowance: 0, exclusions: 'Medicines and any test not listed.' }
+];
+
+// ---------------- settings ----------------
+const DISCHARGE_SECTIONS = [
+  ['reason', 'Reason for admission / presenting complaints'], ['history', 'Significant history & examination findings'], ['investigations', 'Investigation results'],
+  ['diagnosis', 'Final diagnosis'], ['procedures', 'Procedures / surgery performed'], ['treatment', 'Treatment given'], ['course', 'Course in hospital'],
+  ['condition', 'Condition at discharge'], ['medications', 'Medicines on discharge (dose, frequency, duration)'], ['advice', 'Advice, diet & activity'],
+  ['followup', 'Follow-up'], ['urgent', 'When and how to get urgent care']
+];
+const hospitalSettings = {
+  billPrefix: 'HB',
+  categories: [
+    { code: 'LAB', label: 'Laboratory', icon: 'flask-conical' }, { code: 'ECG', label: 'ECG', icon: 'activity' }, { code: 'INJECTION', label: 'Injection', icon: 'syringe' },
+    { code: 'NEBULIZATION', label: 'Nebulization', icon: 'wind' }, { code: 'OTHER', label: 'Other services', icon: 'stethoscope' }, { code: 'PACKAGE', label: 'Packages', icon: 'package' }],
+  shifts: [{ id: 'MORNING', name: 'Morning', start: '08:00', end: '14:00' }, { id: 'EVENING', name: 'Evening', start: '14:00', end: '20:00' }, { id: 'NIGHT', name: 'Night', start: '20:00', end: '08:00' }],
+  shiftTimingsConfirmed: false, defaultOpeningFloat: 1000, shiftVarianceTolerance: 50, handoverRequired: true,
+  denominations: [500, 200, 100, 50, 20, 10, 5, 2, 1],
+  credit: { emergencyAllowed: true, creditNeedsOwner: true },
+  cancellation: { reasonRequired: true, ownerApproves: true },
+  lab: { reportPrefix: 'LR', accessionPrefix: 'LAB', requireSecondPersonVerification: false, kitVarianceTolerance: 2 },
+  mrd: { codingDueDays: 5, retrievalReasons: ['Patient follow-up visit', 'Insurance / TPA claim', 'Legal / medico-legal request', 'Doctor review', 'Patient copy request', 'Audit'] },
+  dischargeTemplates: [
+    { id: 'TPL-GEN', name: 'General Medicine', sections: DISCHARGE_SECTIONS.filter(([k]) => k !== 'procedures').map(([k]) => k) },
+    { id: 'TPL-SUR', name: 'Surgery', sections: DISCHARGE_SECTIONS.map(([k]) => k) },
+    { id: 'TPL-DC', name: 'Day Care', sections: ['reason', 'diagnosis', 'procedures', 'treatment', 'condition', 'medications', 'advice', 'followup', 'urgent'] },
+    { id: 'TPL-DEATH', name: 'Death Summary', sections: ['reason', 'history', 'investigations', 'diagnosis', 'treatment', 'course', 'cause'] }],
+  dischargeSections: Object.fromEntries([...DISCHARGE_SECTIONS, ['cause', 'Cause of death (immediate, antecedent, underlying)']]),
+  workstations: {
+    enforce: false,
+    list: [
+      { id: 'WS-01', name: 'Main Reception & Billing Counter', location: 'Ground floor, entrance', roles: ['RECEPTION', 'SUPER_ADMIN'] },
+      { id: 'WS-02', name: 'Pharmacy Counter', location: 'Ground floor, pharmacy', roles: ['PHARMACY_STAFF', 'SUPER_ADMIN'] },
+      { id: 'WS-03', name: 'Central Store', location: 'First floor, store room', roles: ['STORE_INCHARGE', 'SUPER_ADMIN'] },
+      { id: 'WS-04', name: 'Laboratory', location: 'Ground floor, lab', roles: ['LAB', 'SUPER_ADMIN'] },
+      { id: 'WS-05', name: 'Service Counter (ECG / Injection / Nebulization)', location: 'Ground floor, procedure room', roles: ['SERVICE_COUNTER', 'SUPER_ADMIN'] },
+      { id: 'WS-06', name: 'Medical Records (MRD)', location: 'First floor, records room', roles: ['MRD', 'SUPER_ADMIN'] }] }
+};
+
+export function buildHospitalData({ patients, doctors, pharmacyPayments, USERS }) {
+  const { OWNER, RECEP, RECEP2, LABU, MRDU, SERVU, STAFF, RAVI } = USERS;
+  const bills = []; const orders = []; const kitMoves = []; const kitCounts = []; const patientPackages = []; const discountRequests = [];
+  const DAYS = ['2026-11-17', '2026-11-18', '2026-11-19', '2026-11-20', '2026-11-21', '2026-11-22', '2026-11-23'];
+  const TODAY = DAYS.at(-1);
+  let billNo = 0; let ordNo = 0; let kmNo = 0; let payNo = 0; let lrNo = 0;
+
+  const kitMove = (at, kitId, type, qty, ref, by, note = '') => kitMoves.push({ id: 'KMV-' + pad(++kmNo, 5), at, kitId, type, qty, ref, by, note });
+  // opening kit stock received at the start of the month
+  labKits.forEach((k, i) => kitMove(ist('2026-11-01', '09:30'), k.id, 'RECEIVED', [400, 150, 150, 600, 100, 150, 100, 300, 60, 60, 80][i], 'KIT-GRN-2026-11', LABU, 'Monthly reagent receipt · Lot ' + (5100 + i * 7)));
+
+  const resultFor = (p) => {
+    if (p.ref !== undefined) return rnd() < 0.85 ? p.ref : ({ Negative: 'Positive', Nil: 'Trace', 'Pale yellow': 'Dark yellow', Clear: 'Turbid', '< 1:80': '1:160' }[p.ref] || p.ref);
+    const span = p.high - p.low || p.high || 1;
+    const r = rnd();
+    let v = r < 0.8 ? p.low + span * (0.1 + rnd() * 0.8) : r < 0.9 ? p.high + span * (0.05 + rnd() * 0.3) : Math.max(0, p.low - span * (0.05 + rnd() * 0.2));
+    const dp = span < 2 ? 2 : span < 20 ? 1 : 0;
+    return String(Math.round(v * 10 ** dp) / 10 ** dp);
+  };
+
+  function makeBill(at, counterUserId, patient, lines, { doctor, discountPct = 0, pay = 'CASH', credit = null, packageEnrol = null, coverWith = null, done = true, status: forceStatus } = {}) {
+    const id = `HB-2026-${pad(++billNo, 5)}`;
+    const items = lines.map(([code, qty = 1], i) => {
+      const isPkg = code.startsWith('PKG:');
+      const pkg = isPkg ? packages.find((p) => p.code === code.slice(4)) : null;
+      const sv = isPkg ? null : S(code);
+      const covered = !!(coverWith && sv && coverWith.includes(code));
+      const rate = isPkg ? pkg.price : sv.price;
+      const gross = covered ? 0 : rate * qty;
+      return { id: `${id}-${i + 1}`, serviceId: sv?.id || null, packageId: pkg?.id || null, category: isPkg ? 'PACKAGE' : sv.category, name: isPkg ? pkg.name : sv.name, qty, rate: covered ? 0 : rate, listRate: rate, gross, coveredBy: covered ? packageEnrol : null };
+    });
+    const gross = items.reduce((t, x) => t + x.gross, 0);
+    const discount = r2(gross * discountPct / 100);
+    const net = gross - discount; const grand = Math.round(net);
+    const bill = { id, at, businessDate: at.slice(0, 10) === at.slice(0, 10) ? new Date(new Date(at).getTime() + 5.5 * 3600000).toISOString().slice(0, 10) : '', patientId: patient.id, patientName: patient.name, uhid: patient.uhid, phone: patient.phone,
+      doctor: doctor || pick(doctors), counterUserId, items, gross, discountPct, discountTotal: discount, roundOff: r2(grand - net), grandTotal: grand, discountRequestId: null,
+      payments: [], credit: null, status: 'PAID', cancellation: null, remarks: '' };
+    if (credit) {
+      bill.credit = { type: credit.type, reason: credit.reason, requestedBy: counterUserId, requestedAt: at, status: credit.status, decidedBy: credit.status === 'PENDING' ? null : OWNER, decidedAt: credit.status === 'PENDING' ? null : addMin(at, credit.type === 'EMERGENCY' ? 240 : 25), note: credit.note || '' };
+    } else if (grand > 0) {
+      const modes = pay === 'SPLIT' ? [['CASH', Math.round(grand * 0.4)], ['UPI', grand - Math.round(grand * 0.4)]] : [[pay, grand]];
+      modes.forEach(([mode, amount]) => bill.payments.push({ id: 'HPY-' + pad(++payNo, 6), kind: 'PAYMENT', mode, amount, at, userId: counterUserId, reference: mode === 'UPI' ? 'UTR' + randInt(10000000, 99999999) : mode === 'CARD' ? 'XXXX-' + randInt(1000, 9999) : '' }));
+    }
+    const paid = bill.payments.reduce((t, p) => t + (p.kind === 'PAYMENT' ? p.amount : -p.amount), 0);
+    bill.status = forceStatus || (grand === 0 ? 'PAID' : paid >= grand ? 'PAID' : paid > 0 ? 'PARTIALLY_PAID' : 'UNPAID');
+    bills.push(bill);
+    // orders for every department service (lab, ECG, injection, nebulization, other)
+    items.filter((x) => x.serviceId).forEach((x) => {
+      const sv = services.find((q) => q.id === x.serviceId);
+      for (let n = 0; n < x.qty; n++) {
+        const ok = bill.status === 'PAID' || ['APPROVED', 'EMERGENCY'].includes(bill.credit?.status);
+        const o = { id: 'ORD-' + pad(++ordNo, 5), billId: id, itemId: x.id, patientId: patient.id, serviceId: sv.id, category: sv.category, name: sv.name, doctor: bill.doctor,
+          requestedBy: counterUserId, requestedAt: at, billedAt: at, status: ok ? 'READY' : 'ON_HOLD', accession: null, performedBy: null, performedAt: null, notes: '', lab: null, coveredBy: x.coveredBy };
+        if (sv.category === 'LAB') {
+          o.accession = `LAB-${bill.businessDate.replace(/-/g, '').slice(2)}-${pad(ordNo, 4)}`;
+          o.lab = { sampleType: sv.lab.sample, collectedAt: null, collectedBy: null, receivedAt: null, receivedBy: null, rejected: null, results: [], enteredBy: null, enteredAt: null, verifiedBy: null, verifiedAt: null, reportNo: null, printedAt: null, printCount: 0 };
+          if (ok && done) {
+            const c = addMin(at, randInt(5, 25)); const rcv = addMin(c, randInt(5, 15)); const ent = addMin(rcv, randInt(40, 150)); const ver = addMin(ent, randInt(10, 40));
+            Object.assign(o.lab, { collectedAt: c, collectedBy: LABU, receivedAt: rcv, receivedBy: LABU, results: sv.lab.parameters.map((p) => ({ param: p.name, value: resultFor(p) })), enteredBy: LABU, enteredAt: ent, verifiedBy: rnd() < 0.7 ? OWNER : LABU, verifiedAt: ver, reportNo: `LR-2026-${pad(++lrNo, 5)}`, printedAt: addMin(ver, 20), printCount: 1 });
+            o.status = 'COMPLETED'; o.performedBy = LABU; o.performedAt = ver;
+            sv.lab.kits.forEach((k) => kitMove(c, k.kitId, 'USED_TEST', -k.qty, o.id, LABU, sv.code));
+          }
+        } else if (ok && done) { o.status = 'COMPLETED'; o.performedBy = SERVU; o.performedAt = addMin(at, randInt(8, 30)); o.notes = sv.category === 'ECG' ? pick(['Normal sinus rhythm', 'Sinus tachycardia', 'No acute changes', 'Report handed to doctor']) : 'Done'; }
+        orders.push(o);
+      }
+    });
+    return bill;
+  }
+
+  // ---- history: 6 days of routine work at the main counter ----
+  const routine = [['CBC'], ['CBC', 'CRP'], ['FBS', 'PPBS'], ['HBA1C', 'FBS'], ['LFT'], ['RFT', 'URINE'], ['LIPID'], ['THYROID'], ['ECG'], ['INJ'], ['NEB'], ['NS1', 'CBC'], ['WIDAL', 'CBC'], ['DRS'], ['ECG', 'CBC'], ['URINE'], ['INJ', 'CANN'], ['CERT']];
+  DAYS.slice(0, -1).forEach((day, di) => {
+    const n = randInt(9, 14);
+    for (let i = 0; i < n; i++) {
+      const h = 8 + Math.floor((i / n) * 11); const m = randInt(0, 59);
+      const evening = h >= 14;
+      const by = evening ? RECEP2 : RECEP;
+      const pay = pick(['CASH', 'CASH', 'CASH', 'UPI', 'UPI', 'CARD', 'SPLIT']);
+      makeBill(ist(day, `${pad(h, 2)}:${pad(m, 2)}`), by, pick(patients), pick(routine).map((c) => [c, c === 'INJ' ? randInt(1, 2) : 1]), { pay, discountPct: rnd() < 0.15 ? pick([5, 10]) : 0 });
+    }
+    // reagent used for QC every morning, occasional repeat / wastage
+    kitMove(ist(day, '08:15'), K(1), 'USED_QC', -2, 'QC-' + day, LABU, 'Daily QC — 2 levels');
+    kitMove(ist(day, '08:20'), K(4), 'USED_QC', -2, 'QC-' + day, LABU, 'Daily QC — glucometer control');
+    if (di === 2) kitMove(ist(day, '15:40'), K(2), 'REPEAT', -1, 'RPT-' + day, LABU, 'Haemolysed sample — test repeated');
+    if (di === 4) kitMove(ist(day, '17:05'), K(9), 'WASTAGE', -1, 'WST-' + day, LABU, 'Card damaged while opening');
+  });
+
+  // ---- packages ----
+  const p6 = patients[5]; const p2 = patients[1]; const p11 = patients[10];
+  // Master health check sold two days ago, fully used
+  const mhcBill = makeBill(ist('2026-11-21', '08:40'), RECEP, p6, [['PKG:MHC']], { pay: 'UPI' });
+  patientPackages.push({ id: 'PP-0001', packageId: 'PKG-0002', patientId: p6.id, billId: mhcBill.id, startAt: mhcBill.at, validUntil: '2026-11-23', status: 'COMPLETED', settledAt: ist('2026-11-22', '18:00'), settledBy: OWNER, settlement: { packagePrice: 2500, extras: 450 } });
+  makeBill(ist('2026-11-21', '08:45'), RECEP, p6, packages[1].includes.map((x) => [services.find((q) => q.id === x.serviceId).code, x.qty]), { coverWith: packages[1].includes.map((x) => services.find((q) => q.id === x.serviceId).code), packageEnrol: 'PP-0001', pay: 'CASH' });
+  makeBill(ist('2026-11-21', '11:30'), RECEP, p6, [['CRP']], { pay: 'CASH' }); // extra outside the package
+  // Hernia surgery package — active, partly used
+  const herBill = makeBill(ist('2026-11-20', '10:05'), RECEP, p2, [['PKG:HERNIA']], { pay: 'CARD', doctor: doctors[4] });
+  herBill.payments = [{ id: 'HPY-' + pad(++payNo, 6), kind: 'PAYMENT', mode: 'CARD', amount: 60000, at: herBill.at, userId: RECEP, reference: 'XXXX-4471' }, { id: 'HPY-' + pad(++payNo, 6), kind: 'PAYMENT', mode: 'UPI', amount: 40000, at: ist('2026-11-21', '09:10'), userId: RECEP, reference: 'UTR58120044' }];
+  patientPackages.push({ id: 'PP-0002', packageId: 'PKG-0001', patientId: p2.id, billId: herBill.id, startAt: herBill.at, validUntil: '2026-12-20', status: 'ACTIVE', settledAt: null, settledBy: null, settlement: null });
+  const herCodes = ['PRECON', 'CBC', 'RFT', 'FBS', 'ECG', 'SURG-HER', 'OT', 'ANAES', 'DCBED', 'INJ', 'CANN'];
+  makeBill(ist('2026-11-20', '10:20'), RECEP, p2, [['PRECON'], ['CBC'], ['RFT'], ['FBS'], ['ECG']], { coverWith: herCodes, packageEnrol: 'PP-0002', doctor: doctors[4] });
+  makeBill(ist('2026-11-21', '07:30'), RECEP, p2, [['SURG-HER'], ['OT'], ['ANAES'], ['DCBED'], ['INJ', 2], ['CANN']], { coverWith: herCodes, packageEnrol: 'PP-0002', doctor: doctors[4] });
+  makeBill(ist('2026-11-22', '09:00'), RECEP, p2, [['DCBED'], ['INJ', 2], ['DRS'], ['DRL']], { coverWith: [...herCodes, 'DRS'], packageEnrol: 'PP-0002', doctor: doctors[4], pay: 'CASH' }); // large dressing is an extra
+
+  // ---- emergency credit (approved) and a credit waiting for the owner ----
+  makeBill(ist('2026-11-22', '22:40'), RECEP2, patients[13], [['ECG'], ['CBC'], ['INJ', 2], ['NEB']], { credit: { type: 'EMERGENCY', reason: 'Night emergency — breathlessness, attender arranging money', status: 'EMERGENCY', note: 'Collect before discharge' }, doctor: doctors[0] });
+  const pendingCredit = makeBill(ist(TODAY, '10:25'), RECEP, patients[14], [['LFT'], ['RFT'], ['URINE']], { credit: { type: 'CREDIT', reason: 'Long-term patient — family pays monthly', status: 'PENDING' }, done: false, doctor: doctors[0] });
+
+  // ---- today: open work queues ----
+  const todayPlan = [
+    ['08:35', ['CBC', 'CRP'], 'CASH'], ['08:50', ['FBS', 'PPBS', 'HBA1C'], 'UPI'], ['09:15', ['ECG'], 'CASH'], ['09:40', ['THYROID'], 'CARD'], ['10:05', ['NEB'], 'CASH'],
+    ['10:40', ['LIPID', 'LFT'], 'UPI'], ['11:20', ['INJ', 'CANN'], 'CASH'], ['11:45', ['NS1', 'CBC'], 'UPI'], ['12:10', ['URINE'], 'CASH'], ['12:30', ['ECG', 'RFT'], 'SPLIT']];
+  todayPlan.forEach(([hm, codes, pay], i) => {
+    const b = makeBill(ist(TODAY, hm), RECEP, patients[(i * 3 + 2) % patients.length], codes.map((c) => [c, 1]), { pay, done: i < 4 });
+    // stagger the lab queue: some collected, one awaiting result entry, one awaiting verification
+    orders.filter((o) => o.billId === b.id && o.status === 'READY' && o.category === 'LAB').forEach((o, k) => {
+      const sv = services.find((q) => q.id === o.serviceId);
+      if (i === 5 || (i === 7 && k === 1)) { const c = addMin(b.at, 12); Object.assign(o.lab, { collectedAt: c, collectedBy: LABU, receivedAt: addMin(c, 6), receivedBy: LABU }); o.status = 'SAMPLE_COLLECTED'; sv.lab.kits.forEach((kk) => kitMove(c, kk.kitId, 'USED_TEST', -kk.qty, o.id, LABU, sv.code)); }
+      if (i === 4 || (i === 7 && k === 0)) { const c = addMin(b.at, 10); Object.assign(o.lab, { collectedAt: c, collectedBy: LABU, receivedAt: addMin(c, 5), receivedBy: LABU, results: sv.lab.parameters.map((p) => ({ param: p.name, value: resultFor(p) })), enteredBy: LABU, enteredAt: addMin(c, 70) }); o.status = 'RESULTED'; sv.lab.kits.forEach((kk) => kitMove(c, kk.kitId, 'USED_TEST', -kk.qty, o.id, LABU, sv.code)); }
+    });
+  });
+  // a sample rejected this morning (haemolysed) — recollection pending
+  const rej = orders.find((o) => o.category === 'LAB' && o.status === 'READY' && bills.find((b) => b.id === o.billId)?.businessDate === TODAY);
+  if (rej) rej.lab.rejected = { at: ist(TODAY, '09:05'), by: LABU, reason: 'Haemolysed sample', count: 1 };
+  kitMove(ist(TODAY, '08:15'), K(1), 'USED_QC', -2, 'QC-' + TODAY, LABU, 'Daily QC — 2 levels');
+
+  // ---- services requested by a doctor but never billed (leakage check) ----
+  [['2026-11-22', '16:10', 'ECG', patients[9]], [TODAY, '11:05', 'NEB', patients[4]], [TODAY, '12:20', 'INJ', patients[7]]].forEach(([d, hm, code, p]) => {
+    const sv = S(code);
+    orders.push({ id: 'ORD-' + pad(++ordNo, 5), billId: null, itemId: null, patientId: p.id, serviceId: sv.id, category: sv.category, name: sv.name, doctor: pick(doctors),
+      requestedBy: SERVU, requestedAt: ist(d, hm), billedAt: null, status: 'REQUESTED', accession: null, performedBy: null, performedAt: null, notes: 'Doctor advised — patient sent to main counter for billing', lab: null, coveredBy: null });
+  });
+
+  // ---- a large discount that needed the Super Admin ----
+  const disc = bills.find((b) => b.discountPct === 0 && b.gross >= 600 && b.businessDate === '2026-11-19' && !b.credit);
+  if (disc) {
+    disc.discountPct = 20; disc.discountTotal = r2(disc.gross * 0.2); const net = disc.gross - disc.discountTotal; disc.grandTotal = Math.round(net); disc.roundOff = r2(disc.grandTotal - net);
+    disc.payments = [{ ...disc.payments[0], mode: 'CASH', amount: disc.grandTotal, reference: '' }]; disc.discountRequestId = 'DR-2026-0101';
+    discountRequests.push({ id: 'DR-2026-0101', source: 'HOSPITAL', status: 'USED', requestedBy: disc.counterUserId, requestedAt: addMin(disc.at, -6), reason: 'Senior citizen on pension — hospital welfare scheme', requestedPct: 20,
+      snapshot: { patientName: disc.patientName, saleType: 'PATIENT', lines: disc.items.map((x) => ({ name: x.name, qty: x.qty })), gross: disc.gross, discount: disc.discountTotal, grandTotal: disc.grandTotal },
+      decidedBy: OWNER, decidedAt: addMin(disc.at, -2), decisionNote: '', billId: disc.id });
+  }
+
+  // ---- a cancellation request waiting for the owner ----
+  const toCancel = bills.find((b) => b.businessDate === TODAY && b.status === 'PAID' && orders.filter((o) => o.billId === b.id).every((o) => o.status === 'READY'));
+  if (toCancel) toCancel.cancellation = { status: 'PENDING', reason: 'Doctor cancelled the test after review', requestedBy: RECEP, requestedAt: ist(TODAY, '12:45'), decidedBy: null, decidedAt: null, refundMode: toCancel.payments[0]?.mode || 'CASH', note: '' };
+
+  // ---- kit count yesterday: CBC short by 3 (tests run without a bill?) ----
+  const kitBal = (kitId, until) => kitMoves.filter((m) => m.kitId === kitId && m.at <= until).reduce((t, m) => t + m.qty, 0);
+  const cAt = ist('2026-11-22', '19:30');
+  const lines = labKits.map((k) => { const sys = kitBal(k.id, cAt); const counted = k.id === K(1) ? sys - 3 : sys; return { kitId: k.id, system: sys, counted, diff: counted - sys }; });
+  kitCounts.push({ id: 'KC-0001', at: cAt, businessDate: '2026-11-22', countedBy: LABU, lines, status: 'REVIEWED', reviewedBy: OWNER, reviewedAt: ist('2026-11-22', '21:00'), reviewNote: 'Explained: 3 repeat CBCs not logged as repeats. Lab told to log every repeat.' });
+  kitMove(cAt, K(1), 'COUNT_ADJUST', -3, 'KC-0001', LABU, 'Physical count shortage');
+
+  // ---- MRD ----
+  const medicalRecords = []; const dischargeSummaries = []; const retrievals = [];
+  const ep = (i, p, type, adm, dis, ward, doc, dx, icd, proc, files) => medicalRecords.push({ id: 'MRD-' + pad(i), mrdNo: `MRD/2026/${pad(310 + i, 5)}`, patientId: p.id, episodeType: type, ipNo: type === 'IP' ? `IP-2026-${pad(140 + i, 4)}` : null,
+    admittedAt: adm, dischargedAt: dis, ward, doctor: doc, diagnosis: dx, icd10: icd, procedures: proc, documents: files.map((f, k) => ({ id: `DOC-${pad(i)}-${k + 1}`, name: f, type: 'application/pdf', size: randInt(80, 900) * 1024, at: dis || adm, by: MRDU, demo: true })),
+    status: dis ? 'FILED' : 'OPEN', location: dis ? `Rack ${pick(['A', 'B', 'C'])}-${randInt(1, 9)}, Shelf ${randInt(1, 5)}` : 'With ward', codedBy: dis ? MRDU : null, codedAt: dis ? addMin(dis, 60 * 26) : null, createdAt: adm, createdBy: MRDU, source: 'MANUAL' });
+  ep(1, patients[1], 'IP', ist('2026-11-21', '07:00'), null, 'Surgical ward — Bed S-4', doctors[4], 'Right inguinal hernia', 'K40.9', 'Open hernioplasty with mesh', ['Consent form.pdf', 'Anaesthesia record.pdf']);
+  ep(2, patients[8], 'IP', ist('2026-11-12', '18:20'), ist('2026-11-16', '11:00'), 'General ward — Bed G-7', doctors[0], 'Community acquired pneumonia', 'J18.9', '', ['Chest X-ray report.pdf', 'Case sheet.pdf']);
+  ep(3, patients[3], 'IP', ist('2026-11-14', '09:10'), ist('2026-11-17', '10:30'), 'Maternity ward — Bed M-2', doctors[1], 'Term pregnancy, normal vaginal delivery', 'O80', 'Normal vaginal delivery', ['Partograph.pdf', 'Baby record.pdf']);
+  ep(4, patients[12], 'IP', ist('2026-11-18', '21:00'), ist('2026-11-22', '12:00'), 'General ward — Bed G-2', doctors[0], 'Dengue fever without warning signs', 'A90', '', ['Platelet trend.pdf']);
+  ep(5, patients[6], 'DAYCARE', ist('2026-11-20', '09:00'), ist('2026-11-20', '17:00'), 'Day care — Bay 1', doctors[2], 'Closed fracture distal radius, right', 'S52.50', 'Closed reduction and cast', ['X-ray wrist.pdf']);
+  const sum = (i, recIdx, tpl, status, sections, by, rev) => { const r = medicalRecords[recIdx]; dischargeSummaries.push({ id: 'DS-' + pad(i), recordId: r.id, patientId: r.patientId, templateId: tpl, sections, status,
+    preparedBy: by, preparedAt: r.dischargedAt || r.admittedAt, reviewedBy: rev, reviewedAt: rev ? addMin(r.dischargedAt, -30) : null, finalizedAt: status === 'FINAL' ? addMin(r.dischargedAt, -20) : null, printCount: status === 'FINAL' ? 2 : 0, history: [{ at: r.dischargedAt || r.admittedAt, by, action: 'Prepared' }, ...(rev ? [{ at: addMin(r.dischargedAt, -30), by: rev, action: status === 'FINAL' ? 'Reviewed & finalised' : 'Sent back' }] : [])] }); };
+  sum(1, 1, 'TPL-GEN', 'FINAL', { reason: 'Fever with cough and breathlessness for 4 days.', history: 'Crepitations right lower zone. SpO2 92% on room air.', investigations: 'TLC 14,600; CRP 48 mg/L; Chest X-ray: right lower lobe consolidation.', diagnosis: 'Community acquired pneumonia (J18.9)', treatment: 'IV Ceftriaxone 1 g BD × 4 days, nebulization, oxygen for 24 h, paracetamol SOS.', course: 'Afebrile from day 2, oxygen weaned on day 2. Improved.', condition: 'Stable, afebrile, SpO2 98% on room air.', medications: 'Tab. Augmentin 625 BD × 5 days; Tab. Montair LC HS × 5 days; Tab. Dolo 650 SOS.', advice: 'Plenty of fluids, steam inhalation, avoid cold drinks.', followup: 'Review in General Medicine OPD after 7 days with CBC.', urgent: 'Return immediately or call the hospital if breathlessness, high fever or chest pain.' }, MRDU, OWNER);
+  sum(2, 2, 'TPL-SUR', 'FINAL', { reason: 'Term pregnancy in labour.', history: 'G2P1L1, 39 weeks, uneventful antenatal period.', investigations: 'Hb 11.4 g/dL; blood group B+; USG normal.', diagnosis: 'Term pregnancy — normal vaginal delivery (O80)', procedures: 'Normal vaginal delivery with episiotomy. Live female baby 3.1 kg.', treatment: 'Oxytocin, IV fluids, analgesics.', course: 'Uneventful post-natal recovery.', condition: 'Mother and baby stable.', medications: 'Iron and calcium tablets × 3 months; Tab. Dolo 650 SOS.', advice: 'Breastfeeding, perineal hygiene, adequate rest.', followup: 'Review after 6 weeks; baby vaccination as per schedule.', urgent: 'Come immediately for heavy bleeding, fever or foul-smelling discharge.' }, MRDU, OWNER);
+  sum(3, 3, 'TPL-GEN', 'PENDING_REVIEW', { reason: 'Fever, body ache and headache for 3 days.', history: 'No warning signs. Hydration fair.', investigations: 'NS1 antigen positive. Platelets 98,000 → 1,42,000 at discharge.', diagnosis: 'Dengue fever without warning signs (A90)', treatment: 'IV fluids, paracetamol, platelet monitoring.', course: 'Platelets improved from day 3.', condition: 'Afebrile, platelets rising.', medications: 'Tab. Dolo 650 SOS (max 3/day) × 3 days.', advice: 'Oral fluids 3 litres/day. Avoid painkillers other than paracetamol.', followup: 'CBC after 3 days.', urgent: 'Return for bleeding, abdominal pain, vomiting or drowsiness.' }, MRDU, null);
+  sum(4, 4, 'TPL-DC', 'DRAFT', { reason: 'Fall on outstretched hand.', diagnosis: 'Closed fracture distal radius, right (S52.50)', procedures: 'Closed reduction under sedation, below-elbow cast.', treatment: '', condition: '', medications: '', advice: '', followup: '', urgent: '' }, MRDU, null);
+  retrievals.push({ id: 'RTV-0001', recordId: 'MRD-0002', requestedBy: OWNER, reason: 'Insurance / TPA claim', at: ist('2026-11-19', '11:00'), issuedBy: MRDU, issuedAt: ist('2026-11-19', '11:20'), returnedAt: ist('2026-11-20', '16:00'), status: 'RETURNED' });
+  retrievals.push({ id: 'RTV-0002', recordId: 'MRD-0003', requestedBy: 'USR-0003', reason: 'Patient copy request', at: ist(TODAY, '10:00'), issuedBy: MRDU, issuedAt: ist(TODAY, '10:15'), returnedAt: null, status: 'ISSUED' });
+
+  // ---- shifts (Module 12) ----
+  // Collections are worked out from the transactions in each shift window; the seed only records start/close and counted cash.
+  const shifts = []; let sh = 0;
+  const hospPays = (uid, a, b) => bills.flatMap((x) => x.payments).filter((p) => p.userId === uid && p.at >= a && p.at <= b);
+  const phPays = (uid, a, b) => pharmacyPayments.filter((p) => p.userId === uid && p.at >= a && p.at <= b);
+  const cashIn = (uid, a, b) => [...hospPays(uid, a, b), ...phPays(uid, a, b)].filter((p) => p.mode === 'CASH').reduce((t, p) => t + (p.kind === 'REFUND' ? -p.amount : p.amount), 0);
+  const denom = (amt) => { const out = {}; let left = Math.round(amt); for (const d of hospitalSettings.denominations) { const n = Math.floor(left / d); if (n) { out[d] = n; left -= n * d; } } return out; };
+  const addShift = (uid, counter, name, start, end, open, handTo, variance = 0, acceptedAt = null) => {
+    const expected = r2(open + cashIn(uid, start, end));
+    const counted = r2(expected + variance);
+    shifts.push({ id: 'SFT-' + pad(++sh), userId: uid, counter, shiftName: name, startAt: start, openingFloat: open, openingDenoms: denom(open), status: end ? (handTo ? (acceptedAt ? 'HANDED_OVER' : 'HANDOVER_PENDING') : 'CLOSED') : 'OPEN',
+      closedAt: end, expectedCash: end ? expected : null, countedCash: end ? counted : null, countedDenoms: end ? denom(counted) : null, difference: end ? r2(counted - expected) : null,
+      handoverTo: handTo, handoverAmount: end ? counted : null, handoverAcceptedAt: acceptedAt, handoverNote: '', note: variance ? 'Short by ₹' + Math.abs(variance) + ' — coins given as change not recorded' : '', verifiedBy: end && acceptedAt ? OWNER : null });
+    return counted;
+  };
+  // pharmacy cashiers: one drawer per person per day, covering every payment they took that day
+  const phWindow = (uid, d) => { const ts = pharmacyPayments.filter((p) => p.userId === uid && p.at >= ist(d, '00:00') && p.at <= ist(d, '23:59')).map((p) => p.at).sort(); return ts.length ? [addMin(ts[0], -12), addMin(ts.at(-1), 9)] : null; };
+  DAYS.slice(0, -1).forEach((d, i) => {
+    const m = addShift(RECEP, 'MAIN', 'Morning', ist(d, '07:55'), ist(d, '14:00'), 1000, RECEP2, i === 3 ? -20 : 0, ist(d, '14:01'));
+    addShift(RECEP2, 'MAIN', 'Evening', ist(d, '14:00'), ist(d, '23:59'), m, RECEP, 0, ist(DAYS[i + 1], '07:54'));
+    [STAFF, RAVI].forEach((uid) => { const w = phWindow(uid, d); if (w) addShift(uid, 'PHARMACY', uid === STAFF ? 'Morning' : 'Evening', w[0], w[1], 2000, null, 0); });
+  });
+  addShift(RECEP, 'MAIN', 'Morning', ist(TODAY, '07:55'), null, 1000, null);
+  [STAFF, RAVI].forEach((uid) => { const w = phWindow(uid, TODAY); addShift(uid, 'PHARMACY', uid === STAFF ? 'Morning' : 'Evening', w ? w[0] : ist(TODAY, '07:52'), null, 2000, null); });
+
+  // ---- notifications & audit entries for the new modules ----
+  const notes = [];
+  if (pendingCredit) notes.push({ type: 'CREDIT_REQUEST', category: 'Credit approval', severity: 'warning', title: `Credit requested — ${pendingCredit.patientName}`, message: `${pendingCredit.id}: ₹${pendingCredit.grandTotal} · Long-term patient — family pays monthly. Tests are on hold until you decide.`, refType: 'HBILL', refId: pendingCredit.id, targetRoles: ['SUPER_ADMIN'], assignedTo: OWNER, performedBy: RECEP, createdAt: ist(TODAY, '10:26') });
+  notes.push({ type: 'KIT_VARIANCE', category: 'Lab kits', severity: 'critical', title: 'Lab kit shortage — CBC reagent short by 3', message: 'Physical count is 3 tests lower than the system. Check for tests run without a bill.', refType: 'KITCOUNT', refId: 'KC-0001', targetRoles: ['SUPER_ADMIN'], assignedTo: OWNER, performedBy: LABU, createdAt: cAt });
+  notes.push({ type: 'UNBILLED_SERVICE', category: 'Services', severity: 'warning', title: 'Service requested but not billed — ECG', message: `${patients[9].name}: ECG advised yesterday is still not billed at the main counter.`, refType: 'ORDER', refId: orders.find((o) => o.status === 'REQUESTED')?.id, targetRoles: ['SUPER_ADMIN', 'RECEPTION'], assignedTo: null, performedBy: null, createdAt: ist(TODAY, '08:00') });
+
+  return {
+    services, labKits, packages, hospitalSettings, hospitalBills: bills, orders, kitMovements: kitMoves, kitCounts, patientPackages, medicalRecords, dischargeSummaries, mrdRetrievals: retrievals, shifts,
+    extraDiscountRequests: discountRequests, extraNotifications: notes
+  };
+}

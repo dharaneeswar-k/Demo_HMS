@@ -58,5 +58,53 @@
     "phone": "+91 90000 55555",
     "active": true,
     "createdAt": "2026-07-20T10:00:00.000Z"
+  },
+  {
+    "id": "USR-0006",
+    "username": "saranya",
+    "password": "demo123",
+    "name": "Saranya Murthy",
+    "role": "RECEPTION",
+    "designation": "Billing Executive (evening)",
+    "email": "",
+    "phone": "+91 90000 66666",
+    "active": true,
+    "createdAt": "2026-08-02T10:00:00.000Z"
+  },
+  {
+    "id": "USR-0007",
+    "username": "lab",
+    "password": "demo123",
+    "name": "Vignesh Raj",
+    "role": "LAB",
+    "designation": "Lab Technician (DMLT)",
+    "email": "",
+    "phone": "+91 90000 77777",
+    "active": true,
+    "createdAt": "2026-08-02T10:00:00.000Z"
+  },
+  {
+    "id": "USR-0008",
+    "username": "service",
+    "password": "demo123",
+    "name": "Sr. Jency Mary",
+    "role": "SERVICE_COUNTER",
+    "designation": "Staff Nurse — procedure room",
+    "email": "",
+    "phone": "+91 90000 88888",
+    "active": true,
+    "createdAt": "2026-08-02T10:00:00.000Z"
+  },
+  {
+    "id": "USR-0009",
+    "username": "mrd",
+    "password": "demo123",
+    "name": "Karthik Selvan",
+    "role": "MRD",
+    "designation": "Medical Records Officer",
+    "email": "",
+    "phone": "+91 90000 99999",
+    "active": true,
+    "createdAt": "2026-08-02T10:00:00.000Z"
   }
 ]

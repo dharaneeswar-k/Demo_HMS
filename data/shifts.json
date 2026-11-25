@@ -1,0 +1,715 @@
+[
+  {
+    "id": "SFT-0001",
+    "userId": "USR-0005",
+    "counter": "MAIN",
+    "shiftName": "Morning",
+    "startAt": "2026-11-17T02:25:00.000Z",
+    "openingFloat": 1000,
+    "openingDenoms": {
+      "500": 2
+    },
+    "status": "HANDED_OVER",
+    "closedAt": "2026-11-17T08:30:00.000Z",
+    "expectedCash": 2350,
+    "countedCash": 2350,
+    "countedDenoms": {
+      "50": 1,
+      "100": 1,
+      "200": 1,
+      "500": 4
+    },
+    "difference": 0,
+    "handoverTo": "USR-0006",
+    "handoverAmount": 2350,
+    "handoverAcceptedAt": "2026-11-17T08:31:00.000Z",
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": "USR-0003"
+  },
+  {
+    "id": "SFT-0002",
+    "userId": "USR-0006",
+    "counter": "MAIN",
+    "shiftName": "Evening",
+    "startAt": "2026-11-17T08:30:00.000Z",
+    "openingFloat": 2350,
+    "openingDenoms": {
+      "50": 1,
+      "100": 1,
+      "200": 1,
+      "500": 4
+    },
+    "status": "HANDED_OVER",
+    "closedAt": "2026-11-17T18:29:00.000Z",
+    "expectedCash": 2350,
+    "countedCash": 2350,
+    "countedDenoms": {
+      "50": 1,
+      "100": 1,
+      "200": 1,
+      "500": 4
+    },
+    "difference": 0,
+    "handoverTo": "USR-0005",
+    "handoverAmount": 2350,
+    "handoverAcceptedAt": "2026-11-18T02:24:00.000Z",
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": "USR-0003"
+  },
+  {
+    "id": "SFT-0003",
+    "userId": "USR-0001",
+    "counter": "PHARMACY",
+    "shiftName": "Morning",
+    "startAt": "2026-11-17T06:25:00.000Z",
+    "openingFloat": 2000,
+    "openingDenoms": {
+      "500": 4
+    },
+    "status": "CLOSED",
+    "closedAt": "2026-11-17T07:27:00.000Z",
+    "expectedCash": 2116,
+    "countedCash": 2116,
+    "countedDenoms": {
+      "1": 1,
+      "5": 1,
+      "10": 1,
+      "100": 1,
+      "500": 4
+    },
+    "difference": 0,
+    "handoverTo": null,
+    "handoverAmount": 2116,
+    "handoverAcceptedAt": null,
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": null
+  },
+  {
+    "id": "SFT-0004",
+    "userId": "USR-0004",
+    "counter": "PHARMACY",
+    "shiftName": "Evening",
+    "startAt": "2026-11-17T10:50:00.000Z",
+    "openingFloat": 2000,
+    "openingDenoms": {
+      "500": 4
+    },
+    "status": "CLOSED",
+    "closedAt": "2026-11-17T11:11:00.000Z",
+    "expectedCash": 2518,
+    "countedCash": 2518,
+    "countedDenoms": {
+      "1": 1,
+      "2": 1,
+      "5": 1,
+      "10": 1,
+      "500": 5
+    },
+    "difference": 0,
+    "handoverTo": null,
+    "handoverAmount": 2518,
+    "handoverAcceptedAt": null,
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": null
+  },
+  {
+    "id": "SFT-0005",
+    "userId": "USR-0005",
+    "counter": "MAIN",
+    "shiftName": "Morning",
+    "startAt": "2026-11-18T02:25:00.000Z",
+    "openingFloat": 1000,
+    "openingDenoms": {
+      "500": 2
+    },
+    "status": "HANDED_OVER",
+    "closedAt": "2026-11-18T08:30:00.000Z",
+    "expectedCash": 2450,
+    "countedCash": 2450,
+    "countedDenoms": {
+      "50": 1,
+      "200": 2,
+      "500": 4
+    },
+    "difference": 0,
+    "handoverTo": "USR-0006",
+    "handoverAmount": 2450,
+    "handoverAcceptedAt": "2026-11-18T08:31:00.000Z",
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": "USR-0003"
+  },
+  {
+    "id": "SFT-0006",
+    "userId": "USR-0006",
+    "counter": "MAIN",
+    "shiftName": "Evening",
+    "startAt": "2026-11-18T08:30:00.000Z",
+    "openingFloat": 2450,
+    "openingDenoms": {
+      "50": 1,
+      "200": 2,
+      "500": 4
+    },
+    "status": "HANDED_OVER",
+    "closedAt": "2026-11-18T18:29:00.000Z",
+    "expectedCash": 4080,
+    "countedCash": 4080,
+    "countedDenoms": {
+      "10": 1,
+      "20": 1,
+      "50": 1,
+      "500": 8
+    },
+    "difference": 0,
+    "handoverTo": "USR-0005",
+    "handoverAmount": 4080,
+    "handoverAcceptedAt": "2026-11-19T02:24:00.000Z",
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": "USR-0003"
+  },
+  {
+    "id": "SFT-0007",
+    "userId": "USR-0001",
+    "counter": "PHARMACY",
+    "shiftName": "Morning",
+    "startAt": "2026-11-18T03:49:00.000Z",
+    "openingFloat": 2000,
+    "openingDenoms": {
+      "500": 4
+    },
+    "status": "CLOSED",
+    "closedAt": "2026-11-18T07:19:00.000Z",
+    "expectedCash": 2000,
+    "countedCash": 2000,
+    "countedDenoms": {
+      "500": 4
+    },
+    "difference": 0,
+    "handoverTo": null,
+    "handoverAmount": 2000,
+    "handoverAcceptedAt": null,
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": null
+  },
+  {
+    "id": "SFT-0008",
+    "userId": "USR-0004",
+    "counter": "PHARMACY",
+    "shiftName": "Evening",
+    "startAt": "2026-11-18T08:48:00.000Z",
+    "openingFloat": 2000,
+    "openingDenoms": {
+      "500": 4
+    },
+    "status": "CLOSED",
+    "closedAt": "2026-11-18T09:09:00.000Z",
+    "expectedCash": 2000,
+    "countedCash": 2000,
+    "countedDenoms": {
+      "500": 4
+    },
+    "difference": 0,
+    "handoverTo": null,
+    "handoverAmount": 2000,
+    "handoverAcceptedAt": null,
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": null
+  },
+  {
+    "id": "SFT-0009",
+    "userId": "USR-0005",
+    "counter": "MAIN",
+    "shiftName": "Morning",
+    "startAt": "2026-11-19T02:25:00.000Z",
+    "openingFloat": 1000,
+    "openingDenoms": {
+      "500": 2
+    },
+    "status": "HANDED_OVER",
+    "closedAt": "2026-11-19T08:30:00.000Z",
+    "expectedCash": 1670,
+    "countedCash": 1670,
+    "countedDenoms": {
+      "20": 1,
+      "50": 1,
+      "100": 1,
+      "500": 3
+    },
+    "difference": 0,
+    "handoverTo": "USR-0006",
+    "handoverAmount": 1670,
+    "handoverAcceptedAt": "2026-11-19T08:31:00.000Z",
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": "USR-0003"
+  },
+  {
+    "id": "SFT-0010",
+    "userId": "USR-0006",
+    "counter": "MAIN",
+    "shiftName": "Evening",
+    "startAt": "2026-11-19T08:30:00.000Z",
+    "openingFloat": 1670,
+    "openingDenoms": {
+      "20": 1,
+      "50": 1,
+      "100": 1,
+      "500": 3
+    },
+    "status": "HANDED_OVER",
+    "closedAt": "2026-11-19T18:29:00.000Z",
+    "expectedCash": 2970,
+    "countedCash": 2970,
+    "countedDenoms": {
+      "20": 1,
+      "50": 1,
+      "200": 2,
+      "500": 5
+    },
+    "difference": 0,
+    "handoverTo": "USR-0005",
+    "handoverAmount": 2970,
+    "handoverAcceptedAt": "2026-11-20T02:24:00.000Z",
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": "USR-0003"
+  },
+  {
+    "id": "SFT-0011",
+    "userId": "USR-0001",
+    "counter": "PHARMACY",
+    "shiftName": "Morning",
+    "startAt": "2026-11-19T05:41:00.000Z",
+    "openingFloat": 2000,
+    "openingDenoms": {
+      "500": 4
+    },
+    "status": "CLOSED",
+    "closedAt": "2026-11-19T14:40:00.000Z",
+    "expectedCash": 2459,
+    "countedCash": 2459,
+    "countedDenoms": {
+      "2": 2,
+      "5": 1,
+      "50": 1,
+      "200": 2,
+      "500": 4
+    },
+    "difference": 0,
+    "handoverTo": null,
+    "handoverAmount": 2459,
+    "handoverAcceptedAt": null,
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": null
+  },
+  {
+    "id": "SFT-0012",
+    "userId": "USR-0004",
+    "counter": "PHARMACY",
+    "shiftName": "Evening",
+    "startAt": "2026-11-19T12:08:00.000Z",
+    "openingFloat": 2000,
+    "openingDenoms": {
+      "500": 4
+    },
+    "status": "CLOSED",
+    "closedAt": "2026-11-19T14:30:00.000Z",
+    "expectedCash": 2000,
+    "countedCash": 2000,
+    "countedDenoms": {
+      "500": 4
+    },
+    "difference": 0,
+    "handoverTo": null,
+    "handoverAmount": 2000,
+    "handoverAcceptedAt": null,
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": null
+  },
+  {
+    "id": "SFT-0013",
+    "userId": "USR-0005",
+    "counter": "MAIN",
+    "shiftName": "Morning",
+    "startAt": "2026-11-20T02:25:00.000Z",
+    "openingFloat": 1000,
+    "openingDenoms": {
+      "500": 2
+    },
+    "status": "HANDED_OVER",
+    "closedAt": "2026-11-20T08:30:00.000Z",
+    "expectedCash": 3010,
+    "countedCash": 2990,
+    "countedDenoms": {
+      "20": 2,
+      "50": 1,
+      "200": 2,
+      "500": 5
+    },
+    "difference": -20,
+    "handoverTo": "USR-0006",
+    "handoverAmount": 2990,
+    "handoverAcceptedAt": "2026-11-20T08:31:00.000Z",
+    "handoverNote": "",
+    "note": "Short by ₹20 — coins given as change not recorded",
+    "verifiedBy": "USR-0003"
+  },
+  {
+    "id": "SFT-0014",
+    "userId": "USR-0006",
+    "counter": "MAIN",
+    "shiftName": "Evening",
+    "startAt": "2026-11-20T08:30:00.000Z",
+    "openingFloat": 2990,
+    "openingDenoms": {
+      "20": 2,
+      "50": 1,
+      "200": 2,
+      "500": 5
+    },
+    "status": "HANDED_OVER",
+    "closedAt": "2026-11-20T18:29:00.000Z",
+    "expectedCash": 4410,
+    "countedCash": 4410,
+    "countedDenoms": {
+      "10": 1,
+      "200": 2,
+      "500": 8
+    },
+    "difference": 0,
+    "handoverTo": "USR-0005",
+    "handoverAmount": 4410,
+    "handoverAcceptedAt": "2026-11-21T02:24:00.000Z",
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": "USR-0003"
+  },
+  {
+    "id": "SFT-0015",
+    "userId": "USR-0001",
+    "counter": "PHARMACY",
+    "shiftName": "Morning",
+    "startAt": "2026-11-20T05:14:00.000Z",
+    "openingFloat": 2000,
+    "openingDenoms": {
+      "500": 4
+    },
+    "status": "CLOSED",
+    "closedAt": "2026-11-20T13:05:00.000Z",
+    "expectedCash": 2000,
+    "countedCash": 2000,
+    "countedDenoms": {
+      "500": 4
+    },
+    "difference": 0,
+    "handoverTo": null,
+    "handoverAmount": 2000,
+    "handoverAcceptedAt": null,
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": null
+  },
+  {
+    "id": "SFT-0016",
+    "userId": "USR-0005",
+    "counter": "MAIN",
+    "shiftName": "Morning",
+    "startAt": "2026-11-21T02:25:00.000Z",
+    "openingFloat": 1000,
+    "openingDenoms": {
+      "500": 2
+    },
+    "status": "HANDED_OVER",
+    "closedAt": "2026-11-21T08:30:00.000Z",
+    "expectedCash": 3340,
+    "countedCash": 3340,
+    "countedDenoms": {
+      "20": 2,
+      "100": 1,
+      "200": 1,
+      "500": 6
+    },
+    "difference": 0,
+    "handoverTo": "USR-0006",
+    "handoverAmount": 3340,
+    "handoverAcceptedAt": "2026-11-21T08:31:00.000Z",
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": "USR-0003"
+  },
+  {
+    "id": "SFT-0017",
+    "userId": "USR-0006",
+    "counter": "MAIN",
+    "shiftName": "Evening",
+    "startAt": "2026-11-21T08:30:00.000Z",
+    "openingFloat": 3340,
+    "openingDenoms": {
+      "20": 2,
+      "100": 1,
+      "200": 1,
+      "500": 6
+    },
+    "status": "HANDED_OVER",
+    "closedAt": "2026-11-21T18:29:00.000Z",
+    "expectedCash": 3490,
+    "countedCash": 3490,
+    "countedDenoms": {
+      "20": 2,
+      "50": 1,
+      "200": 2,
+      "500": 6
+    },
+    "difference": 0,
+    "handoverTo": "USR-0005",
+    "handoverAmount": 3490,
+    "handoverAcceptedAt": "2026-11-22T02:24:00.000Z",
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": "USR-0003"
+  },
+  {
+    "id": "SFT-0018",
+    "userId": "USR-0001",
+    "counter": "PHARMACY",
+    "shiftName": "Morning",
+    "startAt": "2026-11-21T07:32:00.000Z",
+    "openingFloat": 2000,
+    "openingDenoms": {
+      "500": 4
+    },
+    "status": "CLOSED",
+    "closedAt": "2026-11-21T07:53:00.000Z",
+    "expectedCash": 2464,
+    "countedCash": 2464,
+    "countedDenoms": {
+      "2": 2,
+      "10": 1,
+      "50": 1,
+      "200": 2,
+      "500": 4
+    },
+    "difference": 0,
+    "handoverTo": null,
+    "handoverAmount": 2464,
+    "handoverAcceptedAt": null,
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": null
+  },
+  {
+    "id": "SFT-0019",
+    "userId": "USR-0004",
+    "counter": "PHARMACY",
+    "shiftName": "Evening",
+    "startAt": "2026-11-21T09:34:00.000Z",
+    "openingFloat": 2000,
+    "openingDenoms": {
+      "500": 4
+    },
+    "status": "CLOSED",
+    "closedAt": "2026-11-21T13:09:00.000Z",
+    "expectedCash": 2000,
+    "countedCash": 2000,
+    "countedDenoms": {
+      "500": 4
+    },
+    "difference": 0,
+    "handoverTo": null,
+    "handoverAmount": 2000,
+    "handoverAcceptedAt": null,
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": null
+  },
+  {
+    "id": "SFT-0020",
+    "userId": "USR-0005",
+    "counter": "MAIN",
+    "shiftName": "Morning",
+    "startAt": "2026-11-22T02:25:00.000Z",
+    "openingFloat": 1000,
+    "openingDenoms": {
+      "500": 2
+    },
+    "status": "HANDED_OVER",
+    "closedAt": "2026-11-22T08:30:00.000Z",
+    "expectedCash": 1790,
+    "countedCash": 1790,
+    "countedDenoms": {
+      "20": 2,
+      "50": 1,
+      "200": 1,
+      "500": 3
+    },
+    "difference": 0,
+    "handoverTo": "USR-0006",
+    "handoverAmount": 1790,
+    "handoverAcceptedAt": "2026-11-22T08:31:00.000Z",
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": "USR-0003"
+  },
+  {
+    "id": "SFT-0021",
+    "userId": "USR-0006",
+    "counter": "MAIN",
+    "shiftName": "Evening",
+    "startAt": "2026-11-22T08:30:00.000Z",
+    "openingFloat": 1790,
+    "openingDenoms": {
+      "20": 2,
+      "50": 1,
+      "200": 1,
+      "500": 3
+    },
+    "status": "HANDED_OVER",
+    "closedAt": "2026-11-22T18:29:00.000Z",
+    "expectedCash": 2690,
+    "countedCash": 2690,
+    "countedDenoms": {
+      "20": 2,
+      "50": 1,
+      "100": 1,
+      "500": 5
+    },
+    "difference": 0,
+    "handoverTo": "USR-0005",
+    "handoverAmount": 2690,
+    "handoverAcceptedAt": "2026-11-23T02:24:00.000Z",
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": "USR-0003"
+  },
+  {
+    "id": "SFT-0022",
+    "userId": "USR-0001",
+    "counter": "PHARMACY",
+    "shiftName": "Morning",
+    "startAt": "2026-11-22T06:11:00.000Z",
+    "openingFloat": 2000,
+    "openingDenoms": {
+      "500": 4
+    },
+    "status": "CLOSED",
+    "closedAt": "2026-11-22T06:32:00.000Z",
+    "expectedCash": 2000,
+    "countedCash": 2000,
+    "countedDenoms": {
+      "500": 4
+    },
+    "difference": 0,
+    "handoverTo": null,
+    "handoverAmount": 2000,
+    "handoverAcceptedAt": null,
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": null
+  },
+  {
+    "id": "SFT-0023",
+    "userId": "USR-0004",
+    "counter": "PHARMACY",
+    "shiftName": "Evening",
+    "startAt": "2026-11-22T07:24:00.000Z",
+    "openingFloat": 2000,
+    "openingDenoms": {
+      "500": 4
+    },
+    "status": "CLOSED",
+    "closedAt": "2026-11-22T07:45:00.000Z",
+    "expectedCash": 2220,
+    "countedCash": 2220,
+    "countedDenoms": {
+      "20": 1,
+      "200": 1,
+      "500": 4
+    },
+    "difference": 0,
+    "handoverTo": null,
+    "handoverAmount": 2220,
+    "handoverAcceptedAt": null,
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": null
+  },
+  {
+    "id": "SFT-0024",
+    "userId": "USR-0005",
+    "counter": "MAIN",
+    "shiftName": "Morning",
+    "startAt": "2026-11-23T02:25:00.000Z",
+    "openingFloat": 1000,
+    "openingDenoms": {
+      "500": 2
+    },
+    "status": "OPEN",
+    "closedAt": null,
+    "expectedCash": null,
+    "countedCash": null,
+    "countedDenoms": null,
+    "difference": null,
+    "handoverTo": null,
+    "handoverAmount": null,
+    "handoverAcceptedAt": null,
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": null
+  },
+  {
+    "id": "SFT-0025",
+    "userId": "USR-0001",
+    "counter": "PHARMACY",
+    "shiftName": "Morning",
+    "startAt": "2026-11-23T04:21:00.000Z",
+    "openingFloat": 2000,
+    "openingDenoms": {
+      "500": 4
+    },
+    "status": "OPEN",
+    "closedAt": null,
+    "expectedCash": null,
+    "countedCash": null,
+    "countedDenoms": null,
+    "difference": null,
+    "handoverTo": null,
+    "handoverAmount": null,
+    "handoverAcceptedAt": null,
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": null
+  },
+  {
+    "id": "SFT-0026",
+    "userId": "USR-0004",
+    "counter": "PHARMACY",
+    "shiftName": "Evening",
+    "startAt": "2026-11-23T03:22:00.000Z",
+    "openingFloat": 2000,
+    "openingDenoms": {
+      "500": 4
+    },
+    "status": "OPEN",
+    "closedAt": null,
+    "expectedCash": null,
+    "countedCash": null,
+    "countedDenoms": null,
+    "difference": null,
+    "handoverTo": null,
+    "handoverAmount": null,
+    "handoverAcceptedAt": null,
+    "handoverNote": "",
+    "note": "",
+    "verifiedBy": null
+  }
+]

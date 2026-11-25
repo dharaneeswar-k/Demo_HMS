@@ -1,6 +1,8 @@
 // Reports — dynamic, filterable, exportable and print-friendly
 import { store } from '../data-service.js';
-import { currentUser } from '../auth.js';
+import { currentUser, can } from '../auth.js';
+import { hospitalDaySummary, serviceReconciliation, kitReconciliation, catLabel, svc } from '../hospital.js';
+import { businessDate } from '../pharmacy-calc.js';
 import { medicineStockMap, stockStatus, batchStatus, batchBalance, daysUntil, medName, supplierName, userName, grnTotals, ledger, locationName } from '../calculations.js';
 import { badge, movementBadge, downloadCSV, emptyState, kpi } from '../components.js';
 import { toast } from '../notifications.js';
@@ -16,6 +18,33 @@ const dayList = (f) => {
   const out = []; for (let d = new Date(end + 'T00:00:00'); ymd(d) >= start; d.setDate(d.getDate() - 1)) out.push(ymd(d));
   return out;
 };
+const range7 = (f) => ({ from: f.from || ymd(new Date(Date.now() - 6 * 86400000)), to: f.to || ymd() });
+const HOSPITAL_REPORTS = [
+  { id: 'hospital-collections', perm: 'management.view', title: 'Hospital Collections by Category (Daily)', icon: 'layers', filters: ['from', 'to'],
+    rows: (f) => dayList(f).map((d) => ({ d, h: hospitalDaySummary(d), p: daySummary(d) })).filter((r) => r.h.bills || r.p.billCount),
+    cols: [['Date', (r) => r.d, '', fmtDate], ['Lab', (r) => r.h.byCat.LAB, 'r', fmtINR], ['ECG', (r) => r.h.byCat.ECG, 'r', fmtINR], ['Injection', (r) => r.h.byCat.INJECTION, 'r', fmtINR], ['Nebulization', (r) => r.h.byCat.NEBULIZATION, 'r', fmtINR],
+      ['Other services', (r) => r.h.byCat.OTHER, 'r', fmtINR], ['Packages', (r) => r.h.byCat.PACKAGE, 'r', fmtINR], ['Pharmacy', (r) => r.p.sales, 'r', fmtINR], ['Discounts', (r) => r.h.discounts + r.p.discounts, 'r', fmtINR],
+      ['Cash', (r) => r.h.byMode.CASH + r.p.byMode.CASH.net, 'r', fmtINR], ['UPI', (r) => r.h.byMode.UPI + r.p.byMode.UPI.net, 'r', fmtINR], ['Card', (r) => r.h.byMode.CARD + r.p.byMode.CARD.net, 'r', fmtINR], ['Refunds', (r) => r.h.refunds + r.p.refunds, 'r', fmtINR]],
+    summary: (rows) => { const t = (fn) => rows.reduce((s, r) => s + fn(r), 0); return [['Days', rows.length], ['Main counter billed', fmtINR(t((r) => r.h.billed))], ['Pharmacy sales', fmtINR(t((r) => r.p.sales))], ['Total', fmtINR(t((r) => r.h.billed + r.p.sales))], ['OP / IP', 'Module pending']]; } },
+  { id: 'service-recon', perm: 'management.view', title: 'Services: Requested vs Billed vs Done', icon: 'scale', filters: ['from', 'to'],
+    rows: (f) => { const r = range7(f); return serviceReconciliation(r.from, r.to).rows; },
+    cols: [['Department', (r) => catLabel(r.category)], ['Requested / ordered', (r) => r.requested, 'r'], ['Not billed', (r) => r.unbilled, 'r'], ['Billed', (r) => r.billed, 'r'], ['Paid / approved', (r) => r.cleared, 'r'], ['Completed', (r) => r.completed, 'r'], ['Still to do', (r) => r.pending, 'r'], ['Billed value', (r) => r.value, 'r', fmtINR]],
+    summary: (rows) => [['Not billed', rows.reduce((s, r) => s + r.unbilled, 0)], ['Still to do', rows.reduce((s, r) => s + r.pending, 0)], ['Billed value', fmtINR(rows.reduce((s, r) => s + r.value, 0))]] },
+  { id: 'kit-recon', perm: 'management.view', title: 'Lab Kits Used vs Tests Billed', icon: 'flask-conical', filters: ['from', 'to'],
+    rows: (f) => { const r = range7(f); return kitReconciliation(r.from, r.to); },
+    cols: [['Kit', (r) => r.kit.name], ['Tests billed', (r) => r.billed, 'r'], ['Tests run', (r) => r.performed, 'r'], ['Used for tests', (r) => r.used, 'r'], ['QC', (r) => r.qc, 'r'], ['Repeats', (r) => r.repeat, 'r'], ['Wastage', (r) => r.waste, 'r'], ['Count shortage', (r) => r.countLoss, 'r'], ['Efficiency %', (r) => r.efficiency, 'r'], ['In stock', (r) => r.balance, 'r']],
+    summary: (rows) => [['Kits consumed', rows.reduce((s, r) => s + r.total, 0)], ['Billable tests', rows.reduce((s, r) => s + r.performed, 0)], ['Count shortages', rows.reduce((s, r) => s + r.countLoss, 0)]] },
+  { id: 'shift-register', perm: 'shift.report', title: 'Shift Cash & Handover Register', icon: 'calendar-clock', filters: ['from', 'to', 'cashier'],
+    rows: (f) => store.all('shifts').filter((x) => inRange(x.startAt, f) && (!f.cashier || x.userId === f.cashier)).sort((a, b) => b.startAt.localeCompare(a.startAt)),
+    cols: [['Started', (x) => x.startAt, '', fmtDateTime], ['Cashier', (x) => userName(x.userId)], ['Counter', (x) => (x.counter === 'PHARMACY' ? 'Pharmacy' : 'Main counter')], ['Shift', (x) => x.shiftName], ['Opening', (x) => x.openingFloat, 'r', fmtINR],
+      ['Expected cash', (x) => x.expectedCash, 'r', (v) => (v == null ? '—' : fmtINR(v))], ['Counted', (x) => x.countedCash, 'r', (v) => (v == null ? '—' : fmtINR(v))], ['Difference', (x) => x.difference, 'r', (v) => (v == null ? '—' : fmtINR(v))], ['Handed to', (x) => (x.handoverTo ? userName(x.handoverTo) : '—')], ['Status', (x) => x.status]],
+    summary: (rows) => [['Shifts', rows.length], ['Short', fmtINR(-rows.filter((x) => x.difference < 0).reduce((s, x) => s + x.difference, 0))], ['Excess', fmtINR(rows.filter((x) => x.difference > 0).reduce((s, x) => s + x.difference, 0))]] },
+  { id: 'lab-tat', perm: 'management.view', title: 'Lab Turnaround Time', icon: 'timer', filters: ['from', 'to'],
+    rows: (f) => { const os = store.all('orders').filter((o) => o.category === 'LAB' && o.status === 'COMPLETED' && inRange(o.lab.verifiedAt, f)); const by = {}; os.forEach((o) => { const m = (new Date(o.lab.verifiedAt) - new Date(o.billedAt)) / 60000; (by[o.serviceId] ||= []).push(m); });
+      return Object.entries(by).map(([sid, arr]) => ({ s: svc(sid), n: arr.length, avg: Math.round(arr.reduce((a, b) => a + b, 0) / arr.length), max: Math.round(Math.max(...arr)), over: arr.filter((m) => m > svc(sid).lab.tatHours * 60).length })); },
+    cols: [['Test', (r) => r.s.name], ['Reports', (r) => r.n, 'r'], ['Target (h)', (r) => r.s.lab.tatHours, 'r'], ['Average (min)', (r) => r.avg, 'r'], ['Longest (min)', (r) => r.max, 'r'], ['Over target', (r) => r.over, 'r']],
+    summary: (rows) => [['Reports', rows.reduce((s, r) => s + r.n, 0)], ['Over target', rows.reduce((s, r) => s + r.over, 0)]] }
+];
 const REPORTS = [
   { id: 'purchase-vs-sales', title: 'Purchase vs Sales (Daily)', icon: 'scale', filters: ['from', 'to'],
     rows: (f) => dayList(f).map((d) => ({ d, s: daySummary(d) })).filter((r) => r.s.billCount || r.s.purchases),
@@ -78,10 +107,11 @@ const REPORTS = [
 ];
 
 export function render(view, params, query) {
-  let current = REPORTS.find((r) => r.id === query.r) || REPORTS[0];
+  const LIST = [...REPORTS, ...HOSPITAL_REPORTS.filter((r) => can(r.perm))];
+  let current = LIST.find((r) => r.id === query.r) || LIST[0];
   const f = { from: '', to: '', supplier: '', medicine: '', category: '', status: '', type: '', days: '90', cashier: '', billType: '', payMode: '' };
   view.innerHTML = `<div class="report-grid">
-    <section class="card report-nav no-print"><div class="report-list">${REPORTS.map((r) => `<button class="report-link" data-r="${r.id}">${icon(r.icon)}${esc(r.title)}</button>`).join('')}</div></section>
+    <section class="card report-nav no-print"><div class="report-list">${LIST.map((r) => `<button class="report-link" data-r="${r.id}">${icon(r.icon)}${esc(r.title)}</button>`).join('')}</div></section>
     <div data-report></div></div>`;
   const host = view.querySelector('[data-report]');
   const opts = {
@@ -118,6 +148,6 @@ export function render(view, params, query) {
     };
     refreshIcons(view);
   }
-  view.querySelectorAll('[data-r]').forEach((b) => { b.onclick = () => { current = REPORTS.find((r) => r.id === b.dataset.r); history.replaceState(null, '', '#/reports?r=' + current.id); draw(); }; });
+  view.querySelectorAll('[data-r]').forEach((b) => { b.onclick = () => { current = LIST.find((r) => r.id === b.dataset.r); history.replaceState(null, '', '#/reports?r=' + current.id); draw(); }; });
   draw();
 }

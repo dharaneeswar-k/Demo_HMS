@@ -357,12 +357,25 @@ export function renderWizard(view, params) {
   function step3() {
     stepHost.innerHTML = `<div class="grid grid-3-1"><div>
         <div class="row-between mb-2"><div><h2>Medicine Line Items</h2><p class="muted small">One GRN can hold many medicines; the same medicine can be added again for each batch received.</p></div>
-        <button class="btn btn-primary" data-add>${icon('plus')}Add Medicine</button></div>
+        <div class="row"><button class="btn btn-ghost btn-sm" data-sample>${icon('file-down')}Sample format</button><label class="btn btn-secondary">${icon('file-up')}Import supplier invoice (CSV)<input type="file" hidden accept=".csv,.txt,text/csv" data-import></label><button class="btn btn-primary" data-add>${icon('plus')}Add Medicine</button></div></div>
         <div data-lines></div>
         <button class="btn btn-secondary btn-block" data-add>${icon('plus')}Add another medicine</button>
       </div><div><div class="sticky-side" data-summary></div></div></div>`;
     drawLines(); drawSummary();
     stepHost.querySelectorAll('[data-add]').forEach((b) => { b.onclick = () => addLine(); });
+    stepHost.querySelector('[data-sample]').onclick = async () => (await import('../grn-import.js')).downloadSampleInvoice();
+    stepHost.querySelector('[data-import]').onchange = async (e) => {
+      const f = e.target.files[0]; e.target.value = ''; if (!f) return;
+      try {
+        const { parseInvoiceCSV } = await import('../grn-import.js');
+        const { lines, unmatched } = parseInvoiceCSV(await f.text());
+        lines.forEach((l) => { const base = blankLine(l.medicineId); g.items.push({ ...base, batchNo: l.batchNo, mfgDate: l.mfgDate, expiryDate: l.expiryDate, invoiceQty: l.invoiceQty, receivedQty: l.receivedQty, freeQty: l.freeQty,
+          ptr: l.ptr || base.ptr, mrp: l.mrp || base.mrp, discountPct: l.discountPct, gstPct: l.gstPct, remarks: 'Imported from ' + f.name + ' row ' + l.row }); });
+        unmatched.forEach((l) => { const base = blankLine(''); g.items.push({ ...base, batchNo: l.batchNo, mfgDate: l.mfgDate, expiryDate: l.expiryDate, invoiceQty: l.invoiceQty, receivedQty: l.receivedQty, freeQty: l.freeQty, ptr: l.ptr, mrp: l.mrp, discountPct: l.discountPct, gstPct: l.gstPct, remarks: 'Not matched: “' + l.name + '” — choose the medicine' }); });
+        markDirty(); drawLines(); drawSummary(); drawFoot();
+        toast(`${lines.length} line(s) imported${unmatched.length ? `, ${unmatched.length} need the medicine chosen by hand` : ''}. Check every quantity against the physical stock before submitting.`, unmatched.length ? 'warning' : 'success', 'Invoice imported');
+      } catch (err) { toast(err.message, 'error', 'Import failed'); }
+    };
   }
   const blankLine = (medicineId = '') => {
     const m = medicineId && store.get('medicines', medicineId);

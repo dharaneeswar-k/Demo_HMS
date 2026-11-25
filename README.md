@@ -14,32 +14,40 @@ Then open <http://localhost:8080>. Any static server works (`python -m http.serv
 
 Chart.js, Lucide icons and the Inter font load from CDNs; the app still works offline but without charts/icons.
 
-### Demo accounts (password `demo123`)
+### Accounts (password `demo123` for all)
 
-| Username   | Role                        | Highlights |
-|------------|-----------------------------|-----------|
-| `pharmacy` | Pharmacy Staff              | Creates GRNs, uploads documents, requests adjustments |
-| `store`    | Store                       | Receives supplier stock, transfers to pharmacy, approves stock corrections |
-| `reception`| Reception                   | Registers patients, Patient ID, patient records |
-| `owner`    | Hospital Owner (SUPER_ADMIN)| Approves exceptions, sees all notifications, audit log, settings |
+| Username | Role | What they do |
+|---|---|---|
+| `owner` | Super Admin | Management dashboard, approvals (discount, credit, cancellations, kit / stock shortages, discharge summaries), setup, users, audit |
+| `reception` | Reception (morning) | Registers patients, **Hospital Bill** (lab, ECG, injection, nebulization, other services, packages), collects balances, shift & handover |
+| `saranya` | Reception (evening) | Same as reception — receives the morning cash handover |
+| `pharmacy`, `ravi` | Pharmacy | Pharmacy sale, returns, daily stock count, counter closing, shift |
+| `store` | Store | Supplier receipts (incl. invoice CSV import), Store → Pharmacy transfers, stock corrections |
+| `lab` | Lab | Worklist: collect sample (barcode accession), results, verify, print report; reagent kits & counts |
+| `service` | Service Counter | ECG / injection / nebulization / other services — only after billing or approved credit |
+| `mrd` | MRD | Medical records, ICD-10 coding & filing, discharge summaries, file retrieval register |
 
-The login screen no longer lists these accounts, so type them in. To restore the original data, the owner uses **Settings → Data & Backup → Restore initial data**.
+The login screen does not list these accounts. To restore the original data, the owner uses **Settings → Data & Backup → Restore initial data**.
 
-**Always-current sample data.** The JSON is anchored to the day it was generated. On every load all dates move forward by whole days so the last sample day is always *today*: today's sales, expiry alerts and pending closings stay meaningful whenever the system is opened.
+**Always-current sample data.** The JSON is anchored to the day it was generated. On every load all dates move forward by whole days so the last sample day is always *today*.
 
 ## BRD alignment (Business Requirement Document v1.0)
 
 | BRD module | Status |
 |---|---|
-| 01 Patient Management | Done — registration, unique Patient ID (`NH-UH-…`), duplicate check, profile with visit history, patient card with barcode, "Register new patient" inside billing. Consultations and admissions join the history when modules 02/03 are built. |
-| 04 Pharmacy Management | Done — counter sale to a **registered patient (Patient ID)** or a **walk-in customer**, prescription details, returns, counter closing. |
-| 05 Store Management | Done — supplier receipts go to the **Central Store**; **Store → Pharmacy** transfers move stock in one step (Store −qty, Pharmacy +qty); only Pharmacy stock can be billed. Full transfer history and printable transfer note. |
-| 09 Discount Approval | Done — staff up to 10%; above that they send a request with a reason, the bill is held, the Super Admin approves/rejects from **Discount Approvals** (or at the counter), and the log keeps reason, requester, approver and time. |
-| 14 User Management | Done — individual accounts (max 10), roles, activate/deactivate, password reset, role access matrix. |
-| 12 Shift, 13 Dashboard | Partly — daily counter closing per cashier; dashboards cover pharmacy, store and patients. |
-| 02, 03, 06, 07, 08, 10, 11 | Not built yet (OP, IP, Lab, Services, Central Billing, Packages, MRD). OP consultation billing and IP (admission/discharge) billing belong to those modules and are **not** part of the pharmacy screens. |
-
-**Roles (BRD role map):** Super Admin (`owner`), Reception (`reception`), Pharmacy (`pharmacy`, `ravi`), Store (`store`). All passwords `demo123`.
+| 01 Patient Management | Done — registration, Patient ID, duplicate check, patient card. The profile timeline shows pharmacy & hospital bills, lab reports, services, packages and admissions. OP / IP visits join when modules 02 / 03 are built. |
+| 02 OP Management · 03 IP Management | Being built separately (see CONTRIBUTING.md). Hooks are ready: patient ID, central billing categories, MRD records, dashboard tiles. |
+| 04 Pharmacy | Done — barcode sale, batch / expiry / PTR / MRP, 10% discount lock, returns, daily stock count, counter closing. |
+| 05 Store | Done — receipts to the Central Store with documents, **supplier invoice CSV import**, Store → Pharmacy transfers, corrections. |
+| 06 Laboratory | Done — tests appear only after billing; sample collection with barcode accession, rejection & recollection, result entry with H / L / critical flags, verification, branded report (print / PDF), reagent-kit stock, QC / repeat / wastage log, physical kit counts, **kits used vs tests billed** reconciliation, turnaround report. |
+| 07 Service Management | Done — service counter works only on paid / package / approved-credit orders; doctor requests recorded before billing; **requested → billed → paid → completed** reconciliation. |
+| 08 Central Billing | Done for 7 of 9 categories (Lab, ECG, Injection, Nebulization, Other services, Packages, Pharmacy). Cash / UPI / card / split, authorised **credit** (owner approval) and **emergency**, balance collection, cancellation with owner approval & refund, receipts. OP and IP categories come with modules 02 / 03. |
+| 09 Discount Approval | Done — same request → Super Admin approve / reject flow on pharmacy and hospital bills. |
+| 10 Package Management | Done — package catalogue (Hernia surgery, Master health check-up, Diabetes check-up), included services billed at ₹0 within their limits, extras billed separately, usage tracking, final settlement statement. Medicine allowance posts from the IP ward indent once IP is live. |
+| 11 MRD | Done — record register, ICD-10 coding & filing with rack location, coding-overdue alerts, documents, discharge summary templates (NABH AAC.14 contents) prepare → review → final → print, retrieval register. |
+| 12 Shift Management | Done — start shift with opening float (denominations), every payment counted automatically, close with note-by-note count, handover to the next person who accepts / rejects, shift report, owner register, payments-outside-shift check. Shift timings are configurable (still “to be confirmed” in the BRD). |
+| 13 Dashboard & Reports | Done for everything built — management dashboard (patients, doctor-wise, pharmacy & store, lab & MRD, finance by mode and by category, reconciliation alerts) and new reports. OP / IP counts, bed occupancy and consultation revenue appear when 02 / 03 post data. |
+| 14 User Management | Done — 10-account licence, 7 BRD roles, access matrix, audit log incl. sign-ins, allowed networks and **workstation restriction** (register a computer as a workstation; staff can sign in only at their role's workstation when switched on). |
 
 ## Client requirements added after requirement review
 

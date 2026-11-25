@@ -4,8 +4,8 @@
   "city": "Hosur, Tamil Nadu",
   "logo": null,
   "banner": {
-    "title": "Pharmacy & Inventory Management",
-    "subtitle": "Receive stock, track every batch and never miss an expiry — all in one place.",
+    "title": "Hospital Management System",
+    "subtitle": "Billing, pharmacy, lab, services and medical records — connected, controlled and reconciled every shift.",
     "image": null
   },
   "theme": {
@@ -53,7 +53,7 @@
     "notifyOwnerOnPost": true
   },
   "demo": {
-    "dataVersion": 6,
+    "dataVersion": 7,
     "generatedAt": "2026-11-23"
   }
 }

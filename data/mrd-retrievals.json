@@ -1,0 +1,24 @@
+[
+  {
+    "id": "RTV-0001",
+    "recordId": "MRD-0002",
+    "requestedBy": "USR-0003",
+    "reason": "Insurance / TPA claim",
+    "at": "2026-11-19T05:30:00.000Z",
+    "issuedBy": "USR-0009",
+    "issuedAt": "2026-11-19T05:50:00.000Z",
+    "returnedAt": "2026-11-20T10:30:00.000Z",
+    "status": "RETURNED"
+  },
+  {
+    "id": "RTV-0002",
+    "recordId": "MRD-0003",
+    "requestedBy": "USR-0003",
+    "reason": "Patient copy request",
+    "at": "2026-11-23T04:30:00.000Z",
+    "issuedBy": "USR-0009",
+    "issuedAt": "2026-11-23T04:45:00.000Z",
+    "returnedAt": null,
+    "status": "ISSUED"
+  }
+]

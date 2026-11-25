@@ -27,6 +27,7 @@
       "patient.view",
       "patient.register",
       "discount.request",
+      "shift.own",
       "grn.create",
       "grn.verify",
       "grn.post",
@@ -37,6 +38,28 @@
       "medicine.manage",
       "store.transfer",
       "patient.edit",
+      "hbill.create",
+      "hbill.view",
+      "hbill.collect",
+      "hbill.cancel.request",
+      "package.view",
+      "package.sell",
+      "orders.view",
+      "lab.view",
+      "lab.work",
+      "lab.verify",
+      "lab.kits",
+      "service.request",
+      "service.work",
+      "mrd.view",
+      "mrd.manage",
+      "hbill.cancel",
+      "credit.approve",
+      "shift.report",
+      "catalog.manage",
+      "package.manage",
+      "management.view",
+      "mrd.review",
       "grn.approve.exceptional",
       "adjustment.approve.exceptional",
       "alerts.all",
@@ -60,12 +83,22 @@
   {
     "id": "RECEPTION",
     "name": "Reception",
-    "description": "Patient registration, Patient ID and patient records.",
+    "description": "Patient registration, central billing counter (lab, ECG, injection, nebulization, other services, packages) and shift handover. OP / IP join when those modules go live.",
     "permissions": [
       "patient.view",
       "patient.register",
       "patient.edit",
-      "alerts.view"
+      "alerts.view",
+      "hbill.create",
+      "hbill.view",
+      "hbill.collect",
+      "hbill.cancel.request",
+      "discount.request",
+      "package.view",
+      "package.sell",
+      "orders.view",
+      "lab.view",
+      "shift.own"
     ]
   },
   {
@@ -95,7 +128,8 @@
       "pharmacy.closing",
       "patient.view",
       "patient.register",
-      "discount.request"
+      "discount.request",
+      "shift.own"
     ]
   },
   {
@@ -124,6 +158,46 @@
       "medicine.manage",
       "labels.print",
       "store.transfer"
+    ]
+  },
+  {
+    "id": "LAB",
+    "name": "Lab",
+    "description": "Lab worklist: sample collection, results, report verification and printing; reagent kit stock and counts. No cash handling.",
+    "permissions": [
+      "patient.view",
+      "alerts.view",
+      "orders.view",
+      "lab.work",
+      "lab.verify",
+      "lab.kits",
+      "lab.view",
+      "service.request"
+    ]
+  },
+  {
+    "id": "MRD",
+    "name": "MRD",
+    "description": "Medical records, ICD-10 coding, discharge summaries and record retrieval.",
+    "permissions": [
+      "patient.view",
+      "alerts.view",
+      "mrd.view",
+      "mrd.manage",
+      "lab.view",
+      "orders.view"
+    ]
+  },
+  {
+    "id": "SERVICE_COUNTER",
+    "name": "Service Counter",
+    "description": "ECG, injection, nebulization and other services — performed only after billing or approved credit.",
+    "permissions": [
+      "patient.view",
+      "alerts.view",
+      "orders.view",
+      "service.work",
+      "service.request"
     ]
   }
 ]

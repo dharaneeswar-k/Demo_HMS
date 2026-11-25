@@ -22,7 +22,7 @@ function applyTheme() {
   const t = store.settings().theme || {};
   document.documentElement.style.setProperty('--navy', t.primary || '#023459');
   document.documentElement.style.setProperty('--teal', t.accent || '#049794');
-  document.title = `${store.settings().hospitalName} · Pharmacy & Inventory`;
+  document.title = `${store.settings().hospitalName} · Hospital Management System`;
 }
 
 // ---------------- login ----------------
@@ -37,12 +37,12 @@ function renderLogin(redirect) {
       <div class="login-pattern" aria-hidden="true"></div>
       <div class="login-brand-top">${brandMark('lg')}</div>
       <div class="login-hero">
-        <h1>${esc(s.banner?.title || 'Pharmacy & Inventory Management')}</h1>
+        <h1>${esc(s.banner?.title || 'Hospital Management System')}</h1>
         <p>${esc(s.banner?.subtitle || '')}</p>
         <ul class="login-points">
-          <li>${icon('receipt')}<div><strong>Pharmacy billing</strong><span>Fast counter billing with cash, UPI and card</span></div></li>
-          <li>${icon('package-check')}<div><strong>Stock receiving</strong><span>Supplier invoices, batches and expiry in one place</span></div></li>
-          <li>${icon('lock')}<div><strong>Daily closing</strong><span>Counter-wise collections reconciled every day</span></div></li>
+          <li>${icon('receipt')}<div><strong>One billing desk</strong><span>Lab, services, packages and pharmacy — paid before anything is done</span></div></li>
+          <li>${icon('flask-conical')}<div><strong>Lab to records</strong><span>Barcoded samples, verified reports, discharge summaries</span></div></li>
+          <li>${icon('shield-check')}<div><strong>Nothing leaks</strong><span>Stock, kits, services and cash tally every shift</span></div></li>
         </ul>
       </div>
       <div class="login-foot"><span>${esc(s.hospitalName)}${s.city ? ' · ' + esc(s.city) : ''}</span><span>© ${year}</span></div>
@@ -74,7 +74,7 @@ function renderLogin(redirect) {
     const p = form.password; p.type = p.type === 'password' ? 'text' : 'password';
     e.currentTarget.innerHTML = icon(p.type === 'password' ? 'eye' : 'eye-off'); e.currentTarget.setAttribute('aria-label', p.type === 'password' ? 'Show password' : 'Hide password'); refreshIcons(e.currentTarget);
   };
-  qs('[data-forgot]', app).onclick = (e) => { e.preventDefault(); openModal({ title: 'Reset your password', size: 'sm', body: `<div class="confirm"><div class="confirm-ic">${icon('key-round')}</div><div class="confirm-msg">For security, passwords are reset by the hospital administrator. Please contact the IT desk or your Pharmacy Manager to receive a new password.</div></div>`, footer: [{ label: 'OK', cls: 'btn-primary', onClick: (c) => c() }] }); };
+  qs('[data-forgot]', app).onclick = (e) => { e.preventDefault(); openModal({ title: 'Reset your password', size: 'sm', body: `<div class="confirm"><div class="confirm-ic">${icon('key-round')}</div><div class="confirm-msg">For security, passwords are reset by the hospital administrator. Please contact the hospital administrator (Super Admin) to receive a new password.</div></div>`, footer: [{ label: 'OK', cls: 'btn-primary', onClick: (c) => c() }] }); };
   form.addEventListener('submit', (e) => {
     e.preventDefault(); err.classList.add('hidden');
     const u = form.username.value.trim(); const p = form.password.value;
@@ -96,21 +96,35 @@ function renderLogin(redirect) {
 // ---------------- shell ----------------
 // Role-aware navigation. Items listed in `more` for a role are tucked into a collapsed "More" group for that role
 // so each person sees only what they use every day.
-const STAFF = 'PHARMACY_STAFF', MANAGER = 'STORE_INCHARGE', OWNER = 'SUPER_ADMIN';
+const STAFF = 'PHARMACY_STAFF', MANAGER = 'STORE_INCHARGE', OWNER = 'SUPER_ADMIN', RECEPTION = 'RECEPTION', LAB = 'LAB', MRD = 'MRD', SVC = 'SERVICE_COUNTER';
 const NAV = [
   { id: 'home', label: 'Home', icon: 'home', href: '#/home' },
   { id: 'approvals', label: 'Approvals', icon: 'inbox', href: '#/approvals', perm: 'grn.verify', badge: 'approvals' },
   { id: 'discounts', label: 'Discount Approvals', icon: 'percent', href: '#/discounts', perm: 'discount.approve', more: [OWNER] },
   { id: 'alerts', label: 'Alerts', icon: 'bell-ring', href: '#/alerts', perm: 'alerts.view', badge: 'alerts' },
+  { id: 'mgmt', label: 'Management Dashboard', icon: 'layout-dashboard', href: '#/management', perm: 'management.view' },
   { section: 'Patients' },
   { id: 'patient-new', label: 'Register Patient', icon: 'user-plus', href: '#/patients/new', perm: 'patient.register', more: [OWNER, STAFF] },
   { id: 'patients', label: 'Patients', icon: 'users-round', href: '#/patients', perm: 'patient.view' },
+  { section: 'Billing · Main Counter' },
+  { id: 'hb-new', label: 'Hospital Bill', icon: 'receipt', href: '#/hbill', perm: 'hbill.create', more: [OWNER] },
+  { id: 'hb-list', label: 'Hospital Bills', icon: 'files', href: '#/hbills', perm: 'hbill.view' },
+  { id: 'packages', label: 'Packages', icon: 'package', href: '#/packages', perm: 'package.view', more: [RECEPTION] },
+  { id: 'shift', label: 'My Shift', icon: 'timer', href: '#/shifts', perm: 'shift.own', more: [OWNER] },
   { section: 'Billing · Pharmacy' },
   { id: 'ph-bill', label: 'Pharmacy Sale', icon: 'shopping-cart', href: '#/pharmacy/bill', perm: 'pharmacy.bill', more: [OWNER] },
   { id: 'ph-bills', label: 'Pharmacy Bills', icon: 'receipt-text', href: '#/pharmacy/bills', perm: 'pharmacy.history' },
   { id: 'ph-returns', label: 'Sales Returns', icon: 'undo-2', href: '#/pharmacy/returns', perm: 'pharmacy.return.request', more: [OWNER] },
   { id: 'ph-closing', label: 'Counter Closing', icon: 'lock', href: '#/pharmacy/closing', perm: 'pharmacy.closing', more: [OWNER] },
   { id: 'ph-report', label: 'Closing Report', icon: 'clipboard-list', href: '#/pharmacy/closing-report', perm: 'pharmacy.closing.report' },
+  { section: 'Laboratory' },
+  { id: 'lab', label: 'Lab Worklist', icon: 'test-tube', href: '#/lab', perm: 'lab.work', more: [OWNER] },
+  { id: 'lab-reports', label: 'Lab Reports', icon: 'file-check-2', href: '#/lab/reports', perm: 'lab.view', more: [OWNER, RECEPTION, MRD] },
+  { id: 'lab-kits', label: 'Reagent Kits', icon: 'boxes', href: '#/lab/kits', perm: 'lab.kits', more: [OWNER] },
+  { section: 'Services' },
+  { id: 'svc', label: 'Service Counter', icon: 'syringe', href: '#/services', perm: 'orders.view', more: [OWNER, RECEPTION, LAB, MRD] },
+  { section: 'Medical Records' },
+  { id: 'mrd', label: 'Medical Records', icon: 'folder-open', href: '#/mrd', perm: 'mrd.view' },
   { section: 'Stock' },
   { id: 'grn-new', label: 'Receive Stock', icon: 'package-plus', href: '#/grn/new', perm: 'grn.create', more: [OWNER] },
   { id: 'grn', label: 'Received Stock', icon: 'package-check', href: '#/grn', perm: 'grn.view' },
@@ -123,12 +137,15 @@ const NAV = [
   { id: 'movements', label: 'Stock History', icon: 'arrow-left-right', href: '#/movements', perm: 'movement.view', more: [STAFF, MANAGER, OWNER] },
   { section: 'Business' },
   { id: 'reports', label: 'Reports', icon: 'bar-chart-3', href: '#/reports', perm: 'reports.view', more: [STAFF] },
+  { id: 'shift-reg', label: 'Shift Register', icon: 'calendar-clock', href: '#/shifts/register', perm: 'shift.report' },
+  { id: 'svc-recon', label: 'Service Reconciliation', icon: 'scale', href: '#/services/reconciliation', perm: 'management.view', more: [OWNER] },
   { id: 'ph-dash', label: 'Sales Insights', icon: 'trending-up', href: '#/pharmacy', perm: 'pharmacy.dashboard', more: [STAFF] },
   { id: 'insights', label: 'Stock Insights', icon: 'line-chart', href: '#/dashboard', perm: 'dashboard.view', more: [STAFF, MANAGER] },
   { id: 'medicines', label: 'Medicines', icon: 'pill', href: '#/medicines', perm: 'medicine.view', more: [STAFF, MANAGER, OWNER] },
   { id: 'suppliers', label: 'Suppliers', icon: 'truck', href: '#/suppliers', perm: 'supplier.view', more: [STAFF, MANAGER] },
   { section: 'System' },
-  { id: 'settings', label: 'Settings', icon: 'settings', href: '#/settings', more: [STAFF, MANAGER, 'RECEPTION'] },
+  { id: 'setup', label: 'Hospital Setup', icon: 'sliders-horizontal', href: '#/setup', perm: 'catalog.manage' },
+  { id: 'settings', label: 'Settings', icon: 'settings', href: '#/settings', more: [STAFF, MANAGER, RECEPTION, LAB, MRD, SVC] },
   { id: 'users', label: 'User Accounts', icon: 'user-cog', href: '#/users', perm: 'users.manage' },
   { id: 'audit', label: 'Audit Log', icon: 'history', href: '#/audit', perm: 'audit.view' },
   { id: 'help', label: 'Help', icon: 'life-buoy', href: '#/help' }
@@ -164,7 +181,7 @@ function renderShell() {
   app.innerHTML = `
   <div class="shell">
     <aside class="sidebar" aria-label="Main navigation">
-      <div class="sb-brand"><a href="#/home" class="sb-brand-link">${brandMark('sm')}</a><span class="sb-sub">Pharmacy & Inventory</span></div>
+      <div class="sb-brand"><a href="#/home" class="sb-brand-link">${brandMark('sm')}</a><span class="sb-sub">Hospital Management System</span></div>
       <nav class="sb-nav">${sidebarHTML()}</nav>
       <div class="sb-foot">
         <div class="sb-user"><span class="avatar">${esc(initials(u.name))}</span><div class="sb-user-txt"><strong>${esc(u.name)}</strong><span>${esc(roleLabel(u))}</span></div></div>

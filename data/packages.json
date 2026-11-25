@@ -1,0 +1,165 @@
+[
+  {
+    "id": "PKG-0001",
+    "code": "HERNIA",
+    "name": "Hernia Surgery Package",
+    "price": 100000,
+    "validityDays": 30,
+    "active": true,
+    "description": "Open hernia repair with pre-operative work-up, surgery, anaesthesia, recovery and follow-up dressings.",
+    "includes": [
+      {
+        "serviceId": "SRV-0024",
+        "qty": 2
+      },
+      {
+        "serviceId": "SRV-0001",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0003",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0004",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0013",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0025",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0026",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0027",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0028",
+        "qty": 3
+      },
+      {
+        "serviceId": "SRV-0018",
+        "qty": 3
+      },
+      {
+        "serviceId": "SRV-0020",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0014",
+        "qty": 6
+      },
+      {
+        "serviceId": "SRV-0015",
+        "qty": 1
+      }
+    ],
+    "medicineAllowance": 8000,
+    "exclusions": "Implants / mesh above standard, extra stay beyond 3 days, ICU care, treatment of complications."
+  },
+  {
+    "id": "PKG-0002",
+    "code": "MHC",
+    "name": "Master Health Check-up",
+    "price": 2500,
+    "validityDays": 2,
+    "active": true,
+    "description": "Complete annual health check with physician review.",
+    "includes": [
+      {
+        "serviceId": "SRV-0001",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0002",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0003",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0007",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0004",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0005",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0006",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0008",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0009",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0013",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0029",
+        "qty": 1
+      }
+    ],
+    "medicineAllowance": 0,
+    "exclusions": "Any test or consultation not listed."
+  },
+  {
+    "id": "PKG-0003",
+    "code": "DIAB",
+    "name": "Diabetes Check-up",
+    "price": 1200,
+    "validityDays": 2,
+    "active": true,
+    "description": "Sugar control and kidney / lipid screening for diabetic patients.",
+    "includes": [
+      {
+        "serviceId": "SRV-0004",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0005",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0006",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0003",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0007",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0009",
+        "qty": 1
+      },
+      {
+        "serviceId": "SRV-0029",
+        "qty": 1
+      }
+    ],
+    "medicineAllowance": 0,
+    "exclusions": "Medicines and any test not listed."
+  }
+]

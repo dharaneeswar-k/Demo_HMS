@@ -1,0 +1,4839 @@
+[
+  {
+    "id": "HB-2026-00001",
+    "at": "2026-11-17T03:29:00.000Z",
+    "businessDate": "2026-11-17",
+    "patientId": "PAT-0004",
+    "patientName": "Ramesh Babu",
+    "uhid": "NH-UH-026212",
+    "phone": "+91 9212777519",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00001-1",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 350,
+    "discountPct": 10,
+    "discountTotal": 35,
+    "roundOff": 0,
+    "grandTotal": 315,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000001",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 315,
+        "at": "2026-11-17T03:29:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR66491626"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00002",
+    "at": "2026-11-17T03:05:00.000Z",
+    "businessDate": "2026-11-17",
+    "patientId": "PAT-0004",
+    "patientName": "Ramesh Babu",
+    "uhid": "NH-UH-026212",
+    "phone": "+91 9212777519",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00002-1",
+        "serviceId": "SRV-0013",
+        "packageId": null,
+        "category": "ECG",
+        "name": "ECG — 12 lead",
+        "qty": 1,
+        "rate": 250,
+        "listRate": 250,
+        "gross": 250,
+        "coveredBy": null
+      }
+    ],
+    "gross": 250,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 250,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000002",
+        "kind": "PAYMENT",
+        "mode": "CARD",
+        "amount": 250,
+        "at": "2026-11-17T03:05:00.000Z",
+        "userId": "USR-0005",
+        "reference": "XXXX-1341"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00003",
+    "at": "2026-11-17T03:49:00.000Z",
+    "businessDate": "2026-11-17",
+    "patientId": "PAT-0016",
+    "patientName": "Shalini Kumar",
+    "uhid": "NH-UH-026656",
+    "phone": "+91 9414558148",
+    "doctor": "Dr. P. Kavya (ENT)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00003-1",
+        "serviceId": "SRV-0014",
+        "packageId": null,
+        "category": "INJECTION",
+        "name": "Injection administration (IM / IV)",
+        "qty": 2,
+        "rate": 50,
+        "listRate": 50,
+        "gross": 100,
+        "coveredBy": null
+      }
+    ],
+    "gross": 100,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 100,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000003",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 100,
+        "at": "2026-11-17T03:49:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00004",
+    "at": "2026-11-17T04:40:00.000Z",
+    "businessDate": "2026-11-17",
+    "patientId": "PAT-0005",
+    "patientName": "Anitha Shankar",
+    "uhid": "NH-UH-026249",
+    "phone": "+91 9213929879",
+    "doctor": "Dr. S. Nivetha (Paediatrics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00004-1",
+        "serviceId": "SRV-0023",
+        "packageId": null,
+        "category": "OTHER",
+        "name": "Medical certificate",
+        "qty": 1,
+        "rate": 200,
+        "listRate": 200,
+        "gross": 200,
+        "coveredBy": null
+      }
+    ],
+    "gross": 200,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 200,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000004",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 200,
+        "at": "2026-11-17T04:40:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00005",
+    "at": "2026-11-17T06:07:00.000Z",
+    "businessDate": "2026-11-17",
+    "patientId": "PAT-0010",
+    "patientName": "Revathi Mohan",
+    "uhid": "NH-UH-026434",
+    "phone": "+91 9839644125",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00005-1",
+        "serviceId": "SRV-0014",
+        "packageId": null,
+        "category": "INJECTION",
+        "name": "Injection administration (IM / IV)",
+        "qty": 1,
+        "rate": 50,
+        "listRate": 50,
+        "gross": 50,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00005-2",
+        "serviceId": "SRV-0015",
+        "packageId": null,
+        "category": "INJECTION",
+        "name": "IV cannulation",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 200,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 200,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000005",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 200,
+        "at": "2026-11-17T06:07:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00006",
+    "at": "2026-11-17T06:34:00.000Z",
+    "businessDate": "2026-11-17",
+    "patientId": "PAT-0014",
+    "patientName": "Priyanka Ravi",
+    "uhid": "NH-UH-026582",
+    "phone": "+91 9253305356",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00006-1",
+        "serviceId": "SRV-0014",
+        "packageId": null,
+        "category": "INJECTION",
+        "name": "Injection administration (IM / IV)",
+        "qty": 2,
+        "rate": 50,
+        "listRate": 50,
+        "gross": 100,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00006-2",
+        "serviceId": "SRV-0015",
+        "packageId": null,
+        "category": "INJECTION",
+        "name": "IV cannulation",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 250,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 250,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000006",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 250,
+        "at": "2026-11-17T06:34:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00007",
+    "at": "2026-11-17T07:34:00.000Z",
+    "businessDate": "2026-11-17",
+    "patientId": "PAT-0014",
+    "patientName": "Priyanka Ravi",
+    "uhid": "NH-UH-026582",
+    "phone": "+91 9253305356",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00007-1",
+        "serviceId": "SRV-0013",
+        "packageId": null,
+        "category": "ECG",
+        "name": "ECG — 12 lead",
+        "qty": 1,
+        "rate": 250,
+        "listRate": 250,
+        "gross": 250,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00007-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 600,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 600,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000007",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 600,
+        "at": "2026-11-17T07:34:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00008",
+    "at": "2026-11-17T07:55:00.000Z",
+    "businessDate": "2026-11-17",
+    "patientId": "PAT-0002",
+    "patientName": "Murugan Kannan",
+    "uhid": "NH-UH-026138",
+    "phone": "+91 9505070440",
+    "doctor": "Dr. S. Nivetha (Paediatrics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00008-1",
+        "serviceId": "SRV-0014",
+        "packageId": null,
+        "category": "INJECTION",
+        "name": "Injection administration (IM / IV)",
+        "qty": 2,
+        "rate": 50,
+        "listRate": 50,
+        "gross": 100,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00008-2",
+        "serviceId": "SRV-0015",
+        "packageId": null,
+        "category": "INJECTION",
+        "name": "IV cannulation",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 250,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 250,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000008",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 250,
+        "at": "2026-11-17T07:55:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR46757754"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00009",
+    "at": "2026-11-17T08:32:00.000Z",
+    "businessDate": "2026-11-17",
+    "patientId": "PAT-0003",
+    "patientName": "Lakshmi Devi",
+    "uhid": "NH-UH-026175",
+    "phone": "+91 9787657740",
+    "doctor": "Dr. S. Nivetha (Paediatrics)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00009-1",
+        "serviceId": "SRV-0013",
+        "packageId": null,
+        "category": "ECG",
+        "name": "ECG — 12 lead",
+        "qty": 1,
+        "rate": 250,
+        "listRate": 250,
+        "gross": 250,
+        "coveredBy": null
+      }
+    ],
+    "gross": 250,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 250,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000009",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 250,
+        "at": "2026-11-17T08:32:00.000Z",
+        "userId": "USR-0006",
+        "reference": "UTR86331709"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00010",
+    "at": "2026-11-17T09:59:00.000Z",
+    "businessDate": "2026-11-17",
+    "patientId": "PAT-0004",
+    "patientName": "Ramesh Babu",
+    "uhid": "NH-UH-026212",
+    "phone": "+91 9212777519",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00010-1",
+        "serviceId": "SRV-0006",
+        "packageId": null,
+        "category": "LAB",
+        "name": "HbA1c (Glycated Haemoglobin)",
+        "qty": 1,
+        "rate": 550,
+        "listRate": 550,
+        "gross": 550,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00010-2",
+        "serviceId": "SRV-0004",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Fasting (FBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      }
+    ],
+    "gross": 630,
+    "discountPct": 5,
+    "discountTotal": 31.5,
+    "roundOff": 0.5,
+    "grandTotal": 599,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000010",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 599,
+        "at": "2026-11-17T09:59:00.000Z",
+        "userId": "USR-0006",
+        "reference": "UTR63996496"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00011",
+    "at": "2026-11-17T10:59:00.000Z",
+    "businessDate": "2026-11-17",
+    "patientId": "PAT-0006",
+    "patientName": "Prakash Natarajan",
+    "uhid": "NH-UH-026286",
+    "phone": "+91 9445566204",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00011-1",
+        "serviceId": "SRV-0004",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Fasting (FBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00011-2",
+        "serviceId": "SRV-0005",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Post Prandial (PPBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      }
+    ],
+    "gross": 160,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 160,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000011",
+        "kind": "PAYMENT",
+        "mode": "CARD",
+        "amount": 160,
+        "at": "2026-11-17T10:59:00.000Z",
+        "userId": "USR-0006",
+        "reference": "XXXX-1819"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00012",
+    "at": "2026-11-17T12:05:00.000Z",
+    "businessDate": "2026-11-17",
+    "patientId": "PAT-0007",
+    "patientName": "Fathima Begum",
+    "uhid": "NH-UH-026323",
+    "phone": "+91 9398917266",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00012-1",
+        "serviceId": "SRV-0011",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Widal Test (slide)",
+        "qty": 1,
+        "rate": 250,
+        "listRate": 250,
+        "gross": 250,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00012-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 600,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 600,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000012",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 600,
+        "at": "2026-11-17T12:05:00.000Z",
+        "userId": "USR-0006",
+        "reference": "UTR33626903"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00013",
+    "at": "2026-11-17T12:38:00.000Z",
+    "businessDate": "2026-11-17",
+    "patientId": "PAT-0014",
+    "patientName": "Priyanka Ravi",
+    "uhid": "NH-UH-026582",
+    "phone": "+91 9253305356",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00013-1",
+        "serviceId": "SRV-0009",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Urine Routine Examination",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 150,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 150,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000013",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 150,
+        "at": "2026-11-17T12:38:00.000Z",
+        "userId": "USR-0006",
+        "reference": "UTR47667325"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00014",
+    "at": "2026-11-18T03:21:00.000Z",
+    "businessDate": "2026-11-18",
+    "patientId": "PAT-0007",
+    "patientName": "Fathima Begum",
+    "uhid": "NH-UH-026323",
+    "phone": "+91 9398917266",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00014-1",
+        "serviceId": "SRV-0004",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Fasting (FBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00014-2",
+        "serviceId": "SRV-0005",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Post Prandial (PPBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      }
+    ],
+    "gross": 160,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 160,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000014",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 160,
+        "at": "2026-11-18T03:21:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00015",
+    "at": "2026-11-18T03:07:00.000Z",
+    "businessDate": "2026-11-18",
+    "patientId": "PAT-0010",
+    "patientName": "Revathi Mohan",
+    "uhid": "NH-UH-026434",
+    "phone": "+91 9839644125",
+    "doctor": "Dr. S. Nivetha (Paediatrics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00015-1",
+        "serviceId": "SRV-0014",
+        "packageId": null,
+        "category": "INJECTION",
+        "name": "Injection administration (IM / IV)",
+        "qty": 1,
+        "rate": 50,
+        "listRate": 50,
+        "gross": 50,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00015-2",
+        "serviceId": "SRV-0015",
+        "packageId": null,
+        "category": "INJECTION",
+        "name": "IV cannulation",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 200,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 200,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000015",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 200,
+        "at": "2026-11-18T03:07:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR28440283"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00016",
+    "at": "2026-11-18T03:59:00.000Z",
+    "businessDate": "2026-11-18",
+    "patientId": "PAT-0006",
+    "patientName": "Prakash Natarajan",
+    "uhid": "NH-UH-026286",
+    "phone": "+91 9445566204",
+    "doctor": "Dr. P. Kavya (ENT)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00016-1",
+        "serviceId": "SRV-0014",
+        "packageId": null,
+        "category": "INJECTION",
+        "name": "Injection administration (IM / IV)",
+        "qty": 2,
+        "rate": 50,
+        "listRate": 50,
+        "gross": 100,
+        "coveredBy": null
+      }
+    ],
+    "gross": 100,
+    "discountPct": 10,
+    "discountTotal": 10,
+    "roundOff": 0,
+    "grandTotal": 90,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000016",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 90,
+        "at": "2026-11-18T03:59:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00017",
+    "at": "2026-11-18T05:06:00.000Z",
+    "businessDate": "2026-11-18",
+    "patientId": "PAT-0009",
+    "patientName": "Kumaravel Pandian",
+    "uhid": "NH-UH-026397",
+    "phone": "+91 9632926947",
+    "doctor": "Dr. S. Nivetha (Paediatrics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00017-1",
+        "serviceId": "SRV-0004",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Fasting (FBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00017-2",
+        "serviceId": "SRV-0005",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Post Prandial (PPBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      }
+    ],
+    "gross": 160,
+    "discountPct": 10,
+    "discountTotal": 16,
+    "roundOff": 0,
+    "grandTotal": 144,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000017",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 144,
+        "at": "2026-11-18T05:06:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR77182437"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00018",
+    "at": "2026-11-18T05:42:00.000Z",
+    "businessDate": "2026-11-18",
+    "patientId": "PAT-0011",
+    "patientName": "Syed Imran",
+    "uhid": "NH-UH-026471",
+    "phone": "+91 9550381157",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00018-1",
+        "serviceId": "SRV-0011",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Widal Test (slide)",
+        "qty": 1,
+        "rate": 250,
+        "listRate": 250,
+        "gross": 250,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00018-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 600,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 600,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000018",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 600,
+        "at": "2026-11-18T05:42:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00019",
+    "at": "2026-11-18T07:22:00.000Z",
+    "businessDate": "2026-11-18",
+    "patientId": "PAT-0009",
+    "patientName": "Kumaravel Pandian",
+    "uhid": "NH-UH-026397",
+    "phone": "+91 9632926947",
+    "doctor": "Dr. P. Kavya (ENT)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00019-1",
+        "serviceId": "SRV-0013",
+        "packageId": null,
+        "category": "ECG",
+        "name": "ECG — 12 lead",
+        "qty": 1,
+        "rate": 250,
+        "listRate": 250,
+        "gross": 250,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00019-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 600,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 600,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000019",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 600,
+        "at": "2026-11-18T07:22:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00020",
+    "at": "2026-11-18T07:49:00.000Z",
+    "businessDate": "2026-11-18",
+    "patientId": "PAT-0006",
+    "patientName": "Prakash Natarajan",
+    "uhid": "NH-UH-026286",
+    "phone": "+91 9445566204",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00020-1",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 350,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 350,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000020",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 350,
+        "at": "2026-11-18T07:49:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR12025478"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00021",
+    "at": "2026-11-18T08:02:00.000Z",
+    "businessDate": "2026-11-18",
+    "patientId": "PAT-0009",
+    "patientName": "Kumaravel Pandian",
+    "uhid": "NH-UH-026397",
+    "phone": "+91 9632926947",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00021-1",
+        "serviceId": "SRV-0008",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Thyroid Profile (T3, T4, TSH)",
+        "qty": 1,
+        "rate": 700,
+        "listRate": 700,
+        "gross": 700,
+        "coveredBy": null
+      }
+    ],
+    "gross": 700,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 700,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000021",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 700,
+        "at": "2026-11-18T08:02:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR30003346"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00022",
+    "at": "2026-11-18T08:37:00.000Z",
+    "businessDate": "2026-11-18",
+    "patientId": "PAT-0013",
+    "patientName": "Manjunath Hegde",
+    "uhid": "NH-UH-026545",
+    "phone": "+91 9779523011",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00022-1",
+        "serviceId": "SRV-0013",
+        "packageId": null,
+        "category": "ECG",
+        "name": "ECG — 12 lead",
+        "qty": 1,
+        "rate": 250,
+        "listRate": 250,
+        "gross": 250,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00022-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 600,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 600,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000022",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 600,
+        "at": "2026-11-18T08:37:00.000Z",
+        "userId": "USR-0006",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00023",
+    "at": "2026-11-18T10:06:00.000Z",
+    "businessDate": "2026-11-18",
+    "patientId": "PAT-0010",
+    "patientName": "Revathi Mohan",
+    "uhid": "NH-UH-026434",
+    "phone": "+91 9839644125",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00023-1",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 350,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 350,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000023",
+        "kind": "PAYMENT",
+        "mode": "CARD",
+        "amount": 350,
+        "at": "2026-11-18T10:06:00.000Z",
+        "userId": "USR-0006",
+        "reference": "XXXX-9086"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00024",
+    "at": "2026-11-18T11:22:00.000Z",
+    "businessDate": "2026-11-18",
+    "patientId": "PAT-0013",
+    "patientName": "Manjunath Hegde",
+    "uhid": "NH-UH-026545",
+    "phone": "+91 9779523011",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00024-1",
+        "serviceId": "SRV-0023",
+        "packageId": null,
+        "category": "OTHER",
+        "name": "Medical certificate",
+        "qty": 1,
+        "rate": 200,
+        "listRate": 200,
+        "gross": 200,
+        "coveredBy": null
+      }
+    ],
+    "gross": 200,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 200,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000024",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 80,
+        "at": "2026-11-18T11:22:00.000Z",
+        "userId": "USR-0006",
+        "reference": ""
+      },
+      {
+        "id": "HPY-000025",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 120,
+        "at": "2026-11-18T11:22:00.000Z",
+        "userId": "USR-0006",
+        "reference": "UTR21792632"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00025",
+    "at": "2026-11-18T11:43:00.000Z",
+    "businessDate": "2026-11-18",
+    "patientId": "PAT-0006",
+    "patientName": "Prakash Natarajan",
+    "uhid": "NH-UH-026286",
+    "phone": "+91 9445566204",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00025-1",
+        "serviceId": "SRV-0010",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Dengue NS1 Antigen (rapid)",
+        "qty": 1,
+        "rate": 600,
+        "listRate": 600,
+        "gross": 600,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00025-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 950,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 950,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000026",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 950,
+        "at": "2026-11-18T11:43:00.000Z",
+        "userId": "USR-0006",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00026",
+    "at": "2026-11-18T12:39:00.000Z",
+    "businessDate": "2026-11-18",
+    "patientId": "PAT-0011",
+    "patientName": "Syed Imran",
+    "uhid": "NH-UH-026471",
+    "phone": "+91 9550381157",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00026-1",
+        "serviceId": "SRV-0009",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Urine Routine Examination",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 150,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 150,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000027",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 150,
+        "at": "2026-11-18T12:39:00.000Z",
+        "userId": "USR-0006",
+        "reference": "UTR74851930"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00027",
+    "at": "2026-11-19T03:28:00.000Z",
+    "businessDate": "2026-11-19",
+    "patientId": "PAT-0007",
+    "patientName": "Fathima Begum",
+    "uhid": "NH-UH-026323",
+    "phone": "+91 9398917266",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00027-1",
+        "serviceId": "SRV-0002",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Liver Function Test (LFT)",
+        "qty": 1,
+        "rate": 650,
+        "listRate": 650,
+        "gross": 650,
+        "coveredBy": null
+      }
+    ],
+    "gross": 650,
+    "discountPct": 20,
+    "discountTotal": 130,
+    "roundOff": 0,
+    "grandTotal": 520,
+    "discountRequestId": "DR-2026-0101",
+    "payments": [
+      {
+        "id": "HPY-000028",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 520,
+        "at": "2026-11-19T03:28:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00028",
+    "at": "2026-11-19T04:05:00.000Z",
+    "businessDate": "2026-11-19",
+    "patientId": "PAT-0009",
+    "patientName": "Kumaravel Pandian",
+    "uhid": "NH-UH-026397",
+    "phone": "+91 9632926947",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00028-1",
+        "serviceId": "SRV-0009",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Urine Routine Examination",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 150,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 150,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000029",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 150,
+        "at": "2026-11-19T04:05:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR78010038"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00029",
+    "at": "2026-11-19T04:35:00.000Z",
+    "businessDate": "2026-11-19",
+    "patientId": "PAT-0004",
+    "patientName": "Ramesh Babu",
+    "uhid": "NH-UH-026212",
+    "phone": "+91 9212777519",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00029-1",
+        "serviceId": "SRV-0002",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Liver Function Test (LFT)",
+        "qty": 1,
+        "rate": 650,
+        "listRate": 650,
+        "gross": 650,
+        "coveredBy": null
+      }
+    ],
+    "gross": 650,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 650,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000030",
+        "kind": "PAYMENT",
+        "mode": "CARD",
+        "amount": 650,
+        "at": "2026-11-19T04:35:00.000Z",
+        "userId": "USR-0005",
+        "reference": "XXXX-9696"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00030",
+    "at": "2026-11-19T05:52:00.000Z",
+    "businessDate": "2026-11-19",
+    "patientId": "PAT-0013",
+    "patientName": "Manjunath Hegde",
+    "uhid": "NH-UH-026545",
+    "phone": "+91 9779523011",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00030-1",
+        "serviceId": "SRV-0004",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Fasting (FBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00030-2",
+        "serviceId": "SRV-0005",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Post Prandial (PPBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      }
+    ],
+    "gross": 160,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 160,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000031",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 160,
+        "at": "2026-11-19T05:52:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR21844570"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00031",
+    "at": "2026-11-19T07:22:00.000Z",
+    "businessDate": "2026-11-19",
+    "patientId": "PAT-0006",
+    "patientName": "Prakash Natarajan",
+    "uhid": "NH-UH-026286",
+    "phone": "+91 9445566204",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00031-1",
+        "serviceId": "SRV-0009",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Urine Routine Examination",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 150,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 150,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000032",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 150,
+        "at": "2026-11-19T07:22:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00032",
+    "at": "2026-11-19T07:52:00.000Z",
+    "businessDate": "2026-11-19",
+    "patientId": "PAT-0007",
+    "patientName": "Fathima Begum",
+    "uhid": "NH-UH-026323",
+    "phone": "+91 9398917266",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00032-1",
+        "serviceId": "SRV-0009",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Urine Routine Examination",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 150,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 150,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000033",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 150,
+        "at": "2026-11-19T07:52:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR42524348"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00033",
+    "at": "2026-11-19T09:05:00.000Z",
+    "businessDate": "2026-11-19",
+    "patientId": "PAT-0005",
+    "patientName": "Anitha Shankar",
+    "uhid": "NH-UH-026249",
+    "phone": "+91 9213929879",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00033-1",
+        "serviceId": "SRV-0003",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Renal Function Test (RFT)",
+        "qty": 1,
+        "rate": 550,
+        "listRate": 550,
+        "gross": 550,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00033-2",
+        "serviceId": "SRV-0009",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Urine Routine Examination",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 700,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 700,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000034",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 700,
+        "at": "2026-11-19T09:05:00.000Z",
+        "userId": "USR-0006",
+        "reference": "UTR13520377"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00034",
+    "at": "2026-11-19T09:56:00.000Z",
+    "businessDate": "2026-11-19",
+    "patientId": "PAT-0011",
+    "patientName": "Syed Imran",
+    "uhid": "NH-UH-026471",
+    "phone": "+91 9550381157",
+    "doctor": "Dr. S. Nivetha (Paediatrics)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00034-1",
+        "serviceId": "SRV-0008",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Thyroid Profile (T3, T4, TSH)",
+        "qty": 1,
+        "rate": 700,
+        "listRate": 700,
+        "gross": 700,
+        "coveredBy": null
+      }
+    ],
+    "gross": 700,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 700,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000035",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 700,
+        "at": "2026-11-19T09:56:00.000Z",
+        "userId": "USR-0006",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00035",
+    "at": "2026-11-19T11:05:00.000Z",
+    "businessDate": "2026-11-19",
+    "patientId": "PAT-0008",
+    "patientName": "Joseph Dominic",
+    "uhid": "NH-UH-026360",
+    "phone": "+91 9474851456",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00035-1",
+        "serviceId": "SRV-0013",
+        "packageId": null,
+        "category": "ECG",
+        "name": "ECG — 12 lead",
+        "qty": 1,
+        "rate": 250,
+        "listRate": 250,
+        "gross": 250,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00035-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 600,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 600,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000036",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 600,
+        "at": "2026-11-19T11:05:00.000Z",
+        "userId": "USR-0006",
+        "reference": "UTR15582194"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00036",
+    "at": "2026-11-19T12:18:00.000Z",
+    "businessDate": "2026-11-19",
+    "patientId": "PAT-0015",
+    "patientName": "Venkatesan Thangavel",
+    "uhid": "NH-UH-026619",
+    "phone": "+91 9311233836",
+    "doctor": "Dr. P. Kavya (ENT)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00036-1",
+        "serviceId": "SRV-0011",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Widal Test (slide)",
+        "qty": 1,
+        "rate": 250,
+        "listRate": 250,
+        "gross": 250,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00036-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 600,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 600,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000037",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 600,
+        "at": "2026-11-19T12:18:00.000Z",
+        "userId": "USR-0006",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00037",
+    "at": "2026-11-19T12:55:00.000Z",
+    "businessDate": "2026-11-19",
+    "patientId": "PAT-0010",
+    "patientName": "Revathi Mohan",
+    "uhid": "NH-UH-026434",
+    "phone": "+91 9839644125",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00037-1",
+        "serviceId": "SRV-0018",
+        "packageId": null,
+        "category": "OTHER",
+        "name": "Dressing — small",
+        "qty": 1,
+        "rate": 100,
+        "listRate": 100,
+        "gross": 100,
+        "coveredBy": null
+      }
+    ],
+    "gross": 100,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 100,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000038",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 100,
+        "at": "2026-11-19T12:55:00.000Z",
+        "userId": "USR-0006",
+        "reference": "UTR97438994"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00038",
+    "at": "2026-11-20T03:13:00.000Z",
+    "businessDate": "2026-11-20",
+    "patientId": "PAT-0009",
+    "patientName": "Kumaravel Pandian",
+    "uhid": "NH-UH-026397",
+    "phone": "+91 9632926947",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00038-1",
+        "serviceId": "SRV-0010",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Dengue NS1 Antigen (rapid)",
+        "qty": 1,
+        "rate": 600,
+        "listRate": 600,
+        "gross": 600,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00038-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 950,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 950,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000039",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 950,
+        "at": "2026-11-20T03:13:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00039",
+    "at": "2026-11-20T04:24:00.000Z",
+    "businessDate": "2026-11-20",
+    "patientId": "PAT-0012",
+    "patientName": "Geetha Venkat",
+    "uhid": "NH-UH-026508",
+    "phone": "+91 9708494956",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00039-1",
+        "serviceId": "SRV-0008",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Thyroid Profile (T3, T4, TSH)",
+        "qty": 1,
+        "rate": 700,
+        "listRate": 700,
+        "gross": 700,
+        "coveredBy": null
+      }
+    ],
+    "gross": 700,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 700,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000040",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 700,
+        "at": "2026-11-20T04:24:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00040",
+    "at": "2026-11-20T05:17:00.000Z",
+    "businessDate": "2026-11-20",
+    "patientId": "PAT-0014",
+    "patientName": "Priyanka Ravi",
+    "uhid": "NH-UH-026582",
+    "phone": "+91 9253305356",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00040-1",
+        "serviceId": "SRV-0004",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Fasting (FBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00040-2",
+        "serviceId": "SRV-0005",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Post Prandial (PPBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      }
+    ],
+    "gross": 160,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 160,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000041",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 160,
+        "at": "2026-11-20T05:17:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00041",
+    "at": "2026-11-20T05:55:00.000Z",
+    "businessDate": "2026-11-20",
+    "patientId": "PAT-0006",
+    "patientName": "Prakash Natarajan",
+    "uhid": "NH-UH-026286",
+    "phone": "+91 9445566204",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00041-1",
+        "serviceId": "SRV-0004",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Fasting (FBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00041-2",
+        "serviceId": "SRV-0005",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Post Prandial (PPBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      }
+    ],
+    "gross": 160,
+    "discountPct": 5,
+    "discountTotal": 8,
+    "roundOff": 0,
+    "grandTotal": 152,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000042",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 152,
+        "at": "2026-11-20T05:55:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR45342609"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00042",
+    "at": "2026-11-20T06:36:00.000Z",
+    "businessDate": "2026-11-20",
+    "patientId": "PAT-0015",
+    "patientName": "Venkatesan Thangavel",
+    "uhid": "NH-UH-026619",
+    "phone": "+91 9311233836",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00042-1",
+        "serviceId": "SRV-0023",
+        "packageId": null,
+        "category": "OTHER",
+        "name": "Medical certificate",
+        "qty": 1,
+        "rate": 200,
+        "listRate": 200,
+        "gross": 200,
+        "coveredBy": null
+      }
+    ],
+    "gross": 200,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 200,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000043",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 200,
+        "at": "2026-11-20T06:36:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00043",
+    "at": "2026-11-20T08:55:00.000Z",
+    "businessDate": "2026-11-20",
+    "patientId": "PAT-0012",
+    "patientName": "Geetha Venkat",
+    "uhid": "NH-UH-026508",
+    "phone": "+91 9708494956",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00043-1",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00043-2",
+        "serviceId": "SRV-0012",
+        "packageId": null,
+        "category": "LAB",
+        "name": "C-Reactive Protein (CRP)",
+        "qty": 1,
+        "rate": 450,
+        "listRate": 450,
+        "gross": 450,
+        "coveredBy": null
+      }
+    ],
+    "gross": 800,
+    "discountPct": 10,
+    "discountTotal": 80,
+    "roundOff": 0,
+    "grandTotal": 720,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000044",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 720,
+        "at": "2026-11-20T08:55:00.000Z",
+        "userId": "USR-0006",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00044",
+    "at": "2026-11-20T09:54:00.000Z",
+    "businessDate": "2026-11-20",
+    "patientId": "PAT-0016",
+    "patientName": "Shalini Kumar",
+    "uhid": "NH-UH-026656",
+    "phone": "+91 9414558148",
+    "doctor": "Dr. S. Nivetha (Paediatrics)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00044-1",
+        "serviceId": "SRV-0023",
+        "packageId": null,
+        "category": "OTHER",
+        "name": "Medical certificate",
+        "qty": 1,
+        "rate": 200,
+        "listRate": 200,
+        "gross": 200,
+        "coveredBy": null
+      }
+    ],
+    "gross": 200,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 200,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000045",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 200,
+        "at": "2026-11-20T09:54:00.000Z",
+        "userId": "USR-0006",
+        "reference": "UTR87168161"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00045",
+    "at": "2026-11-20T10:45:00.000Z",
+    "businessDate": "2026-11-20",
+    "patientId": "PAT-0008",
+    "patientName": "Joseph Dominic",
+    "uhid": "NH-UH-026360",
+    "phone": "+91 9474851456",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00045-1",
+        "serviceId": "SRV-0013",
+        "packageId": null,
+        "category": "ECG",
+        "name": "ECG — 12 lead",
+        "qty": 1,
+        "rate": 250,
+        "listRate": 250,
+        "gross": 250,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00045-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 600,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 600,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000046",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 600,
+        "at": "2026-11-20T10:45:00.000Z",
+        "userId": "USR-0006",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00046",
+    "at": "2026-11-20T11:33:00.000Z",
+    "businessDate": "2026-11-20",
+    "patientId": "PAT-0012",
+    "patientName": "Geetha Venkat",
+    "uhid": "NH-UH-026508",
+    "phone": "+91 9708494956",
+    "doctor": "Dr. P. Kavya (ENT)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00046-1",
+        "serviceId": "SRV-0014",
+        "packageId": null,
+        "category": "INJECTION",
+        "name": "Injection administration (IM / IV)",
+        "qty": 2,
+        "rate": 50,
+        "listRate": 50,
+        "gross": 100,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00046-2",
+        "serviceId": "SRV-0015",
+        "packageId": null,
+        "category": "INJECTION",
+        "name": "IV cannulation",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 250,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 250,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000047",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 100,
+        "at": "2026-11-20T11:33:00.000Z",
+        "userId": "USR-0006",
+        "reference": ""
+      },
+      {
+        "id": "HPY-000048",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 150,
+        "at": "2026-11-20T11:33:00.000Z",
+        "userId": "USR-0006",
+        "reference": "UTR79441232"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00047",
+    "at": "2026-11-21T02:32:00.000Z",
+    "businessDate": "2026-11-21",
+    "patientId": "PAT-0012",
+    "patientName": "Geetha Venkat",
+    "uhid": "NH-UH-026508",
+    "phone": "+91 9708494956",
+    "doctor": "Dr. S. Nivetha (Paediatrics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00047-1",
+        "serviceId": "SRV-0011",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Widal Test (slide)",
+        "qty": 1,
+        "rate": 250,
+        "listRate": 250,
+        "gross": 250,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00047-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 600,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 600,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000049",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 600,
+        "at": "2026-11-21T02:32:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR59014108"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00048",
+    "at": "2026-11-21T03:26:00.000Z",
+    "businessDate": "2026-11-21",
+    "patientId": "PAT-0008",
+    "patientName": "Joseph Dominic",
+    "uhid": "NH-UH-026360",
+    "phone": "+91 9474851456",
+    "doctor": "Dr. S. Nivetha (Paediatrics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00048-1",
+        "serviceId": "SRV-0007",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Lipid Profile",
+        "qty": 1,
+        "rate": 600,
+        "listRate": 600,
+        "gross": 600,
+        "coveredBy": null
+      }
+    ],
+    "gross": 600,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 600,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000050",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 240,
+        "at": "2026-11-21T03:26:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      },
+      {
+        "id": "HPY-000051",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 360,
+        "at": "2026-11-21T03:26:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR50855633"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00049",
+    "at": "2026-11-21T04:01:00.000Z",
+    "businessDate": "2026-11-21",
+    "patientId": "PAT-0003",
+    "patientName": "Lakshmi Devi",
+    "uhid": "NH-UH-026175",
+    "phone": "+91 9787657740",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00049-1",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 350,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 350,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000052",
+        "kind": "PAYMENT",
+        "mode": "CARD",
+        "amount": 350,
+        "at": "2026-11-21T04:01:00.000Z",
+        "userId": "USR-0005",
+        "reference": "XXXX-6090"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00050",
+    "at": "2026-11-21T04:51:00.000Z",
+    "businessDate": "2026-11-21",
+    "patientId": "PAT-0016",
+    "patientName": "Shalini Kumar",
+    "uhid": "NH-UH-026656",
+    "phone": "+91 9414558148",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00050-1",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 350,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 350,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000053",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 350,
+        "at": "2026-11-21T04:51:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00051",
+    "at": "2026-11-21T06:04:00.000Z",
+    "businessDate": "2026-11-21",
+    "patientId": "PAT-0002",
+    "patientName": "Murugan Kannan",
+    "uhid": "NH-UH-026138",
+    "phone": "+91 9505070440",
+    "doctor": "Dr. S. Nivetha (Paediatrics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00051-1",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 350,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 350,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000054",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 350,
+        "at": "2026-11-21T06:04:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00052",
+    "at": "2026-11-21T06:52:00.000Z",
+    "businessDate": "2026-11-21",
+    "patientId": "PAT-0002",
+    "patientName": "Murugan Kannan",
+    "uhid": "NH-UH-026138",
+    "phone": "+91 9505070440",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00052-1",
+        "serviceId": "SRV-0006",
+        "packageId": null,
+        "category": "LAB",
+        "name": "HbA1c (Glycated Haemoglobin)",
+        "qty": 1,
+        "rate": 550,
+        "listRate": 550,
+        "gross": 550,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00052-2",
+        "serviceId": "SRV-0004",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Fasting (FBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      }
+    ],
+    "gross": 630,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 630,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000055",
+        "kind": "PAYMENT",
+        "mode": "CARD",
+        "amount": 630,
+        "at": "2026-11-21T06:52:00.000Z",
+        "userId": "USR-0005",
+        "reference": "XXXX-7706"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00053",
+    "at": "2026-11-21T08:22:00.000Z",
+    "businessDate": "2026-11-21",
+    "patientId": "PAT-0016",
+    "patientName": "Shalini Kumar",
+    "uhid": "NH-UH-026656",
+    "phone": "+91 9414558148",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00053-1",
+        "serviceId": "SRV-0013",
+        "packageId": null,
+        "category": "ECG",
+        "name": "ECG — 12 lead",
+        "qty": 1,
+        "rate": 250,
+        "listRate": 250,
+        "gross": 250,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00053-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 600,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 600,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000056",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 600,
+        "at": "2026-11-21T08:22:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR12898148"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00054",
+    "at": "2026-11-21T07:50:00.000Z",
+    "businessDate": "2026-11-21",
+    "patientId": "PAT-0006",
+    "patientName": "Prakash Natarajan",
+    "uhid": "NH-UH-026286",
+    "phone": "+91 9445566204",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00054-1",
+        "serviceId": "SRV-0010",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Dengue NS1 Antigen (rapid)",
+        "qty": 1,
+        "rate": 600,
+        "listRate": 600,
+        "gross": 600,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00054-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 950,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 950,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000057",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 950,
+        "at": "2026-11-21T07:50:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00055",
+    "at": "2026-11-21T09:01:00.000Z",
+    "businessDate": "2026-11-21",
+    "patientId": "PAT-0013",
+    "patientName": "Manjunath Hegde",
+    "uhid": "NH-UH-026545",
+    "phone": "+91 9779523011",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00055-1",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 350,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 350,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000058",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 350,
+        "at": "2026-11-21T09:01:00.000Z",
+        "userId": "USR-0006",
+        "reference": "UTR42604653"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00056",
+    "at": "2026-11-21T10:23:00.000Z",
+    "businessDate": "2026-11-21",
+    "patientId": "PAT-0008",
+    "patientName": "Joseph Dominic",
+    "uhid": "NH-UH-026360",
+    "phone": "+91 9474851456",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00056-1",
+        "serviceId": "SRV-0011",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Widal Test (slide)",
+        "qty": 1,
+        "rate": 250,
+        "listRate": 250,
+        "gross": 250,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00056-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 600,
+    "discountPct": 10,
+    "discountTotal": 60,
+    "roundOff": 0,
+    "grandTotal": 540,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000059",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 540,
+        "at": "2026-11-21T10:23:00.000Z",
+        "userId": "USR-0006",
+        "reference": "UTR41457097"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00057",
+    "at": "2026-11-21T10:39:00.000Z",
+    "businessDate": "2026-11-21",
+    "patientId": "PAT-0003",
+    "patientName": "Lakshmi Devi",
+    "uhid": "NH-UH-026175",
+    "phone": "+91 9787657740",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00057-1",
+        "serviceId": "SRV-0009",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Urine Routine Examination",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 150,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 150,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000060",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 150,
+        "at": "2026-11-21T10:39:00.000Z",
+        "userId": "USR-0006",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00058",
+    "at": "2026-11-21T12:20:00.000Z",
+    "businessDate": "2026-11-21",
+    "patientId": "PAT-0013",
+    "patientName": "Manjunath Hegde",
+    "uhid": "NH-UH-026545",
+    "phone": "+91 9779523011",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00058-1",
+        "serviceId": "SRV-0010",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Dengue NS1 Antigen (rapid)",
+        "qty": 1,
+        "rate": 600,
+        "listRate": 600,
+        "gross": 600,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00058-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 950,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 950,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000061",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 950,
+        "at": "2026-11-21T12:20:00.000Z",
+        "userId": "USR-0006",
+        "reference": "UTR13944545"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00059",
+    "at": "2026-11-21T12:56:00.000Z",
+    "businessDate": "2026-11-21",
+    "patientId": "PAT-0001",
+    "patientName": "Selvi Rajendran",
+    "uhid": "NH-UH-026101",
+    "phone": "+91 9396330059",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00059-1",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00059-2",
+        "serviceId": "SRV-0012",
+        "packageId": null,
+        "category": "LAB",
+        "name": "C-Reactive Protein (CRP)",
+        "qty": 1,
+        "rate": 450,
+        "listRate": 450,
+        "gross": 450,
+        "coveredBy": null
+      }
+    ],
+    "gross": 800,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 800,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000062",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 800,
+        "at": "2026-11-21T12:56:00.000Z",
+        "userId": "USR-0006",
+        "reference": "UTR31336503"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00060",
+    "at": "2026-11-22T03:00:00.000Z",
+    "businessDate": "2026-11-22",
+    "patientId": "PAT-0008",
+    "patientName": "Joseph Dominic",
+    "uhid": "NH-UH-026360",
+    "phone": "+91 9474851456",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00060-1",
+        "serviceId": "SRV-0023",
+        "packageId": null,
+        "category": "OTHER",
+        "name": "Medical certificate",
+        "qty": 1,
+        "rate": 200,
+        "listRate": 200,
+        "gross": 200,
+        "coveredBy": null
+      }
+    ],
+    "gross": 200,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 200,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000063",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 200,
+        "at": "2026-11-22T03:00:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR73459563"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00061",
+    "at": "2026-11-22T03:41:00.000Z",
+    "businessDate": "2026-11-22",
+    "patientId": "PAT-0014",
+    "patientName": "Priyanka Ravi",
+    "uhid": "NH-UH-026582",
+    "phone": "+91 9253305356",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00061-1",
+        "serviceId": "SRV-0018",
+        "packageId": null,
+        "category": "OTHER",
+        "name": "Dressing — small",
+        "qty": 1,
+        "rate": 100,
+        "listRate": 100,
+        "gross": 100,
+        "coveredBy": null
+      }
+    ],
+    "gross": 100,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 100,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000064",
+        "kind": "PAYMENT",
+        "mode": "CARD",
+        "amount": 100,
+        "at": "2026-11-22T03:41:00.000Z",
+        "userId": "USR-0005",
+        "reference": "XXXX-7125"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00062",
+    "at": "2026-11-22T04:30:00.000Z",
+    "businessDate": "2026-11-22",
+    "patientId": "PAT-0003",
+    "patientName": "Lakshmi Devi",
+    "uhid": "NH-UH-026175",
+    "phone": "+91 9787657740",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00062-1",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 350,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 350,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000065",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 350,
+        "at": "2026-11-22T04:30:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00063",
+    "at": "2026-11-22T05:35:00.000Z",
+    "businessDate": "2026-11-22",
+    "patientId": "PAT-0013",
+    "patientName": "Manjunath Hegde",
+    "uhid": "NH-UH-026545",
+    "phone": "+91 9779523011",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00063-1",
+        "serviceId": "SRV-0017",
+        "packageId": null,
+        "category": "NEBULIZATION",
+        "name": "Nebulization (per session)",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 150,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 150,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000066",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 150,
+        "at": "2026-11-22T05:35:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00064",
+    "at": "2026-11-22T06:59:00.000Z",
+    "businessDate": "2026-11-22",
+    "patientId": "PAT-0008",
+    "patientName": "Joseph Dominic",
+    "uhid": "NH-UH-026360",
+    "phone": "+91 9474851456",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00064-1",
+        "serviceId": "SRV-0018",
+        "packageId": null,
+        "category": "OTHER",
+        "name": "Dressing — small",
+        "qty": 1,
+        "rate": 100,
+        "listRate": 100,
+        "gross": 100,
+        "coveredBy": null
+      }
+    ],
+    "gross": 100,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 100,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000067",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 40,
+        "at": "2026-11-22T06:59:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      },
+      {
+        "id": "HPY-000068",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 60,
+        "at": "2026-11-22T06:59:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR98482255"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00065",
+    "at": "2026-11-22T08:52:00.000Z",
+    "businessDate": "2026-11-22",
+    "patientId": "PAT-0013",
+    "patientName": "Manjunath Hegde",
+    "uhid": "NH-UH-026545",
+    "phone": "+91 9779523011",
+    "doctor": "Dr. S. Nivetha (Paediatrics)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00065-1",
+        "serviceId": "SRV-0018",
+        "packageId": null,
+        "category": "OTHER",
+        "name": "Dressing — small",
+        "qty": 1,
+        "rate": 100,
+        "listRate": 100,
+        "gross": 100,
+        "coveredBy": null
+      }
+    ],
+    "gross": 100,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 100,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000069",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 100,
+        "at": "2026-11-22T08:52:00.000Z",
+        "userId": "USR-0006",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00066",
+    "at": "2026-11-22T09:41:00.000Z",
+    "businessDate": "2026-11-22",
+    "patientId": "PAT-0004",
+    "patientName": "Ramesh Babu",
+    "uhid": "NH-UH-026212",
+    "phone": "+91 9212777519",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00066-1",
+        "serviceId": "SRV-0004",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Fasting (FBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00066-2",
+        "serviceId": "SRV-0005",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Post Prandial (PPBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      }
+    ],
+    "gross": 160,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 160,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000070",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 160,
+        "at": "2026-11-22T09:41:00.000Z",
+        "userId": "USR-0006",
+        "reference": "UTR70879514"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00067",
+    "at": "2026-11-22T11:22:00.000Z",
+    "businessDate": "2026-11-22",
+    "patientId": "PAT-0010",
+    "patientName": "Revathi Mohan",
+    "uhid": "NH-UH-026434",
+    "phone": "+91 9839644125",
+    "doctor": "Dr. P. Kavya (ENT)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00067-1",
+        "serviceId": "SRV-0013",
+        "packageId": null,
+        "category": "ECG",
+        "name": "ECG — 12 lead",
+        "qty": 1,
+        "rate": 250,
+        "listRate": 250,
+        "gross": 250,
+        "coveredBy": null
+      }
+    ],
+    "gross": 250,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 250,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000071",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 250,
+        "at": "2026-11-22T11:22:00.000Z",
+        "userId": "USR-0006",
+        "reference": "UTR38269088"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00068",
+    "at": "2026-11-22T11:58:00.000Z",
+    "businessDate": "2026-11-22",
+    "patientId": "PAT-0001",
+    "patientName": "Selvi Rajendran",
+    "uhid": "NH-UH-026101",
+    "phone": "+91 9396330059",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00068-1",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00068-2",
+        "serviceId": "SRV-0012",
+        "packageId": null,
+        "category": "LAB",
+        "name": "C-Reactive Protein (CRP)",
+        "qty": 1,
+        "rate": 450,
+        "listRate": 450,
+        "gross": 450,
+        "coveredBy": null
+      }
+    ],
+    "gross": 800,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 800,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000072",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 800,
+        "at": "2026-11-22T11:58:00.000Z",
+        "userId": "USR-0006",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00069",
+    "at": "2026-11-21T03:10:00.000Z",
+    "businessDate": "2026-11-21",
+    "patientId": "PAT-0006",
+    "patientName": "Prakash Natarajan",
+    "uhid": "NH-UH-026286",
+    "phone": "+91 9445566204",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00069-1",
+        "serviceId": null,
+        "packageId": "PKG-0002",
+        "category": "PACKAGE",
+        "name": "Master Health Check-up",
+        "qty": 1,
+        "rate": 2500,
+        "listRate": 2500,
+        "gross": 2500,
+        "coveredBy": null
+      }
+    ],
+    "gross": 2500,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 2500,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000073",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 2500,
+        "at": "2026-11-21T03:10:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR20237066"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00070",
+    "at": "2026-11-21T03:15:00.000Z",
+    "businessDate": "2026-11-21",
+    "patientId": "PAT-0006",
+    "patientName": "Prakash Natarajan",
+    "uhid": "NH-UH-026286",
+    "phone": "+91 9445566204",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00070-1",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 350,
+        "gross": 0,
+        "coveredBy": "PP-0001"
+      },
+      {
+        "id": "HB-2026-00070-2",
+        "serviceId": "SRV-0002",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Liver Function Test (LFT)",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 650,
+        "gross": 0,
+        "coveredBy": "PP-0001"
+      },
+      {
+        "id": "HB-2026-00070-3",
+        "serviceId": "SRV-0003",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Renal Function Test (RFT)",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 550,
+        "gross": 0,
+        "coveredBy": "PP-0001"
+      },
+      {
+        "id": "HB-2026-00070-4",
+        "serviceId": "SRV-0007",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Lipid Profile",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 600,
+        "gross": 0,
+        "coveredBy": "PP-0001"
+      },
+      {
+        "id": "HB-2026-00070-5",
+        "serviceId": "SRV-0004",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Fasting (FBS)",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 80,
+        "gross": 0,
+        "coveredBy": "PP-0001"
+      },
+      {
+        "id": "HB-2026-00070-6",
+        "serviceId": "SRV-0005",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Post Prandial (PPBS)",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 80,
+        "gross": 0,
+        "coveredBy": "PP-0001"
+      },
+      {
+        "id": "HB-2026-00070-7",
+        "serviceId": "SRV-0006",
+        "packageId": null,
+        "category": "LAB",
+        "name": "HbA1c (Glycated Haemoglobin)",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 550,
+        "gross": 0,
+        "coveredBy": "PP-0001"
+      },
+      {
+        "id": "HB-2026-00070-8",
+        "serviceId": "SRV-0008",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Thyroid Profile (T3, T4, TSH)",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 700,
+        "gross": 0,
+        "coveredBy": "PP-0001"
+      },
+      {
+        "id": "HB-2026-00070-9",
+        "serviceId": "SRV-0009",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Urine Routine Examination",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 150,
+        "gross": 0,
+        "coveredBy": "PP-0001"
+      },
+      {
+        "id": "HB-2026-00070-10",
+        "serviceId": "SRV-0013",
+        "packageId": null,
+        "category": "ECG",
+        "name": "ECG — 12 lead",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 250,
+        "gross": 0,
+        "coveredBy": "PP-0001"
+      },
+      {
+        "id": "HB-2026-00070-11",
+        "serviceId": "SRV-0029",
+        "packageId": null,
+        "category": "OTHER",
+        "name": "Health check-up physician review",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 500,
+        "gross": 0,
+        "coveredBy": "PP-0001"
+      }
+    ],
+    "gross": 0,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 0,
+    "discountRequestId": null,
+    "payments": [],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00071",
+    "at": "2026-11-21T06:00:00.000Z",
+    "businessDate": "2026-11-21",
+    "patientId": "PAT-0006",
+    "patientName": "Prakash Natarajan",
+    "uhid": "NH-UH-026286",
+    "phone": "+91 9445566204",
+    "doctor": "Dr. P. Kavya (ENT)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00071-1",
+        "serviceId": "SRV-0012",
+        "packageId": null,
+        "category": "LAB",
+        "name": "C-Reactive Protein (CRP)",
+        "qty": 1,
+        "rate": 450,
+        "listRate": 450,
+        "gross": 450,
+        "coveredBy": null
+      }
+    ],
+    "gross": 450,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 450,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000074",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 450,
+        "at": "2026-11-21T06:00:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00072",
+    "at": "2026-11-20T04:35:00.000Z",
+    "businessDate": "2026-11-20",
+    "patientId": "PAT-0002",
+    "patientName": "Murugan Kannan",
+    "uhid": "NH-UH-026138",
+    "phone": "+91 9505070440",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00072-1",
+        "serviceId": null,
+        "packageId": "PKG-0001",
+        "category": "PACKAGE",
+        "name": "Hernia Surgery Package",
+        "qty": 1,
+        "rate": 100000,
+        "listRate": 100000,
+        "gross": 100000,
+        "coveredBy": null
+      }
+    ],
+    "gross": 100000,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 100000,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000076",
+        "kind": "PAYMENT",
+        "mode": "CARD",
+        "amount": 60000,
+        "at": "2026-11-20T04:35:00.000Z",
+        "userId": "USR-0005",
+        "reference": "XXXX-4471"
+      },
+      {
+        "id": "HPY-000077",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 40000,
+        "at": "2026-11-21T03:40:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR58120044"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00073",
+    "at": "2026-11-20T04:50:00.000Z",
+    "businessDate": "2026-11-20",
+    "patientId": "PAT-0002",
+    "patientName": "Murugan Kannan",
+    "uhid": "NH-UH-026138",
+    "phone": "+91 9505070440",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00073-1",
+        "serviceId": "SRV-0024",
+        "packageId": null,
+        "category": "OTHER",
+        "name": "Pre-operative consultation",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 500,
+        "gross": 0,
+        "coveredBy": "PP-0002"
+      },
+      {
+        "id": "HB-2026-00073-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 350,
+        "gross": 0,
+        "coveredBy": "PP-0002"
+      },
+      {
+        "id": "HB-2026-00073-3",
+        "serviceId": "SRV-0003",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Renal Function Test (RFT)",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 550,
+        "gross": 0,
+        "coveredBy": "PP-0002"
+      },
+      {
+        "id": "HB-2026-00073-4",
+        "serviceId": "SRV-0004",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Fasting (FBS)",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 80,
+        "gross": 0,
+        "coveredBy": "PP-0002"
+      },
+      {
+        "id": "HB-2026-00073-5",
+        "serviceId": "SRV-0013",
+        "packageId": null,
+        "category": "ECG",
+        "name": "ECG — 12 lead",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 250,
+        "gross": 0,
+        "coveredBy": "PP-0002"
+      }
+    ],
+    "gross": 0,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 0,
+    "discountRequestId": null,
+    "payments": [],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00074",
+    "at": "2026-11-21T02:00:00.000Z",
+    "businessDate": "2026-11-21",
+    "patientId": "PAT-0002",
+    "patientName": "Murugan Kannan",
+    "uhid": "NH-UH-026138",
+    "phone": "+91 9505070440",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00074-1",
+        "serviceId": "SRV-0025",
+        "packageId": null,
+        "category": "OTHER",
+        "name": "Surgeon's fee — hernia repair",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 45000,
+        "gross": 0,
+        "coveredBy": "PP-0002"
+      },
+      {
+        "id": "HB-2026-00074-2",
+        "serviceId": "SRV-0026",
+        "packageId": null,
+        "category": "OTHER",
+        "name": "Operation theatre charges",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 20000,
+        "gross": 0,
+        "coveredBy": "PP-0002"
+      },
+      {
+        "id": "HB-2026-00074-3",
+        "serviceId": "SRV-0027",
+        "packageId": null,
+        "category": "OTHER",
+        "name": "Anaesthesia charges",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 10000,
+        "gross": 0,
+        "coveredBy": "PP-0002"
+      },
+      {
+        "id": "HB-2026-00074-4",
+        "serviceId": "SRV-0028",
+        "packageId": null,
+        "category": "OTHER",
+        "name": "Day-care / recovery bed (per day)",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 1500,
+        "gross": 0,
+        "coveredBy": "PP-0002"
+      },
+      {
+        "id": "HB-2026-00074-5",
+        "serviceId": "SRV-0014",
+        "packageId": null,
+        "category": "INJECTION",
+        "name": "Injection administration (IM / IV)",
+        "qty": 2,
+        "rate": 0,
+        "listRate": 50,
+        "gross": 0,
+        "coveredBy": "PP-0002"
+      },
+      {
+        "id": "HB-2026-00074-6",
+        "serviceId": "SRV-0015",
+        "packageId": null,
+        "category": "INJECTION",
+        "name": "IV cannulation",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 150,
+        "gross": 0,
+        "coveredBy": "PP-0002"
+      }
+    ],
+    "gross": 0,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 0,
+    "discountRequestId": null,
+    "payments": [],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00075",
+    "at": "2026-11-22T03:30:00.000Z",
+    "businessDate": "2026-11-22",
+    "patientId": "PAT-0002",
+    "patientName": "Murugan Kannan",
+    "uhid": "NH-UH-026138",
+    "phone": "+91 9505070440",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00075-1",
+        "serviceId": "SRV-0028",
+        "packageId": null,
+        "category": "OTHER",
+        "name": "Day-care / recovery bed (per day)",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 1500,
+        "gross": 0,
+        "coveredBy": "PP-0002"
+      },
+      {
+        "id": "HB-2026-00075-2",
+        "serviceId": "SRV-0014",
+        "packageId": null,
+        "category": "INJECTION",
+        "name": "Injection administration (IM / IV)",
+        "qty": 2,
+        "rate": 0,
+        "listRate": 50,
+        "gross": 0,
+        "coveredBy": "PP-0002"
+      },
+      {
+        "id": "HB-2026-00075-3",
+        "serviceId": "SRV-0018",
+        "packageId": null,
+        "category": "OTHER",
+        "name": "Dressing — small",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 100,
+        "gross": 0,
+        "coveredBy": "PP-0002"
+      },
+      {
+        "id": "HB-2026-00075-4",
+        "serviceId": "SRV-0019",
+        "packageId": null,
+        "category": "OTHER",
+        "name": "Dressing — large",
+        "qty": 1,
+        "rate": 250,
+        "listRate": 250,
+        "gross": 250,
+        "coveredBy": null
+      }
+    ],
+    "gross": 250,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 250,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000078",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 250,
+        "at": "2026-11-22T03:30:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00076",
+    "at": "2026-11-22T17:10:00.000Z",
+    "businessDate": "2026-11-22",
+    "patientId": "PAT-0014",
+    "patientName": "Priyanka Ravi",
+    "uhid": "NH-UH-026582",
+    "phone": "+91 9253305356",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0006",
+    "items": [
+      {
+        "id": "HB-2026-00076-1",
+        "serviceId": "SRV-0013",
+        "packageId": null,
+        "category": "ECG",
+        "name": "ECG — 12 lead",
+        "qty": 1,
+        "rate": 250,
+        "listRate": 250,
+        "gross": 250,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00076-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00076-3",
+        "serviceId": "SRV-0014",
+        "packageId": null,
+        "category": "INJECTION",
+        "name": "Injection administration (IM / IV)",
+        "qty": 2,
+        "rate": 50,
+        "listRate": 50,
+        "gross": 100,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00076-4",
+        "serviceId": "SRV-0017",
+        "packageId": null,
+        "category": "NEBULIZATION",
+        "name": "Nebulization (per session)",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 850,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 850,
+    "discountRequestId": null,
+    "payments": [],
+    "credit": {
+      "type": "EMERGENCY",
+      "reason": "Night emergency — breathlessness, attender arranging money",
+      "requestedBy": "USR-0006",
+      "requestedAt": "2026-11-22T17:10:00.000Z",
+      "status": "EMERGENCY",
+      "decidedBy": "USR-0003",
+      "decidedAt": "2026-11-22T21:10:00.000Z",
+      "note": "Collect before discharge"
+    },
+    "status": "UNPAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00077",
+    "at": "2026-11-23T04:55:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0015",
+    "patientName": "Venkatesan Thangavel",
+    "uhid": "NH-UH-026619",
+    "phone": "+91 9311233836",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00077-1",
+        "serviceId": "SRV-0002",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Liver Function Test (LFT)",
+        "qty": 1,
+        "rate": 650,
+        "listRate": 650,
+        "gross": 650,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00077-2",
+        "serviceId": "SRV-0003",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Renal Function Test (RFT)",
+        "qty": 1,
+        "rate": 550,
+        "listRate": 550,
+        "gross": 550,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00077-3",
+        "serviceId": "SRV-0009",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Urine Routine Examination",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 1350,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 1350,
+    "discountRequestId": null,
+    "payments": [],
+    "credit": {
+      "type": "CREDIT",
+      "reason": "Long-term patient — family pays monthly",
+      "requestedBy": "USR-0005",
+      "requestedAt": "2026-11-23T04:55:00.000Z",
+      "status": "PENDING",
+      "decidedBy": null,
+      "decidedAt": null,
+      "note": ""
+    },
+    "status": "UNPAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00078",
+    "at": "2026-11-23T03:05:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0003",
+    "patientName": "Lakshmi Devi",
+    "uhid": "NH-UH-026175",
+    "phone": "+91 9787657740",
+    "doctor": "Dr. P. Kavya (ENT)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00078-1",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00078-2",
+        "serviceId": "SRV-0012",
+        "packageId": null,
+        "category": "LAB",
+        "name": "C-Reactive Protein (CRP)",
+        "qty": 1,
+        "rate": 450,
+        "listRate": 450,
+        "gross": 450,
+        "coveredBy": null
+      }
+    ],
+    "gross": 800,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 800,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000079",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 800,
+        "at": "2026-11-23T03:05:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00079",
+    "at": "2026-11-23T03:20:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0006",
+    "patientName": "Prakash Natarajan",
+    "uhid": "NH-UH-026286",
+    "phone": "+91 9445566204",
+    "doctor": "Dr. P. Kavya (ENT)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00079-1",
+        "serviceId": "SRV-0004",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Fasting (FBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00079-2",
+        "serviceId": "SRV-0005",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Post Prandial (PPBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00079-3",
+        "serviceId": "SRV-0006",
+        "packageId": null,
+        "category": "LAB",
+        "name": "HbA1c (Glycated Haemoglobin)",
+        "qty": 1,
+        "rate": 550,
+        "listRate": 550,
+        "gross": 550,
+        "coveredBy": null
+      }
+    ],
+    "gross": 710,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 710,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000080",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 710,
+        "at": "2026-11-23T03:20:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR21862723"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00080",
+    "at": "2026-11-23T03:45:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0009",
+    "patientName": "Kumaravel Pandian",
+    "uhid": "NH-UH-026397",
+    "phone": "+91 9632926947",
+    "doctor": "Dr. S. Nivetha (Paediatrics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00080-1",
+        "serviceId": "SRV-0013",
+        "packageId": null,
+        "category": "ECG",
+        "name": "ECG — 12 lead",
+        "qty": 1,
+        "rate": 250,
+        "listRate": 250,
+        "gross": 250,
+        "coveredBy": null
+      }
+    ],
+    "gross": 250,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 250,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000081",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 250,
+        "at": "2026-11-23T03:45:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00081",
+    "at": "2026-11-23T04:10:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0012",
+    "patientName": "Geetha Venkat",
+    "uhid": "NH-UH-026508",
+    "phone": "+91 9708494956",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00081-1",
+        "serviceId": "SRV-0008",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Thyroid Profile (T3, T4, TSH)",
+        "qty": 1,
+        "rate": 700,
+        "listRate": 700,
+        "gross": 700,
+        "coveredBy": null
+      }
+    ],
+    "gross": 700,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 700,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000082",
+        "kind": "PAYMENT",
+        "mode": "CARD",
+        "amount": 700,
+        "at": "2026-11-23T04:10:00.000Z",
+        "userId": "USR-0005",
+        "reference": "XXXX-5925"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00082",
+    "at": "2026-11-23T04:35:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0015",
+    "patientName": "Venkatesan Thangavel",
+    "uhid": "NH-UH-026619",
+    "phone": "+91 9311233836",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00082-1",
+        "serviceId": "SRV-0017",
+        "packageId": null,
+        "category": "NEBULIZATION",
+        "name": "Nebulization (per session)",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 150,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 150,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000083",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 150,
+        "at": "2026-11-23T04:35:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": {
+      "status": "PENDING",
+      "reason": "Doctor cancelled the test after review",
+      "requestedBy": "USR-0005",
+      "requestedAt": "2026-11-23T07:15:00.000Z",
+      "decidedBy": null,
+      "decidedAt": null,
+      "refundMode": "CASH",
+      "note": ""
+    },
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00083",
+    "at": "2026-11-23T05:10:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0002",
+    "patientName": "Murugan Kannan",
+    "uhid": "NH-UH-026138",
+    "phone": "+91 9505070440",
+    "doctor": "Dr. P. Kavya (ENT)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00083-1",
+        "serviceId": "SRV-0007",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Lipid Profile",
+        "qty": 1,
+        "rate": 600,
+        "listRate": 600,
+        "gross": 600,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00083-2",
+        "serviceId": "SRV-0002",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Liver Function Test (LFT)",
+        "qty": 1,
+        "rate": 650,
+        "listRate": 650,
+        "gross": 650,
+        "coveredBy": null
+      }
+    ],
+    "gross": 1250,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 1250,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000084",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 1250,
+        "at": "2026-11-23T05:10:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR42397522"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00084",
+    "at": "2026-11-23T05:50:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0005",
+    "patientName": "Anitha Shankar",
+    "uhid": "NH-UH-026249",
+    "phone": "+91 9213929879",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00084-1",
+        "serviceId": "SRV-0014",
+        "packageId": null,
+        "category": "INJECTION",
+        "name": "Injection administration (IM / IV)",
+        "qty": 1,
+        "rate": 50,
+        "listRate": 50,
+        "gross": 50,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00084-2",
+        "serviceId": "SRV-0015",
+        "packageId": null,
+        "category": "INJECTION",
+        "name": "IV cannulation",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 200,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 200,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000085",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 200,
+        "at": "2026-11-23T05:50:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00085",
+    "at": "2026-11-23T06:15:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0008",
+    "patientName": "Joseph Dominic",
+    "uhid": "NH-UH-026360",
+    "phone": "+91 9474851456",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00085-1",
+        "serviceId": "SRV-0010",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Dengue NS1 Antigen (rapid)",
+        "qty": 1,
+        "rate": 600,
+        "listRate": 600,
+        "gross": 600,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00085-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 950,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 950,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000086",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 950,
+        "at": "2026-11-23T06:15:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR70302747"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00086",
+    "at": "2026-11-23T06:40:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0011",
+    "patientName": "Syed Imran",
+    "uhid": "NH-UH-026471",
+    "phone": "+91 9550381157",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00086-1",
+        "serviceId": "SRV-0009",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Urine Routine Examination",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 150,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 150,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000087",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 150,
+        "at": "2026-11-23T06:40:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00087",
+    "at": "2026-11-23T07:00:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0014",
+    "patientName": "Priyanka Ravi",
+    "uhid": "NH-UH-026582",
+    "phone": "+91 9253305356",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00087-1",
+        "serviceId": "SRV-0013",
+        "packageId": null,
+        "category": "ECG",
+        "name": "ECG — 12 lead",
+        "qty": 1,
+        "rate": 250,
+        "listRate": 250,
+        "gross": 250,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00087-2",
+        "serviceId": "SRV-0003",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Renal Function Test (RFT)",
+        "qty": 1,
+        "rate": 550,
+        "listRate": 550,
+        "gross": 550,
+        "coveredBy": null
+      }
+    ],
+    "gross": 800,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 800,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000088",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 320,
+        "at": "2026-11-23T07:00:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      },
+      {
+        "id": "HPY-000089",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 480,
+        "at": "2026-11-23T07:00:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR89068126"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  }
+]

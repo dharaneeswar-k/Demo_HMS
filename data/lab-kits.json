@@ -1,0 +1,79 @@
+[
+  {
+    "id": "KIT-0001",
+    "name": "CBC reagent pack (haematology analyser)",
+    "unit": "test",
+    "reorderLevel": 60,
+    "active": true
+  },
+  {
+    "id": "KIT-0002",
+    "name": "LFT reagent kit (biochemistry)",
+    "unit": "test",
+    "reorderLevel": 40,
+    "active": true
+  },
+  {
+    "id": "KIT-0003",
+    "name": "RFT reagent kit (biochemistry)",
+    "unit": "test",
+    "reorderLevel": 40,
+    "active": true
+  },
+  {
+    "id": "KIT-0004",
+    "name": "Glucose reagent / strips",
+    "unit": "test",
+    "reorderLevel": 80,
+    "active": true
+  },
+  {
+    "id": "KIT-0005",
+    "name": "HbA1c cartridge",
+    "unit": "cartridge",
+    "reorderLevel": 25,
+    "active": true
+  },
+  {
+    "id": "KIT-0006",
+    "name": "Lipid profile reagent kit",
+    "unit": "test",
+    "reorderLevel": 30,
+    "active": true
+  },
+  {
+    "id": "KIT-0007",
+    "name": "Thyroid (T3/T4/TSH) cartridge",
+    "unit": "cartridge",
+    "reorderLevel": 25,
+    "active": true
+  },
+  {
+    "id": "KIT-0008",
+    "name": "Urine reagent strips (10-parameter)",
+    "unit": "strip",
+    "reorderLevel": 50,
+    "active": true
+  },
+  {
+    "id": "KIT-0009",
+    "name": "Dengue NS1 rapid card",
+    "unit": "card",
+    "reorderLevel": 20,
+    "active": true
+  },
+  {
+    "id": "KIT-0010",
+    "name": "Widal slide kit",
+    "unit": "test",
+    "reorderLevel": 20,
+    "active": true
+  },
+  {
+    "id": "KIT-0011",
+    "name": "CRP cartridge",
+    "unit": "cartridge",
+    "reorderLevel": 20,
+    "active": true
+  }
+]

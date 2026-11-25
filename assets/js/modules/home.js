@@ -8,6 +8,9 @@ import { countForDate } from '../stock-count.js';
 import { refillSuggestions } from './transfers.js';
 import { badge, emptyState } from '../components.js';
 import { esc, icon, fmtINR, fmtNum, relTime } from '../utils.js';
+import { hospitalDaySummary, orderAccess, hbillBalance, isCritical, kitStatus } from '../hospital.js';
+import { openShiftFor, pendingHandoversFor, shiftSummary } from '../shifts.js';
+import { codingOverdue } from '../mrd.js';
 
 const tile = (href, ic, title, desc, tone = 'teal', count) => `<a class="task-tile tone-${tone}" href="${href}">
   <span class="tt-icon">${icon(ic)}</span><span class="tt-text"><strong>${esc(title)}</strong><small>${esc(desc)}</small></span>
@@ -45,20 +48,57 @@ export function render(view) {
     findPatient: tile('#/patients', 'user-search', 'Find Patient', 'Search by name, ID or mobile', 'info'),
     transfer: tile('#/transfers', 'arrow-right-left', 'Send to Pharmacy', 'Store → Pharmacy transfer', 'navy', refillSuggestions().length || null),
     grnList: tile('#/grn', 'package-check', 'Received Stock', 'Supplier deliveries and status', 'info'),
-    users: tile('#/users', 'user-cog', 'User Accounts', 'Staff logins and roles', 'navy')
+    users: tile('#/users', 'user-cog', 'User Accounts', 'Staff logins and roles', 'navy'),
+    mgmt: tile('#/management', 'layout-dashboard', 'Management Dashboard', 'Whole hospital — billing, lab, stock, cash', 'navy'),
+    hbill: tile('#/hbill', 'receipt', 'Hospital Bill', 'Lab tests, ECG, injection, services, packages', 'teal'),
+    hbills: tile('#/hbills', 'files', 'Hospital Bills', 'Collect balance, receipts, cancellations', 'info'),
+    shift: tile('#/shifts', 'timer', 'My Shift', 'Opening cash, collections, handover', 'purple', pendingHandoversFor(u).length || null),
+    packages: tile('#/packages', 'package', 'Packages', 'Health check-ups and surgery packages', 'warning'),
+    lab: tile('#/lab', 'test-tube', 'Lab Worklist', 'Collect samples, enter and verify results', 'teal'),
+    labReports: tile('#/lab/reports', 'file-check-2', 'Lab Reports', 'Find and reprint reports', 'info'),
+    kits: tile('#/lab/kits', 'boxes', 'Reagent Kits', 'Stock, QC use, counts', 'navy'),
+    svc: tile('#/services', 'syringe', 'Service Counter', 'ECG, injection, nebulization', 'teal'),
+    mrd: tile('#/mrd', 'folder-open', 'Medical Records', 'Code, file and retrieve records', 'teal'),
+    dsum: tile('#/mrd?tab=summaries', 'file-text', 'Discharge Summaries', 'Prepare and print', 'info')
   };
   T.receive = tile('#/grn/new', 'package-plus', 'Receive Stock', 'Enter a supplier delivery into the store', 'teal');
-  const tiles = role === 'SUPER_ADMIN' ? [T.approvals, T.sales, T.closings, T.stockAlerts, T.reports, T.users]
+  const tiles = role === 'SUPER_ADMIN' ? [T.approvals, T.mgmt, T.sales, T.closings, T.reports, T.users]
     : role === 'STORE_INCHARGE' ? [T.receive, T.transfer, T.approvals, T.find, T.grnList, T.reports]
-      : role === 'RECEPTION' ? [T.register, T.findPatient]
-        : [T.bill, T.findPatient, T.find, T.ret, T.close];
+      : role === 'RECEPTION' ? [T.hbill, T.register, T.findPatient, T.hbills, T.shift, T.packages]
+        : role === 'LAB' ? [T.lab, T.labReports, T.kits, T.findPatient]
+          : role === 'SERVICE_COUNTER' ? [T.svc, T.findPatient]
+            : role === 'MRD' ? [T.mrd, T.dsum, T.labReports, T.findPatient]
+              : [T.bill, T.findPatient, T.find, T.ret, T.close, T.shift];
 
   // ---------------- numbers ----------------
   const float = store.ph().openingCashFloat;
   const stockIssues = inv.low + inv.out;
-  const stats = role === 'SUPER_ADMIN' ? [
-    stat("Today's sales", fmtINR(all.sales, true), `Patients ${fmtINR(all.bySale.PATIENT.sales, true)} · Walk-in ${fmtINR(all.bySale.WALKIN.sales, true)}`, '#/pharmacy'),
-    stat('Money collected today', fmtINR(all.netCollection, true), `Cash ${fmtINR(all.byMode.CASH.net, true)} · UPI ${fmtINR(all.byMode.UPI.net, true)}`, '#/pharmacy'),
+  const hsum = hospitalDaySummary(today); const mysh = openShiftFor(u);
+  const labQ = store.all('orders').filter((o) => o.category === 'LAB' && o.billId);
+  const svcQ = store.all('orders').filter((o) => ['ECG', 'INJECTION', 'NEBULIZATION', 'OTHER'].includes(o.category));
+  const stats = role === 'RECEPTION' ? [
+    stat('Billed today', fmtINR(hsum.billed, true), `${hsum.bills} hospital bill(s)`, '#/hbills'),
+    stat('Cash in my drawer', mysh ? fmtINR(shiftSummary(mysh).expectedCash, true) : '—', mysh ? `${mysh.shiftName} shift` : 'Shift not started', '#/shifts'),
+    stat('Balance to collect', fmtINR(store.all('hbills').reduce((t, b) => t + hbillBalance(b), 0), true), 'credit & part-paid', '#/hbills?status=DUE'),
+    stat('Registered today', fmtNum(store.all('patients').filter((p) => (p.registeredAt || '').slice(0, 10) === today).length), 'new patients', '#/patients')
+  ] : role === 'LAB' ? [
+    stat('Waiting for sample', fmtNum(labQ.filter((o) => o.status === 'READY' && orderAccess(o).ok).length), 'paid & ready', '#/lab'),
+    stat('Results to enter', fmtNum(labQ.filter((o) => o.status === 'SAMPLE_COLLECTED').length), 'samples collected', '#/lab?tab=results'),
+    stat('To verify', fmtNum(labQ.filter((o) => o.status === 'RESULTED').length), `${labQ.filter((o) => o.status === 'RESULTED' && isCritical(o)).length} critical`, '#/lab?tab=verify'),
+    stat('Kits low / out', fmtNum(store.all('labKits').filter((k) => kitStatus(k) !== 'IN_STOCK').length), 'reorder', '#/lab/kits')
+  ] : role === 'SERVICE_COUNTER' ? [
+    stat('Ready to do', fmtNum(svcQ.filter((o) => o.status === 'READY' && orderAccess(o).ok).length), 'billed & paid', '#/services'),
+    stat('Waiting for payment', fmtNum(svcQ.filter((o) => o.billId && ['READY', 'ON_HOLD'].includes(o.status) && !orderAccess(o).ok).length), 'on hold', '#/services?tab=hold'),
+    stat('Advised, not billed', fmtNum(svcQ.filter((o) => o.status === 'REQUESTED').length), 'send to main counter', '#/services?tab=req'),
+    stat('Done today', fmtNum(svcQ.filter((o) => o.status === 'COMPLETED' && (o.performedAt || '').slice(0, 10) === today).length), 'services', '#/services?tab=done')
+  ] : role === 'MRD' ? [
+    stat('Open files', fmtNum(store.all('medicalRecords').filter((r) => !r.dischargedAt).length), 'patients admitted', '#/mrd'),
+    stat('To code & file', fmtNum(store.all('medicalRecords').filter((r) => r.dischargedAt && r.status !== 'FILED').length), `${store.all('medicalRecords').filter(codingOverdue).length} overdue`, '#/mrd'),
+    stat('Summaries in progress', fmtNum(store.all('dischargeSummaries').filter((d) => d.status !== 'FINAL').length), 'draft / review', '#/mrd?tab=summaries'),
+    stat('Files issued out', fmtNum(store.all('mrdRetrievals').filter((x) => x.status === 'ISSUED').length), 'to be returned', '#/mrd?tab=retrieval')
+  ] : role === 'SUPER_ADMIN' ? [
+    stat('Billed today (all counters)', fmtINR(all.sales + hsum.billed, true), `Pharmacy ${fmtINR(all.sales, true)} · Main counter ${fmtINR(hsum.billed, true)}`, '#/management'),
+    stat('Money collected today', fmtINR(all.netCollection + hsum.collected - hsum.refunds, true), `Cash ${fmtINR(all.byMode.CASH.net + hsum.byMode.CASH, true)} · UPI ${fmtINR(all.byMode.UPI.net + hsum.byMode.UPI, true)}`, '#/management'),
     stat('Waiting for you', fmtNum(approvals.length), approvals.length ? 'approvals' : 'all caught up', '#/approvals'),
     stat('Margin today', fmtINR(all.margin, true), `Cost ${fmtINR(all.cost, true)} → sold ${fmtINR(all.salesIncGst, true)}`, '#/pharmacy')
   ] : role === 'STORE_INCHARGE' ? [
@@ -66,7 +106,7 @@ export function render(view) {
     stat('Pharmacy needs refill', fmtNum(refillSuggestions().length), 'medicines low on the shelf', '#/transfers'),
     stat('Waiting for you', fmtNum(approvals.length), 'stock receipts & corrections', '#/approvals'),
     stat('Medicines to reorder', fmtNum(stockIssues), `${inv.out} out of stock`, '#/inventory?status=LOW_STOCK')
-  ] : role === 'RECEPTION' ? [
+  ] : role === 'RECEPTION_OLD' ? [
     stat('Registered today', fmtNum(store.all('patients').filter((p) => (p.registeredAt || '').slice(0, 10) === new Date().toISOString().slice(0, 10)).length), 'new patients', '#/patients'),
     stat('Total patients', fmtNum(store.all('patients').length), 'with a Patient ID', '#/patients'),
     stat('Registered by me', fmtNum(store.all('patients').filter((p) => p.registeredBy === u.id).length), 'all time', '#/patients'),
@@ -80,6 +120,13 @@ export function render(view) {
 
   // ---------------- attention list ----------------
   const todo = [];
+  if (can('shift.own') && role !== 'SUPER_ADMIN') {
+    pendingHandoversFor(u).forEach((h) => todo.push({ ic: 'hand-coins', tone: 'warning', text: `Accept cash handover of ${fmtINR(h.handoverAmount)}`, sub: `From ${userName(h.userId)} · ${h.shiftName} shift`, href: '#/shifts', btn: 'Count' }));
+    if (!mysh) todo.push({ ic: 'play', tone: 'info', text: 'Start your shift', sub: 'Count the opening cash before the first payment', href: '#/shifts', btn: 'Start' });
+  }
+  if (role === 'RECEPTION') store.all('orders').filter((o) => o.status === 'REQUESTED').slice(0, 3).forEach((o) => todo.push({ ic: 'clipboard-list', tone: 'danger', text: `Bill ${o.name} for ${store.get('patients', o.patientId)?.name}`, sub: `Advised by ${o.doctor || 'doctor'} · not billed yet`, href: `#/hbill?patient=${o.patientId}`, btn: 'Bill' }));
+  if (role === 'LAB') labQ.filter((o) => o.status === 'RESULTED' && isCritical(o)).forEach((o) => todo.push({ ic: 'siren', tone: 'danger', text: `Critical result — ${o.name}`, sub: `${store.get('patients', o.patientId)?.name} · verify and inform the doctor`, href: `#/lab/orders/${o.id}`, btn: 'Open' }));
+  if (role === 'MRD') store.all('medicalRecords').filter(codingOverdue).forEach((r) => todo.push({ ic: 'file-code-2', tone: 'danger', text: `Code ${r.mrdNo}`, sub: 'Overdue after discharge', href: `#/mrd/${r.id}`, btn: 'Code' }));
   approvals.slice(0, 4).forEach((a) => todo.push({ ic: APPROVAL_TYPES[a.type].icon, tone: a.tone, text: a.title, sub: `${a.detail}${a.amount ? ' · ' + fmtINR(a.amount) : ''}`, href: a.href, btn: a.action }));
   if (approvals.length > 4) todo.push({ ic: 'inbox', tone: 'info', text: `${approvals.length - 4} more approval(s)`, sub: 'Open the Approvals inbox', href: '#/approvals', btn: 'Open' });
   if (role !== 'SUPER_ADMIN' && can('stockcount.do') && !countForDate(today)) todo.push({ ic: 'clipboard-check', tone: hour >= 17 ? 'warning' : 'info', text: "Do today's stock count", sub: 'Count the fast-moving medicines on the shelf before closing', href: '#/stock-count', btn: 'Start count' });
@@ -89,12 +136,18 @@ export function render(view) {
   const unpaid = store.all('bills').filter((b) => b.status !== 'CANCELLED' && b.balanceDue > 0 && (role !== 'PHARMACY_STAFF' || b.cashierId === u.id));
   if (unpaid.length && can('pharmacy.bill') && role !== 'SUPER_ADMIN') todo.push({ ic: 'hourglass', tone: 'warning', text: `${unpaid.length} bill(s) with money still to collect`, sub: fmtINR(unpaid.reduce((s, b) => s + b.balanceDue, 0)) + ' pending', href: '#/pharmacy/bills?status=PENDING', btn: 'View' });
   if (role === 'STORE_INCHARGE' && refillSuggestions().length) todo.unshift({ ic: 'arrow-right-left', tone: 'warning', text: `${refillSuggestions().length} medicine(s) low on the pharmacy shelf`, sub: 'Available in the central store — send them to the pharmacy', href: '#/transfers', btn: 'Transfer' });
-  if (inv.expired && role !== 'SUPER_ADMIN' && role !== 'RECEPTION') todo.push({ ic: 'calendar-x', tone: 'danger', text: `${inv.expired} expired batch(es) on the shelf`, sub: 'Remove them — they cannot be sold', href: '#/batches?status=EXPIRED', btn: 'View' });
-  if (inv.out && role !== 'RECEPTION') todo.push({ ic: 'ban', tone: 'danger', text: `${inv.out} medicine(s) out of stock`, sub: 'Order from the supplier', href: '#/inventory?status=OUT_OF_STOCK', btn: 'View' });
+  const hosp = ['RECEPTION', 'LAB', 'MRD', 'SERVICE_COUNTER'].includes(role);
+  if (inv.expired && role !== 'SUPER_ADMIN' && !hosp) todo.push({ ic: 'calendar-x', tone: 'danger', text: `${inv.expired} expired batch(es) on the shelf`, sub: 'Remove them — they cannot be sold', href: '#/batches?status=EXPIRED', btn: 'View' });
+  if (inv.out && !hosp) todo.push({ ic: 'ban', tone: 'danger', text: `${inv.out} medicine(s) out of stock`, sub: 'Order from the supplier', href: '#/inventory?status=OUT_OF_STOCK', btn: 'View' });
   const alertsCount = derivedAlerts().length;
 
   // ---------------- recent ----------------
   const recent = [...store.all('bills')].filter((b) => role === 'PHARMACY_STAFF' ? b.cashierId === u.id : true).sort((a, b) => b.at.localeCompare(a.at)).slice(0, 5);
+  const hrecent = [...store.all('hbills')].sort((a, b) => b.at.localeCompare(a.at)).slice(0, 5);
+  const workRecent = role === 'MRD' ? store.all('medicalRecords').slice().sort((a, b) => (b.dischargedAt || b.admittedAt).localeCompare(a.dischargedAt || a.admittedAt)).slice(0, 5).map((r) => `<a class="todo" href="#/mrd/${r.id}"><span class="todo-ic sev-info">${icon('folder-open')}</span><span class="todo-txt"><strong>${esc(store.get('patients', r.patientId)?.name)} · ${esc(r.diagnosis || '—')}</strong><small>${esc(r.mrdNo)} · ${r.dischargedAt ? 'discharged ' + relTime(r.dischargedAt) : 'admitted ' + relTime(r.admittedAt)}</small></span></a>`)
+    : store.all('orders').filter((o) => (role === 'LAB' ? o.category === 'LAB' : o.category !== 'LAB') && o.status === 'COMPLETED').sort((a, b) => (b.performedAt || '').localeCompare(a.performedAt || '')).slice(0, 5).map((o) => `<a class="todo" href="${o.category === 'LAB' ? '#/lab/report/' + o.id : '#/services?tab=done'}"><span class="todo-ic sev-success">${icon('check')}</span><span class="todo-txt"><strong>${esc(o.name)} · ${esc(store.get('patients', o.patientId)?.name)}</strong><small>${o.lab?.reportNo || o.id} · ${relTime(o.performedAt)}</small></span></a>`);
+  const recentCard = hosp && !can('hbill.view') ? `<section class="card"><header class="card-head"><h2>Recently completed</h2></header><div class="todo-list">${workRecent.join('') || emptyState('inbox', 'Nothing yet')}</div></section>` : hosp ? `<section class="card"><header class="card-head"><h2>Latest hospital bills</h2><a class="btn btn-ghost btn-sm" href="#/hbills">All ${icon('arrow-right')}</a></header>
+        <div class="todo-list">${hrecent.map((b) => `<a class="todo" href="#/hbills/${b.id}"><span class="todo-ic sev-info">${icon('receipt')}</span><span class="todo-txt"><strong>${esc(b.patientName)} · ${fmtINR(b.grandTotal)}</strong><small>${b.id} · ${esc(b.items.map((x) => x.name).slice(0, 2).join(', '))} · ${relTime(b.at)}</small></span>${badge(b.status === 'PAID' ? 'PAID' : b.status === 'CANCELLED' ? 'CANCELLED' : 'UNPAID', b.status === 'PAID' ? 'Paid' : b.status === 'CANCELLED' ? 'Cancelled' : b.credit ? 'Credit' : 'Due')}</a>`).join('')}</div></section>` : null;
 
   view.innerHTML = `
     <div class="home-hero"><div><h1>${greet}, ${esc(first)}</h1><p>${dateLine} · ${esc(roleLabel())}</p></div>
@@ -107,7 +160,7 @@ export function render(view) {
       <section class="card"><header class="card-head"><h2>Needs your attention</h2><a class="btn btn-ghost btn-sm" href="#/alerts">All alerts (${alertsCount}) ${icon('arrow-right')}</a></header>
         <div class="todo-list">${todo.length ? todo.slice(0, 7).map((t) => `<a class="todo" href="${t.href}"><span class="todo-ic sev-${t.tone === 'danger' ? 'critical' : t.tone}">${icon(t.ic)}</span><span class="todo-txt"><strong>${esc(t.text)}</strong><small>${esc(t.sub)}</small></span><span class="btn btn-secondary btn-sm">${esc(t.btn)}</span></a>`).join('')
           : emptyState('party-popper', 'All caught up', 'Nothing needs your attention right now.')}</div></section>
-      <section class="card"><header class="card-head"><h2>${role === 'PHARMACY_STAFF' ? 'My recent bills' : 'Recent bills'}</h2><a class="btn btn-ghost btn-sm" href="#/pharmacy/bills">All bills ${icon('arrow-right')}</a></header>
-        <div class="todo-list">${recent.length ? recent.map((b) => `<a class="todo" href="#/pharmacy/bills/${b.id}"><span class="todo-ic sev-info">${icon('receipt')}</span><span class="todo-txt"><strong>${esc(b.patientName)} · ${fmtINR(b.grandTotal)}</strong><small>${b.id} · ${esc(billModeLabel(b))} · ${relTime(b.at)}${role !== 'PHARMACY_STAFF' ? ' · ' + esc(userName(b.cashierId)) : ''}</small></span>${badge(b.status)}</a>`).join('') : emptyState('receipt', 'No bills yet', 'Your bills will appear here.')}</div></section>
+      ${recentCard || `<section class="card"><header class="card-head"><h2>${role === 'PHARMACY_STAFF' ? 'My recent bills' : 'Recent bills'}</h2><a class="btn btn-ghost btn-sm" href="#/pharmacy/bills">All bills ${icon('arrow-right')}</a></header>
+        <div class="todo-list">${recent.length ? recent.map((b) => `<a class="todo" href="#/pharmacy/bills/${b.id}"><span class="todo-ic sev-info">${icon('receipt')}</span><span class="todo-txt"><strong>${esc(b.patientName)} · ${fmtINR(b.grandTotal)}</strong><small>${b.id} · ${esc(billModeLabel(b))} · ${relTime(b.at)}${role !== 'PHARMACY_STAFF' ? ' · ' + esc(userName(b.cashierId)) : ''}</small></span>${badge(b.status)}</a>`).join('') : emptyState('receipt', 'No bills yet', 'Your bills will appear here.')}</div></section>`}
     </div>`;
 }

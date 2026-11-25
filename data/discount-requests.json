@@ -81,5 +81,31 @@
     "decidedAt": null,
     "decisionNote": "",
     "billId": null
+  },
+  {
+    "id": "DR-2026-0101",
+    "source": "HOSPITAL",
+    "status": "USED",
+    "requestedBy": "USR-0005",
+    "requestedAt": "2026-11-19T03:22:00.000Z",
+    "reason": "Senior citizen on pension — hospital welfare scheme",
+    "requestedPct": 20,
+    "snapshot": {
+      "patientName": "Fathima Begum",
+      "saleType": "PATIENT",
+      "lines": [
+        {
+          "name": "Liver Function Test (LFT)",
+          "qty": 1
+        }
+      ],
+      "gross": 650,
+      "discount": 130,
+      "grandTotal": 520
+    },
+    "decidedBy": "USR-0003",
+    "decidedAt": "2026-11-19T03:26:00.000Z",
+    "decisionNote": "",
+    "billId": "HB-2026-00027"
   }
 ]
