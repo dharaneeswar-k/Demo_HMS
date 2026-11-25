@@ -69,9 +69,16 @@ export function patientHistory(patientId) {
   const items = [{ kind: 'REGISTERED', at: p.registeredAt, title: 'Patient registered', detail: `Patient ID ${p.uhid}`, by: p.registeredBy }];
   bills.forEach((b) => items.push({ kind: 'BILL', at: b.at, title: `Pharmacy sale ${b.id}`, detail: `${b.lineCount} item(s)${b.doctor ? ' · ' + b.doctor : ''}`, amount: b.grandTotal, status: b.status, ref: b.id, by: b.cashierId }));
   store.all('pReturns').filter((r) => billIds.has(r.billId)).forEach((r) => items.push({ kind: 'RETURN', at: r.at, title: `Medicine return ${r.id}`, detail: `Against ${r.billId} · ${r.reason}`, amount: -r.refundAmount, status: r.status, ref: r.id, by: r.requestedBy }));
+  // OP visits and admissions (modules 02, 03)
+  const docName = (id) => store.get('doctors', id)?.name || '';
+  (store.all('opVisits') || []).filter((v) => v.patientId === patientId).forEach((v) => items.push({ kind: 'OP_VISIT', at: v.at, title: `OP visit ${v.token} · ${docName(v.doctorId)}`, detail: (v.consultation?.diagnosis || []).join('; ') || v.chiefComplaint || v.visitType.replace('_', ' ').toLowerCase(),
+    status: v.status, ref: v.id, href: '#/op/visits/' + v.id, icon: 'stethoscope', by: v.createdBy }));
+  (store.all('ipAdmissions') || []).filter((a) => a.patientId === patientId).forEach((a) => items.push({ kind: 'ADMISSION', at: a.admittedAt, title: `Admission ${a.id} · ${docName(a.doctorId)}`, detail: a.provisionalDiagnosis + (a.discharge?.dischargedAt ? ` · discharged ${a.discharge.dischargedAt.slice(0, 10)}` : ''),
+    status: a.status, ref: a.id, href: '#/ip/admissions/' + a.id, icon: 'bed-double', by: a.createdBy }));
   return items.sort((a, b) => String(b.at).localeCompare(String(a.at)));
 }
 export function patientStats(patientId) {
   const bills = store.all('bills').filter((b) => b.patientId === patientId && b.status !== 'CANCELLED');
-  return { bills: bills.length, spent: bills.reduce((t, b) => t + b.grandTotal, 0), due: bills.reduce((t, b) => t + (b.balanceDue || 0), 0), lastVisit: bills.map((b) => b.at).sort().at(-1) || null };
+  const visits = (store.all('opVisits') || []).filter((v) => v.patientId === patientId && v.status !== 'CANCELLED').map((v) => v.at);
+  return { bills: bills.length, spent: bills.reduce((t, b) => t + b.grandTotal, 0), due: bills.reduce((t, b) => t + (b.balanceDue || 0), 0), lastVisit: [...bills.map((b) => b.at), ...visits].sort().at(-1) || null };
 }

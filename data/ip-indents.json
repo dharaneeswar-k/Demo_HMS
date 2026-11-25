@@ -1,0 +1,8462 @@
+[
+  {
+    "id": "IND-2026-0001",
+    "admissionId": "IPA-2026-0001",
+    "patientId": "PAT-0042",
+    "bedId": "BED-001",
+    "raisedAt": "2026-11-03T15:50:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "ISSUED",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0034",
+            "batchNo": "NO6H5799",
+            "expiryDate": "2028-08-31",
+            "qty": 3,
+            "mrp": 35,
+            "gstPct": 5,
+            "movementId": "MOV-00844"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0020",
+            "batchNo": "MO7F5917",
+            "expiryDate": "2028-05-31",
+            "qty": 2,
+            "mrp": 68,
+            "gstPct": 12,
+            "movementId": "MOV-00845"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0021",
+            "batchNo": "PA2D6152",
+            "expiryDate": "2027-12-31",
+            "qty": 1,
+            "mrp": 56,
+            "gstPct": 12,
+            "movementId": "MOV-00846"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-00847"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 3,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-00848"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 3,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-00849"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0035",
+            "batchNo": "AB9A9163",
+            "expiryDate": "2030-01-31",
+            "qty": 1,
+            "mrp": 175,
+            "gstPct": 12,
+            "movementId": "MOV-00850"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-03T16:21:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0002",
+    "admissionId": "IPA-2026-0001",
+    "patientId": "PAT-0042",
+    "bedId": "BED-001",
+    "raisedAt": "2026-11-04T02:57:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "ISSUED",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0034",
+            "batchNo": "NO6H5799",
+            "expiryDate": "2028-08-31",
+            "qty": 3,
+            "mrp": 35,
+            "gstPct": 5,
+            "movementId": "MOV-00851"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0020",
+            "batchNo": "MO7F5917",
+            "expiryDate": "2028-05-31",
+            "qty": 2,
+            "mrp": 68,
+            "gstPct": 12,
+            "movementId": "MOV-00852"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-04T03:18:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0003",
+    "admissionId": "IPA-2026-0001",
+    "patientId": "PAT-0042",
+    "bedId": "BED-001",
+    "raisedAt": "2026-11-05T03:14:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "ISSUED",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0034",
+            "batchNo": "NO6H5799",
+            "expiryDate": "2028-08-31",
+            "qty": 3,
+            "mrp": 35,
+            "gstPct": 5,
+            "movementId": "MOV-00853"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0020",
+            "batchNo": "MO7F5917",
+            "expiryDate": "2028-05-31",
+            "qty": 2,
+            "mrp": 68,
+            "gstPct": 12,
+            "movementId": "MOV-00854"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00855"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00856"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-05T03:29:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0004",
+    "admissionId": "IPA-2026-0001",
+    "patientId": "PAT-0042",
+    "bedId": "BED-001",
+    "raisedAt": "2026-11-06T03:15:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "ISSUED",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0034",
+            "batchNo": "NO6H5799",
+            "expiryDate": "2028-08-31",
+            "qty": 3,
+            "mrp": 35,
+            "gstPct": 5,
+            "movementId": "MOV-00857"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0020",
+            "batchNo": "MO7F5917",
+            "expiryDate": "2028-05-31",
+            "qty": 1,
+            "mrp": 68,
+            "gstPct": 12,
+            "movementId": "MOV-00858"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00859"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00860"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-06T03:40:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0005",
+    "admissionId": "IPA-2026-0001",
+    "patientId": "PAT-0042",
+    "bedId": "BED-001",
+    "raisedAt": "2026-11-07T02:35:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "ISSUED",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0034",
+            "batchNo": "NO6H5799",
+            "expiryDate": "2028-08-31",
+            "qty": 2,
+            "mrp": 35,
+            "gstPct": 5,
+            "movementId": "MOV-00861"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0020",
+            "batchNo": "MO7F5917",
+            "expiryDate": "2028-05-31",
+            "qty": 1,
+            "mrp": 68,
+            "gstPct": 12,
+            "movementId": "MOV-00862"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00863"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00864"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-07T02:58:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0006",
+    "admissionId": "IPA-2026-0001",
+    "patientId": "PAT-0042",
+    "bedId": "BED-001",
+    "raisedAt": "2026-11-08T02:40:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "ISSUED",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0034",
+            "batchNo": "NO6H5799",
+            "expiryDate": "2028-08-31",
+            "qty": 2,
+            "mrp": 35,
+            "gstPct": 5,
+            "movementId": "MOV-00865"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0020",
+            "batchNo": "MO7F5917",
+            "expiryDate": "2028-05-31",
+            "qty": 2,
+            "mrp": 68,
+            "gstPct": 12,
+            "movementId": "MOV-00866"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00867"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00868"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-08T03:01:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0007",
+    "admissionId": "IPA-2026-0001",
+    "patientId": "PAT-0042",
+    "bedId": "BED-001",
+    "raisedAt": "2026-11-09T02:49:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "ISSUED",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0034",
+            "batchNo": "NO6H5799",
+            "expiryDate": "2028-08-31",
+            "qty": 3,
+            "mrp": 35,
+            "gstPct": 5,
+            "movementId": "MOV-00869"
+          }
+        ],
+        "returnedQty": 1
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0020",
+            "batchNo": "MO7F5917",
+            "expiryDate": "2028-05-31",
+            "qty": 2,
+            "mrp": 68,
+            "gstPct": 12,
+            "movementId": "MOV-00870"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00871"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00872"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-09T03:03:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": [
+      {
+        "id": "IRT-00921",
+        "at": "2026-11-10T03:15:00.000Z",
+        "by": "USR-0001",
+        "reason": "Unused at discharge",
+        "lines": [
+          {
+            "medicineId": "MED-0031",
+            "batchId": "BAT-0034",
+            "qty": 1,
+            "mrp": 35,
+            "movementId": "MOV-01088"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "IND-2026-0008",
+    "admissionId": "IPA-2026-0002",
+    "patientId": "PAT-0024",
+    "bedId": "BED-002",
+    "raisedAt": "2026-11-04T13:10:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0034",
+            "batchNo": "NO6H5799",
+            "expiryDate": "2028-08-31",
+            "qty": 3,
+            "mrp": 35,
+            "gstPct": 5,
+            "movementId": "MOV-00873"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0020",
+            "batchNo": "MO7F5917",
+            "expiryDate": "2028-05-31",
+            "qty": 2,
+            "mrp": 68,
+            "gstPct": 12,
+            "movementId": "MOV-00874"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0021",
+            "batchNo": "PA2D6152",
+            "expiryDate": "2027-12-31",
+            "qty": 1,
+            "mrp": 56,
+            "gstPct": 12,
+            "movementId": "MOV-00875"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-00876"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-00877"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0024",
+            "batchNo": "VO3B5588",
+            "expiryDate": "2028-01-31",
+            "qty": 1,
+            "mrp": 19.8,
+            "gstPct": 12,
+            "movementId": "MOV-00878"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0023",
+            "batchNo": "EM8Y3499",
+            "expiryDate": "2027-11-30",
+            "qty": 2,
+            "mrp": 14.2,
+            "gstPct": 12,
+            "movementId": "MOV-00879"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 2,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-00880"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-04T13:29:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0009",
+    "admissionId": "IPA-2026-0002",
+    "patientId": "PAT-0024",
+    "bedId": "BED-002",
+    "raisedAt": "2026-11-05T02:53:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "ISSUED",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0034",
+            "batchNo": "NO6H5799",
+            "expiryDate": "2028-08-31",
+            "qty": 2,
+            "mrp": 35,
+            "gstPct": 5,
+            "movementId": "MOV-00881"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0020",
+            "batchNo": "MO7F5917",
+            "expiryDate": "2028-05-31",
+            "qty": 1,
+            "mrp": 68,
+            "gstPct": 12,
+            "movementId": "MOV-00882"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0024",
+            "batchNo": "VO3B5588",
+            "expiryDate": "2028-01-31",
+            "qty": 2,
+            "mrp": 19.8,
+            "gstPct": 12,
+            "movementId": "MOV-00883"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0023",
+            "batchNo": "EM8Y3499",
+            "expiryDate": "2027-11-30",
+            "qty": 2,
+            "mrp": 14.2,
+            "gstPct": 12,
+            "movementId": "MOV-00884"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-05T03:16:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0010",
+    "admissionId": "IPA-2026-0002",
+    "patientId": "PAT-0024",
+    "bedId": "BED-002",
+    "raisedAt": "2026-11-06T03:07:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "ISSUED",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0034",
+            "batchNo": "NO6H5799",
+            "expiryDate": "2028-08-31",
+            "qty": 3,
+            "mrp": 35,
+            "gstPct": 5,
+            "movementId": "MOV-00885"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0020",
+            "batchNo": "MO7F5917",
+            "expiryDate": "2028-05-31",
+            "qty": 2,
+            "mrp": 68,
+            "gstPct": 12,
+            "movementId": "MOV-00886"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0024",
+            "batchNo": "VO3B5588",
+            "expiryDate": "2028-01-31",
+            "qty": 2,
+            "mrp": 19.8,
+            "gstPct": 12,
+            "movementId": "MOV-00887"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0023",
+            "batchNo": "EM8Y3499",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 14.2,
+            "gstPct": 12,
+            "movementId": "MOV-00888"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00889"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00890"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-06T03:32:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0011",
+    "admissionId": "IPA-2026-0002",
+    "patientId": "PAT-0024",
+    "bedId": "BED-002",
+    "raisedAt": "2026-11-07T03:09:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "ISSUED",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0034",
+            "batchNo": "NO6H5799",
+            "expiryDate": "2028-08-31",
+            "qty": 2,
+            "mrp": 35,
+            "gstPct": 5,
+            "movementId": "MOV-00891"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0020",
+            "batchNo": "MO7F5917",
+            "expiryDate": "2028-05-31",
+            "qty": 1,
+            "mrp": 68,
+            "gstPct": 12,
+            "movementId": "MOV-00892"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0024",
+            "batchNo": "VO3B5588",
+            "expiryDate": "2028-01-31",
+            "qty": 2,
+            "mrp": 19.8,
+            "gstPct": 12,
+            "movementId": "MOV-00893"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0023",
+            "batchNo": "EM8Y3499",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 14.2,
+            "gstPct": 12,
+            "movementId": "MOV-00894"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00895"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00896"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-07T03:23:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0012",
+    "admissionId": "IPA-2026-0002",
+    "patientId": "PAT-0024",
+    "bedId": "BED-002",
+    "raisedAt": "2026-11-08T03:13:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0034",
+            "batchNo": "NO6H5799",
+            "expiryDate": "2028-08-31",
+            "qty": 3,
+            "mrp": 35,
+            "gstPct": 5,
+            "movementId": "MOV-00897"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0024",
+            "batchNo": "VO3B5588",
+            "expiryDate": "2028-01-31",
+            "qty": 1,
+            "mrp": 19.8,
+            "gstPct": 12,
+            "movementId": "MOV-00898"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0023",
+            "batchNo": "EM8Y3499",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 14.2,
+            "gstPct": 12,
+            "movementId": "MOV-00899"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00900"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00901"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-08T03:48:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0013",
+    "admissionId": "IPA-2026-0002",
+    "patientId": "PAT-0024",
+    "bedId": "BED-002",
+    "raisedAt": "2026-11-09T02:48:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0034",
+            "batchNo": "NO6H5799",
+            "expiryDate": "2028-08-31",
+            "qty": 3,
+            "mrp": 35,
+            "gstPct": 5,
+            "movementId": "MOV-00902"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0024",
+            "batchNo": "VO3B5588",
+            "expiryDate": "2028-01-31",
+            "qty": 2,
+            "mrp": 19.8,
+            "gstPct": 12,
+            "movementId": "MOV-00903"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0023",
+            "batchNo": "EM8Y3499",
+            "expiryDate": "2027-11-30",
+            "qty": 2,
+            "mrp": 14.2,
+            "gstPct": 12,
+            "movementId": "MOV-00904"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00905"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00906"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-09T03:03:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0014",
+    "admissionId": "IPA-2026-0002",
+    "patientId": "PAT-0024",
+    "bedId": "BED-002",
+    "raisedAt": "2026-11-10T02:50:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0024",
+            "batchNo": "VO3B5588",
+            "expiryDate": "2028-01-31",
+            "qty": 2,
+            "mrp": 19.8,
+            "gstPct": 12,
+            "movementId": "MOV-00907"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0023",
+            "batchNo": "EM8Y3499",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 14.2,
+            "gstPct": 12,
+            "movementId": "MOV-00908"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00909"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00910"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-10T03:06:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0015",
+    "admissionId": "IPA-2026-0002",
+    "patientId": "PAT-0024",
+    "bedId": "BED-002",
+    "raisedAt": "2026-11-11T03:14:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0024",
+            "batchNo": "VO3B5588",
+            "expiryDate": "2028-01-31",
+            "qty": 2,
+            "mrp": 19.8,
+            "gstPct": 12,
+            "movementId": "MOV-00911"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0023",
+            "batchNo": "EM8Y3499",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 14.2,
+            "gstPct": 12,
+            "movementId": "MOV-00912"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00913"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00914"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-11T03:26:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0016",
+    "admissionId": "IPA-2026-0003",
+    "patientId": "PAT-0019",
+    "bedId": "BED-003",
+    "raisedAt": "2026-11-05T07:30:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0021",
+            "batchNo": "PA2D6152",
+            "expiryDate": "2027-12-31",
+            "qty": 1,
+            "mrp": 56,
+            "gstPct": 12,
+            "movementId": "MOV-00915"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-00916"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 3,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-00917"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0024",
+            "batchNo": "VO3B5588",
+            "expiryDate": "2028-01-31",
+            "qty": 1,
+            "mrp": 19.8,
+            "gstPct": 12,
+            "movementId": "MOV-00918"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0023",
+            "batchNo": "EM8Y3499",
+            "expiryDate": "2027-11-30",
+            "qty": 2,
+            "mrp": 14.2,
+            "gstPct": 12,
+            "movementId": "MOV-00919"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 4,
+        "issuedQty": 4,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 4,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-00920"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-05T07:47:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0017",
+    "admissionId": "IPA-2026-0003",
+    "patientId": "PAT-0019",
+    "bedId": "BED-003",
+    "raisedAt": "2026-11-06T02:46:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0023",
+            "batchNo": "EM8Y3499",
+            "expiryDate": "2027-11-30",
+            "qty": 2,
+            "mrp": 14.2,
+            "gstPct": 12,
+            "movementId": "MOV-00921"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-06T03:18:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0018",
+    "admissionId": "IPA-2026-0003",
+    "patientId": "PAT-0019",
+    "bedId": "BED-003",
+    "raisedAt": "2026-11-07T03:18:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0023",
+            "batchNo": "EM8Y3499",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 14.2,
+            "gstPct": 12,
+            "movementId": "MOV-00922"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00923"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00924"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-07T03:43:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0019",
+    "admissionId": "IPA-2026-0004",
+    "patientId": "PAT-0034",
+    "bedId": "BED-004",
+    "raisedAt": "2026-11-06T08:10:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0021",
+            "batchNo": "PA2D6152",
+            "expiryDate": "2027-12-31",
+            "qty": 1,
+            "mrp": 56,
+            "gstPct": 12,
+            "movementId": "MOV-00925"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-00926"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-00927"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0023",
+            "batchNo": "EM8Y3499",
+            "expiryDate": "2027-11-30",
+            "qty": 2,
+            "mrp": 14.2,
+            "gstPct": 12,
+            "movementId": "MOV-00928"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 3,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-00929"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-06T08:30:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0020",
+    "admissionId": "IPA-2026-0004",
+    "patientId": "PAT-0034",
+    "bedId": "BED-004",
+    "raisedAt": "2026-11-07T02:45:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0023",
+            "batchNo": "EM8Y3499",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 14.2,
+            "gstPct": 12,
+            "movementId": "MOV-00930"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-07T03:03:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0021",
+    "admissionId": "IPA-2026-0004",
+    "patientId": "PAT-0034",
+    "bedId": "BED-004",
+    "raisedAt": "2026-11-08T03:01:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0023",
+            "batchNo": "EM8Y3499",
+            "expiryDate": "2027-11-30",
+            "qty": 2,
+            "mrp": 14.2,
+            "gstPct": 12,
+            "movementId": "MOV-00931"
+          }
+        ],
+        "returnedQty": 1
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00932"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00933"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-08T03:34:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": [
+      {
+        "id": "IRT-00921",
+        "at": "2026-11-09T03:00:00.000Z",
+        "by": "USR-0001",
+        "reason": "Unused at discharge",
+        "lines": [
+          {
+            "medicineId": "MED-0020",
+            "batchId": "BAT-0023",
+            "qty": 1,
+            "mrp": 14.2,
+            "movementId": "MOV-01089"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "IND-2026-0022",
+    "admissionId": "IPA-2026-0005",
+    "patientId": "PAT-0041",
+    "bedId": "BED-030",
+    "raisedAt": "2026-11-07T09:10:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0021",
+            "batchNo": "PA2D6152",
+            "expiryDate": "2027-12-31",
+            "qty": 1,
+            "mrp": 56,
+            "gstPct": 12,
+            "movementId": "MOV-00934"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-00935"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 3,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-00936"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 2,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-00937"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-07T09:39:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0023",
+    "admissionId": "IPA-2026-0005",
+    "patientId": "PAT-0041",
+    "bedId": "BED-030",
+    "raisedAt": "2026-11-09T02:31:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00938"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00939"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-09T02:57:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0024",
+    "admissionId": "IPA-2026-0005",
+    "patientId": "PAT-0041",
+    "bedId": "BED-003",
+    "raisedAt": "2026-11-10T02:44:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00940"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00941"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-10T03:18:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0025",
+    "admissionId": "IPA-2026-0005",
+    "patientId": "PAT-0041",
+    "bedId": "BED-003",
+    "raisedAt": "2026-11-11T02:31:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00942"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00943"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-11T02:41:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0026",
+    "admissionId": "IPA-2026-0005",
+    "patientId": "PAT-0041",
+    "bedId": "BED-003",
+    "raisedAt": "2026-11-12T03:16:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00944"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00945"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-12T03:48:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0027",
+    "admissionId": "IPA-2026-0005",
+    "patientId": "PAT-0041",
+    "bedId": "BED-003",
+    "raisedAt": "2026-11-13T03:03:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00946"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00947"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-13T03:34:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0028",
+    "admissionId": "IPA-2026-0006",
+    "patientId": "PAT-0049",
+    "bedId": "BED-017",
+    "raisedAt": "2026-11-08T15:30:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0021",
+            "batchNo": "PA2D6152",
+            "expiryDate": "2027-12-31",
+            "qty": 1,
+            "mrp": 56,
+            "gstPct": 12,
+            "movementId": "MOV-00948"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-00949"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-00950"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0023",
+            "batchNo": "EM8Y3499",
+            "expiryDate": "2027-11-30",
+            "qty": 2,
+            "mrp": 14.2,
+            "gstPct": 12,
+            "movementId": "MOV-00951"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 3,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-00952"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-08T15:53:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0029",
+    "admissionId": "IPA-2026-0006",
+    "patientId": "PAT-0049",
+    "bedId": "BED-017",
+    "raisedAt": "2026-11-10T03:03:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00953"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00954"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-10T03:18:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0030",
+    "admissionId": "IPA-2026-0006",
+    "patientId": "PAT-0049",
+    "bedId": "BED-017",
+    "raisedAt": "2026-11-11T03:10:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00955"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00956"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-11T03:27:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0031",
+    "admissionId": "IPA-2026-0006",
+    "patientId": "PAT-0049",
+    "bedId": "BED-017",
+    "raisedAt": "2026-11-12T02:49:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00957"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00958"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-12T03:12:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0032",
+    "admissionId": "IPA-2026-0007",
+    "patientId": "PAT-0040",
+    "bedId": "BED-031",
+    "raisedAt": "2026-11-09T07:10:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0021",
+            "batchNo": "PA2D6152",
+            "expiryDate": "2027-12-31",
+            "qty": 1,
+            "mrp": 56,
+            "gstPct": 12,
+            "movementId": "MOV-00959"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-00960"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 4,
+        "issuedQty": 4,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 4,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-00961"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 2,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-00962"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-09T07:45:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0033",
+    "admissionId": "IPA-2026-0007",
+    "patientId": "PAT-0040",
+    "bedId": "BED-031",
+    "raisedAt": "2026-11-11T02:46:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00963"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00964"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-11T03:08:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0034",
+    "admissionId": "IPA-2026-0007",
+    "patientId": "PAT-0040",
+    "bedId": "BED-018",
+    "raisedAt": "2026-11-12T02:36:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00965"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00966"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-12T02:52:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0035",
+    "admissionId": "IPA-2026-0008",
+    "patientId": "PAT-0028",
+    "bedId": "BED-001",
+    "raisedAt": "2026-11-10T11:10:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0021",
+            "batchNo": "PA2D6152",
+            "expiryDate": "2027-12-31",
+            "qty": 1,
+            "mrp": 56,
+            "gstPct": 12,
+            "movementId": "MOV-00967"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-00968"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-00969"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 2,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-00970"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-10T11:38:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0036",
+    "admissionId": "IPA-2026-0008",
+    "patientId": "PAT-0028",
+    "bedId": "BED-001",
+    "raisedAt": "2026-11-12T03:03:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00971"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00972"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-12T03:23:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0037",
+    "admissionId": "IPA-2026-0008",
+    "patientId": "PAT-0028",
+    "bedId": "BED-001",
+    "raisedAt": "2026-11-13T02:52:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00973"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00974"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-13T03:27:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0038",
+    "admissionId": "IPA-2026-0009",
+    "patientId": "PAT-0046",
+    "bedId": "BED-004",
+    "raisedAt": "2026-11-11T05:50:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0021",
+            "batchNo": "PA2D6152",
+            "expiryDate": "2027-12-31",
+            "qty": 1,
+            "mrp": 56,
+            "gstPct": 12,
+            "movementId": "MOV-00975"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-00976"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 3,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-00977"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 4,
+        "issuedQty": 4,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 4,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-00978"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-11T06:06:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0039",
+    "admissionId": "IPA-2026-0009",
+    "patientId": "PAT-0046",
+    "bedId": "BED-004",
+    "raisedAt": "2026-11-13T02:53:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0003",
+            "batchNo": "PA6P5649",
+            "expiryDate": "2027-11-30",
+            "qty": 1,
+            "mrp": 160,
+            "gstPct": 12,
+            "movementId": "MOV-00979"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00980"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-13T03:10:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0040",
+    "admissionId": "IPA-2026-0009",
+    "patientId": "PAT-0046",
+    "bedId": "BED-004",
+    "raisedAt": "2026-11-14T02:32:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00981"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-14T03:00:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0041",
+    "admissionId": "IPA-2026-0009",
+    "patientId": "PAT-0046",
+    "bedId": "BED-004",
+    "raisedAt": "2026-11-15T03:07:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00982"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-15T03:20:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0042",
+    "admissionId": "IPA-2026-0010",
+    "patientId": "PAT-0039",
+    "bedId": "BED-025",
+    "raisedAt": "2026-11-11T08:00:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0021",
+            "batchNo": "PA2D6152",
+            "expiryDate": "2027-12-31",
+            "qty": 1,
+            "mrp": 56,
+            "gstPct": 12,
+            "movementId": "MOV-00983"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-00984"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 4,
+        "issuedQty": 4,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 4,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-00985"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 3,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-00986"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-11T08:22:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0043",
+    "admissionId": "IPA-2026-0010",
+    "patientId": "PAT-0039",
+    "bedId": "BED-025",
+    "raisedAt": "2026-11-13T02:58:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00987"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-13T03:19:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0044",
+    "admissionId": "IPA-2026-0010",
+    "patientId": "PAT-0039",
+    "bedId": "BED-025",
+    "raisedAt": "2026-11-14T03:19:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00988"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-14T03:41:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0045",
+    "admissionId": "IPA-2026-0010",
+    "patientId": "PAT-0039",
+    "bedId": "BED-025",
+    "raisedAt": "2026-11-15T02:32:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00989"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-15T02:48:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0046",
+    "admissionId": "IPA-2026-0010",
+    "patientId": "PAT-0039",
+    "bedId": "BED-025",
+    "raisedAt": "2026-11-16T03:19:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00990"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-16T03:51:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0047",
+    "admissionId": "IPA-2026-0011",
+    "patientId": "PAT-0035",
+    "bedId": "BED-019",
+    "raisedAt": "2026-11-11T10:50:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0021",
+            "batchNo": "PA2D6152",
+            "expiryDate": "2027-12-31",
+            "qty": 1,
+            "mrp": 56,
+            "gstPct": 12,
+            "movementId": "MOV-00991"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-00992"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-00993"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 2,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-00994"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-11T11:04:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0048",
+    "admissionId": "IPA-2026-0011",
+    "patientId": "PAT-0035",
+    "bedId": "BED-019",
+    "raisedAt": "2026-11-13T03:03:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-00995"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-13T03:17:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0049",
+    "admissionId": "IPA-2026-0012",
+    "patientId": "PAT-0022",
+    "bedId": "BED-026",
+    "raisedAt": "2026-11-12T04:10:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0021",
+            "batchNo": "PA2D6152",
+            "expiryDate": "2027-12-31",
+            "qty": 1,
+            "mrp": 56,
+            "gstPct": 12,
+            "movementId": "MOV-00996"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-00997"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 3,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-00998"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 2,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-00999"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-12T04:20:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0050",
+    "admissionId": "IPA-2026-0012",
+    "patientId": "PAT-0022",
+    "bedId": "BED-026",
+    "raisedAt": "2026-11-14T03:17:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-01000"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-14T03:35:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0051",
+    "admissionId": "IPA-2026-0012",
+    "patientId": "PAT-0022",
+    "bedId": "BED-026",
+    "raisedAt": "2026-11-15T03:12:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-01001"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-15T03:26:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0052",
+    "admissionId": "IPA-2026-0012",
+    "patientId": "PAT-0022",
+    "bedId": "BED-026",
+    "raisedAt": "2026-11-16T03:02:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-01002"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-16T03:18:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0053",
+    "admissionId": "IPA-2026-0012",
+    "patientId": "PAT-0022",
+    "bedId": "BED-026",
+    "raisedAt": "2026-11-17T02:45:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-01003"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-17T03:03:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0054",
+    "admissionId": "IPA-2026-0012",
+    "patientId": "PAT-0022",
+    "bedId": "BED-026",
+    "raisedAt": "2026-11-18T03:00:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-01004"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-18T03:15:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0055",
+    "admissionId": "IPA-2026-0013",
+    "patientId": "PAT-0031",
+    "bedId": "BED-005",
+    "raisedAt": "2026-11-12T08:20:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0021",
+            "batchNo": "PA2D6152",
+            "expiryDate": "2027-12-31",
+            "qty": 1,
+            "mrp": 56,
+            "gstPct": 12,
+            "movementId": "MOV-01005"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01006"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01007"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 3,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-01008"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-12T08:36:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0056",
+    "admissionId": "IPA-2026-0013",
+    "patientId": "PAT-0031",
+    "bedId": "BED-005",
+    "raisedAt": "2026-11-14T02:58:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0001",
+            "batchNo": "DO8L9756",
+            "expiryDate": "2028-03-31",
+            "qty": 1,
+            "mrp": 33.6,
+            "gstPct": 12,
+            "movementId": "MOV-01009"
+          }
+        ],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-14T03:32:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0057",
+    "admissionId": "IPA-2026-0014",
+    "patientId": "PAT-0020",
+    "bedId": "BED-002",
+    "raisedAt": "2026-11-13T06:30:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0021",
+            "batchNo": "PA2D6152",
+            "expiryDate": "2027-12-31",
+            "qty": 1,
+            "mrp": 56,
+            "gstPct": 12,
+            "movementId": "MOV-01010"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01011"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 3,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01012"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 4,
+        "issuedQty": 4,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 4,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-01013"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-13T07:05:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0058",
+    "admissionId": "IPA-2026-0015",
+    "patientId": "PAT-0021",
+    "bedId": "BED-006",
+    "raisedAt": "2026-11-13T09:10:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01014"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 3,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01015"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 2,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-01016"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-13T09:38:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0059",
+    "admissionId": "IPA-2026-0016",
+    "patientId": "PAT-0005",
+    "bedId": "BED-027",
+    "raisedAt": "2026-11-13T09:20:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01017"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 4,
+        "issuedQty": 4,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 4,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01018"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 2,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-01019"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-13T09:46:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0060",
+    "admissionId": "IPA-2026-0017",
+    "patientId": "PAT-0013",
+    "bedId": "BED-017",
+    "raisedAt": "2026-11-14T08:50:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01020"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 3,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01021"
+          }
+        ],
+        "returnedQty": 1
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 4,
+        "issuedQty": 4,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 4,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-01022"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-14T09:19:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": [
+      {
+        "id": "IRT-00921",
+        "at": "2026-11-19T02:00:00.000Z",
+        "by": "USR-0001",
+        "reason": "Unused at discharge",
+        "lines": [
+          {
+            "medicineId": "MED-0028",
+            "batchId": "BAT-0031",
+            "qty": 1,
+            "mrp": 9,
+            "movementId": "MOV-01090"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "IND-2026-0061",
+    "admissionId": "IPA-2026-0018",
+    "patientId": "PAT-0052",
+    "bedId": "BED-001",
+    "raisedAt": "2026-11-14T12:40:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01023"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 3,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01024"
+          }
+        ],
+        "returnedQty": 1
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 2,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-01025"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-14T12:52:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": [
+      {
+        "id": "IRT-00921",
+        "at": "2026-11-19T06:45:00.000Z",
+        "by": "USR-0001",
+        "reason": "Unused at discharge",
+        "lines": [
+          {
+            "medicineId": "MED-0028",
+            "batchId": "BAT-0031",
+            "qty": 1,
+            "mrp": 9,
+            "movementId": "MOV-01091"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "IND-2026-0062",
+    "admissionId": "IPA-2026-0019",
+    "patientId": "PAT-0029",
+    "bedId": "BED-003",
+    "raisedAt": "2026-11-15T03:40:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01026"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01027"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 4,
+        "issuedQty": 4,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 4,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-01028"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-15T04:04:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0063",
+    "admissionId": "IPA-2026-0020",
+    "patientId": "PAT-0024",
+    "bedId": "BED-018",
+    "raisedAt": "2026-11-15T12:10:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01029"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 4,
+        "issuedQty": 4,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 4,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01030"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 4,
+        "issuedQty": 4,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 4,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-01031"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-15T12:22:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0064",
+    "admissionId": "IPA-2026-0021",
+    "patientId": "PAT-0008",
+    "bedId": "BED-028",
+    "raisedAt": "2026-11-16T06:10:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01032"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01033"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 3,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-01034"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-16T06:25:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0065",
+    "admissionId": "IPA-2026-0022",
+    "patientId": "PAT-0011",
+    "bedId": "BED-002",
+    "raisedAt": "2026-11-16T07:20:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01035"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 3,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01036"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 3,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-01037"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-16T07:41:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0066",
+    "admissionId": "IPA-2026-0023",
+    "patientId": "PAT-0015",
+    "bedId": "BED-019",
+    "raisedAt": "2026-11-16T08:10:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01038"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01039"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 3,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-01040"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-16T08:34:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0067",
+    "admissionId": "IPA-2026-0024",
+    "patientId": "PAT-0012",
+    "bedId": "BED-004",
+    "raisedAt": "2026-11-17T07:30:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01041"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 3,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01042"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 2,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-01043"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-17T07:52:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0068",
+    "admissionId": "IPA-2026-0025",
+    "patientId": "PAT-0043",
+    "bedId": "BED-005",
+    "raisedAt": "2026-11-17T08:50:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01044"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01045"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0033",
+            "batchNo": "ST1E9154",
+            "expiryDate": "2029-10-31",
+            "qty": 2,
+            "mrp": 38,
+            "gstPct": 12,
+            "movementId": "MOV-01046"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-17T09:02:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0069",
+    "admissionId": "IPA-2026-0026",
+    "patientId": "PAT-0044",
+    "bedId": "BED-008",
+    "raisedAt": "2026-11-18T06:10:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01047"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01048"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 4,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-18T06:35:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0070",
+    "admissionId": "IPA-2026-0027",
+    "patientId": "PAT-0040",
+    "bedId": "BED-009",
+    "raisedAt": "2026-11-18T09:10:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01049"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 4,
+        "issuedQty": 4,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 4,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01050"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-18T09:39:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0071",
+    "admissionId": "IPA-2026-0028",
+    "patientId": "PAT-0004",
+    "bedId": "BED-030",
+    "raisedAt": "2026-11-18T10:50:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01051"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01052"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-18T11:13:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0072",
+    "admissionId": "IPA-2026-0029",
+    "patientId": "PAT-0025",
+    "bedId": "BED-006",
+    "raisedAt": "2026-11-18T13:20:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01053"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 4,
+        "issuedQty": 4,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 4,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01054"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-18T13:45:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0073",
+    "admissionId": "IPA-2026-0030",
+    "patientId": "PAT-0037",
+    "bedId": "BED-031",
+    "raisedAt": "2026-11-18T15:20:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01055"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 4,
+        "issuedQty": 4,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 4,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01056"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-18T15:37:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0074",
+    "admissionId": "IPA-2026-0031",
+    "patientId": "PAT-0002",
+    "bedId": "BED-032",
+    "raisedAt": "2026-11-19T03:50:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01057"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01058"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-19T04:24:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0075",
+    "admissionId": "IPA-2026-0032",
+    "patientId": "PAT-0035",
+    "bedId": "BED-010",
+    "raisedAt": "2026-11-19T10:20:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01059"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 3,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01060"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-19T10:48:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0076",
+    "admissionId": "IPA-2026-0033",
+    "patientId": "PAT-0003",
+    "bedId": "BED-031",
+    "raisedAt": "2026-11-19T10:20:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01061"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01062"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-19T10:53:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0077",
+    "admissionId": "IPA-2026-0034",
+    "patientId": "PAT-0051",
+    "bedId": "BED-011",
+    "raisedAt": "2026-11-19T10:30:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01063"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 4,
+        "issuedQty": 4,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 4,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01064"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-19T10:50:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0078",
+    "admissionId": "IPA-2026-0035",
+    "patientId": "PAT-0047",
+    "bedId": "BED-012",
+    "raisedAt": "2026-11-19T14:10:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01065"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 3,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01066"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 4,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-19T14:37:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0079",
+    "admissionId": "IPA-2026-0036",
+    "patientId": "PAT-0019",
+    "bedId": "BED-013",
+    "raisedAt": "2026-11-20T07:20:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01067"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01068"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-20T07:38:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0080",
+    "admissionId": "IPA-2026-0037",
+    "patientId": "PAT-0049",
+    "bedId": "BED-025",
+    "raisedAt": "2026-11-20T09:50:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01069"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01070"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-20T10:20:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0081",
+    "admissionId": "IPA-2026-0038",
+    "patientId": "PAT-0017",
+    "bedId": "BED-026",
+    "raisedAt": "2026-11-20T13:10:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01071"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 4,
+        "issuedQty": 4,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 4,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01072"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-20T13:21:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0082",
+    "admissionId": "IPA-2026-0039",
+    "patientId": "PAT-0031",
+    "bedId": "BED-018",
+    "raisedAt": "2026-11-20T14:40:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01073"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 4,
+        "issuedQty": 4,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 4,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01074"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-20T14:59:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0083",
+    "admissionId": "IPA-2026-0040",
+    "patientId": "PAT-0042",
+    "bedId": "BED-014",
+    "raisedAt": "2026-11-20T15:20:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01075"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01076"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-20T15:47:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0084",
+    "admissionId": "IPA-2026-0041",
+    "patientId": "PAT-0038",
+    "bedId": "BED-027",
+    "raisedAt": "2026-11-21T05:30:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01077"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 3,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01078"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-21T05:50:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0085",
+    "admissionId": "IPA-2026-0042",
+    "patientId": "PAT-0020",
+    "bedId": "BED-030",
+    "raisedAt": "2026-11-21T10:30:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 1,
+        "batches": [
+          {
+            "batchId": "BAT-0032",
+            "batchNo": "VE8P2836",
+            "expiryDate": "2029-12-31",
+            "qty": 1,
+            "mrp": 145,
+            "gstPct": 12,
+            "movementId": "MOV-01079"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01080"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 4,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-21T10:56:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0086",
+    "admissionId": "IPA-2026-0043",
+    "patientId": "PAT-0050",
+    "bedId": "BED-004",
+    "raisedAt": "2026-11-21T10:50:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01081"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 4,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-21T11:02:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0087",
+    "admissionId": "IPA-2026-0044",
+    "patientId": "PAT-0045",
+    "bedId": "BED-006",
+    "raisedAt": "2026-11-21T14:00:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01082"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-21T14:11:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0088",
+    "admissionId": "IPA-2026-0045",
+    "patientId": "PAT-0028",
+    "bedId": "BED-015",
+    "raisedAt": "2026-11-21T14:10:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 4,
+        "issuedQty": 4,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 4,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01083"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-21T14:25:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0089",
+    "admissionId": "IPA-2026-0046",
+    "patientId": "PAT-0041",
+    "bedId": "BED-016",
+    "raisedAt": "2026-11-22T09:00:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01084"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0021",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-22T09:22:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0090",
+    "admissionId": "IPA-2026-0047",
+    "patientId": "PAT-0027",
+    "bedId": "BED-031",
+    "raisedAt": "2026-11-22T10:30:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 4,
+        "issuedQty": 4,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 4,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01085"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 4,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-22T11:05:00.000Z",
+    "issuedBy": "USR-0001",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0091",
+    "admissionId": "IPA-2026-0048",
+    "patientId": "PAT-0005",
+    "bedId": "BED-032",
+    "raisedAt": "2026-11-22T11:30:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 3,
+        "issuedQty": 3,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 3,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01086"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-22T11:41:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0092",
+    "admissionId": "IPA-2026-0049",
+    "patientId": "PAT-0052",
+    "bedId": "BED-033",
+    "raisedAt": "2026-11-22T15:50:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "PARTIAL",
+    "items": [
+      {
+        "medicineId": "MED-0031",
+        "qty": 3,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0018",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0029",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0028",
+        "qty": 2,
+        "issuedQty": 2,
+        "batches": [
+          {
+            "batchId": "BAT-0031",
+            "batchNo": "DI6Q5133",
+            "expiryDate": "2030-06-30",
+            "qty": 2,
+            "mrp": 9,
+            "gstPct": 12,
+            "movementId": "MOV-01087"
+          }
+        ],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0030",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0032",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": "2026-11-22T16:23:00.000Z",
+    "issuedBy": "USR-0004",
+    "note": "",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0093",
+    "admissionId": "IPA-2026-0022",
+    "patientId": "PAT-0011",
+    "bedId": "BED-002",
+    "raisedAt": "2026-11-23T07:20:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "STAT",
+    "status": "RAISED",
+    "items": [
+      {
+        "medicineId": "MED-0017",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0031",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0020",
+        "qty": 2,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": null,
+    "issuedBy": null,
+    "note": "Patient spiked fever — start IV antibiotic",
+    "returns": []
+  },
+  {
+    "id": "IND-2026-0094",
+    "admissionId": "IPA-2026-0049",
+    "patientId": "PAT-0052",
+    "bedId": "BED-033",
+    "raisedAt": "2026-11-23T07:25:00.000Z",
+    "raisedBy": "USR-0007",
+    "priority": "ROUTINE",
+    "status": "RAISED",
+    "items": [
+      {
+        "medicineId": "MED-0002",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      },
+      {
+        "medicineId": "MED-0001",
+        "qty": 1,
+        "issuedQty": 0,
+        "batches": [],
+        "returnedQty": 0
+      }
+    ],
+    "issuedAt": null,
+    "issuedBy": null,
+    "note": "",
+    "returns": []
+  }
+]

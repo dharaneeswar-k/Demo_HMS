@@ -1,4 +1,4 @@
-# Nallam Hospital HMS — Stock Receiving (GRN) & Inventory Management
+# Nallam Hospital HMS — OP, IP, Pharmacy, Stock & Inventory
 
 A frontend-only, fully interactive prototype for **Nallam Hospital, Hosur, Tamil Nadu**. Built with HTML5, CSS3 and vanilla ES modules — no framework, no backend. All records are **fictional demonstration data**.
 
@@ -20,7 +20,10 @@ Chart.js, Lucide icons and the Inter font load from CDNs; the app still works of
 |------------|-----------------------------|-----------|
 | `pharmacy` | Pharmacy Staff              | Creates GRNs, uploads documents, requests adjustments |
 | `store`    | Store                       | Receives supplier stock, transfers to pharmacy, approves stock corrections |
-| `reception`| Reception                   | Registers patients, Patient ID, patient records |
+| `reception`| Reception                   | Registers patients, OP visits & tokens, admissions & deposits, hospital cash counter |
+| `doctor`   | Doctor (Dr. A. Ravichandran)| Own OP queue, case sheet & prescription, IP rounds, discharge & discharge summary |
+| `nurse`    | Nurse                       | Vitals, nursing notes, ward indents, bed transfers & housekeeping, nursing clearance |
+| `billing`  | Billing                     | OP bills, deposits, IP charges, final bill & settlement, Insurance / TPA desk, cash closing |
 | `owner`    | Hospital Owner (SUPER_ADMIN)| Approves exceptions, sees all notifications, audit log, settings |
 
 The login screen no longer lists these accounts, so type them in. To restore the original data, the owner uses **Settings → Data & Backup → Restore initial data**.
@@ -31,15 +34,17 @@ The login screen no longer lists these accounts, so type them in. To restore the
 
 | BRD module | Status |
 |---|---|
-| 01 Patient Management | Done — registration, unique Patient ID (`NH-UH-…`), duplicate check, profile with visit history, patient card with barcode, "Register new patient" inside billing. Consultations and admissions join the history when modules 02/03 are built. |
+| 01 Patient Management | Done — registration, unique Patient ID (`NH-UH-…`), duplicate check, profile with visit history (pharmacy, OP visits, admissions), patient card with barcode, "Register new patient" inside billing, OP and admission. |
+| 02 OP Management | Done — OP visit & token per doctor, free follow-up / revisit / emergency rules, vitals, doctor queue, case sheet & prescription, investigations billing, cancellation & refund, token display, OP register. |
+| 03 IP Management | Done — bed board, admission wizard, transfers, deposits, auto bed & nursing charges, services, ward indents (pharmacy issue / return), rounds & nursing notes, Insurance / TPA pre-auth & claims, discharge clearances, summary, final bill & settlement. |
 | 04 Pharmacy Management | Done — counter sale to a **registered patient (Patient ID)** or a **walk-in customer**, prescription details, returns, counter closing. |
 | 05 Store Management | Done — supplier receipts go to the **Central Store**; **Store → Pharmacy** transfers move stock in one step (Store −qty, Pharmacy +qty); only Pharmacy stock can be billed. Full transfer history and printable transfer note. |
 | 09 Discount Approval | Done — staff up to 10%; above that they send a request with a reason, the bill is held, the Super Admin approves/rejects from **Discount Approvals** (or at the counter), and the log keeps reason, requester, approver and time. |
 | 14 User Management | Done — individual accounts (max 10), roles, activate/deactivate, password reset, role access matrix. |
 | 12 Shift, 13 Dashboard | Partly — daily counter closing per cashier; dashboards cover pharmacy, store and patients. |
-| 02, 03, 06, 07, 08, 10, 11 | Not built yet (OP, IP, Lab, Services, Central Billing, Packages, MRD). OP consultation billing and IP (admission/discharge) billing belong to those modules and are **not** part of the pharmacy screens. |
+| 06, 07, 08, 10, 11 | Not built yet (Lab, Services, Central Billing, Packages, MRD). Investigations are ordered and billed in OP / IP; results arrive with the Lab module. |
 
-**Roles (BRD role map):** Super Admin (`owner`), Reception (`reception`), Pharmacy (`pharmacy`, `ravi`), Store (`store`). All passwords `demo123`.
+**Roles (BRD role map):** Super Admin (`owner`), Reception (`reception`), Doctor (`doctor`), Nurse (`nurse`), Billing (`billing`), Pharmacy (`pharmacy`, `ravi`), Store (`store`). All passwords `demo123`.
 
 ## Client requirements added after requirement review
 
@@ -121,6 +126,36 @@ Navigation: **Billing · Pharmacy → Pharmacy Sale · Pharmacy Bills · Sales R
 - Owner notifications: stock posted, closing submitted, cash variance, large discount, refund approval, cancellation request, low/out of stock, critical expiry — each with reference, time and performed-by.
 
 **Accounting scope.** This is an internal pharmacy sales tally and daily payment reconciliation. It does **not** integrate with Tally Prime, GST filing software or bank reconciliation; the payment-transaction and closing records are structured for a future export.
+
+## Modules 2 & 3 — Outpatient (OP) and Inpatient (IP)
+
+**OP workflow.** Find / register patient → *New OP Visit* (doctor, visit type worked out automatically, fee collected) → token per doctor per day (`GM-012`) → vitals by the nurse → *Doctor Queue* (emergency first, then token order; skip moves a token back, repeated skips mark a no-show) → case sheet: complaints, history, examination, diagnosis, prescription from the pharmacy list, investigations, advice, follow-up → *Complete* (investigations become an unpaid OP services bill at the counter) or *Advise admission* (front office is notified). Printouts: OP slip with token, prescription, OP receipt. `#/op/display` is a full-screen token board for the waiting area.
+
+**IP workflow.** *Admit Patient* (patient & consultant → bed → payer & advance deposit) → admission form, wristband (red border = allergy), deposit receipt → during the stay: rounds (each round posts a consultant-visit charge), vitals / nursing notes, services from the tariff, ward indents (nurse raises → pharmacy issues FEFO → value posts to the bill), ward returns (stock back + bill credit), bed transfers, extra deposits, interim bill → doctor initiates discharge → pharmacy and nursing clearance → doctor finalises the discharge summary → billing makes the final bill (discount rule, payer split) → TPA final approval (insurance) → settle (collect balance or refund excess deposit) → discharge (bed goes to Cleaning; the nurse marks it ready).
+
+**Rules implemented**
+- *Free follow-up*: a visit to the same doctor within the doctor's follow-up window (default 7 days) of the last paid visit is free — once per paid visit; otherwise *Revisit* fee; emergency fee for emergency visits.
+- *Bed charges are derived, not posted*: each calendar day is charged at the bed occupied at the end of that day (bed + nursing rate of that category); the discharge day is free before the check-out hour (default 12:00). Frozen in the final bill.
+- *Payer split* (`clinical-rules.js`): claimable = net − non-payable items; co-pay % on claimable; insurer / company pays up to the approved amount; the patient pays the rest. Medical consumables and admission / MRD / attender-diet charges are non-payable.
+- *Discounts*: the same 10% staff limit as pharmacy. Above it the OP / IP bill is held and a request goes to the Super Admin (*Billing Approvals* and the main *Approvals* inbox).
+- *OP refunds* of paid fees (cancelled visits) need Super Admin approval; the cashier pays out the approved refund from their own counter.
+- *Money ledger*: OP / IP receipts live in `hospital-receipts.json`, separate from the pharmacy payment ledger, so pharmacy counter closings are unaffected. *Hospital Cash Closing* reconciles OP fees, deposits, settlements and refunds per cashier and day; after closing the cashier cannot take receipts for that date until the Super Admin re-opens it.
+- *Stock*: ward indents and returns go through `createMovement` (`IP_ISSUE` / `IP_RETURN`) from pharmacy stock only; expired / quarantined batches are never issued.
+- *Masters* (`#/clinical/masters`, Super Admin): doctors and fees, service tariff, bed categories and rates, wards & beds, OP / IP / cashier rules, TPAs, insurers and corporate tie-ups.
+
+| File | Purpose |
+|------|---------|
+| `assets/js/clinical-rules.js` | Pure rules shared with the generator: bed-day plan, payer split, service pricing, visit policy, vitals flags |
+| `assets/js/clinical.js` | Masters lookups, receipt ledger, approval requests, hospital cash closing |
+| `assets/js/op.js` · `ip.js` · `hospital-approvals.js` | OP and IP transactions (one store transaction each), Super Admin decisions |
+| `modules/op-desk.js` · `op-visit.js` · `op-queue.js` | OP Desk, register, token display · new visit, consultation, prints · doctor queue |
+| `modules/ip-beds.js` · `ip-admit.js` · `ip-folio.js` · `ip-indents.js` · `ip-tpa.js` · `ip-discharge.js` | Bed board · admission · IP list & folio · ward indents · insurance desk · discharge & prints |
+| `modules/hospital-cash.js` · `clinical-masters.js` · `home-clinical.js` · `clinical-ui.js` | Cash closing & billing approvals · masters · Home for Doctor / Nurse / Billing · shared UI |
+| `assets/css/clinical.css` | OP / IP styles and print layouts |
+| `tools/generate-clinical.mjs` | Fictional OP / IP seed data (called from `generate-data.mjs`) |
+| `data/doctors.json`, `departments.json`, `service-tariff.json`, `wards.json`, `beds.json`, `clinical-settings.json`, `op-visits.json`, `op-bills.json`, `ip-admissions.json`, `ip-bed-stays.json`, `ip-charges.json`, `ip-indents.json`, `ip-bills.json`, `hospital-receipts.json`, `hospital-requests.json`, `hospital-closings.json` | Seed data |
+
+**Integration scope.** Insurance / TPA is recorded workflow only — no live connection to insurers or TPAs. Investigations are billed; results come with the Lab module.
 
 ## Backend integration notes
 

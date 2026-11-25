@@ -58,5 +58,41 @@
     "phone": "+91 90000 55555",
     "active": true,
     "createdAt": "2026-07-20T10:00:00.000Z"
+  },
+  {
+    "id": "USR-0006",
+    "username": "doctor",
+    "password": "demo123",
+    "name": "Dr. A. Ravichandran",
+    "role": "DOCTOR",
+    "designation": "Consultant Physician (General Medicine)",
+    "email": "",
+    "phone": "+91 90000 66666",
+    "active": true,
+    "createdAt": "2026-07-20T10:00:00.000Z"
+  },
+  {
+    "id": "USR-0007",
+    "username": "nurse",
+    "password": "demo123",
+    "name": "Priya Ramesh",
+    "role": "NURSE",
+    "designation": "Staff Nurse (Ward In-charge)",
+    "email": "",
+    "phone": "+91 90000 77777",
+    "active": true,
+    "createdAt": "2026-07-20T10:00:00.000Z"
+  },
+  {
+    "id": "USR-0008",
+    "username": "billing",
+    "password": "demo123",
+    "name": "Suresh Kannan",
+    "role": "BILLING",
+    "designation": "Billing Executive",
+    "email": "",
+    "phone": "+91 90000 88888",
+    "active": true,
+    "createdAt": "2026-07-20T10:00:00.000Z"
   }
 ]

@@ -32,7 +32,24 @@ const COLLECTIONS = {
   closingPayments: 'daily-closing-payments.json',
   stockCounts: 'stock-counts.json',
   transfers: 'stock-transfers.json',
-  discountRequests: 'discount-requests.json'
+  discountRequests: 'discount-requests.json',
+  // Modules 02 & 03 — Outpatient (OP) and Inpatient (IP)
+  clinicalSettings: 'clinical-settings.json',
+  departments: 'departments.json',
+  doctors: 'doctors.json',
+  services: 'service-tariff.json',
+  wards: 'wards.json',
+  beds: 'beds.json',
+  opVisits: 'op-visits.json',
+  opBills: 'op-bills.json',
+  ipAdmissions: 'ip-admissions.json',
+  ipStays: 'ip-bed-stays.json',
+  ipCharges: 'ip-charges.json',
+  ipIndents: 'ip-indents.json',
+  ipBills: 'ip-bills.json',
+  hospitalReceipts: 'hospital-receipts.json',
+  hospitalRequests: 'hospital-requests.json',
+  hospitalClosings: 'hospital-closings.json'
 };
 const LS_KEY = 'nallam_hms_store_v1';
 

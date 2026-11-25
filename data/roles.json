@@ -54,18 +54,55 @@
       "stockcount.review",
       "network.manage",
       "users.manage",
-      "discount.approve"
+      "discount.approve",
+      "op.view",
+      "op.consult",
+      "ip.view",
+      "ip.round",
+      "ip.discharge.initiate",
+      "ip.summary",
+      "op.vitals",
+      "ip.nursing",
+      "ip.indents",
+      "ip.indent.raise",
+      "ip.charge",
+      "ip.transfer",
+      "ip.clear.nursing",
+      "bed.manage",
+      "op.register",
+      "op.bill",
+      "op.cancel",
+      "ip.admit",
+      "ip.deposit",
+      "ip.bill.final",
+      "ip.tpa",
+      "hospital.closing",
+      "ip.indent.issue",
+      "ip.clear.pharmacy",
+      "hospital.approve",
+      "hospital.closing.verify",
+      "clinical.masters"
     ]
   },
   {
     "id": "RECEPTION",
     "name": "Reception",
-    "description": "Patient registration, Patient ID and patient records.",
+    "description": "Front office: patient registration, OP visits and tokens, admissions, deposits and the hospital cash counter.",
     "permissions": [
       "patient.view",
       "patient.register",
       "patient.edit",
-      "alerts.view"
+      "alerts.view",
+      "op.view",
+      "op.register",
+      "op.bill",
+      "op.cancel",
+      "ip.view",
+      "ip.admit",
+      "ip.deposit",
+      "ip.transfer",
+      "bed.manage",
+      "hospital.closing"
     ]
   },
   {
@@ -95,7 +132,11 @@
       "pharmacy.closing",
       "patient.view",
       "patient.register",
-      "discount.request"
+      "discount.request",
+      "ip.view",
+      "ip.indents",
+      "ip.indent.issue",
+      "ip.clear.pharmacy"
     ]
   },
   {
@@ -124,6 +165,62 @@
       "medicine.manage",
       "labels.print",
       "store.transfer"
+    ]
+  },
+  {
+    "id": "DOCTOR",
+    "name": "Doctor",
+    "description": "Consultant: own OP queue, consultation and prescription, IP rounds, discharge and discharge summary.",
+    "permissions": [
+      "patient.view",
+      "alerts.view",
+      "op.view",
+      "op.consult",
+      "ip.view",
+      "ip.round",
+      "ip.discharge.initiate",
+      "ip.summary"
+    ]
+  },
+  {
+    "id": "NURSE",
+    "name": "Nurse",
+    "description": "Vitals, nursing notes, ward medicine indents, bed transfers and housekeeping, nursing clearance.",
+    "permissions": [
+      "patient.view",
+      "alerts.view",
+      "op.view",
+      "op.vitals",
+      "ip.view",
+      "ip.nursing",
+      "ip.indents",
+      "ip.indent.raise",
+      "ip.charge",
+      "ip.transfer",
+      "ip.clear.nursing",
+      "bed.manage"
+    ]
+  },
+  {
+    "id": "BILLING",
+    "name": "Billing",
+    "description": "OP and IP billing: fees, deposits, charges, interim and final bills, insurance/TPA desk and cash closing.",
+    "permissions": [
+      "patient.view",
+      "patient.register",
+      "alerts.view",
+      "op.view",
+      "op.register",
+      "op.bill",
+      "op.cancel",
+      "ip.view",
+      "ip.admit",
+      "ip.deposit",
+      "ip.charge",
+      "ip.transfer",
+      "ip.bill.final",
+      "ip.tpa",
+      "hospital.closing"
     ]
   }
 ]

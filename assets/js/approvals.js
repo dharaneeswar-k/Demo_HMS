@@ -13,7 +13,9 @@ export const APPROVAL_TYPES = {
   CANCEL: { label: 'Bill cancellations', icon: 'circle-slash' },
   CLOSING: { label: 'Day closings', icon: 'lock' },
   STOCKCOUNT: { label: 'Stock shortages', icon: 'clipboard-x' },
-  DISCOUNT: { label: 'Discounts', icon: 'percent' }
+  DISCOUNT: { label: 'Discounts', icon: 'percent' },
+  HOSP_REQUEST: { label: 'OP / IP billing', icon: 'badge-check' },
+  HOSP_CLOSING: { label: 'Hospital cash closings', icon: 'wallet' }
 };
 
 export function approvalItems(user = currentUser()) {
@@ -46,6 +48,13 @@ export function approvalItems(user = currentUser()) {
   if (can('discount.approve', user)) store.all('discountRequests').filter((r) => r.status === 'PENDING').forEach((r) => out.push({
     type: 'DISCOUNT', id: r.id, title: `${r.requestedPct}% discount for ${r.snapshot.patientName}`, detail: `“${r.reason}” · bill on hold at the counter`,
     who: userName(r.requestedBy), at: r.requestedAt, amount: r.snapshot.discount, href: `#/discounts?focus=${r.id}`, action: 'Decide', tone: 'danger' }));
+  // OP / IP (modules 02, 03): discounts above the limit, OP refunds, hospital cash-counter closings
+  if (can('hospital.approve', user)) store.all('hospitalRequests').filter((r) => r.status === 'PENDING').forEach((r) => out.push({
+    type: 'HOSP_REQUEST', id: r.id, title: r.type === 'DISCOUNT' ? `${r.pct}% ${r.source} discount for ${store.get('patients', r.patientId)?.name || ''}` : `${r.source} refund for ${store.get('patients', r.patientId)?.name || ''}`,
+    detail: `“${r.reason}” · ${r.refId} on hold`, who: userName(r.requestedBy), at: r.requestedAt, amount: r.amount, href: `#/hospital/approvals?focus=${r.id}`, action: 'Decide', tone: 'danger' }));
+  if (can('hospital.closing.verify', user)) store.all('hospitalClosings').filter((c) => c.status === 'SUBMITTED').forEach((c) => out.push({
+    type: 'HOSP_CLOSING', id: c.id, title: `Hospital cash closing by ${userName(c.cashierId)}`, detail: `${c.businessDate} · cash ${c.cashDifference === 0 ? 'matched' : (c.cashDifference > 0 ? '+' : '') + '₹' + c.cashDifference}`,
+    who: userName(c.cashierId), at: c.submittedAt, amount: c.totals.collected, href: '#/hospital/closing?tab=report', action: 'Review', tone: c.cashDifference ? 'warning' : 'success' }));
   const rank = { danger: 0, warning: 1, info: 2, success: 3 };
   return out.sort((a, b) => rank[a.tone] - rank[b.tone] || String(b.at).localeCompare(String(a.at)));
 }

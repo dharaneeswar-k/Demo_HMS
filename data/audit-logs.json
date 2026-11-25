@@ -280,6 +280,15 @@
   },
   {
     "id": "AUD-00032",
+    "at": "2026-11-03T15:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0001",
+    "details": "Dengue fever without warning signs"
+  },
+  {
+    "id": "AUD-00033",
     "at": "2026-11-03T15:44:00.000Z",
     "userId": "USR-0004",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -288,7 +297,7 @@
     "details": "2026-11-03 cash variance 0"
   },
   {
-    "id": "AUD-00033",
+    "id": "AUD-00034",
     "at": "2026-11-03T16:04:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -297,7 +306,16 @@
     "details": "2026-11-03 cash variance 0"
   },
   {
-    "id": "AUD-00034",
+    "id": "AUD-00035",
+    "at": "2026-11-04T12:20:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0002",
+    "details": "Cellulitis left leg"
+  },
+  {
+    "id": "AUD-00036",
     "at": "2026-11-04T15:40:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -306,7 +324,7 @@
     "details": "2026-11-04 cash variance 0"
   },
   {
-    "id": "AUD-00035",
+    "id": "AUD-00037",
     "at": "2026-11-04T16:25:00.000Z",
     "userId": "USR-0004",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -315,7 +333,16 @@
     "details": "2026-11-04 cash variance 0"
   },
   {
-    "id": "AUD-00036",
+    "id": "AUD-00038",
+    "at": "2026-11-05T06:40:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0003",
+    "details": "Bronchiolitis"
+  },
+  {
+    "id": "AUD-00039",
     "at": "2026-11-05T11:00:00.000Z",
     "userId": "USR-0001",
     "action": "GRN_DRAFT",
@@ -324,7 +351,7 @@
     "details": "GRN created at receiving counter"
   },
   {
-    "id": "AUD-00037",
+    "id": "AUD-00040",
     "at": "2026-11-05T11:25:00.000Z",
     "userId": "USR-0001",
     "action": "GRN_SUBMITTED",
@@ -333,7 +360,7 @@
     "details": "Submitted for verification"
   },
   {
-    "id": "AUD-00038",
+    "id": "AUD-00041",
     "at": "2026-11-05T12:10:00.000Z",
     "userId": "USR-0002",
     "action": "GRN_POSTED",
@@ -342,7 +369,7 @@
     "details": "Stock posted to inventory"
   },
   {
-    "id": "AUD-00039",
+    "id": "AUD-00042",
     "at": "2026-11-05T16:20:00.000Z",
     "userId": "USR-0004",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -351,7 +378,16 @@
     "details": "2026-11-05 cash variance 0"
   },
   {
-    "id": "AUD-00040",
+    "id": "AUD-00043",
+    "at": "2026-11-06T07:20:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0004",
+    "details": "Bronchiolitis"
+  },
+  {
+    "id": "AUD-00044",
     "at": "2026-11-06T15:47:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -360,7 +396,16 @@
     "details": "2026-11-06 cash variance -10"
   },
   {
-    "id": "AUD-00041",
+    "id": "AUD-00045",
+    "at": "2026-11-07T08:20:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0005",
+    "details": "Diabetic ketoacidosis"
+  },
+  {
+    "id": "AUD-00046",
     "at": "2026-11-07T15:58:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -369,7 +414,7 @@
     "details": "2026-11-07 cash variance 0"
   },
   {
-    "id": "AUD-00042",
+    "id": "AUD-00047",
     "at": "2026-11-07T16:02:00.000Z",
     "userId": "USR-0004",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -378,7 +423,34 @@
     "details": "2026-11-07 cash variance -50"
   },
   {
-    "id": "AUD-00043",
+    "id": "AUD-00048",
+    "at": "2026-11-08T04:30:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0003",
+    "details": "Net ₹7754, patient ₹1024"
+  },
+  {
+    "id": "AUD-00049",
+    "at": "2026-11-08T05:30:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0003",
+    "details": "IB-2026-0003"
+  },
+  {
+    "id": "AUD-00050",
+    "at": "2026-11-08T14:40:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0006",
+    "details": "Acute appendicitis — laparoscopic appendicectomy"
+  },
+  {
+    "id": "AUD-00051",
     "at": "2026-11-08T15:57:00.000Z",
     "userId": "USR-0004",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -387,7 +459,7 @@
     "details": "2026-11-08 cash variance 0"
   },
   {
-    "id": "AUD-00044",
+    "id": "AUD-00052",
     "at": "2026-11-08T16:18:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -396,7 +468,34 @@
     "details": "2026-11-08 cash variance 0"
   },
   {
-    "id": "AUD-00045",
+    "id": "AUD-00053",
+    "at": "2026-11-09T05:30:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0004",
+    "details": "Net ₹8278, patient ₹8278"
+  },
+  {
+    "id": "AUD-00054",
+    "at": "2026-11-09T06:20:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0007",
+    "details": "Hypertensive urgency"
+  },
+  {
+    "id": "AUD-00055",
+    "at": "2026-11-09T06:30:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0004",
+    "details": "IB-2026-0004"
+  },
+  {
+    "id": "AUD-00056",
     "at": "2026-11-09T16:03:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -405,7 +504,7 @@
     "details": "2026-11-09 cash variance 0"
   },
   {
-    "id": "AUD-00046",
+    "id": "AUD-00057",
     "at": "2026-11-10T04:30:00.000Z",
     "userId": "USR-0002",
     "action": "BATCH_QUARANTINED",
@@ -414,7 +513,16 @@
     "details": "Quarantined: cap seal defects reported on 3 bottles; awaiting supplier inspection"
   },
   {
-    "id": "AUD-00047",
+    "id": "AUD-00058",
+    "at": "2026-11-10T05:45:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0001",
+    "details": "Net ₹16631, patient ₹16631"
+  },
+  {
+    "id": "AUD-00059",
     "at": "2026-11-10T06:30:00.000Z",
     "userId": "USR-0004",
     "action": "GRN_DRAFT",
@@ -423,7 +531,16 @@
     "details": "GRN created at receiving counter"
   },
   {
-    "id": "AUD-00048",
+    "id": "AUD-00060",
+    "at": "2026-11-10T06:45:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0001",
+    "details": "IB-2026-0001"
+  },
+  {
+    "id": "AUD-00061",
     "at": "2026-11-10T07:10:00.000Z",
     "userId": "USR-0004",
     "action": "GRN_CANCELLED",
@@ -432,7 +549,16 @@
     "details": "Duplicate entry — invoice already recorded in GRN-2026-0006"
   },
   {
-    "id": "AUD-00049",
+    "id": "AUD-00062",
+    "at": "2026-11-10T10:20:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0008",
+    "details": "Peritonsillar abscess — incision & drainage"
+  },
+  {
+    "id": "AUD-00063",
     "at": "2026-11-10T15:55:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -441,7 +567,7 @@
     "details": "2026-11-10 cash variance 0"
   },
   {
-    "id": "AUD-00050",
+    "id": "AUD-00064",
     "at": "2026-11-10T16:17:00.000Z",
     "userId": "USR-0004",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -450,7 +576,34 @@
     "details": "2026-11-10 cash variance 0"
   },
   {
-    "id": "AUD-00051",
+    "id": "AUD-00065",
+    "at": "2026-11-11T05:00:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0009",
+    "details": "Bronchiolitis"
+  },
+  {
+    "id": "AUD-00066",
+    "at": "2026-11-11T07:10:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0010",
+    "details": "Fracture neck of femur — hemiarthroplasty"
+  },
+  {
+    "id": "AUD-00067",
+    "at": "2026-11-11T10:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0011",
+    "details": "Term pregnancy — normal vaginal delivery"
+  },
+  {
+    "id": "AUD-00068",
     "at": "2026-11-11T15:45:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -459,7 +612,43 @@
     "details": "2026-11-11 cash variance 0"
   },
   {
-    "id": "AUD-00052",
+    "id": "AUD-00069",
+    "at": "2026-11-12T03:20:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0012",
+    "details": "Fracture neck of femur — hemiarthroplasty"
+  },
+  {
+    "id": "AUD-00070",
+    "at": "2026-11-12T06:45:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0002",
+    "details": "Net ₹19888, patient ₹19888"
+  },
+  {
+    "id": "AUD-00071",
+    "at": "2026-11-12T07:30:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0013",
+    "details": "Right inguinal hernia — mesh hernioplasty"
+  },
+  {
+    "id": "AUD-00072",
+    "at": "2026-11-12T07:45:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0002",
+    "details": "IB-2026-0002"
+  },
+  {
+    "id": "AUD-00073",
     "at": "2026-11-12T15:45:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -468,7 +657,7 @@
     "details": "2026-11-12 cash variance 0"
   },
   {
-    "id": "AUD-00053",
+    "id": "AUD-00074",
     "at": "2026-11-12T16:23:00.000Z",
     "userId": "USR-0004",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -477,7 +666,70 @@
     "details": "2026-11-12 cash variance 0"
   },
   {
-    "id": "AUD-00054",
+    "id": "AUD-00075",
+    "at": "2026-11-13T04:45:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0007",
+    "details": "Net ₹25980, patient ₹25980"
+  },
+  {
+    "id": "AUD-00076",
+    "at": "2026-11-13T05:40:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0014",
+    "details": "Distal radius fracture — closed reduction"
+  },
+  {
+    "id": "AUD-00077",
+    "at": "2026-11-13T05:45:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0007",
+    "details": "IB-2026-0007"
+  },
+  {
+    "id": "AUD-00078",
+    "at": "2026-11-13T08:20:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0015",
+    "details": "Dengue fever without warning signs"
+  },
+  {
+    "id": "AUD-00079",
+    "at": "2026-11-13T08:30:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0016",
+    "details": "Term pregnancy — normal vaginal delivery"
+  },
+  {
+    "id": "AUD-00080",
+    "at": "2026-11-13T09:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0006",
+    "details": "Net ₹49692, patient ₹49692"
+  },
+  {
+    "id": "AUD-00081",
+    "at": "2026-11-13T10:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0006",
+    "details": "IB-2026-0006"
+  },
+  {
+    "id": "AUD-00082",
     "at": "2026-11-13T16:03:00.000Z",
     "userId": "USR-0004",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -486,7 +738,7 @@
     "details": "2026-11-13 cash variance 0"
   },
   {
-    "id": "AUD-00055",
+    "id": "AUD-00083",
     "at": "2026-11-13T16:06:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -495,7 +747,79 @@
     "details": "2026-11-13 cash variance 0"
   },
   {
-    "id": "AUD-00056",
+    "id": "AUD-00084",
+    "at": "2026-11-14T04:30:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0005",
+    "details": "Net ₹29522, patient ₹29522"
+  },
+  {
+    "id": "AUD-00085",
+    "at": "2026-11-14T05:30:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0005",
+    "details": "IB-2026-0005"
+  },
+  {
+    "id": "AUD-00086",
+    "at": "2026-11-14T07:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0011",
+    "details": "Net ₹25429, patient ₹939"
+  },
+  {
+    "id": "AUD-00087",
+    "at": "2026-11-14T08:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0011",
+    "details": "IB-2026-0011"
+  },
+  {
+    "id": "AUD-00088",
+    "at": "2026-11-14T08:00:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0017",
+    "details": "Community-acquired pneumonia"
+  },
+  {
+    "id": "AUD-00089",
+    "at": "2026-11-14T08:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0008",
+    "details": "Net ₹17321, patient ₹17321"
+  },
+  {
+    "id": "AUD-00090",
+    "at": "2026-11-14T09:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0008",
+    "details": "IB-2026-0008"
+  },
+  {
+    "id": "AUD-00091",
+    "at": "2026-11-14T11:50:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0018",
+    "details": "Acute gastroenteritis with moderate dehydration"
+  },
+  {
+    "id": "AUD-00092",
     "at": "2026-11-14T16:00:00.000Z",
     "userId": "USR-0004",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -504,7 +828,7 @@
     "details": "2026-11-14 cash variance 0"
   },
   {
-    "id": "AUD-00057",
+    "id": "AUD-00093",
     "at": "2026-11-14T16:20:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -513,7 +837,34 @@
     "details": "2026-11-14 cash variance 0"
   },
   {
-    "id": "AUD-00058",
+    "id": "AUD-00094",
+    "at": "2026-11-15T02:50:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0019",
+    "details": "Right inguinal hernia — mesh hernioplasty"
+  },
+  {
+    "id": "AUD-00095",
+    "at": "2026-11-15T07:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0014",
+    "details": "Net ₹16226, patient ₹16226"
+  },
+  {
+    "id": "AUD-00096",
+    "at": "2026-11-15T08:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0014",
+    "details": "IB-2026-0014"
+  },
+  {
+    "id": "AUD-00097",
     "at": "2026-11-15T08:40:00.000Z",
     "userId": "USR-0001",
     "action": "RETURN_REQUESTED",
@@ -522,7 +873,7 @@
     "details": "PB-2026-00321: Excess quantity"
   },
   {
-    "id": "AUD-00059",
+    "id": "AUD-00098",
     "at": "2026-11-15T09:00:00.000Z",
     "userId": "USR-0003",
     "action": "RETURN_APPROVED",
@@ -531,7 +882,16 @@
     "details": "Refund ₹98 (CASH)"
   },
   {
-    "id": "AUD-00060",
+    "id": "AUD-00099",
+    "at": "2026-11-15T11:20:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0020",
+    "details": "Acute appendicitis — laparoscopic appendicectomy"
+  },
+  {
+    "id": "AUD-00100",
     "at": "2026-11-15T15:47:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -540,7 +900,7 @@
     "details": "2026-11-15 cash variance -50"
   },
   {
-    "id": "AUD-00061",
+    "id": "AUD-00101",
     "at": "2026-11-15T15:56:00.000Z",
     "userId": "USR-0004",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -549,7 +909,70 @@
     "details": "2026-11-15 cash variance 0"
   },
   {
-    "id": "AUD-00062",
+    "id": "AUD-00102",
+    "at": "2026-11-16T05:20:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0021",
+    "details": "Fracture neck of femur — hemiarthroplasty"
+  },
+  {
+    "id": "AUD-00103",
+    "at": "2026-11-16T06:15:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0009",
+    "details": "Net ₹11011, patient ₹1024"
+  },
+  {
+    "id": "AUD-00104",
+    "at": "2026-11-16T06:15:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0013",
+    "details": "Net ₹39997, patient ₹39997"
+  },
+  {
+    "id": "AUD-00105",
+    "at": "2026-11-16T06:30:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0022",
+    "details": "Cellulitis left leg"
+  },
+  {
+    "id": "AUD-00106",
+    "at": "2026-11-16T07:15:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0009",
+    "details": "IB-2026-0009"
+  },
+  {
+    "id": "AUD-00107",
+    "at": "2026-11-16T07:15:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0013",
+    "details": "IB-2026-0013"
+  },
+  {
+    "id": "AUD-00108",
+    "at": "2026-11-16T07:20:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0023",
+    "details": "Acute appendicitis — laparoscopic appendicectomy"
+  },
+  {
+    "id": "AUD-00109",
     "at": "2026-11-16T15:52:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -558,7 +981,61 @@
     "details": "2026-11-16 cash variance 0"
   },
   {
-    "id": "AUD-00063",
+    "id": "AUD-00110",
+    "at": "2026-11-17T05:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0016",
+    "details": "Net ₹30457, patient ₹30457"
+  },
+  {
+    "id": "AUD-00111",
+    "at": "2026-11-17T05:45:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0010",
+    "details": "Net ₹52097, patient ₹52097"
+  },
+  {
+    "id": "AUD-00112",
+    "at": "2026-11-17T06:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0016",
+    "details": "IB-2026-0016"
+  },
+  {
+    "id": "AUD-00113",
+    "at": "2026-11-17T06:40:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0024",
+    "details": "Right inguinal hernia — mesh hernioplasty"
+  },
+  {
+    "id": "AUD-00114",
+    "at": "2026-11-17T06:45:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0010",
+    "details": "IB-2026-0010"
+  },
+  {
+    "id": "AUD-00115",
+    "at": "2026-11-17T08:00:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0025",
+    "details": "Bronchiolitis"
+  },
+  {
+    "id": "AUD-00116",
     "at": "2026-11-17T15:57:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -567,7 +1044,7 @@
     "details": "2026-11-17 cash variance 0"
   },
   {
-    "id": "AUD-00064",
+    "id": "AUD-00117",
     "at": "2026-11-17T16:11:00.000Z",
     "userId": "USR-0004",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -576,7 +1053,70 @@
     "details": "2026-11-17 cash variance 0"
   },
   {
-    "id": "AUD-00065",
+    "id": "AUD-00118",
+    "at": "2026-11-18T05:20:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0026",
+    "details": "Dengue fever without warning signs"
+  },
+  {
+    "id": "AUD-00119",
+    "at": "2026-11-18T08:20:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0027",
+    "details": "Right inguinal hernia — mesh hernioplasty"
+  },
+  {
+    "id": "AUD-00120",
+    "at": "2026-11-18T08:45:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0015",
+    "details": "Net ₹11848, patient ₹11848"
+  },
+  {
+    "id": "AUD-00121",
+    "at": "2026-11-18T09:45:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0015",
+    "details": "IB-2026-0015"
+  },
+  {
+    "id": "AUD-00122",
+    "at": "2026-11-18T10:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0028",
+    "details": "Hypertensive urgency"
+  },
+  {
+    "id": "AUD-00123",
+    "at": "2026-11-18T12:30:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0029",
+    "details": "Bronchiolitis"
+  },
+  {
+    "id": "AUD-00124",
+    "at": "2026-11-18T14:30:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0030",
+    "details": "Hypertensive urgency"
+  },
+  {
+    "id": "AUD-00125",
     "at": "2026-11-18T15:45:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -585,7 +1125,7 @@
     "details": "2026-11-18 cash variance 0"
   },
   {
-    "id": "AUD-00066",
+    "id": "AUD-00126",
     "at": "2026-11-18T15:59:00.000Z",
     "userId": "USR-0004",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -594,7 +1134,97 @@
     "details": "2026-11-18 cash variance 0"
   },
   {
-    "id": "AUD-00067",
+    "id": "AUD-00127",
+    "at": "2026-11-19T03:00:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0031",
+    "details": "Diabetic ketoacidosis"
+  },
+  {
+    "id": "AUD-00128",
+    "at": "2026-11-19T04:30:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0017",
+    "details": "Net ₹15615, patient ₹1015"
+  },
+  {
+    "id": "AUD-00129",
+    "at": "2026-11-19T05:30:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0017",
+    "details": "IB-2026-0017"
+  },
+  {
+    "id": "AUD-00130",
+    "at": "2026-11-19T08:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0012",
+    "details": "Net ₹60005, patient ₹60005"
+  },
+  {
+    "id": "AUD-00131",
+    "at": "2026-11-19T09:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0012",
+    "details": "IB-2026-0012"
+  },
+  {
+    "id": "AUD-00132",
+    "at": "2026-11-19T09:15:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0018",
+    "details": "Net ₹10989, patient ₹10989"
+  },
+  {
+    "id": "AUD-00133",
+    "at": "2026-11-19T09:30:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0032",
+    "details": "Peritonsillar abscess — incision & drainage"
+  },
+  {
+    "id": "AUD-00134",
+    "at": "2026-11-19T09:30:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0033",
+    "details": "Diabetic ketoacidosis"
+  },
+  {
+    "id": "AUD-00135",
+    "at": "2026-11-19T09:40:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0034",
+    "details": "Cellulitis left leg"
+  },
+  {
+    "id": "AUD-00136",
+    "at": "2026-11-19T10:15:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0018",
+    "details": "IB-2026-0018"
+  },
+  {
+    "id": "AUD-00137",
     "at": "2026-11-19T12:00:00.000Z",
     "userId": "USR-0004",
     "action": "RETURN_REQUESTED",
@@ -603,7 +1233,7 @@
     "details": "PB-2026-00330: Damaged item"
   },
   {
-    "id": "AUD-00068",
+    "id": "AUD-00138",
     "at": "2026-11-19T12:20:00.000Z",
     "userId": "USR-0003",
     "action": "RETURN_APPROVED",
@@ -612,7 +1242,16 @@
     "details": "Refund ₹31 (UPI)"
   },
   {
-    "id": "AUD-00069",
+    "id": "AUD-00139",
+    "at": "2026-11-19T13:20:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0035",
+    "details": "Peritonsillar abscess — incision & drainage"
+  },
+  {
+    "id": "AUD-00140",
     "at": "2026-11-19T15:41:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -621,7 +1260,7 @@
     "details": "2026-11-19 cash variance 0"
   },
   {
-    "id": "AUD-00070",
+    "id": "AUD-00141",
     "at": "2026-11-19T16:18:00.000Z",
     "userId": "USR-0004",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -630,7 +1269,196 @@
     "details": "2026-11-19 cash variance 0"
   },
   {
-    "id": "AUD-00071",
+    "id": "AUD-00142",
+    "at": "2026-11-20T03:10:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00146",
+    "details": "GM-001 · NEW"
+  },
+  {
+    "id": "AUD-00143",
+    "at": "2026-11-20T03:10:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00160",
+    "details": "PD-001 · REVISIT"
+  },
+  {
+    "id": "AUD-00144",
+    "at": "2026-11-20T03:16:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00147",
+    "details": "GM-002 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00145",
+    "at": "2026-11-20T03:17:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00161",
+    "details": "PD-002 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00146",
+    "at": "2026-11-20T03:26:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00148",
+    "details": "GM-003 · REVISIT"
+  },
+  {
+    "id": "AUD-00147",
+    "at": "2026-11-20T03:34:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00162",
+    "details": "PD-003 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00148",
+    "at": "2026-11-20T03:40:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00149",
+    "details": "GM-004 · EMERGENCY"
+  },
+  {
+    "id": "AUD-00149",
+    "at": "2026-11-20T03:40:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00151",
+    "details": "GM-006 · REVISIT"
+  },
+  {
+    "id": "AUD-00150",
+    "at": "2026-11-20T03:40:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00156",
+    "details": "OR-001 · NEW"
+  },
+  {
+    "id": "AUD-00151",
+    "at": "2026-11-20T03:42:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00150",
+    "details": "GM-005 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00152",
+    "at": "2026-11-20T03:47:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00157",
+    "details": "OR-002 · NEW"
+  },
+  {
+    "id": "AUD-00153",
+    "at": "2026-11-20T03:52:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00158",
+    "details": "OR-003 · REVISIT"
+  },
+  {
+    "id": "AUD-00154",
+    "at": "2026-11-20T04:04:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00159",
+    "details": "OR-004 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00155",
+    "at": "2026-11-20T04:10:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00153",
+    "details": "OG-001 · NEW"
+  },
+  {
+    "id": "AUD-00156",
+    "at": "2026-11-20T04:16:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00154",
+    "details": "OG-002 · REVISIT"
+  },
+  {
+    "id": "AUD-00157",
+    "at": "2026-11-20T04:22:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00152",
+    "details": "GM-007 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00158",
+    "at": "2026-11-20T04:30:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00155",
+    "details": "OG-003 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00159",
+    "at": "2026-11-20T04:30:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0019",
+    "details": "Net ₹37571, patient ₹37571"
+  },
+  {
+    "id": "AUD-00160",
+    "at": "2026-11-20T04:45:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0022",
+    "details": "Net ₹44527, patient ₹44527"
+  },
+  {
+    "id": "AUD-00161",
+    "at": "2026-11-20T05:10:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00163",
+    "details": "SU-001 · NEW"
+  },
+  {
+    "id": "AUD-00162",
+    "at": "2026-11-20T05:21:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00164",
+    "details": "SU-002 · NEW"
+  },
+  {
+    "id": "AUD-00163",
     "at": "2026-11-20T05:30:00.000Z",
     "userId": "USR-0001",
     "action": "GRN_DRAFT",
@@ -639,7 +1467,25 @@
     "details": "GRN created at receiving counter"
   },
   {
-    "id": "AUD-00072",
+    "id": "AUD-00164",
+    "at": "2026-11-20T05:30:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0019",
+    "details": "IB-2026-0019"
+  },
+  {
+    "id": "AUD-00165",
+    "at": "2026-11-20T05:45:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0023",
+    "details": "IB-2026-0022"
+  },
+  {
+    "id": "AUD-00166",
     "at": "2026-11-20T05:55:00.000Z",
     "userId": "USR-0001",
     "action": "GRN_SUBMITTED",
@@ -648,7 +1494,88 @@
     "details": "Submitted for verification"
   },
   {
-    "id": "AUD-00073",
+    "id": "AUD-00167",
+    "at": "2026-11-20T06:30:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0036",
+    "details": "Bronchiolitis"
+  },
+  {
+    "id": "AUD-00168",
+    "at": "2026-11-20T08:15:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0020",
+    "details": "Net ₹46629, patient ₹46629"
+  },
+  {
+    "id": "AUD-00169",
+    "at": "2026-11-20T09:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0037",
+    "details": "Term pregnancy — normal vaginal delivery"
+  },
+  {
+    "id": "AUD-00170",
+    "at": "2026-11-20T09:15:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0020",
+    "details": "IB-2026-0020"
+  },
+  {
+    "id": "AUD-00171",
+    "at": "2026-11-20T10:10:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00165",
+    "details": "EN-001 · NEW"
+  },
+  {
+    "id": "AUD-00172",
+    "at": "2026-11-20T10:19:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00166",
+    "details": "EN-002 · NEW"
+  },
+  {
+    "id": "AUD-00173",
+    "at": "2026-11-20T12:20:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0038",
+    "details": "Fracture neck of femur — hemiarthroplasty"
+  },
+  {
+    "id": "AUD-00174",
+    "at": "2026-11-20T13:50:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0039",
+    "details": "Community-acquired pneumonia"
+  },
+  {
+    "id": "AUD-00175",
+    "at": "2026-11-20T14:30:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0040",
+    "details": "Dengue fever without warning signs"
+  },
+  {
+    "id": "AUD-00176",
     "at": "2026-11-20T16:10:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -657,7 +1584,223 @@
     "details": "2026-11-20 cash variance 0"
   },
   {
-    "id": "AUD-00074",
+    "id": "AUD-00177",
+    "at": "2026-11-21T03:10:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00167",
+    "details": "GM-001 · NEW"
+  },
+  {
+    "id": "AUD-00178",
+    "at": "2026-11-21T03:10:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00178",
+    "details": "PD-001 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00179",
+    "at": "2026-11-21T03:20:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00168",
+    "details": "GM-002 · NEW"
+  },
+  {
+    "id": "AUD-00180",
+    "at": "2026-11-21T03:21:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00179",
+    "details": "PD-002 · EMERGENCY"
+  },
+  {
+    "id": "AUD-00181",
+    "at": "2026-11-21T03:30:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00169",
+    "details": "GM-003 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00182",
+    "at": "2026-11-21T03:32:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00180",
+    "details": "PD-003 · REVISIT"
+  },
+  {
+    "id": "AUD-00183",
+    "at": "2026-11-21T03:38:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00171",
+    "details": "GM-005 · NEW"
+  },
+  {
+    "id": "AUD-00184",
+    "at": "2026-11-21T03:40:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00174",
+    "details": "OR-001 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00185",
+    "at": "2026-11-21T03:43:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00170",
+    "details": "GM-004 · REVISIT"
+  },
+  {
+    "id": "AUD-00186",
+    "at": "2026-11-21T03:46:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00181",
+    "details": "PD-004 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00187",
+    "at": "2026-11-21T03:50:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00175",
+    "details": "OR-002 · NEW"
+  },
+  {
+    "id": "AUD-00188",
+    "at": "2026-11-21T03:54:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00176",
+    "details": "OR-003 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00189",
+    "at": "2026-11-21T04:07:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00177",
+    "details": "OR-004 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00190",
+    "at": "2026-11-21T04:10:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00172",
+    "details": "OG-001 · EMERGENCY"
+  },
+  {
+    "id": "AUD-00191",
+    "at": "2026-11-21T04:16:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00173",
+    "details": "OG-002 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00192",
+    "at": "2026-11-21T04:40:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0041",
+    "details": "Fracture neck of femur — hemiarthroplasty"
+  },
+  {
+    "id": "AUD-00193",
+    "at": "2026-11-21T05:10:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00182",
+    "details": "SU-001 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00194",
+    "at": "2026-11-21T05:20:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00183",
+    "details": "SU-002 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00195",
+    "at": "2026-11-21T05:45:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0023",
+    "details": "Net ₹39878, patient ₹39878"
+  },
+  {
+    "id": "AUD-00196",
+    "at": "2026-11-21T06:45:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0024",
+    "details": "IB-2026-0023"
+  },
+  {
+    "id": "AUD-00197",
+    "at": "2026-11-21T07:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0026",
+    "details": "Net ₹9171, patient ₹9171"
+  },
+  {
+    "id": "AUD-00198",
+    "at": "2026-11-21T08:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0029",
+    "details": "IB-2026-0026"
+  },
+  {
+    "id": "AUD-00199",
+    "at": "2026-11-21T09:40:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0042",
+    "details": "Diabetic ketoacidosis"
+  },
+  {
+    "id": "AUD-00200",
+    "at": "2026-11-21T10:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0043",
+    "details": "Bronchiolitis"
+  },
+  {
+    "id": "AUD-00201",
     "at": "2026-11-21T10:10:00.000Z",
     "userId": "USR-0001",
     "action": "GRN_DRAFT",
@@ -666,7 +1809,7 @@
     "details": "GRN created at receiving counter"
   },
   {
-    "id": "AUD-00075",
+    "id": "AUD-00202",
     "at": "2026-11-21T10:35:00.000Z",
     "userId": "USR-0001",
     "action": "GRN_SUBMITTED",
@@ -675,7 +1818,7 @@
     "details": "Submitted for verification"
   },
   {
-    "id": "AUD-00076",
+    "id": "AUD-00203",
     "at": "2026-11-21T11:10:00.000Z",
     "userId": "USR-0002",
     "action": "GRN_PENDING_APPROVAL",
@@ -684,7 +1827,7 @@
     "details": "Verified. Exceptional case escalated to owner: Delivery contains a batch expiring within 30 days (Azithral 500)"
   },
   {
-    "id": "AUD-00077",
+    "id": "AUD-00204",
     "at": "2026-11-21T12:00:00.000Z",
     "userId": "USR-0002",
     "action": "ADJUSTMENT_REQUESTED",
@@ -693,7 +1836,7 @@
     "details": "Missing stock: -60"
   },
   {
-    "id": "AUD-00078",
+    "id": "AUD-00205",
     "at": "2026-11-21T12:45:00.000Z",
     "userId": "USR-0004",
     "action": "BILL_CANCEL_REQUESTED",
@@ -702,7 +1845,7 @@
     "details": "Duplicate bill created for the same prescription"
   },
   {
-    "id": "AUD-00079",
+    "id": "AUD-00206",
     "at": "2026-11-21T13:00:00.000Z",
     "userId": "USR-0003",
     "action": "BILL_CANCELLED",
@@ -711,7 +1854,25 @@
     "details": "Duplicate bill created for the same prescription"
   },
   {
-    "id": "AUD-00080",
+    "id": "AUD-00207",
+    "at": "2026-11-21T13:10:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0044",
+    "details": "Right inguinal hernia — mesh hernioplasty"
+  },
+  {
+    "id": "AUD-00208",
+    "at": "2026-11-21T13:20:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0045",
+    "details": "Right inguinal hernia — mesh hernioplasty"
+  },
+  {
+    "id": "AUD-00209",
     "at": "2026-11-21T15:45:00.000Z",
     "userId": "USR-0004",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -720,7 +1881,7 @@
     "details": "2026-11-21 cash variance 0"
   },
   {
-    "id": "AUD-00081",
+    "id": "AUD-00210",
     "at": "2026-11-21T16:24:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -729,7 +1890,7 @@
     "details": "2026-11-21 cash variance 0"
   },
   {
-    "id": "AUD-00082",
+    "id": "AUD-00211",
     "at": "2026-11-22T04:40:00.000Z",
     "userId": "USR-0004",
     "action": "GRN_DRAFT",
@@ -738,7 +1899,7 @@
     "details": "GRN created at receiving counter"
   },
   {
-    "id": "AUD-00083",
+    "id": "AUD-00212",
     "at": "2026-11-22T05:05:00.000Z",
     "userId": "USR-0004",
     "action": "GRN_SUBMITTED",
@@ -747,7 +1908,7 @@
     "details": "Submitted for verification"
   },
   {
-    "id": "AUD-00084",
+    "id": "AUD-00213",
     "at": "2026-11-22T07:45:00.000Z",
     "userId": "USR-0001",
     "action": "ADJUSTMENT_REQUESTED",
@@ -756,7 +1917,70 @@
     "details": "Damaged stock: -2"
   },
   {
-    "id": "AUD-00085",
+    "id": "AUD-00214",
+    "at": "2026-11-22T08:10:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0046",
+    "details": "Right inguinal hernia — mesh hernioplasty"
+  },
+  {
+    "id": "AUD-00215",
+    "at": "2026-11-22T08:15:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0021",
+    "details": "Net ₹62227, patient ₹62227"
+  },
+  {
+    "id": "AUD-00216",
+    "at": "2026-11-22T09:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0025",
+    "details": "Net ₹40911, patient ₹881"
+  },
+  {
+    "id": "AUD-00217",
+    "at": "2026-11-22T09:15:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0021",
+    "details": "IB-2026-0021"
+  },
+  {
+    "id": "AUD-00218",
+    "at": "2026-11-22T09:40:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0047",
+    "details": "Hypertensive urgency"
+  },
+  {
+    "id": "AUD-00219",
+    "at": "2026-11-22T10:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0027",
+    "details": "IB-2026-0025"
+  },
+  {
+    "id": "AUD-00220",
+    "at": "2026-11-22T10:40:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0048",
+    "details": "Diabetic ketoacidosis"
+  },
+  {
+    "id": "AUD-00221",
     "at": "2026-11-22T11:50:00.000Z",
     "userId": "USR-0004",
     "action": "GRN_DRAFT",
@@ -765,7 +1989,7 @@
     "details": "GRN created at receiving counter"
   },
   {
-    "id": "AUD-00086",
+    "id": "AUD-00222",
     "at": "2026-11-22T12:10:00.000Z",
     "userId": "USR-0004",
     "action": "GRN_VALIDATION_REQUIRED",
@@ -774,7 +1998,16 @@
     "details": "Submission blocked: missing mandatory details"
   },
   {
-    "id": "AUD-00087",
+    "id": "AUD-00223",
+    "at": "2026-11-22T15:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0049",
+    "details": "Diabetic ketoacidosis"
+  },
+  {
+    "id": "AUD-00224",
     "at": "2026-11-22T15:51:00.000Z",
     "userId": "USR-0001",
     "action": "DAILY_CLOSING_SUBMITTED",
@@ -783,7 +2016,124 @@
     "details": "2026-11-22 cash variance 0"
   },
   {
-    "id": "AUD-00088",
+    "id": "AUD-00225",
+    "at": "2026-11-23T03:15:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00184",
+    "details": "GM-001 · NEW"
+  },
+  {
+    "id": "AUD-00226",
+    "at": "2026-11-23T03:15:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00213",
+    "details": "PD-001 · REVISIT"
+  },
+  {
+    "id": "AUD-00227",
+    "at": "2026-11-23T03:24:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00185",
+    "details": "GM-002 · NEW"
+  },
+  {
+    "id": "AUD-00228",
+    "at": "2026-11-23T03:24:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00214",
+    "details": "PD-002 · REVISIT"
+  },
+  {
+    "id": "AUD-00229",
+    "at": "2026-11-23T03:33:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00186",
+    "details": "GM-003 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00230",
+    "at": "2026-11-23T03:33:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00215",
+    "details": "PD-003 · REVISIT"
+  },
+  {
+    "id": "AUD-00231",
+    "at": "2026-11-23T03:42:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00187",
+    "details": "GM-004 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00232",
+    "at": "2026-11-23T03:42:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00216",
+    "details": "PD-004 · REVISIT"
+  },
+  {
+    "id": "AUD-00233",
+    "at": "2026-11-23T03:45:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00205",
+    "details": "OR-001 · NEW"
+  },
+  {
+    "id": "AUD-00234",
+    "at": "2026-11-23T03:50:00.000Z",
+    "userId": "USR-0005",
+    "action": "IP_ADMITTED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0050",
+    "details": "Community-acquired pneumonia"
+  },
+  {
+    "id": "AUD-00235",
+    "at": "2026-11-23T03:51:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00188",
+    "details": "GM-005 · REVISIT"
+  },
+  {
+    "id": "AUD-00236",
+    "at": "2026-11-23T03:51:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00217",
+    "details": "PD-005 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00237",
+    "at": "2026-11-23T03:54:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00206",
+    "details": "OR-002 · REVISIT"
+  },
+  {
+    "id": "AUD-00238",
     "at": "2026-11-23T04:00:00.000Z",
     "userId": "USR-0001",
     "action": "GRN_DRAFT",
@@ -792,7 +2142,205 @@
     "details": "GRN created at receiving counter"
   },
   {
-    "id": "AUD-00089",
+    "id": "AUD-00239",
+    "at": "2026-11-23T04:00:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00189",
+    "details": "GM-006 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00240",
+    "at": "2026-11-23T04:00:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00218",
+    "details": "PD-006 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00241",
+    "at": "2026-11-23T04:03:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00207",
+    "details": "OR-003 · NEW"
+  },
+  {
+    "id": "AUD-00242",
+    "at": "2026-11-23T04:09:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00190",
+    "details": "GM-007 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00243",
+    "at": "2026-11-23T04:12:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00208",
+    "details": "OR-004 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00244",
+    "at": "2026-11-23T04:14:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00219",
+    "details": "PD-007 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00245",
+    "at": "2026-11-23T04:15:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00198",
+    "details": "OG-001 · REVISIT"
+  },
+  {
+    "id": "AUD-00246",
+    "at": "2026-11-23T04:18:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00191",
+    "details": "GM-008 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00247",
+    "at": "2026-11-23T04:21:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00209",
+    "details": "OR-005 · NEW"
+  },
+  {
+    "id": "AUD-00248",
+    "at": "2026-11-23T04:24:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00199",
+    "details": "OG-002 · NEW"
+  },
+  {
+    "id": "AUD-00249",
+    "at": "2026-11-23T04:27:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00192",
+    "details": "GM-009 · REVISIT"
+  },
+  {
+    "id": "AUD-00250",
+    "at": "2026-11-23T04:30:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00210",
+    "details": "OR-006 · REVISIT"
+  },
+  {
+    "id": "AUD-00251",
+    "at": "2026-11-23T04:33:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00200",
+    "details": "OG-003 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00252",
+    "at": "2026-11-23T04:36:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00193",
+    "details": "GM-010 · REVISIT"
+  },
+  {
+    "id": "AUD-00253",
+    "at": "2026-11-23T04:42:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00201",
+    "details": "OG-004 · NEW"
+  },
+  {
+    "id": "AUD-00254",
+    "at": "2026-11-23T04:44:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00211",
+    "details": "OR-007 · NEW"
+  },
+  {
+    "id": "AUD-00255",
+    "at": "2026-11-23T04:50:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00194",
+    "details": "GM-011 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00256",
+    "at": "2026-11-23T04:51:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00202",
+    "details": "OG-005 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00257",
+    "at": "2026-11-23T04:53:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00212",
+    "details": "OR-008 · REVISIT"
+  },
+  {
+    "id": "AUD-00258",
+    "at": "2026-11-23T04:59:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00195",
+    "details": "GM-012 · REVISIT"
+  },
+  {
+    "id": "AUD-00259",
+    "at": "2026-11-23T05:05:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00203",
+    "details": "OG-006 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00260",
+    "at": "2026-11-23T05:08:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00196",
+    "details": "GM-013 · REVISIT"
+  },
+  {
+    "id": "AUD-00261",
     "at": "2026-11-23T05:10:00.000Z",
     "userId": "USR-0001",
     "action": "RETURN_REQUESTED",
@@ -801,12 +2349,138 @@
     "details": "PB-2026-00342: Doctor changed prescription"
   },
   {
-    "id": "AUD-00090",
+    "id": "AUD-00262",
+    "at": "2026-11-23T05:14:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00204",
+    "details": "OG-007 · REVISIT"
+  },
+  {
+    "id": "AUD-00263",
+    "at": "2026-11-23T05:15:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00220",
+    "details": "SU-001 · REVISIT"
+  },
+  {
+    "id": "AUD-00264",
+    "at": "2026-11-23T05:17:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00197",
+    "details": "GM-014 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00265",
+    "at": "2026-11-23T05:24:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00221",
+    "details": "SU-002 · FOLLOW_UP"
+  },
+  {
+    "id": "AUD-00266",
+    "at": "2026-11-23T05:33:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00222",
+    "details": "SU-003 · NEW"
+  },
+  {
+    "id": "AUD-00267",
+    "at": "2026-11-23T05:45:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0028",
+    "details": "Net ₹26363, patient ₹26363"
+  },
+  {
+    "id": "AUD-00268",
+    "at": "2026-11-23T05:47:00.000Z",
+    "userId": "USR-0008",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00223",
+    "details": "SU-004 · NEW"
+  },
+  {
+    "id": "AUD-00269",
     "at": "2026-11-23T05:55:00.000Z",
     "userId": "USR-0001",
     "action": "BILL_CANCEL_REQUESTED",
     "entity": "BILL",
     "entityId": "PB-2026-00354",
     "details": "Patient decided to buy only part of the prescription; bill to be re-issued"
+  },
+  {
+    "id": "AUD-00270",
+    "at": "2026-11-23T06:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0027",
+    "details": "Net ₹7893, patient ₹863"
+  },
+  {
+    "id": "AUD-00271",
+    "at": "2026-11-23T06:45:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0037",
+    "details": "IB-2026-0028"
+  },
+  {
+    "id": "AUD-00272",
+    "at": "2026-11-23T07:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0036",
+    "details": "IB-2026-0027"
+  },
+  {
+    "id": "AUD-00273",
+    "at": "2026-11-23T07:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_FINAL_BILL",
+    "entity": "IP_BILL",
+    "entityId": "IB-2026-0024",
+    "details": "Net ₹13949, patient ₹13949"
+  },
+  {
+    "id": "AUD-00274",
+    "at": "2026-11-23T07:10:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00225",
+    "details": "OR-009 · NEW"
+  },
+  {
+    "id": "AUD-00275",
+    "at": "2026-11-23T07:25:00.000Z",
+    "userId": "USR-0005",
+    "action": "OP_VISIT_CREATED",
+    "entity": "OP_VISIT",
+    "entityId": "OPV-2026-00224",
+    "details": "GM-015 · EMERGENCY"
+  },
+  {
+    "id": "AUD-00276",
+    "at": "2026-11-23T08:00:00.000Z",
+    "userId": "USR-0008",
+    "action": "IP_DISCHARGED",
+    "entity": "IP_ADMISSION",
+    "entityId": "IPA-2026-0025",
+    "details": "IB-2026-0024"
   }
 ]

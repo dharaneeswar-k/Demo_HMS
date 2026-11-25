@@ -7,6 +7,7 @@ import { approvalItems, APPROVAL_TYPES } from '../approvals.js';
 import { countForDate } from '../stock-count.js';
 import { refillSuggestions } from './transfers.js';
 import { badge, emptyState } from '../components.js';
+import { clinicalHome, CLINICAL_ROLES } from './home-clinical.js';
 import { esc, icon, fmtINR, fmtNum, relTime } from '../utils.js';
 
 const tile = (href, ic, title, desc, tone = 'teal', count) => `<a class="task-tile tone-${tone}" href="${href}">
@@ -48,15 +49,17 @@ export function render(view) {
     users: tile('#/users', 'user-cog', 'User Accounts', 'Staff logins and roles', 'navy')
   };
   T.receive = tile('#/grn/new', 'package-plus', 'Receive Stock', 'Enter a supplier delivery into the store', 'teal');
-  const tiles = role === 'SUPER_ADMIN' ? [T.approvals, T.sales, T.closings, T.stockAlerts, T.reports, T.users]
+  const clin = clinicalHome(u, { tile, stat }); // OP / IP (modules 02, 03)
+  const isClin = CLINICAL_ROLES.includes(role);
+  const tiles = isClin ? clin.tiles : role === 'SUPER_ADMIN' ? [T.approvals, T.sales, T.closings, T.stockAlerts, T.reports, T.users]
     : role === 'STORE_INCHARGE' ? [T.receive, T.transfer, T.approvals, T.find, T.grnList, T.reports]
-      : role === 'RECEPTION' ? [T.register, T.findPatient]
+      : role === 'RECEPTION' ? [T.register, T.findPatient, ...clin.tiles]
         : [T.bill, T.findPatient, T.find, T.ret, T.close];
 
   // ---------------- numbers ----------------
   const float = store.ph().openingCashFloat;
   const stockIssues = inv.low + inv.out;
-  const stats = role === 'SUPER_ADMIN' ? [
+  const stats = isClin ? clin.stats : role === 'SUPER_ADMIN' ? [
     stat("Today's sales", fmtINR(all.sales, true), `Patients ${fmtINR(all.bySale.PATIENT.sales, true)} · Walk-in ${fmtINR(all.bySale.WALKIN.sales, true)}`, '#/pharmacy'),
     stat('Money collected today', fmtINR(all.netCollection, true), `Cash ${fmtINR(all.byMode.CASH.net, true)} · UPI ${fmtINR(all.byMode.UPI.net, true)}`, '#/pharmacy'),
     stat('Waiting for you', fmtNum(approvals.length), approvals.length ? 'approvals' : 'all caught up', '#/approvals'),
@@ -89,8 +92,9 @@ export function render(view) {
   const unpaid = store.all('bills').filter((b) => b.status !== 'CANCELLED' && b.balanceDue > 0 && (role !== 'PHARMACY_STAFF' || b.cashierId === u.id));
   if (unpaid.length && can('pharmacy.bill') && role !== 'SUPER_ADMIN') todo.push({ ic: 'hourglass', tone: 'warning', text: `${unpaid.length} bill(s) with money still to collect`, sub: fmtINR(unpaid.reduce((s, b) => s + b.balanceDue, 0)) + ' pending', href: '#/pharmacy/bills?status=PENDING', btn: 'View' });
   if (role === 'STORE_INCHARGE' && refillSuggestions().length) todo.unshift({ ic: 'arrow-right-left', tone: 'warning', text: `${refillSuggestions().length} medicine(s) low on the pharmacy shelf`, sub: 'Available in the central store — send them to the pharmacy', href: '#/transfers', btn: 'Transfer' });
-  if (inv.expired && role !== 'SUPER_ADMIN' && role !== 'RECEPTION') todo.push({ ic: 'calendar-x', tone: 'danger', text: `${inv.expired} expired batch(es) on the shelf`, sub: 'Remove them — they cannot be sold', href: '#/batches?status=EXPIRED', btn: 'View' });
-  if (inv.out && role !== 'RECEPTION') todo.push({ ic: 'ban', tone: 'danger', text: `${inv.out} medicine(s) out of stock`, sub: 'Order from the supplier', href: '#/inventory?status=OUT_OF_STOCK', btn: 'View' });
+  todo.push(...clin.todo);
+  if (inv.expired && role !== 'SUPER_ADMIN' && role !== 'RECEPTION' && can('batch.view')) todo.push({ ic: 'calendar-x', tone: 'danger', text: `${inv.expired} expired batch(es) on the shelf`, sub: 'Remove them — they cannot be sold', href: '#/batches?status=EXPIRED', btn: 'View' });
+  if (inv.out && role !== 'RECEPTION' && can('inventory.view')) todo.push({ ic: 'ban', tone: 'danger', text: `${inv.out} medicine(s) out of stock`, sub: 'Order from the supplier', href: '#/inventory?status=OUT_OF_STOCK', btn: 'View' });
   const alertsCount = derivedAlerts().length;
 
   // ---------------- recent ----------------
@@ -107,7 +111,7 @@ export function render(view) {
       <section class="card"><header class="card-head"><h2>Needs your attention</h2><a class="btn btn-ghost btn-sm" href="#/alerts">All alerts (${alertsCount}) ${icon('arrow-right')}</a></header>
         <div class="todo-list">${todo.length ? todo.slice(0, 7).map((t) => `<a class="todo" href="${t.href}"><span class="todo-ic sev-${t.tone === 'danger' ? 'critical' : t.tone}">${icon(t.ic)}</span><span class="todo-txt"><strong>${esc(t.text)}</strong><small>${esc(t.sub)}</small></span><span class="btn btn-secondary btn-sm">${esc(t.btn)}</span></a>`).join('')
           : emptyState('party-popper', 'All caught up', 'Nothing needs your attention right now.')}</div></section>
-      <section class="card"><header class="card-head"><h2>${role === 'PHARMACY_STAFF' ? 'My recent bills' : 'Recent bills'}</h2><a class="btn btn-ghost btn-sm" href="#/pharmacy/bills">All bills ${icon('arrow-right')}</a></header>
-        <div class="todo-list">${recent.length ? recent.map((b) => `<a class="todo" href="#/pharmacy/bills/${b.id}"><span class="todo-ic sev-info">${icon('receipt')}</span><span class="todo-txt"><strong>${esc(b.patientName)} · ${fmtINR(b.grandTotal)}</strong><small>${b.id} · ${esc(billModeLabel(b))} · ${relTime(b.at)}${role !== 'PHARMACY_STAFF' ? ' · ' + esc(userName(b.cashierId)) : ''}</small></span>${badge(b.status)}</a>`).join('') : emptyState('receipt', 'No bills yet', 'Your bills will appear here.')}</div></section>
+      ${clin.recent || `<section class="card"><header class="card-head"><h2>${role === 'PHARMACY_STAFF' ? 'My recent bills' : 'Recent bills'}</h2><a class="btn btn-ghost btn-sm" href="#/pharmacy/bills">All bills ${icon('arrow-right')}</a></header>
+        <div class="todo-list">${recent.length ? recent.map((b) => `<a class="todo" href="#/pharmacy/bills/${b.id}"><span class="todo-ic sev-info">${icon('receipt')}</span><span class="todo-txt"><strong>${esc(b.patientName)} · ${fmtINR(b.grandTotal)}</strong><small>${b.id} · ${esc(billModeLabel(b))} · ${relTime(b.at)}${role !== 'PHARMACY_STAFF' ? ' · ' + esc(userName(b.cashierId)) : ''}</small></span>${badge(b.status)}</a>`).join('') : emptyState('receipt', 'No bills yet', 'Your bills will appear here.')}</div></section>`}
     </div>`;
 }

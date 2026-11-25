@@ -1,0 +1,42 @@
+[
+  {
+    "id": "WRD-01",
+    "name": "General Ward — Male",
+    "category": "GENERAL",
+    "floor": "Ground floor",
+    "code": "GM",
+    "active": true
+  },
+  {
+    "id": "WRD-02",
+    "name": "General Ward — Female",
+    "category": "GENERAL",
+    "floor": "Ground floor",
+    "code": "GF",
+    "active": true
+  },
+  {
+    "id": "WRD-03",
+    "name": "Semi-private Rooms",
+    "category": "SEMI_PRIVATE",
+    "floor": "First floor",
+    "code": "SP",
+    "active": true
+  },
+  {
+    "id": "WRD-04",
+    "name": "Private Rooms",
+    "category": "PRIVATE",
+    "floor": "First floor",
+    "code": "PR",
+    "active": true
+  },
+  {
+    "id": "WRD-05",
+    "name": "Intensive Care Unit",
+    "category": "ICU",
+    "floor": "Second floor",
+    "code": "ICU",
+    "active": true
+  }
+]

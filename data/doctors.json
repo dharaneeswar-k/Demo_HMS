@@ -1,0 +1,161 @@
+[
+  {
+    "id": "DOC-01",
+    "name": "Dr. A. Ravichandran",
+    "departmentId": "DEP-01",
+    "qualification": "MBBS, MD (General Medicine)",
+    "registrationNo": "TNMC 45821",
+    "room": "OP-1",
+    "fees": {
+      "new": 400,
+      "revisit": 250
+    },
+    "followUpDays": 7,
+    "ipVisitFee": 500,
+    "days": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "start": "09:00",
+    "end": "13:00",
+    "userId": "USR-0006",
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "DOC-02",
+    "name": "Dr. K. Sangeetha",
+    "departmentId": "DEP-02",
+    "qualification": "MBBS, MS (OBG)",
+    "registrationNo": "TNMC 51207",
+    "room": "OP-2",
+    "fees": {
+      "new": 500,
+      "revisit": 300
+    },
+    "followUpDays": 15,
+    "ipVisitFee": 700,
+    "days": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "start": "10:00",
+    "end": "14:00",
+    "userId": null,
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "DOC-03",
+    "name": "Dr. M. Harish",
+    "departmentId": "DEP-03",
+    "qualification": "MBBS, MS (Ortho)",
+    "registrationNo": "TNMC 48833",
+    "room": "OP-3",
+    "fees": {
+      "new": 500,
+      "revisit": 300
+    },
+    "followUpDays": 7,
+    "ipVisitFee": 700,
+    "days": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "start": "09:30",
+    "end": "13:30",
+    "userId": null,
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "DOC-04",
+    "name": "Dr. S. Nivetha",
+    "departmentId": "DEP-04",
+    "qualification": "MBBS, DCH, MD (Paed)",
+    "registrationNo": "TNMC 55190",
+    "room": "OP-4",
+    "fees": {
+      "new": 400,
+      "revisit": 250
+    },
+    "followUpDays": 7,
+    "ipVisitFee": 500,
+    "days": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "start": "09:00",
+    "end": "12:30",
+    "userId": null,
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "DOC-05",
+    "name": "Dr. R. Balaji",
+    "departmentId": "DEP-05",
+    "qualification": "MBBS, MS (General Surgery)",
+    "registrationNo": "TNMC 42716",
+    "room": "OP-5",
+    "fees": {
+      "new": 500,
+      "revisit": 300
+    },
+    "followUpDays": 7,
+    "ipVisitFee": 700,
+    "days": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "start": "11:00",
+    "end": "14:00",
+    "userId": null,
+    "phone": "",
+    "active": true
+  },
+  {
+    "id": "DOC-06",
+    "name": "Dr. P. Kavya",
+    "departmentId": "DEP-06",
+    "qualification": "MBBS, MS (ENT)",
+    "registrationNo": "TNMC 57342",
+    "room": "OP-6",
+    "fees": {
+      "new": 400,
+      "revisit": 250
+    },
+    "followUpDays": 7,
+    "ipVisitFee": 500,
+    "days": [
+      1,
+      3,
+      5
+    ],
+    "start": "16:00",
+    "end": "19:00",
+    "userId": null,
+    "phone": "",
+    "active": true
+  }
+]

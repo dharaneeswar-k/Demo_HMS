@@ -1,0 +1,80 @@
+{
+  "op": {
+    "defaultFollowUpDays": 7,
+    "emergencyFee": 600,
+    "skipPlaces": 3,
+    "maxSkips": 2,
+    "displayRefreshSec": 10,
+    "avgConsultMin": 8
+  },
+  "ip": {
+    "checkoutHour": 12,
+    "lowDepositMargin": 3000,
+    "bedCategories": {
+      "GENERAL": {
+        "label": "General ward",
+        "rate": 800,
+        "nursing": 300,
+        "advance": 5000
+      },
+      "SEMI_PRIVATE": {
+        "label": "Semi-private",
+        "rate": 1500,
+        "nursing": 400,
+        "advance": 10000
+      },
+      "PRIVATE": {
+        "label": "Private room",
+        "rate": 2800,
+        "nursing": 500,
+        "advance": 15000
+      },
+      "ICU": {
+        "label": "ICU",
+        "rate": 6000,
+        "nursing": 1200,
+        "advance": 25000
+      }
+    }
+  },
+  "cashier": {
+    "openingFloat": 2000,
+    "varianceTolerance": 100
+  },
+  "tpas": [
+    {
+      "id": "TPA-01",
+      "name": "Medi Assist India TPA",
+      "phone": "1800 425 9449"
+    },
+    {
+      "id": "TPA-02",
+      "name": "Vidal Health TPA",
+      "phone": "1800 425 4033"
+    },
+    {
+      "id": "TPA-03",
+      "name": "Paramount Health Services TPA",
+      "phone": "1800 22 6655"
+    },
+    {
+      "id": "TPA-04",
+      "name": "Health India Insurance TPA",
+      "phone": "1800 22 4566"
+    }
+  ],
+  "insurers": [
+    "Star Health & Allied Insurance",
+    "HDFC ERGO General Insurance",
+    "The New India Assurance",
+    "ICICI Lombard General Insurance",
+    "Niva Bupa Health Insurance",
+    "Care Health Insurance"
+  ],
+  "corporates": [
+    "Ashok Leyland — Hosur Unit",
+    "TVS Motor Company — Hosur",
+    "Titan Company — Hosur"
+  ],
+  "receiptFooter": "Thank you for choosing Nallam Hospital. Wishing you good health."
+}

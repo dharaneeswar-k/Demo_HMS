@@ -35,6 +35,11 @@ export function notificationLink(n) {
   if (n.refType === 'TRANSFER') return '#/transfers?focus=' + n.refId;
   if (n.refType === 'STOCKCOUNT') return '#/stock-count?focus=' + n.refId;
   if (n.refType === 'CLOSING') return '#/pharmacy/closing-report?focus=' + n.refId;
+  if (n.refType === 'OP_VISIT') return '#/op/visits/' + n.refId;
+  if (n.refType === 'IP_ADMISSION') return '#/ip/admissions/' + n.refId;
+  if (n.refType === 'IP_INDENT') return '#/ip/indents';
+  if (n.refType === 'HOSP_REQUEST') return can('hospital.approve') ? '#/hospital/approvals?focus=' + n.refId : '#/home';
+  if (n.refType === 'HOSP_CLOSING') return '#/hospital/closing?tab=report';
   return '#/alerts';
 }
 
