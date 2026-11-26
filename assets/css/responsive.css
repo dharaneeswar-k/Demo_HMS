@@ -58,7 +58,7 @@
 /* ===== Print ===== */
 @media print {
   @page { size: A4 landscape; margin: 12mm; }
-  body { background: #fff; font-size: 11px; }
+  body { background: var(--h-surface); font-size: 11px; }
   .sidebar, .topbar, .demo-ribbon, .no-print, .toolbar, .pager, .page-actions, .card-actions, #toasts, .report-nav, .wizard-foot { display: none !important; }
   .main { margin: 0 !important; }
   .view { padding: 0; max-width: none; }

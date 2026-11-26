@@ -19,6 +19,15 @@ export function brandMark(size = 'md') {
   if (s.logo) return `<img class="brand-logo brand-${size}" src="${esc(s.logo)}" alt="${esc(s.hospitalName)} logo">`;
   return `<div class="brand-text brand-${size}"><span class="brand-badge">${esc(initials(s.hospitalName).slice(0, 1))}</span><span class="brand-name">${esc(s.hospitalName)}</span></div>`;
 }
+// Light / dark: <html data-theme>, remembered per browser (index.html applies it before the first paint).
+const THEME_KEY = 'nallam_hms_theme';
+function toggleTheme() {
+  const dark = document.documentElement.dataset.theme !== 'dark';
+  document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  try { localStorage.setItem(THEME_KEY, dark ? 'dark' : 'light'); } catch { /* storage blocked */ }
+  if (document.querySelector('canvas')) route(); // charts pick their colours when drawn
+}
+document.addEventListener('keydown', (e) => { if (e.altKey && (e.key === 't' || e.key === 'T') && currentUser()) { e.preventDefault(); toggleTheme(); } });
 function applyTheme() {
   const t = store.settings().theme || {};
   // The official palette lives in theme.css; a hospital that picks its own colours in Settings overrides it here.
@@ -205,6 +214,7 @@ function renderShell() {
           <div class="gs-results hidden" data-gresults></div>
         </div>
         <div class="tb-right">
+          <button class="icon-btn theme-btn" data-theme-toggle aria-label="Switch light / dark theme" title="Light / dark (Alt+T)"><span class="t-moon">${icon('moon')}</span><span class="t-sun">${icon('sun')}</span></button>
           <div class="pop-wrap"><button class="icon-btn" data-bell aria-label="Notifications">${icon('bell')}<span class="bell-count hidden" data-bell-count></span></button><div class="popover notif-pop hidden" data-notif-pop></div></div>
           <div class="pop-wrap"><button class="profile-btn" data-profile><span class="avatar">${esc(initials(u.name))}</span><span class="pb-txt"><strong>${esc(u.name)}</strong><small>${esc(roleLabel(u))}</small></span>${icon('chevron-down')}</button>
             <div class="popover profile-pop hidden" data-profile-pop>
@@ -237,6 +247,7 @@ function wireShell() {
   qs('[data-sb-close]', root).onclick = () => document.body.classList.remove('sb-mobile-open');
 
   // popovers
+  qs('[data-theme-toggle]', root).onclick = toggleTheme;
   const bell = qs('[data-bell]', root); const np = qs('[data-notif-pop]', root);
   const prof = qs('[data-profile]', root); const pp = qs('[data-profile-pop]', root);
   bell.onclick = (e) => { e.stopPropagation(); pp.classList.add('hidden'); np.classList.toggle('hidden'); if (!np.classList.contains('hidden')) drawNotifPop(); };

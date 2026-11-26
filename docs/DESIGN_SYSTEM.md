@@ -48,3 +48,10 @@ Older names (`--navy`, `--teal`, `--border`, `--radius`, `--shadow`…) are mapp
 - Don't tint table rows (`row-danger` / `row-warning` no longer colour the row; the status badge says it).
 - Don't add new gradients, shadows or rounded pills; don't hard-code colours in a module — use the tokens.
 - Charts use the same palette (`PALETTE` in `components.js`).
+
+## Light / dark theme
+
+- The sun / moon button in the top bar (or **Alt+T**) switches the theme. The choice is remembered per browser (`localStorage` key `nallam_hms_theme`) and applied in `index.html` before the first paint, so there is no flash.
+- Dark mode is `<html data-theme="dark">`: the same tokens with dark values (block at the end of `theme.css`). Layout and rules do not change.
+- Paper things — receipts, labels, printed reports, the WhatsApp preview — stay white in dark mode.
+- New styles: use the tokens (`--h-surface`, `--h-soft`, `--h-head`, `--h-line`, `--h-ink*`, `--h-title`, status colours) instead of hex values, so they work in both themes. Light tints in older files use `var(--dk-red, #FFF8F7)`-style fallbacks: light mode keeps the hex, dark mode swaps in a dark tint.

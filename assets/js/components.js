@@ -205,8 +205,9 @@ export function chart(canvas, config) {
   if (!window.Chart) { canvas.replaceWith(Object.assign(document.createElement('div'), { className: 'muted small', textContent: 'Charts unavailable offline (Chart.js not loaded).' })); return null; }
   const Chart = window.Chart;
   Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
-  Chart.defaults.color = '#4A5866';
-  Chart.defaults.borderColor = '#E7EBEF';
+  const cs = getComputedStyle(document.documentElement);
+  Chart.defaults.color = cs.getPropertyValue('--h-ink-2').trim() || '#4A5866';
+  Chart.defaults.borderColor = cs.getPropertyValue('--h-line-2').trim() || '#E7EBEF';
   const c = new Chart(canvas, { ...config, options: { responsive: true, maintainAspectRatio: false, ...config.options, plugins: { legend: { labels: { boxWidth: 10, boxHeight: 10, usePointStyle: true } }, ...config.options?.plugins } } });
   charts.add(c);
   return c;
