@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab Workbench — mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F3F5F7; --surface: #fff; --line: #E4E8EC; --line-2: #CFD7DE; --hover: #F6F8FA; --sel: #EAF5F4;
+  --text: #17242F; --text-2: #5B6B78; --text-3: #8D99A4;
+  --navy: #0B2E4A; --teal: #04807D; --teal-2: #036A68; --teal-bg: #E6F3F2;
+  --red: #C0352F; --red-bg: #FBEDEC; --amber: #A5660A;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { font: 14px/1.45 Inter, system-ui, sans-serif; color: var(--text); background: var(--surface); -webkit-font-smoothing: antialiased; }
+button { font: inherit; cursor: pointer; color: inherit; }
+input { font: inherit; color: inherit; }
+.num { font-variant-numeric: tabular-nums; }
+kbd { font: 500 11px Inter, sans-serif; padding: 1px 6px; border: 1px solid var(--line-2); border-radius: 3px; background: #fff; color: var(--text-2); }
+
+.app { display: grid; grid-template-rows: 52px 44px 1fr; height: 100vh; }
+
+/* app bar */
+.bar-top { display: flex; align-items: center; gap: 20px; padding: 0 20px; background: var(--navy); color: #fff; }
+.brand { font-weight: 600; white-space: nowrap; }
+.brand span { opacity: .55; font-weight: 400; margin-left: 8px; }
+.scan { position: relative; flex: 1; max-width: 520px; margin: 0 auto; }
+.scan input { width: 100%; height: 34px; border: 0; border-radius: 4px; padding: 0 12px 0 36px; background: rgba(255,255,255,.12); color: #fff; outline: none; transition: background .15s; }
+.scan input::placeholder { color: rgba(255,255,255,.6); }
+.scan input:focus { background: #fff; color: var(--text); }
+.scan input:focus::placeholder { color: var(--text-3); }
+.scan svg { position: absolute; left: 11px; top: 9px; width: 16px; height: 16px; opacity: .7; pointer-events: none; }
+.scan input:focus ~ svg { color: var(--text-3); }
+.scan.ok input { box-shadow: 0 0 0 3px #5fd0cb; }
+.scan.miss input { box-shadow: 0 0 0 3px #ef8a85; }
+.drop { position: absolute; top: 40px; left: 0; right: 0; background: #fff; color: var(--text); border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 8px 24px rgba(0,0,0,.16); z-index: 30; }
+.drop button { display: flex; justify-content: space-between; width: 100%; padding: 9px 12px; border: 0; background: none; text-align: left; }
+.drop button.on, .drop button:hover { background: var(--hover); }
+.drop small { color: var(--text-3); }
+.user { display: flex; align-items: center; gap: 14px; white-space: nowrap; font-size: 13px; }
+.user .mock { font-size: 11px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; padding: 2px 8px; border: 1px solid rgba(255,255,255,.35); border-radius: 3px; opacity: .8; }
+.user .ava { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,.16); display: grid; place-items: center; font-size: 12px; font-weight: 600; }
+.ibtn { border: 0; background: none; width: 30px; height: 30px; border-radius: 4px; display: grid; place-items: center; color: inherit; opacity: .8; }
+.ibtn:hover { background: rgba(255,255,255,.12); opacity: 1; }
+
+/* step tabs */
+.steps { display: flex; align-items: stretch; padding: 0 12px; border-bottom: 1px solid var(--line); background: var(--surface); }
+.step { border: 0; background: none; padding: 0 16px; color: var(--text-2); font-weight: 500; position: relative; }
+.step b { margin-left: 6px; font-weight: 600; color: var(--text-3); font-variant-numeric: tabular-nums; }
+.step:hover { color: var(--text); }
+.step.on { color: var(--text); font-weight: 600; }
+.step.on b { color: var(--teal); }
+.step.on::after { content: ''; position: absolute; left: 10px; right: 10px; bottom: -1px; height: 2px; background: var(--teal); }
+.steps .sp { flex: 1; }
+.tbtn { border: 0; background: none; color: var(--text-2); font-size: 13px; padding: 0 10px; }
+.tbtn:hover { color: var(--text); }
+
+/* split */
+.split { display: grid; grid-template-columns: 340px 1fr; min-height: 0; }
+.list { border-right: 1px solid var(--line); display: flex; flex-direction: column; min-height: 0; background: var(--surface); }
+.lhead { display: flex; align-items: center; justify-content: space-between; height: 40px; padding: 0 16px; border-bottom: 1px solid var(--line); font-size: 12.5px; color: var(--text-2); }
+.lhead select { border: 0; background: none; font: inherit; color: var(--text); font-weight: 500; cursor: pointer; outline: none; }
+.rows { overflow: auto; flex: 1; }
+.row { display: grid; grid-template-columns: 34px 1fr auto; gap: 12px; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--line); cursor: pointer; position: relative; }
+.row:hover { background: var(--hover); }
+.row.sel { background: var(--sel); }
+.row.sel::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--teal); }
+.mk { width: 34px; height: 34px; border-radius: 4px; background: var(--bg); display: grid; place-items: center; font-weight: 600; font-size: 13px; color: var(--text-2); font-variant-numeric: tabular-nums; }
+.row.sel .mk { background: #fff; }
+.nm { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ts { font-size: 12.5px; color: var(--text-3); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rt { text-align: right; font-size: 12.5px; color: var(--text-3); white-space: nowrap; }
+.rt .late { color: var(--red); }
+.pri { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: .05em; color: var(--red); margin-bottom: 1px; }
+.pri.u { color: var(--amber); }
+.none { padding: 56px 20px; text-align: center; color: var(--text-3); }
+
+/* detail */
+.detail { display: flex; flex-direction: column; min-height: 0; position: relative; }
+.dscroll { overflow: auto; flex: 1; }
+.dwrap { max-width: 900px; padding: 24px 32px 32px; }
+.dh { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+.dh h1 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
+.dh h1 span { font-weight: 400; color: var(--text-3); font-size: 15px; margin-left: 6px; }
+.chip { font-size: 11px; font-weight: 700; letter-spacing: .05em; padding: 2px 7px; border-radius: 3px; background: var(--red); color: #fff; }
+.chip.u { background: #FBF1E0; color: var(--amber); }
+.dh .sp { flex: 1; }
+.lbtn { border: 1px solid var(--line-2); background: #fff; height: 30px; padding: 0 12px; border-radius: 4px; font-size: 13px; color: var(--text-2); }
+.lbtn:hover { color: var(--text); border-color: var(--text-3); }
+.lbtn.on { background: var(--teal-bg); border-color: var(--teal); color: var(--teal-2); }
+.note { font-size: 13px; color: var(--amber); margin: -10px 0 18px; }
+
+.sub { font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); margin: 0 0 8px; }
+
+/* tubes */
+.tubes { border-top: 1px solid var(--line); }
+.tube { display: grid; grid-template-columns: 12px 140px 1fr auto; gap: 16px; align-items: center; height: 52px; border-bottom: 1px solid var(--line); }
+.cap { width: 10px; height: 24px; border-radius: 2px 2px 5px 5px; background: linear-gradient(var(--c) 0 36%, #E3E8EC 36%); }
+.tube .tn { font-weight: 500; }
+.tube .tt { color: var(--text-2); }
+.tube .ok { color: var(--teal-2); font-size: 13px; }
+.link { border: 0; background: none; color: var(--teal-2); font-weight: 500; padding: 4px 0; font-size: 13px; }
+.link:hover { text-decoration: underline; }
+
+/* results */
+table.res { width: 100%; border-collapse: collapse; }
+.res th { font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); text-align: left; padding: 0 12px 8px; border-bottom: 1px solid var(--line); }
+.res th.r, .res td.r { text-align: right; }
+.res td { height: 42px; padding: 0 12px; border-bottom: 1px solid var(--line); }
+.res tr.g td { height: 38px; padding-top: 14px; font-weight: 600; font-size: 13px; border-bottom: 1px solid var(--line); }
+.res td.u, .res td.rg { color: var(--text-3); font-size: 13px; }
+.res td.pv { color: var(--text-3); font-size: 13px; }
+.res .col-pv { display: none; }
+.cmp .res .col-pv { display: table-cell; }
+.vin { width: 96px; height: 30px; border: 1px solid var(--line-2); border-radius: 3px; padding: 0 8px; text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; outline: none; background: #fff; }
+.vin:focus { border-color: var(--teal); box-shadow: 0 0 0 2px var(--teal-bg); }
+.vsel { height: 30px; border: 1px solid var(--line-2); border-radius: 3px; padding: 0 6px; font-weight: 600; background: #fff; outline: none; }
+.vsel:focus { border-color: var(--teal); }
+.ro { font-weight: 600; font-variant-numeric: tabular-nums; }
+.fa { display: inline-block; width: 22px; margin-right: 6px; text-align: center; font-weight: 700; font-size: 13px; }
+tr.H .fa, tr.L .fa, tr.A .fa, tr.H .ro, tr.L .ro { color: var(--amber); }
+tr.H .vin, tr.L .vin { color: var(--amber); }
+tr.HH td, tr.LL td { background: var(--red-bg); }
+tr.HH .fa, tr.LL .fa, tr.HH .vin, tr.LL .vin, tr.HH .ro, tr.LL .ro { color: var(--red); }
+.inf { display: flex; align-items: center; gap: 10px; margin-top: 18px; padding: 12px 14px; background: var(--red-bg); border-radius: 4px; font-size: 13px; color: #7a211d; }
+.inf input { height: 30px; border: 1px solid #E8BDBA; border-radius: 3px; padding: 0 8px; background: #fff; outline: none; }
+
+/* send */
+.opts { border-top: 1px solid var(--line); }
+.opt { display: flex; align-items: center; gap: 12px; height: 52px; border-bottom: 1px solid var(--line); cursor: pointer; }
+.opt input { accent-color: var(--teal); width: 16px; height: 16px; margin: 0; }
+.opt span { color: var(--text-3); font-size: 13px; margin-left: auto; }
+
+/* action bar */
+.act { display: flex; align-items: center; gap: 8px; height: 60px; padding: 0 32px; border-top: 1px solid var(--line); background: var(--surface); }
+.act .st { font-size: 13px; color: var(--text-3); }
+.act .st.crit { color: var(--red); font-weight: 500; }
+.act .sp { flex: 1; }
+.btn { height: 36px; padding: 0 16px; border-radius: 4px; border: 1px solid var(--line-2); background: #fff; font-weight: 500; }
+.btn:hover { border-color: var(--text-3); }
+.btn.pri { background: var(--teal); border-color: var(--teal); color: #fff; font-weight: 600; padding: 0 20px; }
+.btn.pri:hover { background: var(--teal-2); }
+.btn.pri:disabled { opacity: .45; cursor: not-allowed; }
+.more { position: relative; }
+.menu { position: absolute; bottom: 42px; right: 0; min-width: 200px; background: #fff; border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 8px 24px rgba(0,0,0,.12); padding: 4px 0; z-index: 20; }
+.menu button { display: block; width: 100%; text-align: left; border: 0; background: none; padding: 8px 14px; font-size: 13.5px; }
+.menu button:hover { background: var(--hover); }
+.menu button.danger { color: var(--red); }
+.menu hr { border: 0; border-top: 1px solid var(--line); margin: 4px 0; }
+
+/* drawer */
+.scrim { position: fixed; inset: 0; background: rgba(11,46,74,.18); z-index: 40; opacity: 0; pointer-events: none; transition: opacity .15s; }
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: 400px; background: #fff; z-index: 41; box-shadow: -8px 0 32px rgba(0,0,0,.12); transform: translateX(100%); transition: transform .2s ease; display: flex; flex-direction: column; }
+.open .scrim { opacity: 1; pointer-events: auto; }
+.open .drawer { transform: none; }
+.dr-h { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--line); }
+.dr-h b { font-size: 15px; }
+.dr-h button { border: 0; background: none; font-size: 20px; color: var(--text-3); line-height: 1; }
+.dr-t { display: flex; gap: 4px; padding: 0 14px; border-bottom: 1px solid var(--line); }
+.dr-t button { border: 0; background: none; padding: 10px 8px; font-size: 13px; color: var(--text-2); position: relative; }
+.dr-t button.on { color: var(--text); font-weight: 600; }
+.dr-t button.on::after { content: ''; position: absolute; left: 6px; right: 6px; bottom: -1px; height: 2px; background: var(--teal); }
+.dr-b { padding: 16px 20px; overflow: auto; flex: 1; font-size: 13.5px; }
+dl.kv { display: grid; grid-template-columns: 120px 1fr; gap: 10px 12px; margin: 0; }
+dl.kv dt { color: var(--text-3); }
+dl.kv dd { margin: 0; }
+.tl { list-style: none; margin: 0; padding: 0; }
+.tl li { display: grid; grid-template-columns: 14px 1fr auto; gap: 10px; padding-bottom: 18px; position: relative; }
+.tl li::before { content: ''; width: 9px; height: 9px; border-radius: 50%; margin-top: 5px; border: 2px solid var(--line-2); background: #fff; }
+.tl li.d::before { background: var(--teal); border-color: var(--teal); }
+.tl li:not(:last-child)::after { content: ''; position: absolute; left: 6px; top: 17px; bottom: 2px; width: 1px; background: var(--line-2); }
+.tl small { display: block; color: var(--text-3); }
+.tl .t { color: var(--text-2); font-variant-numeric: tabular-nums; }
+.tl li:not(.d) { color: var(--text-3); }
+table.h { width: 100%; border-collapse: collapse; }
+.h td { padding: 7px 0; border-bottom: 1px solid var(--line); }
+.h td.r { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* popover */
+.pop { position: absolute; top: 40px; right: 12px; width: 280px; background: #fff; border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 8px 24px rgba(0,0,0,.12); padding: 14px 16px; z-index: 25; font-size: 13px; }
+.pop h4 { margin: 0 0 10px; font-size: 13px; }
+.pop dl.kv { grid-template-columns: 1fr auto; gap: 7px; }
+.pop dl.kv dd { text-align: right; font-weight: 600; }
+
+.toast { position: fixed; bottom: 76px; left: calc(340px + (100vw - 340px) / 2); transform: translate(-50%, 8px); background: #1C2B36; color: #fff; padding: 9px 12px 9px 16px; border-radius: 4px; display: flex; gap: 14px; align-items: center; font-size: 13.5px; opacity: 0; pointer-events: none; transition: .15s; z-index: 50; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+.toast button { border: 0; background: none; color: #7fd6d2; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <header class="bar-top">
+    <div class="brand">Nallam Hospital<span>Laboratory</span></div>
+    <div class="scan" id="scan">
+      <input id="q" autocomplete="off" placeholder="Scan tube or search patient   ( / )">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <div class="drop" id="drop" hidden></div>
+    </div>
+    <div class="user"><span class="mock" title="Sample data. Nothing here changes the real app.">Mockup</span><button class="ibtn" id="helpBtn" title="Keyboard shortcuts">?</button><div class="ava">VR</div></div>
+  </header>
+  <nav class="steps" id="steps"></nav>
+  <main class="split">
+    <section class="list"><div class="lhead" id="lhead"></div><div class="rows" id="rows"></div></section>
+    <section class="detail" id="detail"></section>
+  </main>
+</div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer"></aside>
+<div class="toast" id="toast"><span id="toastMsg"></span><button id="undo">Undo</button></div>
+
+<script>
+// ---------- sample data ----------
+const NOW = Date.now(); const ago = (m) => new Date(NOW - m * 60000).toISOString();
+const T = {
+  CBC: { name: 'Complete Blood Count', method: 'Automated haematology analyser', tube: 'EDTA', params: [
+    ['Haemoglobin', 'g/dL', 12, 16, 7, 20, 11.2], ['Total WBC count', '×10³/µL', 4, 11, 2, 30, 8.9], ['Platelet count', '×10³/µL', 150, 400, 50, 1000, 210], ['RBC count', '×10⁶/µL', 4.2, 5.4, null, null, 4.6], ['PCV', '%', 36, 46, null, null, 38]] },
+  CRP: { name: 'C-Reactive Protein', method: 'Immunoturbidimetry', tube: 'PLAIN', params: [['CRP', 'mg/L', 0, 6, null, null, 4.1]] },
+  RFT: { name: 'Renal Function Test', method: 'Biochemistry analyser', tube: 'PLAIN', params: [['Urea', 'mg/dL', 15, 40, null, 150, 32], ['Creatinine', 'mg/dL', 0.6, 1.2, null, 5, 1.0], ['Sodium', 'mmol/L', 135, 145, 120, 160, 139], ['Potassium', 'mmol/L', 3.5, 5.1, 2.8, 6.2, 4.2]] },
+  FBS: { name: 'Fasting Blood Sugar', method: 'GOD-POD', tube: 'FLUORIDE', params: [['Glucose (fasting)', 'mg/dL', 70, 100, 40, 400, 112]] },
+  URINE: { name: 'Urine Routine', method: 'Strip + microscopy', tube: 'URINE', params: [['Colour', '', 'Pale yellow'], ['Protein', '', 'Nil'], ['Sugar', '', 'Nil'], ['Pus cells', '/hpf', 0, 5, null, null, 2]] },
+  LIPID: { name: 'Lipid Profile', method: 'Enzymatic', tube: 'PLAIN', params: [['Total cholesterol', 'mg/dL', 0, 200, null, null, 214], ['Triglycerides', 'mg/dL', 0, 150, null, null, 180], ['HDL cholesterol', 'mg/dL', 40, 60, null, null, 41], ['LDL cholesterol', 'mg/dL', 0, 100, null, null, 137]] },
+  NS1: { name: 'Dengue NS1 Antigen', method: 'Rapid card', tube: 'PLAIN', params: [['Dengue NS1', '', 'Negative']] },
+  HBA1C: { name: 'HbA1c', method: 'HPLC cartridge', tube: 'EDTA', params: [['HbA1c', '%', 4, 5.6, null, null, 7.4]] }
+};
+const CAPS = { EDTA: ['EDTA', '#8E6BBF'], PLAIN: ['Plain / serum', '#D64541'], FLUORIDE: ['Fluoride', '#7D8A93'], URINE: ['Urine container', '#E0A526'] };
+const CHOICES = { 'Pale yellow': ['Pale yellow', 'Yellow', 'Dark yellow', 'Red'], Nil: ['Nil', 'Trace', '+', '++', '+++'], Negative: ['Negative', 'Positive'] };
+const SEED = [
+  { sid: '04010062', name: 'Murugan Kannan', age: 61, sex: 'M', uhid: 'NH-UH-024318', src: 'Ward', bed: 'S-4', ward: 'Surgical', pri: 'STAT', doc: 'Dr. R. Balaji (Surgery)', at: 46, tests: ['CBC', 'CRP'], stage: 'collect' },
+  { sid: '04010059', name: 'Syed Imran', age: 41, sex: 'M', uhid: 'NH-UH-025190', src: 'Referral', token: 7, pri: 'ROUTINE', doc: 'Dr. P. Lakshmi Narayanan', at: 132, tests: ['URINE'], stage: 'collect', redo: 'Earlier sample haemolysed — collect again' },
+  { sid: '04010060', name: 'Priyanka Ravi', age: 27, sex: 'F', uhid: 'NH-UH-026012', src: 'OPD', token: 8, pri: 'URGENT', doc: 'Dr. S. Nivetha', at: 18, tests: ['RFT', 'FBS'], stage: 'collect' },
+  { sid: '04010061', name: 'Lakshmi Devi', age: 54, sex: 'F', uhid: 'NH-UH-022871', src: 'OPD', token: 6, pri: 'ROUTINE', doc: 'Dr. S. Nivetha', at: 52, tests: ['LIPID', 'HBA1C'], stage: 'receive' },
+  { sid: '04010057', name: 'Revathi Mohan', age: 33, sex: 'F', uhid: 'NH-UH-026434', src: 'Referral', token: 4, pri: 'ROUTINE', doc: 'Dr. R. Senthil Kumar', at: 95, tests: ['CBC', 'NS1'], stage: 'results' },
+  { sid: '04010058', name: 'Arjun Prakash', age: 8, sex: 'M', uhid: 'NH-UH-026511', src: 'Casualty', pri: 'STAT', doc: 'Dr. K. Anand (Casualty)', at: 38, tests: ['CBC', 'RFT'], stage: 'results' },
+  { sid: '04010055', name: 'Geetha Venkat', age: 47, sex: 'F', uhid: 'NH-UH-021904', src: 'OPD', token: 2, pri: 'ROUTINE', doc: 'Dr. S. Nivetha', at: 160, tests: ['CBC', 'FBS'], stage: 'verify', values: { Haemoglobin: 9.8, 'Total WBC count': 7.2, 'Platelet count': 260, 'RBC count': 3.9, PCV: 31, 'Glucose (fasting)': 182 } },
+  { sid: '04010053', name: 'Prakash Natarajan', age: 58, sex: 'M', uhid: 'NH-UH-020117', phone: '+91 98431 55021', src: 'OPD', token: 1, pri: 'ROUTINE', doc: 'Dr. S. Nivetha', at: 210, tests: ['HBA1C'], stage: 'send', values: { HbA1c: 8.1 } },
+  { sid: '04010054', name: 'Kavya Suresh', age: 29, sex: 'F', uhid: 'NH-UH-026380', phone: '+91 90037 41180', src: 'Self', token: 3, pri: 'ROUTINE', doc: 'Self request', at: 185, tests: ['URINE'], stage: 'send', values: { Colour: 'Pale yellow', Protein: 'Nil', Sugar: 'Nil', 'Pus cells': 3 } }
+];
+const ORDER = ['collect', 'receive', 'results', 'verify', 'send', 'done'];
+const build = () => SEED.map((s, i) => {
+  const st = ORDER.indexOf(s.stage); const byTube = {};
+  s.tests.forEach((c) => (byTube[T[c].tube] ||= []).push(c));
+  const tubes = Object.entries(byTube).map(([cap, tests], k) => ({ code: `T-${s.sid.slice(-4)}-${k + 1}`, cap, tests, collected: st >= 1 ? ago(s.at - 8) : null, received: st >= 2 ? ago(s.at - 14) : null }));
+  const values = {}; s.tests.forEach((c) => T[c].params.forEach((p) => { values[p[0]] = s.values?.[p[0]] ?? ''; }));
+  return { ...s, id: 'V' + i, createdAt: ago(s.at), tubes, values, phone: s.phone || '+91 98' + (40000000 + i * 135791), resultsAt: st >= 3 ? ago(30) : null, verifiedAt: st >= 4 ? ago(20) : null };
+});
+let V = build(); let undoSnap = null;
+
+// ---------- helpers ----------
+const $ = (s, r = document) => r.querySelector(s); const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = (v) => String(v ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const mins = (iso) => Math.round((Date.now() - new Date(iso)) / 60000);
+const dur = (m) => (m < 60 ? `${m}m` : `${Math.floor(m / 60)}h ${String(m % 60).padStart(2, '0')}m`);
+const clock = (iso) => new Date(iso).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+const STEPS = [['collect', 'Collect'], ['receive', 'Receive'], ['results', 'Results'], ['verify', 'Verify'], ['send', 'Send']];
+const LATE = { collect: 30, receive: 20, results: 90, verify: 30, send: 60 };
+const place = (v) => (v.bed ? `Bed ${v.bed}` : v.token ? `Token ${v.token}` : 'Casualty');
+const params = (v) => v.tests.flatMap((c) => T[c].params.map((p) => ({ name: p[0], unit: p[1], qual: typeof p[2] === 'string', ref: p[2], low: p[2], high: p[3], cl: p[4], ch: p[5], prev: p[6] })));
+function flagOf(p, val) {
+  if (val === '' || val == null) return '';
+  if (p.qual) return val !== p.ref ? 'A' : '';
+  const x = Number(val); if (Number.isNaN(x)) return '';
+  if (p.cl != null && x <= p.cl) return 'LL'; if (p.ch != null && x >= p.ch) return 'HH';
+  return x < p.low ? 'L' : x > p.high ? 'H' : '';
+}
+const ARROW = { H: '↑', L: '↓', HH: '↑↑', LL: '↓↓', A: '•' };
+const crits = (v) => params(v).filter((p) => ['HH', 'LL'].includes(flagOf(p, v.values[p.name])));
+
+// ---------- state ----------
+const S = { step: 'collect', src: 'All', sel: null, compare: false, drawer: null, dtab: 'details' };
+const matchSrc = (v) => S.src === 'All' || (S.src === 'OPD' ? ['OPD', 'Referral', 'Self'].includes(v.src) : v.src === S.src);
+const rank = { STAT: 0, URGENT: 1, ROUTINE: 2 };
+const inStep = (k) => V.filter((v) => v.stage === k).sort((a, b) => rank[a.pri] - rank[b.pri] || a.createdAt.localeCompare(b.createdAt));
+const visible = () => inStep(S.step).filter(matchSrc);
+const snap = () => { undoSnap = JSON.stringify(V); };
+function undo() { if (!undoSnap) return; V = JSON.parse(undoSnap); undoSnap = null; hideToast(); render(); }
+
+// ---------- render ----------
+function render() {
+  const vis = visible();
+  if (!vis.some((v) => v.id === S.sel)) S.sel = vis[0]?.id || null;
+  $('#steps').innerHTML = STEPS.map(([k, l]) => `<button class="step ${S.step === k ? 'on' : ''}" data-step="${k}">${l}<b>${inStep(k).length}</b></button>`).join('')
+    + `<span class="sp"></span><button class="tbtn" id="todayBtn">Today ▾</button>`;
+  $('#lhead').innerHTML = `<span>${vis.length} patient${vis.length === 1 ? '' : 's'}</span><select id="src" title="Where the patient is from">${['All', 'OPD', 'Ward', 'Casualty'].map((s) => `<option ${S.src === s ? 'selected' : ''} value="${s}">${s === 'All' ? 'All sources' : s}</option>`).join('')}</select>`;
+  $('#rows').innerHTML = vis.length ? vis.map((v) => {
+    const m = mins(v.createdAt);
+    return `<div class="row ${v.id === S.sel ? 'sel' : ''}" data-id="${v.id}">
+      <div class="mk" title="${place(v)}">${v.bed || v.token || 'C'}</div>
+      <div style="min-width:0"><div class="nm">${esc(v.name)}</div><div class="ts">${v.tests.join(', ')}</div></div>
+      <div class="rt">${v.pri !== 'ROUTINE' ? `<span class="pri ${v.pri === 'URGENT' ? 'u' : ''}">${v.pri}</span>` : ''}<span class="${m > LATE[S.step] ? 'late' : ''}">${dur(m)}</span></div></div>`;
+  }).join('') : `<div class="none">All done at this step.</div>`;
+  renderDetail(); renderDrawer();
+}
+
+function renderDetail() {
+  const v = V.find((x) => x.id === S.sel); const d = $('#detail');
+  if (!v) { d.innerHTML = `<div class="none" style="margin-top:120px">Select a patient, or scan a tube.</div>`; return; }
+  let body = ''; let status = ''; let primary = ''; let more = [];
+  if (v.stage === 'collect' || v.stage === 'receive') {
+    const col = v.stage === 'collect'; const key = col ? 'collected' : 'received'; const left = v.tubes.filter((t) => !t[key]).length;
+    body = `${v.redo ? `<p class="note">${esc(v.redo)}</p>` : ''}<div class="tubes">${v.tubes.map((t) => `<div class="tube"><span class="cap" style="--c:${CAPS[t.cap][1]}"></span><span class="tn">${CAPS[t.cap][0]}</span><span class="tt">${t.tests.join(', ')}</span>
+      ${t[key] ? `<span class="ok">✓ ${col ? 'Collected' : 'Received'}</span>` : `<button class="link" data-tube="${t.code}">${col ? 'Mark collected' : 'Receive'}</button>`}</div>`).join('')}</div>`;
+    status = `${v.tubes.length - left} of ${v.tubes.length} tubes`;
+    primary = col ? (left === v.tubes.length ? 'Collect all' : `Collect ${left} left`) : (left > 1 ? `Receive all ${left}` : 'Receive');
+    more = col ? [['labels', 'Reprint labels'], v.token ? ['call', `Call token ${v.token}`] : null, ['-'], ['cancel', 'Patient not available', 'danger']] : [['labels', 'Reprint labels'], ['-'], ['reject', 'Reject sample', 'danger']];
+  } else if (v.stage === 'results' || v.stage === 'verify') {
+    const edit = v.stage === 'results';
+    body = `<table class="res"><thead><tr><th>Test</th><th class="r">Result</th><th>Unit</th><th>Normal range</th><th class="r col-pv">Last result</th></tr></thead><tbody>
+      ${v.tests.map((c) => `<tr class="g"><td colspan="5">${T[c].name}</td></tr>` + T[c].params.map((raw) => {
+        const p = params(v).find((x) => x.name === raw[0]); const val = v.values[p.name]; const f = flagOf(p, val);
+        const cell = edit ? (p.qual ? `<select class="vsel" data-in="${esc(p.name)}">${(CHOICES[p.ref] || [p.ref]).map((o) => `<option ${o === (val || p.ref) ? 'selected' : ''}>${o}</option>`).join('')}</select>`
+          : `<input class="vin" inputmode="decimal" data-in="${esc(p.name)}" value="${esc(val)}">`) : `<span class="ro">${esc(val) || '—'}</span>`;
+        return `<tr class="${f}"><td>${esc(p.name)}</td><td class="r"><span class="fa" data-fa="${esc(p.name)}">${ARROW[f] || ''}</span>${cell}</td><td class="u">${esc(p.unit)}</td><td class="rg num">${p.qual ? esc(p.ref) : `${p.low} – ${p.high}`}</td><td class="r pv col-pv num">${p.prev ?? '—'}</td></tr>`;
+      }).join('')).join('')}</tbody></table>
+      ${!edit && crits(v).length ? `<div class="inf">Critical value told to <input id="infName" value="${esc(v.doc)}" style="flex:1"> at <input id="infAt" style="width:90px" value="${clock(new Date().toISOString())}"></div>` : ''}`;
+    primary = edit ? 'Save results' : 'Verify & release';
+    more = edit ? [['draft', 'Save as draft'], ['-'], ['reject', 'Reject sample', 'danger']] : [['back', 'Send back for re-entry']];
+  } else if (v.stage === 'send') {
+    body = `<div class="opts"><label class="opt"><input type="checkbox" name="ch" value="wa" checked>WhatsApp to patient<span>${v.phone}</span></label>
+      <label class="opt"><input type="checkbox" name="ch" value="doc">WhatsApp to doctor<span>${esc(v.doc)}</span></label>
+      <label class="opt"><input type="checkbox" name="ch" value="print">Print for counter<span>Patient collects</span></label></div>`;
+    status = ''; primary = 'Send report'; more = [['preview', 'Preview report'], ['print', 'Print now']];
+  }
+  more = more.filter(Boolean);
+  const tableStep = v.stage === 'results' || v.stage === 'verify';
+  d.innerHTML = `<div class="dscroll ${S.compare ? 'cmp' : ''}"><div class="dwrap">
+      <div class="dh"><h1>${esc(v.name)}<span>${v.age} ${v.sex}</span></h1>${v.pri !== 'ROUTINE' ? `<span class="chip ${v.pri === 'URGENT' ? 'u' : ''}">${v.pri}</span>` : ''}<span class="sp"></span>
+        ${tableStep ? `<button class="lbtn ${S.compare ? 'on' : ''}" id="cmpBtn">Compare with last</button>` : ''}<button class="lbtn" id="detBtn">Details</button></div>
+      ${body}</div></div>
+    <div class="act"><span class="st" id="st"></span><span class="sp"></span>
+      <div class="more"><button class="btn" id="moreBtn" title="More actions">More ⋯</button><div class="menu" id="menu" hidden>${more.map(([k, l, c]) => (k === '-' ? '<hr>' : `<button data-act="${k}" class="${c || ''}">${l}</button>`)).join('')}</div></div>
+      <button class="btn pri" id="go">${primary}</button></div>`;
+  if (status) $('#st').textContent = status;
+  wire(v); if (tableStep) refreshStatus(v);
+}
+
+function refreshStatus(v) {
+  const cs = crits(v); const st = $('#st'); const total = params(v).length; const done = params(v).filter((p) => v.values[p.name] !== '').length;
+  if (cs.length) { st.className = 'st crit'; st.textContent = `${cs.length} critical value${cs.length > 1 ? 's' : ''} — ${v.stage === 'results' ? `recheck before saving${done < total ? ` · ${done} of ${total} entered` : ''}` : 'inform the doctor'}`; }
+  else { st.className = 'st'; st.textContent = v.stage === 'results' ? `${done} of ${total} entered` : 'Check, then release'; }
+  if (v.stage === 'results') $('#go').disabled = done < total;
+}
+
+// ---------- drawer (all the extra detail lives here) ----------
+function renderDrawer() {
+  document.body.classList.toggle('open', !!S.drawer);
+  const v = V.find((x) => x.id === S.drawer); if (!v) return;
+  const tl = [['Billed & paid', v.createdAt, 'Reception'], ['Sample collected', v.tubes.every((t) => t.collected) && v.tubes[0].collected, 'Vignesh Raj'], ['Received in lab', v.tubes.every((t) => t.received) && v.tubes[0].received, 'Vignesh Raj'], ['Results entered', v.resultsAt, 'Vignesh Raj'], ['Verified', v.verifiedAt, 'Dr. M. Kavitha (Pathologist)'], ['Report sent', v.sentAt, '']];
+  const tabs = { details: 'Details', timeline: 'Timeline', tubes: 'Tubes', history: 'Past results' };
+  let b = '';
+  if (S.dtab === 'details') b = `<dl class="kv"><dt>Age / sex</dt><dd>${v.age} y · ${v.sex === 'M' ? 'Male' : 'Female'}</dd><dt>Sample ID</dt><dd class="num">${v.sid}</dd><dt>UHID</dt><dd class="num">${v.uhid}</dd><dt>Mobile</dt><dd class="num">${v.phone}</dd>
+    <dt>From</dt><dd>${v.src}${v.bed ? ` · ${v.ward} ward, bed ${v.bed}` : v.token ? ` · token ${v.token}` : ''}</dd><dt>Doctor</dt><dd>${esc(v.doc)}</dd><dt>Priority</dt><dd>${v.pri[0] + v.pri.slice(1).toLowerCase()}</dd>
+    <dt>Tests</dt><dd>${v.tests.map((c) => `${T[c].name}<br><span style="color:var(--text-3);font-size:12.5px">${T[c].method}</span>`).join('<br>')}</dd><dt>Waiting</dt><dd>${dur(mins(v.createdAt))} since billing</dd></dl>`;
+  if (S.dtab === 'timeline') b = `<ul class="tl">${tl.map(([l, t, by]) => `<li class="${t ? 'd' : ''}"><div>${l}${t && by ? `<small>${by}</small>` : ''}</div><span class="t">${t ? clock(t) : '—'}</span></li>`).join('')}</ul>`;
+  if (S.dtab === 'tubes') b = `<table class="h">${v.tubes.map((t) => `<tr><td><b>${CAPS[t.cap][0]}</b><br><span style="color:var(--text-3)">${t.code} · ${t.tests.join(', ')}</span></td><td class="r">${t.received ? 'In lab' : t.collected ? 'Collected' : 'Not collected'}</td></tr>`).join('')}</table>
+    <p style="color:var(--text-3);font-size:12.5px;margin-top:14px">Reagents and tubes are taken off lab stock automatically when a tube is collected.</p>`;
+  if (S.dtab === 'history') b = `<p style="color:var(--text-3);margin:0 0 10px">Last visit · 3 Oct</p><table class="h">${params(v).filter((p) => p.prev != null).map((p) => `<tr><td>${p.name}</td><td class="r">${p.prev} <span style="color:var(--text-3)">${p.unit}</span></td></tr>`).join('') || '<tr><td>No earlier results</td></tr>'}</table>`;
+  $('#drawer').innerHTML = `<div class="dr-h"><b>${esc(v.name)}</b><button id="drClose" title="Close (Esc)">×</button></div>
+    <div class="dr-t">${Object.entries(tabs).map(([k, l]) => `<button data-dtab="${k}" class="${S.dtab === k ? 'on' : ''}">${l}</button>`).join('')}</div><div class="dr-b">${b}</div>`;
+}
+
+// ---------- actions ----------
+function next(v, msg) { v.stage = ORDER[ORDER.indexOf(v.stage) + 1]; toast(msg); render(); }
+function primaryAct(v) {
+  snap(); const now = new Date().toISOString();
+  if (v.stage === 'collect') { v.tubes.forEach((t) => { t.collected ||= now; }); v.redo = null; next(v, `${v.name} — collected`); }
+  else if (v.stage === 'receive') { v.tubes.forEach((t) => { t.received ||= now; }); next(v, `${v.name} — in lab`); }
+  else if (v.stage === 'results') { if ($('#go').disabled) return; v.resultsAt = now; next(v, `${v.name} — results saved`); }
+  else if (v.stage === 'verify') { if (crits(v).length && !$('#infName').value.trim()) { toast('Write who was told about the critical value', false); return; } v.verifiedAt = now; next(v, `${v.name} — report released`); }
+  else if (v.stage === 'send') { const ch = $$('[name=ch]:checked').map((c) => c.value); if (!ch.length) { toast('Pick at least one way to send', false); return; } v.sentAt = now; next(v, `${v.name} — report sent`); }
+}
+function doTube(code) {
+  const v = V.find((x) => x.tubes.some((t) => t.code === code)); if (!v) return false;
+  const t = v.tubes.find((x) => x.code === code); S.step = v.stage === 'done' ? S.step : v.stage; S.sel = v.id; S.src = 'All';
+  const key = v.stage === 'collect' ? 'collected' : v.stage === 'receive' ? 'received' : null;
+  if (!key || t[key]) { toast(`${code} — ${v.name} is already past this`, false); render(); return true; }
+  snap(); t[key] = new Date().toISOString(); beep();
+  if (v.tubes.every((x) => x[key])) { if (key === 'collected') v.redo = null; next(v, `${v.name} — ${key === 'collected' ? 'collected' : 'in lab'}`); }
+  else { toast(`${CAPS[t.cap][0]} tube ${key}`); render(); }
+  return true;
+}
+function wire(v) {
+  $('#go').onclick = () => primaryAct(v);
+  $('#detBtn').onclick = () => { S.drawer = v.id; S.dtab = 'details'; renderDrawer(); };
+  const cb = $('#cmpBtn'); if (cb) cb.onclick = () => { S.compare = !S.compare; renderDetail(); };
+  $('#moreBtn').onclick = (e) => { e.stopPropagation(); $('#menu').hidden = !$('#menu').hidden; };
+  $$('[data-act]').forEach((b) => b.onclick = () => {
+    const a = b.dataset.act; $('#menu').hidden = true;
+    if (a === 'back') { snap(); v.stage = 'results'; toast(`${v.name} — sent back for re-entry`); render(); }
+    else if (a === 'reject') { snap(); v.stage = 'collect'; v.redo = 'Earlier sample rejected — collect again'; v.tubes.forEach((t) => { t.collected = null; t.received = null; }); toast(`${v.name} — sample rejected, recollect`); render(); }
+    else if (a === 'cancel') toast(`${v.name} — moved to the end of the queue`, false);
+    else toast({ labels: 'Labels sent to printer', call: `Token ${v.token} called on the display`, draft: 'Draft saved', preview: 'Opening report preview…', print: 'Sent to printer' }[a], false);
+  });
+  $$('[data-tube]').forEach((b) => b.onclick = () => doTube(b.dataset.tube));
+  const ins = $$('[data-in]');
+  ins.forEach((inp, i) => {
+    const upd = () => { v.values[inp.dataset.in] = inp.value; const p = params(v).find((x) => x.name === inp.dataset.in); const f = flagOf(p, inp.value);
+      inp.closest('tr').className = f; $(`[data-fa="${CSS.escape(p.name)}"]`).textContent = ARROW[f] || ''; refreshStatus(v); };
+    inp.addEventListener('input', upd); inp.addEventListener('change', upd);
+    inp.addEventListener('keydown', (e) => {
+      e.stopPropagation();
+      if (e.key === 'Escape') { inp.blur(); return; }
+      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); primaryAct(v); document.activeElement?.blur(); return; }
+      if (e.key === 'Enter' || (e.key === 'ArrowDown' && inp.tagName === 'INPUT')) { e.preventDefault(); (ins[i + 1] || $('#go')).focus(); }
+      if (e.key === 'ArrowUp' && inp.tagName === 'INPUT') { e.preventDefault(); ins[i - 1]?.focus(); }
+      if (e.key === 'Escape') inp.blur();
+    });
+  });
+}
+
+// ---------- scan / search ----------
+const q = $('#q'); const drop = $('#drop'); let dsel = 0;
+const find = (s) => { s = s.trim().toLowerCase(); if (!s) return []; return V.filter((v) => String(v.token) === s || [v.name, v.sid, v.uhid, v.phone, ...v.tubes.map((t) => t.code)].join(' ').toLowerCase().includes(s)).slice(0, 6); };
+function drawDrop() { const m = find(q.value); drop.hidden = !m.length; drop.innerHTML = m.map((v, i) => `<button class="${i === dsel ? 'on' : ''}" data-go="${v.id}"><span>${esc(v.name)} <small>${place(v)}</small></span><small>${(STEPS.find((s) => s[0] === v.stage) || [0, 'Done'])[1]}</small></button>`).join(''); $$('[data-go]', drop).forEach((b) => b.onmousedown = () => openPatient(b.dataset.go)); }
+function openPatient(id) { const v = V.find((x) => x.id === id); if (v.stage !== 'done') S.step = v.stage; S.sel = id; S.src = 'All'; q.value = ''; drop.hidden = true; render(); }
+q.oninput = () => { dsel = 0; drawDrop(); };
+q.onkeydown = (e) => {
+  const m = find(q.value);
+  if (e.key === 'ArrowDown') { e.preventDefault(); dsel = Math.min(dsel + 1, m.length - 1); drawDrop(); }
+  else if (e.key === 'ArrowUp') { e.preventDefault(); dsel = Math.max(dsel - 1, 0); drawDrop(); }
+  else if (e.key === 'Escape') { q.value = ''; drop.hidden = true; q.blur(); }
+  else if (e.key === 'Enter') {
+    e.preventDefault(); const code = q.value.trim().toUpperCase();
+    if (V.some((v) => v.tubes.some((t) => t.code === code))) { q.value = ''; drop.hidden = true; flash('ok'); doTube(code); return; }
+    if (m.length) { flash('ok'); openPatient(m[dsel].id); } else { flash('miss'); toast(`Nothing found for “${q.value}”`, false); }
+  }
+};
+q.onblur = () => setTimeout(() => { drop.hidden = true; }, 120);
+function flash(c) { $('#scan').classList.add(c); setTimeout(() => $('#scan').classList.remove(c), 450); }
+let actx; function beep() { try { actx ||= new AudioContext(); const o = actx.createOscillator(); const g = actx.createGain(); o.frequency.value = 1320; g.gain.value = 0.05; o.connect(g).connect(actx.destination); o.start(); o.stop(actx.currentTime + 0.07); } catch {} }
+
+// ---------- popovers ----------
+function popover(html) { closePop(); const p = document.createElement('div'); p.className = 'pop'; p.id = 'pop'; p.innerHTML = html; $('#steps').style.position = 'relative'; $('#steps').append(p); }
+const closePop = () => $('#pop')?.remove();
+const TODAY = `<h4>Today</h4><dl class="kv"><dt>Reports sent</dt><dd>14</dd><dt>Average bill → report</dt><dd>2h 50m</dd><dt>Waiting for payment</dt><dd>1</dd><dt>Samples rejected</dt><dd>1</dd><dt>Critical values called</dt><dd>2</dd></dl>`;
+const KEYS = `<h4>Keyboard</h4><dl class="kv"><dt>Scan / search</dt><dd><kbd>/</kbd></dd><dt>Next / previous patient</dt><dd><kbd>↓</kbd> <kbd>↑</kbd></dd><dt>Change step</dt><dd><kbd>1</kbd>–<kbd>5</kbd></dd><dt>Main action</dt><dd><kbd>Enter</kbd></dd><dt>Save results</dt><dd><kbd>Ctrl</kbd>+<kbd>Enter</kbd></dd><dt>Patient details</dt><dd><kbd>D</kbd></dd><dt>Undo</dt><dd><kbd>Ctrl</kbd>+<kbd>Z</kbd></dd><dt>Start over (demo)</dt><dd><a href="#" id="reset" style="color:var(--teal-2)">Reset</a></dd></dl>`;
+
+// ---------- global events ----------
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.more')) $$('.menu').forEach((m) => { m.hidden = true; });
+  if (!e.target.closest('.pop') && !e.target.closest('#todayBtn') && !e.target.closest('#helpBtn')) closePop();
+  const st = e.target.closest('[data-step]'); if (st) { S.step = st.dataset.step; S.sel = null; render(); }
+  const r = e.target.closest('.row'); if (r) { S.sel = r.dataset.id; render(); }
+  const dt = e.target.closest('[data-dtab]'); if (dt) { S.dtab = dt.dataset.dtab; renderDrawer(); }
+  if (e.target.closest('#drClose') || e.target.id === 'scrim') { S.drawer = null; renderDrawer(); }
+  if (e.target.closest('#todayBtn')) { $('#pop') ? closePop() : popover(TODAY); }
+  if (e.target.closest('#helpBtn')) { $('#pop') ? closePop() : popover(KEYS); }
+  if (e.target.id === 'reset') { e.preventDefault(); V = build(); undoSnap = null; Object.assign(S, { step: 'collect', src: 'All', sel: null, drawer: null }); closePop(); render(); }
+});
+document.addEventListener('change', (e) => { if (e.target.id === 'src') { S.src = e.target.value; render(); } });
+document.addEventListener('keydown', (e) => {
+  const typing = ['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName);
+  if (e.key === 'Escape') { if (S.drawer) { S.drawer = null; renderDrawer(); } closePop(); $$('.menu').forEach((m) => { m.hidden = true; }); }
+  if (typing) return;
+  if (e.key === '/') { e.preventDefault(); q.focus(); return; }
+  const vis = visible(); const i = vis.findIndex((v) => v.id === S.sel); const v = V.find((x) => x.id === S.sel);
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); S.sel = vis[Math.max(0, Math.min(vis.length - 1, i + (e.key === 'ArrowDown' ? 1 : -1)))]?.id; render(); $('.row.sel')?.scrollIntoView({ block: 'nearest' }); }
+  else if (e.key >= '1' && e.key <= '5') { e.preventDefault(); S.step = STEPS[+e.key - 1][0]; S.sel = null; render(); }
+  else if ((e.key === 'd' || e.key === 'D') && v) { S.drawer = S.drawer ? null : v.id; S.dtab = 'details'; renderDrawer(); }
+  else if (e.key === '?') { $('#pop') ? closePop() : popover(KEYS); }
+  else if (e.key === 'Enter' && v && document.activeElement.tagName !== 'BUTTON') {
+    e.preventDefault();
+    if (v.stage === 'results') { const ins = $$('[data-in]'); (ins.find((x) => !x.value) || ins[0])?.focus(); } else primaryAct(v);
+  }
+  else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') { e.preventDefault(); undo(); }
+});
+
+// ---------- toast ----------
+let tt; function toast(msg, canUndo = true) { $('#toastMsg').textContent = msg; $('#undo').style.display = canUndo && undoSnap ? '' : 'none'; $('#toast').classList.add('show'); clearTimeout(tt); tt = setTimeout(hideToast, 4000); }
+function hideToast() { $('#toast').classList.remove('show'); }
+$('#undo').onclick = undo;
+render();
+</script>
+</body>
+</html>
