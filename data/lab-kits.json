@@ -75,5 +75,12 @@
     "unit": "cartridge",
     "reorderLevel": 20,
     "active": true
+  },
+  {
+    "id": "KIT-0012",
+    "name": "HIV 1 & 2 rapid card",
+    "unit": "card",
+    "reorderLevel": 15,
+    "active": true
   }
 ]

@@ -13,9 +13,11 @@ import { navigate } from '../router.js';
 import { openPatientForm } from './patients.js';
 import { patientAge } from '../patients.js';
 import { openStartShift } from './shifts.js';
+import { SOURCE, PRIORITY, saveReferralDoctor } from '../labflow.js';
+import { saveBlob } from '../attachment-store.js';
 
 const KEY = 'nallam_hms_hbill_draft';
-const blank = () => ({ patientId: '', doctor: '', lines: [], discountPct: 0, discountRequestId: null, payMode: 'CASH', payments: [{ mode: 'CASH', amount: '', tendered: '', reference: '' }], credit: { type: '', reason: '' }, remarks: '' });
+const blank = () => ({ patientId: '', doctor: '', lines: [], discountPct: 0, discountRequestId: null, payMode: 'CASH', payments: [{ mode: 'CASH', amount: '', tendered: '', reference: '' }], credit: { type: '', reason: '' }, remarks: '', lab: { source: 'OP', referralDoctorId: '', priority: 'ROUTINE', prescription: null, consent: false, notes: '' } });
 const PAY = [['CASH', 'Cash', 'banknote'], ['UPI', 'UPI', 'smartphone'], ['CARD', 'Card', 'credit-card'], ['SPLIT', 'Split', 'split'], ['CREDIT', 'Credit', 'hand-coins'], ['EMERGENCY', 'Emergency', 'siren']];
 
 export function render(view, params, query) {
@@ -45,6 +47,7 @@ export function render(view, params, query) {
       </div>
       <div class="bill-right">
         <section class="card"><header class="card-head"><h2>${icon('receipt')} Bill</h2><span class="muted small" data-count></span></header><div data-lines></div><div class="bill-totals" data-totals></div></section>
+        <section class="card mt-2 hidden" data-labcard><header class="card-head"><h2>${icon('flask-conical')} Lab request</h2><span class="muted small">How did the patient come for these tests?</span></header><div class="card-body" data-lab></div></section>
         <section class="card mt-2"><header class="card-head"><h2><span class="step-dot">3</span> Payment</h2></header><div class="card-body"><div class="pay-modes" data-modes></div><div data-pay class="mt-2"></div></div></section>
         <div class="bill-actions"><div data-msgs class="grow"></div><button class="btn btn-primary btn-lg" data-complete>${icon('check-circle-2')}Complete bill</button></div>
       </div>
@@ -164,7 +167,7 @@ export function render(view, params, query) {
     P.querySelector('[data-creason]')?.addEventListener('input', (e) => { d.credit.reason = e.target.value; save(); drawMsgs(); });
     P.querySelector('[data-pmode0]')?.addEventListener('change', (e) => { d.payments[0].mode = e.target.value; save(); });
     P.querySelector('[data-pamt0]')?.addEventListener('input', (e) => { d.payments[0].amount = e.target.value; save(); drawMsgs(); });
-    $('[data-modes]').querySelectorAll('[data-mode]').forEach((b) => { b.onclick = () => { d.payMode = b.dataset.mode; if (d.payMode === 'SPLIT') d.payments = []; save(); drawPay(); drawMsgs(); }; });
+    $('[data-modes]').querySelectorAll('[data-mode]').forEach((b) => { b.onclick = () => { d.payMode = b.dataset.mode; if (d.payMode === 'SPLIT') d.payments = []; save(); drawPay(); drawLab(); drawMsgs(); }; });
     refreshIcons(view);
   }
   function drawMsgs() {
@@ -172,7 +175,38 @@ export function render(view, params, query) {
     $('[data-msgs]').innerHTML = d.lines.length && v.errors.length ? `<div class="msg-err">${icon('alert-circle')}${esc(v.errors[0])}</div>` : v.warnings.length ? `<div class="msg-warn">${icon('info')}${esc(v.warnings[0])}</div>` : '';
     refreshIcons($('[data-msgs]'));
   }
-  const drawAll = () => { drawLines(); drawPay(); drawMsgs(); drawResults(); };
+  // ---------------- lab request (hospital multi-source design) ----------------
+  function drawLab() {
+    d.lab ||= blank().lab;
+    const tests = d.lines.filter((l) => l.serviceId && svc(l.serviceId)?.category === 'LAB').map((l) => svc(l.serviceId));
+    const cardEl = $('[data-labcard]'); cardEl.classList.toggle('hidden', !tests.length); if (!tests.length) return;
+    if (d.lines.some((l) => l.orderIds?.length) && d.lab.source !== 'OP' && !d.lab.touched) d.lab.source = 'OP';
+    const L = d.lab; const rd = L.referralDoctorId && store.get('referralDoctors', L.referralDoctorId);
+    const rx = tests.filter((t) => t.lab.rxRequired); const cons = tests.filter((t) => t.lab.consentRequired);
+    $('[data-lab]').innerHTML = d.payMode === 'EMERGENCY' ? `<div class="alert alert-danger">${icon('siren')}<div><strong>Emergency (STAT).</strong> Samples are collected in casualty and the report goes to the duty doctor first.</div></div>` : `
+      <div class="src-pick">${['OP', 'REFERRAL', 'SELF'].map((k) => `<button class="src-opt ${L.source === k ? 'active' : ''}" data-src="${k}">${icon(SOURCE[k].icon)}<strong>${{ OP: 'Hospital doctor', REFERRAL: 'Outside prescription', SELF: 'Self request' }[k]}</strong><small>${{ OP: 'Ordered by our doctor — no prescription needed', REFERRAL: 'Upload or scan the prescription', SELF: 'No prescription — only allowed tests' }[k]}</small></button>`).join('')}</div>
+      ${L.source === 'REFERRAL' ? `<div class="form-grid mt-2"><div class="field col-8"><label>Referring doctor <span class="req">*</span></label><div data-rd></div></div><div class="col-4" style="align-self:end"><button class="btn btn-secondary btn-block" data-addrd>${icon('user-plus')}New doctor</button></div>
+        <div class="field col-12"><label>Prescription <span class="req">*</span></label>${L.prescription ? `<div class="rx-file">${icon(L.prescription.type.includes('pdf') ? 'file-text' : 'file-image')}<span class="grow"><strong>${esc(L.prescription.name)}</strong><small>${Math.round(L.prescription.size / 1024)} KB · attached</small></span><button class="btn btn-ghost btn-sm" data-rxrm>${icon('x')}</button></div>`
+          : `<label class="rx-drop">${icon('upload-cloud')}<span><strong>Upload photo / PDF</strong><small>Phone photo, scanned copy or the image the patient sent on WhatsApp</small></span><input type="file" hidden accept="image/*,application/pdf" capture="environment" data-rx></label>`}</div></div>` : ''}
+      ${L.source === 'SELF' && rx.length ? `<div class="alert alert-danger mt-2">${icon('ban')}<div><strong>${esc(rx.map((t) => t.name).join(', '))}</strong> needs a doctor's prescription. Remove it or choose “Outside prescription”.</div></div>` : ''}
+      ${L.source === 'SELF' && !rx.length ? `<p class="muted small mt-1">${icon('info', 'ic-inline')} The report will say “Self” as the referrer.</p>` : ''}`;
+    $('[data-lab]').innerHTML += `<div class="form-grid mt-2"><div class="field col-6"><label>Priority</label><div class="seg seg-full">${Object.entries(PRIORITY).reverse().map(([k, x]) => `<button class="seg-btn ${(d.payMode === 'EMERGENCY' ? 'STAT' : L.priority) === k ? 'active' : ''}" data-pri="${k}" ${d.payMode === 'EMERGENCY' ? 'disabled' : ''}>${x.label}</button>`).join('')}</div></div>
+      <div class="field col-6"><label>Clinical notes</label><input class="input" data-lnotes value="${esc(L.notes || '')}" placeholder="Optional — e.g. fasting 12 h"></div>
+      ${cons.length ? `<label class="check col-12 consent"><input type="checkbox" data-consent ${L.consent ? 'checked' : ''}> Signed consent taken for <strong>${esc(cons.map((t) => t.name).join(', '))}</strong> (pre-test counselling done)</label>` : ''}</div>`;
+    const H = $('[data-lab]');
+    H.querySelectorAll('[data-src]').forEach((b) => { b.onclick = () => { L.source = b.dataset.src; L.touched = true; save(); drawLab(); drawMsgs(); }; });
+    H.querySelectorAll('[data-pri]').forEach((b) => { b.onclick = () => { L.priority = b.dataset.pri; save(); drawLab(); }; });
+    H.querySelector('[data-lnotes]')?.addEventListener('input', (e) => { L.notes = e.target.value; save(); });
+    H.querySelector('[data-consent]')?.addEventListener('change', (e) => { L.consent = e.target.checked; save(); drawMsgs(); });
+    H.querySelector('[data-rxrm]')?.addEventListener('click', () => { L.prescription = null; save(); drawLab(); drawMsgs(); });
+    H.querySelector('[data-rx]')?.addEventListener('change', async (e) => { const f = e.target.files[0]; if (!f) return; if (f.size > 8 * 1048576) return toast('File is larger than 8 MB.', 'error');
+      const id = 'RXF-' + Date.now().toString(36).toUpperCase(); await saveBlob(id, f); L.prescription = { id, name: f.name, type: f.type || 'image/jpeg', size: f.size, at: new Date().toISOString(), by: user.id }; save(); drawLab(); drawMsgs(); toast('Prescription attached.'); });
+    if (H.querySelector('[data-rd]')) combo(H.querySelector('[data-rd]'), { value: L.referralDoctorId, options: () => store.all('referralDoctors').filter((r) => r.active).map((r) => ({ value: r.id, label: `${r.name}, ${r.qualification}`, sub: r.clinic, keywords: r.phone })), placeholder: 'Search referring doctor…', onChange: (v) => { L.referralDoctorId = v; const r = store.get('referralDoctors', v); d.doctor = `${r.name}, ${r.qualification}`; $('[data-doc]').value = d.doctor; save(); drawMsgs(); } });
+    H.querySelector('[data-addrd]')?.addEventListener('click', () => openModal({ title: 'Add referring doctor', size: 'sm', body: `<div class="field"><label>Name</label><input class="input" data-n placeholder="Dr. …"></div><div class="form-grid mt-1"><div class="field col-6"><label>Qualification</label><input class="input" data-q placeholder="M.D (Gen Med)"></div><div class="field col-6"><label>Mobile</label><input class="input" data-ph inputmode="numeric" maxlength="10"></div></div><div class="field mt-1"><label>Clinic / hospital</label><input class="input" data-c></div>`,
+      footer: [{ label: 'Cancel', onClick: (c) => c() }, { label: 'Save', cls: 'btn-primary', onClick: (c, w) => { try { const r = saveReferralDoctor({ name: w.querySelector('[data-n]').value, qualification: w.querySelector('[data-q]').value, phone: w.querySelector('[data-ph]').value, clinic: w.querySelector('[data-c]').value }, user); L.referralDoctorId = r.id; d.doctor = `${r.name}, ${r.qualification}`; $('[data-doc]').value = d.doctor; save(); c(); drawLab(); drawMsgs(); } catch (e) { toast(e.message, 'error'); } } }] }));
+    refreshIcons(cardEl);
+  }
+  const drawAll = () => { drawLines(); drawLab(); drawPay(); drawMsgs(); drawResults(); };
 
   $('[data-clear]').onclick = async () => { if (d.lines.length && !(await confirmDialog({ title: 'Clear this bill?', message: 'All services on the bill will be removed.', confirmLabel: 'Clear', tone: 'danger' }))) return; d = blank(); save(); pat.set(''); $('[data-doc]').value = ''; drawPatient(); drawAll(); };
   $('[data-complete]').onclick = async () => {
@@ -181,7 +215,7 @@ export function render(view, params, query) {
     const t = v.totals; const p = patientOf(d.patientId);
     const ok = await confirmDialog({ title: 'Complete bill?', iconName: 'receipt', confirmLabel: 'Complete bill', message: `<strong>${esc(p.name)}</strong> · <span class="mono">${esc(p.uhid)}</span><br>${t.items.length} item(s) · Grand total <strong>${fmtINR(t.grandTotal)}</strong>${t.covered ? `<br><span class="text-purple">${fmtINR(t.covered)} covered by package</span>` : ''}<br>${v.paid ? 'Received ' + fmtINR(v.paid) : ''}${v.due > 0 ? ` <span class="text-warning">· ${d.payMode === 'EMERGENCY' ? 'Emergency' : 'Credit'} ${fmtINR(v.due)}</span>` : ''}${v.warnings.length ? `<ul class="small text-warning mt-1">${v.warnings.map((w) => `<li>${esc(w)}</li>`).join('')}</ul>` : ''}` });
     if (!ok) return;
-    try { const b = completeHospitalBill(d, user); sessionStorage.removeItem(KEY); toast(`Bill ${b.id} saved. Departments can see the services now.`); navigate(`#/hbills/${b.id}/receipt?new=1`); } catch (e) { toast(e.message, 'error'); }
+    try { const b = completeHospitalBill({ ...d, lab: { ...d.lab, priority: d.payMode === 'EMERGENCY' ? 'STAT' : d.lab.priority, prescription: d.lab.source === 'REFERRAL' ? d.lab.prescription : null } }, user); sessionStorage.removeItem(KEY); toast(`Bill ${b.id} saved. Departments can see the services now.`); navigate(`#/hbills/${b.id}/receipt?new=1`); } catch (e) { toast(e.message, 'error'); }
   };
 
   const unsub = store.subscribe(() => { if (d.discountRequestId) drawLines(); drawShift(); });

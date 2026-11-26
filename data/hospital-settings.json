@@ -79,7 +79,46 @@
     "reportPrefix": "LR",
     "accessionPrefix": "LAB",
     "requireSecondPersonVerification": false,
-    "kitVarianceTolerance": 2
+    "kitVarianceTolerance": 2,
+    "reportCollectDays": 15,
+    "payBeforeHandover": true,
+    "containers": {
+      "EDTA": {
+        "label": "EDTA — lavender top",
+        "color": "#8E6BBF"
+      },
+      "PLAIN": {
+        "label": "Plain / serum — red top",
+        "color": "#D64541"
+      },
+      "FLUORIDE": {
+        "label": "Fluoride — grey top",
+        "color": "#7D8A93"
+      },
+      "URINE": {
+        "label": "Urine container",
+        "color": "#E0A526"
+      }
+    }
+  },
+  "messaging": {
+    "provider": "WA_LINK",
+    "countryCode": "91",
+    "autoQueueOnReport": true,
+    "publicReportBaseUrl": "",
+    "senderPhone": "+91 4344 220 000",
+    "cloud": {
+      "enabled": false,
+      "phoneNumberId": "",
+      "businessAccountId": "",
+      "templateName": "lab_report_ready",
+      "language": "en"
+    },
+    "templates": {
+      "REPORT_READY": "Dear {name},\nYour lab report (SID {sid}) from {hospital} is ready.\nTests: {tests}\n{link}Show this SID at the lab counter to collect the printed copy within {days} days.\n— {hospital}, {phone}",
+      "REPORT_READY_DOCTOR": "Dear {doctor},\nThe lab report of your patient {name} (SID {sid}) at {hospital} is ready.\nTests: {tests}\n{link}— {hospital} Laboratory",
+      "SAMPLE_REJECTED": "Dear {name},\nYour sample for {tests} (SID {sid}) could not be processed. Please visit the {hospital} lab again for a new sample. We regret the inconvenience."
+    }
   },
   "mrd": {
     "codingDueDays": 5,

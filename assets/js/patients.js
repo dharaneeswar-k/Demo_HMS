@@ -29,7 +29,7 @@ export function validatePatient(d) {
   if (d.age !== '' && d.age != null && (!Number.isInteger(Number(d.age)) || Number(d.age) < 0 || Number(d.age) > 120)) errs.age = 'Enter a valid age (0–120).';
   if (!/^[6-9]\d{9}$/.test(digits(d.phone))) errs.phone = 'Enter a valid 10-digit mobile number.';
   if (d.altPhone && !/^\d{10}$/.test(digits(d.altPhone))) errs.altPhone = 'Enter a valid 10-digit number.';
-  if (!String(d.address || '').trim()) errs.address = 'Enter the address.';
+  if (d.email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(d.email).trim())) errs.email = 'Enter a valid email address.';
   if (d.pincode && !/^\d{6}$/.test(d.pincode)) errs.pincode = 'Pincode must be 6 digits.';
   return errs;
 }
@@ -42,7 +42,7 @@ export function registerPatient(d, user) {
   return store.transaction(() => {
     const id = store.nextId('patients', 'PAT-');
     const p = store.insert('patients', { id, uhid: nextUhid(), name: d.name.trim().replace(/\s+/g, ' '), gender: d.gender, dob: d.dob || '', age: d.dob ? ageFromDob(d.dob) : Number(d.age),
-      phone: fmtPhone(d.phone), altPhone: d.altPhone ? fmtPhone(d.altPhone) : '', address: d.address.trim(), city: d.city || 'Hosur', pincode: d.pincode || '', guardianName: d.guardianName || '',
+      phone: fmtPhone(d.phone), altPhone: d.altPhone ? fmtPhone(d.altPhone) : '', address: String(d.address || '').trim(), email: String(d.email || '').trim(), city: d.city || 'Hosur', pincode: d.pincode || '', guardianName: d.guardianName || '',
       bloodGroup: d.bloodGroup || '', allergies: d.allergies || '', registeredAt: new Date().toISOString(), registeredBy: user.id, active: true });
     audit(user, 'PATIENT_REGISTERED', 'PATIENT', id, `${p.uhid} · ${p.name}`);
     return p;
@@ -55,7 +55,7 @@ export function updatePatient(id, d, user) {
     const p = store.get('patients', id);
     const before = `${p.name} / ${p.phone}`;
     Object.assign(p, { name: d.name.trim(), gender: d.gender, dob: d.dob || '', age: d.dob ? ageFromDob(d.dob) : Number(d.age), phone: fmtPhone(d.phone), altPhone: d.altPhone ? fmtPhone(d.altPhone) : '',
-      address: d.address.trim(), city: d.city || 'Hosur', pincode: d.pincode || '', guardianName: d.guardianName || '', bloodGroup: d.bloodGroup || '', allergies: d.allergies || '', updatedAt: new Date().toISOString(), updatedBy: user.id });
+      address: String(d.address || '').trim(), email: String(d.email || '').trim(), city: d.city || 'Hosur', pincode: d.pincode || '', guardianName: d.guardianName || '', bloodGroup: d.bloodGroup || '', allergies: d.allergies || '', updatedAt: new Date().toISOString(), updatedBy: user.id });
     audit(user, 'PATIENT_UPDATED', 'PATIENT', id, `${before} → ${p.name} / ${p.phone}`);
     return p;
   });

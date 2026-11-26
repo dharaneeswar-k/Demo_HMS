@@ -28,8 +28,9 @@ function formHTML(p = {}) {
     <div class="pt-section"><div class="pt-sec-h">${icon('phone')}Contact</div><div class="form-grid">
       <div class="field col-4" data-f="phone"><label>Mobile number <span class="req">*</span></label><div class="input-prefix"><span>+91</span><input class="input" name="phone" inputmode="numeric" maxlength="10" value="${ph}" placeholder="10-digit mobile"></div></div>
       <div class="field col-4" data-f="altPhone"><label>Alternate number</label><input class="input" name="altPhone" inputmode="numeric" maxlength="10" value="${String(p.altPhone || '').replace(/\D/g, '').slice(-10)}" placeholder="Optional"></div>
-      <div class="field col-4"><label>Guardian / attender</label><input class="input" name="guardianName" value="${v('guardianName')}" placeholder="Optional"></div>
-      <div class="field col-6" data-f="address"><label>Address <span class="req">*</span></label><input class="input" name="address" value="${v('address')}" placeholder="Door no., street, area"></div>
+      <div class="field col-4" data-f="email"><label>Email <span class="muted small">(for reports)</span></label><input class="input" name="email" type="email" value="${v('email')}" placeholder="Optional"></div>
+      <div class="field col-6"><label>Guardian / attender</label><input class="input" name="guardianName" value="${v('guardianName')}" placeholder="Optional"></div>
+      <div class="field col-6" data-f="address"><label>Address</label><input class="input" name="address" value="${v('address')}" placeholder="Door no., street, area"></div>
       <div class="field col-3"><label>City</label><input class="input" name="city" value="${v('city', 'Hosur')}"></div>
       <div class="field col-3" data-f="pincode"><label>Pincode</label><input class="input" name="pincode" inputmode="numeric" maxlength="6" value="${v('pincode', '635109')}"></div>
     </div></div>
@@ -155,7 +156,7 @@ export function renderProfile(view, params, query) {
     </div>
     <div class="grid grid-1-2">
       ${card('Patient details', dl([['Patient ID', `<span class="mono">${esc(p.uhid)}</span>`], ['Date of birth', p.dob ? fmtDate(p.dob) : '—'], ['Age', age != null ? age + ' years' : '—'], ['Gender', p.gender === 'M' ? 'Male' : p.gender === 'F' ? 'Female' : 'Other'],
-        ['Mobile', esc(p.phone)], ['Alternate number', esc(p.altPhone || '—')], ['Address', `${esc(p.address)}, ${esc(p.city)} ${esc(p.pincode || '')}`], ['Guardian / attender', esc(p.guardianName || '—')],
+        ['Mobile', esc(p.phone)], ['Email', esc(p.email || '—')], ['Alternate number', esc(p.altPhone || '—')], ['Address', `${esc(p.address)}, ${esc(p.city)} ${esc(p.pincode || '')}`], ['Guardian / attender', esc(p.guardianName || '—')],
         ['Blood group', esc(p.bloodGroup || 'Not known')], ['Allergies', p.allergies ? `<span class="text-danger strong">${esc(p.allergies)}</span>` : 'None noted'], ['Registered', `${fmtDateTime(p.registeredAt)}<div class="cell-sub">by ${esc(userName(p.registeredBy))}</div>`]]))}
       ${card('Visit history', hist.length ? `<ul class="timeline">${hist.map((h) => `<li><span class="tl-dot ${({ BILL: 'info', HBILL: 'info', RETURN: 'warning', LAB: 'purple', SERVICE: 'success', PACKAGE: 'purple', ADMISSION: 'warning' })[h.kind] || 'success'}">${icon(({ BILL: 'pill', HBILL: 'receipt', RETURN: 'undo-2', LAB: 'flask-conical', SERVICE: 'syringe', PACKAGE: 'package', ADMISSION: 'bed-double' })[h.kind] || 'user-plus')}</span>
         <div class="row-between"><strong>${h.ref ? `<a href="${({ BILL: '#/pharmacy/bills/', HBILL: '#/hbills/', RETURN: '#/pharmacy/returns?focus=', LAB: '#/lab/report/', SERVICE: '#/services?tab=done&x=', PACKAGE: '#/packages/enrolments/', ADMISSION: '#/mrd/' })[h.kind] + h.ref}">${esc(h.title)}</a>` : esc(h.title)}</strong>${h.amount != null ? `<span class="strong ${h.amount < 0 ? 'text-danger' : ''}">${fmtINR(h.amount)}</span>` : ''}</div>

@@ -12,7 +12,7 @@
     "requestedAt": "2026-11-17T03:29:00.000Z",
     "billedAt": "2026-11-17T03:29:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261117-0001",
+    "accession": "04010001-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-17T05:01:00.000Z",
     "notes": "",
@@ -59,16 +59,18 @@
       "verifiedAt": "2026-11-17T05:01:00.000Z",
       "reportNo": "LR-2026-00001",
       "printedAt": "2026-11-17T05:21:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010001-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00001"
   },
   {
     "id": "ORD-00002",
     "billId": "HB-2026-00002",
     "itemId": "HB-2026-00002-1",
     "patientId": "PAT-0004",
-    "serviceId": "SRV-0013",
+    "serviceId": "SRV-0014",
     "category": "ECG",
     "name": "ECG — 12 lead",
     "doctor": "Dr. A. Ravichandran (General Medicine)",
@@ -88,7 +90,7 @@
     "billId": "HB-2026-00003",
     "itemId": "HB-2026-00003-1",
     "patientId": "PAT-0016",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. P. Kavya (ENT)",
@@ -108,7 +110,7 @@
     "billId": "HB-2026-00003",
     "itemId": "HB-2026-00003-1",
     "patientId": "PAT-0016",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. P. Kavya (ENT)",
@@ -128,7 +130,7 @@
     "billId": "HB-2026-00004",
     "itemId": "HB-2026-00004-1",
     "patientId": "PAT-0005",
-    "serviceId": "SRV-0023",
+    "serviceId": "SRV-0024",
     "category": "OTHER",
     "name": "Medical certificate",
     "doctor": "Dr. S. Nivetha (Paediatrics)",
@@ -148,7 +150,7 @@
     "billId": "HB-2026-00005",
     "itemId": "HB-2026-00005-1",
     "patientId": "PAT-0010",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. M. Harish (Orthopaedics)",
@@ -168,7 +170,7 @@
     "billId": "HB-2026-00005",
     "itemId": "HB-2026-00005-2",
     "patientId": "PAT-0010",
-    "serviceId": "SRV-0015",
+    "serviceId": "SRV-0016",
     "category": "INJECTION",
     "name": "IV cannulation",
     "doctor": "Dr. M. Harish (Orthopaedics)",
@@ -188,7 +190,7 @@
     "billId": "HB-2026-00006",
     "itemId": "HB-2026-00006-1",
     "patientId": "PAT-0014",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. M. Harish (Orthopaedics)",
@@ -208,7 +210,7 @@
     "billId": "HB-2026-00006",
     "itemId": "HB-2026-00006-1",
     "patientId": "PAT-0014",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. M. Harish (Orthopaedics)",
@@ -228,7 +230,7 @@
     "billId": "HB-2026-00006",
     "itemId": "HB-2026-00006-2",
     "patientId": "PAT-0014",
-    "serviceId": "SRV-0015",
+    "serviceId": "SRV-0016",
     "category": "INJECTION",
     "name": "IV cannulation",
     "doctor": "Dr. M. Harish (Orthopaedics)",
@@ -248,7 +250,7 @@
     "billId": "HB-2026-00007",
     "itemId": "HB-2026-00007-1",
     "patientId": "PAT-0014",
-    "serviceId": "SRV-0013",
+    "serviceId": "SRV-0014",
     "category": "ECG",
     "name": "ECG — 12 lead",
     "doctor": "Dr. R. Balaji (Surgery)",
@@ -276,7 +278,7 @@
     "requestedAt": "2026-11-17T07:34:00.000Z",
     "billedAt": "2026-11-17T07:34:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261117-0012",
+    "accession": "04010002-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-17T09:26:00.000Z",
     "notes": "",
@@ -323,16 +325,18 @@
       "verifiedAt": "2026-11-17T09:26:00.000Z",
       "reportNo": "LR-2026-00002",
       "printedAt": "2026-11-17T09:46:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010002-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00002"
   },
   {
     "id": "ORD-00013",
     "billId": "HB-2026-00008",
     "itemId": "HB-2026-00008-1",
     "patientId": "PAT-0002",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. S. Nivetha (Paediatrics)",
@@ -352,7 +356,7 @@
     "billId": "HB-2026-00008",
     "itemId": "HB-2026-00008-1",
     "patientId": "PAT-0002",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. S. Nivetha (Paediatrics)",
@@ -372,7 +376,7 @@
     "billId": "HB-2026-00008",
     "itemId": "HB-2026-00008-2",
     "patientId": "PAT-0002",
-    "serviceId": "SRV-0015",
+    "serviceId": "SRV-0016",
     "category": "INJECTION",
     "name": "IV cannulation",
     "doctor": "Dr. S. Nivetha (Paediatrics)",
@@ -392,7 +396,7 @@
     "billId": "HB-2026-00009",
     "itemId": "HB-2026-00009-1",
     "patientId": "PAT-0003",
-    "serviceId": "SRV-0013",
+    "serviceId": "SRV-0014",
     "category": "ECG",
     "name": "ECG — 12 lead",
     "doctor": "Dr. S. Nivetha (Paediatrics)",
@@ -420,7 +424,7 @@
     "requestedAt": "2026-11-17T09:59:00.000Z",
     "billedAt": "2026-11-17T09:59:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261117-0017",
+    "accession": "04010003-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-17T12:44:00.000Z",
     "notes": "",
@@ -447,9 +451,11 @@
       "verifiedAt": "2026-11-17T12:44:00.000Z",
       "reportNo": "LR-2026-00003",
       "printedAt": "2026-11-17T13:04:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010003-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00003"
   },
   {
     "id": "ORD-00018",
@@ -464,7 +470,7 @@
     "requestedAt": "2026-11-17T09:59:00.000Z",
     "billedAt": "2026-11-17T09:59:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261117-0018",
+    "accession": "04010003-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-17T11:25:00.000Z",
     "notes": "",
@@ -487,9 +493,11 @@
       "verifiedAt": "2026-11-17T11:25:00.000Z",
       "reportNo": "LR-2026-00004",
       "printedAt": "2026-11-17T11:45:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010003-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00003"
   },
   {
     "id": "ORD-00019",
@@ -504,7 +512,7 @@
     "requestedAt": "2026-11-17T10:59:00.000Z",
     "billedAt": "2026-11-17T10:59:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261117-0019",
+    "accession": "04010004-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-17T12:42:00.000Z",
     "notes": "",
@@ -527,9 +535,11 @@
       "verifiedAt": "2026-11-17T12:42:00.000Z",
       "reportNo": "LR-2026-00005",
       "printedAt": "2026-11-17T13:02:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010004-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00004"
   },
   {
     "id": "ORD-00020",
@@ -544,7 +554,7 @@
     "requestedAt": "2026-11-17T10:59:00.000Z",
     "billedAt": "2026-11-17T10:59:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261117-0020",
+    "accession": "04010004-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-17T13:55:00.000Z",
     "notes": "",
@@ -567,9 +577,11 @@
       "verifiedAt": "2026-11-17T13:55:00.000Z",
       "reportNo": "LR-2026-00006",
       "printedAt": "2026-11-17T14:15:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010004-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00004"
   },
   {
     "id": "ORD-00021",
@@ -584,7 +596,7 @@
     "requestedAt": "2026-11-17T12:05:00.000Z",
     "billedAt": "2026-11-17T12:05:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261117-0021",
+    "accession": "04010005-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-17T14:59:00.000Z",
     "notes": "",
@@ -611,9 +623,11 @@
       "verifiedAt": "2026-11-17T14:59:00.000Z",
       "reportNo": "LR-2026-00007",
       "printedAt": "2026-11-17T15:19:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010005-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00005"
   },
   {
     "id": "ORD-00022",
@@ -628,7 +642,7 @@
     "requestedAt": "2026-11-17T12:05:00.000Z",
     "billedAt": "2026-11-17T12:05:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261117-0022",
+    "accession": "04010005-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-17T14:28:00.000Z",
     "notes": "",
@@ -675,9 +689,11 @@
       "verifiedAt": "2026-11-17T14:28:00.000Z",
       "reportNo": "LR-2026-00008",
       "printedAt": "2026-11-17T14:48:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010005-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00005"
   },
   {
     "id": "ORD-00023",
@@ -692,7 +708,7 @@
     "requestedAt": "2026-11-17T12:38:00.000Z",
     "billedAt": "2026-11-17T12:38:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261117-0023",
+    "accession": "04010006-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-17T14:30:00.000Z",
     "notes": "",
@@ -739,9 +755,11 @@
       "verifiedAt": "2026-11-17T14:30:00.000Z",
       "reportNo": "LR-2026-00009",
       "printedAt": "2026-11-17T14:50:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010006-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00006"
   },
   {
     "id": "ORD-00024",
@@ -756,7 +774,7 @@
     "requestedAt": "2026-11-18T03:21:00.000Z",
     "billedAt": "2026-11-18T03:21:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261118-0024",
+    "accession": "04010007-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-18T06:31:00.000Z",
     "notes": "",
@@ -779,9 +797,11 @@
       "verifiedAt": "2026-11-18T06:31:00.000Z",
       "reportNo": "LR-2026-00010",
       "printedAt": "2026-11-18T06:51:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010007-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00007"
   },
   {
     "id": "ORD-00025",
@@ -796,7 +816,7 @@
     "requestedAt": "2026-11-18T03:21:00.000Z",
     "billedAt": "2026-11-18T03:21:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261118-0025",
+    "accession": "04010007-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-18T06:26:00.000Z",
     "notes": "",
@@ -819,16 +839,18 @@
       "verifiedAt": "2026-11-18T06:26:00.000Z",
       "reportNo": "LR-2026-00011",
       "printedAt": "2026-11-18T06:46:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010007-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00007"
   },
   {
     "id": "ORD-00026",
     "billId": "HB-2026-00015",
     "itemId": "HB-2026-00015-1",
     "patientId": "PAT-0010",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. S. Nivetha (Paediatrics)",
@@ -848,7 +870,7 @@
     "billId": "HB-2026-00015",
     "itemId": "HB-2026-00015-2",
     "patientId": "PAT-0010",
-    "serviceId": "SRV-0015",
+    "serviceId": "SRV-0016",
     "category": "INJECTION",
     "name": "IV cannulation",
     "doctor": "Dr. S. Nivetha (Paediatrics)",
@@ -868,7 +890,7 @@
     "billId": "HB-2026-00016",
     "itemId": "HB-2026-00016-1",
     "patientId": "PAT-0006",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. P. Kavya (ENT)",
@@ -888,7 +910,7 @@
     "billId": "HB-2026-00016",
     "itemId": "HB-2026-00016-1",
     "patientId": "PAT-0006",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. P. Kavya (ENT)",
@@ -916,7 +938,7 @@
     "requestedAt": "2026-11-18T05:06:00.000Z",
     "billedAt": "2026-11-18T05:06:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261118-0030",
+    "accession": "04010008-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-18T07:10:00.000Z",
     "notes": "",
@@ -939,9 +961,11 @@
       "verifiedAt": "2026-11-18T07:10:00.000Z",
       "reportNo": "LR-2026-00012",
       "printedAt": "2026-11-18T07:30:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010008-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00008"
   },
   {
     "id": "ORD-00031",
@@ -956,7 +980,7 @@
     "requestedAt": "2026-11-18T05:06:00.000Z",
     "billedAt": "2026-11-18T05:06:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261118-0031",
+    "accession": "04010008-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-18T08:35:00.000Z",
     "notes": "",
@@ -979,9 +1003,11 @@
       "verifiedAt": "2026-11-18T08:35:00.000Z",
       "reportNo": "LR-2026-00013",
       "printedAt": "2026-11-18T08:55:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010008-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00008"
   },
   {
     "id": "ORD-00032",
@@ -996,7 +1022,7 @@
     "requestedAt": "2026-11-18T05:42:00.000Z",
     "billedAt": "2026-11-18T05:42:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261118-0032",
+    "accession": "04010009-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-18T07:39:00.000Z",
     "notes": "",
@@ -1023,9 +1049,11 @@
       "verifiedAt": "2026-11-18T07:39:00.000Z",
       "reportNo": "LR-2026-00014",
       "printedAt": "2026-11-18T07:59:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010009-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00009"
   },
   {
     "id": "ORD-00033",
@@ -1040,7 +1068,7 @@
     "requestedAt": "2026-11-18T05:42:00.000Z",
     "billedAt": "2026-11-18T05:42:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261118-0033",
+    "accession": "04010009-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-18T08:58:00.000Z",
     "notes": "",
@@ -1087,16 +1115,18 @@
       "verifiedAt": "2026-11-18T08:58:00.000Z",
       "reportNo": "LR-2026-00015",
       "printedAt": "2026-11-18T09:18:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010009-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00009"
   },
   {
     "id": "ORD-00034",
     "billId": "HB-2026-00019",
     "itemId": "HB-2026-00019-1",
     "patientId": "PAT-0009",
-    "serviceId": "SRV-0013",
+    "serviceId": "SRV-0014",
     "category": "ECG",
     "name": "ECG — 12 lead",
     "doctor": "Dr. P. Kavya (ENT)",
@@ -1124,7 +1154,7 @@
     "requestedAt": "2026-11-18T07:22:00.000Z",
     "billedAt": "2026-11-18T07:22:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261118-0035",
+    "accession": "04010010-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-18T10:28:00.000Z",
     "notes": "",
@@ -1171,9 +1201,11 @@
       "verifiedAt": "2026-11-18T10:28:00.000Z",
       "reportNo": "LR-2026-00016",
       "printedAt": "2026-11-18T10:48:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010010-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00010"
   },
   {
     "id": "ORD-00036",
@@ -1188,7 +1220,7 @@
     "requestedAt": "2026-11-18T07:49:00.000Z",
     "billedAt": "2026-11-18T07:49:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261118-0036",
+    "accession": "04010011-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-18T10:32:00.000Z",
     "notes": "",
@@ -1235,9 +1267,11 @@
       "verifiedAt": "2026-11-18T10:32:00.000Z",
       "reportNo": "LR-2026-00017",
       "printedAt": "2026-11-18T10:52:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010011-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00011"
   },
   {
     "id": "ORD-00037",
@@ -1252,7 +1286,7 @@
     "requestedAt": "2026-11-18T08:02:00.000Z",
     "billedAt": "2026-11-18T08:02:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261118-0037",
+    "accession": "04010012-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-18T11:13:00.000Z",
     "notes": "",
@@ -1283,16 +1317,18 @@
       "verifiedAt": "2026-11-18T11:13:00.000Z",
       "reportNo": "LR-2026-00018",
       "printedAt": "2026-11-18T11:33:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010012-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00012"
   },
   {
     "id": "ORD-00038",
     "billId": "HB-2026-00022",
     "itemId": "HB-2026-00022-1",
     "patientId": "PAT-0013",
-    "serviceId": "SRV-0013",
+    "serviceId": "SRV-0014",
     "category": "ECG",
     "name": "ECG — 12 lead",
     "doctor": "Dr. A. Ravichandran (General Medicine)",
@@ -1320,7 +1356,7 @@
     "requestedAt": "2026-11-18T08:37:00.000Z",
     "billedAt": "2026-11-18T08:37:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261118-0039",
+    "accession": "04010013-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-18T11:47:00.000Z",
     "notes": "",
@@ -1367,9 +1403,11 @@
       "verifiedAt": "2026-11-18T11:47:00.000Z",
       "reportNo": "LR-2026-00019",
       "printedAt": "2026-11-18T12:07:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010013-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00013"
   },
   {
     "id": "ORD-00040",
@@ -1384,7 +1422,7 @@
     "requestedAt": "2026-11-18T10:06:00.000Z",
     "billedAt": "2026-11-18T10:06:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261118-0040",
+    "accession": "04010014-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-18T11:41:00.000Z",
     "notes": "",
@@ -1431,16 +1469,18 @@
       "verifiedAt": "2026-11-18T11:41:00.000Z",
       "reportNo": "LR-2026-00020",
       "printedAt": "2026-11-18T12:01:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010014-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00014"
   },
   {
     "id": "ORD-00041",
     "billId": "HB-2026-00024",
     "itemId": "HB-2026-00024-1",
     "patientId": "PAT-0013",
-    "serviceId": "SRV-0023",
+    "serviceId": "SRV-0024",
     "category": "OTHER",
     "name": "Medical certificate",
     "doctor": "Dr. R. Balaji (Surgery)",
@@ -1468,7 +1508,7 @@
     "requestedAt": "2026-11-18T11:43:00.000Z",
     "billedAt": "2026-11-18T11:43:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261118-0042",
+    "accession": "04010015-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-18T14:01:00.000Z",
     "notes": "",
@@ -1491,9 +1531,11 @@
       "verifiedAt": "2026-11-18T14:01:00.000Z",
       "reportNo": "LR-2026-00021",
       "printedAt": "2026-11-18T14:21:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010015-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00015"
   },
   {
     "id": "ORD-00043",
@@ -1508,7 +1550,7 @@
     "requestedAt": "2026-11-18T11:43:00.000Z",
     "billedAt": "2026-11-18T11:43:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261118-0043",
+    "accession": "04010015-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-18T13:47:00.000Z",
     "notes": "",
@@ -1555,9 +1597,11 @@
       "verifiedAt": "2026-11-18T13:47:00.000Z",
       "reportNo": "LR-2026-00022",
       "printedAt": "2026-11-18T14:07:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010015-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00015"
   },
   {
     "id": "ORD-00044",
@@ -1572,7 +1616,7 @@
     "requestedAt": "2026-11-18T12:39:00.000Z",
     "billedAt": "2026-11-18T12:39:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261118-0044",
+    "accession": "04010016-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-18T14:52:00.000Z",
     "notes": "",
@@ -1619,9 +1663,11 @@
       "verifiedAt": "2026-11-18T14:52:00.000Z",
       "reportNo": "LR-2026-00023",
       "printedAt": "2026-11-18T15:12:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010016-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00016"
   },
   {
     "id": "ORD-00045",
@@ -1636,7 +1682,7 @@
     "requestedAt": "2026-11-19T03:28:00.000Z",
     "billedAt": "2026-11-19T03:28:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261119-0045",
+    "accession": "04010017-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-19T05:09:00.000Z",
     "notes": "",
@@ -1683,9 +1729,11 @@
       "verifiedAt": "2026-11-19T05:09:00.000Z",
       "reportNo": "LR-2026-00024",
       "printedAt": "2026-11-19T05:29:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010017-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00017"
   },
   {
     "id": "ORD-00046",
@@ -1700,7 +1748,7 @@
     "requestedAt": "2026-11-19T04:05:00.000Z",
     "billedAt": "2026-11-19T04:05:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261119-0046",
+    "accession": "04010018-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-19T07:04:00.000Z",
     "notes": "",
@@ -1747,9 +1795,11 @@
       "verifiedAt": "2026-11-19T07:04:00.000Z",
       "reportNo": "LR-2026-00025",
       "printedAt": "2026-11-19T07:24:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010018-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00018"
   },
   {
     "id": "ORD-00047",
@@ -1764,7 +1814,7 @@
     "requestedAt": "2026-11-19T04:35:00.000Z",
     "billedAt": "2026-11-19T04:35:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261119-0047",
+    "accession": "04010019-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-19T07:38:00.000Z",
     "notes": "",
@@ -1811,9 +1861,11 @@
       "verifiedAt": "2026-11-19T07:38:00.000Z",
       "reportNo": "LR-2026-00026",
       "printedAt": "2026-11-19T07:58:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010019-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00019"
   },
   {
     "id": "ORD-00048",
@@ -1828,7 +1880,7 @@
     "requestedAt": "2026-11-19T05:52:00.000Z",
     "billedAt": "2026-11-19T05:52:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261119-0048",
+    "accession": "04010020-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-19T08:00:00.000Z",
     "notes": "",
@@ -1851,9 +1903,11 @@
       "verifiedAt": "2026-11-19T08:00:00.000Z",
       "reportNo": "LR-2026-00027",
       "printedAt": "2026-11-19T08:20:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010020-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00020"
   },
   {
     "id": "ORD-00049",
@@ -1868,7 +1922,7 @@
     "requestedAt": "2026-11-19T05:52:00.000Z",
     "billedAt": "2026-11-19T05:52:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261119-0049",
+    "accession": "04010020-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-19T08:18:00.000Z",
     "notes": "",
@@ -1891,9 +1945,11 @@
       "verifiedAt": "2026-11-19T08:18:00.000Z",
       "reportNo": "LR-2026-00028",
       "printedAt": "2026-11-19T08:38:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010020-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00020"
   },
   {
     "id": "ORD-00050",
@@ -1908,7 +1964,7 @@
     "requestedAt": "2026-11-19T07:22:00.000Z",
     "billedAt": "2026-11-19T07:22:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261119-0050",
+    "accession": "04010021-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-19T10:04:00.000Z",
     "notes": "",
@@ -1955,9 +2011,11 @@
       "verifiedAt": "2026-11-19T10:04:00.000Z",
       "reportNo": "LR-2026-00029",
       "printedAt": "2026-11-19T10:24:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010021-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00021"
   },
   {
     "id": "ORD-00051",
@@ -1972,7 +2030,7 @@
     "requestedAt": "2026-11-19T07:52:00.000Z",
     "billedAt": "2026-11-19T07:52:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261119-0051",
+    "accession": "04010022-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-19T10:22:00.000Z",
     "notes": "",
@@ -2019,9 +2077,11 @@
       "verifiedAt": "2026-11-19T10:22:00.000Z",
       "reportNo": "LR-2026-00030",
       "printedAt": "2026-11-19T10:42:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010022-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00022"
   },
   {
     "id": "ORD-00052",
@@ -2036,7 +2096,7 @@
     "requestedAt": "2026-11-19T09:05:00.000Z",
     "billedAt": "2026-11-19T09:05:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261119-0052",
+    "accession": "04010023-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-19T10:33:00.000Z",
     "notes": "",
@@ -2075,9 +2135,11 @@
       "verifiedAt": "2026-11-19T10:33:00.000Z",
       "reportNo": "LR-2026-00031",
       "printedAt": "2026-11-19T10:53:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010023-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00023"
   },
   {
     "id": "ORD-00053",
@@ -2092,7 +2154,7 @@
     "requestedAt": "2026-11-19T09:05:00.000Z",
     "billedAt": "2026-11-19T09:05:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261119-0053",
+    "accession": "04010023-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-19T10:41:00.000Z",
     "notes": "",
@@ -2139,9 +2201,11 @@
       "verifiedAt": "2026-11-19T10:41:00.000Z",
       "reportNo": "LR-2026-00032",
       "printedAt": "2026-11-19T11:01:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010023-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00023"
   },
   {
     "id": "ORD-00054",
@@ -2156,7 +2220,7 @@
     "requestedAt": "2026-11-19T09:56:00.000Z",
     "billedAt": "2026-11-19T09:56:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261119-0054",
+    "accession": "04010024-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-19T11:37:00.000Z",
     "notes": "",
@@ -2187,16 +2251,18 @@
       "verifiedAt": "2026-11-19T11:37:00.000Z",
       "reportNo": "LR-2026-00033",
       "printedAt": "2026-11-19T11:57:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010024-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00024"
   },
   {
     "id": "ORD-00055",
     "billId": "HB-2026-00035",
     "itemId": "HB-2026-00035-1",
     "patientId": "PAT-0008",
-    "serviceId": "SRV-0013",
+    "serviceId": "SRV-0014",
     "category": "ECG",
     "name": "ECG — 12 lead",
     "doctor": "Dr. A. Ravichandran (General Medicine)",
@@ -2224,7 +2290,7 @@
     "requestedAt": "2026-11-19T11:05:00.000Z",
     "billedAt": "2026-11-19T11:05:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261119-0056",
+    "accession": "04010025-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-19T13:49:00.000Z",
     "notes": "",
@@ -2271,9 +2337,11 @@
       "verifiedAt": "2026-11-19T13:49:00.000Z",
       "reportNo": "LR-2026-00034",
       "printedAt": "2026-11-19T14:09:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010025-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00025"
   },
   {
     "id": "ORD-00057",
@@ -2288,7 +2356,7 @@
     "requestedAt": "2026-11-19T12:18:00.000Z",
     "billedAt": "2026-11-19T12:18:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261119-0057",
+    "accession": "04010026-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-19T14:40:00.000Z",
     "notes": "",
@@ -2315,9 +2383,11 @@
       "verifiedAt": "2026-11-19T14:40:00.000Z",
       "reportNo": "LR-2026-00035",
       "printedAt": "2026-11-19T15:00:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010026-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00026"
   },
   {
     "id": "ORD-00058",
@@ -2332,7 +2402,7 @@
     "requestedAt": "2026-11-19T12:18:00.000Z",
     "billedAt": "2026-11-19T12:18:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261119-0058",
+    "accession": "04010026-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-19T15:19:00.000Z",
     "notes": "",
@@ -2379,16 +2449,18 @@
       "verifiedAt": "2026-11-19T15:19:00.000Z",
       "reportNo": "LR-2026-00036",
       "printedAt": "2026-11-19T15:39:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010026-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00026"
   },
   {
     "id": "ORD-00059",
     "billId": "HB-2026-00037",
     "itemId": "HB-2026-00037-1",
     "patientId": "PAT-0010",
-    "serviceId": "SRV-0018",
+    "serviceId": "SRV-0019",
     "category": "OTHER",
     "name": "Dressing — small",
     "doctor": "Dr. M. Harish (Orthopaedics)",
@@ -2416,7 +2488,7 @@
     "requestedAt": "2026-11-20T03:13:00.000Z",
     "billedAt": "2026-11-20T03:13:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261120-0060",
+    "accession": "04010027-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-20T05:07:00.000Z",
     "notes": "",
@@ -2439,9 +2511,11 @@
       "verifiedAt": "2026-11-20T05:07:00.000Z",
       "reportNo": "LR-2026-00037",
       "printedAt": "2026-11-20T05:27:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010027-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00027"
   },
   {
     "id": "ORD-00061",
@@ -2456,7 +2530,7 @@
     "requestedAt": "2026-11-20T03:13:00.000Z",
     "billedAt": "2026-11-20T03:13:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261120-0061",
+    "accession": "04010027-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-20T06:42:00.000Z",
     "notes": "",
@@ -2503,9 +2577,11 @@
       "verifiedAt": "2026-11-20T06:42:00.000Z",
       "reportNo": "LR-2026-00038",
       "printedAt": "2026-11-20T07:02:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010027-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00027"
   },
   {
     "id": "ORD-00062",
@@ -2520,7 +2596,7 @@
     "requestedAt": "2026-11-20T04:24:00.000Z",
     "billedAt": "2026-11-20T04:24:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261120-0062",
+    "accession": "04010028-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-20T06:38:00.000Z",
     "notes": "",
@@ -2551,9 +2627,11 @@
       "verifiedAt": "2026-11-20T06:38:00.000Z",
       "reportNo": "LR-2026-00039",
       "printedAt": "2026-11-20T06:58:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010028-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00028"
   },
   {
     "id": "ORD-00063",
@@ -2568,7 +2646,7 @@
     "requestedAt": "2026-11-20T05:17:00.000Z",
     "billedAt": "2026-11-20T05:17:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261120-0063",
+    "accession": "04010029-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-20T08:11:00.000Z",
     "notes": "",
@@ -2591,9 +2669,11 @@
       "verifiedAt": "2026-11-20T08:11:00.000Z",
       "reportNo": "LR-2026-00040",
       "printedAt": "2026-11-20T08:31:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010029-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00029"
   },
   {
     "id": "ORD-00064",
@@ -2608,7 +2688,7 @@
     "requestedAt": "2026-11-20T05:17:00.000Z",
     "billedAt": "2026-11-20T05:17:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261120-0064",
+    "accession": "04010029-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-20T08:16:00.000Z",
     "notes": "",
@@ -2631,9 +2711,11 @@
       "verifiedAt": "2026-11-20T08:16:00.000Z",
       "reportNo": "LR-2026-00041",
       "printedAt": "2026-11-20T08:36:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010029-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00029"
   },
   {
     "id": "ORD-00065",
@@ -2648,7 +2730,7 @@
     "requestedAt": "2026-11-20T05:55:00.000Z",
     "billedAt": "2026-11-20T05:55:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261120-0065",
+    "accession": "04010030-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-20T09:08:00.000Z",
     "notes": "",
@@ -2671,9 +2753,11 @@
       "verifiedAt": "2026-11-20T09:08:00.000Z",
       "reportNo": "LR-2026-00042",
       "printedAt": "2026-11-20T09:28:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010030-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00030"
   },
   {
     "id": "ORD-00066",
@@ -2688,7 +2772,7 @@
     "requestedAt": "2026-11-20T05:55:00.000Z",
     "billedAt": "2026-11-20T05:55:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261120-0066",
+    "accession": "04010030-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-20T08:20:00.000Z",
     "notes": "",
@@ -2711,16 +2795,18 @@
       "verifiedAt": "2026-11-20T08:20:00.000Z",
       "reportNo": "LR-2026-00043",
       "printedAt": "2026-11-20T08:40:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010030-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00030"
   },
   {
     "id": "ORD-00067",
     "billId": "HB-2026-00042",
     "itemId": "HB-2026-00042-1",
     "patientId": "PAT-0015",
-    "serviceId": "SRV-0023",
+    "serviceId": "SRV-0024",
     "category": "OTHER",
     "name": "Medical certificate",
     "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
@@ -2748,7 +2834,7 @@
     "requestedAt": "2026-11-20T08:55:00.000Z",
     "billedAt": "2026-11-20T08:55:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261120-0068",
+    "accession": "04010031-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-20T11:28:00.000Z",
     "notes": "",
@@ -2795,9 +2881,11 @@
       "verifiedAt": "2026-11-20T11:28:00.000Z",
       "reportNo": "LR-2026-00044",
       "printedAt": "2026-11-20T11:48:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010031-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00031"
   },
   {
     "id": "ORD-00069",
@@ -2812,7 +2900,7 @@
     "requestedAt": "2026-11-20T08:55:00.000Z",
     "billedAt": "2026-11-20T08:55:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261120-0069",
+    "accession": "04010031-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-20T11:15:00.000Z",
     "notes": "",
@@ -2835,16 +2923,18 @@
       "verifiedAt": "2026-11-20T11:15:00.000Z",
       "reportNo": "LR-2026-00045",
       "printedAt": "2026-11-20T11:35:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010031-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00031"
   },
   {
     "id": "ORD-00070",
     "billId": "HB-2026-00044",
     "itemId": "HB-2026-00044-1",
     "patientId": "PAT-0016",
-    "serviceId": "SRV-0023",
+    "serviceId": "SRV-0024",
     "category": "OTHER",
     "name": "Medical certificate",
     "doctor": "Dr. S. Nivetha (Paediatrics)",
@@ -2864,7 +2954,7 @@
     "billId": "HB-2026-00045",
     "itemId": "HB-2026-00045-1",
     "patientId": "PAT-0008",
-    "serviceId": "SRV-0013",
+    "serviceId": "SRV-0014",
     "category": "ECG",
     "name": "ECG — 12 lead",
     "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
@@ -2892,7 +2982,7 @@
     "requestedAt": "2026-11-20T10:45:00.000Z",
     "billedAt": "2026-11-20T10:45:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261120-0072",
+    "accession": "04010032-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-20T12:52:00.000Z",
     "notes": "",
@@ -2939,16 +3029,18 @@
       "verifiedAt": "2026-11-20T12:52:00.000Z",
       "reportNo": "LR-2026-00046",
       "printedAt": "2026-11-20T13:12:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010032-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00032"
   },
   {
     "id": "ORD-00073",
     "billId": "HB-2026-00046",
     "itemId": "HB-2026-00046-1",
     "patientId": "PAT-0012",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. P. Kavya (ENT)",
@@ -2968,7 +3060,7 @@
     "billId": "HB-2026-00046",
     "itemId": "HB-2026-00046-1",
     "patientId": "PAT-0012",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. P. Kavya (ENT)",
@@ -2988,7 +3080,7 @@
     "billId": "HB-2026-00046",
     "itemId": "HB-2026-00046-2",
     "patientId": "PAT-0012",
-    "serviceId": "SRV-0015",
+    "serviceId": "SRV-0016",
     "category": "INJECTION",
     "name": "IV cannulation",
     "doctor": "Dr. P. Kavya (ENT)",
@@ -3016,7 +3108,7 @@
     "requestedAt": "2026-11-21T02:32:00.000Z",
     "billedAt": "2026-11-21T02:32:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0076",
+    "accession": "04010033-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T05:14:00.000Z",
     "notes": "",
@@ -3043,9 +3135,11 @@
       "verifiedAt": "2026-11-21T05:14:00.000Z",
       "reportNo": "LR-2026-00047",
       "printedAt": "2026-11-21T05:34:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010033-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00033"
   },
   {
     "id": "ORD-00077",
@@ -3060,7 +3154,7 @@
     "requestedAt": "2026-11-21T02:32:00.000Z",
     "billedAt": "2026-11-21T02:32:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0077",
+    "accession": "04010033-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T05:07:00.000Z",
     "notes": "",
@@ -3107,9 +3201,11 @@
       "verifiedAt": "2026-11-21T05:07:00.000Z",
       "reportNo": "LR-2026-00048",
       "printedAt": "2026-11-21T05:27:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010033-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00033"
   },
   {
     "id": "ORD-00078",
@@ -3124,7 +3220,7 @@
     "requestedAt": "2026-11-21T03:26:00.000Z",
     "billedAt": "2026-11-21T03:26:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0078",
+    "accession": "04010034-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T06:33:00.000Z",
     "notes": "",
@@ -3163,9 +3259,11 @@
       "verifiedAt": "2026-11-21T06:33:00.000Z",
       "reportNo": "LR-2026-00049",
       "printedAt": "2026-11-21T06:53:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010034-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00034"
   },
   {
     "id": "ORD-00079",
@@ -3180,7 +3278,7 @@
     "requestedAt": "2026-11-21T04:01:00.000Z",
     "billedAt": "2026-11-21T04:01:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0079",
+    "accession": "04010035-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T07:05:00.000Z",
     "notes": "",
@@ -3227,9 +3325,11 @@
       "verifiedAt": "2026-11-21T07:05:00.000Z",
       "reportNo": "LR-2026-00050",
       "printedAt": "2026-11-21T07:25:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010035-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00035"
   },
   {
     "id": "ORD-00080",
@@ -3244,7 +3344,7 @@
     "requestedAt": "2026-11-21T04:51:00.000Z",
     "billedAt": "2026-11-21T04:51:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0080",
+    "accession": "04010036-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T07:18:00.000Z",
     "notes": "",
@@ -3291,9 +3391,11 @@
       "verifiedAt": "2026-11-21T07:18:00.000Z",
       "reportNo": "LR-2026-00051",
       "printedAt": "2026-11-21T07:38:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010036-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00036"
   },
   {
     "id": "ORD-00081",
@@ -3308,7 +3410,7 @@
     "requestedAt": "2026-11-21T06:04:00.000Z",
     "billedAt": "2026-11-21T06:04:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0081",
+    "accession": "04010037-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T07:45:00.000Z",
     "notes": "",
@@ -3355,9 +3457,11 @@
       "verifiedAt": "2026-11-21T07:45:00.000Z",
       "reportNo": "LR-2026-00052",
       "printedAt": "2026-11-21T08:05:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010037-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00037"
   },
   {
     "id": "ORD-00082",
@@ -3372,7 +3476,7 @@
     "requestedAt": "2026-11-21T06:52:00.000Z",
     "billedAt": "2026-11-21T06:52:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0082",
+    "accession": "04010038-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T09:39:00.000Z",
     "notes": "",
@@ -3399,9 +3503,11 @@
       "verifiedAt": "2026-11-21T09:39:00.000Z",
       "reportNo": "LR-2026-00053",
       "printedAt": "2026-11-21T09:59:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010038-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00038"
   },
   {
     "id": "ORD-00083",
@@ -3416,7 +3522,7 @@
     "requestedAt": "2026-11-21T06:52:00.000Z",
     "billedAt": "2026-11-21T06:52:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0083",
+    "accession": "04010038-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T08:53:00.000Z",
     "notes": "",
@@ -3439,16 +3545,18 @@
       "verifiedAt": "2026-11-21T08:53:00.000Z",
       "reportNo": "LR-2026-00054",
       "printedAt": "2026-11-21T09:13:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010038-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00038"
   },
   {
     "id": "ORD-00084",
     "billId": "HB-2026-00053",
     "itemId": "HB-2026-00053-1",
     "patientId": "PAT-0016",
-    "serviceId": "SRV-0013",
+    "serviceId": "SRV-0014",
     "category": "ECG",
     "name": "ECG — 12 lead",
     "doctor": "Dr. R. Balaji (Surgery)",
@@ -3476,7 +3584,7 @@
     "requestedAt": "2026-11-21T08:22:00.000Z",
     "billedAt": "2026-11-21T08:22:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0085",
+    "accession": "04010039-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T09:44:00.000Z",
     "notes": "",
@@ -3523,9 +3631,11 @@
       "verifiedAt": "2026-11-21T09:44:00.000Z",
       "reportNo": "LR-2026-00055",
       "printedAt": "2026-11-21T10:04:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010039-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00039"
   },
   {
     "id": "ORD-00086",
@@ -3540,7 +3650,7 @@
     "requestedAt": "2026-11-21T07:50:00.000Z",
     "billedAt": "2026-11-21T07:50:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0086",
+    "accession": "04010040-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T10:19:00.000Z",
     "notes": "",
@@ -3563,9 +3673,11 @@
       "verifiedAt": "2026-11-21T10:19:00.000Z",
       "reportNo": "LR-2026-00056",
       "printedAt": "2026-11-21T10:39:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010040-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00040"
   },
   {
     "id": "ORD-00087",
@@ -3580,7 +3692,7 @@
     "requestedAt": "2026-11-21T07:50:00.000Z",
     "billedAt": "2026-11-21T07:50:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0087",
+    "accession": "04010040-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T10:12:00.000Z",
     "notes": "",
@@ -3627,9 +3739,11 @@
       "verifiedAt": "2026-11-21T10:12:00.000Z",
       "reportNo": "LR-2026-00057",
       "printedAt": "2026-11-21T10:32:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010040-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00040"
   },
   {
     "id": "ORD-00088",
@@ -3644,7 +3758,7 @@
     "requestedAt": "2026-11-21T09:01:00.000Z",
     "billedAt": "2026-11-21T09:01:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0088",
+    "accession": "04010041-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T11:21:00.000Z",
     "notes": "",
@@ -3691,9 +3805,11 @@
       "verifiedAt": "2026-11-21T11:21:00.000Z",
       "reportNo": "LR-2026-00058",
       "printedAt": "2026-11-21T11:41:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010041-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00041"
   },
   {
     "id": "ORD-00089",
@@ -3708,7 +3824,7 @@
     "requestedAt": "2026-11-21T10:23:00.000Z",
     "billedAt": "2026-11-21T10:23:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0089",
+    "accession": "04010042-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T12:34:00.000Z",
     "notes": "",
@@ -3735,9 +3851,11 @@
       "verifiedAt": "2026-11-21T12:34:00.000Z",
       "reportNo": "LR-2026-00059",
       "printedAt": "2026-11-21T12:54:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010042-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00042"
   },
   {
     "id": "ORD-00090",
@@ -3752,7 +3870,7 @@
     "requestedAt": "2026-11-21T10:23:00.000Z",
     "billedAt": "2026-11-21T10:23:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0090",
+    "accession": "04010042-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T13:25:00.000Z",
     "notes": "",
@@ -3799,9 +3917,11 @@
       "verifiedAt": "2026-11-21T13:25:00.000Z",
       "reportNo": "LR-2026-00060",
       "printedAt": "2026-11-21T13:45:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010042-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00042"
   },
   {
     "id": "ORD-00091",
@@ -3816,7 +3936,7 @@
     "requestedAt": "2026-11-21T10:39:00.000Z",
     "billedAt": "2026-11-21T10:39:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0091",
+    "accession": "04010043-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T12:39:00.000Z",
     "notes": "",
@@ -3863,9 +3983,11 @@
       "verifiedAt": "2026-11-21T12:39:00.000Z",
       "reportNo": "LR-2026-00061",
       "printedAt": "2026-11-21T12:59:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010043-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00043"
   },
   {
     "id": "ORD-00092",
@@ -3880,7 +4002,7 @@
     "requestedAt": "2026-11-21T12:20:00.000Z",
     "billedAt": "2026-11-21T12:20:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0092",
+    "accession": "04010044-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T15:56:00.000Z",
     "notes": "",
@@ -3903,9 +4025,11 @@
       "verifiedAt": "2026-11-21T15:56:00.000Z",
       "reportNo": "LR-2026-00062",
       "printedAt": "2026-11-21T16:16:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010044-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00044"
   },
   {
     "id": "ORD-00093",
@@ -3920,7 +4044,7 @@
     "requestedAt": "2026-11-21T12:20:00.000Z",
     "billedAt": "2026-11-21T12:20:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0093",
+    "accession": "04010044-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T15:12:00.000Z",
     "notes": "",
@@ -3967,9 +4091,11 @@
       "verifiedAt": "2026-11-21T15:12:00.000Z",
       "reportNo": "LR-2026-00063",
       "printedAt": "2026-11-21T15:32:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010044-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00044"
   },
   {
     "id": "ORD-00094",
@@ -3984,7 +4110,7 @@
     "requestedAt": "2026-11-21T12:56:00.000Z",
     "billedAt": "2026-11-21T12:56:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0094",
+    "accession": "04010045-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T14:40:00.000Z",
     "notes": "",
@@ -4031,9 +4157,11 @@
       "verifiedAt": "2026-11-21T14:40:00.000Z",
       "reportNo": "LR-2026-00064",
       "printedAt": "2026-11-21T15:00:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010045-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00045"
   },
   {
     "id": "ORD-00095",
@@ -4048,7 +4176,7 @@
     "requestedAt": "2026-11-21T12:56:00.000Z",
     "billedAt": "2026-11-21T12:56:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0095",
+    "accession": "04010045-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T15:45:00.000Z",
     "notes": "",
@@ -4071,16 +4199,18 @@
       "verifiedAt": "2026-11-21T15:45:00.000Z",
       "reportNo": "LR-2026-00065",
       "printedAt": "2026-11-21T16:05:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010045-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00045"
   },
   {
     "id": "ORD-00096",
     "billId": "HB-2026-00060",
     "itemId": "HB-2026-00060-1",
     "patientId": "PAT-0008",
-    "serviceId": "SRV-0023",
+    "serviceId": "SRV-0024",
     "category": "OTHER",
     "name": "Medical certificate",
     "doctor": "Dr. R. Balaji (Surgery)",
@@ -4100,7 +4230,7 @@
     "billId": "HB-2026-00061",
     "itemId": "HB-2026-00061-1",
     "patientId": "PAT-0014",
-    "serviceId": "SRV-0018",
+    "serviceId": "SRV-0019",
     "category": "OTHER",
     "name": "Dressing — small",
     "doctor": "Dr. A. Ravichandran (General Medicine)",
@@ -4128,7 +4258,7 @@
     "requestedAt": "2026-11-22T04:30:00.000Z",
     "billedAt": "2026-11-22T04:30:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261122-0098",
+    "accession": "04010046-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-22T07:16:00.000Z",
     "notes": "",
@@ -4175,16 +4305,18 @@
       "verifiedAt": "2026-11-22T07:16:00.000Z",
       "reportNo": "LR-2026-00066",
       "printedAt": "2026-11-22T07:36:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010046-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00046"
   },
   {
     "id": "ORD-00099",
     "billId": "HB-2026-00063",
     "itemId": "HB-2026-00063-1",
     "patientId": "PAT-0013",
-    "serviceId": "SRV-0017",
+    "serviceId": "SRV-0018",
     "category": "NEBULIZATION",
     "name": "Nebulization (per session)",
     "doctor": "Dr. M. Harish (Orthopaedics)",
@@ -4204,7 +4336,7 @@
     "billId": "HB-2026-00064",
     "itemId": "HB-2026-00064-1",
     "patientId": "PAT-0008",
-    "serviceId": "SRV-0018",
+    "serviceId": "SRV-0019",
     "category": "OTHER",
     "name": "Dressing — small",
     "doctor": "Dr. M. Harish (Orthopaedics)",
@@ -4224,7 +4356,7 @@
     "billId": "HB-2026-00065",
     "itemId": "HB-2026-00065-1",
     "patientId": "PAT-0013",
-    "serviceId": "SRV-0018",
+    "serviceId": "SRV-0019",
     "category": "OTHER",
     "name": "Dressing — small",
     "doctor": "Dr. S. Nivetha (Paediatrics)",
@@ -4252,7 +4384,7 @@
     "requestedAt": "2026-11-22T09:41:00.000Z",
     "billedAt": "2026-11-22T09:41:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261122-0102",
+    "accession": "04010047-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-22T11:30:00.000Z",
     "notes": "",
@@ -4275,9 +4407,11 @@
       "verifiedAt": "2026-11-22T11:30:00.000Z",
       "reportNo": "LR-2026-00067",
       "printedAt": "2026-11-22T11:50:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010047-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00047"
   },
   {
     "id": "ORD-00103",
@@ -4292,7 +4426,7 @@
     "requestedAt": "2026-11-22T09:41:00.000Z",
     "billedAt": "2026-11-22T09:41:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261122-0103",
+    "accession": "04010047-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-22T12:39:00.000Z",
     "notes": "",
@@ -4315,16 +4449,18 @@
       "verifiedAt": "2026-11-22T12:39:00.000Z",
       "reportNo": "LR-2026-00068",
       "printedAt": "2026-11-22T12:59:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010047-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00047"
   },
   {
     "id": "ORD-00104",
     "billId": "HB-2026-00067",
     "itemId": "HB-2026-00067-1",
     "patientId": "PAT-0010",
-    "serviceId": "SRV-0013",
+    "serviceId": "SRV-0014",
     "category": "ECG",
     "name": "ECG — 12 lead",
     "doctor": "Dr. P. Kavya (ENT)",
@@ -4352,7 +4488,7 @@
     "requestedAt": "2026-11-22T11:58:00.000Z",
     "billedAt": "2026-11-22T11:58:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261122-0105",
+    "accession": "04010048-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-22T13:24:00.000Z",
     "notes": "",
@@ -4399,9 +4535,11 @@
       "verifiedAt": "2026-11-22T13:24:00.000Z",
       "reportNo": "LR-2026-00069",
       "printedAt": "2026-11-22T13:44:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010048-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00048"
   },
   {
     "id": "ORD-00106",
@@ -4416,7 +4554,7 @@
     "requestedAt": "2026-11-22T11:58:00.000Z",
     "billedAt": "2026-11-22T11:58:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261122-0106",
+    "accession": "04010048-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-22T13:29:00.000Z",
     "notes": "",
@@ -4439,9 +4577,11 @@
       "verifiedAt": "2026-11-22T13:29:00.000Z",
       "reportNo": "LR-2026-00070",
       "printedAt": "2026-11-22T13:49:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010048-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00048"
   },
   {
     "id": "ORD-00107",
@@ -4456,7 +4596,7 @@
     "requestedAt": "2026-11-21T03:15:00.000Z",
     "billedAt": "2026-11-21T03:15:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0107",
+    "accession": "04010049-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T06:21:00.000Z",
     "notes": "",
@@ -4503,9 +4643,11 @@
       "verifiedAt": "2026-11-21T06:21:00.000Z",
       "reportNo": "LR-2026-00071",
       "printedAt": "2026-11-21T06:41:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010049-1"
     },
-    "coveredBy": "PP-0001"
+    "coveredBy": "PP-0001",
+    "labVisitId": "LV-00049"
   },
   {
     "id": "ORD-00108",
@@ -4520,7 +4662,7 @@
     "requestedAt": "2026-11-21T03:15:00.000Z",
     "billedAt": "2026-11-21T03:15:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0108",
+    "accession": "04010049-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T04:52:00.000Z",
     "notes": "",
@@ -4567,9 +4709,11 @@
       "verifiedAt": "2026-11-21T04:52:00.000Z",
       "reportNo": "LR-2026-00072",
       "printedAt": "2026-11-21T05:12:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010049-2"
     },
-    "coveredBy": "PP-0001"
+    "coveredBy": "PP-0001",
+    "labVisitId": "LV-00049"
   },
   {
     "id": "ORD-00109",
@@ -4584,7 +4728,7 @@
     "requestedAt": "2026-11-21T03:15:00.000Z",
     "billedAt": "2026-11-21T03:15:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0109",
+    "accession": "04010049-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T05:02:00.000Z",
     "notes": "",
@@ -4623,9 +4767,11 @@
       "verifiedAt": "2026-11-21T05:02:00.000Z",
       "reportNo": "LR-2026-00073",
       "printedAt": "2026-11-21T05:22:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010049-2"
     },
-    "coveredBy": "PP-0001"
+    "coveredBy": "PP-0001",
+    "labVisitId": "LV-00049"
   },
   {
     "id": "ORD-00110",
@@ -4640,7 +4786,7 @@
     "requestedAt": "2026-11-21T03:15:00.000Z",
     "billedAt": "2026-11-21T03:15:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0110",
+    "accession": "04010049-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T05:18:00.000Z",
     "notes": "",
@@ -4679,9 +4825,11 @@
       "verifiedAt": "2026-11-21T05:18:00.000Z",
       "reportNo": "LR-2026-00074",
       "printedAt": "2026-11-21T05:38:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010049-2"
     },
-    "coveredBy": "PP-0001"
+    "coveredBy": "PP-0001",
+    "labVisitId": "LV-00049"
   },
   {
     "id": "ORD-00111",
@@ -4696,7 +4844,7 @@
     "requestedAt": "2026-11-21T03:15:00.000Z",
     "billedAt": "2026-11-21T03:15:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0111",
+    "accession": "04010049-3",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T05:03:00.000Z",
     "notes": "",
@@ -4719,9 +4867,11 @@
       "verifiedAt": "2026-11-21T05:03:00.000Z",
       "reportNo": "LR-2026-00075",
       "printedAt": "2026-11-21T05:23:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010049-3"
     },
-    "coveredBy": "PP-0001"
+    "coveredBy": "PP-0001",
+    "labVisitId": "LV-00049"
   },
   {
     "id": "ORD-00112",
@@ -4736,7 +4886,7 @@
     "requestedAt": "2026-11-21T03:15:00.000Z",
     "billedAt": "2026-11-21T03:15:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0112",
+    "accession": "04010049-3",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T05:32:00.000Z",
     "notes": "",
@@ -4759,9 +4909,11 @@
       "verifiedAt": "2026-11-21T05:32:00.000Z",
       "reportNo": "LR-2026-00076",
       "printedAt": "2026-11-21T05:52:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010049-3"
     },
-    "coveredBy": "PP-0001"
+    "coveredBy": "PP-0001",
+    "labVisitId": "LV-00049"
   },
   {
     "id": "ORD-00113",
@@ -4776,7 +4928,7 @@
     "requestedAt": "2026-11-21T03:15:00.000Z",
     "billedAt": "2026-11-21T03:15:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0113",
+    "accession": "04010049-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T05:06:00.000Z",
     "notes": "",
@@ -4803,9 +4955,11 @@
       "verifiedAt": "2026-11-21T05:06:00.000Z",
       "reportNo": "LR-2026-00077",
       "printedAt": "2026-11-21T05:26:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010049-1"
     },
-    "coveredBy": "PP-0001"
+    "coveredBy": "PP-0001",
+    "labVisitId": "LV-00049"
   },
   {
     "id": "ORD-00114",
@@ -4820,7 +4974,7 @@
     "requestedAt": "2026-11-21T03:15:00.000Z",
     "billedAt": "2026-11-21T03:15:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0114",
+    "accession": "04010049-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T05:51:00.000Z",
     "notes": "",
@@ -4851,9 +5005,11 @@
       "verifiedAt": "2026-11-21T05:51:00.000Z",
       "reportNo": "LR-2026-00078",
       "printedAt": "2026-11-21T06:11:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010049-2"
     },
-    "coveredBy": "PP-0001"
+    "coveredBy": "PP-0001",
+    "labVisitId": "LV-00049"
   },
   {
     "id": "ORD-00115",
@@ -4868,7 +5024,7 @@
     "requestedAt": "2026-11-21T03:15:00.000Z",
     "billedAt": "2026-11-21T03:15:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0115",
+    "accession": "04010049-4",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T05:23:00.000Z",
     "notes": "",
@@ -4915,16 +5071,18 @@
       "verifiedAt": "2026-11-21T05:23:00.000Z",
       "reportNo": "LR-2026-00079",
       "printedAt": "2026-11-21T05:43:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010049-4"
     },
-    "coveredBy": "PP-0001"
+    "coveredBy": "PP-0001",
+    "labVisitId": "LV-00049"
   },
   {
     "id": "ORD-00116",
     "billId": "HB-2026-00070",
     "itemId": "HB-2026-00070-10",
     "patientId": "PAT-0006",
-    "serviceId": "SRV-0013",
+    "serviceId": "SRV-0014",
     "category": "ECG",
     "name": "ECG — 12 lead",
     "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
@@ -4944,7 +5102,7 @@
     "billId": "HB-2026-00070",
     "itemId": "HB-2026-00070-11",
     "patientId": "PAT-0006",
-    "serviceId": "SRV-0029",
+    "serviceId": "SRV-0030",
     "category": "OTHER",
     "name": "Health check-up physician review",
     "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
@@ -4972,7 +5130,7 @@
     "requestedAt": "2026-11-21T06:00:00.000Z",
     "billedAt": "2026-11-21T06:00:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261121-0118",
+    "accession": "04010050-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-21T09:18:00.000Z",
     "notes": "",
@@ -4995,16 +5153,18 @@
       "verifiedAt": "2026-11-21T09:18:00.000Z",
       "reportNo": "LR-2026-00080",
       "printedAt": "2026-11-21T09:38:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010050-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00050"
   },
   {
     "id": "ORD-00119",
     "billId": "HB-2026-00073",
     "itemId": "HB-2026-00073-1",
     "patientId": "PAT-0002",
-    "serviceId": "SRV-0024",
+    "serviceId": "SRV-0025",
     "category": "OTHER",
     "name": "Pre-operative consultation",
     "doctor": "Dr. R. Balaji (Surgery)",
@@ -5032,7 +5192,7 @@
     "requestedAt": "2026-11-20T04:50:00.000Z",
     "billedAt": "2026-11-20T04:50:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261120-0120",
+    "accession": "04010051-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-20T07:37:00.000Z",
     "notes": "",
@@ -5079,9 +5239,11 @@
       "verifiedAt": "2026-11-20T07:37:00.000Z",
       "reportNo": "LR-2026-00081",
       "printedAt": "2026-11-20T07:57:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010051-1"
     },
-    "coveredBy": "PP-0002"
+    "coveredBy": "PP-0002",
+    "labVisitId": "LV-00051"
   },
   {
     "id": "ORD-00121",
@@ -5096,7 +5258,7 @@
     "requestedAt": "2026-11-20T04:50:00.000Z",
     "billedAt": "2026-11-20T04:50:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261120-0121",
+    "accession": "04010051-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-20T07:26:00.000Z",
     "notes": "",
@@ -5135,9 +5297,11 @@
       "verifiedAt": "2026-11-20T07:26:00.000Z",
       "reportNo": "LR-2026-00082",
       "printedAt": "2026-11-20T07:46:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010051-2"
     },
-    "coveredBy": "PP-0002"
+    "coveredBy": "PP-0002",
+    "labVisitId": "LV-00051"
   },
   {
     "id": "ORD-00122",
@@ -5152,7 +5316,7 @@
     "requestedAt": "2026-11-20T04:50:00.000Z",
     "billedAt": "2026-11-20T04:50:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261120-0122",
+    "accession": "04010051-3",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-20T07:49:00.000Z",
     "notes": "",
@@ -5175,16 +5339,18 @@
       "verifiedAt": "2026-11-20T07:49:00.000Z",
       "reportNo": "LR-2026-00083",
       "printedAt": "2026-11-20T08:09:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010051-3"
     },
-    "coveredBy": "PP-0002"
+    "coveredBy": "PP-0002",
+    "labVisitId": "LV-00051"
   },
   {
     "id": "ORD-00123",
     "billId": "HB-2026-00073",
     "itemId": "HB-2026-00073-5",
     "patientId": "PAT-0002",
-    "serviceId": "SRV-0013",
+    "serviceId": "SRV-0014",
     "category": "ECG",
     "name": "ECG — 12 lead",
     "doctor": "Dr. R. Balaji (Surgery)",
@@ -5204,7 +5370,7 @@
     "billId": "HB-2026-00074",
     "itemId": "HB-2026-00074-1",
     "patientId": "PAT-0002",
-    "serviceId": "SRV-0025",
+    "serviceId": "SRV-0026",
     "category": "OTHER",
     "name": "Surgeon's fee — hernia repair",
     "doctor": "Dr. R. Balaji (Surgery)",
@@ -5224,7 +5390,7 @@
     "billId": "HB-2026-00074",
     "itemId": "HB-2026-00074-2",
     "patientId": "PAT-0002",
-    "serviceId": "SRV-0026",
+    "serviceId": "SRV-0027",
     "category": "OTHER",
     "name": "Operation theatre charges",
     "doctor": "Dr. R. Balaji (Surgery)",
@@ -5244,7 +5410,7 @@
     "billId": "HB-2026-00074",
     "itemId": "HB-2026-00074-3",
     "patientId": "PAT-0002",
-    "serviceId": "SRV-0027",
+    "serviceId": "SRV-0028",
     "category": "OTHER",
     "name": "Anaesthesia charges",
     "doctor": "Dr. R. Balaji (Surgery)",
@@ -5264,7 +5430,7 @@
     "billId": "HB-2026-00074",
     "itemId": "HB-2026-00074-4",
     "patientId": "PAT-0002",
-    "serviceId": "SRV-0028",
+    "serviceId": "SRV-0029",
     "category": "OTHER",
     "name": "Day-care / recovery bed (per day)",
     "doctor": "Dr. R. Balaji (Surgery)",
@@ -5284,7 +5450,7 @@
     "billId": "HB-2026-00074",
     "itemId": "HB-2026-00074-5",
     "patientId": "PAT-0002",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. R. Balaji (Surgery)",
@@ -5304,7 +5470,7 @@
     "billId": "HB-2026-00074",
     "itemId": "HB-2026-00074-5",
     "patientId": "PAT-0002",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. R. Balaji (Surgery)",
@@ -5324,7 +5490,7 @@
     "billId": "HB-2026-00074",
     "itemId": "HB-2026-00074-6",
     "patientId": "PAT-0002",
-    "serviceId": "SRV-0015",
+    "serviceId": "SRV-0016",
     "category": "INJECTION",
     "name": "IV cannulation",
     "doctor": "Dr. R. Balaji (Surgery)",
@@ -5344,7 +5510,7 @@
     "billId": "HB-2026-00075",
     "itemId": "HB-2026-00075-1",
     "patientId": "PAT-0002",
-    "serviceId": "SRV-0028",
+    "serviceId": "SRV-0029",
     "category": "OTHER",
     "name": "Day-care / recovery bed (per day)",
     "doctor": "Dr. R. Balaji (Surgery)",
@@ -5364,7 +5530,7 @@
     "billId": "HB-2026-00075",
     "itemId": "HB-2026-00075-2",
     "patientId": "PAT-0002",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. R. Balaji (Surgery)",
@@ -5384,7 +5550,7 @@
     "billId": "HB-2026-00075",
     "itemId": "HB-2026-00075-2",
     "patientId": "PAT-0002",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. R. Balaji (Surgery)",
@@ -5404,7 +5570,7 @@
     "billId": "HB-2026-00075",
     "itemId": "HB-2026-00075-3",
     "patientId": "PAT-0002",
-    "serviceId": "SRV-0018",
+    "serviceId": "SRV-0019",
     "category": "OTHER",
     "name": "Dressing — small",
     "doctor": "Dr. R. Balaji (Surgery)",
@@ -5424,7 +5590,7 @@
     "billId": "HB-2026-00075",
     "itemId": "HB-2026-00075-4",
     "patientId": "PAT-0002",
-    "serviceId": "SRV-0019",
+    "serviceId": "SRV-0020",
     "category": "OTHER",
     "name": "Dressing — large",
     "doctor": "Dr. R. Balaji (Surgery)",
@@ -5444,7 +5610,7 @@
     "billId": "HB-2026-00076",
     "itemId": "HB-2026-00076-1",
     "patientId": "PAT-0014",
-    "serviceId": "SRV-0013",
+    "serviceId": "SRV-0014",
     "category": "ECG",
     "name": "ECG — 12 lead",
     "doctor": "Dr. A. Ravichandran (General Medicine)",
@@ -5472,7 +5638,7 @@
     "requestedAt": "2026-11-22T17:10:00.000Z",
     "billedAt": "2026-11-22T17:10:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261122-0137",
+    "accession": "04010052-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-22T20:30:00.000Z",
     "notes": "",
@@ -5519,16 +5685,18 @@
       "verifiedAt": "2026-11-22T20:30:00.000Z",
       "reportNo": "LR-2026-00084",
       "printedAt": "2026-11-22T20:50:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010052-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00052"
   },
   {
     "id": "ORD-00138",
     "billId": "HB-2026-00076",
     "itemId": "HB-2026-00076-3",
     "patientId": "PAT-0014",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. A. Ravichandran (General Medicine)",
@@ -5548,7 +5716,7 @@
     "billId": "HB-2026-00076",
     "itemId": "HB-2026-00076-3",
     "patientId": "PAT-0014",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. A. Ravichandran (General Medicine)",
@@ -5568,7 +5736,7 @@
     "billId": "HB-2026-00076",
     "itemId": "HB-2026-00076-4",
     "patientId": "PAT-0014",
-    "serviceId": "SRV-0017",
+    "serviceId": "SRV-0018",
     "category": "NEBULIZATION",
     "name": "Nebulization (per session)",
     "doctor": "Dr. A. Ravichandran (General Medicine)",
@@ -5596,7 +5764,7 @@
     "requestedAt": "2026-11-23T04:55:00.000Z",
     "billedAt": "2026-11-23T04:55:00.000Z",
     "status": "ON_HOLD",
-    "accession": "LAB-261123-0141",
+    "accession": "04010053-1",
     "performedBy": null,
     "performedAt": null,
     "notes": "",
@@ -5614,9 +5782,11 @@
       "verifiedAt": null,
       "reportNo": null,
       "printedAt": null,
-      "printCount": 0
+      "printCount": 0,
+      "tube": "04010053-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00053"
   },
   {
     "id": "ORD-00142",
@@ -5631,7 +5801,7 @@
     "requestedAt": "2026-11-23T04:55:00.000Z",
     "billedAt": "2026-11-23T04:55:00.000Z",
     "status": "ON_HOLD",
-    "accession": "LAB-261123-0142",
+    "accession": "04010053-1",
     "performedBy": null,
     "performedAt": null,
     "notes": "",
@@ -5649,9 +5819,11 @@
       "verifiedAt": null,
       "reportNo": null,
       "printedAt": null,
-      "printCount": 0
+      "printCount": 0,
+      "tube": "04010053-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00053"
   },
   {
     "id": "ORD-00143",
@@ -5666,7 +5838,7 @@
     "requestedAt": "2026-11-23T04:55:00.000Z",
     "billedAt": "2026-11-23T04:55:00.000Z",
     "status": "ON_HOLD",
-    "accession": "LAB-261123-0143",
+    "accession": "04010053-2",
     "performedBy": null,
     "performedAt": null,
     "notes": "",
@@ -5684,9 +5856,11 @@
       "verifiedAt": null,
       "reportNo": null,
       "printedAt": null,
-      "printCount": 0
+      "printCount": 0,
+      "tube": "04010053-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00053"
   },
   {
     "id": "ORD-00144",
@@ -5701,7 +5875,7 @@
     "requestedAt": "2026-11-23T03:05:00.000Z",
     "billedAt": "2026-11-23T03:05:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261123-0144",
+    "accession": "04010054-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-23T05:52:00.000Z",
     "notes": "",
@@ -5748,9 +5922,11 @@
       "verifiedAt": "2026-11-23T05:52:00.000Z",
       "reportNo": "LR-2026-00085",
       "printedAt": "2026-11-23T06:12:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010054-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00054"
   },
   {
     "id": "ORD-00145",
@@ -5765,7 +5941,7 @@
     "requestedAt": "2026-11-23T03:05:00.000Z",
     "billedAt": "2026-11-23T03:05:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261123-0145",
+    "accession": "04010054-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-23T05:07:00.000Z",
     "notes": "",
@@ -5788,9 +5964,11 @@
       "verifiedAt": "2026-11-23T05:07:00.000Z",
       "reportNo": "LR-2026-00086",
       "printedAt": "2026-11-23T05:27:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010054-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00054"
   },
   {
     "id": "ORD-00146",
@@ -5805,7 +5983,7 @@
     "requestedAt": "2026-11-23T03:20:00.000Z",
     "billedAt": "2026-11-23T03:20:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261123-0146",
+    "accession": "04010055-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-23T05:56:00.000Z",
     "notes": "",
@@ -5828,9 +6006,11 @@
       "verifiedAt": "2026-11-23T05:56:00.000Z",
       "reportNo": "LR-2026-00087",
       "printedAt": "2026-11-23T06:16:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010055-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00055"
   },
   {
     "id": "ORD-00147",
@@ -5845,7 +6025,7 @@
     "requestedAt": "2026-11-23T03:20:00.000Z",
     "billedAt": "2026-11-23T03:20:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261123-0147",
+    "accession": "04010055-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-23T05:19:00.000Z",
     "notes": "",
@@ -5868,9 +6048,11 @@
       "verifiedAt": "2026-11-23T05:19:00.000Z",
       "reportNo": "LR-2026-00088",
       "printedAt": "2026-11-23T05:39:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010055-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00055"
   },
   {
     "id": "ORD-00148",
@@ -5885,7 +6067,7 @@
     "requestedAt": "2026-11-23T03:20:00.000Z",
     "billedAt": "2026-11-23T03:20:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261123-0148",
+    "accession": "04010055-2",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-23T06:03:00.000Z",
     "notes": "",
@@ -5912,16 +6094,18 @@
       "verifiedAt": "2026-11-23T06:03:00.000Z",
       "reportNo": "LR-2026-00089",
       "printedAt": "2026-11-23T06:23:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010055-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00055"
   },
   {
     "id": "ORD-00149",
     "billId": "HB-2026-00080",
     "itemId": "HB-2026-00080-1",
     "patientId": "PAT-0009",
-    "serviceId": "SRV-0013",
+    "serviceId": "SRV-0014",
     "category": "ECG",
     "name": "ECG — 12 lead",
     "doctor": "Dr. S. Nivetha (Paediatrics)",
@@ -5949,7 +6133,7 @@
     "requestedAt": "2026-11-23T04:10:00.000Z",
     "billedAt": "2026-11-23T04:10:00.000Z",
     "status": "COMPLETED",
-    "accession": "LAB-261123-0150",
+    "accession": "04010056-1",
     "performedBy": "USR-0007",
     "performedAt": "2026-11-23T07:19:00.000Z",
     "notes": "",
@@ -5980,16 +6164,18 @@
       "verifiedAt": "2026-11-23T07:19:00.000Z",
       "reportNo": "LR-2026-00090",
       "printedAt": "2026-11-23T07:39:00.000Z",
-      "printCount": 1
+      "printCount": 1,
+      "tube": "04010056-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00056"
   },
   {
     "id": "ORD-00151",
     "billId": "HB-2026-00082",
     "itemId": "HB-2026-00082-1",
     "patientId": "PAT-0015",
-    "serviceId": "SRV-0017",
+    "serviceId": "SRV-0018",
     "category": "NEBULIZATION",
     "name": "Nebulization (per session)",
     "doctor": "Dr. A. Ravichandran (General Medicine)",
@@ -6017,7 +6203,7 @@
     "requestedAt": "2026-11-23T05:10:00.000Z",
     "billedAt": "2026-11-23T05:10:00.000Z",
     "status": "SAMPLE_COLLECTED",
-    "accession": "LAB-261123-0152",
+    "accession": "04010057-1",
     "performedBy": null,
     "performedAt": null,
     "notes": "",
@@ -6035,9 +6221,11 @@
       "verifiedAt": null,
       "reportNo": null,
       "printedAt": null,
-      "printCount": 0
+      "printCount": 0,
+      "tube": "04010057-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00057"
   },
   {
     "id": "ORD-00153",
@@ -6052,7 +6240,7 @@
     "requestedAt": "2026-11-23T05:10:00.000Z",
     "billedAt": "2026-11-23T05:10:00.000Z",
     "status": "SAMPLE_COLLECTED",
-    "accession": "LAB-261123-0153",
+    "accession": "04010057-1",
     "performedBy": null,
     "performedAt": null,
     "notes": "",
@@ -6070,16 +6258,18 @@
       "verifiedAt": null,
       "reportNo": null,
       "printedAt": null,
-      "printCount": 0
+      "printCount": 0,
+      "tube": "04010057-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00057"
   },
   {
     "id": "ORD-00154",
     "billId": "HB-2026-00084",
     "itemId": "HB-2026-00084-1",
     "patientId": "PAT-0005",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. A. Ravichandran (General Medicine)",
@@ -6099,7 +6289,7 @@
     "billId": "HB-2026-00084",
     "itemId": "HB-2026-00084-2",
     "patientId": "PAT-0005",
-    "serviceId": "SRV-0015",
+    "serviceId": "SRV-0016",
     "category": "INJECTION",
     "name": "IV cannulation",
     "doctor": "Dr. A. Ravichandran (General Medicine)",
@@ -6127,7 +6317,7 @@
     "requestedAt": "2026-11-23T06:15:00.000Z",
     "billedAt": "2026-11-23T06:15:00.000Z",
     "status": "RESULTED",
-    "accession": "LAB-261123-0156",
+    "accession": "04010058-1",
     "performedBy": null,
     "performedAt": null,
     "notes": "",
@@ -6150,9 +6340,11 @@
       "verifiedAt": null,
       "reportNo": null,
       "printedAt": null,
-      "printCount": 0
+      "printCount": 0,
+      "tube": "04010058-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00058"
   },
   {
     "id": "ORD-00157",
@@ -6167,7 +6359,7 @@
     "requestedAt": "2026-11-23T06:15:00.000Z",
     "billedAt": "2026-11-23T06:15:00.000Z",
     "status": "SAMPLE_COLLECTED",
-    "accession": "LAB-261123-0157",
+    "accession": "04010058-2",
     "performedBy": null,
     "performedAt": null,
     "notes": "",
@@ -6185,9 +6377,11 @@
       "verifiedAt": null,
       "reportNo": null,
       "printedAt": null,
-      "printCount": 0
+      "printCount": 0,
+      "tube": "04010058-2"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00058"
   },
   {
     "id": "ORD-00158",
@@ -6202,7 +6396,7 @@
     "requestedAt": "2026-11-23T06:40:00.000Z",
     "billedAt": "2026-11-23T06:40:00.000Z",
     "status": "READY",
-    "accession": "LAB-261123-0158",
+    "accession": "04010059-1",
     "performedBy": null,
     "performedAt": null,
     "notes": "",
@@ -6225,16 +6419,18 @@
       "verifiedAt": null,
       "reportNo": null,
       "printedAt": null,
-      "printCount": 0
+      "printCount": 0,
+      "tube": "04010059-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00059"
   },
   {
     "id": "ORD-00159",
     "billId": "HB-2026-00087",
     "itemId": "HB-2026-00087-1",
     "patientId": "PAT-0014",
-    "serviceId": "SRV-0013",
+    "serviceId": "SRV-0014",
     "category": "ECG",
     "name": "ECG — 12 lead",
     "doctor": "Dr. M. Harish (Orthopaedics)",
@@ -6262,7 +6458,7 @@
     "requestedAt": "2026-11-23T07:00:00.000Z",
     "billedAt": "2026-11-23T07:00:00.000Z",
     "status": "READY",
-    "accession": "LAB-261123-0160",
+    "accession": "04010060-1",
     "performedBy": null,
     "performedAt": null,
     "notes": "",
@@ -6280,16 +6476,18 @@
       "verifiedAt": null,
       "reportNo": null,
       "printedAt": null,
-      "printCount": 0
+      "printCount": 0,
+      "tube": "04010060-1"
     },
-    "coveredBy": null
+    "coveredBy": null,
+    "labVisitId": "LV-00060"
   },
   {
     "id": "ORD-00161",
     "billId": null,
     "itemId": null,
     "patientId": "PAT-0010",
-    "serviceId": "SRV-0013",
+    "serviceId": "SRV-0014",
     "category": "ECG",
     "name": "ECG — 12 lead",
     "doctor": "Dr. S. Nivetha (Paediatrics)",
@@ -6309,7 +6507,7 @@
     "billId": null,
     "itemId": null,
     "patientId": "PAT-0005",
-    "serviceId": "SRV-0017",
+    "serviceId": "SRV-0018",
     "category": "NEBULIZATION",
     "name": "Nebulization (per session)",
     "doctor": "Dr. M. Harish (Orthopaedics)",
@@ -6329,7 +6527,7 @@
     "billId": null,
     "itemId": null,
     "patientId": "PAT-0008",
-    "serviceId": "SRV-0014",
+    "serviceId": "SRV-0015",
     "category": "INJECTION",
     "name": "Injection administration (IM / IV)",
     "doctor": "Dr. S. Nivetha (Paediatrics)",
@@ -6343,5 +6541,223 @@
     "notes": "Doctor advised — patient sent to main counter for billing",
     "lab": null,
     "coveredBy": null
+  },
+  {
+    "id": "ORD-00164",
+    "billId": null,
+    "itemId": null,
+    "patientId": "PAT-0002",
+    "serviceId": "SRV-0001",
+    "category": "LAB",
+    "name": "Complete Blood Count (CBC)",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "requestedBy": "USR-0008",
+    "requestedAt": "2026-11-22T01:00:00.000Z",
+    "billedAt": "2026-11-22T01:00:00.000Z",
+    "status": "COMPLETED",
+    "accession": "04010061-1",
+    "performedBy": "USR-0007",
+    "performedAt": "2026-11-22T02:50:00.000Z",
+    "notes": "",
+    "coveredBy": null,
+    "ipCharge": {
+      "amount": 350,
+      "ipNo": "IP-2026-0141",
+      "posted": false
+    },
+    "lab": {
+      "sampleType": "Blood (EDTA)",
+      "collectedAt": "2026-11-22T01:20:00.000Z",
+      "collectedBy": "USR-0007",
+      "receivedAt": "2026-11-22T01:30:00.000Z",
+      "receivedBy": "USR-0007",
+      "rejected": null,
+      "results": [
+        {
+          "param": "Haemoglobin",
+          "value": "15"
+        },
+        {
+          "param": "Total WBC count",
+          "value": "7016"
+        },
+        {
+          "param": "Platelet count",
+          "value": "2.5"
+        },
+        {
+          "param": "RBC count",
+          "value": "5.56"
+        },
+        {
+          "param": "PCV",
+          "value": "47.4"
+        },
+        {
+          "param": "Neutrophils",
+          "value": "33"
+        },
+        {
+          "param": "Lymphocytes",
+          "value": "26"
+        }
+      ],
+      "enteredBy": "USR-0007",
+      "enteredAt": "2026-11-22T02:30:00.000Z",
+      "verifiedBy": "USR-0003",
+      "verifiedAt": "2026-11-22T02:50:00.000Z",
+      "reportNo": "LR-2026-00091",
+      "printedAt": null,
+      "printCount": 0,
+      "tube": "04010061-1"
+    },
+    "labVisitId": "LV-00061"
+  },
+  {
+    "id": "ORD-00165",
+    "billId": null,
+    "itemId": null,
+    "patientId": "PAT-0002",
+    "serviceId": "SRV-0003",
+    "category": "LAB",
+    "name": "Renal Function Test (RFT)",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "requestedBy": "USR-0008",
+    "requestedAt": "2026-11-22T01:00:00.000Z",
+    "billedAt": "2026-11-22T01:00:00.000Z",
+    "status": "COMPLETED",
+    "accession": "04010061-2",
+    "performedBy": "USR-0007",
+    "performedAt": "2026-11-22T02:50:00.000Z",
+    "notes": "",
+    "coveredBy": null,
+    "ipCharge": {
+      "amount": 550,
+      "ipNo": "IP-2026-0141",
+      "posted": false
+    },
+    "lab": {
+      "sampleType": "Blood (Plain)",
+      "collectedAt": "2026-11-22T01:20:00.000Z",
+      "collectedBy": "USR-0007",
+      "receivedAt": "2026-11-22T01:30:00.000Z",
+      "receivedBy": "USR-0007",
+      "rejected": null,
+      "results": [
+        {
+          "param": "Blood urea",
+          "value": "27"
+        },
+        {
+          "param": "Serum creatinine",
+          "value": "0.74"
+        },
+        {
+          "param": "Uric acid",
+          "value": "5.6"
+        },
+        {
+          "param": "Sodium",
+          "value": "136.9"
+        },
+        {
+          "param": "Potassium",
+          "value": "4.43"
+        }
+      ],
+      "enteredBy": "USR-0007",
+      "enteredAt": "2026-11-22T02:30:00.000Z",
+      "verifiedBy": "USR-0003",
+      "verifiedAt": "2026-11-22T02:50:00.000Z",
+      "reportNo": "LR-2026-00092",
+      "printedAt": null,
+      "printCount": 0,
+      "tube": "04010061-2"
+    },
+    "labVisitId": "LV-00061"
+  },
+  {
+    "id": "ORD-00166",
+    "billId": null,
+    "itemId": null,
+    "patientId": "PAT-0002",
+    "serviceId": "SRV-0001",
+    "category": "LAB",
+    "name": "Complete Blood Count (CBC)",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "requestedBy": "USR-0008",
+    "requestedAt": "2026-11-23T01:40:00.000Z",
+    "billedAt": "2026-11-23T01:40:00.000Z",
+    "status": "READY",
+    "accession": "04010062-1",
+    "performedBy": null,
+    "performedAt": null,
+    "notes": "",
+    "coveredBy": null,
+    "ipCharge": {
+      "amount": 350,
+      "ipNo": "IP-2026-0141",
+      "posted": false
+    },
+    "lab": {
+      "sampleType": "Blood (EDTA)",
+      "collectedAt": null,
+      "collectedBy": null,
+      "receivedAt": null,
+      "receivedBy": null,
+      "rejected": null,
+      "results": [],
+      "enteredBy": null,
+      "enteredAt": null,
+      "verifiedBy": null,
+      "verifiedAt": null,
+      "reportNo": null,
+      "printedAt": null,
+      "printCount": 0,
+      "tube": "04010062-1"
+    },
+    "labVisitId": "LV-00062"
+  },
+  {
+    "id": "ORD-00167",
+    "billId": null,
+    "itemId": null,
+    "patientId": "PAT-0002",
+    "serviceId": "SRV-0012",
+    "category": "LAB",
+    "name": "C-Reactive Protein (CRP)",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "requestedBy": "USR-0008",
+    "requestedAt": "2026-11-23T01:40:00.000Z",
+    "billedAt": "2026-11-23T01:40:00.000Z",
+    "status": "READY",
+    "accession": "04010062-2",
+    "performedBy": null,
+    "performedAt": null,
+    "notes": "",
+    "coveredBy": null,
+    "ipCharge": {
+      "amount": 450,
+      "ipNo": "IP-2026-0141",
+      "posted": false
+    },
+    "lab": {
+      "sampleType": "Blood (Plain)",
+      "collectedAt": null,
+      "collectedBy": null,
+      "receivedAt": null,
+      "receivedBy": null,
+      "rejected": null,
+      "results": [],
+      "enteredBy": null,
+      "enteredAt": null,
+      "verifiedBy": null,
+      "verifiedAt": null,
+      "reportNo": null,
+      "printedAt": null,
+      "printCount": 0,
+      "tube": "04010062-2"
+    },
+    "labVisitId": "LV-00062"
   }
 ]

@@ -8,8 +8,11 @@
     "active": true,
     "lab": {
       "sample": "Blood (EDTA)",
+      "container": "EDTA",
       "department": "Haematology",
       "tatHours": 4,
+      "rxRequired": false,
+      "consentRequired": false,
       "kits": [
         {
           "kitId": "KIT-0001",
@@ -85,8 +88,11 @@
     "active": true,
     "lab": {
       "sample": "Blood (Plain)",
+      "container": "PLAIN",
       "department": "Biochemistry",
       "tatHours": 6,
+      "rxRequired": false,
+      "consentRequired": false,
       "kits": [
         {
           "kitId": "KIT-0002",
@@ -162,8 +168,11 @@
     "active": true,
     "lab": {
       "sample": "Blood (Plain)",
+      "container": "PLAIN",
       "department": "Biochemistry",
       "tatHours": 6,
+      "rxRequired": false,
+      "consentRequired": false,
       "kits": [
         {
           "kitId": "KIT-0003",
@@ -223,8 +232,11 @@
     "active": true,
     "lab": {
       "sample": "Blood (Fluoride)",
+      "container": "FLUORIDE",
       "department": "Biochemistry",
       "tatHours": 2,
+      "rxRequired": false,
+      "consentRequired": false,
       "kits": [
         {
           "kitId": "KIT-0004",
@@ -252,8 +264,11 @@
     "active": true,
     "lab": {
       "sample": "Blood (Fluoride)",
+      "container": "FLUORIDE",
       "department": "Biochemistry",
       "tatHours": 2,
+      "rxRequired": false,
+      "consentRequired": false,
       "kits": [
         {
           "kitId": "KIT-0004",
@@ -281,8 +296,11 @@
     "active": true,
     "lab": {
       "sample": "Blood (EDTA)",
+      "container": "EDTA",
       "department": "Biochemistry",
       "tatHours": 6,
+      "rxRequired": false,
+      "consentRequired": false,
       "kits": [
         {
           "kitId": "KIT-0005",
@@ -318,8 +336,11 @@
     "active": true,
     "lab": {
       "sample": "Blood (Plain)",
+      "container": "PLAIN",
       "department": "Biochemistry",
       "tatHours": 6,
+      "rxRequired": false,
+      "consentRequired": false,
       "kits": [
         {
           "kitId": "KIT-0006",
@@ -379,8 +400,11 @@
     "active": true,
     "lab": {
       "sample": "Blood (Plain)",
+      "container": "PLAIN",
       "department": "Immunoassay",
       "tatHours": 8,
+      "rxRequired": false,
+      "consentRequired": false,
       "kits": [
         {
           "kitId": "KIT-0007",
@@ -424,8 +448,11 @@
     "active": true,
     "lab": {
       "sample": "Urine (random)",
+      "container": "URINE",
       "department": "Clinical Pathology",
       "tatHours": 2,
+      "rxRequired": false,
+      "consentRequired": false,
       "kits": [
         {
           "kitId": "KIT-0008",
@@ -489,8 +516,11 @@
     "active": true,
     "lab": {
       "sample": "Blood (Plain)",
+      "container": "PLAIN",
       "department": "Serology",
       "tatHours": 1,
+      "rxRequired": false,
+      "consentRequired": false,
       "kits": [
         {
           "kitId": "KIT-0009",
@@ -515,8 +545,11 @@
     "active": true,
     "lab": {
       "sample": "Blood (Plain)",
+      "container": "PLAIN",
       "department": "Serology",
       "tatHours": 3,
+      "rxRequired": false,
+      "consentRequired": false,
       "kits": [
         {
           "kitId": "KIT-0010",
@@ -546,8 +579,11 @@
     "active": true,
     "lab": {
       "sample": "Blood (Plain)",
+      "container": "PLAIN",
       "department": "Immunoassay",
       "tatHours": 3,
+      "rxRequired": false,
+      "consentRequired": false,
       "kits": [
         {
           "kitId": "KIT-0011",
@@ -568,6 +604,35 @@
   },
   {
     "id": "SRV-0013",
+    "code": "HIV",
+    "name": "HIV 1 & 2 Antibody (rapid)",
+    "category": "LAB",
+    "price": 500,
+    "active": true,
+    "lab": {
+      "sample": "Blood (Plain)",
+      "container": "PLAIN",
+      "department": "Serology",
+      "tatHours": 2,
+      "rxRequired": true,
+      "consentRequired": true,
+      "kits": [
+        {
+          "kitId": "KIT-0012",
+          "qty": 1
+        }
+      ],
+      "parameters": [
+        {
+          "name": "HIV 1 & 2 antibodies",
+          "unit": "",
+          "ref": "Non-reactive"
+        }
+      ]
+    }
+  },
+  {
+    "id": "SRV-0014",
     "code": "ECG",
     "name": "ECG — 12 lead",
     "category": "ECG",
@@ -575,7 +640,7 @@
     "active": true
   },
   {
-    "id": "SRV-0014",
+    "id": "SRV-0015",
     "code": "INJ",
     "name": "Injection administration (IM / IV)",
     "category": "INJECTION",
@@ -583,7 +648,7 @@
     "active": true
   },
   {
-    "id": "SRV-0015",
+    "id": "SRV-0016",
     "code": "CANN",
     "name": "IV cannulation",
     "category": "INJECTION",
@@ -591,7 +656,7 @@
     "active": true
   },
   {
-    "id": "SRV-0016",
+    "id": "SRV-0017",
     "code": "INF",
     "name": "IV infusion set-up",
     "category": "INJECTION",
@@ -599,7 +664,7 @@
     "active": true
   },
   {
-    "id": "SRV-0017",
+    "id": "SRV-0018",
     "code": "NEB",
     "name": "Nebulization (per session)",
     "category": "NEBULIZATION",
@@ -607,7 +672,7 @@
     "active": true
   },
   {
-    "id": "SRV-0018",
+    "id": "SRV-0019",
     "code": "DRS",
     "name": "Dressing — small",
     "category": "OTHER",
@@ -615,7 +680,7 @@
     "active": true
   },
   {
-    "id": "SRV-0019",
+    "id": "SRV-0020",
     "code": "DRL",
     "name": "Dressing — large",
     "category": "OTHER",
@@ -623,7 +688,7 @@
     "active": true
   },
   {
-    "id": "SRV-0020",
+    "id": "SRV-0021",
     "code": "SUT",
     "name": "Suture removal",
     "category": "OTHER",
@@ -631,7 +696,7 @@
     "active": true
   },
   {
-    "id": "SRV-0021",
+    "id": "SRV-0022",
     "code": "MINOR",
     "name": "Minor procedure",
     "category": "OTHER",
@@ -639,7 +704,7 @@
     "active": true
   },
   {
-    "id": "SRV-0022",
+    "id": "SRV-0023",
     "code": "AMB",
     "name": "Ambulance (within Hosur)",
     "category": "OTHER",
@@ -647,7 +712,7 @@
     "active": true
   },
   {
-    "id": "SRV-0023",
+    "id": "SRV-0024",
     "code": "CERT",
     "name": "Medical certificate",
     "category": "OTHER",
@@ -655,7 +720,7 @@
     "active": true
   },
   {
-    "id": "SRV-0024",
+    "id": "SRV-0025",
     "code": "PRECON",
     "name": "Pre-operative consultation",
     "category": "OTHER",
@@ -663,7 +728,7 @@
     "active": true
   },
   {
-    "id": "SRV-0025",
+    "id": "SRV-0026",
     "code": "SURG-HER",
     "name": "Surgeon's fee — hernia repair",
     "category": "OTHER",
@@ -671,7 +736,7 @@
     "active": true
   },
   {
-    "id": "SRV-0026",
+    "id": "SRV-0027",
     "code": "OT",
     "name": "Operation theatre charges",
     "category": "OTHER",
@@ -679,7 +744,7 @@
     "active": true
   },
   {
-    "id": "SRV-0027",
+    "id": "SRV-0028",
     "code": "ANAES",
     "name": "Anaesthesia charges",
     "category": "OTHER",
@@ -687,7 +752,7 @@
     "active": true
   },
   {
-    "id": "SRV-0028",
+    "id": "SRV-0029",
     "code": "DCBED",
     "name": "Day-care / recovery bed (per day)",
     "category": "OTHER",
@@ -695,7 +760,7 @@
     "active": true
   },
   {
-    "id": "SRV-0029",
+    "id": "SRV-0030",
     "code": "HCCON",
     "name": "Health check-up physician review",
     "category": "OTHER",

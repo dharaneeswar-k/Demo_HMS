@@ -8,6 +8,7 @@ import { r2 } from './pricing.js';
 import { businessDate } from './pharmacy-calc.js';
 import { openShiftFor } from './shifts.js';
 import { fmtINR } from './utils.js';
+import { validateLabRequest, createVisitForBill, onOrderVerified, visitOfOrder, visitAccess } from './labflow.js';
 
 const now = () => new Date().toISOString();
 const OWNER = ['SUPER_ADMIN'];
@@ -92,6 +93,7 @@ export function validateHospitalDraft(draft, user) {
   const t = priceHospitalDraft(draft);
   if (!draft.patientId) errors.push('Select the registered patient. Hospital bills are always raised against a Patient ID.');
   if (!draft.lines.length) errors.push('Add at least one service, test or package.');
+  validateLabRequest(draft.lab || {}, draft.lines.filter((l) => l.serviceId).map((l) => l.serviceId)).forEach((e) => errors.push(e));
   if (!can('discount.approve', user) && !openShiftFor(user)) errors.push('Start your shift before billing (opening cash in the drawer).');
   const req = draft.discountRequestId && store.get('discountRequests', draft.discountRequestId);
   const approvedPct = req && req.status === 'APPROVED' ? req.requestedPct : 0;
@@ -142,7 +144,10 @@ export function completeHospitalBill(draft, user) {
     store.insert('hbills', bill);
     // orders: re-use doctor requests raised before billing, create the rest
     const pool = [...(draft.lines.flatMap((l) => l.orderIds || []))].map((oid) => store.get('orders', oid)).filter((o) => o && o.status === 'REQUESTED');
-    bill.items.filter((x) => x.serviceId).forEach((x) => { for (let n = 0; n < x.qty; n++) { const i = pool.findIndex((o) => o.serviceId === x.serviceId); makeOrder(bill, x, user, i >= 0 ? pool.splice(i, 1)[0] : null); } });
+    const made = [];
+    bill.items.filter((x) => x.serviceId).forEach((x) => { for (let n = 0; n < x.qty; n++) { const i = pool.findIndex((o) => o.serviceId === x.serviceId); made.push(makeOrder(bill, x, user, i >= 0 ? pool.splice(i, 1)[0] : null)); } });
+    const labVisit = createVisitForBill(bill, made.filter((o) => o.category === 'LAB'), { ...(draft.lab || {}), source: draft.lab?.source || (pool.length || draft.lines.some((l) => l.orderIds?.length) ? 'OP' : 'OP') }, user);
+    if (labVisit) bill.labVisitId = labVisit.id;
     // package sold → enrolment starts now
     bill.items.filter((x) => x.packageId).forEach((x) => {
       const pk = pkg(x.packageId); const until = new Date(Date.now() + (pk.validityDays - 1) * 86400000);
@@ -238,6 +243,7 @@ export function decideHospitalCancel(billId, approve, note, user) {
 // ---------------- service orders (BRD 07) ----------------
 export function orderAccess(o) {
   if (o.status === 'CANCELLED') return { ok: false, label: 'Cancelled', tone: 'muted' };
+  if (o.labVisitId && visitOfOrder(o)) return visitAccess(visitOfOrder(o));
   if (!o.billId) return { ok: false, label: 'Not billed', tone: 'danger' };
   const b = store.get('hbills', o.billId);
   if (o.coveredBy) return { ok: true, label: 'In package', tone: 'purple' };
@@ -278,7 +284,7 @@ export function serviceReconciliation(from, to, categories = ['ECG', 'INJECTION'
   const inRange = (iso) => { const d = iso ? businessDate(iso) : null; return d && (!from || d >= from) && (!to || d <= to); };
   const rows = categories.map((c) => {
     const os = store.all('orders').filter((o) => o.category === c && inRange(o.requestedAt) && o.status !== 'CANCELLED');
-    const billed = os.filter((o) => o.billId); const cleared = billed.filter((o) => orderAccess(o).ok); const done = os.filter((o) => o.status === 'COMPLETED');
+    const billed = os.filter((o) => o.billId || o.ipCharge); const cleared = billed.filter((o) => orderAccess(o).ok); const done = os.filter((o) => o.status === 'COMPLETED');
     return { category: c, requested: os.length, unbilled: os.length - billed.length, billed: billed.length, cleared: cleared.length, completed: done.length, pending: cleared.length - done.length, value: r2(billed.reduce((t, o) => t + (svc(o.serviceId)?.price || 0), 0)) };
   });
   const unbilled = store.all('orders').filter((o) => o.status === 'REQUESTED' && inRange(o.requestedAt));
@@ -336,6 +342,7 @@ export function enterResults(orderId, results, user) {
   mustLab(user);
   const o = store.get('orders', orderId);
   if (!['SAMPLE_COLLECTED', 'RESULTED'].includes(o.status)) throw new Error('Collect the sample first.');
+  if (!o.lab.receivedAt) throw new Error('Receive the tube in the lab (scan its label) before entering results.');
   const params = labParams(o);
   const missing = params.filter((p) => !String(results[p.name] ?? '').trim());
   if (missing.length) throw new Error(`Enter all results: ${missing.map((p) => p.name).join(', ')}.`);
@@ -359,6 +366,7 @@ export function verifyReport(orderId, user) {
     Object.assign(o.lab, { verifiedBy: user.id, verifiedAt: now(), reportNo: `${hs().lab.reportPrefix}-${yr}-${String(no).padStart(5, '0')}` });
     Object.assign(o, { status: 'COMPLETED', performedBy: o.lab.enteredBy, performedAt: now() });
     audit(user, 'LAB_REPORT_VERIFIED', 'ORDER', orderId, o.lab.reportNo);
+    onOrderVerified(o, user);
     return o;
   });
 }
@@ -406,7 +414,7 @@ export function kitReconciliation(from, to) {
   return store.all('labKits').map((k) => {
     const tests = store.all('services').filter((s) => s.category === 'LAB' && s.lab.kits.some((x) => x.kitId === k.id));
     const per = (sid) => tests.find((t) => t.id === sid)?.lab.kits.find((x) => x.kitId === k.id)?.qty || 0;
-    const os = store.all('orders').filter((o) => o.billId && o.status !== 'CANCELLED' && tests.some((t) => t.id === o.serviceId) && inR(o.billedAt));
+    const os = store.all('orders').filter((o) => (o.billId || o.ipCharge) && o.status !== 'CANCELLED' && tests.some((t) => t.id === o.serviceId) && inR(o.billedAt));
     const billed = os.reduce((t, o) => t + per(o.serviceId), 0);
     const performed = os.filter((o) => o.lab?.collectedAt).reduce((t, o) => t + per(o.serviceId), 0);
     const mv = store.all('kitMovements').filter((m) => m.kitId === k.id && inR(m.at));

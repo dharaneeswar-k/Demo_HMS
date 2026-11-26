@@ -52,10 +52,15 @@ export const ROUTES = [
   { path: '/shifts/register', mod: 'shifts', fn: 'renderRegister', perm: 'shift.report', title: 'Shift Register', crumbs: ['Business', 'Shift Register'], nav: 'shift-reg' },
   { path: '/shifts/:id', mod: 'shifts', fn: 'renderDetail', perm: null, title: 'Shift Report', crumbs: ['Shifts', 'Report'], nav: 'shift' },
   // Laboratory (BRD 06)
-  { path: '/lab', mod: 'lab', fn: 'renderWorklist', perm: 'lab.work', title: 'Lab Worklist', crumbs: ['Laboratory', 'Worklist'], nav: 'lab' },
+  { path: '/lab', mod: 'labdesk', fn: 'renderDesk', perm: 'lab.work', title: 'Lab Desk', crumbs: ['Laboratory', 'Lab Desk'], nav: 'lab' },
+  { path: '/lab/display', mod: 'labdesk', fn: 'renderDisplay', perm: 'lab.view', title: 'Token Display', crumbs: ['Laboratory', 'Token display'], nav: 'lab' },
+  { path: '/lab/ward-order', mod: 'labdesk', fn: 'renderWardOrder', perm: 'lab.order.ip', title: 'Ward Lab Order', crumbs: ['Laboratory', 'Ward order'], nav: 'lab-ward' },
+  { path: '/lab/visit/:id', mod: 'labdesk', fn: 'renderVisit', perm: 'lab.view', title: 'Lab Visit', crumbs: ['Laboratory', 'SID'], nav: 'lab' },
+  { path: '/lab/visit/:id/labels', mod: 'labdesk', fn: 'renderLabels', perm: 'lab.view', title: 'Labels', crumbs: ['Laboratory', 'Labels'], nav: 'lab' },
+  { path: '/lab/visit/:id/report', mod: 'labdesk', fn: 'renderVisitReport', perm: 'lab.view', title: 'Lab Report', crumbs: ['Laboratory', 'Report'], nav: 'lab-reports' },
   { path: '/lab/orders/:id', mod: 'lab', fn: 'renderOrder', perm: 'lab.view', title: 'Lab Test', crumbs: ['Laboratory', 'Test'], nav: 'lab' },
-  { path: '/lab/report/:id', mod: 'lab', fn: 'renderReport', perm: 'lab.view', title: 'Lab Report', crumbs: ['Laboratory', 'Report'], nav: 'lab-reports' },
-  { path: '/lab/reports', mod: 'lab', fn: 'renderReports', perm: 'lab.view', title: 'Lab Reports', crumbs: ['Laboratory', 'Reports'], nav: 'lab-reports' },
+  { path: '/lab/report/:id', mod: 'labdesk', fn: 'renderOrderReport', perm: 'lab.view', title: 'Lab Report', crumbs: ['Laboratory', 'Report'], nav: 'lab-reports' },
+  { path: '/lab/reports', mod: 'labdesk', fn: 'renderReportDesk', perm: 'lab.view', title: 'Report Desk', crumbs: ['Laboratory', 'Reports'], nav: 'lab-reports' },
   { path: '/lab/kits', mod: 'lab', fn: 'renderKits', perm: 'lab.kits', title: 'Reagent Kits', crumbs: ['Laboratory', 'Reagent Kits'], nav: 'lab-kits' },
   // Service counter (BRD 07)
   { path: '/services', mod: 'service-counter', fn: 'render', perm: 'orders.view', title: 'Service Counter', crumbs: ['Services', 'Service Counter'], nav: 'svc' },

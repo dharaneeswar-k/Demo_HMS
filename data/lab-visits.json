@@ -1,0 +1,4127 @@
+[
+  {
+    "id": "LV-00001",
+    "sid": "04010001",
+    "patientId": "PAT-0004",
+    "source": "OP",
+    "priority": "URGENT",
+    "billId": "HB-2026-00001",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 1,
+    "tokenDay": "2026-11-17",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-17T03:29:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-17T07:29:00.000Z",
+    "tubes": [
+      {
+        "code": "04010001-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00001"
+        ],
+        "collectedAt": "2026-11-17T03:35:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-17T03:47:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9212777519",
+        "at": "2026-11-17T05:07:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00001"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00002",
+    "sid": "04010002",
+    "patientId": "PAT-0014",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00007",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 2,
+    "tokenDay": "2026-11-17",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-17T07:34:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-17T11:34:00.000Z",
+    "tubes": [
+      {
+        "code": "04010002-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00012"
+        ],
+        "collectedAt": "2026-11-17T07:56:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-17T08:07:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9253305356",
+        "at": "2026-11-17T09:32:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00002"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00003",
+    "sid": "04010003",
+    "patientId": "PAT-0004",
+    "source": "OP",
+    "priority": "URGENT",
+    "billId": "HB-2026-00010",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 3,
+    "tokenDay": "2026-11-17",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-17T09:59:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-17T15:59:00.000Z",
+    "tubes": [
+      {
+        "code": "04010003-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00017"
+        ],
+        "collectedAt": "2026-11-17T10:16:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-17T10:23:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010003-2",
+        "container": "FLUORIDE",
+        "orderIds": [
+          "ORD-00018"
+        ],
+        "collectedAt": "2026-11-17T10:19:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-17T10:26:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9212777519",
+        "at": "2026-11-17T12:50:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00003"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00004",
+    "sid": "04010004",
+    "patientId": "PAT-0006",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00011",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. P. Lakshmi Narayanan, M.S (Ortho)",
+    "referralDoctorId": "RD-0005",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010004",
+      "name": "prescription-04010004.jpg",
+      "type": "image/jpeg",
+      "size": 740352,
+      "at": "2026-11-17T10:59:00.000Z",
+      "by": "USR-0006",
+      "demo": true
+    },
+    "consent": null,
+    "token": 4,
+    "tokenDay": "2026-11-17",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-17T10:59:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-17T12:59:00.000Z",
+    "tubes": [
+      {
+        "code": "04010004-1",
+        "container": "FLUORIDE",
+        "orderIds": [
+          "ORD-00019",
+          "ORD-00020"
+        ],
+        "collectedAt": "2026-11-17T11:11:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-17T11:24:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9445566204",
+        "at": "2026-11-17T14:01:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00004"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Prakash Natarajan",
+        "at": "2026-11-18T05:55:00.000Z",
+        "by": "USR-0005",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-18T05:55:00.000Z",
+      "by": "USR-0005",
+      "collectedBy": "Self",
+      "name": "Prakash Natarajan",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00005",
+    "sid": "04010005",
+    "patientId": "PAT-0007",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00012",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 5,
+    "tokenDay": "2026-11-17",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-17T12:05:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-17T16:05:00.000Z",
+    "tubes": [
+      {
+        "code": "04010005-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00021"
+        ],
+        "collectedAt": "2026-11-17T12:23:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-17T12:33:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010005-2",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00022"
+        ],
+        "collectedAt": "2026-11-17T12:18:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-17T12:24:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9398917266",
+        "at": "2026-11-17T15:05:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00005"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Fathima Begum",
+        "at": "2026-11-18T10:59:00.000Z",
+        "by": "USR-0005",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-18T10:59:00.000Z",
+      "by": "USR-0005",
+      "collectedBy": "Self",
+      "name": "Fathima Begum",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00006",
+    "sid": "04010006",
+    "patientId": "PAT-0014",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00013",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 6,
+    "tokenDay": "2026-11-17",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-17T12:38:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-17T14:38:00.000Z",
+    "tubes": [
+      {
+        "code": "04010006-1",
+        "container": "URINE",
+        "orderIds": [
+          "ORD-00023"
+        ],
+        "collectedAt": "2026-11-17T12:44:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-17T12:51:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9253305356",
+        "at": "2026-11-17T14:36:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00006"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00007",
+    "sid": "04010007",
+    "patientId": "PAT-0007",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00014",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. R. Senthil Kumar, M.D (Paed)",
+    "referralDoctorId": "RD-0003",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010007",
+      "name": "prescription-04010007.jpg",
+      "type": "image/jpeg",
+      "size": 636928,
+      "at": "2026-11-18T03:21:00.000Z",
+      "by": "USR-0005",
+      "demo": true
+    },
+    "consent": null,
+    "token": 1,
+    "tokenDay": "2026-11-18",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-18T03:21:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-18T05:21:00.000Z",
+    "tubes": [
+      {
+        "code": "04010007-1",
+        "container": "FLUORIDE",
+        "orderIds": [
+          "ORD-00024",
+          "ORD-00025"
+        ],
+        "collectedAt": "2026-11-18T03:34:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-18T03:41:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9398917266",
+        "at": "2026-11-18T06:37:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00007"
+      },
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 90037 44110",
+        "at": "2026-11-18T06:39:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00008",
+        "toDoctor": true
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Fathima Begum",
+        "at": "2026-11-18T17:31:00.000Z",
+        "by": "USR-0006",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-18T17:31:00.000Z",
+      "by": "USR-0006",
+      "collectedBy": "Self",
+      "name": "Fathima Begum",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00008",
+    "sid": "04010008",
+    "patientId": "PAT-0009",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00017",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. A. Imran Khan, M.B.B.S",
+    "referralDoctorId": "RD-0004",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010008",
+      "name": "prescription-04010008.jpg",
+      "type": "image/jpeg",
+      "size": 901120,
+      "at": "2026-11-18T05:06:00.000Z",
+      "by": "USR-0005",
+      "demo": true
+    },
+    "consent": null,
+    "token": 2,
+    "tokenDay": "2026-11-18",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-18T05:06:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-18T07:06:00.000Z",
+    "tubes": [
+      {
+        "code": "04010008-1",
+        "container": "FLUORIDE",
+        "orderIds": [
+          "ORD-00030",
+          "ORD-00031"
+        ],
+        "collectedAt": "2026-11-18T05:24:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-18T05:35:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9632926947",
+        "at": "2026-11-18T08:41:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00009"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Family member",
+        "at": "2026-11-19T02:35:00.000Z",
+        "by": "USR-0006",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-19T02:35:00.000Z",
+      "by": "USR-0006",
+      "collectedBy": "Attender",
+      "name": "Family member",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00009",
+    "sid": "04010009",
+    "patientId": "PAT-0011",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00018",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 3,
+    "tokenDay": "2026-11-18",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-18T05:42:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-18T09:42:00.000Z",
+    "tubes": [
+      {
+        "code": "04010009-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00032"
+        ],
+        "collectedAt": "2026-11-18T05:52:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-18T05:58:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010009-2",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00033"
+        ],
+        "collectedAt": "2026-11-18T05:58:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-18T06:08:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9550381157",
+        "at": "2026-11-18T09:04:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00010"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Syed Imran",
+        "at": "2026-11-18T14:58:00.000Z",
+        "by": "USR-0006",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-18T14:58:00.000Z",
+      "by": "USR-0006",
+      "collectedBy": "Self",
+      "name": "Syed Imran",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00010",
+    "sid": "04010010",
+    "patientId": "PAT-0009",
+    "source": "OP",
+    "priority": "URGENT",
+    "billId": "HB-2026-00019",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. P. Kavya (ENT)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 4,
+    "tokenDay": "2026-11-18",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-18T07:22:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-18T11:22:00.000Z",
+    "tubes": [
+      {
+        "code": "04010010-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00035"
+        ],
+        "collectedAt": "2026-11-18T07:42:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-18T07:51:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9632926947",
+        "at": "2026-11-18T10:34:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00011"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00011",
+    "sid": "04010011",
+    "patientId": "PAT-0006",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00020",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. S. Kalaivani, M.B.B.S, D.G.O",
+    "referralDoctorId": "RD-0002",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010011",
+      "name": "prescription-04010011.jpg",
+      "type": "image/jpeg",
+      "size": 371712,
+      "at": "2026-11-18T07:49:00.000Z",
+      "by": "USR-0005",
+      "demo": true
+    },
+    "consent": null,
+    "token": 5,
+    "tokenDay": "2026-11-18",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-18T07:49:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-18T11:49:00.000Z",
+    "tubes": [
+      {
+        "code": "04010011-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00036"
+        ],
+        "collectedAt": "2026-11-18T07:57:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-18T08:11:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9445566204",
+        "at": "2026-11-18T10:38:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00012"
+      },
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 94433 51200",
+        "at": "2026-11-18T10:40:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00013",
+        "toDoctor": true
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Prakash Natarajan",
+        "at": "2026-11-18T23:32:00.000Z",
+        "by": "USR-0005",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-18T23:32:00.000Z",
+      "by": "USR-0005",
+      "collectedBy": "Self",
+      "name": "Prakash Natarajan",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00012",
+    "sid": "04010012",
+    "patientId": "PAT-0009",
+    "source": "SELF",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00021",
+    "billingRoute": "COUNTER",
+    "doctor": "Self",
+    "referralDoctorId": null,
+    "rxBasis": "SELF_REQUEST",
+    "prescription": null,
+    "consent": null,
+    "token": 6,
+    "tokenDay": "2026-11-18",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-18T08:02:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-18T16:02:00.000Z",
+    "tubes": [
+      {
+        "code": "04010012-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00037"
+        ],
+        "collectedAt": "2026-11-18T08:22:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-18T08:34:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9632926947",
+        "at": "2026-11-18T11:19:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00014"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Family member",
+        "at": "2026-11-18T14:13:00.000Z",
+        "by": "USR-0006",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-18T14:13:00.000Z",
+      "by": "USR-0006",
+      "collectedBy": "Attender",
+      "name": "Family member",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00013",
+    "sid": "04010013",
+    "patientId": "PAT-0013",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00022",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 7,
+    "tokenDay": "2026-11-18",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-18T08:37:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-18T12:37:00.000Z",
+    "tubes": [
+      {
+        "code": "04010013-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00039"
+        ],
+        "collectedAt": "2026-11-18T09:00:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-18T09:07:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9779523011",
+        "at": "2026-11-18T11:53:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00015"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00014",
+    "sid": "04010014",
+    "patientId": "PAT-0010",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00023",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. P. Lakshmi Narayanan, M.S (Ortho)",
+    "referralDoctorId": "RD-0005",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010014",
+      "name": "prescription-04010014.jpg",
+      "type": "image/jpeg",
+      "size": 266240,
+      "at": "2026-11-18T10:06:00.000Z",
+      "by": "USR-0006",
+      "demo": true
+    },
+    "consent": null,
+    "token": 8,
+    "tokenDay": "2026-11-18",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-18T10:06:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-18T14:06:00.000Z",
+    "tubes": [
+      {
+        "code": "04010014-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00040"
+        ],
+        "collectedAt": "2026-11-18T10:11:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-18T10:22:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9839644125",
+        "at": "2026-11-18T11:47:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00016"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Revathi Mohan",
+        "at": "2026-11-18T14:41:00.000Z",
+        "by": "USR-0005",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-18T14:41:00.000Z",
+      "by": "USR-0005",
+      "collectedBy": "Self",
+      "name": "Revathi Mohan",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00015",
+    "sid": "04010015",
+    "patientId": "PAT-0006",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00025",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 9,
+    "tokenDay": "2026-11-18",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-18T11:43:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-18T15:43:00.000Z",
+    "tubes": [
+      {
+        "code": "04010015-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00042"
+        ],
+        "collectedAt": "2026-11-18T11:56:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-18T12:09:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010015-2",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00043"
+        ],
+        "collectedAt": "2026-11-18T11:51:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-18T11:59:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9445566204",
+        "at": "2026-11-18T14:07:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00017"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00016",
+    "sid": "04010016",
+    "patientId": "PAT-0011",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00026",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. S. Kalaivani, M.B.B.S, D.G.O",
+    "referralDoctorId": "RD-0002",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010016",
+      "name": "prescription-04010016.jpg",
+      "type": "image/jpeg",
+      "size": 728064,
+      "at": "2026-11-18T12:39:00.000Z",
+      "by": "USR-0006",
+      "demo": true
+    },
+    "consent": null,
+    "token": 10,
+    "tokenDay": "2026-11-18",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-18T12:39:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-18T14:39:00.000Z",
+    "tubes": [
+      {
+        "code": "04010016-1",
+        "container": "URINE",
+        "orderIds": [
+          "ORD-00044"
+        ],
+        "collectedAt": "2026-11-18T12:53:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-18T12:58:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9550381157",
+        "at": "2026-11-18T14:58:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00018"
+      },
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 94433 51200",
+        "at": "2026-11-18T15:00:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00019",
+        "toDoctor": true
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Syed Imran",
+        "at": "2026-11-19T08:52:00.000Z",
+        "by": "USR-0005",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-19T08:52:00.000Z",
+      "by": "USR-0005",
+      "collectedBy": "Self",
+      "name": "Syed Imran",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00017",
+    "sid": "04010017",
+    "patientId": "PAT-0007",
+    "source": "SELF",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00027",
+    "billingRoute": "COUNTER",
+    "doctor": "Self",
+    "referralDoctorId": null,
+    "rxBasis": "SELF_REQUEST",
+    "prescription": null,
+    "consent": null,
+    "token": 1,
+    "tokenDay": "2026-11-19",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-19T03:28:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-19T09:28:00.000Z",
+    "tubes": [
+      {
+        "code": "04010017-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00045"
+        ],
+        "collectedAt": "2026-11-19T03:40:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-19T03:49:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9398917266",
+        "at": "2026-11-19T05:15:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00020"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Fathima Begum",
+        "at": "2026-11-19T14:09:00.000Z",
+        "by": "USR-0006",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-19T14:09:00.000Z",
+      "by": "USR-0006",
+      "collectedBy": "Self",
+      "name": "Fathima Begum",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00018",
+    "sid": "04010018",
+    "patientId": "PAT-0009",
+    "source": "OP",
+    "priority": "URGENT",
+    "billId": "HB-2026-00028",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 2,
+    "tokenDay": "2026-11-19",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-19T04:05:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-19T06:05:00.000Z",
+    "tubes": [
+      {
+        "code": "04010018-1",
+        "container": "URINE",
+        "orderIds": [
+          "ORD-00046"
+        ],
+        "collectedAt": "2026-11-19T04:18:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-19T04:30:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9632926947",
+        "at": "2026-11-19T07:10:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00021"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00019",
+    "sid": "04010019",
+    "patientId": "PAT-0004",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00029",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. P. Lakshmi Narayanan, M.S (Ortho)",
+    "referralDoctorId": "RD-0005",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010019",
+      "name": "prescription-04010019.jpg",
+      "type": "image/jpeg",
+      "size": 572416,
+      "at": "2026-11-19T04:35:00.000Z",
+      "by": "USR-0005",
+      "demo": true
+    },
+    "consent": null,
+    "token": 3,
+    "tokenDay": "2026-11-19",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-19T04:35:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-19T10:35:00.000Z",
+    "tubes": [
+      {
+        "code": "04010019-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00047"
+        ],
+        "collectedAt": "2026-11-19T04:55:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-19T05:01:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9212777519",
+        "at": "2026-11-19T07:44:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00022"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Family member",
+        "at": "2026-11-19T22:38:00.000Z",
+        "by": "USR-0005",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-19T22:38:00.000Z",
+      "by": "USR-0005",
+      "collectedBy": "Attender",
+      "name": "Family member",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00020",
+    "sid": "04010020",
+    "patientId": "PAT-0013",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00030",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 4,
+    "tokenDay": "2026-11-19",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-19T05:52:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-19T07:52:00.000Z",
+    "tubes": [
+      {
+        "code": "04010020-1",
+        "container": "FLUORIDE",
+        "orderIds": [
+          "ORD-00048",
+          "ORD-00049"
+        ],
+        "collectedAt": "2026-11-19T06:03:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-19T06:09:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9779523011",
+        "at": "2026-11-19T08:24:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00023"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Manjunath Hegde",
+        "at": "2026-11-20T03:18:00.000Z",
+        "by": "USR-0005",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-20T03:18:00.000Z",
+      "by": "USR-0005",
+      "collectedBy": "Self",
+      "name": "Manjunath Hegde",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00021",
+    "sid": "04010021",
+    "patientId": "PAT-0006",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00031",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 5,
+    "tokenDay": "2026-11-19",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-19T07:22:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-19T09:22:00.000Z",
+    "tubes": [
+      {
+        "code": "04010021-1",
+        "container": "URINE",
+        "orderIds": [
+          "ORD-00050"
+        ],
+        "collectedAt": "2026-11-19T07:33:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-19T07:42:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9445566204",
+        "at": "2026-11-19T10:10:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00024"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00022",
+    "sid": "04010022",
+    "patientId": "PAT-0007",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00032",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. R. Senthil Kumar, M.D (Paed)",
+    "referralDoctorId": "RD-0003",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010022",
+      "name": "prescription-04010022.jpg",
+      "type": "image/jpeg",
+      "size": 690176,
+      "at": "2026-11-19T07:52:00.000Z",
+      "by": "USR-0005",
+      "demo": true
+    },
+    "consent": null,
+    "token": 6,
+    "tokenDay": "2026-11-19",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-19T07:52:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-19T09:52:00.000Z",
+    "tubes": [
+      {
+        "code": "04010022-1",
+        "container": "URINE",
+        "orderIds": [
+          "ORD-00051"
+        ],
+        "collectedAt": "2026-11-19T07:57:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-19T08:09:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9398917266",
+        "at": "2026-11-19T10:28:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00025"
+      },
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 90037 44110",
+        "at": "2026-11-19T10:30:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00026",
+        "toDoctor": true
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Fathima Begum",
+        "at": "2026-11-20T04:22:00.000Z",
+        "by": "USR-0005",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-20T04:22:00.000Z",
+      "by": "USR-0005",
+      "collectedBy": "Self",
+      "name": "Fathima Begum",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00023",
+    "sid": "04010023",
+    "patientId": "PAT-0005",
+    "source": "SELF",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00033",
+    "billingRoute": "COUNTER",
+    "doctor": "Self",
+    "referralDoctorId": null,
+    "rxBasis": "SELF_REQUEST",
+    "prescription": null,
+    "consent": null,
+    "token": 7,
+    "tokenDay": "2026-11-19",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-19T09:05:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-19T15:05:00.000Z",
+    "tubes": [
+      {
+        "code": "04010023-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00052"
+        ],
+        "collectedAt": "2026-11-19T09:22:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-19T09:28:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010023-2",
+        "container": "URINE",
+        "orderIds": [
+          "ORD-00053"
+        ],
+        "collectedAt": "2026-11-19T09:13:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-19T09:27:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9213929879",
+        "at": "2026-11-19T10:47:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00027"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Family member",
+        "at": "2026-11-19T20:41:00.000Z",
+        "by": "USR-0005",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-19T20:41:00.000Z",
+      "by": "USR-0005",
+      "collectedBy": "Attender",
+      "name": "Family member",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00024",
+    "sid": "04010024",
+    "patientId": "PAT-0011",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00034",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. S. Nivetha (Paediatrics)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 8,
+    "tokenDay": "2026-11-19",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-19T09:56:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-19T17:56:00.000Z",
+    "tubes": [
+      {
+        "code": "04010024-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00054"
+        ],
+        "collectedAt": "2026-11-19T10:17:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-19T10:22:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9550381157",
+        "at": "2026-11-19T11:43:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00028"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00025",
+    "sid": "04010025",
+    "patientId": "PAT-0008",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00035",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. M. Venkateswaran, M.D (Gen Med)",
+    "referralDoctorId": "RD-0001",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010025",
+      "name": "prescription-04010025.jpg",
+      "type": "image/jpeg",
+      "size": 561152,
+      "at": "2026-11-19T11:05:00.000Z",
+      "by": "USR-0006",
+      "demo": true
+    },
+    "consent": null,
+    "token": 9,
+    "tokenDay": "2026-11-19",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-19T11:05:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-19T15:05:00.000Z",
+    "tubes": [
+      {
+        "code": "04010025-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00056"
+        ],
+        "collectedAt": "2026-11-19T11:23:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-19T11:33:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9474851456",
+        "at": "2026-11-19T13:55:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00029"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Joseph Dominic",
+        "at": "2026-11-20T01:49:00.000Z",
+        "by": "USR-0006",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-20T01:49:00.000Z",
+      "by": "USR-0006",
+      "collectedBy": "Self",
+      "name": "Joseph Dominic",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00026",
+    "sid": "04010026",
+    "patientId": "PAT-0015",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00036",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. P. Kavya (ENT)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 10,
+    "tokenDay": "2026-11-19",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-19T12:18:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-19T16:18:00.000Z",
+    "tubes": [
+      {
+        "code": "04010026-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00057"
+        ],
+        "collectedAt": "2026-11-19T12:25:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-19T12:39:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010026-2",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00058"
+        ],
+        "collectedAt": "2026-11-19T12:35:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-19T12:40:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9311233836",
+        "at": "2026-11-19T15:25:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00030"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Venkatesan Thangavel",
+        "at": "2026-11-20T08:19:00.000Z",
+        "by": "USR-0006",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-20T08:19:00.000Z",
+      "by": "USR-0006",
+      "collectedBy": "Self",
+      "name": "Venkatesan Thangavel",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00027",
+    "sid": "04010027",
+    "patientId": "PAT-0009",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00038",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. R. Senthil Kumar, M.D (Paed)",
+    "referralDoctorId": "RD-0003",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010027",
+      "name": "prescription-04010027.jpg",
+      "type": "image/jpeg",
+      "size": 789504,
+      "at": "2026-11-20T03:13:00.000Z",
+      "by": "USR-0005",
+      "demo": true
+    },
+    "consent": null,
+    "token": 1,
+    "tokenDay": "2026-11-20",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-20T03:13:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-20T07:13:00.000Z",
+    "tubes": [
+      {
+        "code": "04010027-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00060"
+        ],
+        "collectedAt": "2026-11-20T03:28:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-20T03:42:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010027-2",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00061"
+        ],
+        "collectedAt": "2026-11-20T03:26:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-20T03:40:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9632926947",
+        "at": "2026-11-20T06:48:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00031"
+      },
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 90037 44110",
+        "at": "2026-11-20T06:50:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00032",
+        "toDoctor": true
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Kumaravel Pandian",
+        "at": "2026-11-20T16:42:00.000Z",
+        "by": "USR-0005",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-20T16:42:00.000Z",
+      "by": "USR-0005",
+      "collectedBy": "Self",
+      "name": "Kumaravel Pandian",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00028",
+    "sid": "04010028",
+    "patientId": "PAT-0012",
+    "source": "SELF",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00039",
+    "billingRoute": "COUNTER",
+    "doctor": "Self",
+    "referralDoctorId": null,
+    "rxBasis": "SELF_REQUEST",
+    "prescription": null,
+    "consent": null,
+    "token": 2,
+    "tokenDay": "2026-11-20",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-20T04:24:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-20T12:24:00.000Z",
+    "tubes": [
+      {
+        "code": "04010028-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00062"
+        ],
+        "collectedAt": "2026-11-20T04:48:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-20T05:01:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9708494956",
+        "at": "2026-11-20T06:44:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00033"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Geetha Venkat",
+        "at": "2026-11-21T02:38:00.000Z",
+        "by": "USR-0005",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-21T02:38:00.000Z",
+      "by": "USR-0005",
+      "collectedBy": "Self",
+      "name": "Geetha Venkat",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00029",
+    "sid": "04010029",
+    "patientId": "PAT-0014",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00040",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 3,
+    "tokenDay": "2026-11-20",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-20T05:17:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-20T07:17:00.000Z",
+    "tubes": [
+      {
+        "code": "04010029-1",
+        "container": "FLUORIDE",
+        "orderIds": [
+          "ORD-00063",
+          "ORD-00064"
+        ],
+        "collectedAt": "2026-11-20T05:24:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-20T05:29:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9253305356",
+        "at": "2026-11-20T08:22:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00034"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00030",
+    "sid": "04010030",
+    "patientId": "PAT-0006",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00041",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. M. Venkateswaran, M.D (Gen Med)",
+    "referralDoctorId": "RD-0001",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010030",
+      "name": "prescription-04010030.jpg",
+      "type": "image/jpeg",
+      "size": 673792,
+      "at": "2026-11-20T05:55:00.000Z",
+      "by": "USR-0005",
+      "demo": true
+    },
+    "consent": null,
+    "token": 4,
+    "tokenDay": "2026-11-20",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-20T05:55:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-20T07:55:00.000Z",
+    "tubes": [
+      {
+        "code": "04010030-1",
+        "container": "FLUORIDE",
+        "orderIds": [
+          "ORD-00065",
+          "ORD-00066"
+        ],
+        "collectedAt": "2026-11-20T06:07:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-20T06:13:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9445566204",
+        "at": "2026-11-20T09:14:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00035"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Family member",
+        "at": "2026-11-20T14:08:00.000Z",
+        "by": "USR-0006",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-20T14:08:00.000Z",
+      "by": "USR-0006",
+      "collectedBy": "Attender",
+      "name": "Family member",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00031",
+    "sid": "04010031",
+    "patientId": "PAT-0012",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00043",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 5,
+    "tokenDay": "2026-11-20",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-20T08:55:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-20T12:55:00.000Z",
+    "tubes": [
+      {
+        "code": "04010031-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00068"
+        ],
+        "collectedAt": "2026-11-20T09:19:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-20T09:24:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010031-2",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00069"
+        ],
+        "collectedAt": "2026-11-20T09:11:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-20T09:21:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9708494956",
+        "at": "2026-11-20T11:34:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00036"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00032",
+    "sid": "04010032",
+    "patientId": "PAT-0008",
+    "source": "SELF",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00045",
+    "billingRoute": "COUNTER",
+    "doctor": "Self",
+    "referralDoctorId": null,
+    "rxBasis": "SELF_REQUEST",
+    "prescription": null,
+    "consent": null,
+    "token": 6,
+    "tokenDay": "2026-11-20",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-20T10:45:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-20T14:45:00.000Z",
+    "tubes": [
+      {
+        "code": "04010032-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00072"
+        ],
+        "collectedAt": "2026-11-20T11:02:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-20T11:13:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9474851456",
+        "at": "2026-11-20T12:58:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00037"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Family member",
+        "at": "2026-11-20T16:52:00.000Z",
+        "by": "USR-0006",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-20T16:52:00.000Z",
+      "by": "USR-0006",
+      "collectedBy": "Attender",
+      "name": "Family member",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00033",
+    "sid": "04010033",
+    "patientId": "PAT-0012",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00047",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. A. Imran Khan, M.B.B.S",
+    "referralDoctorId": "RD-0004",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010033",
+      "name": "prescription-04010033.jpg",
+      "type": "image/jpeg",
+      "size": 574464,
+      "at": "2026-11-21T02:32:00.000Z",
+      "by": "USR-0005",
+      "demo": true
+    },
+    "consent": null,
+    "token": 1,
+    "tokenDay": "2026-11-21",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-21T02:32:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-21T06:32:00.000Z",
+    "tubes": [
+      {
+        "code": "04010033-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00076"
+        ],
+        "collectedAt": "2026-11-21T02:55:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T03:04:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010033-2",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00077"
+        ],
+        "collectedAt": "2026-11-21T02:52:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T03:04:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9708494956",
+        "at": "2026-11-21T05:20:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00038"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Geetha Venkat",
+        "at": "2026-11-21T17:14:00.000Z",
+        "by": "USR-0005",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-21T17:14:00.000Z",
+      "by": "USR-0005",
+      "collectedBy": "Self",
+      "name": "Geetha Venkat",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00034",
+    "sid": "04010034",
+    "patientId": "PAT-0008",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00048",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. S. Nivetha (Paediatrics)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 2,
+    "tokenDay": "2026-11-21",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-21T03:26:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-21T09:26:00.000Z",
+    "tubes": [
+      {
+        "code": "04010034-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00078"
+        ],
+        "collectedAt": "2026-11-21T03:40:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T03:47:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9474851456",
+        "at": "2026-11-21T06:39:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00039"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Joseph Dominic",
+        "at": "2026-11-21T19:33:00.000Z",
+        "by": "USR-0006",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-21T19:33:00.000Z",
+      "by": "USR-0006",
+      "collectedBy": "Self",
+      "name": "Joseph Dominic",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00035",
+    "sid": "04010035",
+    "patientId": "PAT-0003",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00049",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 3,
+    "tokenDay": "2026-11-21",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-21T04:01:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-21T08:01:00.000Z",
+    "tubes": [
+      {
+        "code": "04010035-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00079"
+        ],
+        "collectedAt": "2026-11-21T04:14:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T04:26:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9787657740",
+        "at": "2026-11-21T07:11:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00040"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00036",
+    "sid": "04010036",
+    "patientId": "PAT-0016",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00050",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. S. Kalaivani, M.B.B.S, D.G.O",
+    "referralDoctorId": "RD-0002",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010036",
+      "name": "prescription-04010036.jpg",
+      "type": "image/jpeg",
+      "size": 274432,
+      "at": "2026-11-21T04:51:00.000Z",
+      "by": "USR-0005",
+      "demo": true
+    },
+    "consent": null,
+    "token": 4,
+    "tokenDay": "2026-11-21",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-21T04:51:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-21T08:51:00.000Z",
+    "tubes": [
+      {
+        "code": "04010036-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00080"
+        ],
+        "collectedAt": "2026-11-21T05:16:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T05:25:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9414558148",
+        "at": "2026-11-21T07:24:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00041"
+      },
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 94433 51200",
+        "at": "2026-11-21T07:26:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00042",
+        "toDoctor": true
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Shalini Kumar",
+        "at": "2026-11-22T00:18:00.000Z",
+        "by": "USR-0006",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-22T00:18:00.000Z",
+      "by": "USR-0006",
+      "collectedBy": "Self",
+      "name": "Shalini Kumar",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00037",
+    "sid": "04010037",
+    "patientId": "PAT-0002",
+    "source": "SELF",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00051",
+    "billingRoute": "COUNTER",
+    "doctor": "Self",
+    "referralDoctorId": null,
+    "rxBasis": "SELF_REQUEST",
+    "prescription": null,
+    "consent": null,
+    "token": 5,
+    "tokenDay": "2026-11-21",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-21T06:04:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-21T10:04:00.000Z",
+    "tubes": [
+      {
+        "code": "04010037-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00081"
+        ],
+        "collectedAt": "2026-11-21T06:13:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T06:24:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9505070440",
+        "at": "2026-11-21T07:51:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00043"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Murugan Kannan",
+        "at": "2026-11-21T19:45:00.000Z",
+        "by": "USR-0006",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-21T19:45:00.000Z",
+      "by": "USR-0006",
+      "collectedBy": "Self",
+      "name": "Murugan Kannan",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00038",
+    "sid": "04010038",
+    "patientId": "PAT-0002",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00052",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 6,
+    "tokenDay": "2026-11-21",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-21T06:52:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-21T12:52:00.000Z",
+    "tubes": [
+      {
+        "code": "04010038-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00082"
+        ],
+        "collectedAt": "2026-11-21T07:10:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T07:25:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010038-2",
+        "container": "FLUORIDE",
+        "orderIds": [
+          "ORD-00083"
+        ],
+        "collectedAt": "2026-11-21T07:17:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T07:26:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9505070440",
+        "at": "2026-11-21T09:45:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00044"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00039",
+    "sid": "04010039",
+    "patientId": "PAT-0016",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00053",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. P. Lakshmi Narayanan, M.S (Ortho)",
+    "referralDoctorId": "RD-0005",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010039",
+      "name": "prescription-04010039.jpg",
+      "type": "image/jpeg",
+      "size": 332800,
+      "at": "2026-11-21T08:22:00.000Z",
+      "by": "USR-0005",
+      "demo": true
+    },
+    "consent": null,
+    "token": 7,
+    "tokenDay": "2026-11-21",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-21T08:22:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-21T12:22:00.000Z",
+    "tubes": [
+      {
+        "code": "04010039-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00085"
+        ],
+        "collectedAt": "2026-11-21T08:28:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T08:43:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9414558148",
+        "at": "2026-11-21T09:50:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00045"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Family member",
+        "at": "2026-11-22T03:44:00.000Z",
+        "by": "USR-0006",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-22T03:44:00.000Z",
+      "by": "USR-0006",
+      "collectedBy": "Attender",
+      "name": "Family member",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00040",
+    "sid": "04010040",
+    "patientId": "PAT-0006",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00054",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 8,
+    "tokenDay": "2026-11-21",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-21T07:50:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-21T11:50:00.000Z",
+    "tubes": [
+      {
+        "code": "04010040-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00086"
+        ],
+        "collectedAt": "2026-11-21T07:55:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T08:01:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010040-2",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00087"
+        ],
+        "collectedAt": "2026-11-21T08:09:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T08:15:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9445566204",
+        "at": "2026-11-21T10:25:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00046"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Prakash Natarajan",
+        "at": "2026-11-21T16:19:00.000Z",
+        "by": "USR-0005",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-21T16:19:00.000Z",
+      "by": "USR-0005",
+      "collectedBy": "Self",
+      "name": "Prakash Natarajan",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00041",
+    "sid": "04010041",
+    "patientId": "PAT-0013",
+    "source": "OP",
+    "priority": "URGENT",
+    "billId": "HB-2026-00055",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 9,
+    "tokenDay": "2026-11-21",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-21T09:01:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-21T13:01:00.000Z",
+    "tubes": [
+      {
+        "code": "04010041-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00088"
+        ],
+        "collectedAt": "2026-11-21T09:11:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T09:17:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9779523011",
+        "at": "2026-11-21T11:27:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00047"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00042",
+    "sid": "04010042",
+    "patientId": "PAT-0008",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00056",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. R. Senthil Kumar, M.D (Paed)",
+    "referralDoctorId": "RD-0003",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010042",
+      "name": "prescription-04010042.jpg",
+      "type": "image/jpeg",
+      "size": 642048,
+      "at": "2026-11-21T10:23:00.000Z",
+      "by": "USR-0006",
+      "demo": true
+    },
+    "consent": null,
+    "token": 10,
+    "tokenDay": "2026-11-21",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-21T10:23:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-21T14:23:00.000Z",
+    "tubes": [
+      {
+        "code": "04010042-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00089"
+        ],
+        "collectedAt": "2026-11-21T10:39:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T10:53:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010042-2",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00090"
+        ],
+        "collectedAt": "2026-11-21T10:37:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T10:44:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9474851456",
+        "at": "2026-11-21T13:31:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00048"
+      },
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 90037 44110",
+        "at": "2026-11-21T13:33:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00049",
+        "toDoctor": true
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Joseph Dominic",
+        "at": "2026-11-21T18:25:00.000Z",
+        "by": "USR-0005",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-21T18:25:00.000Z",
+      "by": "USR-0005",
+      "collectedBy": "Self",
+      "name": "Joseph Dominic",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00043",
+    "sid": "04010043",
+    "patientId": "PAT-0003",
+    "source": "SELF",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00057",
+    "billingRoute": "COUNTER",
+    "doctor": "Self",
+    "referralDoctorId": null,
+    "rxBasis": "SELF_REQUEST",
+    "prescription": null,
+    "consent": null,
+    "token": 11,
+    "tokenDay": "2026-11-21",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-21T10:39:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-21T12:39:00.000Z",
+    "tubes": [
+      {
+        "code": "04010043-1",
+        "container": "URINE",
+        "orderIds": [
+          "ORD-00091"
+        ],
+        "collectedAt": "2026-11-21T10:46:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T10:56:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9787657740",
+        "at": "2026-11-21T12:45:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00050"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Family member",
+        "at": "2026-11-21T20:39:00.000Z",
+        "by": "USR-0005",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-21T20:39:00.000Z",
+      "by": "USR-0005",
+      "collectedBy": "Attender",
+      "name": "Family member",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00044",
+    "sid": "04010044",
+    "patientId": "PAT-0013",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00058",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 12,
+    "tokenDay": "2026-11-21",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-21T12:20:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-21T16:20:00.000Z",
+    "tubes": [
+      {
+        "code": "04010044-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00092"
+        ],
+        "collectedAt": "2026-11-21T12:41:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T12:48:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010044-2",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00093"
+        ],
+        "collectedAt": "2026-11-21T12:42:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T12:50:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9779523011",
+        "at": "2026-11-21T16:02:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00051"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00045",
+    "sid": "04010045",
+    "patientId": "PAT-0001",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00059",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. M. Venkateswaran, M.D (Gen Med)",
+    "referralDoctorId": "RD-0001",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010045",
+      "name": "prescription-04010045.jpg",
+      "type": "image/jpeg",
+      "size": 814080,
+      "at": "2026-11-21T12:56:00.000Z",
+      "by": "USR-0006",
+      "demo": true
+    },
+    "consent": null,
+    "token": 13,
+    "tokenDay": "2026-11-21",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-21T12:56:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-21T16:56:00.000Z",
+    "tubes": [
+      {
+        "code": "04010045-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00094"
+        ],
+        "collectedAt": "2026-11-21T13:04:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T13:18:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010045-2",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00095"
+        ],
+        "collectedAt": "2026-11-21T13:02:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T13:17:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9396330059",
+        "at": "2026-11-21T15:51:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00052"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Selvi Rajendran",
+        "at": "2026-11-22T11:45:00.000Z",
+        "by": "USR-0005",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-22T11:45:00.000Z",
+      "by": "USR-0005",
+      "collectedBy": "Self",
+      "name": "Selvi Rajendran",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00046",
+    "sid": "04010046",
+    "patientId": "PAT-0003",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00062",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. S. Kalaivani, M.B.B.S, D.G.O",
+    "referralDoctorId": "RD-0002",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010046",
+      "name": "prescription-04010046.jpg",
+      "type": "image/jpeg",
+      "size": 461824,
+      "at": "2026-11-22T04:30:00.000Z",
+      "by": "USR-0005",
+      "demo": true
+    },
+    "consent": null,
+    "token": 1,
+    "tokenDay": "2026-11-22",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-22T04:30:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-22T08:30:00.000Z",
+    "tubes": [
+      {
+        "code": "04010046-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00098"
+        ],
+        "collectedAt": "2026-11-22T04:42:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-22T04:47:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9787657740",
+        "at": "2026-11-22T07:22:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00053"
+      },
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 94433 51200",
+        "at": "2026-11-22T07:24:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00054",
+        "toDoctor": true
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Lakshmi Devi",
+        "at": "2026-11-23T03:16:00.000Z",
+        "by": "USR-0006",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-23T03:16:00.000Z",
+      "by": "USR-0006",
+      "collectedBy": "Self",
+      "name": "Lakshmi Devi",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00047",
+    "sid": "04010047",
+    "patientId": "PAT-0004",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00066",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 2,
+    "tokenDay": "2026-11-22",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-22T09:41:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-22T11:41:00.000Z",
+    "tubes": [
+      {
+        "code": "04010047-1",
+        "container": "FLUORIDE",
+        "orderIds": [
+          "ORD-00102",
+          "ORD-00103"
+        ],
+        "collectedAt": "2026-11-22T09:56:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-22T10:01:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9212777519",
+        "at": "2026-11-22T12:45:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00055"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Ramesh Babu",
+        "at": "2026-11-23T07:39:00.000Z",
+        "by": "USR-0006",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-23T07:39:00.000Z",
+      "by": "USR-0006",
+      "collectedBy": "Self",
+      "name": "Ramesh Babu",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00048",
+    "sid": "04010048",
+    "patientId": "PAT-0001",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00068",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. A. Imran Khan, M.B.B.S",
+    "referralDoctorId": "RD-0004",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010048",
+      "name": "prescription-04010048.jpg",
+      "type": "image/jpeg",
+      "size": 444416,
+      "at": "2026-11-22T11:58:00.000Z",
+      "by": "USR-0006",
+      "demo": true
+    },
+    "consent": null,
+    "token": 3,
+    "tokenDay": "2026-11-22",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-22T11:58:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-22T15:58:00.000Z",
+    "tubes": [
+      {
+        "code": "04010048-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00105"
+        ],
+        "collectedAt": "2026-11-22T12:06:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-22T12:20:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010048-2",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00106"
+        ],
+        "collectedAt": "2026-11-22T12:10:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-22T12:22:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9396330059",
+        "at": "2026-11-22T13:35:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00056"
+      },
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 99402 18877",
+        "at": "2026-11-22T13:37:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00057",
+        "toDoctor": true
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Selvi Rajendran",
+        "at": "2026-11-23T00:29:00.000Z",
+        "by": "USR-0005",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-23T00:29:00.000Z",
+      "by": "USR-0005",
+      "collectedBy": "Self",
+      "name": "Selvi Rajendran",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00049",
+    "sid": "04010049",
+    "patientId": "PAT-0006",
+    "source": "PACKAGE",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00070",
+    "billingRoute": "PACKAGE",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "referralDoctorId": null,
+    "rxBasis": "PACKAGE",
+    "prescription": null,
+    "consent": null,
+    "token": 14,
+    "tokenDay": "2026-11-21",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-21T03:15:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-21T11:15:00.000Z",
+    "tubes": [
+      {
+        "code": "04010049-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00107",
+          "ORD-00113"
+        ],
+        "collectedAt": "2026-11-21T03:39:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T03:47:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010049-2",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00108",
+          "ORD-00109",
+          "ORD-00110",
+          "ORD-00114"
+        ],
+        "collectedAt": "2026-11-21T03:21:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T03:30:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010049-3",
+        "container": "FLUORIDE",
+        "orderIds": [
+          "ORD-00111",
+          "ORD-00112"
+        ],
+        "collectedAt": "2026-11-21T03:21:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T03:28:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010049-4",
+        "container": "URINE",
+        "orderIds": [
+          "ORD-00115"
+        ],
+        "collectedAt": "2026-11-21T03:36:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T03:41:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9445566204",
+        "at": "2026-11-21T06:27:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00058"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00050",
+    "sid": "04010050",
+    "patientId": "PAT-0006",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00071",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. M. Venkateswaran, M.D (Gen Med)",
+    "referralDoctorId": "RD-0001",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010050",
+      "name": "prescription-04010050.jpg",
+      "type": "image/jpeg",
+      "size": 236544,
+      "at": "2026-11-21T06:00:00.000Z",
+      "by": "USR-0005",
+      "demo": true
+    },
+    "consent": null,
+    "token": 15,
+    "tokenDay": "2026-11-21",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-21T06:00:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-21T09:00:00.000Z",
+    "tubes": [
+      {
+        "code": "04010050-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00118"
+        ],
+        "collectedAt": "2026-11-21T06:22:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-21T06:27:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9445566204",
+        "at": "2026-11-21T09:24:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00059"
+      },
+      {
+        "channel": "COUNTER",
+        "to": "Prakash Natarajan",
+        "at": "2026-11-21T21:18:00.000Z",
+        "by": "USR-0005",
+        "status": "HANDED_OVER"
+      }
+    ],
+    "handover": {
+      "at": "2026-11-21T21:18:00.000Z",
+      "by": "USR-0005",
+      "collectedBy": "Self",
+      "name": "Prakash Natarajan",
+      "printCount": 1
+    }
+  },
+  {
+    "id": "LV-00051",
+    "sid": "04010051",
+    "patientId": "PAT-0002",
+    "source": "PACKAGE",
+    "priority": "URGENT",
+    "billId": "HB-2026-00073",
+    "billingRoute": "PACKAGE",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "referralDoctorId": null,
+    "rxBasis": "PACKAGE",
+    "prescription": null,
+    "consent": null,
+    "token": 7,
+    "tokenDay": "2026-11-20",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-20T04:50:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-20T10:50:00.000Z",
+    "tubes": [
+      {
+        "code": "04010051-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00120"
+        ],
+        "collectedAt": "2026-11-20T05:15:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-20T05:30:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010051-2",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00121"
+        ],
+        "collectedAt": "2026-11-20T05:12:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-20T05:23:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010051-3",
+        "container": "FLUORIDE",
+        "orderIds": [
+          "ORD-00122"
+        ],
+        "collectedAt": "2026-11-20T05:11:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-20T05:16:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9505070440",
+        "at": "2026-11-20T07:55:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00060"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00052",
+    "sid": "04010052",
+    "patientId": "PAT-0014",
+    "source": "EMERGENCY",
+    "priority": "STAT",
+    "billId": "HB-2026-00076",
+    "billingRoute": "EMERGENCY",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": null,
+    "tokenDay": null,
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "CASUALTY",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-22T17:10:00.000Z",
+    "createdBy": "USR-0006",
+    "reportDueAt": "2026-11-22T21:10:00.000Z",
+    "tubes": [
+      {
+        "code": "04010052-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00137"
+        ],
+        "collectedAt": "2026-11-22T17:31:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-22T17:43:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9253305356",
+        "at": "2026-11-22T20:36:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00061"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00053",
+    "sid": "04010053",
+    "patientId": "PAT-0015",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00077",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. A. Imran Khan, M.B.B.S",
+    "referralDoctorId": "RD-0004",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010053",
+      "name": "prescription-04010053.jpg",
+      "type": "image/jpeg",
+      "size": 741376,
+      "at": "2026-11-23T04:55:00.000Z",
+      "by": "USR-0005",
+      "demo": true
+    },
+    "consent": null,
+    "token": 1,
+    "tokenDay": "2026-11-23",
+    "tokenStatus": "WAITING",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-23T04:55:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-23T10:55:00.000Z",
+    "tubes": [
+      {
+        "code": "04010053-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00141",
+          "ORD-00142"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      },
+      {
+        "code": "04010053-2",
+        "container": "URINE",
+        "orderIds": [
+          "ORD-00143"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      }
+    ],
+    "deliveries": [],
+    "handover": null
+  },
+  {
+    "id": "LV-00054",
+    "sid": "04010054",
+    "patientId": "PAT-0003",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00078",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. P. Kavya (ENT)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 2,
+    "tokenDay": "2026-11-23",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-23T03:05:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-23T07:05:00.000Z",
+    "tubes": [
+      {
+        "code": "04010054-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00144"
+        ],
+        "collectedAt": "2026-11-23T03:23:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-23T03:38:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010054-2",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00145"
+        ],
+        "collectedAt": "2026-11-23T03:24:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-23T03:35:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9787657740",
+        "at": "2026-11-23T05:58:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00062"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00055",
+    "sid": "04010055",
+    "patientId": "PAT-0006",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00079",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. P. Kavya (ENT)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 3,
+    "tokenDay": "2026-11-23",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-23T03:20:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-23T09:20:00.000Z",
+    "tubes": [
+      {
+        "code": "04010055-1",
+        "container": "FLUORIDE",
+        "orderIds": [
+          "ORD-00146",
+          "ORD-00147"
+        ],
+        "collectedAt": "2026-11-23T03:32:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-23T03:40:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010055-2",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00148"
+        ],
+        "collectedAt": "2026-11-23T03:30:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-23T03:40:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9445566204",
+        "at": "2026-11-23T06:09:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00063"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00056",
+    "sid": "04010056",
+    "patientId": "PAT-0012",
+    "source": "SELF",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00081",
+    "billingRoute": "COUNTER",
+    "doctor": "Self",
+    "referralDoctorId": null,
+    "rxBasis": "SELF_REQUEST",
+    "prescription": null,
+    "consent": null,
+    "token": 4,
+    "tokenDay": "2026-11-23",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-23T04:10:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-23T12:10:00.000Z",
+    "tubes": [
+      {
+        "code": "04010056-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00150"
+        ],
+        "collectedAt": "2026-11-23T04:32:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-23T04:44:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WHATSAPP",
+        "to": "+91 9708494956",
+        "at": "2026-11-23T07:25:00.000Z",
+        "by": "USR-0007",
+        "status": "SENT_VIA_LINK",
+        "messageId": "MSG-00064"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00057",
+    "sid": "04010057",
+    "patientId": "PAT-0002",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00083",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. R. Senthil Kumar, M.D (Paed)",
+    "referralDoctorId": "RD-0003",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010057",
+      "name": "prescription-04010057.jpg",
+      "type": "image/jpeg",
+      "size": 717824,
+      "at": "2026-11-23T05:10:00.000Z",
+      "by": "USR-0005",
+      "demo": true
+    },
+    "consent": null,
+    "token": 5,
+    "tokenDay": "2026-11-23",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-23T05:10:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-23T11:10:00.000Z",
+    "tubes": [
+      {
+        "code": "04010057-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00152",
+          "ORD-00153"
+        ],
+        "collectedAt": "2026-11-23T05:22:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-23T05:28:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [],
+    "handover": null
+  },
+  {
+    "id": "LV-00058",
+    "sid": "04010058",
+    "patientId": "PAT-0008",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00085",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 6,
+    "tokenDay": "2026-11-23",
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-23T06:15:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-23T10:15:00.000Z",
+    "tubes": [
+      {
+        "code": "04010058-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00156"
+        ],
+        "collectedAt": "2026-11-23T06:25:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-23T06:30:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010058-2",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00157"
+        ],
+        "collectedAt": "2026-11-23T06:27:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-23T06:33:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [],
+    "handover": null
+  },
+  {
+    "id": "LV-00059",
+    "sid": "04010059",
+    "patientId": "PAT-0011",
+    "source": "REFERRAL",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00086",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. P. Lakshmi Narayanan, M.S (Ortho)",
+    "referralDoctorId": "RD-0005",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010059",
+      "name": "prescription-04010059.jpg",
+      "type": "image/jpeg",
+      "size": 318464,
+      "at": "2026-11-23T06:40:00.000Z",
+      "by": "USR-0005",
+      "demo": true
+    },
+    "consent": null,
+    "token": 7,
+    "tokenDay": "2026-11-23",
+    "tokenStatus": "WAITING",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-23T06:40:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-23T08:40:00.000Z",
+    "tubes": [
+      {
+        "code": "04010059-1",
+        "container": "URINE",
+        "orderIds": [
+          "ORD-00158"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": {
+          "at": "2026-11-23T03:35:00.000Z",
+          "by": "USR-0007",
+          "reason": "Haemolysed sample",
+          "count": 1
+        }
+      }
+    ],
+    "deliveries": [],
+    "handover": null
+  },
+  {
+    "id": "LV-00060",
+    "sid": "04010060",
+    "patientId": "PAT-0014",
+    "source": "SELF",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00087",
+    "billingRoute": "COUNTER",
+    "doctor": "Self",
+    "referralDoctorId": null,
+    "rxBasis": "SELF_REQUEST",
+    "prescription": null,
+    "consent": null,
+    "token": 8,
+    "tokenDay": "2026-11-23",
+    "tokenStatus": "WAITING",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-23T07:00:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-23T13:00:00.000Z",
+    "tubes": [
+      {
+        "code": "04010060-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00160"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      }
+    ],
+    "deliveries": [],
+    "handover": null
+  },
+  {
+    "id": "LV-00061",
+    "sid": "04010061",
+    "patientId": "PAT-0002",
+    "source": "IP",
+    "priority": "ROUTINE",
+    "billId": null,
+    "billingRoute": "IP_ACCOUNT",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": null,
+    "tokenDay": null,
+    "tokenStatus": "DONE",
+    "calledAt": null,
+    "collectionPoint": "WARD",
+    "ipNo": "IP-2026-0141",
+    "ward": "Surgical ward",
+    "bed": "S-4",
+    "clinicalNotes": "",
+    "createdAt": "2026-11-22T01:00:00.000Z",
+    "createdBy": "USR-0008",
+    "reportDueAt": "2026-11-22T07:00:00.000Z",
+    "tubes": [
+      {
+        "code": "04010061-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00164"
+        ],
+        "collectedAt": "2026-11-22T01:20:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-22T01:30:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      },
+      {
+        "code": "04010061-2",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00165"
+        ],
+        "collectedAt": "2026-11-22T01:20:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": "2026-11-22T01:30:00.000Z",
+        "receivedBy": "USR-0007",
+        "rejected": null
+      }
+    ],
+    "deliveries": [
+      {
+        "channel": "WARD",
+        "to": "Surgical ward — Bed S-4",
+        "at": "2026-11-22T02:50:00.000Z",
+        "by": "USR-0007",
+        "status": "POSTED_TO_IP_RECORD"
+      }
+    ],
+    "handover": null
+  },
+  {
+    "id": "LV-00062",
+    "sid": "04010062",
+    "patientId": "PAT-0002",
+    "source": "IP",
+    "priority": "STAT",
+    "billId": null,
+    "billingRoute": "IP_ACCOUNT",
+    "doctor": "Dr. R. Balaji (Surgery)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": null,
+    "tokenDay": null,
+    "tokenStatus": "WAITING",
+    "calledAt": null,
+    "collectionPoint": "WARD",
+    "ipNo": "IP-2026-0141",
+    "ward": "Surgical ward",
+    "bed": "S-4",
+    "clinicalNotes": "",
+    "createdAt": "2026-11-23T01:40:00.000Z",
+    "createdBy": "USR-0008",
+    "reportDueAt": "2026-11-23T05:40:00.000Z",
+    "tubes": [
+      {
+        "code": "04010062-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00166"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      },
+      {
+        "code": "04010062-2",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00167"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      }
+    ],
+    "deliveries": [],
+    "handover": null
+  }
+]

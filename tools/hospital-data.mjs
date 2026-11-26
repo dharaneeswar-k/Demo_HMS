@@ -16,7 +16,7 @@ const addMin = (isoStr, m) => new Date(new Date(isoStr).getTime() + m * 60000).t
 const KITS = [
   ['CBC reagent pack (haematology analyser)', 'test', 60], ['LFT reagent kit (biochemistry)', 'test', 40], ['RFT reagent kit (biochemistry)', 'test', 40],
   ['Glucose reagent / strips', 'test', 80], ['HbA1c cartridge', 'cartridge', 25], ['Lipid profile reagent kit', 'test', 30], ['Thyroid (T3/T4/TSH) cartridge', 'cartridge', 25],
-  ['Urine reagent strips (10-parameter)', 'strip', 50], ['Dengue NS1 rapid card', 'card', 20], ['Widal slide kit', 'test', 20], ['CRP cartridge', 'cartridge', 20]
+  ['Urine reagent strips (10-parameter)', 'strip', 50], ['Dengue NS1 rapid card', 'card', 20], ['Widal slide kit', 'test', 20], ['CRP cartridge', 'cartridge', 20], ['HIV 1 & 2 rapid card', 'card', 15]
 ];
 const labKits = KITS.map(([name, unit, reorderLevel], i) => ({ id: 'KIT-' + pad(i + 1), name, unit, reorderLevel, active: true }));
 const K = (n) => labKits[n - 1].id;
@@ -42,8 +42,12 @@ const LAB = [
     T('Colour', '', 'Pale yellow'), T('Appearance', '', 'Clear'), P('pH', '', 4.6, 8), T('Sugar', '', 'Nil'), T('Albumin', '', 'Nil'), P('Pus cells', '/hpf', 0, 5), P('RBCs', '/hpf', 0, 2)]],
   ['NS1', 'Dengue NS1 Antigen (rapid)', 600, 'Blood (Plain)', 'Serology', 1, [[9, 1]], [T('Dengue NS1 antigen', '', 'Negative')]],
   ['WIDAL', 'Widal Test (slide)', 250, 'Blood (Plain)', 'Serology', 3, [[10, 1]], [T('S. Typhi O', 'titre', '< 1:80'), T('S. Typhi H', 'titre', '< 1:80')]],
-  ['CRP', 'C-Reactive Protein (CRP)', 450, 'Blood (Plain)', 'Immunoassay', 3, [[11, 1]], [P('CRP', 'mg/L', 0, 6)]]
+  ['CRP', 'C-Reactive Protein (CRP)', 450, 'Blood (Plain)', 'Immunoassay', 3, [[11, 1]], [P('CRP', 'mg/L', 0, 6)]],
+  ['HIV', 'HIV 1 & 2 Antibody (rapid)', 500, 'Blood (Plain)', 'Serology', 2, [[12, 1]], [T('HIV 1 & 2 antibodies', '', 'Non-reactive')]]
 ];
+// Tests that may not be done on a self request, and tests that need a signed consent form.
+const RX_REQUIRED = new Set(['HIV']); const CONSENT = new Set(['HIV']);
+const containerOf = (sample) => (/EDTA/.test(sample) ? 'EDTA' : /Fluoride/.test(sample) ? 'FLUORIDE' : /Urine/.test(sample) ? 'URINE' : 'PLAIN');
 const OTHER = [
   ['ECG', 'ECG', 'ECG — 12 lead', 250], ['INJ', 'INJECTION', 'Injection administration (IM / IV)', 50], ['CANN', 'INJECTION', 'IV cannulation', 150], ['INF', 'INJECTION', 'IV infusion set-up', 200],
   ['NEB', 'NEBULIZATION', 'Nebulization (per session)', 150],
@@ -54,7 +58,7 @@ const OTHER = [
 ];
 const services = [
   ...LAB.map(([code, name, price, sample, dept, tatHours, kits, params]) => ({ code, name, category: 'LAB', price, active: true,
-    lab: { sample, department: dept, tatHours, kits: kits.map(([k, q]) => ({ kitId: K(k), qty: q })), parameters: params } })),
+    lab: { sample, container: containerOf(sample), department: dept, tatHours, rxRequired: RX_REQUIRED.has(code), consentRequired: CONSENT.has(code), kits: kits.map(([k, q]) => ({ kitId: K(k), qty: q })), parameters: params } })),
   ...OTHER.map(([code, category, name, price]) => ({ code, name, category, price, active: true }))
 ].map((x, i) => ({ id: 'SRV-' + pad(i + 1), ...x }));
 const S = (code) => services.find((x) => x.code === code);
@@ -91,7 +95,14 @@ const hospitalSettings = {
   denominations: [500, 200, 100, 50, 20, 10, 5, 2, 1],
   credit: { emergencyAllowed: true, creditNeedsOwner: true },
   cancellation: { reasonRequired: true, ownerApproves: true },
-  lab: { reportPrefix: 'LR', accessionPrefix: 'LAB', requireSecondPersonVerification: false, kitVarianceTolerance: 2 },
+  lab: { reportPrefix: 'LR', accessionPrefix: 'LAB', requireSecondPersonVerification: false, kitVarianceTolerance: 2, reportCollectDays: 15, payBeforeHandover: true,
+    containers: { EDTA: { label: 'EDTA — lavender top', color: '#8E6BBF' }, PLAIN: { label: 'Plain / serum — red top', color: '#D64541' }, FLUORIDE: { label: 'Fluoride — grey top', color: '#7D8A93' }, URINE: { label: 'Urine container', color: '#E0A526' } } },
+  messaging: { provider: 'WA_LINK', countryCode: '91', autoQueueOnReport: true, publicReportBaseUrl: '', senderPhone: '+91 4344 220 000',
+    cloud: { enabled: false, phoneNumberId: '', businessAccountId: '', templateName: 'lab_report_ready', language: 'en' },
+    templates: {
+      REPORT_READY: 'Dear {name},\nYour lab report (SID {sid}) from {hospital} is ready.\nTests: {tests}\n{link}Show this SID at the lab counter to collect the printed copy within {days} days.\n— {hospital}, {phone}',
+      REPORT_READY_DOCTOR: 'Dear {doctor},\nThe lab report of your patient {name} (SID {sid}) at {hospital} is ready.\nTests: {tests}\n{link}— {hospital} Laboratory',
+      SAMPLE_REJECTED: 'Dear {name},\nYour sample for {tests} (SID {sid}) could not be processed. Please visit the {hospital} lab again for a new sample. We regret the inconvenience.' } },
   mrd: { codingDueDays: 5, retrievalReasons: ['Patient follow-up visit', 'Insurance / TPA claim', 'Legal / medico-legal request', 'Doctor review', 'Patient copy request', 'Audit'] },
   dischargeTemplates: [
     { id: 'TPL-GEN', name: 'General Medicine', sections: DISCHARGE_SECTIONS.filter(([k]) => k !== 'procedures').map(([k]) => k) },
@@ -119,7 +130,7 @@ export function buildHospitalData({ patients, doctors, pharmacyPayments, USERS }
 
   const kitMove = (at, kitId, type, qty, ref, by, note = '') => kitMoves.push({ id: 'KMV-' + pad(++kmNo, 5), at, kitId, type, qty, ref, by, note });
   // opening kit stock received at the start of the month
-  labKits.forEach((k, i) => kitMove(ist('2026-11-01', '09:30'), k.id, 'RECEIVED', [400, 150, 150, 600, 100, 150, 100, 300, 60, 60, 80][i], 'KIT-GRN-2026-11', LABU, 'Monthly reagent receipt · Lot ' + (5100 + i * 7)));
+  labKits.forEach((k, i) => kitMove(ist('2026-11-01', '09:30'), k.id, 'RECEIVED', [400, 150, 150, 600, 100, 150, 100, 300, 60, 60, 80, 40][i], 'KIT-GRN-2026-11', LABU, 'Monthly reagent receipt · Lot ' + (5100 + i * 7)));
 
   const resultFor = (p) => {
     if (p.ref !== undefined) return rnd() < 0.85 ? p.ref : ({ Negative: 'Positive', Nil: 'Trace', 'Pale yellow': 'Dark yellow', Clear: 'Turbid', '< 1:80': '1:160' }[p.ref] || p.ref);
@@ -263,6 +274,63 @@ export function buildHospitalData({ patients, doctors, pharmacyPayments, USERS }
   kitCounts.push({ id: 'KC-0001', at: cAt, businessDate: '2026-11-22', countedBy: LABU, lines, status: 'REVIEWED', reviewedBy: OWNER, reviewedAt: ist('2026-11-22', '21:00'), reviewNote: 'Explained: 3 repeat CBCs not logged as repeats. Lab told to log every repeat.' });
   kitMove(cAt, K(1), 'COUNT_ADJUST', -3, 'KC-0001', LABU, 'Physical count shortage');
 
+  // ---- lab visits: one SID per visit, tubes grouped by container (BRD 06, hospital multi-source design) ----
+  const referralDoctors = [
+    ['Dr. M. Venkateswaran', 'M.D (Gen Med)', 'Venkat Clinic, Bagalur Road', '+91 98431 20011'], ['Dr. S. Kalaivani', 'M.B.B.S, D.G.O', 'Kalai Women’s Clinic, Mathigiri', '+91 94433 51200'],
+    ['Dr. R. Senthil Kumar', 'M.D (Paed)', 'Senthil Child Clinic, Shanthi Nagar', '+91 90037 44110'], ['Dr. A. Imran Khan', 'M.B.B.S', 'City Family Clinic, Rayakottai Road', '+91 99402 18877'],
+    ['Dr. P. Lakshmi Narayanan', 'M.S (Ortho)', 'LN Bone & Joint Centre, Denkanikottai Road', '+91 97890 33445']
+  ].map(([name, qual, clinic, phone], i) => ({ id: 'RD-' + pad(i + 1), name, qualification: qual, clinic, phone, city: 'Hosur', active: true, addedAt: '2026-08-05T10:00:00.000Z' }));
+  const labVisits = []; const messages = []; let sidN = 0; let msgN = 0; const tokenByDay = {};
+  const svcOf = (o) => services.find((x) => x.id === o.serviceId);
+  const fill = (t, v) => t.replace(/\{(\w+)\}/g, (_, k) => v[k] ?? '');
+  const sendMsg = (at, v, to, kind = 'REPORT_READY') => { const id = 'MSG-' + pad(++msgN, 5); const pt = patients.find((x) => x.id === v.patientId);
+    messages.push({ id, channel: 'WHATSAPP', provider: 'WA_LINK', to, patientId: v.patientId, refType: 'LABVISIT', refId: v.id, template: kind, status: 'SENT_VIA_LINK', at, by: LABU,
+      body: fill(hospitalSettings.messaging.templates[kind], { name: pt.name, sid: v.sid, hospital: 'Nallam Hospital', tests: orders.filter((o) => o.labVisitId === v.id).map((o) => o.name).join(', '), link: '', days: 15, phone: hospitalSettings.messaging.senderPhone, doctor: v.doctor }) }); return id; };
+  function makeVisit(b, lo, { source, ipNo = null, ward = null, bed = null, doctor = '', priority = 'ROUTINE', at = b?.at, createdBy = b?.counterUserId, route }) {
+    const id = 'LV-' + pad(++sidN, 5); const sid = String(4010000 + sidN).padStart(8, '0'); const day = new Date(new Date(at).getTime() + 5.5 * 3600000).toISOString().slice(0, 10);
+    const opd = !['IP', 'EMERGENCY'].includes(source);
+    const tok = opd ? (tokenByDay[day] = (tokenByDay[day] || 0) + 1) : null;
+    const groups = {}; lo.forEach((o) => (groups[svcOf(o).lab.container] ||= []).push(o));
+    const tubes = Object.entries(groups).map(([c, os], k) => { const code = `${sid}-${k + 1}`; const col = os.map((o) => o.lab.collectedAt).filter(Boolean).sort()[0] || null; const rcv = os.map((o) => o.lab.receivedAt).filter(Boolean).sort()[0] || null;
+      const rj = os.find((o) => o.lab.rejected)?.lab.rejected || null;
+      os.forEach((o) => { o.labVisitId = id; o.accession = code; o.lab.tube = code; if (doctor) o.doctor = doctor; });
+      return { code, container: c, orderIds: os.map((o) => o.id), collectedAt: col, collectedBy: col ? LABU : null, receivedAt: rcv, receivedBy: rcv ? LABU : null, rejected: rj }; });
+    const due = new Date(Math.max(...lo.map((o) => new Date(at).getTime() + svcOf(o).lab.tatHours * 3600000))).toISOString();
+    const refDoc = source === 'REFERRAL' ? referralDoctors[sidN % referralDoctors.length] : null;
+    const v = { id, sid, patientId: lo[0].patientId, source, priority, billId: b?.id || null, billingRoute: route || (source === 'IP' ? 'IP_ACCOUNT' : source === 'EMERGENCY' ? 'EMERGENCY' : source === 'PACKAGE' ? 'PACKAGE' : 'COUNTER'),
+      doctor: refDoc ? `${refDoc.name}, ${refDoc.qualification}` : source === 'SELF' ? 'Self' : doctor || b?.doctor || '', referralDoctorId: refDoc?.id || null,
+      rxBasis: { OP: 'DOCTOR_ORDER', IP: 'DOCTOR_ORDER', EMERGENCY: 'DOCTOR_ORDER', REFERRAL: 'OUTSIDE_PRESCRIPTION', SELF: 'SELF_REQUEST', PACKAGE: 'PACKAGE' }[source],
+      prescription: source === 'REFERRAL' ? { id: 'RXF-' + sid, name: `prescription-${sid}.jpg`, type: 'image/jpeg', size: randInt(180, 900) * 1024, at, by: createdBy, demo: true } : null, consent: null,
+      token: tok, tokenDay: opd ? day : null, tokenStatus: tubes.every((t) => t.collectedAt) ? 'DONE' : 'WAITING', calledAt: null, collectionPoint: source === 'IP' ? 'WARD' : source === 'EMERGENCY' ? 'CASUALTY' : 'OPD',
+      ipNo, ward, bed, clinicalNotes: '', createdAt: at, createdBy, reportDueAt: due, tubes, deliveries: [], handover: null };
+    if (refDoc || source === 'SELF') { if (b) b.doctor = v.doctor; }
+    labVisits.push(v); return v;
+  }
+  bills.forEach((b, bi) => {
+    const lo = orders.filter((o) => o.billId === b.id && o.category === 'LAB'); if (!lo.length) return;
+    const source = b.credit?.type === 'EMERGENCY' ? 'EMERGENCY' : lo.every((o) => o.coveredBy) ? 'PACKAGE' : ['OP', 'REFERRAL', 'SELF', 'OP', 'REFERRAL', 'OP'][bi % 6];
+    const v = makeVisit(b, lo, { source, priority: source === 'EMERGENCY' ? 'STAT' : bi % 9 === 0 ? 'URGENT' : 'ROUTINE' });
+    const done = lo.every((o) => o.status === 'COMPLETED');
+    if (done) {
+      const last = lo.map((o) => o.lab.verifiedAt).sort().at(-1); const pt = patients.find((x) => x.id === v.patientId);
+      const mid = sendMsg(addMin(last, 6), v, pt.phone);
+      v.deliveries.push({ channel: 'WHATSAPP', to: pt.phone, at: addMin(last, 6), by: LABU, status: 'SENT_VIA_LINK', messageId: mid });
+      if (source === 'REFERRAL' && bi % 2) { const rd = referralDoctors.find((r) => r.id === v.referralDoctorId); const m2 = sendMsg(addMin(last, 8), v, rd.phone, 'REPORT_READY_DOCTOR'); v.deliveries.push({ channel: 'WHATSAPP', to: rd.phone, at: addMin(last, 8), by: LABU, status: 'SENT_VIA_LINK', messageId: m2, toDoctor: true }); }
+      if (bi % 3 !== 0 && b.businessDate < TODAY) { v.handover = { at: addMin(last, 60 * randInt(3, 20)), by: pick([RECEP, RECEP2]), collectedBy: bi % 4 ? 'Self' : 'Attender', name: bi % 4 ? pt.name : 'Family member', printCount: 1 }; v.deliveries.push({ channel: 'COUNTER', to: v.handover.name, at: v.handover.at, by: v.handover.by, status: 'HANDED_OVER' }); }
+    }
+  });
+  // in-patient ward orders: no counter payment, charged to the IP account
+  const ipPt = patients[1];
+  const ipOrder = (code, at, st) => { const sv = S(code); const o = { id: 'ORD-' + pad(++ordNo, 5), billId: null, itemId: null, patientId: ipPt.id, serviceId: sv.id, category: 'LAB', name: sv.name, doctor: doctors[4], requestedBy: SERVU, requestedAt: at, billedAt: at, status: st, accession: null, performedBy: null, performedAt: null, notes: '', coveredBy: null,
+    ipCharge: { amount: sv.price, ipNo: 'IP-2026-0141', posted: false }, lab: { sampleType: sv.lab.sample, collectedAt: null, collectedBy: null, receivedAt: null, receivedBy: null, rejected: null, results: [], enteredBy: null, enteredAt: null, verifiedBy: null, verifiedAt: null, reportNo: null, printedAt: null, printCount: 0 } };
+    if (st === 'COMPLETED') { const c = addMin(at, 20); Object.assign(o.lab, { collectedAt: c, collectedBy: LABU, receivedAt: addMin(c, 10), receivedBy: LABU, results: sv.lab.parameters.map((q) => ({ param: q.name, value: resultFor(q) })), enteredBy: LABU, enteredAt: addMin(c, 70), verifiedBy: OWNER, verifiedAt: addMin(c, 90), reportNo: `LR-2026-${pad(++lrNo, 5)}`, printCount: 0 }); o.performedBy = LABU; o.performedAt = o.lab.verifiedAt; sv.lab.kits.forEach((k) => kitMove(c, k.kitId, 'USED_TEST', -k.qty, o.id, LABU, sv.code)); }
+    orders.push(o); return o; };
+  const ipA = ['CBC', 'RFT'].map((c) => ipOrder(c, ist('2026-11-22', '06:30'), 'COMPLETED'));
+  const vA = makeVisit(null, ipA, { source: 'IP', ipNo: 'IP-2026-0141', ward: 'Surgical ward', bed: 'S-4', doctor: doctors[4], priority: 'ROUTINE', at: ist('2026-11-22', '06:30'), createdBy: SERVU });
+  vA.deliveries.push({ channel: 'WARD', to: 'Surgical ward — Bed S-4', at: ipA[0].lab.verifiedAt, by: LABU, status: 'POSTED_TO_IP_RECORD' });
+  const ipB = ['CBC', 'CRP'].map((c) => ipOrder(c, ist(TODAY, '07:10'), 'READY'));
+  makeVisit(null, ipB, { source: 'IP', ipNo: 'IP-2026-0141', ward: 'Surgical ward', bed: 'S-4', doctor: doctors[4], priority: 'STAT', at: ist(TODAY, '07:10'), createdBy: SERVU });
+
   // ---- MRD ----
   const medicalRecords = []; const dischargeSummaries = []; const retrievals = [];
   const ep = (i, p, type, adm, dis, ward, doc, dx, icd, proc, files) => medicalRecords.push({ id: 'MRD-' + pad(i), mrdNo: `MRD/2026/${pad(310 + i, 5)}`, patientId: p.id, episodeType: type, ipNo: type === 'IP' ? `IP-2026-${pad(140 + i, 4)}` : null,
@@ -314,7 +382,7 @@ export function buildHospitalData({ patients, doctors, pharmacyPayments, USERS }
   notes.push({ type: 'UNBILLED_SERVICE', category: 'Services', severity: 'warning', title: 'Service requested but not billed — ECG', message: `${patients[9].name}: ECG advised yesterday is still not billed at the main counter.`, refType: 'ORDER', refId: orders.find((o) => o.status === 'REQUESTED')?.id, targetRoles: ['SUPER_ADMIN', 'RECEPTION'], assignedTo: null, performedBy: null, createdAt: ist(TODAY, '08:00') });
 
   return {
-    services, labKits, packages, hospitalSettings, hospitalBills: bills, orders, kitMovements: kitMoves, kitCounts, patientPackages, medicalRecords, dischargeSummaries, mrdRetrievals: retrievals, shifts,
+    services, labKits, packages, hospitalSettings, labVisits, referralDoctors, messages, hospitalBills: bills, orders, kitMovements: kitMoves, kitCounts, patientPackages, medicalRecords, dischargeSummaries, mrdRetrievals: retrievals, shifts,
     extraDiscountRequests: discountRequests, extraNotifications: notes
   };
 }

@@ -46,9 +46,12 @@
       "package.sell",
       "orders.view",
       "lab.view",
+      "lab.deliver",
+      "referral.manage",
       "lab.work",
       "lab.verify",
       "lab.kits",
+      "lab.order.ip",
       "service.request",
       "service.work",
       "mrd.view",
@@ -60,6 +63,7 @@
       "package.manage",
       "management.view",
       "mrd.review",
+      "messaging.manage",
       "grn.approve.exceptional",
       "adjustment.approve.exceptional",
       "alerts.all",
@@ -98,7 +102,9 @@
       "package.sell",
       "orders.view",
       "lab.view",
-      "shift.own"
+      "lab.deliver",
+      "shift.own",
+      "referral.manage"
     ]
   },
   {
@@ -172,6 +178,8 @@
       "lab.verify",
       "lab.kits",
       "lab.view",
+      "lab.deliver",
+      "lab.order.ip",
       "service.request"
     ]
   },
@@ -197,7 +205,8 @@
       "alerts.view",
       "orders.view",
       "service.work",
-      "service.request"
+      "service.request",
+      "lab.order.ip"
     ]
   }
 ]

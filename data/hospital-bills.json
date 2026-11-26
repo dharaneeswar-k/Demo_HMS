@@ -58,7 +58,7 @@
     "items": [
       {
         "id": "HB-2026-00002-1",
-        "serviceId": "SRV-0013",
+        "serviceId": "SRV-0014",
         "packageId": null,
         "category": "ECG",
         "name": "ECG — 12 lead",
@@ -104,7 +104,7 @@
     "items": [
       {
         "id": "HB-2026-00003-1",
-        "serviceId": "SRV-0014",
+        "serviceId": "SRV-0015",
         "packageId": null,
         "category": "INJECTION",
         "name": "Injection administration (IM / IV)",
@@ -150,7 +150,7 @@
     "items": [
       {
         "id": "HB-2026-00004-1",
-        "serviceId": "SRV-0023",
+        "serviceId": "SRV-0024",
         "packageId": null,
         "category": "OTHER",
         "name": "Medical certificate",
@@ -196,7 +196,7 @@
     "items": [
       {
         "id": "HB-2026-00005-1",
-        "serviceId": "SRV-0014",
+        "serviceId": "SRV-0015",
         "packageId": null,
         "category": "INJECTION",
         "name": "Injection administration (IM / IV)",
@@ -208,7 +208,7 @@
       },
       {
         "id": "HB-2026-00005-2",
-        "serviceId": "SRV-0015",
+        "serviceId": "SRV-0016",
         "packageId": null,
         "category": "INJECTION",
         "name": "IV cannulation",
@@ -254,7 +254,7 @@
     "items": [
       {
         "id": "HB-2026-00006-1",
-        "serviceId": "SRV-0014",
+        "serviceId": "SRV-0015",
         "packageId": null,
         "category": "INJECTION",
         "name": "Injection administration (IM / IV)",
@@ -266,7 +266,7 @@
       },
       {
         "id": "HB-2026-00006-2",
-        "serviceId": "SRV-0015",
+        "serviceId": "SRV-0016",
         "packageId": null,
         "category": "INJECTION",
         "name": "IV cannulation",
@@ -312,7 +312,7 @@
     "items": [
       {
         "id": "HB-2026-00007-1",
-        "serviceId": "SRV-0013",
+        "serviceId": "SRV-0014",
         "packageId": null,
         "category": "ECG",
         "name": "ECG — 12 lead",
@@ -370,7 +370,7 @@
     "items": [
       {
         "id": "HB-2026-00008-1",
-        "serviceId": "SRV-0014",
+        "serviceId": "SRV-0015",
         "packageId": null,
         "category": "INJECTION",
         "name": "Injection administration (IM / IV)",
@@ -382,7 +382,7 @@
       },
       {
         "id": "HB-2026-00008-2",
-        "serviceId": "SRV-0015",
+        "serviceId": "SRV-0016",
         "packageId": null,
         "category": "INJECTION",
         "name": "IV cannulation",
@@ -428,7 +428,7 @@
     "items": [
       {
         "id": "HB-2026-00009-1",
-        "serviceId": "SRV-0013",
+        "serviceId": "SRV-0014",
         "packageId": null,
         "category": "ECG",
         "name": "ECG — 12 lead",
@@ -527,7 +527,7 @@
     "patientName": "Prakash Natarajan",
     "uhid": "NH-UH-026286",
     "phone": "+91 9445566204",
-    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "doctor": "Dr. P. Lakshmi Narayanan, M.S (Ortho)",
     "counterUserId": "USR-0006",
     "items": [
       {
@@ -689,7 +689,7 @@
     "patientName": "Fathima Begum",
     "uhid": "NH-UH-026323",
     "phone": "+91 9398917266",
-    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "doctor": "Dr. R. Senthil Kumar, M.D (Paed)",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -752,7 +752,7 @@
     "items": [
       {
         "id": "HB-2026-00015-1",
-        "serviceId": "SRV-0014",
+        "serviceId": "SRV-0015",
         "packageId": null,
         "category": "INJECTION",
         "name": "Injection administration (IM / IV)",
@@ -764,7 +764,7 @@
       },
       {
         "id": "HB-2026-00015-2",
-        "serviceId": "SRV-0015",
+        "serviceId": "SRV-0016",
         "packageId": null,
         "category": "INJECTION",
         "name": "IV cannulation",
@@ -810,7 +810,7 @@
     "items": [
       {
         "id": "HB-2026-00016-1",
-        "serviceId": "SRV-0014",
+        "serviceId": "SRV-0015",
         "packageId": null,
         "category": "INJECTION",
         "name": "Injection administration (IM / IV)",
@@ -851,7 +851,7 @@
     "patientName": "Kumaravel Pandian",
     "uhid": "NH-UH-026397",
     "phone": "+91 9632926947",
-    "doctor": "Dr. S. Nivetha (Paediatrics)",
+    "doctor": "Dr. A. Imran Khan, M.B.B.S",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -972,7 +972,7 @@
     "items": [
       {
         "id": "HB-2026-00019-1",
-        "serviceId": "SRV-0013",
+        "serviceId": "SRV-0014",
         "packageId": null,
         "category": "ECG",
         "name": "ECG — 12 lead",
@@ -1025,7 +1025,7 @@
     "patientName": "Prakash Natarajan",
     "uhid": "NH-UH-026286",
     "phone": "+91 9445566204",
-    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "doctor": "Dr. S. Kalaivani, M.B.B.S, D.G.O",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -1071,7 +1071,7 @@
     "patientName": "Kumaravel Pandian",
     "uhid": "NH-UH-026397",
     "phone": "+91 9632926947",
-    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "doctor": "Self",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -1122,7 +1122,7 @@
     "items": [
       {
         "id": "HB-2026-00022-1",
-        "serviceId": "SRV-0013",
+        "serviceId": "SRV-0014",
         "packageId": null,
         "category": "ECG",
         "name": "ECG — 12 lead",
@@ -1175,7 +1175,7 @@
     "patientName": "Revathi Mohan",
     "uhid": "NH-UH-026434",
     "phone": "+91 9839644125",
-    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "doctor": "Dr. P. Lakshmi Narayanan, M.S (Ortho)",
     "counterUserId": "USR-0006",
     "items": [
       {
@@ -1226,7 +1226,7 @@
     "items": [
       {
         "id": "HB-2026-00024-1",
-        "serviceId": "SRV-0023",
+        "serviceId": "SRV-0024",
         "packageId": null,
         "category": "OTHER",
         "name": "Medical certificate",
@@ -1334,7 +1334,7 @@
     "patientName": "Syed Imran",
     "uhid": "NH-UH-026471",
     "phone": "+91 9550381157",
-    "doctor": "Dr. R. Balaji (Surgery)",
+    "doctor": "Dr. S. Kalaivani, M.B.B.S, D.G.O",
     "counterUserId": "USR-0006",
     "items": [
       {
@@ -1380,7 +1380,7 @@
     "patientName": "Fathima Begum",
     "uhid": "NH-UH-026323",
     "phone": "+91 9398917266",
-    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "doctor": "Self",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -1472,7 +1472,7 @@
     "patientName": "Ramesh Babu",
     "uhid": "NH-UH-026212",
     "phone": "+91 9212777519",
-    "doctor": "Dr. R. Balaji (Surgery)",
+    "doctor": "Dr. P. Lakshmi Narayanan, M.S (Ortho)",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -1622,7 +1622,7 @@
     "patientName": "Fathima Begum",
     "uhid": "NH-UH-026323",
     "phone": "+91 9398917266",
-    "doctor": "Dr. R. Balaji (Surgery)",
+    "doctor": "Dr. R. Senthil Kumar, M.D (Paed)",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -1668,7 +1668,7 @@
     "patientName": "Anitha Shankar",
     "uhid": "NH-UH-026249",
     "phone": "+91 9213929879",
-    "doctor": "Dr. R. Balaji (Surgery)",
+    "doctor": "Self",
     "counterUserId": "USR-0006",
     "items": [
       {
@@ -1772,12 +1772,12 @@
     "patientName": "Joseph Dominic",
     "uhid": "NH-UH-026360",
     "phone": "+91 9474851456",
-    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "doctor": "Dr. M. Venkateswaran, M.D (Gen Med)",
     "counterUserId": "USR-0006",
     "items": [
       {
         "id": "HB-2026-00035-1",
-        "serviceId": "SRV-0013",
+        "serviceId": "SRV-0014",
         "packageId": null,
         "category": "ECG",
         "name": "ECG — 12 lead",
@@ -1893,7 +1893,7 @@
     "items": [
       {
         "id": "HB-2026-00037-1",
-        "serviceId": "SRV-0018",
+        "serviceId": "SRV-0019",
         "packageId": null,
         "category": "OTHER",
         "name": "Dressing — small",
@@ -1934,7 +1934,7 @@
     "patientName": "Kumaravel Pandian",
     "uhid": "NH-UH-026397",
     "phone": "+91 9632926947",
-    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "doctor": "Dr. R. Senthil Kumar, M.D (Paed)",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -1992,7 +1992,7 @@
     "patientName": "Geetha Venkat",
     "uhid": "NH-UH-026508",
     "phone": "+91 9708494956",
-    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "doctor": "Self",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -2096,7 +2096,7 @@
     "patientName": "Prakash Natarajan",
     "uhid": "NH-UH-026286",
     "phone": "+91 9445566204",
-    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "doctor": "Dr. M. Venkateswaran, M.D (Gen Med)",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -2159,7 +2159,7 @@
     "items": [
       {
         "id": "HB-2026-00042-1",
-        "serviceId": "SRV-0023",
+        "serviceId": "SRV-0024",
         "packageId": null,
         "category": "OTHER",
         "name": "Medical certificate",
@@ -2263,7 +2263,7 @@
     "items": [
       {
         "id": "HB-2026-00044-1",
-        "serviceId": "SRV-0023",
+        "serviceId": "SRV-0024",
         "packageId": null,
         "category": "OTHER",
         "name": "Medical certificate",
@@ -2304,12 +2304,12 @@
     "patientName": "Joseph Dominic",
     "uhid": "NH-UH-026360",
     "phone": "+91 9474851456",
-    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "doctor": "Self",
     "counterUserId": "USR-0006",
     "items": [
       {
         "id": "HB-2026-00045-1",
-        "serviceId": "SRV-0013",
+        "serviceId": "SRV-0014",
         "packageId": null,
         "category": "ECG",
         "name": "ECG — 12 lead",
@@ -2367,7 +2367,7 @@
     "items": [
       {
         "id": "HB-2026-00046-1",
-        "serviceId": "SRV-0014",
+        "serviceId": "SRV-0015",
         "packageId": null,
         "category": "INJECTION",
         "name": "Injection administration (IM / IV)",
@@ -2379,7 +2379,7 @@
       },
       {
         "id": "HB-2026-00046-2",
-        "serviceId": "SRV-0015",
+        "serviceId": "SRV-0016",
         "packageId": null,
         "category": "INJECTION",
         "name": "IV cannulation",
@@ -2429,7 +2429,7 @@
     "patientName": "Geetha Venkat",
     "uhid": "NH-UH-026508",
     "phone": "+91 9708494956",
-    "doctor": "Dr. S. Nivetha (Paediatrics)",
+    "doctor": "Dr. A. Imran Khan, M.B.B.S",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -2588,7 +2588,7 @@
     "patientName": "Shalini Kumar",
     "uhid": "NH-UH-026656",
     "phone": "+91 9414558148",
-    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "doctor": "Dr. S. Kalaivani, M.B.B.S, D.G.O",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -2634,7 +2634,7 @@
     "patientName": "Murugan Kannan",
     "uhid": "NH-UH-026138",
     "phone": "+91 9505070440",
-    "doctor": "Dr. S. Nivetha (Paediatrics)",
+    "doctor": "Self",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -2738,12 +2738,12 @@
     "patientName": "Shalini Kumar",
     "uhid": "NH-UH-026656",
     "phone": "+91 9414558148",
-    "doctor": "Dr. R. Balaji (Surgery)",
+    "doctor": "Dr. P. Lakshmi Narayanan, M.S (Ortho)",
     "counterUserId": "USR-0005",
     "items": [
       {
         "id": "HB-2026-00053-1",
-        "serviceId": "SRV-0013",
+        "serviceId": "SRV-0014",
         "packageId": null,
         "category": "ECG",
         "name": "ECG — 12 lead",
@@ -2900,7 +2900,7 @@
     "patientName": "Joseph Dominic",
     "uhid": "NH-UH-026360",
     "phone": "+91 9474851456",
-    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "doctor": "Dr. R. Senthil Kumar, M.D (Paed)",
     "counterUserId": "USR-0006",
     "items": [
       {
@@ -2958,7 +2958,7 @@
     "patientName": "Lakshmi Devi",
     "uhid": "NH-UH-026175",
     "phone": "+91 9787657740",
-    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "doctor": "Self",
     "counterUserId": "USR-0006",
     "items": [
       {
@@ -3062,7 +3062,7 @@
     "patientName": "Selvi Rajendran",
     "uhid": "NH-UH-026101",
     "phone": "+91 9396330059",
-    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "doctor": "Dr. M. Venkateswaran, M.D (Gen Med)",
     "counterUserId": "USR-0006",
     "items": [
       {
@@ -3125,7 +3125,7 @@
     "items": [
       {
         "id": "HB-2026-00060-1",
-        "serviceId": "SRV-0023",
+        "serviceId": "SRV-0024",
         "packageId": null,
         "category": "OTHER",
         "name": "Medical certificate",
@@ -3171,7 +3171,7 @@
     "items": [
       {
         "id": "HB-2026-00061-1",
-        "serviceId": "SRV-0018",
+        "serviceId": "SRV-0019",
         "packageId": null,
         "category": "OTHER",
         "name": "Dressing — small",
@@ -3212,7 +3212,7 @@
     "patientName": "Lakshmi Devi",
     "uhid": "NH-UH-026175",
     "phone": "+91 9787657740",
-    "doctor": "Dr. R. Balaji (Surgery)",
+    "doctor": "Dr. S. Kalaivani, M.B.B.S, D.G.O",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -3263,7 +3263,7 @@
     "items": [
       {
         "id": "HB-2026-00063-1",
-        "serviceId": "SRV-0017",
+        "serviceId": "SRV-0018",
         "packageId": null,
         "category": "NEBULIZATION",
         "name": "Nebulization (per session)",
@@ -3309,7 +3309,7 @@
     "items": [
       {
         "id": "HB-2026-00064-1",
-        "serviceId": "SRV-0018",
+        "serviceId": "SRV-0019",
         "packageId": null,
         "category": "OTHER",
         "name": "Dressing — small",
@@ -3364,7 +3364,7 @@
     "items": [
       {
         "id": "HB-2026-00065-1",
-        "serviceId": "SRV-0018",
+        "serviceId": "SRV-0019",
         "packageId": null,
         "category": "OTHER",
         "name": "Dressing — small",
@@ -3468,7 +3468,7 @@
     "items": [
       {
         "id": "HB-2026-00067-1",
-        "serviceId": "SRV-0013",
+        "serviceId": "SRV-0014",
         "packageId": null,
         "category": "ECG",
         "name": "ECG — 12 lead",
@@ -3509,7 +3509,7 @@
     "patientName": "Selvi Rajendran",
     "uhid": "NH-UH-026101",
     "phone": "+91 9396330059",
-    "doctor": "Dr. R. Balaji (Surgery)",
+    "doctor": "Dr. A. Imran Khan, M.B.B.S",
     "counterUserId": "USR-0006",
     "items": [
       {
@@ -3726,7 +3726,7 @@
       },
       {
         "id": "HB-2026-00070-10",
-        "serviceId": "SRV-0013",
+        "serviceId": "SRV-0014",
         "packageId": null,
         "category": "ECG",
         "name": "ECG — 12 lead",
@@ -3738,7 +3738,7 @@
       },
       {
         "id": "HB-2026-00070-11",
-        "serviceId": "SRV-0029",
+        "serviceId": "SRV-0030",
         "packageId": null,
         "category": "OTHER",
         "name": "Health check-up physician review",
@@ -3769,7 +3769,7 @@
     "patientName": "Prakash Natarajan",
     "uhid": "NH-UH-026286",
     "phone": "+91 9445566204",
-    "doctor": "Dr. P. Kavya (ENT)",
+    "doctor": "Dr. M. Venkateswaran, M.D (Gen Med)",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -3875,7 +3875,7 @@
     "items": [
       {
         "id": "HB-2026-00073-1",
-        "serviceId": "SRV-0024",
+        "serviceId": "SRV-0025",
         "packageId": null,
         "category": "OTHER",
         "name": "Pre-operative consultation",
@@ -3923,7 +3923,7 @@
       },
       {
         "id": "HB-2026-00073-5",
-        "serviceId": "SRV-0013",
+        "serviceId": "SRV-0014",
         "packageId": null,
         "category": "ECG",
         "name": "ECG — 12 lead",
@@ -3959,7 +3959,7 @@
     "items": [
       {
         "id": "HB-2026-00074-1",
-        "serviceId": "SRV-0025",
+        "serviceId": "SRV-0026",
         "packageId": null,
         "category": "OTHER",
         "name": "Surgeon's fee — hernia repair",
@@ -3971,7 +3971,7 @@
       },
       {
         "id": "HB-2026-00074-2",
-        "serviceId": "SRV-0026",
+        "serviceId": "SRV-0027",
         "packageId": null,
         "category": "OTHER",
         "name": "Operation theatre charges",
@@ -3983,7 +3983,7 @@
       },
       {
         "id": "HB-2026-00074-3",
-        "serviceId": "SRV-0027",
+        "serviceId": "SRV-0028",
         "packageId": null,
         "category": "OTHER",
         "name": "Anaesthesia charges",
@@ -3995,7 +3995,7 @@
       },
       {
         "id": "HB-2026-00074-4",
-        "serviceId": "SRV-0028",
+        "serviceId": "SRV-0029",
         "packageId": null,
         "category": "OTHER",
         "name": "Day-care / recovery bed (per day)",
@@ -4007,7 +4007,7 @@
       },
       {
         "id": "HB-2026-00074-5",
-        "serviceId": "SRV-0014",
+        "serviceId": "SRV-0015",
         "packageId": null,
         "category": "INJECTION",
         "name": "Injection administration (IM / IV)",
@@ -4019,7 +4019,7 @@
       },
       {
         "id": "HB-2026-00074-6",
-        "serviceId": "SRV-0015",
+        "serviceId": "SRV-0016",
         "packageId": null,
         "category": "INJECTION",
         "name": "IV cannulation",
@@ -4055,7 +4055,7 @@
     "items": [
       {
         "id": "HB-2026-00075-1",
-        "serviceId": "SRV-0028",
+        "serviceId": "SRV-0029",
         "packageId": null,
         "category": "OTHER",
         "name": "Day-care / recovery bed (per day)",
@@ -4067,7 +4067,7 @@
       },
       {
         "id": "HB-2026-00075-2",
-        "serviceId": "SRV-0014",
+        "serviceId": "SRV-0015",
         "packageId": null,
         "category": "INJECTION",
         "name": "Injection administration (IM / IV)",
@@ -4079,7 +4079,7 @@
       },
       {
         "id": "HB-2026-00075-3",
-        "serviceId": "SRV-0018",
+        "serviceId": "SRV-0019",
         "packageId": null,
         "category": "OTHER",
         "name": "Dressing — small",
@@ -4091,7 +4091,7 @@
       },
       {
         "id": "HB-2026-00075-4",
-        "serviceId": "SRV-0019",
+        "serviceId": "SRV-0020",
         "packageId": null,
         "category": "OTHER",
         "name": "Dressing — large",
@@ -4137,7 +4137,7 @@
     "items": [
       {
         "id": "HB-2026-00076-1",
-        "serviceId": "SRV-0013",
+        "serviceId": "SRV-0014",
         "packageId": null,
         "category": "ECG",
         "name": "ECG — 12 lead",
@@ -4161,7 +4161,7 @@
       },
       {
         "id": "HB-2026-00076-3",
-        "serviceId": "SRV-0014",
+        "serviceId": "SRV-0015",
         "packageId": null,
         "category": "INJECTION",
         "name": "Injection administration (IM / IV)",
@@ -4173,7 +4173,7 @@
       },
       {
         "id": "HB-2026-00076-4",
-        "serviceId": "SRV-0017",
+        "serviceId": "SRV-0018",
         "packageId": null,
         "category": "NEBULIZATION",
         "name": "Nebulization (per session)",
@@ -4213,7 +4213,7 @@
     "patientName": "Venkatesan Thangavel",
     "uhid": "NH-UH-026619",
     "phone": "+91 9311233836",
-    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "doctor": "Dr. A. Imran Khan, M.B.B.S",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -4415,7 +4415,7 @@
     "items": [
       {
         "id": "HB-2026-00080-1",
-        "serviceId": "SRV-0013",
+        "serviceId": "SRV-0014",
         "packageId": null,
         "category": "ECG",
         "name": "ECG — 12 lead",
@@ -4456,7 +4456,7 @@
     "patientName": "Geetha Venkat",
     "uhid": "NH-UH-026508",
     "phone": "+91 9708494956",
-    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "doctor": "Self",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -4507,7 +4507,7 @@
     "items": [
       {
         "id": "HB-2026-00082-1",
-        "serviceId": "SRV-0017",
+        "serviceId": "SRV-0018",
         "packageId": null,
         "category": "NEBULIZATION",
         "name": "Nebulization (per session)",
@@ -4557,7 +4557,7 @@
     "patientName": "Murugan Kannan",
     "uhid": "NH-UH-026138",
     "phone": "+91 9505070440",
-    "doctor": "Dr. P. Kavya (ENT)",
+    "doctor": "Dr. R. Senthil Kumar, M.D (Paed)",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -4620,7 +4620,7 @@
     "items": [
       {
         "id": "HB-2026-00084-1",
-        "serviceId": "SRV-0014",
+        "serviceId": "SRV-0015",
         "packageId": null,
         "category": "INJECTION",
         "name": "Injection administration (IM / IV)",
@@ -4632,7 +4632,7 @@
       },
       {
         "id": "HB-2026-00084-2",
-        "serviceId": "SRV-0015",
+        "serviceId": "SRV-0016",
         "packageId": null,
         "category": "INJECTION",
         "name": "IV cannulation",
@@ -4731,7 +4731,7 @@
     "patientName": "Syed Imran",
     "uhid": "NH-UH-026471",
     "phone": "+91 9550381157",
-    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "doctor": "Dr. P. Lakshmi Narayanan, M.S (Ortho)",
     "counterUserId": "USR-0005",
     "items": [
       {
@@ -4777,12 +4777,12 @@
     "patientName": "Priyanka Ravi",
     "uhid": "NH-UH-026582",
     "phone": "+91 9253305356",
-    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "doctor": "Self",
     "counterUserId": "USR-0005",
     "items": [
       {
         "id": "HB-2026-00087-1",
-        "serviceId": "SRV-0013",
+        "serviceId": "SRV-0014",
         "packageId": null,
         "category": "ECG",
         "name": "ECG — 12 lead",

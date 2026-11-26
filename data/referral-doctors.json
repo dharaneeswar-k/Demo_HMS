@@ -1,0 +1,52 @@
+[
+  {
+    "id": "RD-0001",
+    "name": "Dr. M. Venkateswaran",
+    "qualification": "M.D (Gen Med)",
+    "clinic": "Venkat Clinic, Bagalur Road",
+    "phone": "+91 98431 20011",
+    "city": "Hosur",
+    "active": true,
+    "addedAt": "2026-08-05T10:00:00.000Z"
+  },
+  {
+    "id": "RD-0002",
+    "name": "Dr. S. Kalaivani",
+    "qualification": "M.B.B.S, D.G.O",
+    "clinic": "Kalai Women’s Clinic, Mathigiri",
+    "phone": "+91 94433 51200",
+    "city": "Hosur",
+    "active": true,
+    "addedAt": "2026-08-05T10:00:00.000Z"
+  },
+  {
+    "id": "RD-0003",
+    "name": "Dr. R. Senthil Kumar",
+    "qualification": "M.D (Paed)",
+    "clinic": "Senthil Child Clinic, Shanthi Nagar",
+    "phone": "+91 90037 44110",
+    "city": "Hosur",
+    "active": true,
+    "addedAt": "2026-08-05T10:00:00.000Z"
+  },
+  {
+    "id": "RD-0004",
+    "name": "Dr. A. Imran Khan",
+    "qualification": "M.B.B.S",
+    "clinic": "City Family Clinic, Rayakottai Road",
+    "phone": "+91 99402 18877",
+    "city": "Hosur",
+    "active": true,
+    "addedAt": "2026-08-05T10:00:00.000Z"
+  },
+  {
+    "id": "RD-0005",
+    "name": "Dr. P. Lakshmi Narayanan",
+    "qualification": "M.S (Ortho)",
+    "clinic": "LN Bone & Joint Centre, Denkanikottai Road",
+    "phone": "+91 97890 33445",
+    "city": "Hosur",
+    "active": true,
+    "addedAt": "2026-08-05T10:00:00.000Z"
+  }
+]

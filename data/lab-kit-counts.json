@@ -70,6 +70,12 @@
         "system": 76,
         "counted": 76,
         "diff": 0
+      },
+      {
+        "kitId": "KIT-0012",
+        "system": 40,
+        "counted": 40,
+        "diff": 0
       }
     ],
     "status": "REVIEWED",

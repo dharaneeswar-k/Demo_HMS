@@ -44,11 +44,11 @@ const PHARMACY_PERMS = [...VIEW_STOCK, 'adjustment.view', 'adjustment.request', 
 const STORE_PERMS = [...VIEW_STOCK, 'grn.create', 'grn.verify', 'grn.post', 'grn.reject', 'batch.manage', 'adjustment.view', 'adjustment.request', 'adjustment.approve',
   'supplier.manage', 'medicine.manage', 'labels.print', 'store.transfer'];
 const RECEPTION_PERMS = ['patient.view', 'patient.register', 'patient.edit', 'alerts.view', 'hbill.create', 'hbill.view', 'hbill.collect', 'hbill.cancel.request', 'discount.request',
-  'package.view', 'package.sell', 'orders.view', 'lab.view', 'shift.own'];
-const LAB_PERMS = ['patient.view', 'alerts.view', 'orders.view', 'lab.work', 'lab.verify', 'lab.kits', 'lab.view', 'service.request'];
-const SERVICE_PERMS = ['patient.view', 'alerts.view', 'orders.view', 'service.work', 'service.request'];
+  'package.view', 'package.sell', 'orders.view', 'lab.view', 'lab.deliver', 'shift.own', 'referral.manage'];
+const LAB_PERMS = ['patient.view', 'alerts.view', 'orders.view', 'lab.work', 'lab.verify', 'lab.kits', 'lab.view', 'lab.deliver', 'lab.order.ip', 'service.request'];
+const SERVICE_PERMS = ['patient.view', 'alerts.view', 'orders.view', 'service.work', 'service.request', 'lab.order.ip'];
 const MRD_PERMS = ['patient.view', 'alerts.view', 'mrd.view', 'mrd.manage', 'lab.view', 'orders.view'];
-const OWNER_PERMS = [...new Set([...PHARMACY_PERMS, ...STORE_PERMS, ...RECEPTION_PERMS, ...LAB_PERMS, ...SERVICE_PERMS, ...MRD_PERMS, 'hbill.cancel', 'credit.approve', 'shift.report', 'catalog.manage', 'package.manage', 'management.view', 'mrd.review', 'grn.approve.exceptional', 'adjustment.approve.exceptional', 'alerts.all', 'audit.view', 'settings.manage',
+const OWNER_PERMS = [...new Set([...PHARMACY_PERMS, ...STORE_PERMS, ...RECEPTION_PERMS, ...LAB_PERMS, ...SERVICE_PERMS, ...MRD_PERMS, 'hbill.cancel', 'credit.approve', 'shift.report', 'catalog.manage', 'package.manage', 'management.view', 'mrd.review', 'messaging.manage', 'grn.approve.exceptional', 'adjustment.approve.exceptional', 'alerts.all', 'audit.view', 'settings.manage',
   'pharmacy.return.approve', 'pharmacy.cancel', 'pharmacy.closing.all', 'pharmacy.closing.correct', 'pharmacy.closing.report', 'pharmacy.closing.verify', 'pharmacy.discount.owner',
   'pharmacy.refund.exceptional', 'pharmacy.batch.override', 'stockcount.review', 'network.manage', 'users.manage', 'discount.approve'])];
 const roles = [
@@ -724,7 +724,7 @@ const settings = {
     { id: 'NET-02', label: 'Backup 4G router — pharmacy', address: '49.204.118.0/24', active: true, addedBy: 'USR-0003', addedAt: '2026-09-12' }] },
   approval: { ownerApprovalForExpiredOrShortDated: true, shortDatedDays: 30, discrepancyPctThreshold: 10, highValueThreshold: 250000,
     adjustmentQtyThreshold: 50, adjustmentValueThreshold: 5000, notifyOwnerOnPost: true },
-  demo: { dataVersion: 7, generatedAt: '2026-11-23' }
+  demo: { dataVersion: 8, generatedAt: '2026-11-23' }
 };
 
 out('users.json', users);
@@ -767,6 +767,9 @@ out('medical-records.json', H.medicalRecords);
 out('discharge-summaries.json', H.dischargeSummaries);
 out('mrd-retrievals.json', H.mrdRetrievals);
 out('shifts.json', H.shifts);
+out('lab-visits.json', H.labVisits);
+out('referral-doctors.json', H.referralDoctors);
+out('messages.json', H.messages);
 console.log('bills today', bills.filter((b) => b.businessDate === '2026-11-23').length, 'sales today', bills.filter((b) => b.businessDate === '2026-11-23' && b.status !== 'CANCELLED').reduce((s, b) => s + b.grandTotal, 0));
 
 // summary

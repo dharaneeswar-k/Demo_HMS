@@ -9,7 +9,7 @@
     "description": "Open hernia repair with pre-operative work-up, surgery, anaesthesia, recovery and follow-up dressings.",
     "includes": [
       {
-        "serviceId": "SRV-0024",
+        "serviceId": "SRV-0025",
         "qty": 2
       },
       {
@@ -25,11 +25,7 @@
         "qty": 1
       },
       {
-        "serviceId": "SRV-0013",
-        "qty": 1
-      },
-      {
-        "serviceId": "SRV-0025",
+        "serviceId": "SRV-0014",
         "qty": 1
       },
       {
@@ -42,22 +38,26 @@
       },
       {
         "serviceId": "SRV-0028",
-        "qty": 3
-      },
-      {
-        "serviceId": "SRV-0018",
-        "qty": 3
-      },
-      {
-        "serviceId": "SRV-0020",
         "qty": 1
       },
       {
-        "serviceId": "SRV-0014",
-        "qty": 6
+        "serviceId": "SRV-0029",
+        "qty": 3
+      },
+      {
+        "serviceId": "SRV-0019",
+        "qty": 3
+      },
+      {
+        "serviceId": "SRV-0021",
+        "qty": 1
       },
       {
         "serviceId": "SRV-0015",
+        "qty": 6
+      },
+      {
+        "serviceId": "SRV-0016",
         "qty": 1
       }
     ],
@@ -110,11 +110,11 @@
         "qty": 1
       },
       {
-        "serviceId": "SRV-0013",
+        "serviceId": "SRV-0014",
         "qty": 1
       },
       {
-        "serviceId": "SRV-0029",
+        "serviceId": "SRV-0030",
         "qty": 1
       }
     ],
@@ -155,7 +155,7 @@
         "qty": 1
       },
       {
-        "serviceId": "SRV-0029",
+        "serviceId": "SRV-0030",
         "qty": 1
       }
     ],

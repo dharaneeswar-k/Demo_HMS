@@ -46,7 +46,10 @@ const COLLECTIONS = {
   medicalRecords: 'medical-records.json',
   dischargeSummaries: 'discharge-summaries.json',
   mrdRetrievals: 'mrd-retrievals.json',
-  shifts: 'shifts.json'
+  shifts: 'shifts.json',
+  labVisits: 'lab-visits.json',
+  referralDoctors: 'referral-doctors.json',
+  messages: 'messages.json'
 };
 const LS_KEY = 'nallam_hms_store_v1';
 

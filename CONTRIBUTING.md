@@ -45,3 +45,15 @@ python tools/serve.py 8080
 ```
 
 Open <http://localhost:8080>. Logins are in `README.md` (password `demo123`).
+
+## Lab orders from OP and IP (contract for modules 02 / 03)
+
+The lab runs one pipeline for every entry point (`assets/js/labflow.js`). OP and IP never touch lab screens — they **create lab orders**:
+
+| Entry | How to create | Payment / gate |
+|---|---|---|
+| OP consultation | `requestServices({ patientId, serviceIds, doctor, note }, user)` in `hospital.js` → orders with status `REQUESTED`. Reception bills them; the bill creates the lab visit (SID) with source `OP`. | Pay at the main counter first |
+| IP ward | `createIpOrder({ recordId, serviceIds, doctor, priority, notes }, user)` in `labflow.js` — today `recordId` is the MRD admission record; switch it to your IP admission id. | No counter payment: each order carries `ipCharge: { amount, ipNo, posted: false }` — the IP final bill must post these and set `posted: true` |
+| Emergency | Bill with pay mode `EMERGENCY` (priority becomes `STAT`) | Emergency credit, owner alerted |
+
+Key fields: `labVisits` (SID, `source`, `priority`, `billingRoute` = `COUNTER | IP_ACCOUNT | EMERGENCY | PACKAGE`, `tubes[]`, `deliveries[]`), `orders` (`labVisitId`, `lab.results`, `lab.reportNo`). Completed IP reports are posted to the IP record automatically (`deliveries` channel `WARD`).
