@@ -350,3 +350,21 @@ html[data-theme="dark"] :is(.receipt, .doc, .label-sheet, .lbl, .sample-label, .
 .theme-btn .t-sun { display: none; }
 html[data-theme="dark"] .theme-btn .t-sun { display: inline; }
 html[data-theme="dark"] .theme-btn .t-moon { display: none; }
+
+/* ---------- lab home: next patients + fix these first ---------- */
+.home-lab { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 12px; align-items: start; margin-top: 12px; }
+.home-lab .card { overflow: hidden; }
+.home-next th, .home-next td { padding-left: 10px; padding-right: 10px; }
+.home-next td { padding-top: 7px; padding-bottom: 7px; }
+.home-next td b { white-space: nowrap; }
+.home-next tbody tr { cursor: pointer; }
+.home-next .h-line { margin-top: 1px; }
+.home-issues { display: flex; flex-direction: column; }
+.home-issue { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 9px 14px; border-bottom: 1px solid var(--h-line-2); color: var(--h-ink); text-decoration: none !important; }
+.home-issue:last-child { border-bottom: 0; }
+.home-issue:hover { background: var(--h-hover); }
+.home-issue > b { font-size: 18px; font-weight: 700; text-align: center; color: var(--h-title); font-variant-numeric: tabular-nums; }
+.home-issue > b.red { color: var(--h-red); }
+.home-issue strong { display: block; font-size: 13px; font-weight: 600; }
+.home-issue small { display: block; color: var(--h-ink-3); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 1100px) { .home-lab { grid-template-columns: 1fr; } }

@@ -11,7 +11,9 @@ import { esc, icon, fmtINR, fmtNum, relTime } from '../utils.js';
 import { hospitalDaySummary, orderAccess, hbillBalance, isCritical } from '../hospital.js';
 import { openShiftFor, pendingHandoversFor, shiftSummary } from '../shifts.js';
 import { codingOverdue } from '../mrd.js';
-import { stageById } from './lab/stages.js';
+import { stageById, stageOf, codesOf, onHold } from './lab/stages.js';
+import { pat, liveOrders, liveTubes, minsSince, dur, ptypeCode, ptypeCell, ptype } from './lab/ui.js';
+import { isUncollected } from '../labflow.js';
 import { labAttention, storeAttention } from '../labstock.js';
 import { alertsFor } from '../alert-rules.js';
 
@@ -159,6 +161,51 @@ export function render(view) {
   if (inv.out && !hosp) todo.push({ ic: 'ban', tone: 'danger', text: `${inv.out} medicine(s) out of stock`, sub: 'Order from the supplier', href: '#/inventory?status=OUT_OF_STOCK', btn: 'View' });
   const alertsCount = alertsFor(u).length;
 
+  // ---------------- lab: what to do next (replaces the generic attention / recent lists for the lab) ----------------
+  let labPanels = '';
+  if (role === 'LAB') {
+    const ACT = { collect: 'Collect', receive: 'Receive', results: 'Enter results', verify: 'Verify', send: 'Send report' };
+    const work = store.all('labVisits').map((v) => {
+      const st = stageOf(v); if (!st) return null;
+      const s = stageById(st); const m = minsSince(s.since(v) || v.createdAt);
+      return { v, s, m, late: m > s.late, crit: st === 'verify' && liveOrders(v).some((o) => o.status === 'RESULTED' && isCritical(o)) };
+    }).filter(Boolean);
+    const rank = (w) => (w.crit ? 0 : w.v.priority === 'STAT' ? 1 : w.v.priority === 'URGENT' ? 2 : w.late ? 3 : 4);
+    const next = work.slice().sort((a, b) => rank(a) - rank(b) || b.m / b.s.late - a.m / a.s.late).slice(0, 8);
+    const pri = (v) => (v.priority === 'STAT' ? '<span class="h-stat">STAT</span>' : v.priority === 'URGENT' ? '<span class="h-urg">Urgent</span>' : '<span class="h-muted">Routine</span>');
+    const rows = next.map((w, i) => {
+      const p = pat(w.v.patientId); const href = `#/lab?stage=${w.s.id}&v=${w.v.id}`;
+      return `<tr data-href="${href}"><td class="h-sno">${i + 1}</td><td class="h-type" title="${esc(ptype(w.v).long)}">${ptypeCode(w.v)}</td><td>${ptypeCell(w.v)}</td>
+        <td><b>${esc(p.name)}</b><div class="h-line">${esc(codesOf(w.v).join(', '))}</div></td>
+        <td>${w.crit ? '<span class="h-stat">Critical — verify</span>' : esc(w.s.label)}</td><td>${pri(w.v)}</td>
+        <td class="${w.late ? 'h-late' : ''}">${dur(w.m)}${w.late ? ' · late' : ''}</td>
+        <td class="ta-right"><a class="btn btn-sm ${i === 0 ? 'btn-primary' : 'btn-secondary'}" href="${href}">${ACT[w.s.id]}</a></td></tr>`;
+    }).join('');
+    const lateN = work.filter((w) => w.late).length;
+    const redo = store.all('labVisits').filter((v) => liveTubes(v).some((t) => t.rejected && !t.collectedAt));
+    const crit = work.filter((w) => w.crit);
+    const hold = onHold(); const notCollected = store.all('labVisits').filter(isUncollected);
+    const la = labAttention();
+    const issues = [
+      crit.length && { n: crit.length, t: 'Critical result to verify', s: 'Verify and phone the doctor now', href: `#/lab?stage=verify&v=${crit[0].v.id}`, b: 'Verify', red: true },
+      redo.length && { n: redo.length, t: 'Sample rejected — collect again', s: redo.slice(0, 2).map((v) => pat(v.patientId).name).join(', '), href: `#/lab?stage=collect&v=${redo[0].id}`, b: 'Recollect', red: true },
+      lateN && { n: lateN, t: 'Patients past the target time', s: 'Waiting longer than the step allows', href: '#/lab', b: 'Open', red: true },
+      la.packsDue.length && { n: la.packsDue.length, t: 'Open pack at or past use-by', s: 'Replace before running patient samples', href: '#/lab/stock?filter=open', b: 'Check', red: true },
+      la.arriving.length && { n: la.arriving.length, t: 'Store delivery on the way', s: 'Count the lots and confirm receipt', href: '#/lab/stock', b: 'Receive' },
+      la.suggest.length && { n: la.suggest.length, t: 'Lab item running low', s: la.suggest.slice(0, 2).map((x) => x.k.name).join(', ') + ' — request is ready', href: '#/lab/stock', b: 'Request' },
+      hold.length && { n: hold.length, t: 'Waiting for payment', s: 'Cannot collect until the counter clears the bill', href: '#/lab', b: 'View' },
+      notCollected.length && { n: notCollected.length, t: 'Report not collected', s: 'Ready for days — send on WhatsApp or call', href: '#/lab/reports', b: 'Send' }
+    ].filter(Boolean);
+    labPanels = `<div class="home-lab">
+      <section class="card"><header class="card-head"><h2>Next patients</h2><span class="muted small">Critical, STAT and longest waiting first</span><a class="btn btn-ghost btn-sm" style="margin-left:auto" href="#/lab">Open worklist ${icon('arrow-right')}</a></header>
+        ${rows ? `<div class="h-tablewrap"><table class="h-table h-wltable home-next"><thead><tr><th class="h-sno" style="width:40px">S.No</th><th style="width:44px">Type</th><th style="width:118px">Token / Bed</th><th>Patient · tests</th><th style="width:96px">Step</th><th style="width:62px">Priority</th><th style="width:84px">Waiting</th><th style="width:104px"></th></tr></thead><tbody>${rows}</tbody></table></div>`
+          : emptyState('check-circle-2', 'No patients waiting', 'New paid tests appear here as soon as they are billed.')}
+        ${work.length > next.length ? `<div class="pager">${work.length - next.length} more in the worklist</div>` : ''}</section>
+      <section class="card"><header class="card-head"><h2>Fix these first</h2></header>
+        ${issues.length ? `<div class="home-issues">${issues.map((x) => `<a class="home-issue" href="${x.href}"><b class="${x.red ? 'red' : ''}">${x.n}</b><span><strong>${esc(x.t)}</strong><small>${esc(x.s)}</small></span><span class="btn btn-secondary btn-sm">${esc(x.b)}</span></a>`).join('')}</div>`
+          : emptyState('check-circle-2', 'All clear', 'No critical results, rejected samples, late patients or stock problems.')}</section></div>`;
+  }
+
   // ---------------- recent ----------------
   const recent = [...store.all('bills')].filter((b) => role === 'PHARMACY_STAFF' ? b.cashierId === u.id : true).sort((a, b) => b.at.localeCompare(a.at)).slice(0, 5);
   const hrecent = [...store.all('hbills')].sort((a, b) => b.at.localeCompare(a.at)).slice(0, 5);
@@ -174,11 +221,12 @@ export function render(view) {
     <div class="task-grid n${tiles.length}">${tiles.join('')}</div>
     <h2 class="home-h">Today at a glance</h2>
     <div class="stat-grid">${stats.join('')}</div>
-    <div class="home-cols">
+    ${labPanels || `<div class="home-cols">
       <section class="card"><header class="card-head"><h2>Needs your attention</h2><a class="btn btn-ghost btn-sm" href="#/alerts">All alerts (${alertsCount}) ${icon('arrow-right')}</a></header>
         <div class="todo-list">${todo.length ? todo.slice(0, 7).map((t) => `<a class="todo" href="${t.href}"><span class="todo-ic sev-${t.tone === 'danger' ? 'critical' : t.tone}">${icon(t.ic)}</span><span class="todo-txt"><strong>${esc(t.text)}</strong><small>${esc(t.sub)}</small></span><span class="btn btn-secondary btn-sm">${esc(t.btn)}</span></a>`).join('')
           : emptyState('party-popper', 'All caught up', 'Nothing needs your attention right now.')}</div></section>
       ${recentCard || `<section class="card"><header class="card-head"><h2>${role === 'PHARMACY_STAFF' ? 'My recent bills' : 'Recent bills'}</h2><a class="btn btn-ghost btn-sm" href="#/pharmacy/bills">All bills ${icon('arrow-right')}</a></header>
         <div class="todo-list">${recent.length ? recent.map((b) => `<a class="todo" href="#/pharmacy/bills/${b.id}"><span class="todo-ic sev-info">${icon('receipt')}</span><span class="todo-txt"><strong>${esc(b.patientName)} · ${fmtINR(b.grandTotal)}</strong><small>${b.id} · ${esc(billModeLabel(b))} · ${relTime(b.at)}${role !== 'PHARMACY_STAFF' ? ' · ' + esc(userName(b.cashierId)) : ''}</small></span>${badge(b.status)}</a>`).join('') : emptyState('receipt', 'No bills yet', 'Your bills will appear here.')}</div></section>`}
-    </div>`;
+    </div>`}`;
+  view.querySelectorAll('.home-next tr[data-href]').forEach((tr) => { tr.onclick = (e) => { if (!e.target.closest('a')) location.hash = tr.dataset.href; }; });
 }
