@@ -23,9 +23,10 @@ Chart.js, Lucide icons and the Inter font load from CDNs; the app still works of
 | `saranya` | Reception (evening) | Same as reception — receives the morning cash handover |
 | `pharmacy`, `ravi` | Pharmacy | Pharmacy sale, returns, daily stock count, counter closing, shift |
 | `store` | Store | Supplier receipts (incl. invoice CSV import), Store → Pharmacy transfers, stock corrections |
-| `lab` | Lab | Worklist: collect sample (barcode accession), results, verify, print report; reagent kits & counts |
+| `lab` | Lab | Lab Workbench: collect → receive → results → verify → send; reagent kits & counts; Test Master (read only) |
 | `service` | Service Counter | ECG / injection / nebulization / other services — only after billing or approved credit |
 | `mrd` | MRD | Medical records, ICD-10 coding & filing, discharge summaries, file retrieval register |
+| `admin` | Admin | **Lab Test Master**: add / edit / stop lab tests, prices, normal ranges and kits (the Super Admin can too); read-only lab reports, bills, audit log |
 
 The login screen does not list these accounts. To restore the original data, the owner uses **Settings → Data & Backup → Restore initial data**.
 

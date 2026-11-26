@@ -58,17 +58,21 @@ export function render(view) {
     lab: tile('#/lab', 'test-tube', 'Lab Workbench', 'Collect → receive → results → verify → send', 'teal'),
     labReports: tile('#/lab/reports', 'file-check-2', 'Lab Reports', 'Find and reprint reports', 'info'),
     kits: tile('#/lab/kits', 'boxes', 'Reagent Kits', 'Stock, QC use, counts', 'navy'),
+    labTests: tile('#/lab/tests', 'list-checks', 'Lab Test Master', 'Tests, prices, normal ranges, kits', 'purple'),
+    addTest: tile('#/lab/tests/new', 'plus-circle', 'Add a Lab Test', 'New test — billable at reception at once', 'teal'),
+    audit: tile('#/audit', 'history', 'Audit Log', 'Who changed what, and when', 'navy'),
     svc: tile('#/services', 'syringe', 'Service Counter', 'ECG, injection, nebulization', 'teal'),
     mrd: tile('#/mrd', 'folder-open', 'Medical Records', 'Code, file and retrieve records', 'teal'),
     dsum: tile('#/mrd?tab=summaries', 'file-text', 'Discharge Summaries', 'Prepare and print', 'info')
   };
   T.receive = tile('#/grn/new', 'package-plus', 'Receive Stock', 'Enter a supplier delivery into the store', 'teal');
-  const tiles = role === 'SUPER_ADMIN' ? [T.approvals, T.mgmt, T.sales, T.closings, T.reports, T.users]
+  const tiles = role === 'SUPER_ADMIN' ? [T.approvals, T.mgmt, T.sales, T.closings, T.labTests, T.users]
     : role === 'STORE_INCHARGE' ? [T.receive, T.transfer, T.approvals, T.find, T.grnList, T.reports]
       : role === 'RECEPTION' ? [T.hbill, T.register, T.findPatient, T.hbills, T.shift, T.packages]
         : role === 'LAB' ? [T.lab, T.labReports, T.kits, T.findPatient]
           : role === 'SERVICE_COUNTER' ? [T.svc, T.findPatient]
             : role === 'MRD' ? [T.mrd, T.dsum, T.labReports, T.findPatient]
+              : role === 'ADMIN' ? [T.labTests, T.addTest, T.labReports, T.audit]
               : [T.bill, T.findPatient, T.find, T.ret, T.close, T.shift];
 
   // ---------------- numbers ----------------
@@ -97,6 +101,11 @@ export function render(view) {
     stat('To code & file', fmtNum(store.all('medicalRecords').filter((r) => r.dischargedAt && r.status !== 'FILED').length), `${store.all('medicalRecords').filter(codingOverdue).length} overdue`, '#/mrd'),
     stat('Summaries in progress', fmtNum(store.all('dischargeSummaries').filter((d) => d.status !== 'FINAL').length), 'draft / review', '#/mrd?tab=summaries'),
     stat('Files issued out', fmtNum(store.all('mrdRetrievals').filter((x) => x.status === 'ISSUED').length), 'to be returned', '#/mrd?tab=retrieval')
+  ] : role === 'ADMIN' ? [
+    stat('Lab tests offered', fmtNum(store.all('services').filter((s) => s.category === 'LAB' && s.active).length), `${store.all('services').filter((s) => s.category === 'LAB' && !s.active).length} stopped`, '#/lab/tests'),
+    stat('Master changes (30 days)', fmtNum(store.all('services').flatMap((s) => s.history || []).filter((h) => h.version > 1 && Date.now() - new Date(h.at) < 30 * 86400000).length), 'prices, ranges, kits', '#/lab/tests'),
+    stat('Lab tests billed today', fmtNum(store.all('orders').filter((o) => o.category === 'LAB' && o.billedAt && businessDate(o.billedAt) === today).length), 'all counters', '#/lab/reports'),
+    stat('Reagent kits low / out', fmtNum(store.all('labKits').filter((k) => kitStatus(k) !== 'IN_STOCK').length), 'reorder', '#/lab/kits')
   ] : role === 'SUPER_ADMIN' ? [
     stat('Billed today (all counters)', fmtINR(all.sales + hsum.billed, true), `Pharmacy ${fmtINR(all.sales, true)} · Main counter ${fmtINR(hsum.billed, true)}`, '#/management'),
     stat('Money collected today', fmtINR(all.netCollection + hsum.collected - hsum.refunds, true), `Cash ${fmtINR(all.byMode.CASH.net + hsum.byMode.CASH, true)} · UPI ${fmtINR(all.byMode.UPI.net + hsum.byMode.UPI, true)}`, '#/management'),

@@ -76,8 +76,26 @@
           "critLow": null,
           "critHigh": null
         }
-      ]
-    }
+      ],
+      "method": "5-part automated haematology analyser",
+      "note": ""
+    },
+    "version": 1,
+    "createdAt": "2026-08-01T04:30:00.000Z",
+    "createdBy": "USR-0003",
+    "updatedAt": "2026-08-01T04:30:00.000Z",
+    "updatedBy": "USR-0003",
+    "history": [
+      {
+        "at": "2026-08-01T04:30:00.000Z",
+        "by": "USR-0003",
+        "version": 1,
+        "reason": "Initial test list set up",
+        "changes": [
+          "Test created"
+        ]
+      }
+    ]
   },
   {
     "id": "SRV-0002",
@@ -156,8 +174,26 @@
           "critLow": null,
           "critHigh": null
         }
-      ]
-    }
+      ],
+      "method": "Semi-auto biochemistry analyser",
+      "note": ""
+    },
+    "version": 1,
+    "createdAt": "2026-08-01T04:30:00.000Z",
+    "createdBy": "USR-0003",
+    "updatedAt": "2026-08-01T04:30:00.000Z",
+    "updatedBy": "USR-0003",
+    "history": [
+      {
+        "at": "2026-08-01T04:30:00.000Z",
+        "by": "USR-0003",
+        "version": 1,
+        "reason": "Initial test list set up",
+        "changes": [
+          "Test created"
+        ]
+      }
+    ]
   },
   {
     "id": "SRV-0003",
@@ -220,8 +256,26 @@
           "critLow": 2.5,
           "critHigh": 6.5
         }
-      ]
-    }
+      ],
+      "method": "Semi-auto biochemistry analyser",
+      "note": ""
+    },
+    "version": 1,
+    "createdAt": "2026-08-01T04:30:00.000Z",
+    "createdBy": "USR-0003",
+    "updatedAt": "2026-08-01T04:30:00.000Z",
+    "updatedBy": "USR-0003",
+    "history": [
+      {
+        "at": "2026-08-01T04:30:00.000Z",
+        "by": "USR-0003",
+        "version": 1,
+        "reason": "Initial test list set up",
+        "changes": [
+          "Test created"
+        ]
+      }
+    ]
   },
   {
     "id": "SRV-0004",
@@ -252,8 +306,26 @@
           "critLow": 40,
           "critHigh": 400
         }
-      ]
-    }
+      ],
+      "method": "GOD-POD",
+      "note": "Fasting sample of 8–12 hours."
+    },
+    "version": 1,
+    "createdAt": "2026-08-01T04:30:00.000Z",
+    "createdBy": "USR-0003",
+    "updatedAt": "2026-08-01T04:30:00.000Z",
+    "updatedBy": "USR-0003",
+    "history": [
+      {
+        "at": "2026-08-01T04:30:00.000Z",
+        "by": "USR-0003",
+        "version": 1,
+        "reason": "Initial test list set up",
+        "changes": [
+          "Test created"
+        ]
+      }
+    ]
   },
   {
     "id": "SRV-0005",
@@ -284,8 +356,26 @@
           "critLow": 40,
           "critHigh": 400
         }
-      ]
-    }
+      ],
+      "method": "GOD-POD",
+      "note": ""
+    },
+    "version": 1,
+    "createdAt": "2026-08-01T04:30:00.000Z",
+    "createdBy": "USR-0003",
+    "updatedAt": "2026-08-01T04:30:00.000Z",
+    "updatedBy": "USR-0003",
+    "history": [
+      {
+        "at": "2026-08-01T04:30:00.000Z",
+        "by": "USR-0003",
+        "version": 1,
+        "reason": "Initial test list set up",
+        "changes": [
+          "Test created"
+        ]
+      }
+    ]
   },
   {
     "id": "SRV-0006",
@@ -324,8 +414,26 @@
           "critLow": null,
           "critHigh": null
         }
-      ]
-    }
+      ],
+      "method": "HPLC",
+      "note": ""
+    },
+    "version": 1,
+    "createdAt": "2026-08-01T04:30:00.000Z",
+    "createdBy": "USR-0003",
+    "updatedAt": "2026-08-01T04:30:00.000Z",
+    "updatedBy": "USR-0003",
+    "history": [
+      {
+        "at": "2026-08-01T04:30:00.000Z",
+        "by": "USR-0003",
+        "version": 1,
+        "reason": "Initial test list set up",
+        "changes": [
+          "Test created"
+        ]
+      }
+    ]
   },
   {
     "id": "SRV-0007",
@@ -388,8 +496,26 @@
           "critLow": null,
           "critHigh": null
         }
-      ]
-    }
+      ],
+      "method": "Enzymatic",
+      "note": "Fasting sample of 10–12 hours preferred."
+    },
+    "version": 1,
+    "createdAt": "2026-08-01T04:30:00.000Z",
+    "createdBy": "USR-0003",
+    "updatedAt": "2026-08-01T04:30:00.000Z",
+    "updatedBy": "USR-0003",
+    "history": [
+      {
+        "at": "2026-08-01T04:30:00.000Z",
+        "by": "USR-0003",
+        "version": 1,
+        "reason": "Initial test list set up",
+        "changes": [
+          "Test created"
+        ]
+      }
+    ]
   },
   {
     "id": "SRV-0008",
@@ -436,8 +562,26 @@
           "critLow": null,
           "critHigh": null
         }
-      ]
-    }
+      ],
+      "method": "CLIA",
+      "note": ""
+    },
+    "version": 1,
+    "createdAt": "2026-08-01T04:30:00.000Z",
+    "createdBy": "USR-0003",
+    "updatedAt": "2026-08-01T04:30:00.000Z",
+    "updatedBy": "USR-0003",
+    "history": [
+      {
+        "at": "2026-08-01T04:30:00.000Z",
+        "by": "USR-0003",
+        "version": 1,
+        "reason": "Initial test list set up",
+        "changes": [
+          "Test created"
+        ]
+      }
+    ]
   },
   {
     "id": "SRV-0009",
@@ -504,8 +648,26 @@
           "critLow": null,
           "critHigh": null
         }
-      ]
-    }
+      ],
+      "method": "",
+      "note": ""
+    },
+    "version": 1,
+    "createdAt": "2026-08-01T04:30:00.000Z",
+    "createdBy": "USR-0003",
+    "updatedAt": "2026-08-01T04:30:00.000Z",
+    "updatedBy": "USR-0003",
+    "history": [
+      {
+        "at": "2026-08-01T04:30:00.000Z",
+        "by": "USR-0003",
+        "version": 1,
+        "reason": "Initial test list set up",
+        "changes": [
+          "Test created"
+        ]
+      }
+    ]
   },
   {
     "id": "SRV-0010",
@@ -533,8 +695,26 @@
           "unit": "",
           "ref": "Negative"
         }
-      ]
-    }
+      ],
+      "method": "Rapid card (immunochromatography)",
+      "note": ""
+    },
+    "version": 1,
+    "createdAt": "2026-08-01T04:30:00.000Z",
+    "createdBy": "USR-0003",
+    "updatedAt": "2026-08-01T04:30:00.000Z",
+    "updatedBy": "USR-0003",
+    "history": [
+      {
+        "at": "2026-08-01T04:30:00.000Z",
+        "by": "USR-0003",
+        "version": 1,
+        "reason": "Initial test list set up",
+        "changes": [
+          "Test created"
+        ]
+      }
+    ]
   },
   {
     "id": "SRV-0011",
@@ -567,8 +747,26 @@
           "unit": "titre",
           "ref": "< 1:80"
         }
-      ]
-    }
+      ],
+      "method": "",
+      "note": ""
+    },
+    "version": 1,
+    "createdAt": "2026-08-01T04:30:00.000Z",
+    "createdBy": "USR-0003",
+    "updatedAt": "2026-08-01T04:30:00.000Z",
+    "updatedBy": "USR-0003",
+    "history": [
+      {
+        "at": "2026-08-01T04:30:00.000Z",
+        "by": "USR-0003",
+        "version": 1,
+        "reason": "Initial test list set up",
+        "changes": [
+          "Test created"
+        ]
+      }
+    ]
   },
   {
     "id": "SRV-0012",
@@ -599,8 +797,35 @@
           "critLow": null,
           "critHigh": null
         }
-      ]
-    }
+      ],
+      "method": "Turbidimetry",
+      "note": ""
+    },
+    "version": 2,
+    "createdAt": "2026-08-01T04:30:00.000Z",
+    "createdBy": "USR-0003",
+    "updatedAt": "2026-11-10T05:10:00.000Z",
+    "updatedBy": "USR-0003",
+    "history": [
+      {
+        "at": "2026-08-01T04:30:00.000Z",
+        "by": "USR-0003",
+        "version": 1,
+        "reason": "Initial test list set up",
+        "changes": [
+          "Test created"
+        ]
+      },
+      {
+        "at": "2026-11-10T05:10:00.000Z",
+        "by": "USR-0003",
+        "version": 2,
+        "reason": "New reagent lot costs more — price revised",
+        "changes": [
+          "Price ₹: 400 → 450"
+        ]
+      }
+    ]
   },
   {
     "id": "SRV-0013",
@@ -628,8 +853,26 @@
           "unit": "",
           "ref": "Non-reactive"
         }
-      ]
-    }
+      ],
+      "method": "Rapid card (immunochromatography)",
+      "note": "A reactive rapid result must be confirmed by a supplementary test."
+    },
+    "version": 1,
+    "createdAt": "2026-08-01T04:30:00.000Z",
+    "createdBy": "USR-0003",
+    "updatedAt": "2026-08-01T04:30:00.000Z",
+    "updatedBy": "USR-0003",
+    "history": [
+      {
+        "at": "2026-08-01T04:30:00.000Z",
+        "by": "USR-0003",
+        "version": 1,
+        "reason": "Initial test list set up",
+        "changes": [
+          "Test created"
+        ]
+      }
+    ]
   },
   {
     "id": "SRV-0014",

@@ -46,6 +46,7 @@
 34. [Future enhancements (phase 2+)](#34-future-enhancements-phase-2)
 35. [Open questions for the hospital](#35-open-questions-for-the-hospital)
 36. [Demo code map](#36-demo-code-map)
+37. [Lab Test Master (managing the test list)](#37-lab-test-master-managing-the-test-list)
 
 ---
 
@@ -241,7 +242,9 @@ Rules:
 | `lab.kits` | Kit stock, receipts, QC/repeat/wastage, physical counts |
 | `lab.order.ip` | Place a ward (IP) lab order |
 | `referral.manage` | Add / edit referral doctors |
-| `messaging.manage`, `catalog.manage` | Messaging settings, test catalogue & prices |
+| `messaging.manage`, `catalog.manage` | Messaging settings, other services & prices |
+| `labtest.view` | Open the Lab Test Master (read only) — §37 |
+| `labtest.manage` | Add / edit / stop lab tests, prices, ranges and kits — Admin and Super Admin only (§37) |
 | `shift.own` | Start / close own cash shift |
 
 ### 5.3 Role matrix (as built)
@@ -260,6 +263,10 @@ Rules:
 | lab.order.ip | ✅ | — | ✅ | ✅ | — | — |
 | referral.manage | ✅ | ✅ | — | — | — | — |
 | shift.own | ✅ | ✅ | — | — | — | ✅ |
+| labtest.view | ✅ | ✅ | ✅ | — | ✅ | — |
+| labtest.manage | ✅ | — | — | — | — | — |
+
+The **Admin** role (`ADMIN`) has `labtest.view`, `labtest.manage`, `lab.view`, `lab.kits`, `hbill.view`, `package.view`, `orders.view`, `patient.view`, `alerts.view` and `audit.view`. It keeps the Lab Test Master (§37) and has no billing, cash or result-entry rights.
 
 **[PROD]** Add a dedicated `PATHOLOGIST` role (only role with `lab.verify`) once the hospital confirms who signs reports (open question §35).
 
@@ -811,6 +818,7 @@ Evaluated in this order:
 | Lab kit shortage in count | critical | Super Admin | Kits → counts |
 | Service / test advised but not billed | warning | Super Admin, Reception | Billing |
 | Discount approval requested | warning | Super Admin | Discounts |
+| New lab test / lab price changed / test stopped or restarted | info / warning | Reception, Lab, Admin, Super Admin | Test Master (§37.7) |
 
 **[PROD]** real-time push (WebSocket / Server-Sent Events) and optional WhatsApp alerts to the owner for critical events.
 
@@ -839,6 +847,7 @@ Every row: `id, at (UTC), userId, action, entity, entityId, details`.
 | `LAB_KIT_RECEIVED` / `LAB_KIT_USED_QC` / `LAB_KIT_REPEAT` / `LAB_KIT_WASTAGE` / `LAB_KIT_COUNT` / `LAB_KIT_COUNT_REVIEWED` | KIT / KITCOUNT | Quantity, reason |
 | `REFERRAL_DOCTOR_SAVED` | REFERRAL | Name |
 | `HOSPITAL_SETUP_CHANGED` | SETUP | Area changed |
+| `LAB_TEST_CREATED` / `LAB_TEST_UPDATED` / `LAB_TEST_DEACTIVATED` / `LAB_TEST_ACTIVATED` | SERVICE | Code, version, every change, reason (§37) |
 
 **[PROD]** store before/after values (JSON diff) for result corrections; audit table append-only (no update/delete grants).
 
@@ -1183,6 +1192,8 @@ Cloud (recommended — owner wants remote access) or on-premise server: 4 vCPU, 
 | S12 | Reagent Kits `#/lab/kits` | Lab, Owner | Inventory | Stock, kits vs tests billed, physical counts, ledger; receive, QC/repeat/wastage, count |
 | S13 | Hospital Setup → Lab tests / Messaging / Referral doctors `#/setup` | Owner | Configure | Test formats, kit per test, messaging provider & templates with WhatsApp preview, referral doctor master with 30-day statistics |
 | S14 | Management dashboard `#/management` | Owner | Oversight | Lab & MRD panel, reconciliation alerts |
+| S15 | Lab Test Master list `#/lab/tests` | Admin, Super Admin (edit); Reception, Lab, MRD (read) | The test list | See §37.5 |
+| S16 | Lab test editor `#/lab/tests/{id}` | Admin, Super Admin | Add / edit / stop a test | See §37.5 |
 
 UI principles kept from the demo: plain language ("Waiting for sample", "Payment pending"), colour-coded tube chips, big touch-friendly buttons at counters, every list searchable and exportable, print layouts with the hospital letterhead.
 
@@ -1205,7 +1216,7 @@ UI principles kept from the demo: plain language ("Waiting for sample", "Payment
 | Public report link base URL | blank | Messaging |
 | WhatsApp Cloud: phone number id, template name, enabled | blank / `lab_report_ready` / off | Messaging |
 | Message templates | §15.2 | Messaging |
-| Test catalogue: price, active | §29 | Services & prices / Lab tests |
+| Lab tests: name, code, price, sample, tube, ranges, rules, kits, offered / stopped | §29, §37 | **Lab Test Master** `#/lab/tests` (Admin, Super Admin) |
 | Kit reorder levels | §29 | Lab kits |
 | Referral doctors | 5 sample doctors | Referral doctors |
 | Staff discount limit | 10 % | Settings (pharmacy & billing) |
@@ -1214,6 +1225,8 @@ UI principles kept from the demo: plain language ("Waiting for sample", "Payment
 ---
 
 ## 29. Master data — test catalogue, containers, kits
+
+The list below is the **starting data**. In the running system it is maintained in the **Lab Test Master** (§37) by the Admin / Super Admin.
 
 ### 29.1 Test catalogue (demo seed — replace with the hospital's list and ranges)
 | Code | Test | ₹ | Sample | Container | Dept | TAT h | Rx req. | Consent |
@@ -1342,6 +1355,8 @@ CBC reagent pack, LFT kit, RFT kit, glucose reagent/strips, HbA1c cartridge, lip
 | T27 | Shift | Reception without open shift → complete bill | Prompted to start shift |
 | T28 | Audit | After T4–T15 | Audit rows for every step with user and time |
 
+Lab Test Master tests T29–T36 are in §37.10.
+
 ---
 
 ## 34. Future enhancements (phase 2+)
@@ -1398,11 +1413,158 @@ CBC reagent pack, LFT kit, RFT kit, glucose reagent/strips, HbA1c cartridge, lip
 | `assets/js/modules/labdesk.js` | Labels & request sheet, combined report, report desk, token display, ward order |
 | `assets/js/modules/lab.js` | Reagent kits |
 | `assets/css/lab.css` | Lab workspace styles |
-| `assets/js/modules/setup.js` | Test formats, kits, messaging settings, referral doctors |
+| `assets/js/labmaster.js` | Lab Test Master logic: validation, save with version history, freezing old report formats, stop / restart, usage, diff |
+| `assets/js/modules/lab/master.js` | Lab Test Master screens: list (`#/lab/tests`) and editor (`#/lab/tests/{id}`) |
+| `assets/js/modules/setup.js` | Kits, messaging settings, referral doctors (the lab tests tab links to the Test Master) |
 | `assets/js/docs.js` | Letterhead, document meta, signature blocks |
 | `assets/js/barcode.js` | Code 128 SVG barcodes |
 | `tools/hospital-data.mjs` | Seed data: catalogue, kits, packages, visits, messages, referral doctors |
 | `data/lab-visits.json`, `service-orders.json`, `hospital-services.json`, `lab-kits.json`, `lab-kit-movements.json`, `referral-doctors.json`, `messages.json`, `hospital-settings.json` | Demo data |
+
+---
+
+## 37. Lab Test Master (managing the test list)
+
+### 37.1 What it is and why
+The **Lab Test Master** is the single, hospital-wide list of every lab test the hospital offers. It is the **only source** of lab tests for every other screen:
+
+| Who reads it | What they get from it |
+|---|---|
+| Reception — Hospital Bill (`#/hbill`) | The test catalogue (only tests marked *Offered*), name, code, **price**, sample and "ready in" hours; the Rx-required and consent rules used by bill validation (§9.2) |
+| Lab — Workbench, SID page, labels | Tube / container (tube grouping §11.4), test code on the label, the **result rows** (parameters), units, normal and critical ranges, flags (§13.2) |
+| Lab report | Investigation rows, reference ranges, **method** and **note** printed under the test |
+| Ward lab order, packages, service counter | List of tests that may be ordered (*Offered* only) |
+| Reagent kit reconciliation (§16.4) | Kits consumed per test |
+| Management / referral statistics | Test value (price) |
+
+There is exactly one record per test (`services` collection, `category = LAB`). Because every screen reads the same record, **a change made by the Admin is seen at reception and in the lab the moment it is saved** — there is no second price list to keep in sync. (Hospital Setup → *Services & prices* no longer lists lab tests; Hospital Setup → *Lab tests* links to the master.)
+
+### 37.2 Who can do what
+| Action | Super Admin | **Admin** (new role) | Reception | Lab | MRD | Others |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| Open the master, search, filter, export CSV (`labtest.view`) | ✅ | ✅ | ✅ (read only) | ✅ (read only) | ✅ (read only) | — |
+| Add a test, edit any field, stop / restart a test (`labtest.manage`) | ✅ | ✅ | — | — | — | — |
+
+- **Admin role** (`ADMIN`, demo login `admin` / `demo123`, *Hospital Administrator*): keeps the Lab Test Master, sees lab reports, bills and packages (read only), reagent kits and the audit log. **No billing, no cash, no result entry.**
+- The rule is enforced in the business logic (`saveLabTest`, `setLabTestActive` refuse with *"Only Admin or Super Admin can change the lab test master."*), not only by hiding buttons. **[PROD]** the API enforces `labtest.manage` on every write endpoint.
+- Read-only users see the same screens with every field disabled and a grey note: *"Only the Admin or Super Admin can change it."*
+
+### 37.3 Fields of a lab test
+| Field | Required | Rules | Used by |
+|---|:-:|---|---|
+| Test name | ✅ | Unique among lab tests (case-insensitive) | Everywhere |
+| Short code | ✅ | 2–12 characters A–Z, 0–9 or "-", upper-case, no spaces, **unique across all services** | Tube labels, chips, CSV |
+| Department | ✅ | Pick from the list or type a new one (Haematology, Biochemistry, Clinical Pathology, Immunoassay, Serology, Microbiology, Histopathology…) | Report heading, filters |
+| Price (₹) | ✅ | ≥ 0. GST-exempt (healthcare service) | Reception billing |
+| Report ready in (hours) | ✅ | 1–720 | Report due date on the receipt, TAT tracking (§17) |
+| Sample type | ✅ | Blood (EDTA / Plain / Fluoride), Urine (random / 24 h), Stool, Sputum, Swab | Collection screen, label |
+| Tube / container | ✅ | One of the configured containers (EDTA, PLAIN, FLUORIDE, URINE); set automatically from the sample type, can be overridden | Tube grouping per SID |
+| Method | – | Free text, e.g. *5-part haematology analyser*, *Rapid card* | Printed on the report |
+| Note under the result | – | Free text, e.g. *Fasting sample of 10–12 hours preferred* | Printed under the test on the report |
+| Prescription needed | – | Yes / No | Blocks a **self request** (§9.2) |
+| Signed consent needed | – | Yes / No | Reception must confirm consent (§9.2) |
+| Result rows (parameters) | ✅ ≥ 1 | See §37.4 | Result entry, flags, report |
+| Reagent kits per test | – | Kit + quantity > 0, no kit twice | Kit consumption and reconciliation (§16) |
+| Status | – | *Offered* / *Stopped* | Billing, ordering |
+| Version, created / updated by & at, history | auto | See §37.6 | Audit, history panel |
+
+### 37.4 Result rows (parameters)
+Each test has one or more rows; the order on screen is the order on the report (rows can be moved up and down).
+
+| Type | Fields | Validation | Flag logic |
+|---|---|---|---|
+| **Number** | Name, unit, normal low, normal high, critical low (optional), critical high (optional) | Low and high both required; low ≤ high; critical low **below** normal low; critical high **above** normal high; names unique within the test | L / H / LL / HH exactly as §13.2 |
+| **Text** | Name, unit (optional), expected normal result (e.g. *Negative*, *Nil*, *Non-reactive*) | Expected result required | Anything different from the expected result is flagged `A` (*) |
+
+The editor shows a **live report preview** (how the rows will print) and the reception line (*price · ready in · tube*) while typing.
+
+### 37.5 Screens
+**S15 — Test list `#/lab/tests`**
+- Search box (name or code); filters *Offered / Stopped / All* with counts; department chips.
+- Table: test name and code (with version and last change date), department, sample with a drawn tube cap, the first three result rows, ready-in hours, rules (Rx / Consent pills), price, status. Stopped tests are greyed out.
+- *Export* → CSV of the full master (code, name, department, sample, tube, TAT, price, rules, parameters with ranges, status, version).
+- *Add test* (editors only). Click a row to open the editor.
+
+**S16 — Test editor `#/lab/tests/new` and `#/lab/tests/{id}`**
+- Cards: *Test details*, *What the report shows* (parameter grid), *Reagent kits used per test*.
+- Sticky bar at the bottom: live validation message (first problem and how many more, or *Ready to save*), **reason for change** (existing tests), Cancel, Save.
+- Side panel: *Report preview*; *Usage* (done in the last 30 days, all time, in progress now, packages that include it) with *Stop offering this test* / *Offer this test again*; *Change history* (every version with reason, the exact changes, user and time).
+- Leaving the page with unsaved edits asks for confirmation.
+
+### 37.6 Saving rules (business logic `assets/js/labmaster.js`)
+| # | Rule |
+|---|---|
+| TM-1 | Only `labtest.manage` (Admin, Super Admin) can create, edit, stop or restart a test. |
+| TM-2 | All validations in §37.3 – §37.4 must pass; the first problem is shown in plain language and the save is refused. |
+| TM-3 | Editing an existing test requires a **reason** (kept in the history and the audit log). Saving with no actual change is refused (*"Nothing was changed."*). |
+| TM-4 | A **price change** asks for confirmation showing the old and new price. Bills already made keep their own line price; only new bills use the new price. |
+| TM-5 | **Past reports never change.** Before a test's format is saved, every order of that test that already has results gets a frozen copy of the format it was reported with (`order.lab.params`). Result entry also freezes the format at the moment results are typed. Reports and SID pages always read the frozen copy first. |
+| TM-6 | Every save increments `version` and appends a history entry `{version, at, by, reason, changes[]}`; `changes` is a human-readable diff (e.g. *Price ₹: 350 → 380*, *Haemoglobin: 12–17 g/dL → 12.5–17 g/dL*, *Parameter added: …*, *Kits: … → …*). |
+| TM-7 | **No hard delete.** A test is *stopped* (inactive) with a reason. A stopped test disappears from the billing catalogue, ward orders, the packages picker and the service counter; tests already billed or in progress are still collected, resulted and reported. |
+| TM-8 | A bill draft containing a test that was stopped meanwhile is refused at completion (*"… has been stopped in the master list. Remove it from the bill."*). A ward order for a stopped test is refused. |
+| TM-9 | Stopping a test that is part of a package warns the user (package patients need a replacement). |
+| TM-10 | A new test, a price change, a stop and a restart each **notify** Reception, Lab, Admin and Super Admin. Every save writes an audit row. |
+| TM-11 | Changing the code does not break history: orders reference the test by its internal id, not its code. |
+
+### 37.7 Notifications and audit
+| Event | Notification (to Reception, Lab, Admin, Super Admin) | Audit action |
+|---|---|---|
+| Test added | *New lab test — {name}* · code, price, sample | `LAB_TEST_CREATED` |
+| Test edited | Only when the price changed: *Lab price changed — {name}* · old → new price | `LAB_TEST_UPDATED` (version, all changes, reason) |
+| Test stopped | *Lab test stopped — {name}* · reason (warning) | `LAB_TEST_DEACTIVATED` |
+| Test restarted | *Lab test available again — {name}* · reason | `LAB_TEST_ACTIVATED` |
+
+### 37.8 Data model additions
+Lab rows in `services` gain: `version`, `createdAt`, `createdBy`, `updatedAt`, `updatedBy`, `history[]`, `lab.method`, `lab.note`.
+`orders.lab` gains `params[]` — the frozen report format.
+
+**[PROD] MySQL**
+```sql
+ALTER TABLE lab_test ADD COLUMN version INT NOT NULL DEFAULT 1,
+  ADD COLUMN method VARCHAR(120) NULL, ADD COLUMN report_note VARCHAR(255) NULL,
+  ADD COLUMN created_by BIGINT NULL, ADD COLUMN updated_by BIGINT NULL,
+  ADD COLUMN updated_at DATETIME(3) NULL;
+
+CREATE TABLE lab_test_version (            -- one row per saved version (history)
+  id            BIGINT PRIMARY KEY AUTO_INCREMENT,
+  lab_test_id   BIGINT NOT NULL REFERENCES lab_test(id),
+  version       INT NOT NULL,
+  snapshot_json JSON NOT NULL,             -- the full test incl. parameters and kits at this version
+  changes_json  JSON NOT NULL,             -- human-readable diff lines
+  reason        VARCHAR(255) NOT NULL,
+  changed_by    BIGINT NOT NULL REFERENCES app_user(id),
+  changed_at    DATETIME(3) NOT NULL,
+  UNIQUE (lab_test_id, version)
+);
+-- each order keeps the version it was reported with (instead of a copied params array)
+ALTER TABLE lab_order ADD COLUMN lab_test_version INT NULL;
+```
+Production should store `lab_test_version` on each order when results are entered and render the report from `lab_test_version.snapshot_json`.
+
+### 37.9 API **[PROD]**
+| Method & path | Permission | Notes |
+|---|---|---|
+| `GET /api/lab/tests?status=&dept=&q=` | `labtest.view` | List; `status` = active, inactive or all |
+| `GET /api/lab/tests/{id}` | `labtest.view` | Test with parameters, kits, usage |
+| `GET /api/lab/tests/{id}/versions` | `labtest.view` | History |
+| `POST /api/lab/tests` | `labtest.manage` | Create (validation §37.3–37.4) → `201` |
+| `PUT /api/lab/tests/{id}` | `labtest.manage` | Body includes `reason` and `expectedVersion`; `409 Conflict` if someone else saved first (optimistic locking) |
+| `POST /api/lab/tests/{id}/deactivate` and `/activate` | `labtest.manage` | Body `{reason}` |
+| `GET /api/lab/tests/export.csv` | `labtest.view` | CSV |
+
+The billing catalogue endpoint returns only active tests; the server re-checks `active` and the current price when a bill is saved (it never trusts a price sent by the browser).
+
+### 37.10 Acceptance tests
+| # | Scenario | Steps | Expected |
+|---|---|---|---|
+| T29 | Admin adds a test | `admin` → Test Master → Add test → *Serum Calcium*, CALCIUM, Biochemistry, ₹300, 6 h, Plain; row Calcium 8.5–10.5 mg/dL (critical 6 / 13); a kit → Save | Saved as version 1; reception and lab notified; audit `LAB_TEST_CREATED` |
+| T30 | Reflected at reception | `reception` → Hospital Bill → Lab | *Serum Calcium · CALCIUM · Blood (Plain) · 6 h · ₹300* is listed |
+| T31 | Validation | Code CBC; normal low above high; critical low not below normal low; no result row | Each refused with its own message |
+| T32 | Price and range change | Edit CBC: ₹350 → ₹380 and Hb low 12 → 12.5, first without a reason, then with one | First refused (reason); then price confirmation; version 2; history shows both changes |
+| T33 | Old reports unchanged | Open a CBC report verified before T32 | Still shows Hb 12–17; new results use 12.5–17 |
+| T34 | Stop a test | Stop WIDAL with a reason | Gone from billing and ward orders; WIDAL tests in progress still finish; notification and audit row |
+| T35 | Permissions | `reception` / `lab` open the Test Master; try `#/lab/tests/new` | List and editor are read only; *new* goes back to the list; the logic refuses writes |
+| T36 | Super Admin | `owner` edits a test | Allowed, same rules as Admin |
 
 ---
 

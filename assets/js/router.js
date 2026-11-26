@@ -61,6 +61,8 @@ export const ROUTES = [
   { path: '/lab/orders/:id', mod: 'lab/sid', fn: 'renderOrderRedirect', perm: 'lab.view', title: 'Lab Test', crumbs: ['Laboratory', 'Test'], nav: 'lab' },
   { path: '/lab/report/:id', mod: 'labdesk', fn: 'renderOrderReport', perm: 'lab.view', title: 'Lab Report', crumbs: ['Laboratory', 'Report'], nav: 'lab-reports' },
   { path: '/lab/reports', mod: 'labdesk', fn: 'renderReportDesk', perm: 'lab.view', title: 'Report Desk', crumbs: ['Laboratory', 'Reports'], nav: 'lab-reports' },
+  { path: '/lab/tests', mod: 'lab/master', fn: 'renderTestList', perm: 'labtest.view', title: 'Lab Test Master', crumbs: ['Laboratory', 'Test Master'], nav: 'lab-tests' },
+  { path: '/lab/tests/:id', mod: 'lab/master', fn: 'renderTestEditor', perm: 'labtest.view', title: 'Lab Test', crumbs: ['Laboratory', 'Test Master'], nav: 'lab-tests' },
   { path: '/lab/kits', mod: 'lab', fn: 'renderKits', perm: 'lab.kits', title: 'Reagent Kits', crumbs: ['Laboratory', 'Reagent Kits'], nav: 'lab-kits' },
   // Service counter (BRD 07)
   { path: '/services', mod: 'service-counter', fn: 'render', perm: 'orders.view', title: 'Service Counter', crumbs: ['Services', 'Service Counter'], nav: 'svc' },

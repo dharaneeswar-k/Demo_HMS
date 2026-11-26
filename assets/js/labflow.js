@@ -112,6 +112,7 @@ export function createIpOrder({ recordId, serviceIds, doctor, priority = 'ROUTIN
   if (!rec || rec.dischargedAt) throw new Error('Choose an admitted patient.');
   const tests = serviceIds.map(svc).filter((s) => s?.category === 'LAB');
   if (!tests.length) throw new Error('Select at least one test.');
+  const off = tests.find((s) => !s.active); if (off) throw new Error(`${off.name} has been stopped in the master list.`);
   return store.transaction(() => {
     const at = now(); const sid = nextSid();
     const os = tests.map((s) => store.insert('orders', { id: store.nextId('orders', 'ORD-', 5), billId: null, itemId: null, patientId: rec.patientId, serviceId: s.id, category: 'LAB', name: s.name, doctor: doctor || rec.doctor,

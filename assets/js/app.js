@@ -121,6 +121,7 @@ const NAV = [
   { id: 'lab', label: 'Lab Workbench', icon: 'test-tube', href: '#/lab', perm: 'lab.work', more: [OWNER] },
   { id: 'lab-reports', label: 'Report Desk', icon: 'send', href: '#/lab/reports', perm: 'lab.view', more: [OWNER, MRD] },
   { id: 'lab-ward', label: 'Ward Lab Order', icon: 'bed-double', href: '#/lab/ward-order', perm: 'lab.order.ip', more: [OWNER] },
+  { id: 'lab-tests', label: 'Test Master', icon: 'list-checks', href: '#/lab/tests', perm: 'labtest.view', more: [RECEPTION, MRD] },
   { id: 'lab-kits', label: 'Reagent Kits', icon: 'boxes', href: '#/lab/kits', perm: 'lab.kits', more: [OWNER] },
   { section: 'Services' },
   { id: 'svc', label: 'Service Counter', icon: 'syringe', href: '#/services', perm: 'orders.view', more: [OWNER, RECEPTION, LAB, MRD] },
@@ -146,7 +147,7 @@ const NAV = [
   { id: 'suppliers', label: 'Suppliers', icon: 'truck', href: '#/suppliers', perm: 'supplier.view', more: [STAFF, MANAGER] },
   { section: 'System' },
   { id: 'setup', label: 'Hospital Setup', icon: 'sliders-horizontal', href: '#/setup', perm: 'catalog.manage' },
-  { id: 'settings', label: 'Settings', icon: 'settings', href: '#/settings', more: [STAFF, MANAGER, RECEPTION, LAB, MRD, SVC] },
+  { id: 'settings', label: 'Settings', icon: 'settings', href: '#/settings', more: [STAFF, MANAGER, RECEPTION, LAB, MRD, SVC, 'ADMIN'] },
   { id: 'users', label: 'User Accounts', icon: 'user-cog', href: '#/users', perm: 'users.manage' },
   { id: 'audit', label: 'Audit Log', icon: 'history', href: '#/audit', perm: 'audit.view' },
   { id: 'help', label: 'Help', icon: 'life-buoy', href: '#/help' }

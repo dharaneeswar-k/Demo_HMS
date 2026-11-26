@@ -46,6 +46,7 @@
       "package.sell",
       "orders.view",
       "lab.view",
+      "labtest.view",
       "lab.deliver",
       "referral.manage",
       "lab.work",
@@ -56,6 +57,8 @@
       "service.work",
       "mrd.view",
       "mrd.manage",
+      "labtest.manage",
+      "audit.view",
       "hbill.cancel",
       "credit.approve",
       "shift.report",
@@ -67,7 +70,6 @@
       "grn.approve.exceptional",
       "adjustment.approve.exceptional",
       "alerts.all",
-      "audit.view",
       "settings.manage",
       "pharmacy.return.approve",
       "pharmacy.cancel",
@@ -82,6 +84,23 @@
       "network.manage",
       "users.manage",
       "discount.approve"
+    ]
+  },
+  {
+    "id": "ADMIN",
+    "name": "Admin",
+    "description": "Hospital administrator: keeps the Lab Test Master (tests, prices, normal ranges, kits), sees lab work, bills and the audit log. No billing, no cash.",
+    "permissions": [
+      "patient.view",
+      "alerts.view",
+      "orders.view",
+      "lab.view",
+      "labtest.view",
+      "labtest.manage",
+      "lab.kits",
+      "hbill.view",
+      "package.view",
+      "audit.view"
     ]
   },
   {
@@ -102,6 +121,7 @@
       "package.sell",
       "orders.view",
       "lab.view",
+      "labtest.view",
       "lab.deliver",
       "shift.own",
       "referral.manage"
@@ -178,6 +198,7 @@
       "lab.verify",
       "lab.kits",
       "lab.view",
+      "labtest.view",
       "lab.deliver",
       "lab.order.ip",
       "service.request"
@@ -193,6 +214,7 @@
       "mrd.view",
       "mrd.manage",
       "lab.view",
+      "labtest.view",
       "orders.view"
     ]
   },

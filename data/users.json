@@ -106,5 +106,17 @@
     "phone": "+91 90000 99999",
     "active": true,
     "createdAt": "2026-08-02T10:00:00.000Z"
+  },
+  {
+    "id": "USR-0010",
+    "username": "admin",
+    "password": "demo123",
+    "name": "Anitha Rajendran",
+    "role": "ADMIN",
+    "designation": "Hospital Administrator",
+    "email": "",
+    "phone": "+91 90000 10101",
+    "active": true,
+    "createdAt": "2026-08-02T10:00:00.000Z"
   }
 ]

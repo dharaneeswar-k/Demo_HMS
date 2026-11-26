@@ -123,6 +123,15 @@ const hospitalSettings = {
 
 export function buildHospitalData({ patients, doctors, pharmacyPayments, USERS }) {
   const { OWNER, RECEP, RECEP2, LABU, MRDU, SERVU, STAFF, RAVI } = USERS;
+  // Lab Test Master metadata: version, who set it up and the change history (CRP price revised once, as a sample).
+  const METHOD = { CBC: '5-part automated haematology analyser', LFT: 'Semi-auto biochemistry analyser', RFT: 'Semi-auto biochemistry analyser', FBS: 'GOD-POD', PPBS: 'GOD-POD', HBA1C: 'HPLC', LIPID: 'Enzymatic', THYROID: 'CLIA', NS1: 'Rapid card (immunochromatography)', HIV: 'Rapid card (immunochromatography)', CRP: 'Turbidimetry' };
+  const NOTE = { FBS: 'Fasting sample of 8–12 hours.', LIPID: 'Fasting sample of 10–12 hours preferred.', HIV: 'A reactive rapid result must be confirmed by a supplementary test.' };
+  services.filter((x) => x.category === 'LAB').forEach((x) => {
+    const setUp = { at: '2026-08-01T04:30:00.000Z', by: OWNER, version: 1, reason: 'Initial test list set up', changes: ['Test created'] };
+    Object.assign(x.lab, { method: METHOD[x.code] || '', note: NOTE[x.code] || '' });
+    Object.assign(x, { version: 1, createdAt: setUp.at, createdBy: OWNER, updatedAt: setUp.at, updatedBy: OWNER, history: [setUp] });
+    if (x.code === 'CRP') { const ch = { at: '2026-11-10T05:10:00.000Z', by: OWNER, version: 2, reason: 'New reagent lot costs more — price revised', changes: ['Price ₹: 400 → 450'] }; Object.assign(x, { version: 2, updatedAt: ch.at, history: [setUp, ch] }); }
+  });
   const bills = []; const orders = []; const kitMoves = []; const kitCounts = []; const patientPackages = []; const discountRequests = [];
   const DAYS = ['2026-11-17', '2026-11-18', '2026-11-19', '2026-11-20', '2026-11-21', '2026-11-22', '2026-11-23'];
   const TODAY = DAYS.at(-1);

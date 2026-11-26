@@ -32,7 +32,8 @@ const users = [
   { id: 'USR-0006', username: 'saranya', password: 'demo123', name: 'Saranya Murthy', role: 'RECEPTION', designation: 'Billing Executive (evening)', email: '', phone: '+91 90000 66666', active: true, createdAt: '2026-08-02T10:00:00.000Z' },
   { id: 'USR-0007', username: 'lab', password: 'demo123', name: 'Vignesh Raj', role: 'LAB', designation: 'Lab Technician (DMLT)', email: '', phone: '+91 90000 77777', active: true, createdAt: '2026-08-02T10:00:00.000Z' },
   { id: 'USR-0008', username: 'service', password: 'demo123', name: 'Sr. Jency Mary', role: 'SERVICE_COUNTER', designation: 'Staff Nurse — procedure room', email: '', phone: '+91 90000 88888', active: true, createdAt: '2026-08-02T10:00:00.000Z' },
-  { id: 'USR-0009', username: 'mrd', password: 'demo123', name: 'Karthik Selvan', role: 'MRD', designation: 'Medical Records Officer', email: '', phone: '+91 90000 99999', active: true, createdAt: '2026-08-02T10:00:00.000Z' }
+  { id: 'USR-0009', username: 'mrd', password: 'demo123', name: 'Karthik Selvan', role: 'MRD', designation: 'Medical Records Officer', email: '', phone: '+91 90000 99999', active: true, createdAt: '2026-08-02T10:00:00.000Z' },
+  { id: 'USR-0010', username: 'admin', password: 'demo123', name: 'Anitha Rajendran', role: 'ADMIN', designation: 'Hospital Administrator', email: '', phone: '+91 90000 10101', active: true, createdAt: '2026-08-02T10:00:00.000Z' }
 ];
 const STAFF = 'USR-0001', MGR = 'USR-0002', OWNER = 'USR-0003', RAVI = 'USR-0004', RECEP = 'USR-0005', RECEP2 = 'USR-0006', LABU = 'USR-0007', SERVU = 'USR-0008', MRDU = 'USR-0009';
 const PH = 'LOC-01', STORE = 'LOC-02';
@@ -44,15 +45,17 @@ const PHARMACY_PERMS = [...VIEW_STOCK, 'adjustment.view', 'adjustment.request', 
 const STORE_PERMS = [...VIEW_STOCK, 'grn.create', 'grn.verify', 'grn.post', 'grn.reject', 'batch.manage', 'adjustment.view', 'adjustment.request', 'adjustment.approve',
   'supplier.manage', 'medicine.manage', 'labels.print', 'store.transfer'];
 const RECEPTION_PERMS = ['patient.view', 'patient.register', 'patient.edit', 'alerts.view', 'hbill.create', 'hbill.view', 'hbill.collect', 'hbill.cancel.request', 'discount.request',
-  'package.view', 'package.sell', 'orders.view', 'lab.view', 'lab.deliver', 'shift.own', 'referral.manage'];
-const LAB_PERMS = ['patient.view', 'alerts.view', 'orders.view', 'lab.work', 'lab.verify', 'lab.kits', 'lab.view', 'lab.deliver', 'lab.order.ip', 'service.request'];
+  'package.view', 'package.sell', 'orders.view', 'lab.view', 'labtest.view', 'lab.deliver', 'shift.own', 'referral.manage'];
+const LAB_PERMS = ['patient.view', 'alerts.view', 'orders.view', 'lab.work', 'lab.verify', 'lab.kits', 'lab.view', 'labtest.view', 'lab.deliver', 'lab.order.ip', 'service.request'];
 const SERVICE_PERMS = ['patient.view', 'alerts.view', 'orders.view', 'service.work', 'service.request', 'lab.order.ip'];
-const MRD_PERMS = ['patient.view', 'alerts.view', 'mrd.view', 'mrd.manage', 'lab.view', 'orders.view'];
-const OWNER_PERMS = [...new Set([...PHARMACY_PERMS, ...STORE_PERMS, ...RECEPTION_PERMS, ...LAB_PERMS, ...SERVICE_PERMS, ...MRD_PERMS, 'hbill.cancel', 'credit.approve', 'shift.report', 'catalog.manage', 'package.manage', 'management.view', 'mrd.review', 'messaging.manage', 'grn.approve.exceptional', 'adjustment.approve.exceptional', 'alerts.all', 'audit.view', 'settings.manage',
+const MRD_PERMS = ['patient.view', 'alerts.view', 'mrd.view', 'mrd.manage', 'lab.view', 'labtest.view', 'orders.view'];
+const ADMIN_PERMS = ['patient.view', 'alerts.view', 'orders.view', 'lab.view', 'labtest.view', 'labtest.manage', 'lab.kits', 'hbill.view', 'package.view', 'audit.view'];
+const OWNER_PERMS = [...new Set([...PHARMACY_PERMS, ...STORE_PERMS, ...RECEPTION_PERMS, ...LAB_PERMS, ...SERVICE_PERMS, ...MRD_PERMS, ...ADMIN_PERMS, 'hbill.cancel', 'credit.approve', 'shift.report', 'catalog.manage', 'package.manage', 'management.view', 'mrd.review', 'messaging.manage', 'grn.approve.exceptional', 'adjustment.approve.exceptional', 'alerts.all', 'audit.view', 'settings.manage',
   'pharmacy.return.approve', 'pharmacy.cancel', 'pharmacy.closing.all', 'pharmacy.closing.correct', 'pharmacy.closing.report', 'pharmacy.closing.verify', 'pharmacy.discount.owner',
   'pharmacy.refund.exceptional', 'pharmacy.batch.override', 'stockcount.review', 'network.manage', 'users.manage', 'discount.approve'])];
 const roles = [
   { id: 'SUPER_ADMIN', name: 'Super Admin', description: 'Full access to all modules, discount approval above 10%, audit logs, reports and user accounts.', permissions: OWNER_PERMS },
+  { id: 'ADMIN', name: 'Admin', description: 'Hospital administrator: keeps the Lab Test Master (tests, prices, normal ranges, kits), sees lab work, bills and the audit log. No billing, no cash.', permissions: ADMIN_PERMS },
   { id: 'RECEPTION', name: 'Reception', description: 'Patient registration, central billing counter (lab, ECG, injection, nebulization, other services, packages) and shift handover. OP / IP join when those modules go live.', permissions: RECEPTION_PERMS },
   { id: 'PHARMACY_STAFF', name: 'Pharmacy', description: 'Pharmacy stock and sales billing: bills, returns, daily stock count and day closing.', permissions: PHARMACY_PERMS },
   { id: 'STORE_INCHARGE', name: 'Store', description: 'Central store: supplier receipts, Store → Pharmacy transfers, stock corrections and masters.', permissions: STORE_PERMS },
@@ -724,7 +727,7 @@ const settings = {
     { id: 'NET-02', label: 'Backup 4G router — pharmacy', address: '49.204.118.0/24', active: true, addedBy: 'USR-0003', addedAt: '2026-09-12' }] },
   approval: { ownerApprovalForExpiredOrShortDated: true, shortDatedDays: 30, discrepancyPctThreshold: 10, highValueThreshold: 250000,
     adjustmentQtyThreshold: 50, adjustmentValueThreshold: 5000, notifyOwnerOnPost: true },
-  demo: { dataVersion: 8, generatedAt: '2026-11-23' }
+  demo: { dataVersion: 9, generatedAt: '2026-11-23' }
 };
 
 out('users.json', users);

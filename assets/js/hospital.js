@@ -93,6 +93,7 @@ export function validateHospitalDraft(draft, user) {
   const t = priceHospitalDraft(draft);
   if (!draft.patientId) errors.push('Select the registered patient. Hospital bills are always raised against a Patient ID.');
   if (!draft.lines.length) errors.push('Add at least one service, test or package.');
+  draft.lines.filter((l) => l.serviceId && store.get('services', l.serviceId)?.active === false).forEach((l) => errors.push(`${store.get('services', l.serviceId).name} has been stopped in the master list. Remove it from the bill.`));
   validateLabRequest(draft.lab || {}, draft.lines.filter((l) => l.serviceId).map((l) => l.serviceId)).forEach((e) => errors.push(e));
   if (!can('discount.approve', user) && !openShiftFor(user)) errors.push('Start your shift before billing (opening cash in the drawer).');
   const req = draft.discountRequestId && store.get('discountRequests', draft.discountRequestId);
@@ -303,7 +304,8 @@ export function flagFor(p, value) {
   return '';
 }
 export const refText = (p) => (p.ref !== undefined ? p.ref : `${p.low} – ${p.high}`);
-export function labParams(o) { return svc(o.serviceId)?.lab?.parameters || []; }
+/** Report format of an order: the copy frozen when its results were entered, otherwise the current test master. */
+export function labParams(o) { return o?.lab?.params || svc(o.serviceId)?.lab?.parameters || []; }
 export const isCritical = (o) => (o.lab?.results || []).some((r) => { const p = labParams(o).find((x) => x.name === r.param); return p && ['LL', 'HH'].includes(flagFor(p, r.value)); });
 
 function mustLab(user) { if (!can('lab.work', user)) throw new Error('Only lab staff can do this.'); }
@@ -348,6 +350,7 @@ export function enterResults(orderId, results, user) {
   if (missing.length) throw new Error(`Enter all results: ${missing.map((p) => p.name).join(', ')}.`);
   return store.transaction(() => {
     o.lab.results = params.map((p) => ({ param: p.name, value: String(results[p.name]).trim() }));
+    o.lab.params = params.map((p) => ({ ...p })); // freeze the format: later master edits never change this report
     Object.assign(o.lab, { enteredBy: user.id, enteredAt: now(), verifiedBy: null, verifiedAt: null });
     o.status = 'RESULTED';
     audit(user, 'LAB_RESULTS_ENTERED', 'ORDER', orderId, o.accession);
