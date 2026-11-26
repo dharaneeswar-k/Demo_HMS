@@ -96,7 +96,7 @@ function renderLogin(redirect) {
 
 // ---------------- shell ----------------
 // Role-aware navigation. Items listed in `more` for a role are tucked into a collapsed "More" group for that role
-// so each person sees only what they use every day.
+// so each person sees only what they use every day. Roles listed in `hide` never see the item (it belongs to another department).
 const STAFF = 'PHARMACY_STAFF', MANAGER = 'STORE_INCHARGE', OWNER = 'SUPER_ADMIN', RECEPTION = 'RECEPTION', LAB = 'LAB', MRD = 'MRD', SVC = 'SERVICE_COUNTER';
 const NAV = [
   { id: 'home', label: 'Home', icon: 'home', href: '#/home' },
@@ -125,7 +125,7 @@ const NAV = [
   { id: 'lab-tests', label: 'Test Master', icon: 'list-checks', href: '#/lab/tests', perm: 'labtest.view', more: [RECEPTION, MRD] },
   { id: 'lab-kits', label: 'Lab Stock', icon: 'boxes', href: '#/lab/stock', perm: 'lab.kits', badge: 'labstock', more: [OWNER] },
   { section: 'Services' },
-  { id: 'svc', label: 'Service Counter', icon: 'syringe', href: '#/services', perm: 'orders.view', more: [OWNER, RECEPTION, LAB, MRD] },
+  { id: 'svc', label: 'Service Counter', icon: 'syringe', href: '#/services', perm: 'orders.view', more: [OWNER, RECEPTION, MRD], hide: [LAB] },
   { section: 'Medical Records' },
   { id: 'mrd', label: 'Medical Records', icon: 'folder-open', href: '#/mrd', perm: 'mrd.view' },
   { section: 'Stock' },
@@ -164,7 +164,7 @@ function sidebarHTML() {
   let section = null;
   for (const n of NAV) {
     if (n.section) { section = n.section; continue; }
-    if (!visible(n)) continue;
+    if (!visible(n) || n.hide?.includes(u.role)) continue;
     if (n.more?.includes(u.role)) { more.push(n); continue; }
     main.push({ ...n, section });
   }
