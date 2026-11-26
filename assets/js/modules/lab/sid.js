@@ -1,9 +1,9 @@
-// Patient panel for one lab visit (SID). Used in two places with the same look:
-//  • the right side of the Lab Workbench (mountSid, embedded)
+// Patient screen for one lab visit (SID), in the hospital-software layout. Used in two places with the same look:
+//  • the Lab Worklist, after clicking a row (mountSid)
 //  • the full page #/lab/visit/:id (renderSid)
-// On screen: who the patient is, the key facts, the tubes, every test with result entry (flags as you type, last
-// result alongside), sending the report, and ONE action bar at the bottom. The visit journey, payment, bill,
-// prescription and the activity log sit in the "Patient details" drawer.
+// Patient banner on top; the main box holds the tubes (while collecting / receiving), the result grid and sending,
+// with ONE action bar at the bottom; a narrow side panel holds the sample tubes, visit facts and less-used links.
+// Progress and the activity log open in a side drawer.
 import { store } from '../../data-service.js';
 import { currentUser, can } from '../../auth.js';
 import { userName } from '../../calculations.js';
@@ -16,27 +16,27 @@ import { toast } from '../../notifications.js';
 import { setMeta } from '../../app.js';
 import { esc, fmtDate, fmtDateTime } from '../../utils.js';
 import { icon, emptyState } from './bi.js';
-import { pat, ageSex, liveOrders, liveTubes, priPill, statusPill, critPill, cap, tubeInfo, clock, journey, nextAction, dur, minsSince, avatar, openDrawer } from './ui.js';
+import { pat, ageSex, liveOrders, liveTubes, statusPill, cap, tubeInfo, clock, journey, nextAction, dur, minsSince, openDrawer } from './ui.js';
 import { rejectTubeDialog, receiveCodes } from './collect.js';
 
 const FLAG = { H: ['High', 'hi', 'arrow-up'], L: ['Low', 'lo', 'arrow-down'], HH: ['Critical high', 'crit', 'siren'], LL: ['Critical low', 'crit', 'siren'], A: ['Abnormal', 'abn', 'asterisk'] };
-const flagPill = (f) => (f ? `<span class="l2-flag ${FLAG[f][1]}">${icon(FLAG[f][2])}${FLAG[f][0]}</span>` : '<span class="l2-flag ok">Normal</span>');
+const flagTxt = (f) => (f ? `<span class="h-flag ${FLAG[f][1]}">${FLAG[f][0]}</span>` : '<span class="h-flag ok">Normal</span>');
 const ORDER_STATE = (o) => ({ READY: ['Waiting for sample', 'info'], ON_HOLD: ['Payment pending', 'warning'], SAMPLE_COLLECTED: o.lab.receivedAt ? ['Results to enter', 'purple'] : ['On the way to the lab', 'info'], RESULTED: ['Waiting for verification', 'warning'], COMPLETED: ['Verified', 'success'], CANCELLED: ['Cancelled', 'muted'] }[o.status] || [o.status, 'muted']);
 const prevOf = (o) => store.all('orders').filter((x) => x.serviceId === o.serviceId && x.patientId === o.patientId && x.id !== o.id && x.status === 'COMPLETED').sort((x, y) => y.lab.verifiedAt.localeCompare(x.lab.verifiedAt))[0];
 
 export function renderSid(view, params, query = {}) {
   const v = visit(params.id);
-  if (!v) { view.innerHTML = emptyState('flask-conical', 'Lab visit not found', 'Check the SID on the bill.', '<a class="btn btn-primary" href="#/lab">Back to the lab</a>'); return; }
+  if (!v) { view.innerHTML = emptyState('flask-conical', 'Lab visit not found', 'Check the SID on the bill.', '<a class="btn btn-primary" href="#/lab">Back to the worklist</a>'); return; }
   const p = pat(v.patientId);
   setMeta({ title: `${p.name} — SID ${v.sid}`, crumbs: [{ label: 'Laboratory', href: '#/lab' }, `SID ${v.sid}`] });
-  view.innerHTML = '<div class="l2 l2-page"><section class="l2-card l2-panel l2-standalone" data-host></section></div>';
-  return mountSid(view.querySelector('[data-host]'), v.id, { step: query.step, standalone: true }).cleanup;
+  view.innerHTML = `<div class="h-lab h-ptview"><div class="h-ptnav"><a class="btn btn-secondary" href="#/lab">${icon('arrow-left')}Worklist</a></div><div data-host class="h-pthost"></div></div>`;
+  return mountSid(view.querySelector('[data-host]'), v.id, { step: query.step }).cleanup;
 }
 
-/** Draws one visit into `host` and keeps it live. Returns a cleanup function. */
-export function mountSid(host, id, { step, standalone = false } = {}) {
+/** Draws one visit into `host` and keeps it live. Returns { cleanup, focusFirst, redraw }. */
+export function mountSid(host, id, { step } = {}) {
   const user = currentUser();
-  let alive = true; // false once another patient is mounted here — this one must not draw any more
+  let alive = true; // false once this patient is closed — it must not draw any more
   const editing = new Set(); // RESULTED tests the user chose to correct
   const canDo = (k) => ({ collect: can('lab.work'), receive: can('lab.work'), results: can('lab.work'), verify: can('lab.verify'), send: can('lab.deliver') }[k] ?? false);
 
@@ -48,48 +48,68 @@ export function mountSid(host, id, { step, standalone = false } = {}) {
     const tubes = tubesFor(vv).filter((t) => t.orders.some((o) => o.status !== 'CANCELLED'));
     const allIn = tubes.length && tubes.every((t) => t.receivedAt);
     const showResults = os.some((o) => o.lab.receivedAt || ['RESULTED', 'COMPLETED'].includes(o.status));
-    const where = vv.collectionPoint === 'WARD' ? ['Ward bed', `${esc(vv.bed || '—')} <small>${esc(vv.ward || '')}</small>`] : vv.token ? ['Token', `${vv.token}${vv.tokenStatus === 'CALLED' ? ' <small>called</small>' : ''}`] : ['Came as', esc(SOURCE[vv.source].short)];
-    const waited = ready ? ['Bill → report', dur(minsSince(vv.createdAt, ready))] : ['Waiting', dur(minsSince(vv.createdAt))];
+    const where = vv.collectionPoint === 'WARD' ? ['Ward / bed', `${esc(vv.bed || '—')} <small>${esc(vv.ward || '')}</small>`] : vv.collectionPoint === 'CASUALTY' ? ['Point', 'Casualty'] : ['Token', `${vv.token ?? '—'}${vv.tokenStatus === 'CALLED' ? ' <small>called</small>' : ''}`];
+    const waited = ready ? ['Turnaround', dur(minsSince(vv.createdAt, ready))] : ['Waiting', dur(minsSince(vv.createdAt))];
     const critParams = os.filter(isCritical).flatMap((o) => (o.lab.results || []).filter((r) => { const q = labParams(o).find((x) => x.name === r.param); return q && ['LL', 'HH'].includes(flagFor(q, r.value)); }).map((r) => `${esc(r.param)} ${esc(r.value)}`));
     const redo = tubes.find((t) => t.rejected && !t.collectedAt);
+    const pri = vv.priority === 'STAT' ? '<span class="h-stat">STAT</span>' : vv.priority === 'URGENT' ? '<span class="h-urg">Urgent</span>' : 'Routine';
 
-    host.innerHTML = `<div class="l2-scroll" data-scroll>
-      <div class="l2-ph">${avatar(p.name, 'lg')}<div class="l2-grow"><h2>${esc(p.name)}${priPill(vv)}${crit ? critPill() : ''}</h2>
-          <div class="l2-sub"><span>${esc(ageSex(p))}</span><i>·</i><span>${esc(SOURCE[vv.source].label)}</span><i>·</i>${statusPill(vv)}</div></div>
-        <div class="l2-ph-act">${standalone ? '<a class="btn btn-ghost btn-sm" href="#/lab">' + icon('arrow-left') + 'Workbench</a>' : `<a class="btn btn-ghost btn-sm l2-iconbtn" href="#/lab/visit/${vv.id}" title="Open as a full page">${icon('arrow-up-right')}</a>`}
-          <a class="btn btn-secondary btn-sm" href="#/lab/visit/${vv.id}/labels" target="_blank">${icon('tag')}Labels</a>
-          ${ready || anyDone ? `<a class="btn btn-secondary btn-sm" href="#/lab/visit/${vv.id}/report">${icon('file-text')}${ready ? 'Report' : 'Partial report'}</a>` : ''}
-          <button class="btn btn-secondary btn-sm" data-details>${icon('info')}Patient details</button></div></div>
-      <div class="l2-facts">
-        <div><label>${where[0]}</label><b>${where[1]}</b></div>
-        <div><label>Sample ID</label><b class="mono">${vv.sid}</b></div>
-        <div><label>UHID</label><b class="mono">${esc(p.uhid)}</b></div>
-        <div><label>Referred by</label><b title="${esc(vv.doctor || 'Self request')}">${esc(vv.doctor || 'Self request')}</b></div>
-        <div><label>${waited[0]}</label><b class="${!ready && minsSince(vv.createdAt) > 120 ? 'late' : ''}">${waited[1]}</b></div></div>
-      ${p.allergies ? `<div class="l2-banner crit">${icon('alert-triangle')}<div><b>Allergy:</b> ${esc(p.allergies)}</div></div>` : ''}
-      ${!a.ok && visitStatus(vv) !== 'CANCELLED' ? `<div class="l2-banner warn">${icon('lock')}<div class="l2-grow"><b>Waiting for payment.</b> ${esc(a.label)}. Do not collect the sample — send the patient to the main counter.</div>${vv.billId ? `<a class="btn btn-secondary btn-sm" href="#/hbills/${vv.billId}">${icon('receipt')}Open bill</a>` : ''}</div>` : ''}
-      ${redo ? `<div class="l2-banner warn">${icon('rotate-ccw')}<div><b>Collect a fresh sample.</b> The earlier one was rejected: ${esc(redo.rejected.reason)}.</div></div>` : ''}
-      ${crit ? `<div class="l2-banner crit">${icon('siren')}<div><b>Critical value — ${critParams.join(', ')}.</b> ${os.some((o) => o.status === 'RESULTED' && isCritical(o)) ? 'Re-check the sample, verify, then phone the doctor.' : 'The doctor and owner have been alerted.'}</div></div>` : ''}
-      ${tubes.length ? (allIn && showResults ? tubeStrip(tubes) : tubeSection(vv, tubes, a)) : ''}
-      ${showResults ? resultsSection(vv) : ''}
-      ${ready && vv.source !== 'IP' ? sendSection(vv) : ''}
-      </div><footer class="l2-act" data-bar></footer>`;
+    host.innerHTML = `<div class="h-banner">
+        <div class="h-bn-name"><b>${esc(p.name)}</b><small>${esc(ageSex(p))} · UHID <span class="mono">${esc(p.uhid)}</span></small></div>
+        <div><label>SID</label><span class="mono">${vv.sid}</span></div>
+        <div><label>${where[0]}</label><span>${where[1]}</span></div>
+        <div><label>Came as</label><span>${esc(SOURCE[vv.source].short)}</span></div>
+        <div class="h-bn-doc"><label>Referred by</label><span title="${esc(vv.doctor || 'Self request')}">${esc(vv.doctor || 'Self request')}</span></div>
+        <div><label>${waited[0]}</label><span class="${!ready && minsSince(vv.createdAt) > 120 ? 'h-late' : ''}">${waited[1]}</span></div>
+        <div><label>Priority</label><span>${pri}</span></div>
+        <div class="h-bn-flags">${p.allergies ? `<span class="h-alert red">${icon('exclamation-triangle-fill')}Allergy: ${esc(p.allergies)}</span>` : ''}${crit ? `<span class="h-alert red">${icon('exclamation-diamond-fill')}Critical value</span>` : ''}${statusPill(vv)}</div>
+      </div>
+      <div class="h-ptbody">
+        <section class="h-box h-main"><div class="h-scroll" data-scroll>
+          ${!a.ok && visitStatus(vv) !== 'CANCELLED' ? `<div class="h-msg amber">${icon('lock-fill')}<div class="h-grow"><b>Waiting for payment.</b> ${esc(a.label)}. Do not collect the sample — send the patient to the main counter.</div>${vv.billId ? `<a class="btn btn-secondary btn-sm" href="#/hbills/${vv.billId}">${icon('receipt')}Open bill</a>` : ''}</div>` : ''}
+          ${redo ? `<div class="h-msg amber">${icon('arrow-counterclockwise')}<div><b>Collect a fresh sample.</b> The earlier one was rejected: ${esc(redo.rejected.reason)}.</div></div>` : ''}
+          ${crit ? `<div class="h-msg red">${icon('exclamation-diamond-fill')}<div><b>Critical value — ${critParams.join(', ')}.</b> ${os.some((o) => o.status === 'RESULTED' && isCritical(o)) ? 'Re-check the sample, verify, then phone the doctor.' : 'The doctor and owner have been alerted.'}</div></div>` : ''}
+          ${tubes.length && !(allIn && showResults) ? tubeSection(vv, tubes, a) : ''}
+          ${showResults ? resultsSection(vv) : ''}
+          ${ready && vv.source !== 'IP' ? sendSection(vv) : ''}
+          ${!tubes.length && !showResults ? `<div class="h-empty">${icon('hourglass')}<b>Nothing to do here yet.</b></div>` : ''}
+        </div><footer class="h-act" data-bar></footer></section>
+        <aside class="h-side">
+          <div class="h-box"><h3>Sample</h3>${tubes.map((t) => `<div class="h-tube">${cap(t.container)}<div class="h-grow"><span>${esc(tubeInfo(t.container).name)}</span><small class="mono">${t.code}</small></div>${t.receivedAt ? `<span class="h-ok">${icon('check-circle-fill')} In lab</span>` : t.collectedAt ? '<span class="h-info">Collected</span>' : t.rejected ? '<span class="danger">Rejected</span>' : '<span class="h-muted">Not collected</span>'}${allIn && showResults && can('lab.work') && t.orders.some((o) => ['SAMPLE_COLLECTED', 'RESULTED'].includes(o.status)) ? `<button class="h-link danger" data-reject="${t.code}" title="Reject this sample">Reject</button>` : ''}</div>`).join('') || '<p class="h-pad h-muted">No tubes.</p>'}</div>
+          <div class="h-box"><h3>Visit</h3>${visitKv(vv)}</div>
+          <div class="h-box h-links"><h3>More</h3>
+            <a href="#/lab/visit/${vv.id}/labels" target="_blank">${icon('upc')}Reprint labels</a>
+            ${ready || anyDone ? `<a href="#/lab/visit/${vv.id}/report">${icon('file-earmark-text')}${ready ? 'Report' : 'Partial report'}</a>` : ''}
+            <a href="#" data-drawer="journey">${icon('signpost-2')}Progress</a>
+            <a href="#" data-drawer="activity">${icon('clock-history')}Activity log</a>
+            <a href="#/patients/${vv.patientId}">${icon('person-vcard')}Patient file</a></div>
+        </aside>
+      </div>`;
     wire();
   };
 
-  // ----- tubes -----
+  // ----- visit facts (side panel) -----
+  const visitKv = (v) => {
+    const p = pat(v.patientId); const a = visitAccess(v); const b = v.billId && store.get('hbills', v.billId); const rd = v.referralDoctorId && store.get('referralDoctors', v.referralDoctorId);
+    const row = (k, val) => (val ? `<dt>${k}</dt><dd>${val}</dd>` : '');
+    return `<dl class="h-kv">${row('Mobile', esc(p.phone || '—'))}${row('Payment', `<span class="${a.ok ? 'h-ok' : 'h-warn'}">${esc(a.label)}</span>`)}
+      ${b ? row('Bill', `<a class="mono" href="#/hbills/${b.id}">${b.id}</a>`) : v.billingRoute === 'IP_ACCOUNT' ? row('Charges', `IP account ${esc(v.ipNo || '')}`) : ''}
+      ${rd ? row('Clinic', esc(rd.clinic)) : ''}${row('Report due', fmtDateTime(v.reportDueAt))}
+      ${row('Prescription', v.prescription ? '<button class="h-link" data-rx>View</button>' : esc({ DOCTOR_ORDER: 'Doctor order', SELF_REQUEST: 'Self request', PACKAGE: 'Package' }[v.rxBasis] || '—'))}
+      ${v.consent ? row('Consent', '<span class="h-ok">Signed</span>') : ''}${v.clinicalNotes ? row('Notes', esc(v.clinicalNotes)) : ''}</dl>`;
+  };
+
+  // ----- tubes (collect / receive step) -----
   const tubeSection = (vv, tubes, a) => {
     const collectStep = tubes.some((t) => !t.collectedAt); const n = tubes.filter((t) => (collectStep ? t.collectedAt : t.receivedAt)).length;
-    return `<section class="l2-sec"><div class="l2-sech"><h3>Samples</h3><span class="l2-meta">${collectStep ? 'Check the patient’s name, stick each label in front of them, then scan or mark each tube' : 'Scan each tube when it reaches the bench'}</span><span class="l2-grow"></span>
-      <span class="l2-prog">${n} of ${tubes.length} ${collectStep ? 'collected' : 'received'}<i><b style="width:${(n / tubes.length) * 100}%"></b></i></span></div>
-      <div class="l2-tubes">${tubes.map((t) => { const ti = tubeInfo(t.container); const tests = t.orders.filter((o) => o.status !== 'CANCELLED');
-        const state = t.receivedAt ? `<span class="l2-pill ok">In lab ${clock(t.receivedAt)}</span>` : t.collectedAt ? `<span class="l2-pill info">Collected ${clock(t.collectedAt)}</span>` : t.rejected ? '<span class="l2-pill danger">Rejected</span>' : '<span class="l2-pill muted">Not collected</span>';
+    return `<div class="h-sech"><h2>Samples</h2><span class="h-muted">${collectStep ? 'Check the patient’s name, stick each label in front of them, then scan or mark each tube' : 'Scan each tube when it reaches the bench'}</span><span class="h-grow"></span>
+      <span class="h-prog">${n} of ${tubes.length} ${collectStep ? 'collected' : 'received'}<i><b style="width:${(n / tubes.length) * 100}%"></b></i></span></div>
+      <table class="h-table"><thead><tr><th style="width:34%">Tube</th><th>Tests</th><th style="width:150px">Status</th><th style="width:200px"></th></tr></thead><tbody>${tubes.map((t) => { const ti = tubeInfo(t.container); const tests = t.orders.filter((o) => o.status !== 'CANCELLED');
+        const state = t.receivedAt ? `<span class="h-ok">In lab ${clock(t.receivedAt)}</span>` : t.collectedAt ? `<span class="h-info">Collected ${clock(t.collectedAt)}</span>` : t.rejected ? '<span class="danger">Rejected</span>' : '<span class="h-muted">Not collected</span>';
         const acts = !can('lab.work') ? '' : !t.collectedAt ? (a.ok ? `<button class="btn btn-secondary btn-sm" data-collect="${t.code}">${icon('check')}Mark collected</button>` : '')
-          : !t.receivedAt ? `<button class="btn btn-ghost btn-sm l2-danger-text" data-reject="${t.code}">Reject</button><button class="btn btn-secondary btn-sm" data-receive="${t.code}">${icon('check')}Receive</button>` : '';
-        return `<div class="l2-tube">${cap(t.container, 'lg')}<div class="l2-tn"><b>${esc(ti.name)}</b><span class="mono">${t.code}</span></div>
-          <div class="l2-tt">${tests.map((o) => `<span class="l2-tag">${esc(o.name)}</span>`).join('')}</div>${state}<div class="l2-ta">${acts}</div></div>`; }).join('')}</div></section>`;
+          : !t.receivedAt ? `<button class="h-link danger" data-reject="${t.code}">Reject</button><button class="btn btn-secondary btn-sm" data-receive="${t.code}">${icon('check')}Receive</button>` : '';
+        return `<tr><td><div class="h-tubecell">${cap(t.container)}<div><b>${esc(ti.name)}</b><small class="mono">${t.code}</small></div></div></td><td>${tests.map((o) => esc(o.name)).join(', ')}</td><td>${state}</td><td class="ta-right h-acts">${acts}</td></tr>`; }).join('')}</tbody></table>`;
   };
-  const tubeStrip = (tubes) => `<div class="l2-strip"><span class="l2-meta">Samples</span>${tubes.map((t) => `<span class="l2-chip">${cap(t.container)}<b>${esc(tubeInfo(t.container).name)}</b><span class="mono">${t.code}</span>${can('lab.work') && t.orders.some((o) => ['SAMPLE_COLLECTED', 'RESULTED'].includes(o.status)) ? `<button class="l2-link danger" data-reject="${t.code}">Reject</button>` : ''}</span>`).join('')}</div>`;
 
   // ----- results -----
   const resultsSection = (vv) => {
@@ -100,19 +120,20 @@ export function mountSid(host, id, { step, standalone = false } = {}) {
       const show = input || ['RESULTED', 'COMPLETED'].includes(o.status); if (input) anyInput = true;
       const prev = show ? prevOf(o) : null; const pv = (n) => prev?.lab.results.find((r) => r.param === n)?.value;
       const who = o.lab.enteredBy ? `Entered by ${esc(userName(o.lab.enteredBy))} ${clock(o.lab.enteredAt)}${o.lab.verifiedBy ? ` · verified by ${esc(userName(o.lab.verifiedBy))}` : ''}` : '';
-      const head = `<tr class="g"><td colspan="5"><div class="l2-grp"><b>${esc(o.name)}</b><span class="l2-pill ${st}">${sl}</span>${o.lab.reportNo ? `<span class="mono l2-muted">${o.lab.reportNo}</span>` : ''}<span class="l2-grow"></span><span class="l2-muted">${who}</span>
-        ${o.status === 'RESULTED' && !editing.has(o.id) && can('lab.work') ? `<button class="btn btn-ghost btn-sm" data-edit="${o.id}">${icon('pencil')}Correct</button>` : ''}
-        ${o.status === 'RESULTED' && can('lab.verify') && !editing.has(o.id) && os.filter((x) => x.status === 'RESULTED').length > 1 ? `<button class="btn btn-ghost btn-sm" data-verify-one="${o.id}">${icon('badge-check')}Verify this</button>` : ''}</div></td></tr>`;
-      if (!show) return head + `<tr><td colspan="5" class="l2-wait">${o.status === 'SAMPLE_COLLECTED' ? 'Receive the tube at the bench to enter results.' : o.status === 'READY' ? 'Collect the sample first.' : 'Waiting for payment.'}</td></tr>`;
+      const head = `<tr class="g"><td colspan="6"><div class="h-grp"><b>${esc(o.name)}</b><span class="h-state ${st}">${sl}</span>${o.lab.reportNo ? `<span class="mono h-muted">${o.lab.reportNo}</span>` : ''}<span class="h-grow"></span><span class="h-muted">${who}</span>
+        ${o.status === 'RESULTED' && !editing.has(o.id) && can('lab.work') ? `<button class="h-link" data-edit="${o.id}">${icon('pencil')}Correct</button>` : ''}
+        ${o.status === 'RESULTED' && can('lab.verify') && !editing.has(o.id) && os.filter((x) => x.status === 'RESULTED').length > 1 ? `<button class="h-link" data-verify-one="${o.id}">${icon('patch-check')}Verify this</button>` : ''}</div></td></tr>`;
+      if (!show) return head + `<tr><td colspan="6" class="h-muted h-note">${o.status === 'SAMPLE_COLLECTED' ? 'Receive the tube at the bench to enter results.' : o.status === 'READY' ? 'Collect the sample first.' : 'Waiting for payment.'}</td></tr>`;
       return head + ps.map((q) => { const f = flagFor(q, vals[q.name]); const qual = q.ref !== undefined; const dl = `dl-${o.id}-${q.name.replace(/\W/g, '')}`; const has = vals[q.name] != null && vals[q.name] !== '';
         return `<tr class="${has && f ? 'f-' + FLAG[f][1] : ''}"><td>${esc(q.name)}</td>
-          <td><div class="l2-rc">${input ? `<input class="l2-in" data-oid="${o.id}" data-p="${esc(q.name)}" value="${esc(vals[q.name] ?? '')}" ${qual ? `list="${dl}" placeholder="${esc(q.ref)}"` : 'inputmode="decimal" placeholder="—"'} autocomplete="off">${qual ? `<datalist id="${dl}"><option value="${esc(q.ref)}">${['Positive', 'Reactive', 'Present', 'Nil', 'Absent', 'Non-reactive', 'Negative'].filter((x) => x !== q.ref).map((x) => `<option value="${x}">`).join('')}</datalist>` : ''}` : `<b class="l2-val">${esc(vals[q.name] ?? '—')}</b>`}<span class="l2-unit">${esc(q.unit || '')}</span></div></td>
-          <td data-flag>${has ? flagPill(f) : ''}</td>
-          <td class="l2-muted">${esc(refText(q))}${q.critLow != null || q.critHigh != null ? `<small class="l2-critlim">critical ${q.critLow != null ? '&lt; ' + q.critLow : ''}${q.critLow != null && q.critHigh != null ? ' / ' : ''}${q.critHigh != null ? '&gt; ' + q.critHigh : ''}</small>` : ''}</td>
-          <td class="l2-prev">${prev ? `${esc(pv(q.name) ?? '—')}<small>${fmtDate(prev.lab.verifiedAt)}</small>` : '<small>First test</small>'}</td></tr>`; }).join('');
+          <td>${input ? `<input class="l2-in h-in" data-oid="${o.id}" data-p="${esc(q.name)}" value="${esc(vals[q.name] ?? '')}" ${qual ? `list="${dl}" placeholder="${esc(q.ref)}"` : 'inputmode="decimal"'} autocomplete="off">${qual ? `<datalist id="${dl}"><option value="${esc(q.ref)}">${['Positive', 'Reactive', 'Present', 'Nil', 'Absent', 'Non-reactive', 'Negative'].filter((x) => x !== q.ref).map((x) => `<option value="${x}">`).join('')}</datalist>` : ''}` : `<b class="h-val">${esc(vals[q.name] ?? '—')}</b>`}</td>
+          <td class="h-muted">${esc(q.unit || '')}</td>
+          <td data-flag>${has ? flagTxt(f) : ''}</td>
+          <td class="h-muted">${esc(refText(q))}${q.critLow != null || q.critHigh != null ? `<small class="h-critlim">critical ${q.critLow != null ? '&lt; ' + q.critLow : ''}${q.critLow != null && q.critHigh != null ? ' / ' : ''}${q.critHigh != null ? '&gt; ' + q.critHigh : ''}</small>` : ''}</td>
+          <td class="h-prev">${prev ? `${esc(pv(q.name) ?? '—')} <small>${fmtDate(prev.lab.verifiedAt)}</small>` : '<small>—</small>'}</td></tr>`; }).join('');
     }).join('');
-    return `<section class="l2-sec"><div class="l2-sech"><h3>${anyInput ? 'Enter results' : 'Results'}</h3><span class="l2-meta">${anyInput ? 'Enter moves to the next box · flags appear as you type' : ''}</span></div>
-      <div class="l2-tbl"><table class="l2-res"><thead><tr><th>Test</th><th>Result</th><th>Flag</th><th>Normal range</th><th>Last result</th></tr></thead><tbody>${groups}</tbody></table></div></section>`;
+    return `<div class="h-sech"><h2>${anyInput ? 'Enter results' : 'Results'}</h2><span class="h-muted">${anyInput ? 'Enter moves to the next box · High / Low / Critical are marked as you type' : ''}</span></div>
+      <table class="h-table h-res"><thead><tr><th>Parameter</th><th style="width:130px">Result</th><th style="width:80px">Unit</th><th style="width:100px">Flag</th><th style="width:170px">Normal range</th><th style="width:150px">Previous</th></tr></thead><tbody>${groups}</tbody></table>`;
   };
 
   // ----- send -----
@@ -120,14 +141,14 @@ export function mountSid(host, id, { step, standalone = false } = {}) {
     const p = pat(vv.patientId); const rd = vv.referralDoctorId && store.get('referralDoctors', vv.referralDoctorId); const b = vv.billId && store.get('hbills', vv.billId); const due = b ? hbillBalance(b) : 0;
     const sent = (ch, dr = false) => vv.deliveries.some((d) => d.channel === ch && !!d.toDoctor === dr);
     const dis = can('lab.deliver') ? '' : 'disabled';
-    const opt = (k, ic, label, sub, on = true, done = false) => `<button class="l2-opt" data-send="${k}" ${on ? dis : 'disabled'}><span class="l2-oi">${icon(ic)}</span><b>${label}</b><small>${esc(sub)}</small>${done ? `<em>${icon('check')}Sent</em>` : ''}</button>`;
-    return `<section class="l2-sec"><div class="l2-sech"><h3>Send the report</h3><span class="l2-meta">Verified ${clock(reportReadyAt(vv))}</span>${isUncollected(vv) ? '<span class="l2-pill danger">Not collected</span>' : ''}</div>
-      <div class="l2-opts">${opt('WHATSAPP', 'message-circle', 'WhatsApp to patient', p.phone || 'No mobile', !!p.phone, sent('WHATSAPP'))}
-        ${rd ? opt('DOCTOR', 'stethoscope', 'Referring doctor', `${rd.name}${rd.phone ? '' : ' · no mobile'}`, !!rd.phone, sent('WHATSAPP', true)) : ''}
+    const opt = (k, ic, label, sub, on = true, done = false) => `<button class="h-opt" data-send="${k}" ${on ? dis : 'disabled'}>${icon(ic)}<span><b>${label}</b><small>${esc(sub)}</small></span>${done ? `<em>${icon('check2')}Sent</em>` : ''}</button>`;
+    return `<div class="h-sech"><h2>Send the report</h2><span class="h-muted">Verified ${clock(reportReadyAt(vv))}</span>${isUncollected(vv) ? '<span class="danger">Not collected</span>' : ''}</div>
+      <div class="h-opts">${opt('WHATSAPP', 'whatsapp', 'WhatsApp to patient', p.phone || 'No mobile', !!p.phone, sent('WHATSAPP'))}
+        ${rd ? opt('DOCTOR', 'person-badge', 'Referring doctor', `${rd.name}${rd.phone ? '' : ' · no mobile'}`, !!rd.phone, sent('WHATSAPP', true)) : ''}
         ${opt('PRINT', 'printer', 'Print / save PDF', 'Open the report')}
-        ${opt('COUNTER', 'hand', vv.handover ? `Handed to ${vv.handover.name}` : 'Hand over at counter', due > 0 ? `₹${due} still due on the bill` : 'Patient or attender collects', !vv.handover, !!vv.handover)}
-        ${opt('SMS', 'smartphone', 'SMS', p.phone || 'No mobile', !!p.phone, sent('SMS'))}
-        ${opt('EMAIL', 'mail', 'Email', p.email || 'No email on record', !!p.email, sent('EMAIL'))}</div></section>`;
+        ${opt('COUNTER', 'person-check', vv.handover ? `Handed to ${vv.handover.name}` : 'Hand over at counter', due > 0 ? `₹${due} still due on the bill` : 'Patient or attender collects', !vv.handover, !!vv.handover)}
+        ${opt('SMS', 'phone', 'SMS', p.phone || 'No mobile', !!p.phone, sent('SMS'))}
+        ${opt('EMAIL', 'envelope', 'Email', p.email || 'No email on record', !!p.email, sent('EMAIL'))}</div>`;
   };
 
   // ----- the action bar -----
@@ -138,8 +159,8 @@ export function mountSid(host, id, { step, standalone = false } = {}) {
     const nx = nextAction(vv); const tubes = liveTubes(vv); let status = ''; let sec = ''; let pri = '';
     if (inputs.length) {
       const filled = inputs.filter((i) => i.value.trim()).length; const crit = host.querySelectorAll('tr.f-crit .l2-in').length;
-      status = `${crit ? `<span class="danger">${icon('siren')}${crit} critical</span><i>·</i>` : ''}<span class="l2-prog">${filled} of ${inputs.length} entered<i><b style="width:${(filled / inputs.length) * 100}%"></b></i></span>`;
-      sec = '<span class="l2-keys"><kbd>Enter</kbd> next box <kbd>Ctrl S</kbd> save</span>' + (toVerify.length && can('lab.verify') ? `<button class="btn btn-secondary" data-verify-all>${icon('badge-check')}Verify ${toVerify.length} entered</button>` : '');
+      status = `${crit ? `<span class="danger">${icon('siren')}${crit} critical</span><i>·</i>` : ''}<span class="h-prog">${filled} of ${inputs.length} entered<i><b style="width:${(filled / inputs.length) * 100}%"></b></i></span>`;
+      sec = '<span class="h-keys"><kbd>Ctrl S</kbd> save</span>' + (toVerify.length && can('lab.verify') ? `<button class="btn btn-secondary" data-verify-all>${icon('badge-check')}Verify ${toVerify.length} entered</button>` : '');
       pri = `<button class="btn btn-primary" data-save>${icon('save')}Save results</button>`;
     } else if (toVerify.length && can('lab.verify')) {
       const c = toVerify.some(isCritical);
@@ -157,12 +178,12 @@ export function mountSid(host, id, { step, standalone = false } = {}) {
     } else if (nx.key === 'send' && canDo('send')) {
       const p = pat(vv.patientId);
       status = `${icon('check-circle-2')}Report verified and ready`;
-      pri = `<button class="btn btn-wa" data-send="WHATSAPP" ${p.phone ? '' : 'disabled'}>${icon('message-circle')}Send on WhatsApp</button>`;
+      pri = `<button class="btn btn-primary" data-send="WHATSAPP" ${p.phone ? '' : 'disabled'}>${icon('message-circle')}Send on WhatsApp</button>`;
     } else {
       status = `${icon(nx.icon)}${esc(nx.title)}`;
       sec = reportReadyAt(vv) ? `<a class="btn btn-secondary" href="#/lab/visit/${vv.id}/report">${icon('printer')}Print report</a>` : '';
     }
-    bar.innerHTML = `<div class="l2-status">${status}</div><span class="l2-grow"></span>${sec}${pri}`;
+    bar.innerHTML = `<div class="h-status">${status}</div><span class="h-grow"></span>${sec}${pri}`;
     bar.querySelector('[data-save]')?.addEventListener('click', save);
     bar.querySelector('[data-verify-all]')?.addEventListener('click', () => verify(toVerify.map((o) => o.id)));
     bar.querySelector('[data-collect-all]')?.addEventListener('click', () => collect(tubes.filter((t) => !t.collectedAt).map((t) => t.code)));
@@ -195,7 +216,7 @@ export function mountSid(host, id, { step, standalone = false } = {}) {
   const verify = async (ids) => {
     const os = ids.map((x) => store.get('orders', x)); const crit = os.filter(isCritical);
     const ok = await confirmDialog({ title: os.length > 1 ? `Verify ${os.length} tests and release?` : `Verify ${os[0].name}?`, iconName: icon('badge-check'), confirmLabel: 'Verify & release',
-      message: `<strong>${os.map((o) => esc(o.name)).join(', ')}</strong><br>Once verified the result is final, gets a report number and goes to the patient's history.${crit.length ? `<div class="l2-banner crit" style="margin-top:12px">${icon('siren')}<div>Critical value in ${crit.map((o) => esc(o.name)).join(', ')} — phone the doctor after release.</div></div>` : ''}` });
+      message: `<strong>${os.map((o) => esc(o.name)).join(', ')}</strong><br>Once verified the result is final, gets a report number and goes to the patient's history.${crit.length ? `<div class="h-msg red" style="margin-top:12px">${icon('siren')}<div>Critical value in ${crit.map((o) => esc(o.name)).join(', ')} — phone the doctor after release.</div></div>` : ''}` });
     if (!ok) return;
     try { os.forEach((o) => verifyReport(o.id, user)); toast(reportReadyAt(visit(id)) ? (visit(id).source === 'IP' ? 'Report released and posted to the ward.' : 'Report released — ready to send.') : 'Verified.', 'success'); draw(); }
     catch (e) { toast(e.message, 'error'); draw(); }
@@ -210,25 +231,25 @@ export function mountSid(host, id, { step, standalone = false } = {}) {
       draw();
     } catch (e) { toast(e.message, 'error'); }
   };
-  const details = () => {
+  const details = (which) => {
     const vv = visit(id); const p = pat(vv.patientId);
-    openDrawer({ head: `${avatar(p.name)}<div><b>${esc(p.name)}</b><small>${esc(ageSex(p))} · SID ${vv.sid}</small></div>`,
-      tabs: [{ id: 'details', label: 'Details', html: detailsHtml(vv) }, { id: 'journey', label: 'Progress', html: journeyHtml(vv) }, { id: 'activity', label: 'Activity', html: activityHtml(vv) }] });
-    document.querySelector('.l2-drawer [data-rx]')?.addEventListener('click', async () => { const url = vv.prescription.demo ? null : await attachmentURL(vv.prescription).catch(() => null); if (url) window.open(url, '_blank'); else toast('Sample record — an uploaded prescription opens here.', 'info'); });
+    openDrawer({ head: `<div><b>${esc(p.name)}</b><small>${esc(ageSex(p))} · SID ${vv.sid}</small></div>`, active: which,
+      tabs: [{ id: 'journey', label: 'Progress', html: journeyHtml(vv) }, { id: 'activity', label: 'Activity log', html: activityHtml(vv) }] });
   };
 
   const wire = () => {
-    host.querySelector('[data-details]')?.addEventListener('click', details);
+    host.querySelectorAll('[data-drawer]').forEach((b) => { b.onclick = (e) => { e.preventDefault(); details(b.dataset.drawer); }; });
+    host.querySelector('[data-rx]')?.addEventListener('click', async () => { const vv = visit(id); const url = vv.prescription.demo ? null : await attachmentURL(vv.prescription).catch(() => null); if (url) window.open(url, '_blank'); else toast('Sample record — an uploaded prescription opens here.', 'info'); });
     host.querySelectorAll('[data-collect]').forEach((b) => { b.onclick = () => collect([b.dataset.collect]); });
     host.querySelectorAll('[data-receive]').forEach((b) => { b.onclick = () => { receiveCodes([b.dataset.receive]); draw(); }; });
     host.querySelectorAll('[data-reject]').forEach((b) => { b.onclick = async () => { if (await rejectTubeDialog(b.dataset.reject)) draw(); }; });
     host.querySelectorAll('[data-edit]').forEach((b) => { b.onclick = () => { editing.add(b.dataset.edit); draw(); host.querySelector(`.l2-in[data-oid="${b.dataset.edit}"]`)?.focus(); }; });
     host.querySelectorAll('[data-verify-one]').forEach((b) => { b.onclick = () => verify([b.dataset.verifyOne]); });
-    host.querySelectorAll('.l2-opts [data-send]').forEach((b) => { b.onclick = () => send(b.dataset.send); });
+    host.querySelectorAll('.h-opts [data-send]').forEach((b) => { b.onclick = () => send(b.dataset.send); });
     const ins = [...host.querySelectorAll('.l2-in')];
     ins.forEach((i, k) => {
       i.addEventListener('input', () => { const o = store.get('orders', i.dataset.oid); const q = labParams(o).find((x) => x.name === i.dataset.p); const f = flagFor(q, i.value); const tr = i.closest('tr');
-        tr.className = i.value.trim() && f ? 'f-' + FLAG[f][1] : ''; tr.querySelector('[data-flag]').innerHTML = i.value.trim() ? flagPill(f) : ''; drawBar(); });
+        tr.className = i.value.trim() && f ? 'f-' + FLAG[f][1] : ''; tr.querySelector('[data-flag]').innerHTML = i.value.trim() ? flagTxt(f) : ''; drawBar(); });
       i.addEventListener('focus', () => { host.querySelectorAll('tr.cur').forEach((r) => r.classList.remove('cur')); i.closest('tr').classList.add('cur'); });
       i.addEventListener('keydown', (e) => {
         e.stopPropagation();
@@ -251,16 +272,6 @@ export function mountSid(host, id, { step, standalone = false } = {}) {
 }
 
 // ----- drawer content -----
-function detailsHtml(v) {
-  const p = pat(v.patientId); const a = visitAccess(v); const b = v.billId && store.get('hbills', v.billId); const rd = v.referralDoctorId && store.get('referralDoctors', v.referralDoctorId);
-  const row = (k, val) => (val ? `<dt>${k}</dt><dd>${val}</dd>` : '');
-  return `<dl class="l2-kv">${row('Mobile', esc(p.phone || '—'))}${row('Email', esc(p.email || ''))}${row('Came as', esc(SOURCE[v.source].label))}${row('Doctor', esc(v.doctor || 'Self'))}${rd ? row('Clinic', esc(rd.clinic)) : ''}${v.ipNo ? row('IP number', esc(v.ipNo)) : ''}
-    ${row('Payment', `<span class="l2-pill ${a.tone === 'success' ? 'ok' : a.tone}">${esc(a.label)}</span>`)}${b ? row('Bill', `<a class="mono" href="#/hbills/${b.id}">${b.id}</a>`) : v.billingRoute === 'IP_ACCOUNT' ? row('Charges', `On IP account ${esc(v.ipNo)}`) : ''}
-    ${row('Prescription', v.prescription ? `<button class="btn btn-secondary btn-sm" data-rx>${icon('file-image')}View</button>` : esc({ DOCTOR_ORDER: 'Doctor order', SELF_REQUEST: 'Not needed (self request)', PACKAGE: 'Package' }[v.rxBasis] || '—'))}
-    ${v.consent ? row('Consent', '<span class="l2-pill ok">Signed</span>') : ''}${row('Report due', fmtDateTime(v.reportDueAt))}${v.clinicalNotes ? row('Notes', esc(v.clinicalNotes)) : ''}
-    ${row('Tubes', liveTubes(v).map((t) => `${esc(tubeInfo(t.container).name)} <span class="mono l2-muted">${t.code}</span>`).join('<br>'))}
-    <dt>Patient file</dt><dd><a href="#/patients/${v.patientId}">Open profile ${icon('arrow-up-right')}</a></dd></dl>`;
-}
 function journeyHtml(v) {
   const total = reportReadyAt(v) ? `<p class="l2-muted" style="margin:0 0 14px">Bill to report: <b>${dur(minsSince(v.createdAt, reportReadyAt(v)))}</b></p>` : '';
   return `${total}<ol class="l2-tl">${journey(v).map((s) => `<li class="${s.done ? 'd' : ''} ${s.current ? 'cur' : ''}"><span class="l2-tl-ic">${icon(s.done ? 'check' : s.icon)}</span><div><b>${esc(s.label)}</b><small>${esc(s.sub)}</small></div><span class="l2-tl-t">${s.done && s.at ? clock(s.at) : ''}</span></li>`).join('')}</ol>`;

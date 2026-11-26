@@ -57,7 +57,7 @@ export function render(view) {
     hbills: tile('#/hbills', 'files', 'Hospital Bills', 'Collect balance, receipts, cancellations', 'info'),
     shift: tile('#/shifts', 'timer', 'My Shift', 'Opening cash, collections, handover', 'purple', pendingHandoversFor(u).length || null),
     packages: tile('#/packages', 'package', 'Packages', 'Health check-ups and surgery packages', 'warning'),
-    lab: tile('#/lab', 'test-tube', 'Lab Workbench', 'Collect → receive → results → verify → send', 'teal'),
+    lab: tile('#/lab', 'test-tube', 'Lab Worklist', 'Collect → receive → results → verify → send', 'teal'),
     labReports: tile('#/lab/reports', 'file-check-2', 'Lab Reports', 'Find and reprint reports', 'info'),
     kits: tile('#/lab/stock', 'boxes', 'Lab Stock', labAttention().low.length ? `${labAttention().low.length} running low — request from store` : 'Reagents, cards, tubes, QC', labAttention().low.length ? 'warning' : 'navy', labAttention().arriving.length || null),
     labSupplies: tile('#/store/lab', 'flask-conical', 'Lab Supplies', storeAttention().requests.length ? 'Lab is waiting — issue now' : 'Lab requests and reagent stock', storeAttention().requests.length ? 'danger' : 'purple', storeAttention().requests.length || null),

@@ -52,7 +52,7 @@ export const ROUTES = [
   { path: '/shifts/register', mod: 'shifts', fn: 'renderRegister', perm: 'shift.report', title: 'Shift Register', crumbs: ['Business', 'Shift Register'], nav: 'shift-reg' },
   { path: '/shifts/:id', mod: 'shifts', fn: 'renderDetail', perm: null, title: 'Shift Report', crumbs: ['Shifts', 'Report'], nav: 'shift' },
   // Laboratory (BRD 06)
-  { path: '/lab', mod: 'lab/workbench', fn: 'renderWorkbench', perm: 'lab.work', title: 'Lab Workbench', crumbs: ['Laboratory', 'Workbench'], nav: 'lab' },
+  { path: '/lab', mod: 'lab/workbench', fn: 'renderWorkbench', perm: 'lab.work', title: 'Lab Worklist', crumbs: ['Laboratory', 'Worklist'], nav: 'lab' },
   { path: '/lab/display', mod: 'labdesk', fn: 'renderDisplay', perm: 'lab.view', title: 'Token Display', crumbs: ['Laboratory', 'Token display'], nav: 'lab' },
   { path: '/lab/ward-order', mod: 'labdesk', fn: 'renderWardOrder', perm: 'lab.order.ip', title: 'Ward Lab Order', crumbs: ['Laboratory', 'Ward order'], nav: 'lab-ward' },
   { path: '/lab/visit/:id', mod: 'lab/sid', fn: 'renderSid', perm: 'lab.view', title: 'Lab Visit', crumbs: ['Laboratory', 'SID'], nav: 'lab' },
