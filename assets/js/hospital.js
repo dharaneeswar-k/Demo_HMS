@@ -8,6 +8,7 @@ import { r2 } from './pricing.js';
 import { businessDate } from './pharmacy-calc.js';
 import { openShiftFor } from './shifts.js';
 import { fmtINR } from './utils.js';
+import { useForTest, markRepeat } from './labstock.js';
 import { validateLabRequest, createVisitForBill, onOrderVerified, visitOfOrder, visitAccess } from './labflow.js';
 
 const now = () => new Date().toISOString();
@@ -319,7 +320,7 @@ export function collectSample(orderId, user) {
     const at = now();
     Object.assign(o.lab, { collectedAt: at, collectedBy: user.id, receivedAt: at, receivedBy: user.id });
     o.status = 'SAMPLE_COLLECTED';
-    sv.lab.kits.forEach((k) => kitMove(k.kitId, 'USED_TEST', -k.qty, o.id, user, sv.code));
+    sv.lab.kits.forEach((k) => useForTest(k.kitId, k.qty, o.id, user, sv.code));
     audit(user, 'LAB_SAMPLE_COLLECTED', 'ORDER', orderId, `${o.accession} · ${sv.name}`);
     return o;
   });
@@ -330,15 +331,10 @@ export function rejectSample(orderId, reason, user) {
   const o = store.get('orders', orderId);
   return store.transaction(() => {
     o.lab.rejected = { at: now(), by: user.id, reason: reason.trim(), count: (o.lab.rejected?.count || 0) + 1 };
-    if (o.status === 'SAMPLE_COLLECTED') { o.status = 'READY'; Object.assign(o.lab, { collectedAt: null, collectedBy: null, receivedAt: null, receivedBy: null }); kitMoveRepeat(o, user); }
+    if (o.status === 'SAMPLE_COLLECTED') { o.status = 'READY'; Object.assign(o.lab, { collectedAt: null, collectedBy: null, receivedAt: null, receivedBy: null }); markRepeat(o.id); }
     audit(user, 'LAB_SAMPLE_REJECTED', 'ORDER', orderId, reason);
     return o;
   });
-}
-function kitMoveRepeat(o, user) {
-  // the kit used on a rejected sample is not refunded — it is relabelled as a repeat so the reconciliation stays honest
-  const last = store.all('kitMovements').filter((m) => m.ref === o.id && m.type === 'USED_TEST');
-  last.forEach((m) => { m.type = 'REPEAT'; m.note = 'Sample rejected — test repeated'; });
 }
 export function enterResults(orderId, results, user) {
   mustLab(user);
@@ -375,58 +371,8 @@ export function verifyReport(orderId, user) {
 }
 export function markPrinted(orderId) { const o = store.get('orders', orderId); if (o?.lab) { o.lab.printedAt = now(); o.lab.printCount = (o.lab.printCount || 0) + 1; store.commit(); } }
 
-// ---------------- reagent kits ----------------
-function kitMove(kitId, type, qty, ref, user, note = '') { return store.insert('kitMovements', { id: store.nextId('kitMovements', 'KMV-', 5), at: now(), kitId, type, qty, ref, by: user.id, note }); }
-export const kitBalance = (kitId) => store.all('kitMovements').filter((m) => m.kitId === kitId).reduce((t, m) => t + m.qty, 0);
-export const kitStatus = (k) => { const b = kitBalance(k.id); return b <= 0 ? 'OUT_OF_STOCK' : b <= k.reorderLevel ? 'LOW_STOCK' : 'IN_STOCK'; };
-export function receiveKits({ kitId, qty, lot, expiry }, user) {
-  if (!can('lab.kits', user)) throw new Error('You cannot receive kits.');
-  qty = Math.floor(Number(qty)); if (!(qty > 0)) throw new Error('Enter the quantity received.');
-  return store.transaction(() => { const m = kitMove(kitId, 'RECEIVED', qty, 'KIT-RCV', user, `Lot ${lot || '—'}${expiry ? ' · exp ' + expiry : ''}`); audit(user, 'LAB_KIT_RECEIVED', 'KIT', kitId, `${qty} · ${m.note}`); return m; });
-}
-export function recordKitUsage({ kitId, qty, type, note }, user) {
-  if (!can('lab.kits', user)) throw new Error('You cannot record kit usage.');
-  qty = Math.floor(Number(qty)); if (!(qty > 0)) throw new Error('Enter the quantity used.');
-  if (!note?.trim()) throw new Error('Give the reason (QC level, repeat reason or wastage).');
-  if (qty > kitBalance(kitId)) throw new Error('More than the kits in stock.');
-  return store.transaction(() => { const m = kitMove(kitId, type, -qty, type + '-' + businessDate(), user, note.trim()); audit(user, 'LAB_KIT_' + type, 'KIT', kitId, `${qty} · ${note}`); return m; });
-}
-export function submitKitCount(counted, user) {
-  if (!can('lab.kits', user)) throw new Error('You cannot submit kit counts.');
-  const kits = store.all('labKits').filter((k) => k.active);
-  const lines = kits.filter((k) => counted[k.id] !== '' && counted[k.id] != null).map((k) => { const sys = kitBalance(k.id); const c = Math.floor(Number(counted[k.id])); return { kitId: k.id, system: sys, counted: c, diff: c - sys }; });
-  if (!lines.length) throw new Error('Enter the counted quantity for at least one kit.');
-  return store.transaction(() => {
-    const id = store.nextId('kitCounts', 'KC-');
-    const short = lines.filter((l) => l.diff < 0);
-    const c = store.insert('kitCounts', { id, at: now(), businessDate: businessDate(), countedBy: user.id, lines, status: short.length ? 'SUBMITTED' : 'MATCHED', reviewedBy: null, reviewedAt: null, reviewNote: '' });
-    lines.filter((l) => l.diff).forEach((l) => kitMove(l.kitId, 'COUNT_ADJUST', l.diff, id, user, l.diff < 0 ? 'Physical count shortage' : 'Physical count excess'));
-    audit(user, 'LAB_KIT_COUNT', 'KITCOUNT', id, short.length ? `${short.length} kit(s) short` : 'All matched');
-    if (short.length) notify({ type: 'KIT_VARIANCE', category: 'Lab kits', severity: 'critical', title: `Lab kit shortage — ${short.length} kit(s)`, message: short.map((l) => `${store.get('labKits', l.kitId).name}: ${l.diff}`).join('; ') + '. Check for tests run without a bill.', refType: 'KITCOUNT', refId: id, targetRoles: OWNER, assignedTo: 'USR-0003' });
-    return c;
-  });
-}
-export function reviewKitCount(id, note, user) {
-  if (!can('credit.approve', user)) throw new Error('Only the Super Admin reviews kit counts.');
-  if (!note?.trim()) throw new Error('Write what was found.');
-  return store.transaction(() => { const c = store.get('kitCounts', id); Object.assign(c, { status: 'REVIEWED', reviewedBy: user.id, reviewedAt: now(), reviewNote: note.trim() }); audit(user, 'LAB_KIT_COUNT_REVIEWED', 'KITCOUNT', id, note); return c; });
-}
-/** Kits billed vs used, per kit (BRD 06: compare kits used against billed tests). */
-export function kitReconciliation(from, to) {
-  const inR = (iso) => { const d = businessDate(iso); return (!from || d >= from) && (!to || d <= to); };
-  return store.all('labKits').map((k) => {
-    const tests = store.all('services').filter((s) => s.category === 'LAB' && s.lab.kits.some((x) => x.kitId === k.id));
-    const per = (sid) => tests.find((t) => t.id === sid)?.lab.kits.find((x) => x.kitId === k.id)?.qty || 0;
-    const os = store.all('orders').filter((o) => (o.billId || o.ipCharge) && o.status !== 'CANCELLED' && tests.some((t) => t.id === o.serviceId) && inR(o.billedAt));
-    const billed = os.reduce((t, o) => t + per(o.serviceId), 0);
-    const performed = os.filter((o) => o.lab?.collectedAt).reduce((t, o) => t + per(o.serviceId), 0);
-    const mv = store.all('kitMovements').filter((m) => m.kitId === k.id && inR(m.at));
-    const sum = (type) => -mv.filter((m) => m.type === type).reduce((t, m) => t + m.qty, 0);
-    const used = sum('USED_TEST'); const qc = sum('USED_QC'); const repeat = sum('REPEAT'); const waste = sum('WASTAGE'); const countLoss = sum('COUNT_ADJUST');
-    const total = used + qc + repeat + waste + countLoss;
-    return { kit: k, tests: tests.map((t) => t.code).join(', '), billed, performed, used, qc, repeat, waste, countLoss, total, unexplained: r2(used - performed), efficiency: total ? Math.round(performed / total * 100) : 100, balance: kitBalance(k.id) };
-  });
-}
+// ---------------- lab stock (reagents, cartridges, cards, tubes) — see labstock.js ----------------
+export { kitBalance, kitStatus, kitReconciliation } from './labstock.js';
 
 // ---------------- patient-level views ----------------
 export const patientBills = (pid) => store.all('hbills').filter((b) => b.patientId === pid);

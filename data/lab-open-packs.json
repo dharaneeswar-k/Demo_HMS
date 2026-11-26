@@ -1,0 +1,134 @@
+[
+  {
+    "id": "OPK-0001",
+    "kitId": "KIT-0001",
+    "lotId": "LOT-0001",
+    "openedAt": "2026-11-01T04:30:00.000Z",
+    "openedBy": "USR-0007",
+    "useBy": "2026-12-01T04:30:00.000Z",
+    "closedAt": null,
+    "closedBy": null,
+    "closedReason": ""
+  },
+  {
+    "id": "OPK-0002",
+    "kitId": "KIT-0002",
+    "lotId": "LOT-0002",
+    "openedAt": "2026-11-01T04:30:00.000Z",
+    "openedBy": "USR-0007",
+    "useBy": "2026-11-29T04:30:00.000Z",
+    "closedAt": null,
+    "closedBy": null,
+    "closedReason": ""
+  },
+  {
+    "id": "OPK-0003",
+    "kitId": "KIT-0003",
+    "lotId": "LOT-0003",
+    "openedAt": "2026-11-01T04:30:00.000Z",
+    "openedBy": "USR-0007",
+    "useBy": "2026-11-29T04:30:00.000Z",
+    "closedAt": null,
+    "closedBy": null,
+    "closedReason": ""
+  },
+  {
+    "id": "OPK-0004",
+    "kitId": "KIT-0004",
+    "lotId": "LOT-0004",
+    "openedAt": "2026-11-01T04:30:00.000Z",
+    "openedBy": "USR-0007",
+    "useBy": "2026-12-01T04:30:00.000Z",
+    "closedAt": null,
+    "closedBy": null,
+    "closedReason": ""
+  },
+  {
+    "id": "OPK-0005",
+    "kitId": "KIT-0006",
+    "lotId": "LOT-0006",
+    "openedAt": "2026-11-01T04:30:00.000Z",
+    "openedBy": "USR-0007",
+    "useBy": "2026-11-29T04:30:00.000Z",
+    "closedAt": null,
+    "closedBy": null,
+    "closedReason": ""
+  },
+  {
+    "id": "OPK-0006",
+    "kitId": "KIT-0008",
+    "lotId": "LOT-0008",
+    "openedAt": "2026-11-01T04:30:00.000Z",
+    "openedBy": "USR-0007",
+    "useBy": "2027-01-30T04:30:00.000Z",
+    "closedAt": null,
+    "closedBy": null,
+    "closedReason": ""
+  },
+  {
+    "id": "OPK-0007",
+    "kitId": "KIT-0013",
+    "lotId": "LOT-0013",
+    "openedAt": "2026-11-01T02:30:00.000Z",
+    "openedBy": "USR-0007",
+    "useBy": "2026-11-08T02:30:00.000Z",
+    "closedAt": "2026-11-08T02:30:00.000Z",
+    "closedBy": "USR-0007",
+    "closedReason": "Finished — new pack opened"
+  },
+  {
+    "id": "OPK-0008",
+    "kitId": "KIT-0013",
+    "lotId": "LOT-0013",
+    "openedAt": "2026-11-08T02:30:00.000Z",
+    "openedBy": "USR-0007",
+    "useBy": "2026-11-15T02:30:00.000Z",
+    "closedAt": "2026-11-15T02:30:00.000Z",
+    "closedBy": "USR-0007",
+    "closedReason": "Finished — new pack opened"
+  },
+  {
+    "id": "OPK-0009",
+    "kitId": "KIT-0013",
+    "lotId": "LOT-0013",
+    "openedAt": "2026-11-15T02:30:00.000Z",
+    "openedBy": "USR-0007",
+    "useBy": "2026-11-22T02:30:00.000Z",
+    "closedAt": null,
+    "closedBy": null,
+    "closedReason": ""
+  },
+  {
+    "id": "OPK-0010",
+    "kitId": "KIT-0014",
+    "lotId": "LOT-0014",
+    "openedAt": "2026-11-06T02:30:00.000Z",
+    "openedBy": "USR-0007",
+    "useBy": "2026-11-13T02:30:00.000Z",
+    "closedAt": "2026-11-13T02:30:00.000Z",
+    "closedBy": "USR-0007",
+    "closedReason": "Finished — new pack opened"
+  },
+  {
+    "id": "OPK-0011",
+    "kitId": "KIT-0014",
+    "lotId": "LOT-0014",
+    "openedAt": "2026-11-13T02:30:00.000Z",
+    "openedBy": "USR-0007",
+    "useBy": "2026-11-20T02:30:00.000Z",
+    "closedAt": "2026-11-20T02:30:00.000Z",
+    "closedBy": "USR-0007",
+    "closedReason": "Finished — new pack opened"
+  },
+  {
+    "id": "OPK-0012",
+    "kitId": "KIT-0014",
+    "lotId": "LOT-0014",
+    "openedAt": "2026-11-20T02:30:00.000Z",
+    "openedBy": "USR-0007",
+    "useBy": "2026-11-27T02:30:00.000Z",
+    "closedAt": null,
+    "closedBy": null,
+    "closedReason": ""
+  }
+]

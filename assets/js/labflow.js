@@ -13,6 +13,7 @@ import { notify } from './notifications.js';
 import { r2 } from './pricing.js';
 import { businessDate } from './pharmacy-calc.js';
 import { svc, billClears, hbillBalance, isCritical, hs } from './hospital.js';
+import { useForTest, useTube, markRepeat } from './labstock.js';
 import { fill, sendWhatsApp, logMessage, smsLink, mailLink, ms } from './messaging.js';
 
 const now = () => new Date().toISOString();
@@ -143,8 +144,9 @@ export function collectTube(id, code, user) {
     const at = now(); Object.assign(t, { collectedAt: at, collectedBy: user.id });
     t.orderIds.map((oid) => store.get('orders', oid)).filter((o) => o && o.status === 'READY').forEach((o) => {
       Object.assign(o.lab, { collectedAt: at, collectedBy: user.id }); o.status = 'SAMPLE_COLLECTED';
-      svc(o.serviceId).lab.kits.forEach((k) => store.insert('kitMovements', { id: store.nextId('kitMovements', 'KMV-', 5), at, kitId: k.kitId, type: 'USED_TEST', qty: -k.qty, ref: o.id, by: user.id, note: svc(o.serviceId).code }));
+      svc(o.serviceId).lab.kits.forEach((k) => useForTest(k.kitId, k.qty, o.id, user, svc(o.serviceId).code));
     });
+    useTube(t.container, t.code, user);
     if (v.tubes.filter((x) => x.orderIds.some((oid) => store.get('orders', oid)?.status !== 'CANCELLED')).every((x) => x.collectedAt)) v.tokenStatus = 'DONE';
     audit(user, 'LAB_TUBE_COLLECTED', 'LABVISIT', v.id, `${code} (${containers()[t.container]?.label})`);
     return v;
@@ -166,8 +168,9 @@ export function rejectTube(code, reason, user) {
     Object.assign(f.t, { collectedAt: null, collectedBy: null, receivedAt: null, receivedBy: null });
     f.t.orderIds.map((oid) => store.get('orders', oid)).filter((o) => o && ['SAMPLE_COLLECTED', 'RESULTED'].includes(o.status)).forEach((o) => {
       o.status = 'READY'; o.lab.rejected = f.t.rejected; Object.assign(o.lab, { collectedAt: null, collectedBy: null, receivedAt: null, receivedBy: null, results: [], enteredBy: null, enteredAt: null });
-      store.all('kitMovements').filter((m) => m.ref === o.id && m.type === 'USED_TEST').forEach((m) => { m.type = 'REPEAT'; m.note = 'Sample rejected — test repeated'; });
+      markRepeat(o.id);
     });
+    markRepeat(code);
     f.v.tokenStatus = f.v.collectionPoint === 'OPD' ? 'WAITING' : f.v.tokenStatus;
     audit(user, 'LAB_TUBE_REJECTED', 'LABVISIT', f.v.id, `${code}: ${reason}`);
     notify({ type: 'SAMPLE_REJECTED', category: 'Laboratory', severity: 'warning', title: `Recollect sample — SID ${f.v.sid}`, message: `${store.get('patients', f.v.patientId).name}: ${reason}. ${f.v.source === 'IP' ? 'Ward: ' + f.v.ward + ' ' + f.v.bed : 'Call the patient back.'}`, refType: 'LABVISIT', refId: f.v.id, targetRoles: f.v.source === 'IP' ? ['LAB', 'SERVICE_COUNTER'] : ['LAB', 'RECEPTION'] });

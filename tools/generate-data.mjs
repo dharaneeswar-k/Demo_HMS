@@ -42,7 +42,7 @@ const PH = 'LOC-01', STORE = 'LOC-02';
 const VIEW_STOCK = ['inventory.view', 'batch.view', 'movement.view', 'medicine.view', 'supplier.view', 'grn.view', 'alerts.view', 'reports.view', 'dashboard.view'];
 const PHARMACY_PERMS = [...VIEW_STOCK, 'adjustment.view', 'adjustment.request', 'stockcount.do', 'labels.print', 'pharmacy.dashboard', 'pharmacy.bill', 'pharmacy.history',
   'pharmacy.payment.collect', 'pharmacy.return.request', 'pharmacy.cancel.request', 'pharmacy.closing', 'patient.view', 'patient.register', 'discount.request', 'shift.own'];
-const STORE_PERMS = [...VIEW_STOCK, 'grn.create', 'grn.verify', 'grn.post', 'grn.reject', 'batch.manage', 'adjustment.view', 'adjustment.request', 'adjustment.approve',
+const STORE_PERMS = [...VIEW_STOCK, 'labstock.issue', 'grn.create', 'grn.verify', 'grn.post', 'grn.reject', 'batch.manage', 'adjustment.view', 'adjustment.request', 'adjustment.approve',
   'supplier.manage', 'medicine.manage', 'labels.print', 'store.transfer'];
 const RECEPTION_PERMS = ['patient.view', 'patient.register', 'patient.edit', 'alerts.view', 'hbill.create', 'hbill.view', 'hbill.collect', 'hbill.cancel.request', 'discount.request',
   'package.view', 'package.sell', 'orders.view', 'lab.view', 'labtest.view', 'lab.deliver', 'shift.own', 'referral.manage'];
@@ -58,8 +58,8 @@ const roles = [
   { id: 'ADMIN', name: 'Admin', description: 'Hospital administrator: keeps the Lab Test Master (tests, prices, normal ranges, kits), sees lab work, bills and the audit log. No billing, no cash.', permissions: ADMIN_PERMS },
   { id: 'RECEPTION', name: 'Reception', description: 'Patient registration, central billing counter (lab, ECG, injection, nebulization, other services, packages) and shift handover. OP / IP join when those modules go live.', permissions: RECEPTION_PERMS },
   { id: 'PHARMACY_STAFF', name: 'Pharmacy', description: 'Pharmacy stock and sales billing: bills, returns, daily stock count and day closing.', permissions: PHARMACY_PERMS },
-  { id: 'STORE_INCHARGE', name: 'Store', description: 'Central store: supplier receipts, Store → Pharmacy transfers, stock corrections and masters.', permissions: STORE_PERMS },
-  { id: 'LAB', name: 'Lab', description: 'Lab worklist: sample collection, results, report verification and printing; reagent kit stock and counts. No cash handling.', permissions: LAB_PERMS },
+  { id: 'STORE_INCHARGE', name: 'Store', description: 'Central store: supplier receipts, Store → Pharmacy transfers, lab supplies to the lab, stock corrections and masters.', permissions: STORE_PERMS },
+  { id: 'LAB', name: 'Lab', description: 'Lab worklist: sample collection, results, report verification and printing; lab stock — request from store, receive, open packs, QC use and counts. No cash handling.', permissions: LAB_PERMS },
   { id: 'MRD', name: 'MRD', description: 'Medical records, ICD-10 coding, discharge summaries and record retrieval.', permissions: MRD_PERMS },
   { id: 'SERVICE_COUNTER', name: 'Service Counter', description: 'ECG, injection, nebulization and other services — performed only after billing or approved credit.', permissions: SERVICE_PERMS }
 ];
@@ -712,7 +712,7 @@ for (const c of cancellations) { log(c.requestedAt, c.requestedBy, 'BILL_CANCEL_
 for (const c of dailyClosings.filter((x) => x.businessDate >= '2026-11-01')) log(c.submittedAt, c.cashierId, 'DAILY_CLOSING_SUBMITTED', 'CLOSING', c.id, `${c.businessDate} cash variance ${c.cashDifference}`);
 audit.sort((a, b) => a.at.localeCompare(b.at)).forEach((a, i) => { a.id = 'AUD-' + pad(i + 1, 5); });
 
-const H = buildHospitalData({ patients, doctors, pharmacyPayments: payments, USERS: { OWNER, RECEP, RECEP2, LABU, MRDU, SERVU, STAFF, RAVI } });
+const H = buildHospitalData({ patients, doctors, pharmacyPayments: payments, USERS: { OWNER, RECEP, RECEP2, LABU, MRDU, SERVU, STAFF, RAVI, MGR } });
 H.extraNotifications.forEach((n) => note(n));
 H.extraDiscountRequests.forEach((d) => discountRequests.push(d));
 
@@ -727,7 +727,7 @@ const settings = {
     { id: 'NET-02', label: 'Backup 4G router — pharmacy', address: '49.204.118.0/24', active: true, addedBy: 'USR-0003', addedAt: '2026-09-12' }] },
   approval: { ownerApprovalForExpiredOrShortDated: true, shortDatedDays: 30, discrepancyPctThreshold: 10, highValueThreshold: 250000,
     adjustmentQtyThreshold: 50, adjustmentValueThreshold: 5000, notifyOwnerOnPost: true },
-  demo: { dataVersion: 9, generatedAt: '2026-11-23' }
+  demo: { dataVersion: 10, generatedAt: '2026-11-23' }
 };
 
 out('users.json', users);
@@ -765,6 +765,9 @@ out('hospital-bills.json', H.hospitalBills);
 out('service-orders.json', H.orders);
 out('lab-kit-movements.json', H.kitMovements);
 out('lab-kit-counts.json', H.kitCounts);
+out('lab-lots.json', H.labLots);
+out('lab-indents.json', H.labIndents);
+out('lab-open-packs.json', H.labOpenPacks);
 out('patient-packages.json', H.patientPackages);
 out('medical-records.json', H.medicalRecords);
 out('discharge-summaries.json', H.dischargeSummaries);

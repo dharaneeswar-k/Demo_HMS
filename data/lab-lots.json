@@ -1,0 +1,192 @@
+[
+  {
+    "id": "LOT-0001",
+    "kitId": "KIT-0001",
+    "lot": "SX2610",
+    "expiry": "2027-04-30",
+    "supplier": "Hosur Diagnostics (Sysmex)",
+    "receivedAt": "2026-10-28T05:30:00.000Z",
+    "invoiceNo": "INV/4410",
+    "verified": true
+  },
+  {
+    "id": "LOT-0002",
+    "kitId": "KIT-0002",
+    "lot": "ER2617",
+    "expiry": "2027-03-31",
+    "supplier": "Krishna Scientific (Erba)",
+    "receivedAt": "2026-10-28T05:30:00.000Z",
+    "invoiceNo": "INV/4411",
+    "verified": true
+  },
+  {
+    "id": "LOT-0003",
+    "kitId": "KIT-0003",
+    "lot": "ER2624",
+    "expiry": "2027-03-31",
+    "supplier": "Krishna Scientific (Erba)",
+    "receivedAt": "2026-10-28T05:30:00.000Z",
+    "invoiceNo": "INV/4412",
+    "verified": true
+  },
+  {
+    "id": "LOT-0004",
+    "kitId": "KIT-0004",
+    "lot": "ER2631",
+    "expiry": "2027-01-10",
+    "supplier": "Krishna Scientific (Erba)",
+    "receivedAt": "2026-10-28T05:30:00.000Z",
+    "invoiceNo": "INV/4413",
+    "verified": true
+  },
+  {
+    "id": "LOT-0005",
+    "kitId": "KIT-0005",
+    "lot": "BR2638",
+    "expiry": "2027-02-28",
+    "supplier": "MedLine Agencies (Bio-Rad)",
+    "receivedAt": "2026-10-28T05:30:00.000Z",
+    "invoiceNo": "INV/4414",
+    "verified": true
+  },
+  {
+    "id": "LOT-0006",
+    "kitId": "KIT-0006",
+    "lot": "ER2645",
+    "expiry": "2027-05-31",
+    "supplier": "Krishna Scientific (Erba)",
+    "receivedAt": "2026-10-28T05:30:00.000Z",
+    "invoiceNo": "INV/4415",
+    "verified": true
+  },
+  {
+    "id": "LOT-0007",
+    "kitId": "KIT-0007",
+    "lot": "BR2652",
+    "expiry": "2027-02-28",
+    "supplier": "MedLine Agencies (Bio-Rad)",
+    "receivedAt": "2026-10-28T05:30:00.000Z",
+    "invoiceNo": "INV/4416",
+    "verified": true
+  },
+  {
+    "id": "LOT-0008",
+    "kitId": "KIT-0008",
+    "lot": "UR2659",
+    "expiry": "2027-08-31",
+    "supplier": "Krishna Scientific (Erba)",
+    "receivedAt": "2026-10-28T05:30:00.000Z",
+    "invoiceNo": "INV/4417",
+    "verified": true
+  },
+  {
+    "id": "LOT-0009",
+    "kitId": "KIT-0009",
+    "lot": "JM2666",
+    "expiry": "2027-06-30",
+    "supplier": "Krishna Scientific (Erba)",
+    "receivedAt": "2026-10-28T05:30:00.000Z",
+    "invoiceNo": "INV/4418",
+    "verified": true
+  },
+  {
+    "id": "LOT-0010",
+    "kitId": "KIT-0010",
+    "lot": "TW2673",
+    "expiry": "2026-12-11",
+    "supplier": "Krishna Scientific (Erba)",
+    "receivedAt": "2026-10-28T05:30:00.000Z",
+    "invoiceNo": "INV/4419",
+    "verified": true
+  },
+  {
+    "id": "LOT-0011",
+    "kitId": "KIT-0011",
+    "lot": "BR2680",
+    "expiry": "2027-01-31",
+    "supplier": "MedLine Agencies (Bio-Rad)",
+    "receivedAt": "2026-10-28T05:30:00.000Z",
+    "invoiceNo": "INV/4420",
+    "verified": true
+  },
+  {
+    "id": "LOT-0012",
+    "kitId": "KIT-0012",
+    "lot": "HV2687",
+    "expiry": "2027-09-30",
+    "supplier": "Krishna Scientific (Erba)",
+    "receivedAt": "2026-10-28T05:30:00.000Z",
+    "invoiceNo": "INV/4421",
+    "verified": true
+  },
+  {
+    "id": "LOT-0013",
+    "kitId": "KIT-0013",
+    "lot": "HC2694",
+    "expiry": "2027-01-15",
+    "supplier": "Hosur Diagnostics (Sysmex)",
+    "receivedAt": "2026-10-28T05:30:00.000Z",
+    "invoiceNo": "INV/4422",
+    "verified": true
+  },
+  {
+    "id": "LOT-0014",
+    "kitId": "KIT-0014",
+    "lot": "BC2701",
+    "expiry": "2027-02-15",
+    "supplier": "Krishna Scientific (Erba)",
+    "receivedAt": "2026-10-28T05:30:00.000Z",
+    "invoiceNo": "INV/4423",
+    "verified": true
+  },
+  {
+    "id": "LOT-0015",
+    "kitId": "KIT-0015",
+    "lot": "ED2708",
+    "expiry": "2028-06-30",
+    "supplier": "Sri Balaji Surgicals",
+    "receivedAt": "2026-10-28T05:30:00.000Z",
+    "invoiceNo": "INV/4424",
+    "verified": true
+  },
+  {
+    "id": "LOT-0016",
+    "kitId": "KIT-0016",
+    "lot": "PL2715",
+    "expiry": "2028-06-30",
+    "supplier": "Sri Balaji Surgicals",
+    "receivedAt": "2026-10-28T05:30:00.000Z",
+    "invoiceNo": "INV/4425",
+    "verified": true
+  },
+  {
+    "id": "LOT-0017",
+    "kitId": "KIT-0017",
+    "lot": "FL2722",
+    "expiry": "2028-06-30",
+    "supplier": "Sri Balaji Surgicals",
+    "receivedAt": "2026-10-28T05:30:00.000Z",
+    "invoiceNo": "INV/4426",
+    "verified": true
+  },
+  {
+    "id": "LOT-0018",
+    "kitId": "KIT-0018",
+    "lot": "UC2729",
+    "expiry": "2028-06-30",
+    "supplier": "Sri Balaji Surgicals",
+    "receivedAt": "2026-10-28T05:30:00.000Z",
+    "invoiceNo": "INV/4427",
+    "verified": true
+  },
+  {
+    "id": "LOT-0019",
+    "kitId": "KIT-0001",
+    "lot": "SX2702",
+    "expiry": "2027-07-31",
+    "supplier": "Hosur Diagnostics (Sysmex)",
+    "receivedAt": "2026-11-15T06:30:00.000Z",
+    "invoiceNo": "INV/4561",
+    "verified": true
+  }
+]

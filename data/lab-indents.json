@@ -1,0 +1,379 @@
+[
+  {
+    "id": "IND-0001",
+    "at": "2026-11-01T03:30:00.000Z",
+    "by": "USR-0007",
+    "urgent": false,
+    "note": "Monthly opening stock",
+    "status": "RECEIVED",
+    "lines": [
+      {
+        "kitId": "KIT-0001",
+        "packs": 1
+      },
+      {
+        "kitId": "KIT-0002",
+        "packs": 2
+      },
+      {
+        "kitId": "KIT-0003",
+        "packs": 2
+      },
+      {
+        "kitId": "KIT-0004",
+        "packs": 3
+      },
+      {
+        "kitId": "KIT-0005",
+        "packs": 1
+      },
+      {
+        "kitId": "KIT-0006",
+        "packs": 2
+      },
+      {
+        "kitId": "KIT-0007",
+        "packs": 4
+      },
+      {
+        "kitId": "KIT-0008",
+        "packs": 1
+      },
+      {
+        "kitId": "KIT-0009",
+        "packs": 1
+      },
+      {
+        "kitId": "KIT-0010",
+        "packs": 1
+      },
+      {
+        "kitId": "KIT-0011",
+        "packs": 1
+      },
+      {
+        "kitId": "KIT-0012",
+        "packs": 2
+      },
+      {
+        "kitId": "KIT-0013",
+        "packs": 3
+      },
+      {
+        "kitId": "KIT-0014",
+        "packs": 3
+      },
+      {
+        "kitId": "KIT-0015",
+        "packs": 3
+      },
+      {
+        "kitId": "KIT-0016",
+        "packs": 3
+      },
+      {
+        "kitId": "KIT-0017",
+        "packs": 2
+      },
+      {
+        "kitId": "KIT-0018",
+        "packs": 2
+      }
+    ],
+    "issue": {
+      "at": "2026-11-01T03:55:00.000Z",
+      "by": "USR-0002",
+      "note": "",
+      "packs": {
+        "KIT-0001": 1,
+        "KIT-0002": 2,
+        "KIT-0003": 2,
+        "KIT-0004": 3,
+        "KIT-0005": 1,
+        "KIT-0006": 2,
+        "KIT-0007": 4,
+        "KIT-0008": 1,
+        "KIT-0009": 1,
+        "KIT-0010": 1,
+        "KIT-0011": 1,
+        "KIT-0012": 2,
+        "KIT-0013": 3,
+        "KIT-0014": 3,
+        "KIT-0015": 3,
+        "KIT-0016": 3,
+        "KIT-0017": 2,
+        "KIT-0018": 2
+      },
+      "lines": [
+        {
+          "kitId": "KIT-0001",
+          "lotId": "LOT-0001",
+          "qty": 500
+        },
+        {
+          "kitId": "KIT-0002",
+          "lotId": "LOT-0002",
+          "qty": 200
+        },
+        {
+          "kitId": "KIT-0003",
+          "lotId": "LOT-0003",
+          "qty": 200
+        },
+        {
+          "kitId": "KIT-0004",
+          "lotId": "LOT-0004",
+          "qty": 600
+        },
+        {
+          "kitId": "KIT-0005",
+          "lotId": "LOT-0005",
+          "qty": 25
+        },
+        {
+          "kitId": "KIT-0006",
+          "lotId": "LOT-0006",
+          "qty": 200
+        },
+        {
+          "kitId": "KIT-0007",
+          "lotId": "LOT-0007",
+          "qty": 100
+        },
+        {
+          "kitId": "KIT-0008",
+          "lotId": "LOT-0008",
+          "qty": 100
+        },
+        {
+          "kitId": "KIT-0009",
+          "lotId": "LOT-0009",
+          "qty": 25
+        },
+        {
+          "kitId": "KIT-0010",
+          "lotId": "LOT-0010",
+          "qty": 50
+        },
+        {
+          "kitId": "KIT-0011",
+          "lotId": "LOT-0011",
+          "qty": 25
+        },
+        {
+          "kitId": "KIT-0012",
+          "lotId": "LOT-0012",
+          "qty": 50
+        },
+        {
+          "kitId": "KIT-0013",
+          "lotId": "LOT-0013",
+          "qty": 9
+        },
+        {
+          "kitId": "KIT-0014",
+          "lotId": "LOT-0014",
+          "qty": 6
+        },
+        {
+          "kitId": "KIT-0015",
+          "lotId": "LOT-0015",
+          "qty": 300
+        },
+        {
+          "kitId": "KIT-0016",
+          "lotId": "LOT-0016",
+          "qty": 300
+        },
+        {
+          "kitId": "KIT-0017",
+          "lotId": "LOT-0017",
+          "qty": 200
+        },
+        {
+          "kitId": "KIT-0018",
+          "lotId": "LOT-0018",
+          "qty": 200
+        }
+      ]
+    },
+    "receive": {
+      "at": "2026-11-01T04:10:00.000Z",
+      "by": "USR-0007",
+      "lines": [
+        {
+          "kitId": "KIT-0001",
+          "lotId": "LOT-0001",
+          "qty": 500,
+          "sent": 500
+        },
+        {
+          "kitId": "KIT-0002",
+          "lotId": "LOT-0002",
+          "qty": 200,
+          "sent": 200
+        },
+        {
+          "kitId": "KIT-0003",
+          "lotId": "LOT-0003",
+          "qty": 200,
+          "sent": 200
+        },
+        {
+          "kitId": "KIT-0004",
+          "lotId": "LOT-0004",
+          "qty": 600,
+          "sent": 600
+        },
+        {
+          "kitId": "KIT-0005",
+          "lotId": "LOT-0005",
+          "qty": 25,
+          "sent": 25
+        },
+        {
+          "kitId": "KIT-0006",
+          "lotId": "LOT-0006",
+          "qty": 200,
+          "sent": 200
+        },
+        {
+          "kitId": "KIT-0007",
+          "lotId": "LOT-0007",
+          "qty": 100,
+          "sent": 100
+        },
+        {
+          "kitId": "KIT-0008",
+          "lotId": "LOT-0008",
+          "qty": 100,
+          "sent": 100
+        },
+        {
+          "kitId": "KIT-0009",
+          "lotId": "LOT-0009",
+          "qty": 25,
+          "sent": 25
+        },
+        {
+          "kitId": "KIT-0010",
+          "lotId": "LOT-0010",
+          "qty": 50,
+          "sent": 50
+        },
+        {
+          "kitId": "KIT-0011",
+          "lotId": "LOT-0011",
+          "qty": 25,
+          "sent": 25
+        },
+        {
+          "kitId": "KIT-0012",
+          "lotId": "LOT-0012",
+          "qty": 50,
+          "sent": 50
+        },
+        {
+          "kitId": "KIT-0013",
+          "lotId": "LOT-0013",
+          "qty": 9,
+          "sent": 9
+        },
+        {
+          "kitId": "KIT-0014",
+          "lotId": "LOT-0014",
+          "qty": 6,
+          "sent": 6
+        },
+        {
+          "kitId": "KIT-0015",
+          "lotId": "LOT-0015",
+          "qty": 300,
+          "sent": 300
+        },
+        {
+          "kitId": "KIT-0016",
+          "lotId": "LOT-0016",
+          "qty": 300,
+          "sent": 300
+        },
+        {
+          "kitId": "KIT-0017",
+          "lotId": "LOT-0017",
+          "qty": 200,
+          "sent": 200
+        },
+        {
+          "kitId": "KIT-0018",
+          "lotId": "LOT-0018",
+          "qty": 200,
+          "sent": 200
+        }
+      ],
+      "note": ""
+    },
+    "reject": null
+  },
+  {
+    "id": "IND-0002",
+    "at": "2026-11-22T04:45:00.000Z",
+    "by": "USR-0007",
+    "urgent": false,
+    "note": "",
+    "status": "ISSUED",
+    "lines": [
+      {
+        "kitId": "KIT-0005",
+        "packs": 2
+      },
+      {
+        "kitId": "KIT-0008",
+        "packs": 1
+      }
+    ],
+    "issue": {
+      "at": "2026-11-22T11:10:00.000Z",
+      "by": "USR-0002",
+      "note": "",
+      "packs": {
+        "KIT-0005": 2,
+        "KIT-0008": 1
+      },
+      "lines": [
+        {
+          "kitId": "KIT-0005",
+          "lotId": "LOT-0005",
+          "qty": 50
+        },
+        {
+          "kitId": "KIT-0008",
+          "lotId": "LOT-0008",
+          "qty": 100
+        }
+      ]
+    },
+    "receive": null,
+    "reject": null
+  },
+  {
+    "id": "IND-0003",
+    "at": "2026-11-23T04:10:00.000Z",
+    "by": "USR-0007",
+    "urgent": true,
+    "note": "Dengue cases rising — 6 NS1 tests already this morning",
+    "status": "REQUESTED",
+    "lines": [
+      {
+        "kitId": "KIT-0009",
+        "packs": 2
+      },
+      {
+        "kitId": "KIT-0012",
+        "packs": 1
+      }
+    ],
+    "issue": null,
+    "receive": null,
+    "reject": null
+  }
+]

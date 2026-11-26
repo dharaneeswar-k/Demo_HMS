@@ -14,6 +14,7 @@ const ackKey = (u) => 'nallam_hms_acks_' + u.id;
 const getAcks = (u) => new Set(JSON.parse(localStorage.getItem(ackKey(u)) || '[]'));
 
 function alertLink(a) {
+  if (a.href) return a.href;
   if (a.refType === 'TRANSFER') return '#/transfers';
   if (a.refType === 'STOCKCOUNT') return '#/stock-count?focus=' + a.refId;
   if (a.refType === 'LABVISIT') return `#/lab/visit/${a.refId}${a.step ? '?step=' + a.step : ''}`;

@@ -13,12 +13,31 @@ const addMin = (isoStr, m) => new Date(new Date(isoStr).getTime() + m * 60000).t
 
 // ---------------- catalog ----------------
 // Lab tests carry their report format (parameters + reference ranges) and kit usage per test.
+// Lab stock items. Order matters: the first 12 are referenced by the tests below (K(1)…K(12)).
+// [name, kind, unit, packLabel, packSize, storage, openDays, askAt, keepInLab, storeReorder, ₹/unit, supplier, tube]
+const SUP_A = 'Hosur Diagnostics (Sysmex)', SUP_B = 'Krishna Scientific (Erba)', SUP_C = 'MedLine Agencies (Bio-Rad)', SUP_D = 'Sri Balaji Surgicals';
 const KITS = [
-  ['CBC reagent pack (haematology analyser)', 'test', 60], ['LFT reagent kit (biochemistry)', 'test', 40], ['RFT reagent kit (biochemistry)', 'test', 40],
-  ['Glucose reagent / strips', 'test', 80], ['HbA1c cartridge', 'cartridge', 25], ['Lipid profile reagent kit', 'test', 30], ['Thyroid (T3/T4/TSH) cartridge', 'cartridge', 25],
-  ['Urine reagent strips (10-parameter)', 'strip', 50], ['Dengue NS1 rapid card', 'card', 20], ['Widal slide kit', 'test', 20], ['CRP cartridge', 'cartridge', 20], ['HIV 1 & 2 rapid card', 'card', 15]
+  ['CBC reagent pack (haematology analyser)', 'REAGENT', 'test', 'pack', 500, 'ROOM', 30, 120, 500, 500, 6, SUP_A],
+  ['LFT reagent kit (biochemistry)', 'REAGENT', 'test', 'kit', 100, 'COLD', 28, 40, 150, 200, 18, SUP_B],
+  ['RFT reagent kit (biochemistry)', 'REAGENT', 'test', 'kit', 100, 'COLD', 28, 40, 150, 200, 15, SUP_B],
+  ['Glucose reagent', 'REAGENT', 'test', 'kit', 200, 'COLD', 30, 80, 300, 400, 3, SUP_B],
+  ['HbA1c cartridge', 'CARTRIDGE', 'cartridge', 'box', 25, 'COLD', null, 25, 70, 50, 210, SUP_C],
+  ['Lipid profile reagent kit', 'REAGENT', 'test', 'kit', 100, 'COLD', 28, 30, 120, 200, 20, SUP_B],
+  ['Thyroid (T3/T4/TSH) cartridge', 'CARTRIDGE', 'cartridge', 'box', 25, 'COLD', null, 15, 50, 50, 180, SUP_C],
+  ['Urine reagent strips (10-parameter)', 'STRIP', 'strip', 'bottle', 100, 'ROOM', 90, 100, 190, 300, 9, SUP_B],
+  ['Dengue NS1 rapid card', 'RAPID', 'card', 'box', 25, 'ROOM', null, 20, 50, 50, 95, SUP_B],
+  ['Widal slide kit', 'REAGENT', 'test', 'kit', 50, 'COLD', null, 15, 50, 25, 12, SUP_B],
+  ['CRP cartridge', 'CARTRIDGE', 'cartridge', 'box', 25, 'COLD', null, 25, 75, 50, 160, SUP_C],
+  ['HIV 1 & 2 rapid card', 'RAPID', 'card', 'box', 25, 'ROOM', null, 8, 30, 25, 70, SUP_B],
+  ['Haematology control (3 levels)', 'CONTROL', 'vial', 'set', 3, 'COLD', 7, 3, 9, 6, 900, SUP_A],
+  ['Biochemistry control (2 levels)', 'CONTROL', 'vial', 'set', 2, 'COLD', 7, 2, 6, 4, 650, SUP_B],
+  ['EDTA tube (lavender top)', 'CONSUMABLE', 'tube', 'pack', 100, 'ROOM', null, 50, 200, 300, 4, SUP_D, 'EDTA'],
+  ['Plain / serum tube (red top)', 'CONSUMABLE', 'tube', 'pack', 100, 'ROOM', null, 50, 200, 300, 4, SUP_D, 'PLAIN'],
+  ['Fluoride tube (grey top)', 'CONSUMABLE', 'tube', 'pack', 100, 'ROOM', null, 30, 100, 200, 4, SUP_D, 'FLUORIDE'],
+  ['Urine container (sterile)', 'CONSUMABLE', 'container', 'pack', 100, 'ROOM', null, 30, 100, 200, 3, SUP_D, 'URINE']
 ];
-const labKits = KITS.map(([name, unit, reorderLevel], i) => ({ id: 'KIT-' + pad(i + 1), name, unit, reorderLevel, active: true }));
+const labKits = KITS.map(([name, kind, unit, packLabel, packSize, storage, openDays, reorderLevel, parLevel, storeMin, unitCost, supplier, container = ''], i) =>
+  ({ id: 'KIT-' + pad(i + 1), name, kind, unit, packLabel, packSize, storage, openDays, reorderLevel, parLevel, storeMin, unitCost, supplier, container, active: true }));
 const K = (n) => labKits[n - 1].id;
 
 const P = (name, unit, low, high, critLow = null, critHigh = null) => ({ name, unit, low, high, critLow, critHigh });
@@ -122,7 +141,7 @@ const hospitalSettings = {
 };
 
 export function buildHospitalData({ patients, doctors, pharmacyPayments, USERS }) {
-  const { OWNER, RECEP, RECEP2, LABU, MRDU, SERVU, STAFF, RAVI } = USERS;
+  const { OWNER, RECEP, RECEP2, LABU, MRDU, SERVU, STAFF, RAVI, MGR } = USERS;
   // Lab Test Master metadata: version, who set it up and the change history (CRP price revised once, as a sample).
   const METHOD = { CBC: '5-part automated haematology analyser', LFT: 'Semi-auto biochemistry analyser', RFT: 'Semi-auto biochemistry analyser', FBS: 'GOD-POD', PPBS: 'GOD-POD', HBA1C: 'HPLC', LIPID: 'Enzymatic', THYROID: 'CLIA', NS1: 'Rapid card (immunochromatography)', HIV: 'Rapid card (immunochromatography)', CRP: 'Turbidimetry' };
   const NOTE = { FBS: 'Fasting sample of 8–12 hours.', LIPID: 'Fasting sample of 10–12 hours preferred.', HIV: 'A reactive rapid result must be confirmed by a supplementary test.' };
@@ -137,9 +156,34 @@ export function buildHospitalData({ patients, doctors, pharmacyPayments, USERS }
   const TODAY = DAYS.at(-1);
   let billNo = 0; let ordNo = 0; let kmNo = 0; let payNo = 0; let lrNo = 0;
 
-  const kitMove = (at, kitId, type, qty, ref, by, note = '') => kitMoves.push({ id: 'KMV-' + pad(++kmNo, 5), at, kitId, type, qty, ref, by, note });
-  // opening kit stock received at the start of the month
-  labKits.forEach((k, i) => kitMove(ist('2026-11-01', '09:30'), k.id, 'RECEIVED', [400, 150, 150, 600, 100, 150, 100, 300, 60, 60, 80, 40][i], 'KIT-GRN-2026-11', LABU, 'Monthly reagent receipt · Lot ' + (5100 + i * 7)));
+  // ---- lab stock: one ledger, STORE and LAB, every movement tied to a lot ----
+  const labLots = []; const labIndents = []; const labOpenPacks = []; const labLotOf = {};
+  const mv = (at, kitId, loc, lotId, type, qty, ref, by, note = '') => kitMoves.push({ id: 'KMV-' + pad(++kmNo, 5), at, kitId, loc, lotId, type, qty, ref, by, note });
+  const kitMove = (at, kitId, type, qty, ref, by, note = '') => mv(at, kitId, 'LAB', labLotOf[kitId] || null, type, qty, ref, by, note);
+  const newLot = (kitId, no, expiry, at, inv) => { const l = { id: 'LOT-' + pad(labLots.length + 1), kitId, lot: no, expiry, supplier: labKits.find((k) => k.id === kitId).supplier, receivedAt: at, invoiceNo: inv, verified: true }; labLots.push(l); return l; };
+  // per item: [lab opening (units), store keeps (units), lot expiry]
+  const OPEN = [[500, 1000, '2027-04-30'], [200, 300, '2027-03-31'], [200, 300, '2027-03-31'], [600, 600, '2027-01-10'], [25, 50, '2027-02-28'], [200, 300, '2027-05-31'], [100, 75, '2027-02-28'], [100, 500, '2027-08-31'],
+    [25, 25, '2027-06-30'], [50, 50, '2026-12-11'], [25, 100, '2027-01-31'], [50, 50, '2027-09-30'], [9, 9, '2027-01-15'], [6, 6, '2027-02-15'], [300, 500, '2028-06-30'], [300, 500, '2028-06-30'], [200, 300, '2028-06-30'], [200, 300, '2028-06-30']];
+  const LOTP = ['SX', 'ER', 'ER', 'ER', 'BR', 'ER', 'BR', 'UR', 'JM', 'TW', 'BR', 'HV', 'HC', 'BC', 'ED', 'PL', 'FL', 'UC'];
+  const rcvAt = ist('2026-10-28', '11:00');
+  labKits.forEach((k, i) => { const [lab, keep, exp] = OPEN[i]; const l = newLot(k.id, `${LOTP[i]}${2610 + i * 7}`, exp, rcvAt, 'INV/' + (4410 + i));
+    labLotOf[k.id] = l.id; mv(rcvAt, k.id, 'STORE', l.id, 'SUPPLIER_IN', lab + keep, l.invoiceNo, MGR, `${(lab + keep) / k.packSize} ${k.packLabel}(s) · ${k.supplier}`); });
+  // a newer CBC lot arrived mid-month (stays in the store until the first is used)
+  const cbcB = newLot(labKits[0].id, 'SX2702', '2027-07-31', ist('2026-11-15', '12:00'), 'INV/4561'); mv(cbcB.receivedAt, labKits[0].id, 'STORE', cbcB.id, 'SUPPLIER_IN', 500, cbcB.invoiceNo, MGR, '1 pack · ' + SUP_A);
+  // IND-0001: the month's opening request — asked, issued and received the same morning
+  { const at = ist('2026-11-01', '09:00'); const iss = ist('2026-11-01', '09:25'); const rc = ist('2026-11-01', '09:40');
+    const lines = labKits.map((k, i) => ({ kitId: k.id, packs: OPEN[i][0] / k.packSize })); const il = labKits.map((k, i) => ({ kitId: k.id, lotId: labLotOf[k.id], qty: OPEN[i][0] }));
+    il.forEach((x) => mv(iss, x.kitId, 'STORE', x.lotId, 'ISSUE_OUT', -x.qty, 'IND-0001', MGR, 'To lab'));
+    il.forEach((x) => mv(rc, x.kitId, 'LAB', x.lotId, 'ISSUE_IN', x.qty, 'IND-0001', LABU, 'From store'));
+    labIndents.push({ id: 'IND-0001', at, by: LABU, urgent: false, note: 'Monthly opening stock', status: 'RECEIVED', lines, issue: { at: iss, by: MGR, note: '', packs: Object.fromEntries(lines.map((l) => [l.kitId, l.packs])), lines: il }, receive: { at: rc, by: LABU, lines: il.map((x) => ({ ...x, sent: x.qty })), note: '' }, reject: null }); }
+  // packs loaded on the analysers that morning
+  const openAt = ist('2026-11-01', '10:00');
+  labKits.filter((k) => k.openDays && k.kind !== 'CONTROL').forEach((k) => labOpenPacks.push({ id: 'OPK-' + pad(labOpenPacks.length + 1), kitId: k.id, lotId: labLotOf[k.id], openedAt: openAt, openedBy: LABU, useBy: new Date(new Date(openAt).getTime() + k.openDays * 86400000).toISOString(), closedAt: null, closedBy: null, closedReason: '' }));
+  // QC control vials: a new vial each week (a vial is used up when it is opened)
+  [['2026-11-01', 13], ['2026-11-08', 13], ['2026-11-15', 13], ['2026-11-06', 14], ['2026-11-13', 14], ['2026-11-20', 14]].forEach(([d, n]) => { const k = labKits[n - 1]; const at2 = ist(d, '08:00');
+    labOpenPacks.filter((p) => p.kitId === k.id && !p.closedAt).forEach((p) => Object.assign(p, { closedAt: at2, closedBy: LABU, closedReason: 'Finished — new pack opened' }));
+    labOpenPacks.push({ id: 'OPK-' + pad(labOpenPacks.length + 1), kitId: k.id, lotId: labLotOf[k.id], openedAt: at2, openedBy: LABU, useBy: new Date(new Date(at2).getTime() + k.openDays * 86400000).toISOString(), closedAt: null, closedBy: null, closedReason: '' });
+    kitMove(at2, k.id, 'USED_QC', -1, 'QC-' + d, LABU, 'Control vial opened for QC'); });
 
   const resultFor = (p) => {
     if (p.ref !== undefined) return rnd() < 0.85 ? p.ref : ({ Negative: 'Positive', Nil: 'Trace', 'Pale yellow': 'Dark yellow', Clear: 'Turbid', '< 1:80': '1:160' }[p.ref] || p.ref);
@@ -283,6 +327,15 @@ export function buildHospitalData({ patients, doctors, pharmacyPayments, USERS }
   kitCounts.push({ id: 'KC-0001', at: cAt, businessDate: '2026-11-22', countedBy: LABU, lines, status: 'REVIEWED', reviewedBy: OWNER, reviewedAt: ist('2026-11-22', '21:00'), reviewNote: 'Explained: 3 repeat CBCs not logged as repeats. Lab told to log every repeat.' });
   kitMove(cAt, K(1), 'COUNT_ADJUST', -3, 'KC-0001', LABU, 'Physical count shortage');
 
+  // ---- lab stock requests in progress ----
+  // IND-0002: asked yesterday, store issued in the evening — on the way, the lab has not received it yet
+  { const at = ist('2026-11-22', '10:15'); const iss = ist('2026-11-22', '16:40'); const lines = [{ kitId: K(5), packs: 2 }, { kitId: K(8), packs: 1 }];
+    const il = [{ kitId: K(5), lotId: labLotOf[K(5)], qty: 50 }, { kitId: K(8), lotId: labLotOf[K(8)], qty: 100 }];
+    il.forEach((x) => mv(iss, x.kitId, 'STORE', x.lotId, 'ISSUE_OUT', -x.qty, 'IND-0002', MGR, 'To lab'));
+    labIndents.push({ id: 'IND-0002', at, by: LABU, urgent: false, note: '', status: 'ISSUED', lines, issue: { at: iss, by: MGR, note: '', packs: { [K(5)]: 2, [K(8)]: 1 }, lines: il }, receive: null, reject: null }); }
+  // IND-0003: this morning, urgent — waiting at the store
+  labIndents.push({ id: 'IND-0003', at: ist(TODAY, '09:40'), by: LABU, urgent: true, note: 'Dengue cases rising — 6 NS1 tests already this morning', status: 'REQUESTED', lines: [{ kitId: K(9), packs: 2 }, { kitId: K(12), packs: 1 }], issue: null, receive: null, reject: null });
+
   // ---- lab visits: one SID per visit, tubes grouped by container (BRD 06, hospital multi-source design) ----
   const referralDoctors = [
     ['Dr. M. Venkateswaran', 'M.D (Gen Med)', 'Venkat Clinic, Bagalur Road', '+91 98431 20011'], ['Dr. S. Kalaivani', 'M.B.B.S, D.G.O', 'Kalai Women’s Clinic, Mathigiri', '+91 94433 51200'],
@@ -391,7 +444,7 @@ export function buildHospitalData({ patients, doctors, pharmacyPayments, USERS }
   notes.push({ type: 'UNBILLED_SERVICE', category: 'Services', severity: 'warning', title: 'Service requested but not billed — ECG', message: `${patients[9].name}: ECG advised yesterday is still not billed at the main counter.`, refType: 'ORDER', refId: orders.find((o) => o.status === 'REQUESTED')?.id, targetRoles: ['SUPER_ADMIN', 'RECEPTION'], assignedTo: null, performedBy: null, createdAt: ist(TODAY, '08:00') });
 
   return {
-    services, labKits, packages, hospitalSettings, labVisits, referralDoctors, messages, hospitalBills: bills, orders, kitMovements: kitMoves, kitCounts, patientPackages, medicalRecords, dischargeSummaries, mrdRetrievals: retrievals, shifts,
+    services, labKits, labLots, labIndents, labOpenPacks, packages, hospitalSettings, labVisits, referralDoctors, messages, hospitalBills: bills, orders, kitMovements: kitMoves, kitCounts, patientPackages, medicalRecords, dischargeSummaries, mrdRetrievals: retrievals, shifts,
     extraDiscountRequests: discountRequests, extraNotifications: notes
   };
 }

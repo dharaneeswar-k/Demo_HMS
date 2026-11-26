@@ -44,7 +44,7 @@ export function render(view, params, query) {
     const outside = outsideShift(week, date).length;
     const alerts = [
       unbilled && { t: `${unbilled} service(s) advised but not billed`, s: 'Possible revenue leakage — bill or withdraw them', h: '#/services/reconciliation', tone: 'danger', ic: 'receipt' },
-      kitGap && { t: `${kitGap} lab kit(s) not matched to a bill (7 days)`, s: 'Count shortage or tests run without a bill', h: '#/lab/kits?tab=recon', tone: 'danger', ic: 'flask-conical' },
+      kitGap && { t: `${kitGap} lab kit(s) not matched to a bill (7 days)`, s: 'Count shortage or tests run without a bill', h: '#/lab/stock?tab=recon', tone: 'danger', ic: 'flask-conical' },
       stockShort && { t: `${stockShort} medicine unit(s) short in daily counts (7 days)`, s: 'Medicine given without a bill?', h: '#/stock-count', tone: 'danger', ic: 'clipboard-x' },
       shortCash && { t: `Cash short ${fmtINR(shortCash)} across shifts (7 days)`, s: 'See the shift register', h: '#/shifts/register', tone: 'warning', ic: 'banknote' },
       outside && { t: `${outside} payment(s) taken outside a shift`, s: 'Every collection must belong to a shift', h: '#/shifts/register', tone: 'warning', ic: 'timer-off' },

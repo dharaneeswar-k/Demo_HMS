@@ -8,10 +8,11 @@ import { countForDate } from '../stock-count.js';
 import { refillSuggestions } from './transfers.js';
 import { badge, emptyState } from '../components.js';
 import { esc, icon, fmtINR, fmtNum, relTime } from '../utils.js';
-import { hospitalDaySummary, orderAccess, hbillBalance, isCritical, kitStatus } from '../hospital.js';
+import { hospitalDaySummary, orderAccess, hbillBalance, isCritical } from '../hospital.js';
 import { openShiftFor, pendingHandoversFor, shiftSummary } from '../shifts.js';
 import { codingOverdue } from '../mrd.js';
 import { stageById } from './lab/stages.js';
+import { labAttention, storeAttention } from '../labstock.js';
 import { alertsFor } from '../alert-rules.js';
 
 const tile = (href, ic, title, desc, tone = 'teal', count) => `<a class="task-tile tone-${tone}" href="${href}">
@@ -58,7 +59,8 @@ export function render(view) {
     packages: tile('#/packages', 'package', 'Packages', 'Health check-ups and surgery packages', 'warning'),
     lab: tile('#/lab', 'test-tube', 'Lab Workbench', 'Collect → receive → results → verify → send', 'teal'),
     labReports: tile('#/lab/reports', 'file-check-2', 'Lab Reports', 'Find and reprint reports', 'info'),
-    kits: tile('#/lab/kits', 'boxes', 'Reagent Kits', 'Stock, QC use, counts', 'navy'),
+    kits: tile('#/lab/stock', 'boxes', 'Lab Stock', labAttention().low.length ? `${labAttention().low.length} running low — request from store` : 'Reagents, cards, tubes, QC', labAttention().low.length ? 'warning' : 'navy', labAttention().arriving.length || null),
+    labSupplies: tile('#/store/lab', 'flask-conical', 'Lab Supplies', storeAttention().requests.length ? 'Lab is waiting — issue now' : 'Lab requests and reagent stock', storeAttention().requests.length ? 'danger' : 'purple', storeAttention().requests.length || null),
     labTests: tile('#/lab/tests', 'list-checks', 'Lab Test Master', 'Tests, prices, normal ranges, kits', 'purple'),
     addTest: tile('#/lab/tests/new', 'plus-circle', 'Add a Lab Test', 'New test — billable at reception at once', 'teal'),
     audit: tile('#/audit', 'history', 'Audit Log', 'Who changed what, and when', 'navy'),
@@ -68,7 +70,7 @@ export function render(view) {
   };
   T.receive = tile('#/grn/new', 'package-plus', 'Receive Stock', 'Enter a supplier delivery into the store', 'teal');
   const tiles = role === 'SUPER_ADMIN' ? [T.approvals, T.mgmt, T.sales, T.closings, T.labTests, T.users]
-    : role === 'STORE_INCHARGE' ? [T.receive, T.transfer, T.approvals, T.find, T.grnList, T.reports]
+    : role === 'STORE_INCHARGE' ? [T.receive, T.transfer, T.labSupplies, T.approvals, T.find, T.grnList]
       : role === 'RECEPTION' ? [T.hbill, T.register, T.findPatient, T.hbills, T.shift, T.packages]
         : role === 'LAB' ? [T.lab, T.labReports, T.kits, T.findPatient]
           : role === 'SERVICE_COUNTER' ? [T.svc, T.findPatient]
@@ -106,7 +108,7 @@ export function render(view) {
     stat('Lab tests offered', fmtNum(store.all('services').filter((s) => s.category === 'LAB' && s.active).length), `${store.all('services').filter((s) => s.category === 'LAB' && !s.active).length} stopped`, '#/lab/tests'),
     stat('Master changes (30 days)', fmtNum(store.all('services').flatMap((s) => s.history || []).filter((h) => h.version > 1 && Date.now() - new Date(h.at) < 30 * 86400000).length), 'prices, ranges, kits', '#/lab/tests'),
     stat('Lab tests billed today', fmtNum(store.all('orders').filter((o) => o.category === 'LAB' && o.billedAt && businessDate(o.billedAt) === today).length), 'all counters', '#/lab/reports'),
-    stat('Reagent kits low / out', fmtNum(store.all('labKits').filter((k) => kitStatus(k) !== 'IN_STOCK').length), 'reorder', '#/lab/kits')
+    stat('Lab items low / out', fmtNum(labAttention().low.length), 'request from store', '#/lab/stock')
   ] : role === 'SUPER_ADMIN' ? [
     stat('Billed today (all counters)', fmtINR(all.sales + hsum.billed, true), `Pharmacy ${fmtINR(all.sales, true)} · Main counter ${fmtINR(hsum.billed, true)}`, '#/management'),
     stat('Money collected today', fmtINR(all.netCollection + hsum.collected - hsum.refunds, true), `Cash ${fmtINR(all.byMode.CASH.net + hsum.byMode.CASH, true)} · UPI ${fmtINR(all.byMode.UPI.net + hsum.byMode.UPI, true)}`, '#/management'),
@@ -136,7 +138,11 @@ export function render(view) {
     if (!mysh) todo.push({ ic: 'play', tone: 'info', text: 'Start your shift', sub: 'Count the opening cash before the first payment', href: '#/shifts', btn: 'Start' });
   }
   if (role === 'RECEPTION') store.all('orders').filter((o) => o.status === 'REQUESTED').slice(0, 3).forEach((o) => todo.push({ ic: 'clipboard-list', tone: 'danger', text: `Bill ${o.name} for ${store.get('patients', o.patientId)?.name}`, sub: `Advised by ${o.doctor || 'doctor'} · not billed yet`, href: `#/hbill?patient=${o.patientId}`, btn: 'Bill' }));
-  if (role === 'LAB' && store.all('labKits').some((k) => kitStatus(k) !== 'IN_STOCK')) todo.push({ ic: 'boxes', tone: 'warning', text: `${store.all('labKits').filter((k) => kitStatus(k) !== 'IN_STOCK').length} reagent kit(s) low or out`, sub: 'Reorder before tests are blocked', href: '#/lab/kits', btn: 'Kits' });
+  if (role === 'LAB') { const la = labAttention();
+    la.arriving.forEach((r) => todo.push({ ic: 'truck', tone: 'info', text: `Store sent ${r.id} — receive it`, sub: `${r.issue.lines.length} lot(s) on the way. Count them and confirm.`, href: '#/lab/stock', btn: 'Receive' }));
+    if (la.suggest.length) todo.push({ ic: 'trending-down', tone: 'warning', text: `${la.suggest.length} lab item(s) running low`, sub: la.suggest.slice(0, 3).map((x) => x.k.name).join(', ') + ' — the request is ready', href: '#/lab/stock', btn: 'Request' });
+    if (la.packsDue.length) todo.push({ ic: 'package-open', tone: 'danger', text: `${la.packsDue.length} open pack(s) at or past use-by`, sub: 'Replace before running patient samples', href: '#/lab/stock?filter=open', btn: 'Check' }); }
+  if (role === 'STORE_INCHARGE') storeAttention().requests.forEach((r) => todo.push({ ic: r.urgent ? 'zap' : 'inbox', tone: r.urgent ? 'danger' : 'warning', text: `${r.urgent ? 'URGENT: ' : ''}Lab requests ${r.lines.length} item(s) — ${r.id}`, sub: `Asked by ${userName(r.by)}`, href: '#/store/lab', btn: 'Issue' }));
   if (role === 'LAB') labQ.filter((o) => o.status === 'RESULTED' && isCritical(o)).forEach((o) => todo.push({ ic: 'siren', tone: 'danger', text: `Critical result — ${o.name}`, sub: `${store.get('patients', o.patientId)?.name} · verify and inform the doctor`, href: `#/lab/orders/${o.id}`, btn: 'Open' }));
   if (role === 'MRD') store.all('medicalRecords').filter(codingOverdue).forEach((r) => todo.push({ ic: 'file-code-2', tone: 'danger', text: `Code ${r.mrdNo}`, sub: 'Overdue after discharge', href: `#/mrd/${r.id}`, btn: 'Code' }));
   approvals.slice(0, 4).forEach((a) => todo.push({ ic: APPROVAL_TYPES[a.type].icon, tone: a.tone, text: a.title, sub: `${a.detail}${a.amount ? ' · ' + fmtINR(a.amount) : ''}`, href: a.href, btn: a.action }));

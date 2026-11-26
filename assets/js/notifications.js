@@ -36,7 +36,8 @@ export function notificationLink(n) {
   if (n.refType === 'STOCKCOUNT') return '#/stock-count?focus=' + n.refId;
   if (n.refType === 'CLOSING') return '#/pharmacy/closing-report?focus=' + n.refId;
   if (n.refType === 'HBILL') return '#/hbills/' + n.refId;
-  if (n.refType === 'KITCOUNT') return '#/lab/kits?tab=count';
+  if (n.refType === 'KITCOUNT') return '#/lab/stock?tab=count';
+  if (n.refType === 'LABINDENT') return (can('labstock.issue') && !can('lab.work') ? '#/store/lab' : '#/lab/stock?tab=requests');
   if (n.refType === 'ORDER') return '#/services?tab=req';
   if (n.refType === 'LABORDER') return '#/lab/orders/' + n.refId;
   if (n.refType === 'SHIFT') return '#/shifts/' + n.refId;

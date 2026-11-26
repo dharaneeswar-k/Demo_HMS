@@ -28,6 +28,7 @@
       "patient.register",
       "discount.request",
       "shift.own",
+      "labstock.issue",
       "grn.create",
       "grn.verify",
       "grn.post",
@@ -161,7 +162,7 @@
   {
     "id": "STORE_INCHARGE",
     "name": "Store",
-    "description": "Central store: supplier receipts, Store → Pharmacy transfers, stock corrections and masters.",
+    "description": "Central store: supplier receipts, Store → Pharmacy transfers, lab supplies to the lab, stock corrections and masters.",
     "permissions": [
       "inventory.view",
       "batch.view",
@@ -172,6 +173,7 @@
       "alerts.view",
       "reports.view",
       "dashboard.view",
+      "labstock.issue",
       "grn.create",
       "grn.verify",
       "grn.post",
@@ -189,7 +191,7 @@
   {
     "id": "LAB",
     "name": "Lab",
-    "description": "Lab worklist: sample collection, results, report verification and printing; reagent kit stock and counts. No cash handling.",
+    "description": "Lab worklist: sample collection, results, report verification and printing; lab stock — request from store, receive, open packs, QC use and counts. No cash handling.",
     "permissions": [
       "patient.view",
       "alerts.view",

@@ -63,7 +63,9 @@ export const ROUTES = [
   { path: '/lab/reports', mod: 'labdesk', fn: 'renderReportDesk', perm: 'lab.view', title: 'Report Desk', crumbs: ['Laboratory', 'Reports'], nav: 'lab-reports' },
   { path: '/lab/tests', mod: 'lab/master', fn: 'renderTestList', perm: 'labtest.view', title: 'Lab Test Master', crumbs: ['Laboratory', 'Test Master'], nav: 'lab-tests' },
   { path: '/lab/tests/:id', mod: 'lab/master', fn: 'renderTestEditor', perm: 'labtest.view', title: 'Lab Test', crumbs: ['Laboratory', 'Test Master'], nav: 'lab-tests' },
-  { path: '/lab/kits', mod: 'lab', fn: 'renderKits', perm: 'lab.kits', title: 'Reagent Kits', crumbs: ['Laboratory', 'Reagent Kits'], nav: 'lab-kits' },
+  { path: '/lab/stock', mod: 'lab/stock', fn: 'renderLabStock', perm: 'lab.kits', title: 'Lab Stock', crumbs: ['Laboratory', 'Lab Stock'], nav: 'lab-kits' },
+  { path: '/lab/kits', mod: 'lab/stock', fn: 'renderLabStock', perm: 'lab.kits', title: 'Lab Stock', crumbs: ['Laboratory', 'Lab Stock'], nav: 'lab-kits' },
+  { path: '/store/lab', mod: 'lab/storeside', fn: 'renderStoreLab', perm: 'labstock.issue', title: 'Lab Supplies', crumbs: ['Stock', 'Lab Supplies'], nav: 'store-lab' },
   // Service counter (BRD 07)
   { path: '/services', mod: 'service-counter', fn: 'render', perm: 'orders.view', title: 'Service Counter', crumbs: ['Services', 'Service Counter'], nav: 'svc' },
   { path: '/services/reconciliation', mod: 'service-counter', fn: 'renderRecon', perm: 'management.view', title: 'Services: Requested vs Billed vs Done', crumbs: ['Business', 'Service Reconciliation'], nav: 'svc-recon' },

@@ -5,7 +5,8 @@
 import { store } from './data-service.js';
 import { can } from './auth.js';
 import { derivedAlerts } from './calculations.js';
-import { svc, isCritical, kitStatus, kitBalance, hbillBalance } from './hospital.js';
+import { svc, isCritical, hbillBalance } from './hospital.js';
+import { items, labBalance, labState, storeBalance, storeState, lotsAt, daysLeft, openPacks, unitTxt, item as labItem } from './labstock.js';
 import { visitStatus, reportReadyAt, isUncollected } from './labflow.js';
 import { codingOverdue } from './mrd.js';
 
@@ -17,7 +18,9 @@ export const ALERT_PERM = {
   'Stock Adjustment Approval': 'adjustment.approve', 'Stock Shortage': 'stockcount.review',
   'Refund Approval': 'pharmacy.return.approve', 'Bill Cancellation': 'pharmacy.cancel', 'Daily Closing': 'pharmacy.closing.all', 'Cash Variance': 'pharmacy.closing.verify',
   // laboratory
-  'Critical Result': 'lab.verify', 'Sample Waiting': 'lab.work', 'Reagent Kit Low': 'lab.kits', 'Report Not Sent': 'lab.deliver', 'Report Not Collected': 'lab.deliver',
+  'Critical Result': 'lab.verify', 'Sample Waiting': 'lab.work', 'Lab Stock Low': 'lab.work', 'Lab Stock Expiring': 'lab.work', 'Open Pack Past Use-by': 'lab.work', 'Lab Stock Arrived': 'lab.work', 'Report Not Sent': 'lab.deliver', 'Report Not Collected': 'lab.deliver',
+  // central store — lab supplies
+  'Lab Request Waiting': 'labstock.issue', 'Lab Supplies to Order': 'labstock.issue',
   // reception / billing
   'Lab Payment Pending': 'hbill.collect', 'Advised, Not Billed': 'hbill.create', 'Credit Approval': 'credit.approve',
   // medical records
@@ -28,7 +31,7 @@ export const ALERT_ICON = {
   'Low Stock': 'trending-down', 'Out of Stock': 'ban', 'Near Expiry': 'calendar-clock', 'Expired Stock': 'calendar-x', 'GRN Pending Verification': 'clipboard-check', 'GRN Discrepancy': 'shield-alert',
   'Stock Adjustment Approval': 'scale', 'Missing Documentation': 'file-warning', 'Stock Shortage': 'clipboard-x', 'Pharmacy Refill': 'arrow-right-left', 'Refund Approval': 'undo-2',
   'Bill Cancellation': 'circle-slash', 'Daily Closing': 'lock', 'Cash Variance': 'scale',
-  'Critical Result': 'siren', 'Sample Waiting': 'test-tube', 'Reagent Kit Low': 'boxes', 'Report Not Sent': 'send', 'Report Not Collected': 'file-clock',
+  'Critical Result': 'siren', 'Sample Waiting': 'test-tube', 'Lab Stock Low': 'boxes', 'Lab Stock Expiring': 'calendar-clock', 'Open Pack Past Use-by': 'package-open', 'Lab Stock Arrived': 'truck', 'Lab Request Waiting': 'inbox', 'Lab Supplies to Order': 'shopping-cart', 'Report Not Sent': 'send', 'Report Not Collected': 'file-clock',
   'Lab Payment Pending': 'lock', 'Advised, Not Billed': 'clipboard-list', 'Credit Approval': 'hand-coins', 'MRD Coding Overdue': 'file-code-2'
 };
 
@@ -38,9 +41,19 @@ const pname = (id) => store.get('patients', id)?.name || 'Patient';
 /** Live hospital-side alerts (lab, reception, MRD), derived from the data like the stock alerts. */
 export function hospitalAlerts() {
   const out = [];
-  for (const k of store.all('labKits').filter((x) => x.active !== false)) {
-    const st = kitStatus(k); if (st === 'IN_STOCK') continue;
-    out.push({ key: 'KIT-' + k.id, category: 'Reagent Kit Low', severity: st === 'OUT_OF_STOCK' ? 'critical' : 'warning', message: `${k.name}: ${kitBalance(k.id)} ${k.unit} left (reorder at ${k.reorderLevel}).`, refType: 'KIT', refId: k.id, label: k.name });
+  // lab stock (lab side)
+  for (const k of items()) {
+    const st = labState(k);
+    if (st !== 'OK') out.push({ key: 'LST-' + k.id, category: 'Lab Stock Low', severity: st === 'OUT' ? 'critical' : 'warning', message: `${k.name}: ${unitTxt(k, labBalance(k.id))} left in the lab (ask at ${k.reorderLevel}). Request from the store.`, refType: 'LABITEM', refId: k.id, label: k.name, href: '#/lab/stock?item=' + k.id });
+    lotsAt(k.id, 'LAB').filter((x) => x.lot?.expiry && daysLeft(x.lot.expiry) <= 30).forEach((x) => out.push({ key: `LEX-${k.id}-${x.lotId}`, category: 'Lab Stock Expiring', severity: daysLeft(x.lot.expiry) < 0 ? 'critical' : 'warning', message: `${k.name} lot ${x.lot.lot}: ${unitTxt(k, x.qty)} ${daysLeft(x.lot.expiry) < 0 ? 'EXPIRED — discard, do not use' : `expires in ${daysLeft(x.lot.expiry)} days — use first`}.`, refType: 'LABITEM', refId: k.id, label: k.name, date: x.lot.expiry, href: '#/lab/stock?item=' + k.id }));
+    // lab supplies (store side)
+    const ss = storeState(k);
+    if (ss !== 'OK') out.push({ key: 'SST-' + k.id, category: 'Lab Supplies to Order', severity: ss === 'OUT' ? 'critical' : 'warning', message: `${k.name}: ${unitTxt(k, storeBalance(k.id))} in the store (reorder at ${k.storeMin}). Order from ${k.supplier || 'the supplier'}.`, refType: 'LABITEM', refId: k.id, label: k.name, href: '#/store/lab?tab=stock' });
+  }
+  for (const p of openPacks().filter((x) => daysLeft(x.useBy) < 0)) out.push({ key: 'OPK-' + p.id, category: 'Open Pack Past Use-by', severity: 'critical', message: `${labItem(p.kitId).name}: the open pack is past its use-by date. Replace it before running patient samples.`, refType: 'LABITEM', refId: p.kitId, label: labItem(p.kitId).name, date: p.useBy, href: '#/lab/stock?item=' + p.kitId });
+  for (const r of store.all('labIndents')) {
+    if (r.status === 'REQUESTED') out.push({ key: 'LRQ-' + r.id, category: 'Lab Request Waiting', severity: r.urgent ? 'critical' : 'warning', message: `${r.urgent ? 'URGENT — ' : ''}Lab asked for ${r.lines.length} item(s): ${r.lines.map((l) => labItem(l.kitId).name).join(', ')}.`, refType: 'LABINDENT', refId: r.id, label: r.id, date: r.at, href: '#/store/lab' });
+    if (r.status === 'ISSUED') out.push({ key: 'LAR-' + r.id, category: 'Lab Stock Arrived', severity: 'info', message: `Store sent ${r.id}. Count the items and press Receive — lab stock goes up only after that.`, refType: 'LABINDENT', refId: r.id, label: r.id, date: r.issue.at, href: '#/lab/stock' });
   }
   for (const v of store.all('labVisits')) {
     const st = visitStatus(v); const p = pname(v.patientId);

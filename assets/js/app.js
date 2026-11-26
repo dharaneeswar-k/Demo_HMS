@@ -123,7 +123,7 @@ const NAV = [
   { id: 'lab-reports', label: 'Report Desk', icon: 'send', href: '#/lab/reports', perm: 'lab.view', more: [OWNER, MRD] },
   { id: 'lab-ward', label: 'Ward Lab Order', icon: 'bed-double', href: '#/lab/ward-order', perm: 'lab.order.ip', more: [OWNER] },
   { id: 'lab-tests', label: 'Test Master', icon: 'list-checks', href: '#/lab/tests', perm: 'labtest.view', more: [RECEPTION, MRD] },
-  { id: 'lab-kits', label: 'Reagent Kits', icon: 'boxes', href: '#/lab/kits', perm: 'lab.kits', more: [OWNER] },
+  { id: 'lab-kits', label: 'Lab Stock', icon: 'boxes', href: '#/lab/stock', perm: 'lab.kits', badge: 'labstock', more: [OWNER] },
   { section: 'Services' },
   { id: 'svc', label: 'Service Counter', icon: 'syringe', href: '#/services', perm: 'orders.view', more: [OWNER, RECEPTION, LAB, MRD] },
   { section: 'Medical Records' },
@@ -132,6 +132,7 @@ const NAV = [
   { id: 'grn-new', label: 'Receive Stock', icon: 'package-plus', href: '#/grn/new', perm: 'grn.create', more: [OWNER] },
   { id: 'grn', label: 'Received Stock', icon: 'package-check', href: '#/grn', perm: 'grn.view' },
   { id: 'stock-count', label: 'Daily Stock Count', icon: 'clipboard-check', href: '#/stock-count', perm: 'stockcount.do', more: [OWNER] },
+  { id: 'store-lab', label: 'Lab Supplies', icon: 'flask-conical', href: '#/store/lab', perm: 'labstock.issue', badge: 'labreq', more: [OWNER] },
   { id: 'transfers', label: 'Store → Pharmacy', icon: 'arrow-right-left', href: '#/transfers', perm: 'inventory.view' },
   { id: 'inventory', label: 'Stock List', icon: 'boxes', href: '#/inventory', perm: 'inventory.view' },
   { id: 'batches', label: 'Expiry & Batches', icon: 'calendar-clock', href: '#/batches', perm: 'batch.view' },
@@ -302,6 +303,10 @@ function updateBadges() {
   if (b) { b.textContent = c > 99 ? '99+' : c; b.classList.toggle('hidden', !c); }
   const a = qs('[data-badge="alerts"]');
   if (a) { const n = alertsFor(u).filter((x) => x.severity === 'critical').length; a.textContent = n; a.classList.toggle('hidden', !n); }
+  const lr = qs('[data-badge="labreq"]');
+  if (lr) { const n = store.all('labIndents').filter((r) => r.status === 'REQUESTED').length; lr.textContent = n; lr.classList.toggle('hidden', !n); }
+  const ls = qs('[data-badge="labstock"]');
+  if (ls) { const n = can('lab.work', u) ? store.all('labIndents').filter((r) => r.status === 'ISSUED').length : 0; ls.textContent = n; ls.classList.toggle('hidden', !n); }
   const ap = qs('[data-badge="approvals"]');
   if (ap) { const n = approvalItems(u).length; ap.textContent = n; ap.classList.toggle('hidden', !n); }
 }

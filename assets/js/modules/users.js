@@ -11,7 +11,7 @@ const MODULES = [
   ['Patients', 'users-round', 'patient.view'], ['Pharmacy billing', 'receipt', 'pharmacy.bill'], ['Returns & refunds', 'undo-2', 'pharmacy.return.request'], ['Close the day', 'lock', 'pharmacy.closing'],
   ['Daily stock count', 'clipboard-check', 'stockcount.do'], ['Receive stock (GRN)', 'package-plus', 'grn.create'], ['Store → Pharmacy transfer', 'arrow-right-left', 'store.transfer'],
   ['Stock corrections', 'scale', 'adjustment.request'], ['Medicines & suppliers', 'pill', 'medicine.manage'], ['Reports', 'bar-chart-3', 'reports.view'],
-  ['Hospital billing (main counter)', 'receipt', 'hbill.create'], ['Packages', 'package', 'package.view'], ['My shift & cash handover', 'timer', 'shift.own'], ['Lab worklist & reports', 'test-tube', 'lab.work'], ['Reagent kits', 'boxes', 'lab.kits'],
+  ['Hospital billing (main counter)', 'receipt', 'hbill.create'], ['Packages', 'package', 'package.view'], ['My shift & cash handover', 'timer', 'shift.own'], ['Lab worklist & reports', 'test-tube', 'lab.work'], ['Lab stock (request, receive, use)', 'boxes', 'lab.kits'], ['Issue lab supplies (store)', 'flask-conical', 'labstock.issue'],
   ['Service counter (ECG / injection / nebulization)', 'syringe', 'service.work'], ['Medical records & discharge summaries', 'folder-open', 'mrd.manage'], ['Management dashboard', 'layout-dashboard', 'management.view'], ['Hospital setup (prices, workstations)', 'sliders-horizontal', 'catalog.manage'],
   ['Approvals (discount, refunds, closings, credit)', 'inbox', 'discount.approve'], ['Settings', 'settings', 'settings.manage'], ['User accounts', 'user-cog', 'users.manage'], ['Audit log', 'history', 'audit.view']
 ];

@@ -25,7 +25,7 @@
 13. [Result entry, flags, critical values and verification](#13-result-entry-flags-critical-values-and-verification)
 14. [The lab report](#14-the-lab-report)
 15. [Report delivery and messaging (WhatsApp / SMS / email)](#15-report-delivery-and-messaging-whatsapp--sms--email)
-16. [Reagent kits and reconciliation](#16-reagent-kits-and-reconciliation)
+16. [Lab stock — reagents, cartridges, cards, strips, QC and tubes](#16-lab-stock--reagents-cartridges-cards-strips-qc-and-tubes)
 17. [Turnaround time (TAT) and service levels](#17-turnaround-time-tat-and-service-levels)
 18. [State machines](#18-state-machines)
 19. [Business rules — consolidated list](#19-business-rules--consolidated-list)
@@ -265,6 +265,7 @@ Rules:
 | shift.own | ✅ | ✅ | — | — | — | ✅ |
 | labtest.view | ✅ | ✅ | ✅ | — | ✅ | — |
 | labtest.manage | ✅ | — | — | — | — | — |
+| labstock.issue (Store Incharge: receive lab supplies, issue to the lab — §16) | ✅ | — | — | — | — | — |
 
 The **Admin** role (`ADMIN`) has `labtest.view`, `labtest.manage`, `lab.view`, `lab.kits`, `hbill.view`, `package.view`, `orders.view`, `patient.view`, `alerts.view` and `audit.view`. It keeps the Lab Test Master (§37) and has no billing, cash or result-entry rights.
 
@@ -677,38 +678,151 @@ Requirements:
 
 ---
 
-## 16. Reagent kits and reconciliation
+## 16. Lab stock — reagents, cartridges, cards, strips, QC and tubes
 
-### 16.1 Kit master
-Each test lists the kits it consumes per test (`kits: [{ kitId, qty }]`). Kits have a unit (test / cartridge / strip / card) and a reorder level.
+Lab stock follows the same rule as the pharmacy: **everything comes in through the Central Store**. The lab never buys or "adds" stock itself. It asks the store, the store issues, and the lab confirms what arrived. Stock then goes down by itself as tests are done.
 
-### 16.2 Kit movements
-| Type | Sign | When |
-|---|---|---|
-| `RECEIVED` | + | Kits received (lot, expiry noted) |
-| `USED_TEST` | − | Automatically, when a tube is collected (per test, per kit) |
-| `USED_QC` | − | Quality-control runs (recorded with reason) |
-| `REPEAT` | − | Repeat test (recorded, or automatic on sample rejection) |
-| `WASTAGE` | − | Damaged / expired / spilled (recorded with reason) |
-| `COUNT_ADJUST` | ± | Physical count difference |
-
-Balance = Σ movements.
-
-### 16.3 Physical count
-- Lab counts kits on the shelf / in the analyser; the system compares with the balance.
-- Shortages → kit count `SUBMITTED`, owner alerted ("Check for tests run without a bill"), stock corrected to the physical count (`COUNT_ADJUST`). Owner reviews with a note → `REVIEWED`.
-
-### 16.4 Reconciliation (per kit, per date range) — exact formulas
 ```
-testsBilled   = Σ kitQtyPerTest over lab orders billed (or IP-charged) in range, not cancelled
-testsRun      = Σ kitQtyPerTest over those orders whose sample was collected
-usedForTests  = −Σ USED_TEST movements in range
-qc, repeat, waste, countLoss = −Σ of the respective movement types
+Supplier ──► CENTRAL STORE ──(lab request → store issues, oldest expiry first)──► LAB ──► used per test / QC / repeat / wastage
+            lot, expiry,                                                       lab confirms        blind physical count
+            cold-chain check                                                   what arrived        (owner reviews shortages)
+```
+
+### 16.1 Who does what
+
+| Who | Screen | Does |
+|---|---|---|
+| **Lab** (`lab.kits` + `lab.work`) | Lab Stock `#/lab/stock` | Sees stock in the lab; sends the ready-made request when something runs low; receives what the store sent; opens packs and QC vials; records QC runs, repeats and wastage; discards expired lots; does the blind count |
+| **Store Incharge** (`labstock.issue`) | Lab Supplies `#/store/lab` | Receives from the supplier (lot, expiry, invoice, cold-chain check); issues lab requests (lots picked oldest expiry first); writes off damaged or expired store stock; sees what to reorder |
+| **Admin / Super Admin** (`labtest.manage`) | Lab Stock → Item list | Adds and edits items: kind, pack size, storage, "ask for more" and "keep in lab" levels, store reorder level, opened life, tube type. Which test uses which item is set in the Test Master (§37) |
+| **Super Admin** | Lab Stock → Used vs billed, Counts | Reviews count shortages and the used-vs-billed reconciliation |
+
+Admin can see Lab Stock but cannot request, receive or use stock.
+
+### 16.2 Kinds of items
+
+| Kind | Examples | How it is used up |
+|---|---|---|
+| Analyser reagents | CBC pack, LFT / RFT / glucose / lipid kits, Widal | Per test, from a pack of N tests. Has an **opened life** once loaded on the analyser |
+| Cartridges | HbA1c, thyroid, CRP | 1 per test |
+| Rapid test cards | Dengue NS1, HIV 1 & 2 | 1 per test |
+| Strips | Urine 10-parameter strips | 1 per test; the bottle has an opened life |
+| QC controls | Haematology control, biochemistry control | **1 vial is used up when it is opened**; usable N days after opening; not billable |
+| Tubes & consumables | EDTA, plain, fluoride tubes, urine container | **1 per tube collected** (matched by tube type) |
+
+### 16.3 Item master (`labKits`)
+`name, kind, unit (test / card / cartridge / strip / vial / tube), packLabel (pack / kit / box / bottle / set), packSize (units per pack), storage (ROOM / COLD 2–8 °C / FROZEN), openDays (usable after opening, or empty), reorderLevel ("ask for more at", units in lab), parLevel ("keep in lab", units), storeMin (store reorder level), unitCost, supplier, container (tube type, consumables only), active`.
+
+Validation: name unique; pack size a whole number ≥ 1; keep-in-lab > ask-for-more; opened life ≥ 1 or empty. Items are stopped (`active=false`), never deleted.
+
+### 16.4 Lots and the ledger
+- **Lot** (`labLots`): `lot number, expiry, supplier, invoice, received at`. One lot can sit partly in the store and partly in the lab.
+- **Movement** (`kitMovements`): `kitId, loc (STORE / LAB), lotId, type, qty (±), ref, by, at, note`. **Balance = Σ movements** for that item and place; nobody types a stock number.
+- **First expiry, first out**: issuing to the lab and using in the lab always take the earliest-expiry lot that has not expired. Expired lots are never issued or used. If the lab runs a billed test with no stock on record, the use is still recorded (balance goes negative) — patient care never waits on the register; the next count fixes it.
+
+| Type | Place | Sign | When |
+|---|---|---|---|
+| `SUPPLIER_IN` | Store | + | Store receives from the supplier |
+| `ISSUE_OUT` | Store | − | Store issues a lab request |
+| `STORE_WASTE` | Store | − | Damaged / warm / expired in the store (reason required) |
+| `ISSUE_IN` | Lab | + | Lab confirms what arrived |
+| `USED_TEST` | Lab | − | Automatically when a sample tube is collected (reagent per test + 1 tube) |
+| `USED_QC` | Lab | − | QC runs (recorded) and QC control vials (when opened) |
+| `REPEAT` | Lab | − | Repeat test (recorded, or automatic when a sample is rejected) |
+| `WASTAGE` | Lab | − | Spilled / damaged / failed (reason required) |
+| `EXPIRED` | Lab | − | Expired lot discarded |
+| `COUNT_ADJUST` | Lab | ± | Physical count difference |
+
+### 16.5 Request → issue → receive (`labIndents`)
+
+| Status | Meaning | Next |
+|---|---|---|
+| `REQUESTED` | Lab sent the request (lines in **packs**; optional *Urgent* and note). Store is notified | Store issues or "cannot issue"; lab may cancel |
+| `ISSUED` | Store sent it. **Store stock goes down now.** The store may send fewer packs than asked, but then must write a note | Lab receives |
+| `RECEIVED` | Lab counted and confirmed. **Lab stock goes up now** | — |
+| `SHORT` | Lab received less than the store sent (note required). The owner and store are alerted — the gap is visible, never hidden | Owner follows up |
+| `REJECTED` | Store could not issue (reason sent to the lab) | Lab asks again later |
+| `CANCELLED` | Lab cancelled before the store issued | — |
+
+**The suggested request.** When an item in the lab falls to its "ask for more" level, Lab Stock shows a ready-made request at the top of the page. It asks for enough packs to bring the item back to "keep in lab", minus anything already requested or on the way:
+```
+packs = ceil( (parLevel − labBalance − requested − onTheWay) ÷ packSize )     (at least 1)
+```
+The lab can change the numbers, untick lines, add other items, mark it urgent and send it in one tap.
+
+### 16.6 Open packs and vials (`labOpenPacks`)
+Items with an opened life (analyser reagents, strip bottles, QC vials) record when a pack is opened. **Use-by = the earlier of (opened + openDays) and the lot expiry.** Opening a new pack marks the previous one finished. A pack past its use-by is a critical alert to the lab ("replace before running patient samples").
+
+### 16.7 Physical count (blind)
+The lab counts what is on the shelf and in the fridge. The system number is **not shown** while counting, so the count is honest. After submitting: matches are recorded; shortages are taken off the oldest lots (`COUNT_ADJUST`), the count is `SUBMITTED` and the owner is alerted ("check for tests run without a bill"); the owner reviews with a note → `REVIEWED`.
+
+### 16.8 Alerts (each only to the role that acts on it — §20.1)
+
+| Alert | To | When |
+|---|---|---|
+| Lab Stock Low | Lab | Lab balance ≤ ask-for-more level (critical when 0) |
+| Lab Stock Expiring | Lab | A lab lot expires within 30 days (critical when expired) |
+| Open Pack Past Use-by | Lab | An open pack or vial is past its use-by |
+| Lab Stock Arrived | Lab | The store issued a request that the lab has not received |
+| Lab Request Waiting | Store | A lab request is waiting (critical when urgent) |
+| Lab Supplies to Order | Store | Store balance ≤ store reorder level |
+
+### 16.9 Reconciliation (per item, per date range) — exact formulas
+```
+testsBilled   = Σ qtyPerTest over lab orders billed (or IP-charged) in range, not cancelled
+testsRun      = Σ qtyPerTest over those orders whose sample was collected
+usedForTests  = −Σ USED_TEST (lab) in range
+qc, repeat, waste (WASTAGE + EXPIRED), countLoss = −Σ of the respective lab movement types
 totalConsumed = usedForTests + qc + repeat + waste + countLoss
 unexplained   = usedForTests − testsRun          (should be 0)
-efficiency %  = testsRun ÷ totalConsumed × 100   ("billable tests per kit consumed")
+efficiency %  = testsRun ÷ totalConsumed × 100   ("billable tests per unit consumed")
 ```
-A count shortage or unexplained usage means a kit was used without a bill → leakage alert on the management dashboard.
+A count shortage, unexplained use or a short receipt means stock went somewhere without a bill → leakage alert on the management dashboard.
+
+### 16.10 Data model (production)
+```sql
+CREATE TABLE lab_item (id PK, name UNIQUE, kind, unit, pack_label, pack_size INT CHECK (pack_size >= 1), storage, open_days INT NULL,
+  reorder_level INT, par_level INT CHECK (par_level > reorder_level), store_min INT, unit_cost NUMERIC(10,2), supplier_id FK NULL, container NULL, active BOOL);
+CREATE TABLE lab_lot (id PK, item_id FK, lot_no, expiry DATE, supplier_id FK, invoice_no, received_at, UNIQUE (item_id, lot_no));
+CREATE TABLE lab_stock_movement (id PK, item_id FK, location ENUM('STORE','LAB'), lot_id FK NULL, type, qty INT, ref, by_user FK, at, note);  -- append-only
+CREATE TABLE lab_indent (id PK, requested_by FK, requested_at, urgent BOOL, note, status, issued_by, issued_at, issue_note, received_by, received_at, receive_note,
+  rejected_by, rejected_at, reject_reason);
+CREATE TABLE lab_indent_line (indent_id FK, item_id FK, packs_asked INT, packs_issued INT);
+CREATE TABLE lab_indent_issue (indent_id FK, item_id FK, lot_id FK, qty_sent INT, qty_received INT NULL);
+CREATE TABLE lab_open_pack (id PK, item_id FK, lot_id FK, opened_by, opened_at, use_by, closed_by NULL, closed_at NULL, closed_reason);
+CREATE TABLE lab_count (id PK, counted_by, at, status, reviewed_by NULL, reviewed_at NULL, review_note);
+CREATE TABLE lab_count_line (count_id FK, item_id FK, system_qty INT, counted_qty INT);
+```
+Balances are a view (`SUM(qty) GROUP BY item, location, lot`). Every write runs in one transaction with the audit row.
+
+### 16.11 API (production)
+| Method | Path | Who |
+|---|---|---|
+| GET | `/api/lab-stock?location=LAB\|STORE` | Lab, Store, Admin, Owner |
+| POST | `/api/lab-indents` `{lines:[{itemId,packs}], urgent, note}` | Lab |
+| POST | `/api/lab-indents/{id}/issue` `{packs:{itemId:n}, note}` → lots picked server-side (FEFO) | Store |
+| POST | `/api/lab-indents/{id}/reject` `{reason}` · `/cancel` | Store · Lab |
+| POST | `/api/lab-indents/{id}/receive` `{received:[qty per issue line], note}` | Lab |
+| POST | `/api/lab-stock/supplier-receipts` `{itemId, packs, lotNo, expiry, supplier, invoiceNo, coldChainOk}` | Store |
+| POST | `/api/lab-stock/use` `{itemId, qty, type: USED_QC\|REPEAT\|WASTAGE, note}` · `/discard-expired` · `/open-pack` | Lab |
+| POST | `/api/lab-stock/counts` · `/counts/{id}/review` | Lab · Owner |
+| POST/PUT | `/api/lab-items` | Admin, Super Admin |
+
+### 16.12 Tests
+| # | Case | Expected |
+|---|---|---|
+| S1 | Lab item falls to "ask for more" | Suggested request appears with packs = fill to "keep", minus requested / on the way |
+| S2 | Lab sends request (urgent) | `REQUESTED`; store notified; store home and badge show it |
+| S3 | Store issues fewer packs than asked without a note | Refused: "write a short note for the lab" |
+| S4 | Store issues | Lots chosen oldest expiry first, expired lots skipped; store balance down; lab balance unchanged until received |
+| S5 | Lab receives less than sent without a note | Refused; with a note → `SHORT`, owner and store alerted |
+| S6 | Store receives a cold item without the cold-chain tick / an expired lot | Refused |
+| S7 | Sample tube collected for a billed test | Reagent per test and 1 matching tube used from the oldest lab lot |
+| S8 | Sample rejected | Its usage becomes `REPEAT` (not refunded) |
+| S9 | QC vial opened | 1 vial used, use-by = min(opened + days, lot expiry), previous vial finished |
+| S10 | Blind count with a shortage | System number hidden while counting; stock corrected; owner alerted; review closes it |
+| S11 | Admin adds an item with keep ≤ ask level | Refused with a clear message |
+| S12 | Lab login | No pharmacy / store alerts; store login: no lab-bench alerts (§20.1) |
 
 ---
 
@@ -1432,6 +1546,10 @@ Lab Test Master tests T29–T36 are in §37.10.
 | `assets/js/modules/labdesk.js` | Labels & request sheet, combined report, report desk, token display, ward order |
 | `assets/js/modules/lab.js` | Reagent kits |
 | `assets/css/lab.css` | Lab workspace styles |
+| `assets/js/labstock.js` | Lab stock logic: one STORE / LAB ledger by lot, FEFO, request → issue → receive, supplier receipts, open packs, blind counts, suggested requests, reconciliation (§16) |
+| `assets/js/modules/lab/stock.js` | Lab Stock screen `#/lab/stock` (lab): summary, ready-made request, receive, items, counts, history, item list, used vs billed |
+| `assets/js/modules/lab/storeside.js` | Lab Supplies screen `#/store/lab` (store): lab requests to issue, receive from supplier, store lots, write-off |
+| `assets/js/modules/lab/stockui.js` | Shared lab stock pieces: level bar, state pills, request journey, item detail dialog |
 | `assets/js/labmaster.js` | Lab Test Master logic: validation, save with version history, freezing old report formats, stop / restart, usage, diff |
 | `assets/js/modules/lab/master.js` | Lab Test Master screens: list (`#/lab/tests`) and editor (`#/lab/tests/{id}`) |
 | `assets/js/modules/setup.js` | Kits, messaging settings, referral doctors (the lab tests tab links to the Test Master) |

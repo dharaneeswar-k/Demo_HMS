@@ -7,74 +7,110 @@
     "lines": [
       {
         "kitId": "KIT-0001",
-        "system": 360,
-        "counted": 357,
+        "system": 1960,
+        "counted": 1957,
         "diff": -3
       },
       {
         "kitId": "KIT-0002",
-        "system": 146,
-        "counted": 146,
+        "system": 496,
+        "counted": 496,
         "diff": 0
       },
       {
         "kitId": "KIT-0003",
-        "system": 147,
-        "counted": 147,
+        "system": 497,
+        "counted": 497,
         "diff": 0
       },
       {
         "kitId": "KIT-0004",
-        "system": 569,
-        "counted": 569,
+        "system": 1169,
+        "counted": 1169,
         "diff": 0
       },
       {
         "kitId": "KIT-0005",
-        "system": 97,
-        "counted": 97,
+        "system": 72,
+        "counted": 72,
         "diff": 0
       },
       {
         "kitId": "KIT-0006",
-        "system": 148,
-        "counted": 148,
+        "system": 498,
+        "counted": 498,
         "diff": 0
       },
       {
         "kitId": "KIT-0007",
-        "system": 96,
-        "counted": 96,
+        "system": 171,
+        "counted": 171,
         "diff": 0
       },
       {
         "kitId": "KIT-0008",
-        "system": 292,
-        "counted": 292,
+        "system": 592,
+        "counted": 592,
         "diff": 0
       },
       {
         "kitId": "KIT-0009",
-        "system": 55,
-        "counted": 55,
+        "system": 45,
+        "counted": 45,
         "diff": 0
       },
       {
         "kitId": "KIT-0010",
-        "system": 55,
-        "counted": 55,
+        "system": 95,
+        "counted": 95,
         "diff": 0
       },
       {
         "kitId": "KIT-0011",
-        "system": 76,
-        "counted": 76,
+        "system": 121,
+        "counted": 121,
         "diff": 0
       },
       {
         "kitId": "KIT-0012",
-        "system": 40,
-        "counted": 40,
+        "system": 100,
+        "counted": 100,
+        "diff": 0
+      },
+      {
+        "kitId": "KIT-0013",
+        "system": 15,
+        "counted": 15,
+        "diff": 0
+      },
+      {
+        "kitId": "KIT-0014",
+        "system": 9,
+        "counted": 9,
+        "diff": 0
+      },
+      {
+        "kitId": "KIT-0015",
+        "system": 800,
+        "counted": 800,
+        "diff": 0
+      },
+      {
+        "kitId": "KIT-0016",
+        "system": 800,
+        "counted": 800,
+        "diff": 0
+      },
+      {
+        "kitId": "KIT-0017",
+        "system": 500,
+        "counted": 500,
+        "diff": 0
+      },
+      {
+        "kitId": "KIT-0018",
+        "system": 500,
+        "counted": 500,
         "diff": 0
       }
     ],
