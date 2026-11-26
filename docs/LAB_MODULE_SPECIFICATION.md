@@ -1503,6 +1503,8 @@ Lab Test Master tests T29–T36 are in §37.10.
 
 ## 34. Future enhancements (phase 2+)
 
+> The full phase 2 flows (data, rules, screens, tests and build order) are in [LAB_PHASE2_SPECIFICATION.md](LAB_PHASE2_SPECIFICATION.md).
+
 1. **Analyser interface** — bidirectional HL7 v2 (ORM/ORU) or ASTM E1394 via a middleware (e.g. Mirth Connect): worklist download by tube barcode, automatic result upload, technician validates instead of typing.
 2. **Age / sex / pregnancy-specific reference ranges** and units conversion.
 3. **Delta checks and auto-verification rules** for normal results (pathologist-approved).
