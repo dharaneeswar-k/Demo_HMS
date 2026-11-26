@@ -1,7 +1,7 @@
 // Home — one calm page per role: what to do, four key numbers, and what needs attention.
 import { store } from '../data-service.js';
 import { currentUser, can, roleLabel } from '../auth.js';
-import { inventoryKPIs, derivedAlerts, userName, medicineStockMap } from '../calculations.js';
+import { inventoryKPIs, userName, medicineStockMap } from '../calculations.js';
 import { daySummary, businessDate, pendingClosings, closingFor, billModeLabel } from '../pharmacy-calc.js';
 import { approvalItems, APPROVAL_TYPES } from '../approvals.js';
 import { countForDate } from '../stock-count.js';
@@ -12,6 +12,7 @@ import { hospitalDaySummary, orderAccess, hbillBalance, isCritical, kitStatus } 
 import { openShiftFor, pendingHandoversFor, shiftSummary } from '../shifts.js';
 import { codingOverdue } from '../mrd.js';
 import { stageById } from './lab/stages.js';
+import { alertsFor } from '../alert-rules.js';
 
 const tile = (href, ic, title, desc, tone = 'teal', count) => `<a class="task-tile tone-${tone}" href="${href}">
   <span class="tt-icon">${icon(ic)}</span><span class="tt-text"><strong>${esc(title)}</strong><small>${esc(desc)}</small></span>
@@ -147,10 +148,10 @@ export function render(view) {
   const unpaid = store.all('bills').filter((b) => b.status !== 'CANCELLED' && b.balanceDue > 0 && (role !== 'PHARMACY_STAFF' || b.cashierId === u.id));
   if (unpaid.length && can('pharmacy.bill') && role !== 'SUPER_ADMIN') todo.push({ ic: 'hourglass', tone: 'warning', text: `${unpaid.length} bill(s) with money still to collect`, sub: fmtINR(unpaid.reduce((s, b) => s + b.balanceDue, 0)) + ' pending', href: '#/pharmacy/bills?status=PENDING', btn: 'View' });
   if (role === 'STORE_INCHARGE' && refillSuggestions().length) todo.unshift({ ic: 'arrow-right-left', tone: 'warning', text: `${refillSuggestions().length} medicine(s) low on the pharmacy shelf`, sub: 'Available in the central store — send them to the pharmacy', href: '#/transfers', btn: 'Transfer' });
-  const hosp = ['RECEPTION', 'LAB', 'MRD', 'SERVICE_COUNTER'].includes(role);
+  const hosp = ['RECEPTION', 'LAB', 'MRD', 'SERVICE_COUNTER', 'ADMIN'].includes(role);
   if (inv.expired && role !== 'SUPER_ADMIN' && !hosp) todo.push({ ic: 'calendar-x', tone: 'danger', text: `${inv.expired} expired batch(es) on the shelf`, sub: 'Remove them — they cannot be sold', href: '#/batches?status=EXPIRED', btn: 'View' });
   if (inv.out && !hosp) todo.push({ ic: 'ban', tone: 'danger', text: `${inv.out} medicine(s) out of stock`, sub: 'Order from the supplier', href: '#/inventory?status=OUT_OF_STOCK', btn: 'View' });
-  const alertsCount = derivedAlerts().length;
+  const alertsCount = alertsFor(u).length;
 
   // ---------------- recent ----------------
   const recent = [...store.all('bills')].filter((b) => role === 'PHARMACY_STAFF' ? b.cashierId === u.id : true).sort((a, b) => b.at.localeCompare(a.at)).slice(0, 5);

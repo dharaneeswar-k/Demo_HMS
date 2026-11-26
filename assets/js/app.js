@@ -5,7 +5,8 @@ import { resolve, navigate } from './router.js';
 import { esc, icon, refreshIcons, initials, fmtDate, relTime, debounce, qs } from './utils.js';
 import { toast, unreadCount, visibleNotifications, isRead, markRead, markAllRead, notificationLink } from './notifications.js';
 import { destroyCharts, confirmDialog, openModal, emptyState, skeleton } from './components.js';
-import { derivedAlerts, medName, supplierName } from './calculations.js';
+import { medName, supplierName } from './calculations.js';
+import { alertsFor } from './alert-rules.js';
 import { approvalItems } from './approvals.js';
 
 const app = document.getElementById('app');
@@ -300,7 +301,7 @@ function updateBadges() {
   const c = unreadCount(u); const b = qs('[data-bell-count]');
   if (b) { b.textContent = c > 99 ? '99+' : c; b.classList.toggle('hidden', !c); }
   const a = qs('[data-badge="alerts"]');
-  if (a) { const n = derivedAlerts().filter((x) => x.severity === 'critical').length; a.textContent = n; a.classList.toggle('hidden', !n); }
+  if (a) { const n = alertsFor(u).filter((x) => x.severity === 'critical').length; a.textContent = n; a.classList.toggle('hidden', !n); }
   const ap = qs('[data-badge="approvals"]');
   if (ap) { const n = approvalItems(u).length; ap.textContent = n; ap.classList.toggle('hidden', !n); }
 }

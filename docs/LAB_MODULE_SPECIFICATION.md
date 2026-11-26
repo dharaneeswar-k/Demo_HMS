@@ -822,6 +822,25 @@ Evaluated in this order:
 
 **[PROD]** real-time push (WebSocket / Server-Sent Events) and optional WhatsApp alerts to the owner for critical events.
 
+### 20.1 Live alerts are shown by role
+
+Live alerts (the Alerts page, the sidebar badge and the Home "Needs your attention" count) are worked out from the data and **each user sees only the alerts for their own area of work**. Every alert category is tied to one permission; a user sees the alert only if their role has that permission (or the alert is assigned to them). The Super Admin has every permission and sees everything. Rules are in `assets/js/alert-rules.js`.
+
+| Category | Shown to (permission) | Opens |
+|---|---|---|
+| Sample Waiting (over 1 h, not collected) | Lab (`lab.work`) | SID page |
+| Critical Result (resulted, not verified) | Lab (`lab.verify`) | SID page, verify step |
+| Report Not Sent (ready over 2 h) / Report Not Collected | Lab (`lab.deliver`) | SID page, send step |
+| Reagent Kit Low / out | Lab, Admin (`lab.kits`) | Kits |
+| Lab Payment Pending (sample on hold for payment) | Reception (`hbill.collect`) | Bill |
+| Advised, Not Billed | Reception (`hbill.create`) | Billing with the patient loaded |
+| Credit Approval | Super Admin (`credit.approve`) | Bill |
+| MRD Coding Overdue | MRD (`mrd.manage`) | Medical record |
+| Stock: low / out / near expiry / expired / pharmacy refill | Store, Pharmacy (`inventory.view`) | Medicine / batch |
+| GRN, adjustment, stock count, refund, cancellation, closing, cash variance | Store / Pharmacy by their approval rights | The record |
+
+Lab, Reception and MRD never see stock or pharmacy alerts, and Pharmacy and Store never see lab or reception alerts.
+
 ---
 
 ## 21. Audit trail

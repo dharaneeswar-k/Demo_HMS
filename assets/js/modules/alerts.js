@@ -1,13 +1,14 @@
 // Alerts & Tasks — live alerts derived from data + stored notifications
 import { store } from '../data-service.js';
 import { currentUser, can } from '../auth.js';
-import { derivedAlerts, userName } from '../calculations.js';
+import { userName } from '../calculations.js';
+import { alertsFor, ALERT_ICON } from '../alert-rules.js';
 import { visibleNotifications, isRead, markRead, markAllRead, notificationLink } from '../notifications.js';
 import { badge, dataTable, tabs, emptyState, kpi } from '../components.js';
 import { toast } from '../notifications.js';
 import { esc, icon, fmtDate, fmtDateTime, relTime, refreshIcons } from '../utils.js';
 
-const CATS = [['Low Stock', 'trending-down'], ['Out of Stock', 'ban'], ['Near Expiry', 'calendar-clock'], ['Expired Stock', 'calendar-x'], ['GRN Pending Verification', 'clipboard-check'], ['GRN Discrepancy', 'shield-alert'], ['Stock Adjustment Approval', 'scale'], ['Missing Documentation', 'file-warning'], ['Stock Shortage', 'clipboard-x'], ['Pharmacy Refill', 'arrow-right-left'], ['Refund Approval', 'undo-2'], ['Bill Cancellation', 'circle-slash'], ['Daily Closing', 'lock'], ['Cash Variance', 'scale']];
+const CATS = Object.entries(ALERT_ICON);
 const SEV_ORDER = { critical: 0, warning: 1, info: 2, success: 3 };
 const ackKey = (u) => 'nallam_hms_acks_' + u.id;
 const getAcks = (u) => new Set(JSON.parse(localStorage.getItem(ackKey(u)) || '[]'));
@@ -15,20 +16,22 @@ const getAcks = (u) => new Set(JSON.parse(localStorage.getItem(ackKey(u)) || '[]
 function alertLink(a) {
   if (a.refType === 'TRANSFER') return '#/transfers';
   if (a.refType === 'STOCKCOUNT') return '#/stock-count?focus=' + a.refId;
+  if (a.refType === 'LABVISIT') return `#/lab/visit/${a.refId}${a.step ? '?step=' + a.step : ''}`;
+  if (a.refType === 'PATIENT_BILL') return `#/hbill?patient=${a.refId}`;
   if (a.refType === 'CLOSING_PENDING') { const [d, c] = a.refId.split('|'); return `#/pharmacy/closing?date=${d}&cashier=${c}`; }
-  return { MEDICINE: '#/inventory/' + a.refId, BATCH: '#/batches/' + a.refId, GRN: '#/grn/' + a.refId, ADJUSTMENT: '#/adjustments?focus=' + a.refId, RETURN: '#/pharmacy/returns?focus=' + a.refId, BILL: '#/pharmacy/bills/' + a.refId, CLOSING: '#/pharmacy/closing-report?focus=' + a.refId }[a.refType] || '#/alerts';
+  return { MEDICINE: '#/inventory/' + a.refId, BATCH: '#/batches/' + a.refId, GRN: '#/grn/' + a.refId, ADJUSTMENT: '#/adjustments?focus=' + a.refId, RETURN: '#/pharmacy/returns?focus=' + a.refId, BILL: '#/pharmacy/bills/' + a.refId, CLOSING: '#/pharmacy/closing-report?focus=' + a.refId, KIT: '#/lab/kits', HBILL: '#/hbills/' + a.refId, MRD: '#/mrd/' + a.refId }[a.refType] || '#/alerts';
 }
-const refLabel = (a) => (a.refType === 'CLOSING_PENDING' ? a.refId.split('|')[0] : a.refType === 'MEDICINE' ? store.get('medicines', a.refId)?.brandName : a.refType === 'BATCH' ? store.get('batches', a.refId)?.batchNo : a.refId);
+const refLabel = (a) => (a.label ? a.label : a.refType === 'CLOSING_PENDING' ? a.refId.split('|')[0] : a.refType === 'MEDICINE' ? store.get('medicines', a.refId)?.brandName : a.refType === 'BATCH' ? store.get('batches', a.refId)?.batchNo : a.refId);
 
 export function render(view, params, query) {
   const u = currentUser();
   let tab = query.tab || 'alerts';
-  const alerts = derivedAlerts();
+  const alerts = alertsFor(u);
   const notes = visibleNotifications(u);
   const acks = getAcks(u);
   const mine = alerts.filter((a) => a.assignee === u.id);
   view.innerHTML = `
-    <div class="page-head"><div><p class="muted">Problems that need action (stock, expiry, approvals) and messages about things that happened.</p></div></div>
+    <div class="page-head"><div><p class="muted">Problems in your area of work that need action, and messages about things that happened. You only see alerts for your own role.</p></div></div>
     <div class="chip-row">${CATS.filter(([c]) => alerts.some((a) => a.category === c)).map(([c, ic]) => { const n = alerts.filter((a) => a.category === c).length; const crit = alerts.some((a) => a.category === c && a.severity === 'critical'); return `<button class="chip" data-cat="${c}">${icon(ic)}${c} <strong class="${crit ? 'text-danger' : ''}">${n}</strong></button>`; }).join('') || '<span class="muted">No alerts — everything looks fine.</span>'}</div>
     <section class="card"><div data-tabs></div><div data-body></div></section>`;
   const body = view.querySelector('[data-body]');
@@ -42,7 +45,7 @@ export function render(view, params, query) {
     ], tab, (t) => { tab = t; catFilter = ''; draw(); });
   }
   function alertTable(rows) {
-    body.innerHTML = `<div class="toolbar"><select class="input" data-fc><option value="">All categories</option>${CATS.map(([c]) => `<option ${c === catFilter ? 'selected' : ''}>${c}</option>`).join('')}</select>
+    body.innerHTML = `<div class="toolbar"><select class="input" data-fc><option value="">All categories</option>${CATS.filter(([c]) => alerts.some((a) => a.category === c) || c === catFilter).map(([c]) => `<option ${c === catFilter ? 'selected' : ''}>${c}</option>`).join('')}</select>
       <select class="input" data-fs><option value="">All severities</option><option value="critical">Critical</option><option value="warning">Warning</option><option value="info">Info</option></select>
       <label class="check small"><input type="checkbox" data-fa> Hide acknowledged</label><span class="spacer"></span><span class="muted small">Acknowledging hides an alert from your task list; it reappears only if the condition is still true for others.</span></div><div data-t></div>`;
     const t = dataTable({ pageSize: 25, sort: { key: 'sev', dir: 'asc' }, empty: emptyState('check-circle-2', 'No alerts', 'Nothing needs attention right now.'), rowClass: (a) => (acks.has(a.key) ? '' : a.severity === 'critical' ? 'row-danger' : a.severity === 'warning' ? 'row-warning' : ''),
