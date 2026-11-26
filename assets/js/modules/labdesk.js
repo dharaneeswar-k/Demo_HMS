@@ -99,6 +99,8 @@ export function renderReportDesk(view, params, query) {
 // =====================================================================================================
 export function renderDisplay(view) {
   document.body.classList.add('token-mode');
+  let lastNow = null; // token shown as "Now calling" last time, to flash when it changes
+  const clock = () => new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
   const draw = () => {
     const today = businessDate();
     // Only patients who were given a counter token today and still have to come to the collection room.
@@ -107,14 +109,36 @@ export function renderDisplay(view) {
       && visitStatus(v) !== 'CANCELLED' && visitAccess(v).ok && tubesFor(v).some((t) => !t.collectedAt && t.orders.some((o) => o.status !== 'CANCELLED')));
     const called = vs.filter((v) => v.tokenStatus === 'CALLED').sort((a, b) => (b.calledAt || '').localeCompare(a.calledAt || ''));
     const waiting = vs.filter((v) => v.tokenStatus === 'WAITING').sort(byQueue);
-    view.innerHTML = `<div class="token-board"><header>${esc(store.settings().hospitalName)} — Laboratory sample collection<span>${new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}</span></header>
-      <div class="tb-now"><span>Now calling</span><strong>${called[0]?.token ?? '—'}</strong><em>${called[0] ? 'Please go to the sample collection room' : 'Please wait for your token'}</em>${called.length > 1 ? `<div class="tb-also"><span>Also called</span>${called.slice(1, 4).map((v) => `<b>${v.token}</b>`).join('')}</div>` : ''}</div>
-      <div class="tb-next"><span>Next</span><div>${waiting.slice(0, 8).map((v) => `<b class="${v.priority !== 'ROUTINE' ? 'pri' : ''}">${v.token}</b>`).join('') || '<em>No one waiting</em>'}</div></div>
-      <footer>Keep your bill with the SID number ready. Reports can be received on WhatsApp.</footer></div>`;
+    const now = called[0]; const MAX = 10; const more = waiting.length - MAX;
+    const flash = now && now.token !== lastNow; lastNow = now?.token ?? null;
+    view.innerHTML = `<div class="tb2">
+      <header class="tb2-head"><div class="tb2-brand"><b>${esc(store.settings().hospitalName)}</b><span>Laboratory · Sample collection</span></div>
+        <div class="tb2-clock" data-clock>${clock()}</div>
+        <button class="tb2-fs" data-fs title="Full screen (F)">⛶ Full screen</button></header>
+      <main class="tb2-main">
+        <section class="tb2-now ${now ? '' : 'idle'} ${flash ? 'flash' : ''}">
+          <span class="tb2-label">Now calling</span>
+          ${now ? `<strong class="tb2-token">${now.token}</strong><p>Please come to the <b>sample collection room</b></p>`
+            : `<i class="bi bi-hourglass-split tb2-idle" aria-hidden="true"></i><p>${waiting.length ? 'Please wait — your token will be called here' : 'No one is waiting right now'}</p>`}
+          ${called.length > 1 ? `<div class="tb2-also"><span>Also called</span>${called.slice(1, 4).map((v) => `<b>${v.token}</b>`).join('')}</div>` : ''}
+        </section>
+        <section class="tb2-next">
+          <span class="tb2-label">Next in line <em>${waiting.length}</em></span>
+          <div class="tb2-list">${waiting.slice(0, MAX).map((v) => `<b class="${v.priority !== 'ROUTINE' ? 'pri' : ''}">${v.token}${v.priority !== 'ROUTINE' ? '<small>Priority</small>' : ''}</b>`).join('') || '<p class="tb2-empty">No tokens waiting</p>'}
+            ${more > 0 ? `<b class="more">+${more}<small>more</small></b>` : ''}</div>
+        </section>
+      </main>
+      <footer class="tb2-foot">Keep your bill with the SID number ready · Reports can be received on WhatsApp</footer></div>`;
+    view.querySelector('[data-fs]').onclick = toggleFs;
   };
-  const unsub = store.subscribe(draw); const timer = setInterval(draw, 15000);
+  const toggleFs = () => { if (document.fullscreenElement) document.exitFullscreen?.(); else document.documentElement.requestFullscreen?.().catch(() => {}); };
+  const onKey = (e) => { if (e.key === 'f' || e.key === 'F') toggleFs(); };
+  const unsub = store.subscribe(draw);
+  const tick = setInterval(() => { const c = view.querySelector('[data-clock]'); if (c) c.textContent = clock(); }, 5000);
+  const timer = setInterval(draw, 30000); // the day can roll over and tokens age out even when nothing is saved
+  document.addEventListener('keydown', onKey);
   draw();
-  return () => { unsub(); clearInterval(timer); document.body.classList.remove('token-mode'); };
+  return () => { unsub(); clearInterval(timer); clearInterval(tick); document.removeEventListener('keydown', onKey); document.body.classList.remove('token-mode'); if (document.fullscreenElement) document.exitFullscreen?.(); };
 }
 
 // =====================================================================================================

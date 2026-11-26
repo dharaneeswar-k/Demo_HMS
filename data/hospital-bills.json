@@ -4835,5 +4835,458 @@
     "status": "PAID",
     "cancellation": null,
     "remarks": ""
+  },
+  {
+    "id": "HB-2026-00088",
+    "at": "2026-11-23T07:10:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0001",
+    "patientName": "Selvi Rajendran",
+    "uhid": "NH-UH-026101",
+    "phone": "+91 9396330059",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00088-1",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 350,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 350,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000090",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 350,
+        "at": "2026-11-23T07:10:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR60145549"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00089",
+    "at": "2026-11-23T07:14:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0004",
+    "patientName": "Ramesh Babu",
+    "uhid": "NH-UH-026212",
+    "phone": "+91 9212777519",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00089-1",
+        "serviceId": "SRV-0004",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Fasting (FBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00089-2",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      }
+    ],
+    "gross": 430,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 430,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000091",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 430,
+        "at": "2026-11-23T07:14:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00090",
+    "at": "2026-11-23T07:18:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0005",
+    "patientName": "Anitha Shankar",
+    "uhid": "NH-UH-026249",
+    "phone": "+91 9213929879",
+    "doctor": "Dr. M. Venkateswaran, M.D (Gen Med)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00090-1",
+        "serviceId": "SRV-0002",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Liver Function Test (LFT)",
+        "qty": 1,
+        "rate": 650,
+        "listRate": 650,
+        "gross": 650,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00090-2",
+        "serviceId": "SRV-0009",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Urine Routine Examination",
+        "qty": 1,
+        "rate": 150,
+        "listRate": 150,
+        "gross": 150,
+        "coveredBy": null
+      }
+    ],
+    "gross": 800,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 800,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000092",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 800,
+        "at": "2026-11-23T07:18:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR63776874"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00091",
+    "at": "2026-11-23T07:22:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0007",
+    "patientName": "Fathima Begum",
+    "uhid": "NH-UH-026323",
+    "phone": "+91 9398917266",
+    "doctor": "Self",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00091-1",
+        "serviceId": "SRV-0008",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Thyroid Profile (T3, T4, TSH)",
+        "qty": 1,
+        "rate": 700,
+        "listRate": 700,
+        "gross": 700,
+        "coveredBy": null
+      }
+    ],
+    "gross": 700,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 700,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000093",
+        "kind": "PAYMENT",
+        "mode": "CASH",
+        "amount": 700,
+        "at": "2026-11-23T07:22:00.000Z",
+        "userId": "USR-0005",
+        "reference": ""
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00092",
+    "at": "2026-11-23T07:25:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0009",
+    "patientName": "Kumaravel Pandian",
+    "uhid": "NH-UH-026397",
+    "phone": "+91 9632926947",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00092-1",
+        "serviceId": null,
+        "packageId": "PKG-0003",
+        "category": "PACKAGE",
+        "name": "Diabetes Check-up",
+        "qty": 1,
+        "rate": 1200,
+        "listRate": 1200,
+        "gross": 1200,
+        "coveredBy": null
+      }
+    ],
+    "gross": 1200,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 1200,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000094",
+        "kind": "PAYMENT",
+        "mode": "CARD",
+        "amount": 1200,
+        "at": "2026-11-23T07:25:00.000Z",
+        "userId": "USR-0005",
+        "reference": "XXXX-5383"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00093",
+    "at": "2026-11-23T07:26:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0009",
+    "patientName": "Kumaravel Pandian",
+    "uhid": "NH-UH-026397",
+    "phone": "+91 9632926947",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00093-1",
+        "serviceId": "SRV-0004",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Fasting (FBS)",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 80,
+        "gross": 0,
+        "coveredBy": "PP-0003"
+      },
+      {
+        "id": "HB-2026-00093-2",
+        "serviceId": "SRV-0006",
+        "packageId": null,
+        "category": "LAB",
+        "name": "HbA1c (Glycated Haemoglobin)",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 550,
+        "gross": 0,
+        "coveredBy": "PP-0003"
+      },
+      {
+        "id": "HB-2026-00093-3",
+        "serviceId": "SRV-0007",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Lipid Profile",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 600,
+        "gross": 0,
+        "coveredBy": "PP-0003"
+      },
+      {
+        "id": "HB-2026-00093-4",
+        "serviceId": "SRV-0009",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Urine Routine Examination",
+        "qty": 1,
+        "rate": 0,
+        "listRate": 150,
+        "gross": 0,
+        "coveredBy": "PP-0003"
+      }
+    ],
+    "gross": 0,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 0,
+    "discountRequestId": null,
+    "payments": [],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00094",
+    "at": "2026-11-23T07:32:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0010",
+    "patientName": "Revathi Mohan",
+    "uhid": "NH-UH-026434",
+    "phone": "+91 9839644125",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00094-1",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00094-2",
+        "serviceId": "SRV-0012",
+        "packageId": null,
+        "category": "LAB",
+        "name": "C-Reactive Protein (CRP)",
+        "qty": 1,
+        "rate": 450,
+        "listRate": 450,
+        "gross": 450,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00094-3",
+        "serviceId": "SRV-0003",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Renal Function Test (RFT)",
+        "qty": 1,
+        "rate": 550,
+        "listRate": 550,
+        "gross": 550,
+        "coveredBy": null
+      }
+    ],
+    "gross": 1350,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 1350,
+    "discountRequestId": null,
+    "payments": [],
+    "credit": {
+      "type": "EMERGENCY",
+      "reason": "Road accident — brought to casualty, attender arranging money",
+      "requestedBy": "USR-0005",
+      "requestedAt": "2026-11-23T07:32:00.000Z",
+      "status": "EMERGENCY",
+      "decidedBy": "USR-0003",
+      "decidedAt": "2026-11-23T11:32:00.000Z",
+      "note": "Collect before discharge"
+    },
+    "status": "UNPAID",
+    "cancellation": null,
+    "remarks": ""
+  },
+  {
+    "id": "HB-2026-00095",
+    "at": "2026-11-23T07:40:00.000Z",
+    "businessDate": "2026-11-23",
+    "patientId": "PAT-0016",
+    "patientName": "Shalini Kumar",
+    "uhid": "NH-UH-026656",
+    "phone": "+91 9414558148",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "counterUserId": "USR-0005",
+    "items": [
+      {
+        "id": "HB-2026-00095-1",
+        "serviceId": "SRV-0001",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Complete Blood Count (CBC)",
+        "qty": 1,
+        "rate": 350,
+        "listRate": 350,
+        "gross": 350,
+        "coveredBy": null
+      },
+      {
+        "id": "HB-2026-00095-2",
+        "serviceId": "SRV-0004",
+        "packageId": null,
+        "category": "LAB",
+        "name": "Blood Sugar — Fasting (FBS)",
+        "qty": 1,
+        "rate": 80,
+        "listRate": 80,
+        "gross": 80,
+        "coveredBy": null
+      }
+    ],
+    "gross": 430,
+    "discountPct": 0,
+    "discountTotal": 0,
+    "roundOff": 0,
+    "grandTotal": 430,
+    "discountRequestId": null,
+    "payments": [
+      {
+        "id": "HPY-000095",
+        "kind": "PAYMENT",
+        "mode": "UPI",
+        "amount": 430,
+        "at": "2026-11-23T07:40:00.000Z",
+        "userId": "USR-0005",
+        "reference": "UTR16482901"
+      }
+    ],
+    "credit": null,
+    "status": "PAID",
+    "cancellation": null,
+    "remarks": ""
   }
 ]

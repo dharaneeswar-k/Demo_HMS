@@ -492,7 +492,8 @@ SID rule: **one SID per visit**, not per test (the standalone-lab practice obser
 - **Who appears on the waiting-room token screen** (`#/lab/display`) — only patients who were given a **counter token today** and still have to come to the collection room:
   - shown: OP, outside-doctor (referral), self-request and package patients with a token, payment cleared, at least one tube still to collect;
   - never shown: **ward (IP) orders** (collected at the bedside), casualty, cancelled visits, unpaid bills, and patients whose tubes are all collected (they drop off by themselves);
-  - layout: **Now calling** (latest called token, large), **Also called** (up to 3 earlier called tokens still not collected), **Next** (up to 8 waiting tokens, priority tokens highlighted). Tokens only — no names on the public screen.
+  - layout (scales with the screen size, TV or monitor): header with hospital name and a live clock; left — **Now calling** (latest called token, very large, flashes when it changes; an hourglass when nobody is called) and **Also called** (up to 3 earlier called tokens still not collected); right — **Next in line** with the count, up to 10 waiting tokens as tiles (Urgent / STAT tiles red, marked *Priority*) and **+N more** when the queue is longer. Tokens only — no names on the public screen.
+  - **Full screen** button (or press **F**); the clock updates every 5 s and the board redraws every 30 s, and at once when the lab calls or collects (also from another browser tab).
 - **[PROD]** audio announcement ("Token number 7, please come to sample collection") and a dedicated TV page with auto-refresh via server push.
 
 ### 11.2 Ward rounds (IP)
@@ -1328,7 +1329,7 @@ Cloud (recommended — owner wants remote access) or on-premise server: 4 vCPU, 
 | S7 | (old link) `#/lab/orders/{id}` | — | Redirect | Opens the SID page at the results / verify step — results are entered per patient, not per test |
 | S8 | Combined report `#/lab/visit/{id}/report` | Lab, Reception, MRD | Print | Letterhead, patient block, per-test tables, flags, signatures |
 | S9 | Report Desk `#/lab/reports` | Lab, Reception | Deliver | Tabs ready / partial / sent / handed / not collected; search by SID / phone; CSV |
-| S10 | Token display `#/lab/display` | TV | Waiting area | Counter-token patients only (no ward / casualty — §11.1); Now calling (large), Also called, Next tokens, priority highlight, auto-refresh |
+| S10 | Token display `#/lab/display` | TV | Waiting area | Counter-token patients only (no ward / casualty — §11.1); Now calling (large, flashes on change), Also called, Next in line tiles with count and +N more, priority tiles in red, live clock, Full screen (F), auto-refresh; responsive |
 | S11 | Ward Lab Order `#/lab/ward-order` | Nurse, Lab | IP orders | Admitted patient picker, doctor, priority, tests (with container), notes, **"Also send the report to the patient's WhatsApp"** (shows the number; ticked when the patient has a mobile), today's ward orders |
 | S12 | Reagent Kits `#/lab/kits` | Lab, Owner | Inventory | Stock, kits vs tests billed, physical counts, ledger; receive, QC/repeat/wastage, count |
 | S13 | Hospital Setup → Lab tests / Messaging / Referral doctors `#/setup` | Owner | Configure | Test formats, kit per test, messaging provider & templates with WhatsApp preview, referral doctor master with 30-day statistics |
@@ -1747,6 +1748,27 @@ The billing catalogue endpoint returns only active tests; the server re-checks `
 - New **Also called** row (up to 3 earlier called tokens not yet collected). Rules in §11.1.
 - Code: `labdesk.js` (`renderDisplay`), `css/hospital.css`.
 
+**Change 4 — Token screen redesign and fixes.**
+- Bugs fixed: with nobody called, *Now calling* showed a huge white bar (a giant dash) — now an hourglass and "Please wait — your token will be called here"; the heading and clock wrapped onto two lines on smaller screens; all sizes were fixed pixels (did not fit a TV or a small monitor); the clock moved only every 15 s; a long queue was silently cut at 8 tokens.
+- New layout: two halves (Now calling · Next in line), sizes scale with the screen, priority tokens marked, **+N more**, Full screen button / **F** key, the called token flashes when it changes.
+- Code: `labdesk.js` (`renderDisplay`), `css/hospital.css` (`.tb2-*`).
+
+**Change 5 — Demo data: one waiting patient for every way into the lab.** `tools/hospital-data.mjs` (regenerate with `node tools/generate-data.mjs`) now puts these in **To collect** today:
+
+| SID (demo) | Way in | What it shows |
+|---|---|---|
+| 04010062 | IP ward order, STAT | Bed S-4 · Surgical ward, bedside collection |
+| 04010068 | Casualty (emergency credit), STAT | No token, collected in casualty |
+| 04010064 | OP — hospital doctor, STAT | Token 10, already **called** (Now calling on the token screen) |
+| 04010069 | IP ward order, Urgent | Bed G-3 · General ward, **WhatsApp copy to the patient** ticked |
+| 04010065 | Outside doctor prescription, Urgent | Token 11, 2 tubes (serum + urine), prescription on file |
+| 04010059 | Outside doctor | Token 7, sample **rejected — recollect** |
+| 04010060 / 04010066 | Self request | Tokens 8 and 12 |
+| 04010063 | OP — hospital doctor | Token 9, routine |
+| 04010067 | Health package (Diabetes Check-up) | Token 13, 4 tubes, paid through the package |
+| 04010070 | OP — hospital doctor | Token 14, **partly collected** (EDTA done, fluoride pending — also in To receive) |
+| (bill HB-…) | Credit waiting for the owner | Shown as *1 waiting for payment*, not collectable |
+
 **Acceptance tests**
 
 | # | Scenario | Steps | Expected |
@@ -1755,6 +1777,8 @@ The billing catalogue endpoint returns only active tests; the server re-checks `
 | T38 | Ward report without WhatsApp | Same, tick box off | Report posted to the ward only; not in Ready to send; WhatsApp still possible from the patient screen |
 | T39 | Patient type in the worklist | Open To collect with an OP, a ward and an outside-doctor patient | Blue / purple / amber icon and stripe with token or bed; *Patient type* filter shows only the chosen type |
 | T40 | Token screen | Place a ward order and bill an OP test; call the OP token | Token screen shows the OP token only; the ward patient never appears; the token drops off once all its tubes are collected |
+| T41 | Token screen, nobody called | Fresh day, tokens billed, none called | Hourglass and "Please wait" — no empty bar; Next in line shows the tokens with the count |
+| T42 | Demo To collect | Reset demo data → Lab Worklist → To collect | 11 patients: ward ×2, casualty, OP ×3 (one called, one partly collected), outside doctor ×2 (one recollect), self ×2, package |
 
 ---
 

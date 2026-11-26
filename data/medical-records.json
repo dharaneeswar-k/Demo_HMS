@@ -185,5 +185,37 @@
     "createdAt": "2026-11-20T03:30:00.000Z",
     "createdBy": "USR-0009",
     "source": "MANUAL"
+  },
+  {
+    "id": "MRD-0006",
+    "mrdNo": "MRD/2026/00316",
+    "patientId": "PAT-0013",
+    "episodeType": "IP",
+    "ipNo": "IP-2026-0146",
+    "admittedAt": "2026-11-22T11:00:00.000Z",
+    "dischargedAt": null,
+    "ward": "General ward — Bed G-3",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "diagnosis": "Acute gastroenteritis with dehydration",
+    "icd10": "A09",
+    "procedures": "",
+    "documents": [
+      {
+        "id": "DOC-0006-1",
+        "name": "Admission note.pdf",
+        "type": "application/pdf",
+        "size": 158720,
+        "at": "2026-11-22T11:00:00.000Z",
+        "by": "USR-0009",
+        "demo": true
+      }
+    ],
+    "status": "OPEN",
+    "location": "With ward",
+    "codedBy": null,
+    "codedAt": null,
+    "createdAt": "2026-11-22T11:00:00.000Z",
+    "createdBy": "USR-0009",
+    "source": "MANUAL"
   }
 ]

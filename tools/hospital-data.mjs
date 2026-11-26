@@ -443,6 +443,35 @@ export function buildHospitalData({ patients, doctors, pharmacyPayments, USERS }
   notes.push({ type: 'KIT_VARIANCE', category: 'Lab kits', severity: 'critical', title: 'Lab kit shortage — CBC reagent short by 3', message: 'Physical count is 3 tests lower than the system. Check for tests run without a bill.', refType: 'KITCOUNT', refId: 'KC-0001', targetRoles: ['SUPER_ADMIN'], assignedTo: OWNER, performedBy: LABU, createdAt: cAt });
   notes.push({ type: 'UNBILLED_SERVICE', category: 'Services', severity: 'warning', title: 'Service requested but not billed — ECG', message: `${patients[9].name}: ECG advised yesterday is still not billed at the main counter.`, refType: 'ORDER', refId: orders.find((o) => o.status === 'REQUESTED')?.id, targetRoles: ['SUPER_ADMIN', 'RECEPTION'], assignedTo: null, performedBy: null, createdAt: ist(TODAY, '08:00') });
 
+  // ---- lab "To collect" showcase: one waiting patient for every way into the lab (so each case can be tried) ----
+  // OP (routine and STAT, called) · outside-doctor prescription · self request · health package · casualty (emergency
+  // credit) · ward (IP, with WhatsApp to the patient) · partly collected. Recollect, payment-pending and the STAT ward
+  // order above complete the set. Patients used here have no other lab visit today.
+  const lab = (o) => o.category === 'LAB';
+  const showBill = (hm, pt, codes, opt = {}) => { const b = makeBill(ist(TODAY, hm), RECEP, pt, codes.map((c) => [c, 1]), { done: false, pay: 'UPI', ...opt }); return [b, orders.filter((o) => o.billId === b.id && lab(o))]; };
+  { const [b, lo] = showBill('12:40', patients[0], ['CBC'], { doctor: doctors[0] }); makeVisit(b, lo, { source: 'OP', doctor: doctors[0] }); }
+  { const [b, lo] = showBill('12:44', patients[3], ['FBS', 'CBC'], { doctor: doctors[1], pay: 'CASH' }); const v = makeVisit(b, lo, { source: 'OP', priority: 'STAT', doctor: doctors[1] });
+    Object.assign(v, { tokenStatus: 'CALLED', calledAt: ist(TODAY, '12:58'), calledBy: LABU }); }
+  { const [b, lo] = showBill('12:48', patients[4], ['LFT', 'URINE']); makeVisit(b, lo, { source: 'REFERRAL', priority: 'URGENT' }); }
+  { const [b, lo] = showBill('12:52', patients[6], ['THYROID'], { pay: 'CASH' }); makeVisit(b, lo, { source: 'SELF' }); }
+  { const pt = patients[8]; const pb = makeBill(ist(TODAY, '12:55'), RECEP, pt, [['PKG:DIAB']], { pay: 'CARD', doctor: doctors[0] });
+    patientPackages.push({ id: 'PP-0003', packageId: 'PKG-0003', patientId: pt.id, billId: pb.id, startAt: pb.at, validUntil: TODAY, status: 'ACTIVE', settledAt: null, settledBy: null, settlement: null });
+    const codes = ['FBS', 'HBA1C', 'LIPID', 'URINE'];
+    const [b, lo] = showBill('12:56', pt, codes, { coverWith: codes, packageEnrol: 'PP-0003', doctor: doctors[0] }); makeVisit(b, lo, { source: 'PACKAGE', doctor: doctors[0] }); }
+  { const [b, lo] = showBill('13:02', patients[9], ['CBC', 'CRP', 'RFT'], { doctor: doctors[0], credit: { type: 'EMERGENCY', reason: 'Road accident — brought to casualty, attender arranging money', status: 'EMERGENCY', note: 'Collect before discharge' } });
+    makeVisit(b, lo, { source: 'EMERGENCY', priority: 'STAT', doctor: doctors[0] }); }
+  { const pt = patients[12];
+    ep(6, pt, 'IP', ist('2026-11-22', '16:30'), null, 'General ward — Bed G-3', doctors[0], 'Acute gastroenteritis with dehydration', 'A09', '', ['Admission note.pdf']);
+    const at = ist(TODAY, '13:05');
+    const lo = ['RFT', 'CBC'].map((c) => { const sv = S(c); const o = { id: 'ORD-' + pad(++ordNo, 5), billId: null, itemId: null, patientId: pt.id, serviceId: sv.id, category: 'LAB', name: sv.name, doctor: doctors[0], requestedBy: SERVU, requestedAt: at, billedAt: at, status: 'READY', accession: null, performedBy: null, performedAt: null, notes: 'Vomiting since morning — check electrolytes', coveredBy: null,
+      ipCharge: { amount: sv.price, ipNo: 'IP-2026-0146', posted: false }, lab: { sampleType: sv.lab.sample, collectedAt: null, collectedBy: null, receivedAt: null, receivedBy: null, rejected: null, results: [], enteredBy: null, enteredAt: null, verifiedBy: null, verifiedAt: null, reportNo: null, printedAt: null, printCount: 0 } };
+      orders.push(o); return o; });
+    const v = makeVisit(null, lo, { source: 'IP', ipNo: 'IP-2026-0146', ward: 'General ward', bed: 'G-3', doctor: doctors[0], priority: 'URGENT', at, createdBy: SERVU });
+    Object.assign(v, { sendToPatient: true, recordId: medicalRecords.at(-1).id, clinicalNotes: 'Vomiting since morning — check electrolytes' }); }
+  { const [b, lo] = showBill('13:10', patients[15], ['CBC', 'FBS'], { doctor: doctors[1] });
+    const c = ist(TODAY, '13:18'); const edta = lo.find((o) => S('CBC').id === o.serviceId); Object.assign(edta.lab, { collectedAt: c, collectedBy: LABU }); edta.status = 'SAMPLE_COLLECTED';
+    makeVisit(b, lo, { source: 'OP', doctor: doctors[1] }); }
+
   return {
     services, labKits, labLots, labIndents, labOpenPacks, packages, hospitalSettings, labVisits, referralDoctors, messages, hospitalBills: bills, orders, kitMovements: kitMoves, kitCounts, patientPackages, medicalRecords, dischargeSummaries, mrdRetrievals: retrievals, shifts,
     extraDiscountRequests: discountRequests, extraNotifications: notes

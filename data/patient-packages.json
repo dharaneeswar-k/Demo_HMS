@@ -25,5 +25,17 @@
     "settledAt": null,
     "settledBy": null,
     "settlement": null
+  },
+  {
+    "id": "PP-0003",
+    "packageId": "PKG-0003",
+    "patientId": "PAT-0009",
+    "billId": "HB-2026-00092",
+    "startAt": "2026-11-23T07:25:00.000Z",
+    "validUntil": "2026-11-23",
+    "status": "ACTIVE",
+    "settledAt": null,
+    "settledBy": null,
+    "settlement": null
   }
 ]

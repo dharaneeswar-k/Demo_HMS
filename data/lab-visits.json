@@ -4123,5 +4123,449 @@
     ],
     "deliveries": [],
     "handover": null
+  },
+  {
+    "id": "LV-00063",
+    "sid": "04010063",
+    "patientId": "PAT-0001",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00088",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 9,
+    "tokenDay": "2026-11-23",
+    "tokenStatus": "WAITING",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-23T07:10:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-23T11:10:00.000Z",
+    "tubes": [
+      {
+        "code": "04010063-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00168"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      }
+    ],
+    "deliveries": [],
+    "handover": null
+  },
+  {
+    "id": "LV-00064",
+    "sid": "04010064",
+    "patientId": "PAT-0004",
+    "source": "OP",
+    "priority": "STAT",
+    "billId": "HB-2026-00089",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 10,
+    "tokenDay": "2026-11-23",
+    "tokenStatus": "CALLED",
+    "calledAt": "2026-11-23T07:28:00.000Z",
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-23T07:14:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-23T11:14:00.000Z",
+    "tubes": [
+      {
+        "code": "04010064-1",
+        "container": "FLUORIDE",
+        "orderIds": [
+          "ORD-00169"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      },
+      {
+        "code": "04010064-2",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00170"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      }
+    ],
+    "deliveries": [],
+    "handover": null,
+    "calledBy": "USR-0007"
+  },
+  {
+    "id": "LV-00065",
+    "sid": "04010065",
+    "patientId": "PAT-0005",
+    "source": "REFERRAL",
+    "priority": "URGENT",
+    "billId": "HB-2026-00090",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. M. Venkateswaran, M.D (Gen Med)",
+    "referralDoctorId": "RD-0001",
+    "rxBasis": "OUTSIDE_PRESCRIPTION",
+    "prescription": {
+      "id": "RXF-04010065",
+      "name": "prescription-04010065.jpg",
+      "type": "image/jpeg",
+      "size": 313344,
+      "at": "2026-11-23T07:18:00.000Z",
+      "by": "USR-0005",
+      "demo": true
+    },
+    "consent": null,
+    "token": 11,
+    "tokenDay": "2026-11-23",
+    "tokenStatus": "WAITING",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-23T07:18:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-23T13:18:00.000Z",
+    "tubes": [
+      {
+        "code": "04010065-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00171"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      },
+      {
+        "code": "04010065-2",
+        "container": "URINE",
+        "orderIds": [
+          "ORD-00172"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      }
+    ],
+    "deliveries": [],
+    "handover": null
+  },
+  {
+    "id": "LV-00066",
+    "sid": "04010066",
+    "patientId": "PAT-0007",
+    "source": "SELF",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00091",
+    "billingRoute": "COUNTER",
+    "doctor": "Self",
+    "referralDoctorId": null,
+    "rxBasis": "SELF_REQUEST",
+    "prescription": null,
+    "consent": null,
+    "token": 12,
+    "tokenDay": "2026-11-23",
+    "tokenStatus": "WAITING",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-23T07:22:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-23T15:22:00.000Z",
+    "tubes": [
+      {
+        "code": "04010066-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00173"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      }
+    ],
+    "deliveries": [],
+    "handover": null
+  },
+  {
+    "id": "LV-00067",
+    "sid": "04010067",
+    "patientId": "PAT-0009",
+    "source": "PACKAGE",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00093",
+    "billingRoute": "PACKAGE",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "referralDoctorId": null,
+    "rxBasis": "PACKAGE",
+    "prescription": null,
+    "consent": null,
+    "token": 13,
+    "tokenDay": "2026-11-23",
+    "tokenStatus": "WAITING",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-23T07:26:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-23T13:26:00.000Z",
+    "tubes": [
+      {
+        "code": "04010067-1",
+        "container": "FLUORIDE",
+        "orderIds": [
+          "ORD-00174"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      },
+      {
+        "code": "04010067-2",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00175"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      },
+      {
+        "code": "04010067-3",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00176"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      },
+      {
+        "code": "04010067-4",
+        "container": "URINE",
+        "orderIds": [
+          "ORD-00177"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      }
+    ],
+    "deliveries": [],
+    "handover": null
+  },
+  {
+    "id": "LV-00068",
+    "sid": "04010068",
+    "patientId": "PAT-0010",
+    "source": "EMERGENCY",
+    "priority": "STAT",
+    "billId": "HB-2026-00094",
+    "billingRoute": "EMERGENCY",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": null,
+    "tokenDay": null,
+    "tokenStatus": "WAITING",
+    "calledAt": null,
+    "collectionPoint": "CASUALTY",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-23T07:32:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-23T13:32:00.000Z",
+    "tubes": [
+      {
+        "code": "04010068-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00178"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      },
+      {
+        "code": "04010068-2",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00179",
+          "ORD-00180"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      }
+    ],
+    "deliveries": [],
+    "handover": null
+  },
+  {
+    "id": "LV-00069",
+    "sid": "04010069",
+    "patientId": "PAT-0013",
+    "source": "IP",
+    "priority": "URGENT",
+    "billId": null,
+    "billingRoute": "IP_ACCOUNT",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": null,
+    "tokenDay": null,
+    "tokenStatus": "WAITING",
+    "calledAt": null,
+    "collectionPoint": "WARD",
+    "ipNo": "IP-2026-0146",
+    "ward": "General ward",
+    "bed": "G-3",
+    "clinicalNotes": "Vomiting since morning — check electrolytes",
+    "createdAt": "2026-11-23T07:35:00.000Z",
+    "createdBy": "USR-0008",
+    "reportDueAt": "2026-11-23T13:35:00.000Z",
+    "tubes": [
+      {
+        "code": "04010069-1",
+        "container": "PLAIN",
+        "orderIds": [
+          "ORD-00181"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      },
+      {
+        "code": "04010069-2",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00182"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      }
+    ],
+    "deliveries": [],
+    "handover": null,
+    "sendToPatient": true,
+    "recordId": "MRD-0006"
+  },
+  {
+    "id": "LV-00070",
+    "sid": "04010070",
+    "patientId": "PAT-0016",
+    "source": "OP",
+    "priority": "ROUTINE",
+    "billId": "HB-2026-00095",
+    "billingRoute": "COUNTER",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "referralDoctorId": null,
+    "rxBasis": "DOCTOR_ORDER",
+    "prescription": null,
+    "consent": null,
+    "token": 14,
+    "tokenDay": "2026-11-23",
+    "tokenStatus": "WAITING",
+    "calledAt": null,
+    "collectionPoint": "OPD",
+    "ipNo": null,
+    "ward": null,
+    "bed": null,
+    "clinicalNotes": "",
+    "createdAt": "2026-11-23T07:40:00.000Z",
+    "createdBy": "USR-0005",
+    "reportDueAt": "2026-11-23T11:40:00.000Z",
+    "tubes": [
+      {
+        "code": "04010070-1",
+        "container": "EDTA",
+        "orderIds": [
+          "ORD-00183"
+        ],
+        "collectedAt": "2026-11-23T07:48:00.000Z",
+        "collectedBy": "USR-0007",
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      },
+      {
+        "code": "04010070-2",
+        "container": "FLUORIDE",
+        "orderIds": [
+          "ORD-00184"
+        ],
+        "collectedAt": null,
+        "collectedBy": null,
+        "receivedAt": null,
+        "receivedBy": null,
+        "rejected": null
+      }
+    ],
+    "deliveries": [],
+    "handover": null
   }
 ]
