@@ -6,27 +6,25 @@
 // Keys: / scan · ↑ ↓ row · Enter open · 1–5 step · Esc back to the worklist.
 import { store } from '../../data-service.js';
 import { currentUser, can } from '../../auth.js';
-import { reportReadyAt, collectTube, SOURCE } from '../../labflow.js';
+import { reportReadyAt, collectTube } from '../../labflow.js';
 import { businessDate } from '../../pharmacy-calc.js';
 import { openModal } from '../../components.js';
 import { toast } from '../../notifications.js';
 import { setMeta } from '../../app.js';
 import { esc } from '../../utils.js';
 import { icon } from './bi.js';
-import { STAGES, POINTS, stageById, stageOf, onHold, scanTarget, codesOf } from './stages.js';
+import { STAGES, stageById, stageOf, onHold, scanTarget, codesOf } from './stages.js';
 import { receiveCodes, openCollection } from './collect.js';
-import { pat, dur, minsSince, liveOrders, ageSex } from './ui.js';
+import { pat, dur, minsSince, liveOrders, ageSex, PTYPES, ptypeTag, ptypeWhere } from './ui.js';
 import { isCritical } from '../../hospital.js';
 import { mountSid } from './sid.js';
 
 const ACT = { collect: ['Collect', 'droplet-half'], receive: ['Receive', 'check2'], results: ['Enter results', 'keyboard'], verify: ['Verify', 'patch-check'], send: ['Send report', 'send'] };
-const short = (v) => (v.collectionPoint === 'WARD' ? 'Ward' : v.collectionPoint === 'CASUALTY' ? 'Casualty' : SOURCE[v.source]?.short || 'OPD');
-const place = (v) => (v.collectionPoint === 'WARD' ? `<span title="${esc(v.ward || '')}">${esc(v.bed || '—')}</span>` : v.collectionPoint === 'CASUALTY' ? 'CAS' : v.token ? `${v.token}${v.tokenStatus === 'CALLED' ? ' <small class="h-ok">called</small>' : ''}` : '—');
 const priTxt = (v) => (v.priority === 'STAT' ? '<span class="h-stat">STAT</span>' : v.priority === 'URGENT' ? '<span class="h-urg">Urgent</span>' : '<span class="h-muted">Routine</span>');
 
 export function renderWorkbench(view, params, query) {
   let stage = stageById(query.stage || query.tab).id;
-  let point = 'all';
+  let ptf = ''; // patient-type filter ('' = all)
   let statOnly = false;
   let sel = null;            // highlighted row in the worklist
   let open = query.v || null; // patient on screen (null = worklist)
@@ -42,10 +40,10 @@ export function renderWorkbench(view, params, query) {
       </header>
       <div class="h-box">
         <nav class="h-tabs" data-steps aria-label="Lab steps"></nav>
-        <div class="h-filters"><label>Source <select class="input input-sm" data-point>${POINTS.map((p) => `<option value="${p.id}">${p.label}</option>`).join('')}</select></label>
+        <div class="h-filters"><label>Patient type <select class="input input-sm" data-ptype></select></label>
           <label class="h-check"><input type="checkbox" data-stat> STAT only</label><span data-bulk></span>
           <span class="h-hint">Click a row to open · <kbd>↑</kbd> <kbd>↓</kbd> move · <kbd>Enter</kbd> open · <kbd>1</kbd>–<kbd>5</kbd> step</span></div>
-        <div class="h-tablewrap"><table class="h-table h-wltable"><thead><tr><th style="width:84px">Token / bed</th><th style="width:96px">SID</th><th>Patient</th><th>Tests</th><th style="width:84px">Came as</th><th style="width:78px">Priority</th><th style="width:96px">Waiting</th><th style="width:150px"></th></tr></thead><tbody data-rows></tbody></table></div>
+        <div class="h-tablewrap"><table class="h-table h-wltable"><thead><tr><th style="width:190px">Type / where</th><th style="width:96px">SID</th><th>Patient</th><th>Tests</th><th style="width:78px">Priority</th><th style="width:96px">Waiting</th><th style="width:150px"></th></tr></thead><tbody data-rows></tbody></table></div>
       </div>
     </section>
     <section data-pt class="h-ptview" hidden>
@@ -56,7 +54,7 @@ export function renderWorkbench(view, params, query) {
   const $ = (s) => view.querySelector(s);
   const scan = $('[data-scan]');
   const q = () => scan.value.trim().toLowerCase();
-  const items = () => stageById(stage).select(q(), point).filter((v) => !statOnly || v.priority === 'STAT');
+  const items = () => stageById(stage).select(q()).filter((v) => (!statOnly || v.priority === 'STAT') && (!ptf || v.source === ptf));
   const url = () => history.replaceState(null, '', `#/lab?stage=${stage}${open ? `&v=${open}` : ''}`);
 
   const drawTop = () => {
@@ -78,17 +76,19 @@ export function renderWorkbench(view, params, query) {
     if (!list.some((v) => v.id === sel)) sel = list[0]?.id || null;
     $('[data-bulk]').innerHTML = stage === 'receive' && list.length > 1 && can('lab.work') ? `<button class="btn btn-secondary btn-sm" data-recv-all>${icon('check2-all')}Receive all ${list.length}</button>` : '';
     $('[data-recv-all]')?.addEventListener('click', () => receiveCodes(list.flatMap((v) => v.tubes.filter((t) => t.collectedAt && !t.receivedAt).map((t) => t.code))));
+    const all = s.select(q()); const pt = $('[data-ptype]');
+    pt.innerHTML = `<option value="">All (${all.length})</option>${PTYPES.map((t) => { const n = all.filter((v) => v.source === t.id).length; return `<option value="${t.id}" ${t.id === ptf ? 'selected' : ''} ${n ? '' : 'disabled'}>${esc(t.long)} (${n})</option>`; }).join('')}`;
     const [act] = ACT[stage];
     $('[data-rows]').innerHTML = list.length ? list.map((v) => { const p = pat(v.patientId); const m = minsSince(s.since(v) || v.createdAt); const line = s.line(v); const codes = codesOf(v);
       const crit = stage !== 'verify' && liveOrders(v).some(isCritical);
       return `<tr class="${v.id === sel ? 'sel' : ''}" data-id="${v.id}">
-        <td class="mono">${place(v)}</td><td class="mono">${v.sid}</td>
+        <td><div class="h-typecell">${ptypeTag(v)}<small>${ptypeWhere(v)}</small></div></td><td class="mono">${v.sid}</td>
         <td class="h-pt"><b>${esc(p.name)}</b><small>${esc(ageSex(p))}</small></td>
         <td class="h-tests">${esc(codes.join(', '))}${line ? `<div class="h-line">${line}</div>` : ''}${crit ? '<div class="h-line"><span class="danger">Critical value</span></div>' : ''}</td>
-        <td>${short(v)}</td><td>${priTxt(v)}</td>
+        <td>${priTxt(v)}</td>
         <td class="${m > s.late ? 'h-late' : ''}">${dur(m)}</td>
         <td class="ta-right">${can(stage === 'verify' ? 'lab.verify' : stage === 'send' ? 'lab.deliver' : 'lab.work') ? `<button class="btn btn-sm ${v.id === sel ? 'btn-primary' : 'btn-secondary'}" data-act="${v.id}">${act}</button>` : ''}</td></tr>`; }).join('')
-      : `<tr><td colspan="8" class="h-empty">${icon(q() ? 'search' : 'check2-circle')}<b>${q() ? 'No match' : esc(s.empty[1])}</b><span>${q() ? `Nobody here matches “${esc(scan.value.trim())}”.` : esc(s.empty[2])}</span></td></tr>`;
+      : `<tr><td colspan="7" class="h-empty">${icon(q() ? 'search' : 'check2-circle')}<b>${q() ? 'No match' : esc(s.empty[1])}</b><span>${q() ? `Nobody here matches “${esc(scan.value.trim())}”.` : esc(s.empty[2])}</span></td></tr>`;
     view.querySelectorAll('[data-rows] tr[data-id]').forEach((r) => { r.onclick = (e) => { if (e.target.closest('[data-act]')) return; openPatient(r.dataset.id); }; });
     view.querySelectorAll('[data-act]').forEach((b) => { b.onclick = () => rowAction(b.dataset.act); });
   };
@@ -139,7 +139,7 @@ export function renderWorkbench(view, params, query) {
   };
 
   // ----- filters, scan box, keys -----
-  $('[data-point]').onchange = (e) => { point = e.target.value; sel = null; drawList(); };
+  $('[data-ptype]').onchange = (e) => { ptf = e.target.value; sel = null; drawList(); };
   $('[data-stat]').onchange = (e) => { statOnly = e.target.checked; sel = null; drawList(); };
   scan.addEventListener('input', drawList);
   scan.addEventListener('keydown', (e) => {

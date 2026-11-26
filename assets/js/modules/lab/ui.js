@@ -126,3 +126,20 @@ export function openDrawer({ head, tabs, active }) {
   document.addEventListener('keydown', onKey);
   return close;
 }
+
+// ---------- patient type: OP / IP / Casualty / Outside doctor / Self / Package ----------
+/** Patient types in the order the worklist filter lists them. */
+export const PTYPES = [
+  { id: 'OP', label: 'OP', long: 'OP — hospital doctor', cls: 'op' },
+  { id: 'IP', label: 'IP · Ward', long: 'IP — admitted (ward)', cls: 'ip' },
+  { id: 'EMERGENCY', label: 'Casualty', long: 'Casualty / emergency', cls: 'cas' },
+  { id: 'REFERRAL', label: 'Outside Dr', long: 'Outside doctor (prescription)', cls: 'ref' },
+  { id: 'SELF', label: 'Self', long: 'Self request', cls: 'self' },
+  { id: 'PACKAGE', label: 'Package', long: 'Health package', cls: 'pkg' }
+];
+export const ptype = (v) => PTYPES.find((t) => t.id === v.source) || PTYPES[0];
+/** Where to find the patient: ward bed, casualty, or the counter token. */
+export const ptypeWhere = (v) => (v.collectionPoint === 'WARD' ? `Bed ${esc(v.bed || '—')}${v.ward ? ` · ${esc(v.ward)}` : ''}`
+  : v.collectionPoint === 'CASUALTY' ? 'Casualty room' : v.token ? `Token ${v.token}${v.tokenStatus === 'CALLED' ? ' · called' : ''}` : '—');
+/** Small coloured type tag, e.g. [IP · Ward]. */
+export const ptypeTag = (v) => { const t = ptype(v); return `<span class="h-type t-${t.cls}" title="${esc(t.long)}">${esc(t.label)}</span>`; };

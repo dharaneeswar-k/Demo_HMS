@@ -326,3 +326,15 @@ body[data-module="lab"] .tm-tubeopt,
 body[data-module="lab"] /* small parts */
 .ls-kind { border-radius: 4px; }
 body[data-module="lab"] .tm-search { height: 38px; border-radius: 4px; }
+
+/* ---------- patient type tags (OP / IP / Casualty / Outside Dr / Self / Package) ---------- */
+.h-type { display: inline-block; padding: 1px 7px; border-radius: 3px; font-size: 11.5px; font-weight: 600; line-height: 18px; white-space: nowrap; border: 1px solid transparent; }
+.h-type.t-op   { background: #EAF2FC; color: #1D5FB4; border-color: #C9DCF5; }
+.h-type.t-ip   { background: #F0ECFA; color: #5B3BB0; border-color: #DCD2F4; }
+.h-type.t-cas  { background: #FCEDEB; color: #C4281C; border-color: #F3C9C4; }
+.h-type.t-ref  { background: #FFF5E0; color: #A45A00; border-color: #F2DDB0; }
+.h-type.t-self { background: #F1F3F5; color: #4A5866; border-color: #DDE2E7; }
+.h-type.t-pkg  { background: #E8F5EC; color: #1E7B45; border-color: #C6E6D1; }
+.h-typecell { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
+.h-typecell small { color: var(--h-ink-2); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 175px; }
+.h-filters select[data-ptype] { min-width: 210px; }

@@ -101,11 +101,14 @@ export function renderDisplay(view) {
   document.body.classList.add('token-mode');
   const draw = () => {
     const today = businessDate();
-    const vs = store.all('labVisits').filter((v) => v.tokenDay === today && v.collectionPoint === 'OPD');
+    // Only patients who were given a counter token today and still have to come to the collection room.
+    // Never shown: ward (IP) orders — collected at the bedside — casualty, cancelled visits, unpaid bills, patients already collected.
+    const vs = store.all('labVisits').filter((v) => v.tokenDay === today && v.token && v.collectionPoint === 'OPD' && v.source !== 'IP'
+      && visitStatus(v) !== 'CANCELLED' && visitAccess(v).ok && tubesFor(v).some((t) => !t.collectedAt && t.orders.some((o) => o.status !== 'CANCELLED')));
     const called = vs.filter((v) => v.tokenStatus === 'CALLED').sort((a, b) => (b.calledAt || '').localeCompare(a.calledAt || ''));
-    const waiting = vs.filter((v) => v.tokenStatus === 'WAITING' && visitAccess(v).ok).sort(byQueue);
+    const waiting = vs.filter((v) => v.tokenStatus === 'WAITING').sort(byQueue);
     view.innerHTML = `<div class="token-board"><header>${esc(store.settings().hospitalName)} — Laboratory sample collection<span>${new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}</span></header>
-      <div class="tb-now"><span>Now calling</span><strong>${called[0]?.token ?? '—'}</strong><em>${called[0] ? 'Please go to the sample collection room' : 'Please wait for your token'}</em></div>
+      <div class="tb-now"><span>Now calling</span><strong>${called[0]?.token ?? '—'}</strong><em>${called[0] ? 'Please go to the sample collection room' : 'Please wait for your token'}</em>${called.length > 1 ? `<div class="tb-also"><span>Also called</span>${called.slice(1, 4).map((v) => `<b>${v.token}</b>`).join('')}</div>` : ''}</div>
       <div class="tb-next"><span>Next</span><div>${waiting.slice(0, 8).map((v) => `<b class="${v.priority !== 'ROUTINE' ? 'pri' : ''}">${v.token}</b>`).join('') || '<em>No one waiting</em>'}</div></div>
       <footer>Keep your bill with the SID number ready. Reports can be received on WhatsApp.</footer></div>`;
   };

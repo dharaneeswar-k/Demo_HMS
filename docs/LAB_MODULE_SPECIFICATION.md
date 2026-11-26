@@ -2,7 +2,7 @@
 
 **Module:** BRD Module 06 — Laboratory Management (with its dependencies on Module 01 Patient Management, Reception / Module 08 Central Billing, 02 OP, 03 IP, 07 Services, 09 Discount Approval, 10 Packages, 11 MRD, 12 Shift, 13 Dashboard and 14 User Management)
 **Document type:** Functional + technical specification (build reference)
-**Version:** 1.0 · **Status:** Baseline from the approved demo (branch `feature_d`) · **Audience:** product owner, backend & frontend developers, QA, the hospital's lab in-charge
+**Version:** 1.1 · **Status:** Baseline from the approved demo (branch `feature_d`), with the changes listed in [§38 Change log](#38-change-log) · **Audience:** product owner, backend & frontend developers, QA, the hospital's lab in-charge
 
 > The demo (HTML/JS + JSON) is the **reference implementation** of every rule in this document. The production system must reproduce the same flow, the same states and the same rules on a real backend (Spring Boot + MySQL, as planned in the README). Where production must do *more* than the demo, it is marked **[PROD]**.
 
@@ -47,6 +47,7 @@
 35. [Open questions for the hospital](#35-open-questions-for-the-hospital)
 36. [Demo code map](#36-demo-code-map)
 37. [Lab Test Master (managing the test list)](#37-lab-test-master-managing-the-test-list)
+38. [Change log](#38-change-log)
 
 ---
 
@@ -355,9 +356,11 @@ flowchart TD
 ### 7.4 Channel B — IP ward order
 1. Ward doctor / nurse opens **Ward Lab Order**, picks the admitted patient (IP number, ward, bed), tests, priority (STAT for urgent cases) and notes.
 2. No payment step — each test is charged to the IP account (`ipCharge.posted = false`).
-3. The visit appears in **Lab Workbench → Collect → Ward** (ward + bed instead of a token). STAT orders notify the lab.
+3. The visit appears in **Lab Worklist → To collect** with the purple **IP · Ward** tag and *Bed S-4 · Surgical ward* instead of a token. It is **never** shown on the waiting-room token screen. STAT orders notify the lab.
 4. Phlebotomist collects at the bedside, checks the wrist band, scans tubes.
-5. Processing as usual. When complete → report posted to the IP record automatically; no WhatsApp by default.
+5. Processing as usual. When complete → report posted to the IP record automatically.
+   - If the ward ticked **"Also send the report to the patient's WhatsApp"** (`labVisit.sendToPatient = true`, ticked by default when the patient has a mobile), the report also waits in **Ready to send** until the lab presses **Send on WhatsApp** (with the WhatsApp server on, it is sent automatically at verification).
+   - Any ward report can still be sent to the patient by WhatsApp / SMS / email from the patient screen; *Hand over at counter* is not offered for ward patients.
 6. At discharge the IP module posts all lab charges to the final bill.
 
 ### 7.5 Channel C — emergency
@@ -486,10 +489,14 @@ SID rule: **one SID per visit**, not per test (the standalone-lab practice obser
 - Queue order: **priority (STAT → Urgent → Routine), then token number**.
 - Lab presses **Call** → `tokenStatus = CALLED`, `calledAt`; the waiting-room display shows **"Now calling 7"** and the next tokens (priority tokens highlighted).
 - Visits whose payment gate is not cleared do **not** appear in the queue (they are in the *Payment pending* tab).
+- **Who appears on the waiting-room token screen** (`#/lab/display`) — only patients who were given a **counter token today** and still have to come to the collection room:
+  - shown: OP, outside-doctor (referral), self-request and package patients with a token, payment cleared, at least one tube still to collect;
+  - never shown: **ward (IP) orders** (collected at the bedside), casualty, cancelled visits, unpaid bills, and patients whose tubes are all collected (they drop off by themselves);
+  - layout: **Now calling** (latest called token, large), **Also called** (up to 3 earlier called tokens still not collected), **Next** (up to 8 waiting tokens, priority tokens highlighted). Tokens only — no names on the public screen.
 - **[PROD]** audio announcement ("Token number 7, please come to sample collection") and a dedicated TV page with auto-refresh via server push.
 
 ### 11.2 Ward rounds (IP)
-- List of IP visits waiting for collection, showing **bed and ward** instead of a token, sorted by priority.
+- IP visits waiting for collection appear in the same worklist with the **IP · Ward** tag and **bed and ward** instead of a token, sorted by priority. Filter *Patient type → IP — admitted (ward)* lists only them.
 - Bedside identification: name + Patient ID + wrist band.
 
 ### 11.3 Casualty
@@ -605,6 +612,7 @@ For a text parameter with expected `ref`: case-insensitive match → `''`, other
 | **Email** | Patient email | Opens `mailto:`; staff attach the PDF | SMTP / transactional email with the PDF attached |
 | **Counter hand-over** | Patient / attender | Records who collected; blocked if the bill has a balance (setting) | Same + signature pad (optional) |
 | **IP record** | Ward / IP chart | Automatic delivery `WARD` when the SID is complete | Same, plus doctor notification in the IP module |
+| **WhatsApp for a ward patient** | Patient / attender mobile | When the ward order has *send to the patient's WhatsApp* ticked, the report waits in **Ready to send** after it is posted to the ward; the lab presses **Send on WhatsApp**. Any ward report can also be sent from the patient screen | Sent automatically at verification by the WhatsApp Cloud API worker |
 
 ### 15.2 Message templates (editable in Hospital Setup → Messaging)
 ```
@@ -1313,15 +1321,15 @@ Cloud (recommended — owner wants remote access) or on-premise server: 4 vCPU, 
 |---|---|---|---|---|
 | S1 | Hospital Bill `#/hbill` | Reception | Bill lab tests | Patient search + register, doctor, pending doctor requests, catalogue (category chips, search, price, sample, TAT), bill lines, **Lab request card**, discount with approval, payment modes (Cash, UPI, Card, Split, Credit, Emergency), validation messages, shift chip |
 | S2 | Bill receipt `#/hbills/{id}/receipt` | Reception | Print bill | SID, token, report date, 15-day note, department routing |
-| S3 | Lab Workbench `#/lab?stage=…` | Lab | Daily work | One large scan box (scan tube = receive, scan SID = open, type = search); a 5-step flow **Collect → Receive → Results → Verify → Send** with live counts; the chosen step's list with one main button per row; Collect has filters All / OPD tokens / Ward / Casualty; "waiting for payment" shown as a note, not a step; today's reports and average turnaround |
+| S3 | Lab Worklist `#/lab?stage=…&v=…` | Lab | Daily work | Scan box (scan tube = collect / receive, scan SID = open, type = search); tabs **To collect · To receive · Enter results · To verify · Ready to send** with live counts; one table, one action button per row; first column **Type / where** — a coloured tag (**OP** blue, **IP · Ward** purple, **Casualty** red, **Outside Dr** amber, **Self** grey, **Package** green) with *Token 7* or *Bed S-4 · Surgical ward* under it; filters **Patient type** (with counts) and *STAT only*; "waiting for payment" as a button, not a step; clicking a row opens the patient screen (S5) in place, Esc goes back |
 | S4 | Collection dialog | Lab | Collect tubes | Patient identity banner, 3 numbered steps, print labels, scan-to-confirm (wrong label refused), drawn tubes in cap colours, progress bar, closes itself when every tube is in |
-| S5 | SID page `#/lab/visit/{id}?step=results\|verify\|send` | Lab, Reception | Everything for one visit | Patient header (name, age/sex, ID, mobile, allergy, SID barcode); 6-step progress (Paid → Collected → In lab → Results → Verified → Delivered); a **Next step** banner with one button; each tube with its tests and **result entry for all tests together** (live High / Low / Critical flags, previous result, Enter = next box, Ctrl+S = save, sticky save / verify bar); per-test Correct / Verify; send card; details; activity timeline |
+| S5 | Patient screen (in the worklist, or full page `#/lab/visit/{id}`) | Lab, Reception | Everything for one visit | **Hospital-style layout (v1.1):** patient banner (name, age/sex, UHID, SID, token or bed, patient-type tag, doctor, waiting, priority, allergy / critical alerts); result grid Parameter · Result · Unit · Flag · Normal range · Previous; one action bar; side panel with sample tubes, visit facts and links (labels, report, progress, activity log, patient file). Behaviour kept from v1.0: patient header (name, age/sex, ID, mobile, allergy, SID barcode); 6-step progress (Paid → Collected → In lab → Results → Verified → Delivered); a **Next step** banner with one button; each tube with its tests and **result entry for all tests together** (live High / Low / Critical flags, previous result, Enter = next box, Ctrl+S = save, sticky save / verify bar); per-test Correct / Verify; send card; details; activity timeline |
 | S6 | Labels & request sheet `#/lab/visit/{id}/labels` | Lab | Print | 50 × 25 mm labels + A4 request sheet |
 | S7 | (old link) `#/lab/orders/{id}` | — | Redirect | Opens the SID page at the results / verify step — results are entered per patient, not per test |
 | S8 | Combined report `#/lab/visit/{id}/report` | Lab, Reception, MRD | Print | Letterhead, patient block, per-test tables, flags, signatures |
 | S9 | Report Desk `#/lab/reports` | Lab, Reception | Deliver | Tabs ready / partial / sent / handed / not collected; search by SID / phone; CSV |
-| S10 | Token display `#/lab/display` | TV | Waiting area | Now calling (large), next tokens, priority highlight, auto-refresh |
-| S11 | Ward Lab Order `#/lab/ward-order` | Nurse, Lab | IP orders | Admitted patient picker, doctor, priority, tests (with container), notes, today's ward orders |
+| S10 | Token display `#/lab/display` | TV | Waiting area | Counter-token patients only (no ward / casualty — §11.1); Now calling (large), Also called, Next tokens, priority highlight, auto-refresh |
+| S11 | Ward Lab Order `#/lab/ward-order` | Nurse, Lab | IP orders | Admitted patient picker, doctor, priority, tests (with container), notes, **"Also send the report to the patient's WhatsApp"** (shows the number; ticked when the patient has a mobile), today's ward orders |
 | S12 | Reagent Kits `#/lab/kits` | Lab, Owner | Inventory | Stock, kits vs tests billed, physical counts, ledger; receive, QC/repeat/wastage, count |
 | S13 | Hospital Setup → Lab tests / Messaging / Referral doctors `#/setup` | Owner | Configure | Test formats, kit per test, messaging provider & templates with WhatsApp preview, referral doctor master with 30-day statistics |
 | S14 | Management dashboard `#/management` | Owner | Oversight | Lab & MRD panel, reconciliation alerts |
@@ -1702,6 +1710,51 @@ The billing catalogue endpoint returns only active tests; the server re-checks `
 | T34 | Stop a test | Stop WIDAL with a reason | Gone from billing and ward orders; WIDAL tests in progress still finish; notification and audit row |
 | T35 | Permissions | `reception` / `lab` open the Test Master; try `#/lab/tests/new` | List and editor are read only; *new* goes back to the list; the logic refuses writes |
 | T36 | Super Admin | `owner` edits a test | Allowed, same rules as Admin |
+
+
+## 38. Change log
+
+### v1.1 — 27 Nov 2026
+
+**Look of the lab screens.** The lab module now uses a plain hospital-software layout: square corners, navy + teal, Bootstrap Icons. The old split *Lab Workbench* is now the **Lab Worklist** — one table per step, one action button per row; clicking a row opens the patient screen (S3, S5). Lab Stock, Test Master, Report Desk and Ward order keep their layout with the same colours and corners.
+
+**Change 1 — WhatsApp for ward (IP) lab orders.**
+- Ward Lab Order has a tick box **"Also send the report to the patient's WhatsApp"**, showing the mobile number. It is ticked by default when the patient has a mobile and disabled when there is none.
+- Stored as `labVisit.sendToPatient` (boolean, default `false`).
+- At verification the report is posted to the ward as before. When `sendToPatient` is on and no WhatsApp has gone to the patient yet, the visit also appears in **Ready to send** (marked *Ward asked for WhatsApp*), and the action bar shows **Send on WhatsApp**. With the WhatsApp Cloud API on, it is sent automatically.
+- Every ward report shows *Send a copy to the patient* (WhatsApp, SMS, email, print) on the patient screen; counter hand-over is not offered for ward patients.
+- Code: `labflow.js` (`createIpOrder`, `onOrderVerified`, `wardWaPending`), `lab/stages.js` (send step), `labdesk.js` (ward order form), `lab/sid.js` (send card and action bar).
+
+**Change 2 — Patient type shown in the Lab Worklist.**
+- First column **Type / where**: a coloured tag plus where to find the patient.
+
+| Source | Tag | Colour | Second line |
+|---|---|---|---|
+| OP | OP | blue | Token 7 (· called) |
+| IP | IP · Ward | purple | Bed S-4 · Surgical ward |
+| EMERGENCY | Casualty | red | Casualty room |
+| REFERRAL | Outside Dr | amber | Token 7 |
+| SELF | Self | grey | Token 8 |
+| PACKAGE | Package | green | Token 9 |
+
+- Filter **Patient type** lists each type with its count on the current step (types with none are greyed out).
+- The patient banner shows the same tag.
+- Code: `lab/ui.js` (`PTYPES`, `ptypeTag`, `ptypeWhere`), `lab/workbench.js`, `lab/sid.js`, `css/lab2.css`.
+
+**Change 3 — Token screen shows only counter-token patients.**
+- Shown: today's counter tokens (OP, outside doctor, self, package) with payment cleared and a tube still to collect.
+- Never shown: ward (IP) orders, casualty, cancelled, unpaid, already collected.
+- New **Also called** row (up to 3 earlier called tokens not yet collected). Rules in §11.1.
+- Code: `labdesk.js` (`renderDisplay`), `css/hospital.css`.
+
+**Acceptance tests**
+
+| # | Scenario | Steps | Expected |
+|---|---|---|---|
+| T37 | Ward report to WhatsApp | Ward Lab Order → admitted patient with a mobile → tick stays on → FBS → Send to lab; collect, receive, enter, verify | Report posted to the ward **and** listed in Ready to send with *Send on WhatsApp*; after sending it leaves the list |
+| T38 | Ward report without WhatsApp | Same, tick box off | Report posted to the ward only; not in Ready to send; WhatsApp still possible from the patient screen |
+| T39 | Patient type in the worklist | Open To collect with an OP, a ward and an outside-doctor patient | Tags OP / IP · Ward / Outside Dr with token or bed; *Patient type* filter shows only the chosen type |
+| T40 | Token screen | Place a ward order and bill an OP test; call the OP token | Token screen shows the OP token only; the ward patient never appears; the token drops off once all its tubes are collected |
 
 ---
 

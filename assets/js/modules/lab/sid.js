@@ -16,7 +16,7 @@ import { toast } from '../../notifications.js';
 import { setMeta } from '../../app.js';
 import { esc, fmtDate, fmtDateTime } from '../../utils.js';
 import { icon, emptyState } from './bi.js';
-import { pat, ageSex, liveOrders, liveTubes, statusPill, cap, tubeInfo, clock, journey, nextAction, dur, minsSince, openDrawer } from './ui.js';
+import { pat, ageSex, liveOrders, liveTubes, statusPill, ptypeTag, cap, tubeInfo, clock, journey, nextAction, dur, minsSince, openDrawer } from './ui.js';
 import { rejectTubeDialog, receiveCodes } from './collect.js';
 
 const FLAG = { H: ['High', 'hi', 'arrow-up'], L: ['Low', 'lo', 'arrow-down'], HH: ['Critical high', 'crit', 'siren'], LL: ['Critical low', 'crit', 'siren'], A: ['Abnormal', 'abn', 'asterisk'] };
@@ -58,7 +58,7 @@ export function mountSid(host, id, { step } = {}) {
         <div class="h-bn-name"><b>${esc(p.name)}</b><small>${esc(ageSex(p))} · UHID <span class="mono">${esc(p.uhid)}</span></small></div>
         <div><label>SID</label><span class="mono">${vv.sid}</span></div>
         <div><label>${where[0]}</label><span>${where[1]}</span></div>
-        <div><label>Came as</label><span>${esc(SOURCE[vv.source].short)}</span></div>
+        <div><label>Patient type</label><span>${ptypeTag(vv)}</span></div>
         <div class="h-bn-doc"><label>Referred by</label><span title="${esc(vv.doctor || 'Self request')}">${esc(vv.doctor || 'Self request')}</span></div>
         <div><label>${waited[0]}</label><span class="${!ready && minsSince(vv.createdAt) > 120 ? 'h-late' : ''}">${waited[1]}</span></div>
         <div><label>Priority</label><span>${pri}</span></div>
