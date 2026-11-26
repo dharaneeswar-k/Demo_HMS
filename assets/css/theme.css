@@ -51,9 +51,9 @@ code { border-radius: 3px; background: var(--h-head); }
 .nav-link { border-radius: 4px; padding: 7px 10px; gap: 10px; font-size: 13px; font-weight: 500; color: #C9D6E2; position: relative; }
 .nav-link svg, .nav-link .bi { width: 16px; height: 16px; font-size: 15px; opacity: .85; }
 .nav-link:hover { background: rgba(255,255,255,.06); color: #fff; }
-.nav-link.active { background: rgba(255,255,255,.10); color: #fff; box-shadow: inset 3px 0 0 #2FB5BF; font-weight: 600; }
-.nav-link.active svg { opacity: 1; color: #5FD0D8; }
-.nav-link.sub.active { background: rgba(255,255,255,.08); box-shadow: inset 3px 0 0 #2FB5BF; }
+.nav-link.active, .nav-link.active:hover { background: rgba(255,255,255,.13); color: #fff; box-shadow: none; font-weight: 600; }
+.nav-link.active svg, .nav-link.active .bi { opacity: 1; color: #fff; }
+.nav-link.sub.active { background: rgba(255,255,255,.10); box-shadow: none; }
 .nav-link.sub.active::before { display: none; }
 .nav-badge { border-radius: 3px; background: var(--h-red); box-shadow: none; font-size: 10.5px; padding: 0 6px; line-height: 17px; }
 .nav-more { border-top-color: rgba(255,255,255,.08); }
