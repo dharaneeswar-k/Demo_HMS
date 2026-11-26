@@ -347,7 +347,7 @@ flowchart TD
 ### 7.4 Channel B — IP ward order
 1. Ward doctor / nurse opens **Ward Lab Order**, picks the admitted patient (IP number, ward, bed), tests, priority (STAT for urgent cases) and notes.
 2. No payment step — each test is charged to the IP account (`ipCharge.posted = false`).
-3. The visit appears in **Lab Desk → Ward rounds** (ward + bed instead of a token). STAT orders notify the lab.
+3. The visit appears in **Lab Workbench → Collect → Ward** (ward + bed instead of a token). STAT orders notify the lab.
 4. Phlebotomist collects at the bedside, checks the wrist band, scans tubes.
 5. Processing as usual. When complete → report posted to the IP record automatically; no WhatsApp by default.
 6. At discharge the IP module posts all lab charges to the final bill.
@@ -520,7 +520,7 @@ Example (the visit observed at the standalone lab): CBC + CRP + thyroid → **2 
 ## 12. Sample receipt, rejection and recollection
 
 ### 12.1 Receipt in the lab (accessioning)
-- The lab scans the tube (Lab Desk scan box or *Receive* tab). `tube.receivedAt/By` and each order's `lab.receivedAt/By` are set.
+- The lab scans the tube (Lab Workbench scan box or the *Receive* step). `tube.receivedAt/By` and each order's `lab.receivedAt/By` are set.
 - **Results cannot be entered for a tube that has not been received** (rule LR-4).
 
 ### 12.2 Rejection
@@ -556,7 +556,7 @@ For a text parameter with expected `ref`: case-insensitive match → `''`, other
 
 ### 13.3 Critical values
 - On saving results with any `LL`/`HH`, a **critical alert** goes to the lab and the Super Admin: "Critical result — <patient>… Inform <doctor> now."
-- The order shows *CRITICAL VALUE* on the Lab Desk; the verify queue highlights it.
+- The visit shows a pulsing *Critical value* tag; the Verify step lists it first and the SID page highlights the row in red.
 - **[PROD]** mandatory "critical value communicated to <name> at <time> by <user>" log before verification (NABL practice), and an SMS/WhatsApp to the ordering doctor.
 
 ### 13.4 Verification
@@ -708,7 +708,7 @@ A count shortage or unexplained usage means a kit was used without a bill → le
 ## 17. Turnaround time (TAT) and service levels
 
 - Each test has a target TAT in hours (catalogue). Visit `reportDueAt` = max(bill time + TAT of each test).
-- Lab Desk shows waiting time per visit and **"over TAT"** in red.
+- Lab Workbench shows waiting time per visit and **"over TAT"** in red.
 - KPIs: average TAT today, TAT report per test (count, target, average minutes, longest, over-target count).
 - **[PROD]** separate TAT targets per priority (e.g. STAT ≤ 60 min).
 
@@ -848,7 +848,7 @@ Every row: `id, at (UTC), userId, action, entity, entityId, details`.
 
 | Report | Contents | Who |
 |---|---|---|
-| Lab Desk KPIs | Waiting for sample (OPD / ward / casualty), tubes to receive, results / verification pending, reports today + average TAT | Lab |
+| Lab Workbench counts | Waiting for sample (OPD / ward / casualty), tubes to receive, results / verification pending, reports today + average TAT | Lab |
 | Report desk | Ready, partial, sent, handed over, not collected; CSV export | Lab, Reception |
 | Kits vs tests billed | Per kit: billed, run, used, QC, repeat, wastage, count shortage, unexplained, efficiency | Lab, Owner |
 | Lab turnaround time | Per test: reports, target, average, longest, over target | Owner |
@@ -1171,11 +1171,11 @@ Cloud (recommended — owner wants remote access) or on-premise server: 4 vCPU, 
 |---|---|---|---|---|
 | S1 | Hospital Bill `#/hbill` | Reception | Bill lab tests | Patient search + register, doctor, pending doctor requests, catalogue (category chips, search, price, sample, TAT), bill lines, **Lab request card**, discount with approval, payment modes (Cash, UPI, Card, Split, Credit, Emergency), validation messages, shift chip |
 | S2 | Bill receipt `#/hbills/{id}/receipt` | Reception | Print bill | SID, token, report date, 15-day note, department routing |
-| S3 | Lab Desk `#/lab` | Lab | Daily work | KPIs; tabs OPD queue · Ward rounds · Casualty · Receive · Results · Verify · Payment pending; scan box (scan tube = receive, scan SID = open) |
-| S4 | Collection dialog | Lab | Collect tubes | Identity checklist, print labels, scan-to-confirm, per-tube status |
-| S5 | SID page `#/lab/visit/{id}` | Lab, Reception | One visit | Status, source, priority; tests & tubes table (collected / received / reject); delivery card (WhatsApp, SMS, Email, Referring doctor, Hand over); delivery log; patient & billing panel; prescription viewer |
+| S3 | Lab Workbench `#/lab?stage=…` | Lab | Daily work | One large scan box (scan tube = receive, scan SID = open, type = search); a 5-step flow **Collect → Receive → Results → Verify → Send** with live counts; the chosen step's list with one main button per row; Collect has filters All / OPD tokens / Ward / Casualty; "waiting for payment" shown as a note, not a step; today's reports and average turnaround |
+| S4 | Collection dialog | Lab | Collect tubes | Patient identity banner, 3 numbered steps, print labels, scan-to-confirm (wrong label refused), drawn tubes in cap colours, progress bar, closes itself when every tube is in |
+| S5 | SID page `#/lab/visit/{id}?step=results\|verify\|send` | Lab, Reception | Everything for one visit | Patient header (name, age/sex, ID, mobile, allergy, SID barcode); 6-step progress (Paid → Collected → In lab → Results → Verified → Delivered); a **Next step** banner with one button; each tube with its tests and **result entry for all tests together** (live High / Low / Critical flags, previous result, Enter = next box, Ctrl+S = save, sticky save / verify bar); per-test Correct / Verify; send card; details; activity timeline |
 | S6 | Labels & request sheet `#/lab/visit/{id}/labels` | Lab | Print | 50 × 25 mm labels + A4 request sheet |
-| S7 | Result entry `#/lab/orders/{id}` | Lab | Enter / verify | Parameters, inputs, units, ranges, live flags, previous result, save, verify, reject |
+| S7 | (old link) `#/lab/orders/{id}` | — | Redirect | Opens the SID page at the results / verify step — results are entered per patient, not per test |
 | S8 | Combined report `#/lab/visit/{id}/report` | Lab, Reception, MRD | Print | Letterhead, patient block, per-test tables, flags, signatures |
 | S9 | Report Desk `#/lab/reports` | Lab, Reception | Deliver | Tabs ready / partial / sent / handed / not collected; search by SID / phone; CSV |
 | S10 | Token display `#/lab/display` | TV | Waiting area | Now calling (large), next tokens, priority highlight, auto-refresh |
@@ -1317,7 +1317,7 @@ CBC reagent pack, LFT kit, RFT kit, glucose reagent/strips, HbA1c cartridge, lip
 | T2 | Self request with HIV | Bill HIV, source Self | Blocked: "…cannot be done on a self request…" |
 | T3 | HIV without consent | Bill HIV, source Referral with prescription, consent unticked | Blocked: consent message |
 | T4 | Referral full flow | Bill CBC + CRP + FBS with prescription, Urgent, cash | Bill PAID; 1 SID; 3 tubes (EDTA, PLAIN, FLUORIDE); token assigned; receipt shows SID, token, report date, 15-day note |
-| T5 | Token call | Lab Desk → Call | Token display shows "Now calling <token>" |
+| T5 | Token call | Lab Workbench → Collect → Call | Token display shows "Now calling <token>" |
 | T6 | Scan to collect | Collection dialog → scan each tube | Tubes collected; orders SAMPLE_COLLECTED; kits reduced by 1 each; token DONE |
 | T7 | Wrong label | Scan another SID's tube in the dialog | Error, nothing changes |
 | T8 | Results before receipt | Try to enter results for a collected, not received tube | Blocked: "Receive the tube in the lab…" |
@@ -1338,7 +1338,7 @@ CBC reagent pack, LFT kit, RFT kit, glucose reagent/strips, HbA1c cartridge, lip
 | T23 | Kit count shortage | Count CBC reagent 2 less | Count SUBMITTED; owner alert; stock adjusted; appears in Approvals |
 | T24 | Reconciliation | Kits vs tests billed for 7 days | Matches formulas §16.4 |
 | T25 | Uncollected | Report ready > 15 days, not handed over | Listed in "Not collected" |
-| T26 | Permissions | Sign in as Service Counter → open Lab Desk | Access restricted; Ward Lab Order allowed |
+| T26 | Permissions | Sign in as Service Counter → open Lab Workbench | Access restricted; Ward Lab Order allowed |
 | T27 | Shift | Reception without open shift → complete bill | Prompted to start shift |
 | T28 | Audit | After T4–T15 | Audit rows for every step with user and time |
 
@@ -1390,8 +1390,14 @@ CBC reagent pack, LFT kit, RFT kit, glucose reagent/strips, HbA1c cartridge, lip
 | `assets/js/patients.js` + `modules/patients.js` | Registration (quick form, email), duplicates, timeline |
 | `assets/js/modules/hbilling.js` | Billing screen incl. Lab request card |
 | `assets/js/modules/hbills.js` | Bill list, detail, receipt (SID, token, report date) |
-| `assets/js/modules/labdesk.js` | Lab Desk, collection dialog, SID page, labels & request sheet, combined report, report desk, token display, ward order |
-| `assets/js/modules/lab.js` | Result entry / verification screen, reagent kits |
+| `assets/js/modules/lab/ui.js` | Lab UI kit: patient line, tube caps, test chips, wait time, visit journey (stepper), next action |
+| `assets/js/modules/lab/stages.js` | Stage registry — the five lab steps: what belongs to each, how a row looks, scan-box behaviour |
+| `assets/js/modules/lab/workbench.js` | Lab Workbench screen (`#/lab`) |
+| `assets/js/modules/lab/sid.js` | SID page: results for all tests, verification, sending, activity |
+| `assets/js/modules/lab/collect.js` | Collection dialog, reject dialog, receive and token-call helpers |
+| `assets/js/modules/labdesk.js` | Labels & request sheet, combined report, report desk, token display, ward order |
+| `assets/js/modules/lab.js` | Reagent kits |
+| `assets/css/lab.css` | Lab workspace styles |
 | `assets/js/modules/setup.js` | Test formats, kits, messaging settings, referral doctors |
 | `assets/js/docs.js` | Letterhead, document meta, signature blocks |
 | `assets/js/barcode.js` | Code 128 SVG barcodes |

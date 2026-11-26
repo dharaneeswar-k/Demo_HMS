@@ -48,7 +48,7 @@ export function render(view, params, query) {
       stockShort && { t: `${stockShort} medicine unit(s) short in daily counts (7 days)`, s: 'Medicine given without a bill?', h: '#/stock-count', tone: 'danger', ic: 'clipboard-x' },
       shortCash && { t: `Cash short ${fmtINR(shortCash)} across shifts (7 days)`, s: 'See the shift register', h: '#/shifts/register', tone: 'warning', ic: 'banknote' },
       outside && { t: `${outside} payment(s) taken outside a shift`, s: 'Every collection must belong to a shift', h: '#/shifts/register', tone: 'warning', ic: 'timer-off' },
-      crit && { t: `${crit} critical lab result(s) waiting for verification`, s: 'Inform the doctor', h: '#/lab?tab=verify', tone: 'danger', ic: 'siren' },
+      crit && { t: `${crit} critical lab result(s) waiting for verification`, s: 'Inform the doctor', h: '#/lab?stage=verify', tone: 'danger', ic: 'siren' },
       coding && { t: `${coding} medical record(s) overdue for coding`, s: `Due within ${store.hs().mrd.codingDueDays} days of discharge`, h: '#/mrd', tone: 'warning', ic: 'file-code-2' }
     ].filter(Boolean);
 

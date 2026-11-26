@@ -11,6 +11,7 @@ import { esc, icon, fmtINR, fmtNum, relTime } from '../utils.js';
 import { hospitalDaySummary, orderAccess, hbillBalance, isCritical, kitStatus } from '../hospital.js';
 import { openShiftFor, pendingHandoversFor, shiftSummary } from '../shifts.js';
 import { codingOverdue } from '../mrd.js';
+import { stageById } from './lab/stages.js';
 
 const tile = (href, ic, title, desc, tone = 'teal', count) => `<a class="task-tile tone-${tone}" href="${href}">
   <span class="tt-icon">${icon(ic)}</span><span class="tt-text"><strong>${esc(title)}</strong><small>${esc(desc)}</small></span>
@@ -54,7 +55,7 @@ export function render(view) {
     hbills: tile('#/hbills', 'files', 'Hospital Bills', 'Collect balance, receipts, cancellations', 'info'),
     shift: tile('#/shifts', 'timer', 'My Shift', 'Opening cash, collections, handover', 'purple', pendingHandoversFor(u).length || null),
     packages: tile('#/packages', 'package', 'Packages', 'Health check-ups and surgery packages', 'warning'),
-    lab: tile('#/lab', 'test-tube', 'Lab Worklist', 'Collect samples, enter and verify results', 'teal'),
+    lab: tile('#/lab', 'test-tube', 'Lab Workbench', 'Collect → receive → results → verify → send', 'teal'),
     labReports: tile('#/lab/reports', 'file-check-2', 'Lab Reports', 'Find and reprint reports', 'info'),
     kits: tile('#/lab/kits', 'boxes', 'Reagent Kits', 'Stock, QC use, counts', 'navy'),
     svc: tile('#/services', 'syringe', 'Service Counter', 'ECG, injection, nebulization', 'teal'),
@@ -82,10 +83,10 @@ export function render(view) {
     stat('Balance to collect', fmtINR(store.all('hbills').reduce((t, b) => t + hbillBalance(b), 0), true), 'credit & part-paid', '#/hbills?status=DUE'),
     stat('Registered today', fmtNum(store.all('patients').filter((p) => (p.registeredAt || '').slice(0, 10) === today).length), 'new patients', '#/patients')
   ] : role === 'LAB' ? [
-    stat('Waiting for sample', fmtNum(labQ.filter((o) => o.status === 'READY' && orderAccess(o).ok).length), 'paid & ready', '#/lab'),
-    stat('Results to enter', fmtNum(labQ.filter((o) => o.status === 'SAMPLE_COLLECTED').length), 'samples collected', '#/lab?tab=results'),
-    stat('To verify', fmtNum(labQ.filter((o) => o.status === 'RESULTED').length), `${labQ.filter((o) => o.status === 'RESULTED' && isCritical(o)).length} critical`, '#/lab?tab=verify'),
-    stat('Kits low / out', fmtNum(store.all('labKits').filter((k) => kitStatus(k) !== 'IN_STOCK').length), 'reorder', '#/lab/kits')
+    stat('Waiting for sample', fmtNum(stageById('collect').select('').length), 'patients to collect', '#/lab?stage=collect'),
+    stat('Results to enter', fmtNum(stageById('results').select('').length), 'patients on the bench', '#/lab?stage=results'),
+    stat('To verify', fmtNum(stageById('verify').select('').length), `${labQ.filter((o) => o.status === 'RESULTED' && isCritical(o)).length} critical`, '#/lab?stage=verify'),
+    stat('Reports to send', fmtNum(stageById('send').select('').length), 'WhatsApp or hand over', '#/lab?stage=send')
   ] : role === 'SERVICE_COUNTER' ? [
     stat('Ready to do', fmtNum(svcQ.filter((o) => o.status === 'READY' && orderAccess(o).ok).length), 'billed & paid', '#/services'),
     stat('Waiting for payment', fmtNum(svcQ.filter((o) => o.billId && ['READY', 'ON_HOLD'].includes(o.status) && !orderAccess(o).ok).length), 'on hold', '#/services?tab=hold'),
@@ -125,6 +126,7 @@ export function render(view) {
     if (!mysh) todo.push({ ic: 'play', tone: 'info', text: 'Start your shift', sub: 'Count the opening cash before the first payment', href: '#/shifts', btn: 'Start' });
   }
   if (role === 'RECEPTION') store.all('orders').filter((o) => o.status === 'REQUESTED').slice(0, 3).forEach((o) => todo.push({ ic: 'clipboard-list', tone: 'danger', text: `Bill ${o.name} for ${store.get('patients', o.patientId)?.name}`, sub: `Advised by ${o.doctor || 'doctor'} · not billed yet`, href: `#/hbill?patient=${o.patientId}`, btn: 'Bill' }));
+  if (role === 'LAB' && store.all('labKits').some((k) => kitStatus(k) !== 'IN_STOCK')) todo.push({ ic: 'boxes', tone: 'warning', text: `${store.all('labKits').filter((k) => kitStatus(k) !== 'IN_STOCK').length} reagent kit(s) low or out`, sub: 'Reorder before tests are blocked', href: '#/lab/kits', btn: 'Kits' });
   if (role === 'LAB') labQ.filter((o) => o.status === 'RESULTED' && isCritical(o)).forEach((o) => todo.push({ ic: 'siren', tone: 'danger', text: `Critical result — ${o.name}`, sub: `${store.get('patients', o.patientId)?.name} · verify and inform the doctor`, href: `#/lab/orders/${o.id}`, btn: 'Open' }));
   if (role === 'MRD') store.all('medicalRecords').filter(codingOverdue).forEach((r) => todo.push({ ic: 'file-code-2', tone: 'danger', text: `Code ${r.mrdNo}`, sub: 'Overdue after discharge', href: `#/mrd/${r.id}`, btn: 'Code' }));
   approvals.slice(0, 4).forEach((a) => todo.push({ ic: APPROVAL_TYPES[a.type].icon, tone: a.tone, text: a.title, sub: `${a.detail}${a.amount ? ' · ' + fmtINR(a.amount) : ''}`, href: a.href, btn: a.action }));

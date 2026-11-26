@@ -118,7 +118,7 @@ const NAV = [
   { id: 'ph-closing', label: 'Counter Closing', icon: 'lock', href: '#/pharmacy/closing', perm: 'pharmacy.closing', more: [OWNER] },
   { id: 'ph-report', label: 'Closing Report', icon: 'clipboard-list', href: '#/pharmacy/closing-report', perm: 'pharmacy.closing.report' },
   { section: 'Laboratory' },
-  { id: 'lab', label: 'Lab Desk', icon: 'test-tube', href: '#/lab', perm: 'lab.work', more: [OWNER] },
+  { id: 'lab', label: 'Lab Workbench', icon: 'test-tube', href: '#/lab', perm: 'lab.work', more: [OWNER] },
   { id: 'lab-reports', label: 'Report Desk', icon: 'send', href: '#/lab/reports', perm: 'lab.view', more: [OWNER, MRD] },
   { id: 'lab-ward', label: 'Ward Lab Order', icon: 'bed-double', href: '#/lab/ward-order', perm: 'lab.order.ip', more: [OWNER] },
   { id: 'lab-kits', label: 'Reagent Kits', icon: 'boxes', href: '#/lab/kits', perm: 'lab.kits', more: [OWNER] },

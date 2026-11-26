@@ -1,6 +1,5 @@
-// Laboratory (BRD 06): worklist driven by paid / approved bills only — sample collection with accession barcode,
-// rejection & recollection, result entry with automatic H / L / critical flags, verification, branded report,
-// and reagent-kit stock with "kits used vs tests billed" reconciliation.
+// Laboratory reagent kits (BRD 06): kit stock, receipts, QC / wastage use, physical counts and
+// "kits used vs tests billed" reconciliation. Sample work happens in ./lab/ (workbench and SID page).
 import { store } from '../data-service.js';
 import { currentUser, can } from '../auth.js';
 import { userName } from '../calculations.js';
@@ -19,137 +18,6 @@ const flagTag = (f) => (f ? `<span class="flag flag-${f.length === 2 ? 'crit' : 
 const mins = (a, b = new Date().toISOString()) => Math.round((new Date(b) - new Date(a)) / 60000);
 const ageTxt = (m) => (m < 60 ? `${m} min` : m < 1440 ? `${Math.floor(m / 60)} h ${m % 60} m` : `${Math.floor(m / 1440)} d`);
 
-export function renderWorklist(view, params, query) {
-  const user = currentUser();
-  const today = businessDate();
-  const labOrders = () => store.all('orders').filter((o) => o.category === 'LAB' && o.billId);
-  let tab = query.tab || 'collect';
-  view.innerHTML = `<p class="page-intro">Tests appear here only after the main counter bills them. Payment is checked automatically — <strong>no cash is collected in the lab</strong>. Collect → enter results → verify → print.</p>
-    <div class="kpis mb-2" data-k></div>
-    <section class="card"><div class="row-between card-pad"><div data-tabs></div><div class="input-icon" style="width:280px">${icon('scan-barcode')}<input class="input" data-scan placeholder="Scan accession / search patient"></div></div><div data-list></div></section>`;
-  const groups = () => {
-    const all = labOrders(); const q = view.querySelector('[data-scan]').value.trim().toLowerCase();
-    const m = (o) => !q || [o.accession, o.name, patientOf(o.patientId)?.name, patientOf(o.patientId)?.uhid].join(' ').toLowerCase().includes(q);
-    return {
-      collect: all.filter((o) => o.status === 'READY' && orderAccess(o).ok && m(o)),
-      results: all.filter((o) => o.status === 'SAMPLE_COLLECTED' && m(o)),
-      verify: all.filter((o) => o.status === 'RESULTED' && m(o)),
-      hold: all.filter((o) => ['ON_HOLD', 'READY'].includes(o.status) && !orderAccess(o).ok && m(o)),
-      done: all.filter((o) => o.status === 'COMPLETED' && businessDate(o.lab.verifiedAt) === today && m(o))
-    };
-  };
-  const draw = () => {
-    const g = groups();
-    const tat = g.done.map((o) => mins(o.billedAt, o.lab.verifiedAt)); const avg = tat.length ? Math.round(tat.reduce((a, b) => a + b, 0) / tat.length) : 0;
-    view.querySelector('[data-k]').innerHTML = `${kpi({ label: 'Waiting for sample', value: fmtNum(g.collect.length), iconName: 'test-tube', tone: g.collect.length ? 'warning' : 'success' })}
-      ${kpi({ label: 'Results to enter', value: fmtNum(g.results.length), iconName: 'keyboard', tone: 'info' })}
-      ${kpi({ label: 'To verify', value: fmtNum(g.verify.length), iconName: 'badge-check', tone: g.verify.length ? 'purple' : 'success', sub: g.verify.filter(isCritical).length ? `${g.verify.filter(isCritical).length} critical` : '' })}
-      ${kpi({ label: 'Reports today', value: fmtNum(g.done.length), iconName: 'file-check-2', tone: 'teal', sub: avg ? `Avg turnaround ${ageTxt(avg)}` : '' })}`;
-    tabs(view.querySelector('[data-tabs]'), [{ id: 'collect', label: 'Collect sample', icon: 'test-tube', count: g.collect.length }, { id: 'results', label: 'Enter results', icon: 'keyboard', count: g.results.length },
-      { id: 'verify', label: 'Verify', icon: 'badge-check', count: g.verify.length }, { id: 'hold', label: 'Payment pending', icon: 'lock', count: g.hold.length }, { id: 'done', label: 'Done today', icon: 'check-check', count: g.done.length }], tab, (t) => { tab = t; draw(); });
-    const rows = g[tab];
-    view.querySelector('[data-list]').innerHTML = rows.length ? `<div class="work-list">${rows.sort((a, b) => a.billedAt.localeCompare(b.billedAt)).map((o) => {
-      const p = patientOf(o.patientId); const a = orderAccess(o); const sv = svc(o.serviceId); const wait = mins(o.billedAt); const over = wait > sv.lab.tatHours * 60 && o.status !== 'COMPLETED';
-      const act = tab === 'collect' ? `<button class="btn btn-primary btn-sm" data-collect="${o.id}">${icon('test-tube')}Collect</button>`
-        : tab === 'results' ? `<a class="btn btn-primary btn-sm" href="#/lab/orders/${o.id}">${icon('keyboard')}Enter results</a>`
-          : tab === 'verify' ? `<a class="btn btn-primary btn-sm" href="#/lab/orders/${o.id}">${icon('badge-check')}Review & verify</a>`
-            : tab === 'done' ? `<a class="btn btn-secondary btn-sm" href="#/lab/report/${o.id}">${icon('printer')}Report</a>` : `<span class="muted small">Send patient to main counter</span>`;
-      return `<div class="work-row ${isCritical(o) ? 'crit' : ''}"><div class="wr-code">${barcodeSVG(o.accession, { height: 26 })}<span class="mono">${o.accession}</span></div>
-        <div class="wr-main"><strong>${esc(o.name)}</strong><span>${esc(p.name)} · <span class="mono">${esc(p.uhid)}</span> · ${esc(p.gender)}/${patientAge(p) ?? '—'}</span><small>${esc(sv.lab.sample)} · ${esc(o.doctor || 'No doctor')}${o.lab.rejected && o.status === 'READY' ? ` · <span class="text-danger">Recollect: ${esc(o.lab.rejected.reason)}</span>` : ''}${isCritical(o) ? ' · <span class="text-danger strong">CRITICAL VALUE</span>' : ''}</small></div>
-        <div class="wr-meta"><span class="tag tag-${a.tone}">${a.label}</span><small class="${over ? 'text-danger' : 'muted'}">${icon('clock', 'ic-inline')} ${ageTxt(wait)}${over ? ' · over TAT' : ''}</small></div><div class="wr-act">${act}</div></div>`; }).join('')}</div>`
-      : emptyState('check-circle-2', tab === 'hold' ? 'Nothing on hold' : 'Nothing waiting', tab === 'collect' ? 'New tests appear here as soon as they are billed.' : '');
-    view.querySelectorAll('[data-collect]').forEach((b) => { b.onclick = () => openCollect(store.get('orders', b.dataset.collect), draw); });
-    refreshIcons(view);
-  };
-  view.querySelector('[data-scan]').addEventListener('input', draw);
-  view.querySelector('[data-scan]').addEventListener('keydown', (e) => { if (e.key === 'Enter') { const o = labOrders().find((x) => x.accession?.toLowerCase() === e.target.value.trim().toLowerCase()); if (o) location.hash = o.status === 'COMPLETED' ? `#/lab/report/${o.id}` : `#/lab/orders/${o.id}`; } });
-  const unsub = store.subscribe(draw);
-  draw();
-  return () => unsub();
-}
-
-function openCollect(o, done) {
-  const user = currentUser(); const p = patientOf(o.patientId); const sv = svc(o.serviceId);
-  openModal({ title: 'Collect sample', subtitle: `${esc(o.name)} · ${esc(p.name)}`, size: 'sm',
-    body: `<div class="sample-label">${barcodeSVG(o.accession, { height: 38 })}<strong class="mono">${o.accession}</strong><span>${esc(p.name)} · ${esc(p.uhid)}</span><span>${esc(sv.lab.sample)} · ${fmtDateTime(new Date())}</span></div>
-      <ul class="check-list mt-2"><li>${icon('check')}Confirm the patient's name and Patient ID verbally</li><li>${icon('check')}Use a <strong>${esc(sv.lab.sample)}</strong> container</li><li>${icon('check')}Stick this label on the tube</li></ul>
-      <p class="muted small mt-1">Kit stock is reduced when you confirm (${sv.lab.kits.map((k) => `${k.qty} × ${esc(store.get('labKits', k.kitId).name)}`).join(', ')}).</p>`,
-    footer: [{ label: 'Reject sample…', cls: 'btn-ghost', onClick: async (c) => { c(); const r = await confirmDialog({ title: 'Reject / recollect', tone: 'danger', confirmLabel: 'Reject', reason: true, reasonLabel: 'Reason', reasonPlaceholder: 'Haemolysed, clotted, insufficient, wrong container, unlabelled…', message: 'The patient is asked to give a new sample.' }); if (!r) return; try { rejectSample(o.id, r.reason, user); toast('Sample rejected. Recollection pending.', 'warning'); done(); } catch (e) { toast(e.message, 'error'); } } },
-      { label: 'Print label', icon: 'printer', onClick: () => window.print() },
-      { label: 'Sample collected', cls: 'btn-primary', icon: 'check', onClick: (c) => { try { collectSample(o.id, user); c(); toast(`${o.accession} collected.`); done(); } catch (e) { toast(e.message, 'error'); } } }] });
-}
-
-export function renderOrder(view, params) {
-  const user = currentUser();
-  const o = store.get('orders', params.id);
-  if (!o || o.category !== 'LAB') { view.innerHTML = emptyState('flask-conical', 'Lab order not found'); return; }
-  setMeta({ title: `${o.name}`, crumbs: [{ label: 'Laboratory', href: '#/lab' }, o.accession] });
-  const p = patientOf(o.patientId); const params2 = labParams(o); const vals = Object.fromEntries((o.lab.results || []).map((r) => [r.param, r.value]));
-  const editable = ['SAMPLE_COLLECTED', 'RESULTED'].includes(o.status) && can('lab.work') && !!o.lab.receivedAt;
-  const prev = store.all('orders').filter((x) => x.serviceId === o.serviceId && x.patientId === o.patientId && x.id !== o.id && x.status === 'COMPLETED').sort((a, b) => b.lab.verifiedAt.localeCompare(a.lab.verifiedAt))[0];
-  const prevVal = (n) => prev?.lab.results.find((r) => r.param === n)?.value;
-  view.innerHTML = `
-    <div class="grid grid-3-1">
-      <section class="card"><header class="card-head"><div><h2>${esc(o.name)}</h2><p class="muted small">${esc(svc(o.serviceId).lab.department)} · ${esc(o.lab.sampleType)} · collected ${o.lab.collectedAt ? fmtDateTime(o.lab.collectedAt) + ' by ' + esc(userName(o.lab.collectedBy)) : '—'}</p></div>${badge(o.status === 'COMPLETED' ? 'COMPLETED' : o.status === 'RESULTED' ? 'PENDING' : 'SUBMITTED', { SAMPLE_COLLECTED: 'Results to enter', RESULTED: 'Awaiting verification', COMPLETED: 'Verified' }[o.status] || o.status)}</header>
-        <table class="table result-table"><thead><tr><th>Test parameter</th><th style="width:170px">Result</th><th>Unit</th><th>Reference range</th><th>Flag</th>${prev ? `<th class="muted">Previous (${fmtDate(prev.lab.verifiedAt)})</th>` : ''}</tr></thead><tbody>
-          ${params2.map((q) => `<tr><td class="strong">${esc(q.name)}</td><td>${editable ? `<input class="input input-sm" data-r="${esc(q.name)}" value="${esc(vals[q.name] ?? '')}" ${q.ref !== undefined ? `list="dl-${esc(q.name.replace(/\W/g, ''))}"` : 'inputmode="decimal"'}>${q.ref !== undefined ? `<datalist id="dl-${esc(q.name.replace(/\W/g, ''))}"><option value="${esc(q.ref)}"></datalist>` : ''}` : `<strong>${esc(vals[q.name] ?? '—')}</strong>`}</td>
-            <td class="muted">${esc(q.unit)}</td><td class="muted">${esc(refText(q))}</td><td data-flag="${esc(q.name)}">${flagTag(flagFor(q, vals[q.name]))}</td>${prev ? `<td class="muted">${esc(prevVal(q.name) ?? '—')}</td>` : ''}</tr>`).join('')}</tbody></table>
-        <div class="card-body row" style="justify-content:flex-end">
-          ${o.status === 'SAMPLE_COLLECTED' && can('lab.work') ? `<button class="btn btn-ghost" data-reject>${icon('x-circle')}Reject sample</button>` : ''}
-          ${editable ? `<button class="btn btn-secondary" data-save>${icon('save')}Save results</button>` : ''}
-          ${o.status === 'RESULTED' && can('lab.verify') ? `<button class="btn btn-primary" data-verify>${icon('badge-check')}Verify & release report</button>` : ''}
-          ${o.status === 'COMPLETED' && o.labVisitId ? `<a class="btn btn-primary" href="#/lab/visit/${o.labVisitId}/report">${icon('printer')}Report</a>` : ''}</div>${o.status === 'SAMPLE_COLLECTED' && !o.lab.receivedAt ? `<div class="alert alert-warning" style="margin:0 16px 16px">${icon('scan-barcode')}<div>Tube <span class="mono">${o.accession}</span> is collected but not received in the lab yet. Scan it on the Lab desk first.</div></div>` : ''}</section>
-      <div><section class="card"><div class="card-body"><div class="sample-label">${barcodeSVG(o.accession, { height: 32 })}<strong class="mono">${o.accession}</strong></div>
-        <div class="kv mt-2"><span>Patient</span><a href="#/patients/${p.id}">${esc(p.name)}</a></div><div class="kv"><span>Patient ID</span><span class="mono">${esc(p.uhid)}</span></div><div class="kv"><span>Age / sex</span><span>${patientAge(p) ?? '—'} / ${esc(p.gender)}</span></div>
-        <div class="kv"><span>Doctor</span><span>${esc(o.doctor || '—')}</span></div>${o.labVisitId ? `<div class="kv"><span>SID</span><a class="mono" href="#/lab/visit/${o.labVisitId}">${esc(store.get('labVisits', o.labVisitId)?.sid)}</a></div>` : ''}${o.billId ? `<div class="kv"><span>Bill</span><a class="mono" href="#/hbills/${o.billId}">${o.billId}</a></div>` : `<div class="kv"><span>Charged to</span><span>${esc(o.ipCharge?.ipNo || '—')}</span></div>`}<div class="kv"><span>Payment</span><span class="tag tag-${orderAccess(o).tone}">${orderAccess(o).label}</span></div>
-        ${o.lab.enteredBy ? `<div class="kv"><span>Results by</span><span>${esc(userName(o.lab.enteredBy))}</span></div>` : ''}${o.lab.verifiedBy ? `<div class="kv"><span>Verified by</span><span>${esc(userName(o.lab.verifiedBy))}</span></div>` : ''}</div></section>
-        ${p.allergies ? `<div class="alert alert-danger mt-2">${icon('alert-triangle')}<div>Allergy: ${esc(p.allergies)}</div></div>` : ''}</div></div>`;
-  const read = () => Object.fromEntries([...view.querySelectorAll('[data-r]')].map((i) => [i.dataset.r, i.value]));
-  view.querySelectorAll('[data-r]').forEach((i) => i.addEventListener('input', () => { const q = params2.find((x) => x.name === i.dataset.r); view.querySelector(`[data-flag="${CSS.escape(i.dataset.r)}"]`).innerHTML = flagTag(flagFor(q, i.value)); }));
-  view.querySelector('[data-save]')?.addEventListener('click', () => { try { enterResults(o.id, read(), user); toast(isCritical(o) ? 'Saved. CRITICAL value — the doctor and owner have been alerted.' : 'Results saved. Ready for verification.', isCritical(o) ? 'warning' : 'success'); renderOrder(view, params); } catch (e) { toast(e.message, 'error'); } });
-  view.querySelector('[data-verify]')?.addEventListener('click', async () => { if (!(await confirmDialog({ title: 'Verify and release this report?', iconName: 'badge-check', confirmLabel: 'Verify & release', message: 'Once verified the report is final, gets a report number and is added to the patient\'s history.' }))) return; try { verifyReport(o.id, user); toast('Report released.'); location.hash = o.labVisitId ? `#/lab/visit/${o.labVisitId}` : '#/lab'; } catch (e) { toast(e.message, 'error'); } });
-  view.querySelector('[data-reject]')?.addEventListener('click', async () => { const r = await confirmDialog({ title: 'Reject sample', tone: 'danger', confirmLabel: 'Reject', reason: true, reasonLabel: 'Reason', message: 'The kit used is logged as a repeat and the patient is asked for a new sample.' }); if (!r) return; try { rejectSample(o.id, r.reason, user); toast('Sample rejected.', 'warning'); location.hash = '#/lab'; } catch (e) { toast(e.message, 'error'); } });
-  refreshIcons(view);
-}
-
-export function renderReport(view, params) {
-  const o = store.get('orders', params.id);
-  if (!o || o.status !== 'COMPLETED' || !o.lab) { view.innerHTML = emptyState('file-x', 'Report not available', 'The report is printed only after verification.'); return; }
-  setMeta({ title: o.lab.reportNo, crumbs: [{ label: 'Laboratory', href: '#/lab' }, 'Report'] });
-  const p = patientOf(o.patientId); const sv = svc(o.serviceId);
-  view.innerHTML = `<div class="row mb-2 no-print" style="justify-content:center"><button class="btn btn-primary" data-print>${icon('printer')}Print / Save PDF</button><a class="btn btn-ghost" href="#/lab">${icon('arrow-left')}Worklist</a><a class="btn btn-ghost" href="#/patients/${p.id}">${icon('user-round')}Patient</a></div>
-    <article class="doc">${letterhead('LABORATORY REPORT', { sub: sv.lab.department, code: o.accession })}
-      ${docMeta([['Patient', esc(p.name)], ['Patient ID', `<span class="mono">${esc(p.uhid)}</span>`], ['Age / Sex', `${patientAge(p) ?? '—'} Y / ${esc(p.gender)}`], ['Referred by', esc(o.doctor || 'Self')],
-        ['Sample', esc(o.lab.sampleType)], ['Collected', fmtDateTime(o.lab.collectedAt)], ['Reported', fmtDateTime(o.lab.verifiedAt)], ['Report no', `<span class="mono">${esc(o.lab.reportNo)}</span>`]])}
-      <h3 class="doc-h">${esc(sv.name)}</h3>
-      <table class="rc-table lab-rep"><thead><tr><th>Investigation</th><th>Result</th><th>Unit</th><th>Biological reference interval</th></tr></thead><tbody>
-        ${labParams(o).map((q) => { const v = o.lab.results.find((r) => r.param === q.name)?.value; const f = flagFor(q, v); return `<tr class="${f ? 'abn' : ''}"><td>${esc(q.name)}</td><td><strong>${esc(v ?? '—')}</strong> ${f ? `<span class="rep-flag">${f === 'A' ? '*' : f}${f.length === 2 ? ' (critical)' : ''}</span>` : ''}</td><td>${esc(q.unit)}</td><td>${esc(refText(q))}</td></tr>`; }).join('')}</tbody></table>
-      <p class="rc-small mt-2" style="text-align:left">H = above range · L = below range · HH / LL = critical · * = abnormal finding. Results relate only to the sample received. Please correlate clinically.</p>
-      ${signBlock([['Lab technician', userName(o.lab.enteredBy)], ['Verified by', userName(o.lab.verifiedBy)]])}
-      <p class="rc-thanks">— End of report —</p></article>`;
-  view.querySelector('[data-print]').onclick = () => { markPrinted(o.id); window.print(); };
-  refreshIcons(view);
-}
-
-export function renderReports(view) {
-  const rows = () => store.all('orders').filter((o) => o.category === 'LAB' && o.status === 'COMPLETED').sort((a, b) => b.lab.verifiedAt.localeCompare(a.lab.verifiedAt));
-  view.innerHTML = `<section class="card"><div class="toolbar"><div class="input-icon grow">${icon('search')}<input class="input" data-q placeholder="Patient, Patient ID, accession or report no"></div><input type="date" class="input" data-from><input type="date" class="input" data-to></div><div data-t></div></section>`;
-  const t = dataTable({ rows: rows(), pageSize: 15, onRowClick: (o) => { location.hash = `#/lab/report/${o.id}`; }, columns: [
-    { key: 'reportNo', label: 'Report', value: (o) => o.lab.reportNo, render: (o) => `<span class="mono strong">${o.lab.reportNo}</span><div class="cell-sub mono">${o.accession}</div>` },
-    { key: 'verifiedAt', label: 'Reported', value: (o) => o.lab.verifiedAt, render: (o) => fmtDateTime(o.lab.verifiedAt) },
-    { key: 'patient', label: 'Patient', value: (o) => patientOf(o.patientId)?.name, render: (o) => `${esc(patientOf(o.patientId)?.name)}<div class="cell-sub mono">${esc(patientOf(o.patientId)?.uhid)}</div>` },
-    { key: 'name', label: 'Test' }, { key: 'doctor', label: 'Doctor' },
-    { key: 'flags', label: 'Findings', sortable: false, render: (o) => { const n = labParams(o).filter((q) => flagFor(q, o.lab.results.find((r) => r.param === q.name)?.value)).length; return isCritical(o) ? '<span class="tag tag-danger">Critical</span>' : n ? `<span class="tag tag-warning">${n} abnormal</span>` : '<span class="tag tag-success">Normal</span>'; } },
-    { key: 'print', label: 'Printed', align: 'right', value: (o) => o.lab.printCount, render: (o) => fmtNum(o.lab.printCount || 0) }] });
-  view.querySelector('[data-t]').appendChild(t.el);
-  const apply = () => { const q = view.querySelector('[data-q]').value.trim().toLowerCase(); const f = view.querySelector('[data-from]').value; const to = view.querySelector('[data-to]').value;
-    t.setRows(rows().filter((o) => (!q || [o.accession, o.lab.reportNo, o.name, patientOf(o.patientId)?.name, patientOf(o.patientId)?.uhid].join(' ').toLowerCase().includes(q)) && (!f || businessDate(o.lab.verifiedAt) >= f) && (!to || businessDate(o.lab.verifiedAt) <= to))); };
-  view.querySelectorAll('input').forEach((i) => i.addEventListener('input', apply));
-  refreshIcons(view);
-}
-
-// ---------------- reagent kits ----------------
-const MV_LABEL = { RECEIVED: 'Received', USED_TEST: 'Used for test', USED_QC: 'Quality control', REPEAT: 'Repeat test', WASTAGE: 'Wastage', COUNT_ADJUST: 'Count adjustment' };
 export function renderKits(view, params, query) {
   const user = currentUser();
   let tab = query.tab || 'stock';
@@ -204,4 +72,4 @@ export function renderKits(view, params, query) {
   draw();
 }
 
-export function render(view, params, query) { return renderWorklist(view, params, query); }
+
