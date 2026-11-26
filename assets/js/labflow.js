@@ -134,7 +134,9 @@ export function createIpOrder({ recordId, serviceIds, doctor, priority = 'ROUTIN
 
 // ---------------- collection ----------------
 const mustLab = (user) => { if (!can('lab.work', user)) throw new Error('Only lab staff can do this.'); };
-export function callToken(id, user) { mustLab(user); return store.transaction(() => { const v = visit(id); v.tokenStatus = 'CALLED'; v.calledAt = now(); v.calledBy = user.id; return v; }); }
+// callNo: running order of calls, so the token screen always shows the latest call first (even if clocks or demo times disagree).
+export function callToken(id, user) { mustLab(user); return store.transaction(() => { const v = visit(id); const last = Math.max(0, ...store.all('labVisits').map((x) => x.callNo || 0));
+  v.tokenStatus = 'CALLED'; v.calledAt = now(); v.calledBy = user.id; v.callNo = last + 1; return v; }); }
 export function collectTube(id, code, user) {
   mustLab(user);
   const v = visit(id); if (!visitAccess(v).ok) throw new Error('Payment is not cleared. Send the patient to the main counter.');

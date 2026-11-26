@@ -6,7 +6,7 @@
 // Keys: / scan · ↑ ↓ row · Enter open · 1–5 step · Esc back to the worklist.
 import { store } from '../../data-service.js';
 import { currentUser, can } from '../../auth.js';
-import { reportReadyAt, collectTube } from '../../labflow.js';
+import { reportReadyAt, collectTube, callToken } from '../../labflow.js';
 import { businessDate } from '../../pharmacy-calc.js';
 import { openModal } from '../../components.js';
 import { toast } from '../../notifications.js';
@@ -43,7 +43,7 @@ export function renderWorkbench(view, params, query) {
         <div class="h-filters"><label>Patient type <select class="input input-sm" data-ptype></select></label>
           <label class="h-check"><input type="checkbox" data-stat> STAT only</label><span data-bulk></span>
           <span class="h-hint">Click a row to open · <kbd>↑</kbd> <kbd>↓</kbd> move · <kbd>Enter</kbd> open · <kbd>1</kbd>–<kbd>5</kbd> step</span></div>
-        <div class="h-tablewrap"><table class="h-table h-wltable"><thead><tr><th class="h-sno" style="width:48px">S.No</th><th style="width:56px">Type</th><th style="width:170px">Token / Bed</th><th style="width:96px">SID</th><th>Patient</th><th>Tests</th><th style="width:78px">Priority</th><th style="width:96px">Waiting</th><th style="width:150px"></th></tr></thead><tbody data-rows></tbody></table></div>
+        <div class="h-tablewrap"><table class="h-table h-wltable"><thead><tr><th class="h-sno" style="width:48px">S.No</th><th style="width:56px">Type</th><th style="width:170px">Token / Bed</th><th style="width:96px">SID</th><th>Patient</th><th>Tests</th><th style="width:78px">Priority</th><th style="width:96px">Waiting</th><th style="width:210px"></th></tr></thead><tbody data-rows></tbody></table></div>
       </div>
     </section>
     <section data-pt class="h-ptview" hidden>
@@ -87,9 +87,10 @@ export function renderWorkbench(view, params, query) {
         <td class="h-tests">${esc(codes.join(', '))}${line ? `<div class="h-line">${line}</div>` : ''}${crit ? '<div class="h-line"><span class="danger">Critical value</span></div>' : ''}</td>
         <td>${priTxt(v)}</td>
         <td class="${m > s.late ? 'h-late' : ''}">${dur(m)}</td>
-        <td class="ta-right">${can(stage === 'verify' ? 'lab.verify' : stage === 'send' ? 'lab.deliver' : 'lab.work') ? `<button class="btn btn-sm ${v.id === sel ? 'btn-primary' : 'btn-secondary'}" data-act="${v.id}">${act}</button>` : ''}</td></tr>`; }).join('')
+        <td class="ta-right">${can(stage === 'verify' ? 'lab.verify' : stage === 'send' ? 'lab.deliver' : 'lab.work') ? `<span class="h-rowbtns">${stage === 'collect' && v.token && v.collectionPoint === 'OPD' ? `<button class="btn btn-sm btn-secondary" data-call="${v.id}" title="Show token ${v.token} on the waiting-room screen">${icon('megaphone')}${v.tokenStatus === 'CALLED' ? 'Call again' : 'Call'}</button>` : ''}<button class="btn btn-sm ${v.id === sel ? 'btn-primary' : 'btn-secondary'}" data-act="${v.id}">${act}</button></span>` : ''}</td></tr>`; }).join('')
       : `<tr><td colspan="9" class="h-empty">${icon(q() ? 'search' : 'check2-circle')}<b>${q() ? 'No match' : esc(s.empty[1])}</b><span>${q() ? `Nobody here matches “${esc(scan.value.trim())}”.` : esc(s.empty[2])}</span></td></tr>`;
-    view.querySelectorAll('[data-rows] tr[data-id]').forEach((r) => { r.onclick = (e) => { if (e.target.closest('[data-act]')) return; openPatient(r.dataset.id); }; });
+    view.querySelectorAll('[data-rows] tr[data-id]').forEach((r) => { r.onclick = (e) => { if (e.target.closest('[data-act], [data-call]')) return; openPatient(r.dataset.id); }; });
+    view.querySelectorAll('[data-call]').forEach((b) => { b.onclick = () => { try { const v = callToken(b.dataset.call, currentUser()); toast(`Token ${v.token} called — ${pat(v.patientId).name}. Shown on the token screen.`); } catch (err) { toast(err.message, 'error'); } }; });
     view.querySelectorAll('[data-act]').forEach((b) => { b.onclick = () => rowAction(b.dataset.act); });
   };
   const TAB = { collect: 'To collect', receive: 'To receive', results: 'Enter results', verify: 'To verify', send: 'Ready to send' };

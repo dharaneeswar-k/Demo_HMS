@@ -368,3 +368,5 @@ html[data-theme="dark"] .theme-btn .t-moon { display: none; }
 .home-issue strong { display: block; font-size: 13px; font-weight: 600; }
 .home-issue small { display: block; color: var(--h-ink-3); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 @media (max-width: 1100px) { .home-lab { grid-template-columns: 1fr; } }
+.h-rowbtns { display: inline-flex; gap: 6px; justify-content: flex-end; }
+.h-rowbtns .bi { margin-right: 4px; }

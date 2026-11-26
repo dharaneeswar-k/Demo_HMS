@@ -107,7 +107,7 @@ export function renderDisplay(view) {
     // Never shown: ward (IP) orders — collected at the bedside — casualty, cancelled visits, unpaid bills, patients already collected.
     const vs = store.all('labVisits').filter((v) => v.tokenDay === today && v.token && v.collectionPoint === 'OPD' && v.source !== 'IP'
       && visitStatus(v) !== 'CANCELLED' && visitAccess(v).ok && tubesFor(v).some((t) => !t.collectedAt && t.orders.some((o) => o.status !== 'CANCELLED')));
-    const called = vs.filter((v) => v.tokenStatus === 'CALLED').sort((a, b) => (b.calledAt || '').localeCompare(a.calledAt || ''));
+    const called = vs.filter((v) => v.tokenStatus === 'CALLED').sort((a, b) => (b.callNo || 0) - (a.callNo || 0) || (b.calledAt || '').localeCompare(a.calledAt || ''));
     const waiting = vs.filter((v) => v.tokenStatus === 'WAITING').sort(byQueue);
     const now = called[0]; const MAX = 10; const more = waiting.length - MAX;
     const flash = now && now.token !== lastNow; lastNow = now?.token ?? null;
