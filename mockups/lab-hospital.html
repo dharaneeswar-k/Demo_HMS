@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab Worklist — mockup (hospital style)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+  :root {
+    --navy: #0F2C44; --navy-2: #163B5A; --ink: #1B2733; --ink-2: #4A5866; --ink-3: #7B8896;
+    --line: #D8DEE5; --line-2: #E7EBEF; --head: #EEF2F6; --bg: #F3F5F8; --row-h: #F6F9FC; --sel: #E3F1F7;
+    --brand: #0A7C86; --brand-2: #086770; --brand-50: #E4F3F4;
+    --red: #C4281C; --red-50: #FCEDEB; --amber: #A45A00; --amber-50: #FFF5E0; --blue: #1D5FB4; --green: #1E7B45; --green-50: #E8F5EC;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 13px/1.45 "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif; color: var(--ink); background: var(--bg); }
+  button, input, select { font: inherit; color: inherit; }
+  .bi { line-height: 1; }
+  /* shell */
+  .shell { display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; }
+  .side { background: var(--navy); color: #C9D6E2; padding: 14px 10px; }
+  .side .brand { display: flex; align-items: center; gap: 9px; color: #fff; font-weight: 700; font-size: 14px; padding: 2px 8px 16px; }
+  .side .brand i { background: var(--brand); width: 28px; height: 28px; border-radius: 5px; display: grid; place-items: center; font-size: 15px; }
+  .side h6 { margin: 14px 8px 6px; font-size: 10.5px; letter-spacing: .08em; color: #7F96AB; font-weight: 600; }
+  .side a { display: flex; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 4px; color: inherit; text-decoration: none; }
+  .side a:hover { background: var(--navy-2); }
+  .side a.on { background: var(--brand); color: #fff; }
+  .side a .n { margin-left: auto; background: #C4281C; color: #fff; font-size: 10.5px; padding: 0 6px; border-radius: 9px; }
+  .main { display: flex; flex-direction: column; min-width: 0; }
+  .top { height: 48px; background: #fff; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 14px; padding: 0 20px; }
+  .crumb { color: var(--ink-3); } .crumb b { color: var(--ink); font-weight: 600; }
+  .top .user { margin-left: auto; display: flex; align-items: center; gap: 8px; color: var(--ink-2); }
+  .top .user span { width: 28px; height: 28px; border-radius: 50%; background: var(--head); display: grid; place-items: center; font-weight: 600; font-size: 11px; color: var(--navy); }
+  .page { padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 12px; min-height: 0; flex: 1; }
+
+  /* controls */
+  .btn { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border: 1px solid var(--line); background: #fff; border-radius: 4px; cursor: pointer; font-weight: 500; white-space: nowrap; }
+  .btn:hover { background: var(--row-h); border-color: #C3CBD4; }
+  .btn.pri { background: var(--brand); border-color: var(--brand); color: #fff; }
+  .btn.pri:hover { background: var(--brand-2); }
+  .btn.sm { height: 26px; padding: 0 10px; font-size: 12.5px; }
+  .btn.link { border: 0; background: none; color: var(--brand); padding: 0 4px; }
+  .input, select.input { height: 32px; border: 1px solid var(--line); border-radius: 4px; padding: 0 10px; background: #fff; }
+  .input:focus, select.input:focus { outline: 0; border-color: var(--brand); box-shadow: 0 0 0 2px var(--brand-50); }
+  kbd { font: 11px/1 ui-monospace, Consolas, monospace; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 3px; padding: 2px 5px; color: var(--ink-3); background: #fff; }
+  .mono { font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; }
+  .muted { color: var(--ink-3); }
+
+  /* worklist header */
+  .wl-head { display: flex; align-items: center; gap: 12px; }
+  .wl-head h1 { margin: 0; font-size: 18px; font-weight: 600; color: var(--navy); }
+  .wl-head .sub { color: var(--ink-3); font-size: 12.5px; }
+  .wl-head .tools { margin-left: auto; display: flex; gap: 8px; }
+  .scan { position: relative; flex: 0 1 420px; margin-left: 18px; }
+  .scan i { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--ink-3); font-size: 15px; }
+  .scan .input { width: 100%; padding-left: 34px; padding-right: 34px; height: 34px; }
+  .scan kbd { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); }
+
+  .box { background: #fff; border: 1px solid var(--line); border-radius: 4px; }
+  .tabs { display: flex; border-bottom: 1px solid var(--line); padding: 0 6px; }
+  .tab { border: 0; background: none; padding: 10px 14px 9px; border-bottom: 2px solid transparent; margin-bottom: -1px; cursor: pointer; color: var(--ink-2); display: flex; align-items: center; gap: 7px; }
+  .tab:hover { color: var(--ink); }
+  .tab.on { color: var(--navy); border-bottom-color: var(--brand); font-weight: 600; }
+  .tab .c { background: var(--head); border-radius: 3px; padding: 0 6px; font-size: 11.5px; font-weight: 600; color: var(--ink-2); }
+  .tab.on .c { background: var(--brand); color: #fff; }
+  .tab .c.stat { background: var(--red); color: #fff; }
+  .filters { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-bottom: 1px solid var(--line-2); }
+  .filters label { display: flex; align-items: center; gap: 6px; color: var(--ink-2); }
+  .filters .right { margin-left: auto; color: var(--ink-3); font-size: 12px; }
+
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; font-weight: 600; font-size: 12px; color: var(--ink-2); background: var(--head); padding: 7px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  td { padding: 8px 12px; border-bottom: 1px solid var(--line-2); vertical-align: middle; }
+  .wl tbody tr { cursor: pointer; }
+  .wl tbody tr:hover td { background: var(--row-h); }
+  .wl tbody tr.sel td { background: var(--sel); }
+  .wl .pt b { font-weight: 600; }
+  .wl .pt small { color: var(--ink-3); margin-left: 6px; }
+  .wl .tests { color: var(--ink-2); }
+  .pr-stat { color: var(--red); font-weight: 700; font-size: 12px; }
+  .pr-urg { color: var(--amber); font-weight: 600; font-size: 12px; }
+  .late { color: var(--red); font-weight: 600; }
+  .crit { color: var(--red); font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .ta-r { text-align: right; }
+  .empty { padding: 40px; text-align: center; color: var(--ink-3); }
+
+  /* result entry */
+  .re { display: none; flex-direction: column; gap: 12px; flex: 1; min-height: 0; }
+  .re.on { display: flex; }
+  .banner { display: grid; grid-template-columns: auto repeat(6, auto) 1fr; align-items: center; gap: 0; background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--navy); border-radius: 4px; }
+  .banner > div { padding: 9px 16px; border-right: 1px solid var(--line-2); }
+  .banner > div:last-child { border-right: 0; text-align: right; }
+  .banner .nm { font-size: 15px; font-weight: 700; color: var(--navy); }
+  .banner .nm small { display: block; font-size: 12px; font-weight: 400; color: var(--ink-2); }
+  .banner label { display: block; font-size: 11px; color: var(--ink-3); }
+  .banner .v { font-weight: 600; }
+  .alert { display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 3px; font-size: 12px; font-weight: 600; }
+  .alert.red { background: var(--red-50); color: var(--red); }
+  .alert.amber { background: var(--amber-50); color: var(--amber); }
+  .re-body { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 12px; flex: 1; min-height: 0; }
+  .grid { display: flex; flex-direction: column; min-height: 0; }
+  .grid .scroll { overflow: auto; flex: 1; }
+  .grid .gh { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-bottom: 1px solid var(--line); }
+  .grid .gh h2 { margin: 0; font-size: 14px; font-weight: 600; color: var(--navy); }
+  .res td { padding: 5px 12px; }
+  .res tr.grp td { background: #FAFBFC; font-weight: 600; color: var(--navy); padding-top: 8px; padding-bottom: 8px; }
+  .res tr.grp td .muted { font-weight: 400; margin-left: 8px; }
+  .res input { width: 100px; height: 28px; border: 1px solid var(--line); border-radius: 3px; padding: 0 8px; text-align: right; font: 13px ui-monospace, Consolas, monospace; }
+  .res input:focus { outline: 0; border-color: var(--brand); box-shadow: 0 0 0 2px var(--brand-50); }
+  .res input.H, .res input.L { color: var(--red); font-weight: 700; border-color: #E8B4AE; background: var(--red-50); }
+  .res input.C { color: #fff; background: var(--red); border-color: var(--red); font-weight: 700; }
+  .flag { font-weight: 700; font-size: 12px; }
+  .flag.H, .flag.L { color: var(--red); } .flag.C { color: #fff; background: var(--red); padding: 1px 6px; border-radius: 3px; }
+  .res .prev { color: var(--ink-3); }
+  .foot { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-top: 1px solid var(--line); background: #FAFBFC; }
+  .foot .grow { flex: 1; color: var(--ink-2); }
+  .bar { height: 6px; width: 140px; background: var(--line-2); border-radius: 3px; overflow: hidden; display: inline-block; vertical-align: middle; margin-left: 8px; }
+  .bar i { display: block; height: 100%; background: var(--brand); }
+
+  .side-panel { display: flex; flex-direction: column; gap: 12px; }
+  .side-panel .box h3 { margin: 0; padding: 9px 12px; font-size: 12px; font-weight: 600; color: var(--ink-2); background: var(--head); border-bottom: 1px solid var(--line); text-transform: uppercase; letter-spacing: .04em; }
+  .kv { display: grid; grid-template-columns: 96px 1fr; gap: 6px 10px; padding: 10px 12px; }
+  .kv dt { color: var(--ink-3); } .kv dd { margin: 0; }
+  .tube { display: flex; align-items: center; gap: 8px; padding: 7px 12px; border-bottom: 1px solid var(--line-2); }
+  .tube:last-child { border-bottom: 0; }
+  .tube .cap { width: 10px; height: 14px; border-radius: 2px; }
+  .tube .ok { margin-left: auto; color: var(--green); font-size: 12px; }
+  .links a { display: flex; align-items: center; gap: 8px; padding: 8px 12px; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line-2); }
+  .links a:last-child { border-bottom: 0; }
+  .links a:hover { background: var(--row-h); color: var(--brand); }
+  .links a i { color: var(--ink-3); }
+  .toast { position: fixed; right: 20px; bottom: 20px; background: var(--navy); color: #fff; padding: 10px 14px; border-radius: 4px; display: none; align-items: center; gap: 8px; box-shadow: 0 6px 20px rgba(0,0,0,.2); }
+  .toast.on { display: flex; }
+  .note { position: fixed; right: 260px; top: 12px; background: #FFF8D6; border: 1px solid #EBD98A; color: #6B5800; padding: 6px 12px; border-radius: 4px; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="side">
+    <div class="brand"><i class="bi bi-hospital"></i>Nallam Hospital</div>
+    <a href="#"><i class="bi bi-house"></i>Home</a>
+    <a href="#"><i class="bi bi-bell"></i>Alerts<span class="n">3</span></a>
+    <h6>LABORATORY</h6>
+    <a href="#" class="on"><i class="bi bi-list-check"></i>Worklist</a>
+    <a href="#"><i class="bi bi-file-earmark-medical"></i>Report desk</a>
+    <a href="#"><i class="bi bi-hospital"></i>Ward lab order</a>
+    <a href="#"><i class="bi bi-journal-medical"></i>Test master</a>
+    <a href="#"><i class="bi bi-box-seam"></i>Lab stock<span class="n">2</span></a>
+  </aside>
+  <div class="main">
+    <header class="top"><span class="crumb">Laboratory / <b data-crumb>Worklist</b></span><div class="user"><span>VR</span>Vignesh Raj · Lab</div></header>
+    <div class="page">
+
+      <!-- ============ WORKLIST ============ -->
+      <section class="wl-view" data-wl style="display:flex;flex-direction:column;gap:12px">
+        <div class="wl-head">
+          <div><h1>Lab Worklist</h1><div class="sub">Thu, 26 Nov · 14 reports today · avg turnaround 1 h 42 m</div></div>
+          <label class="scan"><i class="bi bi-upc-scan"></i><input class="input" data-scan placeholder="Scan tube / SID, or type patient name"><kbd>/</kbd></label>
+          <div class="tools"><button class="btn"><i class="bi bi-hospital"></i>Ward order</button><button class="btn"><i class="bi bi-display"></i>Token screen</button></div>
+        </div>
+        <div class="box">
+          <nav class="tabs" data-tabs></nav>
+          <div class="filters">
+            <label>Source <select class="input" data-src><option value="">All</option><option>OPD</option><option>Ward</option><option>Casualty</option></select></label>
+            <label><input type="checkbox" data-stat> STAT only</label>
+            <span class="right">Click a row to open · <kbd>↑</kbd> <kbd>↓</kbd> move · <kbd>Enter</kbd> open</span>
+          </div>
+          <table class="wl"><thead><tr><th style="width:70px">Token</th><th style="width:100px">SID</th><th>Patient</th><th>Tests</th><th style="width:90px">Source</th><th style="width:80px">Priority</th><th style="width:90px">Waiting</th><th class="ta-r" style="width:140px"></th></tr></thead><tbody data-rows></tbody></table>
+        </div>
+      </section>
+
+      <!-- ============ RESULT ENTRY ============ -->
+      <section class="re" data-re>
+        <div style="display:flex;align-items:center;gap:10px"><button class="btn" data-back><i class="bi bi-arrow-left"></i>Worklist</button><span class="muted" data-pos></span></div>
+        <div class="banner" data-banner></div>
+        <div class="re-body">
+          <div class="box grid">
+            <div class="gh"><h2>Results</h2><span class="muted">Enter moves to the next box · H / L / Critical are marked automatically</span></div>
+            <div class="scroll"><table class="res"><thead><tr><th>Parameter</th><th style="width:130px">Result</th><th style="width:70px">Unit</th><th style="width:70px">Flag</th><th style="width:130px">Normal range</th><th style="width:120px">Previous</th></tr></thead><tbody data-res></tbody></table></div>
+            <div class="foot"><span class="grow" data-progress></span><button class="btn"><i class="bi bi-printer"></i>Print draft</button><button class="btn" data-save><i class="bi bi-floppy"></i>Save <kbd>Ctrl S</kbd></button><button class="btn pri" data-verify><i class="bi bi-patch-check"></i>Save &amp; verify</button></div>
+          </div>
+          <aside class="side-panel">
+            <div class="box"><h3>Sample</h3><div data-tubes></div></div>
+            <div class="box"><h3>Visit</h3><dl class="kv" data-visit></dl></div>
+            <div class="box links"><h3>More</h3>
+              <a href="#"><i class="bi bi-upc"></i>Reprint labels</a>
+              <a href="#"><i class="bi bi-file-earmark-text"></i>Report preview</a>
+              <a href="#"><i class="bi bi-clock-history"></i>Activity log</a>
+              <a href="#"><i class="bi bi-graph-up"></i>Past results</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<div class="toast" data-toast><i class="bi bi-check-circle"></i><span></span></div>
+<div class="note">Mockup only · sample data · not connected to the app</div>
+
+<script>
+const STEPS = [
+  { id: 'collect', label: 'To collect', act: 'Collect', ic: 'droplet-half' },
+  { id: 'receive', label: 'To receive', act: 'Receive', ic: 'upc-scan' },
+  { id: 'results', label: 'Enter results', act: 'Enter results', ic: 'keyboard' },
+  { id: 'verify', label: 'To verify', act: 'Verify', ic: 'patch-check' },
+  { id: 'send', label: 'Ready to send', act: 'Send report', ic: 'send' },
+];
+const P = [
+  { tok: 'T-12', sid: '04010061', name: 'Lakshmi Narayanan', as: '54 F', tests: 'CBC, LFT', src: 'OPD', pr: 'STAT', wait: 38, late: 30, step: 'collect' },
+  { tok: 'T-14', sid: '04010063', name: 'Arun Prakash', as: '31 M', tests: 'FBS, PPBS', src: 'OPD', pr: '', wait: 12, late: 30, step: 'collect' },
+  { tok: 'W3-07', sid: '04010064', name: 'Meenakshi Sundaram', as: '67 F', tests: 'RFT, Electrolytes', src: 'Ward', pr: 'Urgent', wait: 8, late: 30, step: 'collect' },
+  { tok: 'T-09', sid: '04010058', name: 'Ravi Shankar', as: '45 M', tests: 'Lipid profile', src: 'OPD', pr: '', wait: 22, late: 20, step: 'receive' },
+  { tok: 'CAS-2', sid: '04010059', name: 'Fathima Begum', as: '29 F', tests: 'CBC, CRP', src: 'Casualty', pr: 'STAT', wait: 6, late: 20, step: 'receive' },
+  { tok: 'T-05', sid: '04010052', name: 'Joseph Dominic', as: '58 M', tests: 'CBC, RFT, LFT', src: 'OPD', pr: '', wait: 74, late: 90, step: 'results' },
+  { tok: 'W1-02', sid: '04010054', name: 'Kavitha Rajan', as: '40 F', tests: 'HbA1c, FBS', src: 'Ward', pr: '', wait: 95, late: 90, step: 'results' },
+  { tok: 'T-07', sid: '04010055', name: 'Senthil Kumar', as: '36 M', tests: 'Dengue NS1, CBC', src: 'OPD', pr: 'Urgent', wait: 41, late: 90, step: 'results' },
+  { tok: 'T-03', sid: '04010049', name: 'Priya Venkat', as: '27 F', tests: 'Thyroid profile', src: 'OPD', pr: '', wait: 18, late: 30, step: 'verify', crit: false },
+  { tok: 'W2-11', sid: '04010050', name: 'Murugan Kannan', as: '72 M', tests: 'RFT, Electrolytes', src: 'Ward', pr: '', wait: 33, late: 30, step: 'verify', crit: true },
+  { tok: 'T-01', sid: '04010044', name: 'Deepa Mohan', as: '33 F', tests: 'CBC', src: 'OPD', pr: '', wait: 25, late: 60, step: 'send' },
+  { tok: 'T-02', sid: '04010046', name: 'Gopal Swamy', as: '61 M', tests: 'FBS, Lipid profile', src: 'OPD', pr: '', wait: 70, late: 60, step: 'send' },
+];
+const PARAMS = [
+  { g: 'Complete Blood Count', sample: 'EDTA' },
+  { n: 'Haemoglobin', u: 'g/dL', lo: 13, hi: 17, cl: 7, ch: 20, prev: '13.9' },
+  { n: 'Total WBC count', u: '/µL', lo: 4000, hi: 11000, cl: 2000, ch: 30000, prev: '7,800' },
+  { n: 'Platelet count', u: 'lakh/µL', lo: 1.5, hi: 4.1, cl: 0.5, ch: 10, prev: '2.6' },
+  { n: 'PCV', u: '%', lo: 40, hi: 50, prev: '42' },
+  { g: 'Renal Function Test', sample: 'Plain / serum' },
+  { n: 'Urea', u: 'mg/dL', lo: 15, hi: 40, ch: 150, prev: '28' },
+  { n: 'Creatinine', u: 'mg/dL', lo: 0.7, hi: 1.3, ch: 5, prev: '1.0' },
+  { n: 'Potassium', u: 'mmol/L', lo: 3.5, hi: 5.1, cl: 2.8, ch: 6.2, prev: '4.2' },
+  { g: 'Liver Function Test', sample: 'Plain / serum' },
+  { n: 'Total bilirubin', u: 'mg/dL', lo: 0.2, hi: 1.2, prev: '0.8' },
+  { n: 'SGOT (AST)', u: 'U/L', lo: 5, hi: 40, prev: '26' },
+  { n: 'SGPT (ALT)', u: 'U/L', lo: 7, hi: 56, prev: '31' },
+];
+let step = 'results', sel = 0, src = '', statOnly = false, open = null;
+const $ = (s) => document.querySelector(s);
+const dur = (m) => (m >= 60 ? `${Math.floor(m / 60)} h ${m % 60} m` : `${m} m`);
+const list = () => P.filter((p) => p.step === step && (!src || p.src === src) && (!statOnly || p.pr === 'STAT')).sort((a, b) => (b.pr === 'STAT') - (a.pr === 'STAT') || b.wait - a.wait);
+
+function drawTabs() {
+  $('[data-tabs]').innerHTML = STEPS.map((s) => { const n = P.filter((p) => p.step === s.id).length; const stat = P.some((p) => p.step === s.id && p.pr === 'STAT');
+    return `<button class="tab ${s.id === step ? 'on' : ''}" data-step="${s.id}"><i class="bi bi-${s.ic}"></i>${s.label}<span class="c ${stat && s.id !== step ? 'stat' : ''}">${n}</span></button>`; }).join('');
+  document.querySelectorAll('[data-step]').forEach((b) => (b.onclick = () => { step = b.dataset.step; sel = 0; draw(); }));
+}
+function drawRows() {
+  const L = list(); const act = STEPS.find((s) => s.id === step).act;
+  $('[data-rows]').innerHTML = L.length ? L.map((p, i) => `<tr class="${i === sel ? 'sel' : ''}" data-i="${i}">
+    <td class="mono">${p.tok}</td><td class="mono">${p.sid}</td>
+    <td class="pt"><b>${p.name}</b><small>${p.as}</small></td>
+    <td class="tests">${p.tests}${p.crit ? ' &nbsp;<span class="crit"><i class="bi bi-exclamation-triangle-fill"></i> Critical</span>' : ''}</td>
+    <td>${p.src}</td>
+    <td>${p.pr === 'STAT' ? '<span class="pr-stat">STAT</span>' : p.pr === 'Urgent' ? '<span class="pr-urg">Urgent</span>' : '<span class="muted">Routine</span>'}</td>
+    <td class="${p.wait > p.late ? 'late' : ''}">${dur(p.wait)}</td>
+    <td class="ta-r"><button class="btn sm ${i === sel ? 'pri' : ''}" data-act="${i}">${act}</button></td></tr>`).join('')
+    : `<tr><td colspan="8" class="empty"><i class="bi bi-check2-circle" style="font-size:22px"></i><br>Nothing waiting here.</td></tr>`;
+  document.querySelectorAll('[data-rows] tr[data-i]').forEach((r) => (r.onclick = () => { sel = +r.dataset.i; openPatient(); }));
+}
+function draw() { drawTabs(); drawRows(); }
+
+function flagOf(p, v) { if (v === '' || isNaN(v)) return ''; v = +v; if ((p.cl != null && v <= p.cl) || (p.ch != null && v >= p.ch)) return 'C'; if (v < p.lo) return 'L'; if (v > p.hi) return 'H'; return ''; }
+function openPatient() {
+  const L = list(); const p = L[sel]; if (!p) return; open = p;
+  $('[data-wl]').style.display = 'none'; $('[data-re]').classList.add('on'); $('[data-crumb]').textContent = 'Worklist / ' + p.name;
+  $('[data-pos]').textContent = `Patient ${sel + 1} of ${L.length} in “${STEPS.find((s) => s.id === step).label}”`;
+  $('[data-banner]').innerHTML = `<div class="nm">${p.name}<small>${p.as} · UHID NH-24-0${p.sid.slice(-4)}</small></div>
+    <div><label>SID</label><span class="v mono">${p.sid}</span></div>
+    <div><label>${p.src === 'Ward' ? 'Ward / bed' : 'Token'}</label><span class="v">${p.tok}</span></div>
+    <div><label>Source</label><span class="v">${p.src}</span></div>
+    <div><label>Referred by</label><span class="v">Dr. A. Imran Khan</span></div>
+    <div><label>Collected</label><span class="v">10:42 am</span></div>
+    <div><label>Priority</label><span class="v ${p.pr === 'STAT' ? 'pr-stat' : ''}">${p.pr || 'Routine'}</span></div>
+    <div><span class="alert amber"><i class="bi bi-exclamation-circle"></i>Diabetic · on Metformin</span></div>`;
+  $('[data-res]').innerHTML = PARAMS.map((x, i) => x.g ? `<tr class="grp"><td colspan="6">${x.g}<span class="muted">${x.sample}</span></td></tr>`
+    : `<tr><td>${x.n}</td><td><input data-k="${i}" inputmode="decimal" autocomplete="off"></td><td class="muted">${x.u}</td><td><span class="flag" data-f="${i}"></span></td><td class="muted">${x.lo} – ${x.hi}</td><td class="prev">${x.prev}</td></tr>`).join('');
+  $('[data-tubes]').innerHTML = [['#7B4BC9', 'EDTA', '04010052-1'], ['#D93B3B', 'Plain / serum', '04010052-2']].map(([c, n, code]) => `<div class="tube"><span class="cap" style="background:${c}"></span><div>${n}<div class="mono muted" style="font-size:11.5px">${code}</div></div><span class="ok"><i class="bi bi-check-circle-fill"></i> Received</span></div>`).join('');
+  $('[data-visit]').innerHTML = `<dt>Mobile</dt><dd>+91 98430 22110</dd><dt>Bill</dt><dd>HB-2026-00071 · <span style="color:var(--green)">Paid</span></dd><dt>Report due</dt><dd>12:30 pm today</dd><dt>Send by</dt><dd>WhatsApp</dd>`;
+  const inputs = [...document.querySelectorAll('[data-k]')];
+  inputs.forEach((inp, j) => {
+    inp.oninput = () => { const x = PARAMS[inp.dataset.k]; const f = flagOf(x, inp.value); inp.className = f; const el = $(`[data-f="${inp.dataset.k}"]`); el.className = 'flag ' + f; el.textContent = f === 'C' ? 'CRITICAL' : f === 'H' ? 'High' : f === 'L' ? 'Low' : ''; progress(); };
+    inp.onkeydown = (e) => {
+      if (e.key === 'Enter' || e.key === 'ArrowDown') { e.preventDefault(); (inputs[j + 1] || inp).focus(); }
+      if (e.key === 'ArrowUp') { e.preventDefault(); (inputs[j - 1] || inp).focus(); }
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') { e.preventDefault(); save(); }
+    };
+  });
+  progress(); inputs[0].focus();
+}
+function progress() { const ins = [...document.querySelectorAll('[data-k]')]; const n = ins.filter((i) => i.value !== '').length; const c = ins.filter((i) => i.className === 'C').length;
+  $('[data-progress]').innerHTML = `<b>${n}</b> of ${ins.length} entered<span class="bar"><i style="width:${(n / ins.length) * 100}%"></i></span>${c ? ` &nbsp; <span class="crit"><i class="bi bi-exclamation-triangle-fill"></i> ${c} critical — call the doctor</span>` : ''}`; }
+function toast(t) { const el = $('[data-toast]'); el.querySelector('span').textContent = t; el.classList.add('on'); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove('on'), 2200); }
+function save() { toast('Results saved.'); }
+function back() { open = null; $('[data-re]').classList.remove('on'); $('[data-wl]').style.display = 'flex'; $('[data-crumb]').textContent = 'Worklist'; draw(); }
+$('[data-back]').onclick = back;
+$('[data-save]').onclick = save;
+$('[data-verify]').onclick = () => { toast('Saved and verified. Report sent to the Send list.'); open.step = 'send'; back(); };
+$('[data-src]').onchange = (e) => { src = e.target.value; sel = 0; drawRows(); };
+$('[data-stat]').onchange = (e) => { statOnly = e.target.checked; sel = 0; drawRows(); };
+document.addEventListener('keydown', (e) => {
+  const typing = ['INPUT', 'SELECT'].includes(document.activeElement.tagName);
+  if (e.key === 'Escape' && open) { back(); return; }
+  if (open || typing) return;
+  if (e.key === '/') { e.preventDefault(); $('[data-scan]').focus(); }
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); sel = Math.max(0, Math.min(list().length - 1, sel + (e.key === 'ArrowDown' ? 1 : -1))); drawRows(); }
+  if (e.key === 'Enter') openPatient();
+});
+$('[data-scan]').addEventListener('keydown', (e) => { if (e.key === 'Escape') e.target.blur(); });
+draw();
+</script>
+</body>
+</html>
