@@ -141,9 +141,13 @@ export const ptype = (v) => PTYPES.find((t) => t.id === v.source) || PTYPES[0];
 /** Where to find the patient, as one bold line: ward bed, casualty or the counter token. */
 export const ptypeWhere = (v) => (v.collectionPoint === 'WARD' ? `Bed ${esc(v.bed || '—')}` : v.collectionPoint === 'CASUALTY' ? 'Casualty' : v.token ? `Token ${v.token}` : '—');
 /** Worklist cell: coloured icon tile + where (bold) + patient type (small, coloured). */
+/** Short type code for the grid: OP / IP / CAS / REF / SELF / PKG (plain text). */
+export const ptypeCode = (v) => ({ OP: 'OP', IP: 'IP', EMERGENCY: 'CAS', REFERRAL: 'REF', SELF: 'SELF', PACKAGE: 'PKG' })[v.source] || 'OP';
+/** Token / bed cell: "10 · called", "S-4 Surgical ward", "Casualty". */
 export function ptypeCell(v) {
-  const t = ptype(v); const ward = v.collectionPoint === 'WARD' && v.ward ? ` · ${esc(v.ward)}` : '';
-  return `<div class="h-where t-${t.cls}" title="${esc(t.long)}"><span class="h-wic">${icon(t.ic)}</span><div><b>${ptypeWhere(v)}</b><small>${esc(t.id === 'IP' ? 'IP' : t.sub)}${ward}${v.tokenStatus === 'CALLED' && v.collectionPoint === 'OPD' ? ' · <em>called</em>' : ''}</small></div></div>`;
+  if (v.collectionPoint === 'WARD') return `${esc(v.bed || '—')}${v.ward ? ` <span class="h-muted">${esc(v.ward)}</span>` : ''}`;
+  if (v.collectionPoint === 'CASUALTY') return 'Casualty';
+  return v.token ? `${v.token}${v.tokenStatus === 'CALLED' ? ' <span class="h-muted">called</span>' : ''}` : '—';
 }
-/** Inline type for the patient banner: coloured icon + label. */
-export const ptypeTag = (v) => { const t = ptype(v); return `<span class="h-ptype t-${t.cls}" title="${esc(t.long)}">${icon(t.ic)}${esc(t.id === 'IP' ? 'IP · Ward' : t.sub)}</span>`; };
+/** Plain type text for the patient banner, e.g. "IP (ward)". */
+export const ptypeTag = (v) => { const t = ptype(v); return `<span title="${esc(t.long)}">${esc(t.long)}</span>`; };

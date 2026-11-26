@@ -1322,7 +1322,7 @@ Cloud (recommended — owner wants remote access) or on-premise server: 4 vCPU, 
 |---|---|---|---|---|
 | S1 | Hospital Bill `#/hbill` | Reception | Bill lab tests | Patient search + register, doctor, pending doctor requests, catalogue (category chips, search, price, sample, TAT), bill lines, **Lab request card**, discount with approval, payment modes (Cash, UPI, Card, Split, Credit, Emergency), validation messages, shift chip |
 | S2 | Bill receipt `#/hbills/{id}/receipt` | Reception | Print bill | SID, token, report date, 15-day note, department routing |
-| S3 | Lab Worklist `#/lab?stage=…&v=…` | Lab | Daily work | Scan box (scan tube = collect / receive, scan SID = open, type = search); tabs **To collect · To receive · Enter results · To verify · Ready to send** with live counts; one table, one action button per row; first column **Patient type / where** — coloured icon tile and left stripe per type (OP blue, IP purple, Casualty red, Outside doctor amber, Self grey, Package green), *Token 7* / *Bed S-4* in bold and the type underneath (§38); filters **Patient type** (with counts) and *STAT only*; "waiting for payment" as a button, not a step; clicking a row opens the patient screen (S5) in place, Esc goes back |
+| S3 | Lab Worklist `#/lab?stage=…&v=…` | Lab | Daily work | Scan box (scan tube = collect / receive, scan SID = open, type = search); tabs **To collect · To receive · Enter results · To verify · Ready to send** with live counts; one table, one action button per row; columns **S.No · Type (OP / IP / CAS / REF / SELF / PKG) · Token / Bed · SID · Patient · Tests · Priority · Waiting**, plain text (§38); filters **Patient type** (with counts) and *STAT only*; "waiting for payment" as a button, not a step; clicking a row opens the patient screen (S5) in place, Esc goes back |
 | S4 | Collection dialog | Lab | Collect tubes | Patient identity banner, 3 numbered steps, print labels, scan-to-confirm (wrong label refused), drawn tubes in cap colours, progress bar, closes itself when every tube is in |
 | S5 | Patient screen (in the worklist, or full page `#/lab/visit/{id}`) | Lab, Reception | Everything for one visit | **Hospital-style layout (v1.1):** patient banner (name, age/sex, UHID, SID, token or bed, patient-type tag, doctor, waiting, priority, allergy / critical alerts); result grid Parameter · Result · Unit · Flag · Normal range · Previous; one action bar; side panel with sample tubes, visit facts and links (labels, report, progress, activity log, patient file). Behaviour kept from v1.0: patient header (name, age/sex, ID, mobile, allergy, SID barcode); 6-step progress (Paid → Collected → In lab → Results → Verified → Delivered); a **Next step** banner with one button; each tube with its tests and **result entry for all tests together** (live High / Low / Critical flags, previous result, Enter = next box, Ctrl+S = save, sticky save / verify bar); per-test Correct / Verify; send card; details; activity timeline |
 | S6 | Labels & request sheet `#/lab/visit/{id}/labels` | Lab | Print | 50 × 25 mm labels + A4 request sheet |
@@ -1727,20 +1727,20 @@ The billing catalogue endpoint returns only active tests; the server re-checks `
 - Code: `labflow.js` (`createIpOrder`, `onOrderVerified`, `wardWaPending`), `lab/stages.js` (send step), `labdesk.js` (ward order form), `lab/sid.js` (send card and action bar).
 
 **Change 2 — Patient type shown in the Lab Worklist.**
-- First column **Patient type / where**: a coloured icon tile, where to find the patient in bold, and the patient type underneath in the same colour. The row also has a 4 px left stripe in that colour, so the type can be read from across the room.
+- The worklist starts with three plain columns: **S.No**, **Type** and **Token / Bed**. No colours, icons or stripes per row; only the Priority column is coloured (STAT red, Urgent amber).
 
-| Source | Icon (Bootstrap) | Colour | Bold line | Small line |
-|---|---|---|---|---|
-| OP | `person-fill` | blue | Token 7 | OP · hospital doctor (· called) |
-| IP | `hospital-fill` | purple | Bed S-4 | IP · Surgical ward |
-| EMERGENCY | `heart-pulse-fill` | red | Casualty | Emergency |
-| REFERRAL | `file-earmark-medical-fill` | amber | Token 7 | Outside doctor |
-| SELF | `person-walking` | grey | Token 8 | Self request |
-| PACKAGE | `box2-heart-fill` | green | Token 9 | Health package |
+| Source | Type | Token / Bed |
+|---|---|---|
+| OP | OP | 7 (· called) |
+| IP | IP | S-4 Surgical ward |
+| EMERGENCY | CAS | Casualty |
+| REFERRAL | REF | 7 |
+| SELF | SELF | 8 |
+| PACKAGE | PKG | 9 |
 
 - Filter **Patient type** lists each type with its count on the current step (types with none are greyed out).
-- The patient banner shows the same icon and type.
-- Code: `lab/ui.js` (`PTYPES`, `ptypeCell`, `ptypeTag`, `ptypeWhere`), `lab/workbench.js`, `lab/sid.js`, `css/lab2.css`.
+- The patient banner shows the type in words (e.g. *IP — admitted (ward)*).
+- Code: `lab/ui.js` (`PTYPES`, `ptypeCode`, `ptypeCell`, `ptypeTag`), `lab/workbench.js`, `lab/sid.js`, `css/lab2.css`.
 
 **Change 3 — Token screen shows only counter-token patients.**
 - Shown: today's counter tokens (OP, outside doctor, self, package) with payment cleared and a tube still to collect.
