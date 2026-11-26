@@ -5,246 +5,360 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lab Workbench — mockup</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #F3F5F7; --surface: #fff; --line: #E4E8EC; --line-2: #CFD7DE; --hover: #F6F8FA; --sel: #EAF5F4;
-  --text: #17242F; --text-2: #5B6B78; --text-3: #8D99A4;
-  --navy: #0B2E4A; --teal: #04807D; --teal-2: #036A68; --teal-bg: #E6F3F2;
-  --red: #C0352F; --red-bg: #FBEDEC; --amber: #A5660A;
+  --bg: #F5F7F9; --card: #fff; --line: #EAECF0; --line-2: #D0D5DD; --hover: #F9FAFB;
+  --text: #101828; --text-2: #475467; --text-3: #98A2B3;
+  --brand: #049794; --brand-2: #037C79; --brand-50: #E8F6F5; --brand-100: #C9ECEA;
+  --navy: #023459;
+  --red: #D92D20; --red-50: #FEF3F2; --red-100: #FEE4E2;
+  --amber: #B54708; --amber-50: #FFFAEB; --amber-100: #FEF0C7;
+  --green: #067647; --green-50: #ECFDF3;
+  --blue: #175CD3; --blue-50: #EFF8FF;
+  --violet: #6941C6; --violet-50: #F4F3FF;
+  --r: 12px; --shadow: 0 1px 2px rgba(16,24,40,.05); --shadow-lg: 0 12px 32px -6px rgba(16,24,40,.16);
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }
-body { font: 14px/1.45 Inter, system-ui, sans-serif; color: var(--text); background: var(--surface); -webkit-font-smoothing: antialiased; }
+body { font: 14px/1.5 Inter, system-ui, sans-serif; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; }
 button { font: inherit; cursor: pointer; color: inherit; }
-input { font: inherit; color: inherit; }
+input, select { font: inherit; color: inherit; }
+svg.i { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mono { font-family: var(--mono); font-size: 12.5px; }
 .num { font-variant-numeric: tabular-nums; }
-kbd { font: 500 11px Inter, sans-serif; padding: 1px 6px; border: 1px solid var(--line-2); border-radius: 3px; background: #fff; color: var(--text-2); }
+kbd { font: 500 11px Inter, sans-serif; min-width: 20px; padding: 1px 6px; border: 1px solid var(--line-2); border-radius: 5px; background: #fff; color: var(--text-2); text-align: center; display: inline-block; }
 
-.app { display: grid; grid-template-rows: 52px 44px 1fr; height: 100vh; }
+.app { display: grid; grid-template-columns: 68px 1fr; height: 100vh; }
 
-/* app bar */
-.bar-top { display: flex; align-items: center; gap: 20px; padding: 0 20px; background: var(--navy); color: #fff; }
-.brand { font-weight: 600; white-space: nowrap; }
-.brand span { opacity: .55; font-weight: 400; margin-left: 8px; }
-.scan { position: relative; flex: 1; max-width: 520px; margin: 0 auto; }
-.scan input { width: 100%; height: 34px; border: 0; border-radius: 4px; padding: 0 12px 0 36px; background: rgba(255,255,255,.12); color: #fff; outline: none; transition: background .15s; }
-.scan input::placeholder { color: rgba(255,255,255,.6); }
-.scan input:focus { background: #fff; color: var(--text); }
-.scan input:focus::placeholder { color: var(--text-3); }
-.scan svg { position: absolute; left: 11px; top: 9px; width: 16px; height: 16px; opacity: .7; pointer-events: none; }
-.scan input:focus ~ svg { color: var(--text-3); }
-.scan.ok input { box-shadow: 0 0 0 3px #5fd0cb; }
-.scan.miss input { box-shadow: 0 0 0 3px #ef8a85; }
-.drop { position: absolute; top: 40px; left: 0; right: 0; background: #fff; color: var(--text); border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 8px 24px rgba(0,0,0,.16); z-index: 30; }
-.drop button { display: flex; justify-content: space-between; width: 100%; padding: 9px 12px; border: 0; background: none; text-align: left; }
+/* rail */
+.rail { background: var(--navy); display: flex; flex-direction: column; align-items: center; padding: 14px 0; gap: 6px; }
+.logo { width: 38px; height: 38px; border-radius: 10px; background: var(--brand); color: #fff; display: grid; place-items: center; font-weight: 700; margin-bottom: 14px; }
+.rbtn { width: 42px; height: 42px; border-radius: 10px; border: 0; background: none; color: rgba(255,255,255,.55); display: grid; place-items: center; position: relative; }
+.rbtn svg.i { width: 20px; height: 20px; }
+.rbtn:hover { background: rgba(255,255,255,.08); color: #fff; }
+.rbtn.on { background: rgba(255,255,255,.12); color: #fff; }
+.rbtn .dot { position: absolute; top: 9px; right: 9px; width: 7px; height: 7px; border-radius: 50%; background: #F97066; }
+.rail .sp { flex: 1; }
+.me { width: 36px; height: 36px; border-radius: 50%; background: #2E5A7D; color: #fff; display: grid; place-items: center; font-weight: 600; font-size: 13px; }
+
+.main { display: grid; grid-template-rows: auto auto 1fr; min-width: 0; min-height: 0; }
+
+/* header */
+.head { display: flex; align-items: center; gap: 24px; padding: 16px 24px 12px; }
+.title h1 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -.02em; }
+.title p { margin: 1px 0 0; font-size: 13px; color: var(--text-2); }
+.scan { position: relative; flex: 1; max-width: 560px; margin-left: auto; }
+.scan input { width: 100%; height: 42px; border: 1px solid var(--line-2); border-radius: 10px; padding: 0 70px 0 42px; background: #fff; outline: none; box-shadow: var(--shadow); transition: border-color .15s, box-shadow .15s; }
+.scan input:focus { border-color: var(--brand); box-shadow: 0 0 0 4px var(--brand-50); }
+.scan > svg.i { position: absolute; left: 14px; top: 13px; color: var(--text-3); width: 18px; height: 18px; }
+.scan kbd { position: absolute; right: 12px; top: 11px; }
+.scan.ok input { border-color: var(--brand); box-shadow: 0 0 0 4px var(--brand-100); }
+.scan.miss input { border-color: var(--red); box-shadow: 0 0 0 4px var(--red-100); }
+.drop { position: absolute; top: 48px; left: 0; right: 0; background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-lg); z-index: 30; padding: 6px; }
+.drop button { display: flex; align-items: center; gap: 10px; width: 100%; padding: 8px 10px; border: 0; background: none; border-radius: 8px; text-align: left; }
 .drop button.on, .drop button:hover { background: var(--hover); }
-.drop small { color: var(--text-3); }
-.user { display: flex; align-items: center; gap: 14px; white-space: nowrap; font-size: 13px; }
-.user .mock { font-size: 11px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; padding: 2px 8px; border: 1px solid rgba(255,255,255,.35); border-radius: 3px; opacity: .8; }
-.user .ava { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,.16); display: grid; place-items: center; font-size: 12px; font-weight: 600; }
-.ibtn { border: 0; background: none; width: 30px; height: 30px; border-radius: 4px; display: grid; place-items: center; color: inherit; opacity: .8; }
-.ibtn:hover { background: rgba(255,255,255,.12); opacity: 1; }
+.drop .st { margin-left: auto; }
+.mockpill { font-size: 11.5px; font-weight: 600; color: var(--violet); background: var(--violet-50); padding: 4px 10px; border-radius: 99px; white-space: nowrap; }
+.hbtn { height: 42px; padding: 0 14px; border: 1px solid var(--line-2); background: #fff; border-radius: 10px; display: inline-flex; align-items: center; gap: 8px; font-weight: 500; color: var(--text-2); box-shadow: var(--shadow); white-space: nowrap; }
+.hbtn:hover { color: var(--text); background: var(--hover); }
 
-/* step tabs */
-.steps { display: flex; align-items: stretch; padding: 0 12px; border-bottom: 1px solid var(--line); background: var(--surface); }
-.step { border: 0; background: none; padding: 0 16px; color: var(--text-2); font-weight: 500; position: relative; }
-.step b { margin-left: 6px; font-weight: 600; color: var(--text-3); font-variant-numeric: tabular-nums; }
-.step:hover { color: var(--text); }
-.step.on { color: var(--text); font-weight: 600; }
-.step.on b { color: var(--teal); }
-.step.on::after { content: ''; position: absolute; left: 10px; right: 10px; bottom: -1px; height: 2px; background: var(--teal); }
-.steps .sp { flex: 1; }
-.tbtn { border: 0; background: none; color: var(--text-2); font-size: 13px; padding: 0 10px; }
-.tbtn:hover { color: var(--text); }
+/* steps */
+.steps { display: flex; gap: 6px; padding: 0 24px 14px; }
+.step { display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 14px 0 12px; border-radius: 10px; border: 1px solid transparent; background: none; color: var(--text-2); font-weight: 500; }
+.step:hover { background: #fff; border-color: var(--line); }
+.step.on { background: #fff; border-color: var(--line); color: var(--text); box-shadow: var(--shadow); font-weight: 600; }
+.step.on svg.i { color: var(--brand); }
+.badge { min-width: 22px; height: 20px; padding: 0 7px; border-radius: 99px; background: #EEF0F3; color: var(--text-2); font-size: 12px; font-weight: 600; display: inline-grid; place-items: center; font-variant-numeric: tabular-nums; }
+.step.on .badge { background: var(--brand); color: #fff; }
+.badge.red { background: var(--red-50); color: var(--red); }
 
-/* split */
-.split { display: grid; grid-template-columns: 340px 1fr; min-height: 0; }
-.list { border-right: 1px solid var(--line); display: flex; flex-direction: column; min-height: 0; background: var(--surface); }
-.lhead { display: flex; align-items: center; justify-content: space-between; height: 40px; padding: 0 16px; border-bottom: 1px solid var(--line); font-size: 12.5px; color: var(--text-2); }
-.lhead select { border: 0; background: none; font: inherit; color: var(--text); font-weight: 500; cursor: pointer; outline: none; }
-.rows { overflow: auto; flex: 1; }
-.row { display: grid; grid-template-columns: 34px 1fr auto; gap: 12px; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--line); cursor: pointer; position: relative; }
+/* body */
+.body { display: grid; grid-template-columns: 372px 1fr; gap: 16px; padding: 0 24px 20px; min-height: 0; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); }
+
+/* list */
+.list { display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
+.lhead { display: flex; gap: 6px; padding: 12px; border-bottom: 1px solid var(--line); }
+.chipbtn { height: 30px; padding: 0 12px; border-radius: 99px; border: 1px solid var(--line); background: #fff; font-size: 13px; font-weight: 500; color: var(--text-2); display: inline-flex; align-items: center; gap: 6px; }
+.chipbtn span { color: var(--text-3); font-weight: 500; }
+.chipbtn:hover { background: var(--hover); }
+.chipbtn.on { background: var(--brand-50); border-color: var(--brand-100); color: var(--brand-2); }
+.chipbtn.on span { color: var(--brand); }
+.rows { overflow: auto; flex: 1; padding: 6px; }
+.row { display: grid; grid-template-columns: 40px 1fr auto; gap: 12px; align-items: center; padding: 10px; border-radius: 10px; cursor: pointer; border: 1px solid transparent; }
+.row + .row { margin-top: 2px; }
 .row:hover { background: var(--hover); }
-.row.sel { background: var(--sel); }
-.row.sel::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--teal); }
-.mk { width: 34px; height: 34px; border-radius: 4px; background: var(--bg); display: grid; place-items: center; font-weight: 600; font-size: 13px; color: var(--text-2); font-variant-numeric: tabular-nums; }
-.row.sel .mk { background: #fff; }
-.nm { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.ts { font-size: 12.5px; color: var(--text-3); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.rt { text-align: right; font-size: 12.5px; color: var(--text-3); white-space: nowrap; }
-.rt .late { color: var(--red); }
-.pri { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: .05em; color: var(--red); margin-bottom: 1px; }
-.pri.u { color: var(--amber); }
-.none { padding: 56px 20px; text-align: center; color: var(--text-3); }
+.row.sel { background: var(--brand-50); border-color: var(--brand-100); }
+.av { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-weight: 600; font-size: 14px; flex: none; }
+.rn { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.rn b { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rn small { color: var(--text-3); font-size: 12.5px; white-space: nowrap; }
+.rs { display: flex; align-items: center; gap: 6px; margin-top: 3px; font-size: 12.5px; color: var(--text-2); white-space: nowrap; overflow: hidden; }
+.rr { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.wait { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; color: var(--text-3); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.wait svg.i { width: 13px; height: 13px; }
+.wait.late { color: var(--red); font-weight: 500; }
+.tag { display: inline-flex; align-items: center; gap: 4px; height: 22px; padding: 0 8px; border-radius: 6px; font-size: 12px; font-weight: 500; background: #F2F4F7; color: var(--text-2); white-space: nowrap; }
+.tag.code { font-weight: 600; letter-spacing: .01em; }
+.pill { display: inline-flex; align-items: center; gap: 5px; height: 22px; padding: 0 9px; border-radius: 99px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.pill.stat { background: var(--red-50); color: var(--red); }
+.pill.urgent { background: var(--amber-50); color: var(--amber); }
+.pill.ok { background: var(--green-50); color: var(--green); }
+.pill.info { background: var(--blue-50); color: var(--blue); }
+.pill.nodot::before { display: none; }
+.empty { padding: 60px 20px; text-align: center; color: var(--text-3); }
+.empty svg.i { width: 32px; height: 32px; color: var(--line-2); margin-bottom: 8px; }
+.empty b { display: block; color: var(--text); font-weight: 600; margin-bottom: 2px; }
 
 /* detail */
-.detail { display: flex; flex-direction: column; min-height: 0; position: relative; }
-.dscroll { overflow: auto; flex: 1; }
-.dwrap { max-width: 900px; padding: 24px 32px 32px; }
-.dh { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
-.dh h1 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
-.dh h1 span { font-weight: 400; color: var(--text-3); font-size: 15px; margin-left: 6px; }
-.chip { font-size: 11px; font-weight: 700; letter-spacing: .05em; padding: 2px 7px; border-radius: 3px; background: var(--red); color: #fff; }
-.chip.u { background: #FBF1E0; color: var(--amber); }
-.dh .sp { flex: 1; }
-.lbtn { border: 1px solid var(--line-2); background: #fff; height: 30px; padding: 0 12px; border-radius: 4px; font-size: 13px; color: var(--text-2); }
-.lbtn:hover { color: var(--text); border-color: var(--text-3); }
-.lbtn.on { background: var(--teal-bg); border-color: var(--teal); color: var(--teal-2); }
-.note { font-size: 13px; color: var(--amber); margin: -10px 0 18px; }
+.detail { display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
+.dscroll { flex: 1; overflow: auto; padding: 20px 24px; }
+.ph { display: flex; align-items: center; gap: 14px; }
+.ph .av { width: 52px; height: 52px; font-size: 18px; }
+.ph h2 { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: -.015em; display: flex; align-items: center; gap: 10px; }
+.ph .sub { display: flex; align-items: center; gap: 8px; margin-top: 3px; color: var(--text-2); font-size: 13.5px; }
+.ph .grow { flex: 1; }
+.facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 18px; border: 1px solid var(--line); border-radius: 10px; }
+.fact { padding: 10px 14px; min-width: 0; }
+.fact + .fact { border-left: 1px solid var(--line); }
+.fact label { display: block; font-size: 12px; color: var(--text-3); margin-bottom: 2px; }
+.fact div { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-.sub { font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); margin: 0 0 8px; }
+.sec { margin-top: 20px; }
+.sech { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.sech h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.sech .meta { color: var(--text-3); font-size: 13px; }
+.sech .grow { flex: 1; }
+.prog { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-2); font-variant-numeric: tabular-nums; }
+.prog i { width: 80px; height: 6px; border-radius: 99px; background: #EEF0F3; overflow: hidden; display: inline-block; }
+.prog i b { display: block; height: 100%; background: var(--brand); border-radius: 99px; transition: width .2s; }
+
+.banner { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border-radius: 10px; margin-top: 16px; font-size: 13.5px; }
+.banner svg.i { width: 18px; height: 18px; margin-top: 1px; }
+.banner.crit { background: var(--red-50); border: 1px solid var(--red-100); color: #912018; }
+.banner.warn { background: var(--amber-50); border: 1px solid var(--amber-100); color: #93370D; }
+.banner b { font-weight: 600; }
+.banner .grow { flex: 1; }
+.banner input { height: 32px; border: 1px solid #FDA29B; border-radius: 8px; padding: 0 10px; background: #fff; outline: none; }
+.banner input:focus { box-shadow: 0 0 0 3px var(--red-100); }
 
 /* tubes */
-.tubes { border-top: 1px solid var(--line); }
-.tube { display: grid; grid-template-columns: 12px 140px 1fr auto; gap: 16px; align-items: center; height: 52px; border-bottom: 1px solid var(--line); }
-.cap { width: 10px; height: 24px; border-radius: 2px 2px 5px 5px; background: linear-gradient(var(--c) 0 36%, #E3E8EC 36%); }
-.tube .tn { font-weight: 500; }
-.tube .tt { color: var(--text-2); }
-.tube .ok { color: var(--teal-2); font-size: 13px; }
-.link { border: 0; background: none; color: var(--teal-2); font-weight: 500; padding: 4px 0; font-size: 13px; }
-.link:hover { text-decoration: underline; }
+.tubes { border: 1px solid var(--line); border-radius: 10px; }
+.tube { display: grid; grid-template-columns: 28px 190px 1fr auto; gap: 14px; align-items: center; padding: 12px 14px; }
+.tube + .tube { border-top: 1px solid var(--line); }
+.cap { width: 14px; height: 32px; border-radius: 4px 4px 8px 8px; background: linear-gradient(var(--c) 0 34%, #EEF1F4 34%); box-shadow: inset 0 0 0 1px rgba(0,0,0,.06); justify-self: center; }
+.tube .tn b { display: block; font-weight: 600; }
+.tube .tn span { color: var(--text-3); }
+.tube .tt { display: flex; flex-wrap: wrap; gap: 6px; }
+.tube .ta { display: flex; align-items: center; gap: 8px; }
 
 /* results */
+.tbl { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
 table.res { width: 100%; border-collapse: collapse; }
-.res th { font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); text-align: left; padding: 0 12px 8px; border-bottom: 1px solid var(--line); }
-.res th.r, .res td.r { text-align: right; }
-.res td { height: 42px; padding: 0 12px; border-bottom: 1px solid var(--line); }
-.res tr.g td { height: 38px; padding-top: 14px; font-weight: 600; font-size: 13px; border-bottom: 1px solid var(--line); }
-.res td.u, .res td.rg { color: var(--text-3); font-size: 13px; }
-.res td.pv { color: var(--text-3); font-size: 13px; }
-.res .col-pv { display: none; }
-.cmp .res .col-pv { display: table-cell; }
-.vin { width: 96px; height: 30px; border: 1px solid var(--line-2); border-radius: 3px; padding: 0 8px; text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; outline: none; background: #fff; }
-.vin:focus { border-color: var(--teal); box-shadow: 0 0 0 2px var(--teal-bg); }
-.vsel { height: 30px; border: 1px solid var(--line-2); border-radius: 3px; padding: 0 6px; font-weight: 600; background: #fff; outline: none; }
-.vsel:focus { border-color: var(--teal); }
+.res th { background: var(--hover); font-size: 12px; font-weight: 500; color: var(--text-2); text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.res td { padding: 0 14px; height: 48px; border-bottom: 1px solid var(--line); }
+.res tr:last-child td { border-bottom: 0; }
+.res tr.g td { height: 40px; background: #FCFCFD; font-weight: 600; font-size: 13px; color: var(--text); }
+.res tr.g td span { color: var(--text-3); font-weight: 400; margin-left: 6px; }
+.res td.u, .res td.rg { color: var(--text-2); font-size: 13px; white-space: nowrap; }
+.res td.pv { color: var(--text-2); font-size: 13px; white-space: nowrap; }
+.res td.pv small { color: var(--text-3); margin-left: 4px; }
+.res tr.cur td { background: #FAFEFE; }
+.vin { width: 110px; height: 36px; border: 1px solid var(--line-2); border-radius: 8px; padding: 0 12px; font-weight: 600; font-variant-numeric: tabular-nums; outline: none; background: #fff; transition: border-color .12s, box-shadow .12s; }
+.vin:focus { border-color: var(--brand); box-shadow: 0 0 0 4px var(--brand-50); }
+.vsel { height: 36px; border: 1px solid var(--line-2); border-radius: 8px; padding: 0 10px; font-weight: 600; background: #fff; outline: none; min-width: 130px; }
+.vsel:focus { border-color: var(--brand); box-shadow: 0 0 0 4px var(--brand-50); }
 .ro { font-weight: 600; font-variant-numeric: tabular-nums; }
-.fa { display: inline-block; width: 22px; margin-right: 6px; text-align: center; font-weight: 700; font-size: 13px; }
-tr.H .fa, tr.L .fa, tr.A .fa, tr.H .ro, tr.L .ro { color: var(--amber); }
-tr.H .vin, tr.L .vin { color: var(--amber); }
-tr.HH td, tr.LL td { background: var(--red-bg); }
-tr.HH .fa, tr.LL .fa, tr.HH .vin, tr.LL .vin, tr.HH .ro, tr.LL .ro { color: var(--red); }
-.inf { display: flex; align-items: center; gap: 10px; margin-top: 18px; padding: 12px 14px; background: var(--red-bg); border-radius: 4px; font-size: 13px; color: #7a211d; }
-.inf input { height: 30px; border: 1px solid #E8BDBA; border-radius: 3px; padding: 0 8px; background: #fff; outline: none; }
+tr.H .vin, tr.L .vin, tr.H .ro, tr.L .ro { color: var(--amber); border-color: #FEC84B; }
+tr.HH .vin, tr.LL .vin, tr.HH .ro, tr.LL .ro { color: var(--red); border-color: #FDA29B; }
+tr.HH td, tr.LL td { background: #FFFBFA; }
+.flag { display: inline-flex; align-items: center; height: 22px; padding: 0 8px; border-radius: 6px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.flag.H, .flag.L, .flag.A { background: var(--amber-50); color: var(--amber); }
+.flag.HH, .flag.LL { background: var(--red-50); color: var(--red); }
+.flag.N { background: none; color: var(--text-3); font-weight: 500; padding: 0; }
 
 /* send */
-.opts { border-top: 1px solid var(--line); }
-.opt { display: flex; align-items: center; gap: 12px; height: 52px; border-bottom: 1px solid var(--line); cursor: pointer; }
-.opt input { accent-color: var(--teal); width: 16px; height: 16px; margin: 0; }
-.opt span { color: var(--text-3); font-size: 13px; margin-left: auto; }
+.opts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.opt { position: relative; display: block; padding: 16px; border: 1px solid var(--line); border-radius: 12px; cursor: pointer; transition: border-color .12s, box-shadow .12s, background .12s; }
+.opt:hover { border-color: var(--line-2); }
+.opt input { position: absolute; top: 16px; right: 16px; accent-color: var(--brand); width: 16px; height: 16px; margin: 0; }
+.opt .oi { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: #F2F4F7; color: var(--text-2); margin-bottom: 12px; }
+.opt b { display: block; font-weight: 600; }
+.opt span { color: var(--text-2); font-size: 13px; }
+.opt:has(input:checked) { border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-50); background: #FBFEFE; }
+.opt:has(input:checked) .oi { background: var(--brand-50); color: var(--brand); }
 
 /* action bar */
-.act { display: flex; align-items: center; gap: 8px; height: 60px; padding: 0 32px; border-top: 1px solid var(--line); background: var(--surface); }
-.act .st { font-size: 13px; color: var(--text-3); }
+.act { display: flex; align-items: center; gap: 10px; padding: 14px 24px; border-top: 1px solid var(--line); background: #fff; }
+.act .st { font-size: 13.5px; color: var(--text-2); display: inline-flex; align-items: center; gap: 8px; }
 .act .st.crit { color: var(--red); font-weight: 500; }
-.act .sp { flex: 1; }
-.btn { height: 36px; padding: 0 16px; border-radius: 4px; border: 1px solid var(--line-2); background: #fff; font-weight: 500; }
-.btn:hover { border-color: var(--text-3); }
-.btn.pri { background: var(--teal); border-color: var(--teal); color: #fff; font-weight: 600; padding: 0 20px; }
-.btn.pri:hover { background: var(--teal-2); }
-.btn.pri:disabled { opacity: .45; cursor: not-allowed; }
-.more { position: relative; }
-.menu { position: absolute; bottom: 42px; right: 0; min-width: 200px; background: #fff; border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 8px 24px rgba(0,0,0,.12); padding: 4px 0; z-index: 20; }
-.menu button { display: block; width: 100%; text-align: left; border: 0; background: none; padding: 8px 14px; font-size: 13.5px; }
-.menu button:hover { background: var(--hover); }
-.menu button.danger { color: var(--red); }
-.menu hr { border: 0; border-top: 1px solid var(--line); margin: 4px 0; }
+.act .grow { flex: 1; }
+.btn { height: 40px; padding: 0 16px; border-radius: 10px; border: 1px solid var(--line-2); background: #fff; font-weight: 600; color: var(--text-2); display: inline-flex; align-items: center; gap: 8px; box-shadow: var(--shadow); white-space: nowrap; }
+.btn:hover { background: var(--hover); color: var(--text); }
+.btn.sm { height: 34px; padding: 0 12px; font-size: 13px; border-radius: 8px; }
+.btn.ghost { border-color: transparent; box-shadow: none; }
+.btn.ghost:hover { background: #F2F4F7; }
+.btn.danger { color: var(--red); }
+.btn.danger:hover { background: var(--red-50); border-color: #FDA29B; }
+.btn.pri { background: var(--brand); border-color: var(--brand); color: #fff; padding: 0 20px; }
+.btn.pri:hover { background: var(--brand-2); }
+.btn.pri:disabled { background: #9ED9D7; border-color: #9ED9D7; cursor: not-allowed; }
+.btn.pri kbd { background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.3); color: #fff; }
+.lnk { border: 0; background: none; color: var(--brand-2); font-weight: 600; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 8px; border-radius: 8px; }
+.lnk:hover { background: var(--brand-50); }
 
 /* drawer */
-.scrim { position: fixed; inset: 0; background: rgba(11,46,74,.18); z-index: 40; opacity: 0; pointer-events: none; transition: opacity .15s; }
-.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: 400px; background: #fff; z-index: 41; box-shadow: -8px 0 32px rgba(0,0,0,.12); transform: translateX(100%); transition: transform .2s ease; display: flex; flex-direction: column; }
-.open .scrim { opacity: 1; pointer-events: auto; }
-.open .drawer { transform: none; }
-.dr-h { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--line); }
-.dr-h b { font-size: 15px; }
-.dr-h button { border: 0; background: none; font-size: 20px; color: var(--text-3); line-height: 1; }
-.dr-t { display: flex; gap: 4px; padding: 0 14px; border-bottom: 1px solid var(--line); }
-.dr-t button { border: 0; background: none; padding: 10px 8px; font-size: 13px; color: var(--text-2); position: relative; }
-.dr-t button.on { color: var(--text); font-weight: 600; }
-.dr-t button.on::after { content: ''; position: absolute; left: 6px; right: 6px; bottom: -1px; height: 2px; background: var(--teal); }
-.dr-b { padding: 16px 20px; overflow: auto; flex: 1; font-size: 13.5px; }
-dl.kv { display: grid; grid-template-columns: 120px 1fr; gap: 10px 12px; margin: 0; }
-dl.kv dt { color: var(--text-3); }
-dl.kv dd { margin: 0; }
+.scrim { position: fixed; inset: 0; background: rgba(16,24,40,.28); backdrop-filter: blur(2px); z-index: 40; opacity: 0; pointer-events: none; transition: opacity .2s; }
+.drawer { position: fixed; top: 10px; right: 10px; bottom: 10px; width: 420px; background: #fff; border-radius: 16px; z-index: 41; box-shadow: var(--shadow-lg); transform: translateX(calc(100% + 20px)); transition: transform .25s cubic-bezier(.2,.8,.2,1); display: flex; flex-direction: column; overflow: hidden; }
+body.open .scrim { opacity: 1; pointer-events: auto; }
+body.open .drawer { transform: none; }
+.dr-h { display: flex; align-items: center; gap: 12px; padding: 18px 20px 14px; }
+.dr-h .av { width: 42px; height: 42px; }
+.dr-h b { display: block; font-size: 16px; }
+.dr-h small { color: var(--text-2); }
+.dr-h .x { margin-left: auto; width: 34px; height: 34px; border-radius: 8px; border: 0; background: none; color: var(--text-3); display: grid; place-items: center; }
+.dr-h .x:hover { background: #F2F4F7; color: var(--text); }
+.seg { display: flex; gap: 2px; margin: 0 20px; padding: 3px; background: #F2F4F7; border-radius: 10px; }
+.seg button { flex: 1; height: 32px; border: 0; background: none; border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--text-2); }
+.seg button.on { background: #fff; color: var(--text); box-shadow: var(--shadow); font-weight: 600; }
+.dr-b { padding: 18px 20px; overflow: auto; flex: 1; }
+dl.kv { display: grid; grid-template-columns: 130px 1fr; gap: 12px; margin: 0; font-size: 13.5px; }
+dl.kv dt { color: var(--text-2); }
+dl.kv dd { margin: 0; font-weight: 500; }
 .tl { list-style: none; margin: 0; padding: 0; }
-.tl li { display: grid; grid-template-columns: 14px 1fr auto; gap: 10px; padding-bottom: 18px; position: relative; }
-.tl li::before { content: ''; width: 9px; height: 9px; border-radius: 50%; margin-top: 5px; border: 2px solid var(--line-2); background: #fff; }
-.tl li.d::before { background: var(--teal); border-color: var(--teal); }
-.tl li:not(:last-child)::after { content: ''; position: absolute; left: 6px; top: 17px; bottom: 2px; width: 1px; background: var(--line-2); }
-.tl small { display: block; color: var(--text-3); }
-.tl .t { color: var(--text-2); font-variant-numeric: tabular-nums; }
-.tl li:not(.d) { color: var(--text-3); }
-table.h { width: 100%; border-collapse: collapse; }
-.h td { padding: 7px 0; border-bottom: 1px solid var(--line); }
-.h td.r { text-align: right; font-variant-numeric: tabular-nums; }
+.tl li { display: grid; grid-template-columns: 28px 1fr auto; gap: 12px; padding-bottom: 20px; position: relative; }
+.tl .ic { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: #F2F4F7; color: var(--text-3); position: relative; z-index: 1; }
+.tl .ic svg.i { width: 14px; height: 14px; }
+.tl li.d .ic { background: var(--brand-50); color: var(--brand); }
+.tl li:not(:last-child)::after { content: ''; position: absolute; left: 13.5px; top: 30px; bottom: 2px; width: 1px; background: var(--line); }
+.tl b { font-weight: 500; display: block; }
+.tl li:not(.d) b { color: var(--text-3); }
+.tl small { color: var(--text-3); }
+.tl .t { color: var(--text-2); font-size: 13px; font-variant-numeric: tabular-nums; }
+.hist { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.hist th { text-align: left; font-weight: 500; color: var(--text-3); font-size: 12px; padding: 0 0 8px; }
+.hist td { padding: 9px 0; border-top: 1px solid var(--line); }
+.hist .r { text-align: right; font-variant-numeric: tabular-nums; }
 
 /* popover */
-.pop { position: absolute; top: 40px; right: 12px; width: 280px; background: #fff; border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 8px 24px rgba(0,0,0,.12); padding: 14px 16px; z-index: 25; font-size: 13px; }
-.pop h4 { margin: 0 0 10px; font-size: 13px; }
-.pop dl.kv { grid-template-columns: 1fr auto; gap: 7px; }
-.pop dl.kv dd { text-align: right; font-weight: 600; }
+.pop { position: absolute; top: 64px; right: 24px; width: 300px; background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-lg); padding: 16px; z-index: 35; }
+.pop h4 { margin: 0 0 12px; font-size: 14px; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.stat { background: var(--hover); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+.stat label { display: block; font-size: 12px; color: var(--text-2); }
+.stat b { font-size: 20px; font-weight: 600; letter-spacing: -.02em; }
+.keys { display: grid; grid-template-columns: 1fr auto; gap: 9px 12px; font-size: 13px; color: var(--text-2); }
 
-.toast { position: fixed; bottom: 76px; left: calc(340px + (100vw - 340px) / 2); transform: translate(-50%, 8px); background: #1C2B36; color: #fff; padding: 9px 12px 9px 16px; border-radius: 4px; display: flex; gap: 14px; align-items: center; font-size: 13.5px; opacity: 0; pointer-events: none; transition: .15s; z-index: 50; }
+.toast { position: fixed; bottom: 92px; left: calc(68px + 24px + 372px + 16px + (100vw - 68px - 48px - 388px) / 2); transform: translate(-50%, 10px); background: #101828; color: #fff; padding: 10px 12px 10px 14px; border-radius: 12px; display: flex; gap: 10px; align-items: center; font-size: 13.5px; opacity: 0; pointer-events: none; transition: .2s; z-index: 50; box-shadow: var(--shadow-lg); }
 .toast.show { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
-.toast button { border: 0; background: none; color: #7fd6d2; font-weight: 600; }
+.toast .ti { width: 20px; height: 20px; border-radius: 50%; background: var(--brand); display: grid; place-items: center; }
+.toast .ti svg.i { width: 12px; height: 12px; stroke-width: 3; }
+.toast.bad .ti { background: var(--red); }
+.toast button { border: 0; background: rgba(255,255,255,.1); color: #fff; font-weight: 600; border-radius: 8px; padding: 4px 10px; margin-left: 6px; }
+.toast button:hover { background: rgba(255,255,255,.18); }
 </style>
 </head>
 <body>
-<div class="app" id="app">
-  <header class="bar-top">
-    <div class="brand">Nallam Hospital<span>Laboratory</span></div>
-    <div class="scan" id="scan">
-      <input id="q" autocomplete="off" placeholder="Scan tube or search patient   ( / )">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <div class="drop" id="drop" hidden></div>
+<div class="app">
+  <nav class="rail">
+    <div class="logo">N</div>
+    <button class="rbtn" title="Home"><svg class="i" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></button>
+    <button class="rbtn on" title="Lab Workbench"><svg class="i" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6.5L4.5 19a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 9.5V3"/><path d="M7 15h10"/></svg></button>
+    <button class="rbtn" title="Lab Stock"><svg class="i" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg></button>
+    <button class="rbtn" title="Test Master"><svg class="i" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></button>
+    <button class="rbtn" title="Alerts"><svg class="i" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span class="dot"></span></button>
+    <span class="sp"></span>
+    <div class="me" title="Vignesh Raj · Lab technician">VR</div>
+  </nav>
+  <div class="main">
+    <header class="head">
+      <div class="title"><h1>Lab Workbench</h1><p id="today"></p></div>
+      <div class="scan" id="scan">
+        <svg class="i" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 8v8M11 8v8M15 8v8"/></svg>
+        <input id="q" autocomplete="off" placeholder="Scan a tube, or search name, token, SID, mobile">
+        <kbd>/</kbd>
+        <div class="drop" id="drop" hidden></div>
+      </div>
+      <button class="hbtn" id="todayBtn"><svg class="i" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg>Today</button>
+      <button class="hbtn" id="helpBtn" title="Keyboard shortcuts"><svg class="i" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8"/></svg></button>
+      <span class="mockpill" title="Sample data only. Nothing here changes the real app.">Mockup</span>
+    </header>
+    <nav class="steps" id="steps"></nav>
+    <div class="body">
+      <section class="card list"><div class="lhead" id="lhead"></div><div class="rows" id="rows"></div></section>
+      <section class="card detail" id="detail"></section>
     </div>
-    <div class="user"><span class="mock" title="Sample data. Nothing here changes the real app.">Mockup</span><button class="ibtn" id="helpBtn" title="Keyboard shortcuts">?</button><div class="ava">VR</div></div>
-  </header>
-  <nav class="steps" id="steps"></nav>
-  <main class="split">
-    <section class="list"><div class="lhead" id="lhead"></div><div class="rows" id="rows"></div></section>
-    <section class="detail" id="detail"></section>
-  </main>
+  </div>
 </div>
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer"></aside>
-<div class="toast" id="toast"><span id="toastMsg"></span><button id="undo">Undo</button></div>
+<div class="toast" id="toast"><span class="ti"></span><span id="toastMsg"></span><button id="undo">Undo</button></div>
 
 <script>
+// ---------- icons ----------
+const P = {
+  collect: '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>',
+  receive: '<path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/>',
+  results: '<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
+  verify: '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
+  send: '<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
+  clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+  printer: '<path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>',
+  call: '<path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>',
+  chat: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+  doctor: '<path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 12 0V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 12 0v-4"/><circle cx="20" cy="10" r="2"/>',
+  info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>',
+  alert: '<path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3Z"/><path d="M12 9v4M12 17h.01"/>',
+  x: '<path d="M18 6 6 18M6 6l12 12"/>',
+  check: '<path d="M20 6 9 17l-5-5"/>',
+  back: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>',
+  ban: '<circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/>',
+  eye: '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>',
+  save: '<path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/>',
+  user: '<circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/>',
+  pay: '<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/>',
+  later: '<path d="M5 22h14M5 2h14M17 22v-4.2a2 2 0 0 0-.6-1.4L12 12l-4.4 4.4a2 2 0 0 0-.6 1.4V22M7 2v4.2a2 2 0 0 0 .6 1.4L12 12l4.4-4.4a2 2 0 0 0 .6-1.4V2"/>',
+  done: '<path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><path d="m9 11 3 3L22 4"/>'
+};
+const ic = (n, s = '') => `<svg class="i" viewBox="0 0 24 24" ${s}>${P[n]}</svg>`;
+
 // ---------- sample data ----------
 const NOW = Date.now(); const ago = (m) => new Date(NOW - m * 60000).toISOString();
 const T = {
-  CBC: { name: 'Complete Blood Count', method: 'Automated haematology analyser', tube: 'EDTA', params: [
+  CBC: { name: 'Complete Blood Count', tube: 'EDTA', params: [
     ['Haemoglobin', 'g/dL', 12, 16, 7, 20, 11.2], ['Total WBC count', '×10³/µL', 4, 11, 2, 30, 8.9], ['Platelet count', '×10³/µL', 150, 400, 50, 1000, 210], ['RBC count', '×10⁶/µL', 4.2, 5.4, null, null, 4.6], ['PCV', '%', 36, 46, null, null, 38]] },
-  CRP: { name: 'C-Reactive Protein', method: 'Immunoturbidimetry', tube: 'PLAIN', params: [['CRP', 'mg/L', 0, 6, null, null, 4.1]] },
-  RFT: { name: 'Renal Function Test', method: 'Biochemistry analyser', tube: 'PLAIN', params: [['Urea', 'mg/dL', 15, 40, null, 150, 32], ['Creatinine', 'mg/dL', 0.6, 1.2, null, 5, 1.0], ['Sodium', 'mmol/L', 135, 145, 120, 160, 139], ['Potassium', 'mmol/L', 3.5, 5.1, 2.8, 6.2, 4.2]] },
-  FBS: { name: 'Fasting Blood Sugar', method: 'GOD-POD', tube: 'FLUORIDE', params: [['Glucose (fasting)', 'mg/dL', 70, 100, 40, 400, 112]] },
-  URINE: { name: 'Urine Routine', method: 'Strip + microscopy', tube: 'URINE', params: [['Colour', '', 'Pale yellow'], ['Protein', '', 'Nil'], ['Sugar', '', 'Nil'], ['Pus cells', '/hpf', 0, 5, null, null, 2]] },
-  LIPID: { name: 'Lipid Profile', method: 'Enzymatic', tube: 'PLAIN', params: [['Total cholesterol', 'mg/dL', 0, 200, null, null, 214], ['Triglycerides', 'mg/dL', 0, 150, null, null, 180], ['HDL cholesterol', 'mg/dL', 40, 60, null, null, 41], ['LDL cholesterol', 'mg/dL', 0, 100, null, null, 137]] },
-  NS1: { name: 'Dengue NS1 Antigen', method: 'Rapid card', tube: 'PLAIN', params: [['Dengue NS1', '', 'Negative']] },
-  HBA1C: { name: 'HbA1c', method: 'HPLC cartridge', tube: 'EDTA', params: [['HbA1c', '%', 4, 5.6, null, null, 7.4]] }
+  CRP: { name: 'C-Reactive Protein', tube: 'PLAIN', params: [['CRP', 'mg/L', 0, 6, null, null, 4.1]] },
+  RFT: { name: 'Renal Function Test', tube: 'PLAIN', params: [['Urea', 'mg/dL', 15, 40, null, 150, 32], ['Creatinine', 'mg/dL', 0.6, 1.2, null, 5, 1.0], ['Sodium', 'mmol/L', 135, 145, 120, 160, 139], ['Potassium', 'mmol/L', 3.5, 5.1, 2.8, 6.2, 4.2]] },
+  FBS: { name: 'Fasting Blood Sugar', tube: 'FLUORIDE', params: [['Glucose (fasting)', 'mg/dL', 70, 100, 40, 400, 112]] },
+  URINE: { name: 'Urine Routine', tube: 'URINE', params: [['Colour', '', 'Pale yellow'], ['Protein', '', 'Nil'], ['Sugar', '', 'Nil'], ['Pus cells', '/hpf', 0, 5, null, null, 2]] },
+  LIPID: { name: 'Lipid Profile', tube: 'PLAIN', params: [['Total cholesterol', 'mg/dL', 0, 200, null, null, 214], ['Triglycerides', 'mg/dL', 0, 150, null, null, 180], ['HDL cholesterol', 'mg/dL', 40, 60, null, null, 41], ['LDL cholesterol', 'mg/dL', 0, 100, null, null, 137]] },
+  NS1: { name: 'Dengue NS1 Antigen', tube: 'PLAIN', params: [['Dengue NS1', '', 'Negative']] },
+  HBA1C: { name: 'HbA1c', tube: 'EDTA', params: [['HbA1c', '%', 4, 5.6, null, null, 7.4]] }
 };
-const CAPS = { EDTA: ['EDTA', '#8E6BBF'], PLAIN: ['Plain / serum', '#D64541'], FLUORIDE: ['Fluoride', '#7D8A93'], URINE: ['Urine container', '#E0A526'] };
+const CAPS = { EDTA: ['EDTA tube', 'Lavender cap', '#8E6BBF'], PLAIN: ['Plain / serum tube', 'Red cap', '#E0453A'], FLUORIDE: ['Fluoride tube', 'Grey cap', '#7D8A93'], URINE: ['Urine container', 'Yellow cap', '#E9A923'] };
 const CHOICES = { 'Pale yellow': ['Pale yellow', 'Yellow', 'Dark yellow', 'Red'], Nil: ['Nil', 'Trace', '+', '++', '+++'], Negative: ['Negative', 'Positive'] };
 const SEED = [
-  { sid: '04010062', name: 'Murugan Kannan', age: 61, sex: 'M', uhid: 'NH-UH-024318', src: 'Ward', bed: 'S-4', ward: 'Surgical', pri: 'STAT', doc: 'Dr. R. Balaji (Surgery)', at: 46, tests: ['CBC', 'CRP'], stage: 'collect' },
-  { sid: '04010059', name: 'Syed Imran', age: 41, sex: 'M', uhid: 'NH-UH-025190', src: 'Referral', token: 7, pri: 'ROUTINE', doc: 'Dr. P. Lakshmi Narayanan', at: 132, tests: ['URINE'], stage: 'collect', redo: 'Earlier sample haemolysed — collect again' },
-  { sid: '04010060', name: 'Priyanka Ravi', age: 27, sex: 'F', uhid: 'NH-UH-026012', src: 'OPD', token: 8, pri: 'URGENT', doc: 'Dr. S. Nivetha', at: 18, tests: ['RFT', 'FBS'], stage: 'collect' },
-  { sid: '04010061', name: 'Lakshmi Devi', age: 54, sex: 'F', uhid: 'NH-UH-022871', src: 'OPD', token: 6, pri: 'ROUTINE', doc: 'Dr. S. Nivetha', at: 52, tests: ['LIPID', 'HBA1C'], stage: 'receive' },
-  { sid: '04010057', name: 'Revathi Mohan', age: 33, sex: 'F', uhid: 'NH-UH-026434', src: 'Referral', token: 4, pri: 'ROUTINE', doc: 'Dr. R. Senthil Kumar', at: 95, tests: ['CBC', 'NS1'], stage: 'results' },
-  { sid: '04010058', name: 'Arjun Prakash', age: 8, sex: 'M', uhid: 'NH-UH-026511', src: 'Casualty', pri: 'STAT', doc: 'Dr. K. Anand (Casualty)', at: 38, tests: ['CBC', 'RFT'], stage: 'results' },
-  { sid: '04010055', name: 'Geetha Venkat', age: 47, sex: 'F', uhid: 'NH-UH-021904', src: 'OPD', token: 2, pri: 'ROUTINE', doc: 'Dr. S. Nivetha', at: 160, tests: ['CBC', 'FBS'], stage: 'verify', values: { Haemoglobin: 9.8, 'Total WBC count': 7.2, 'Platelet count': 260, 'RBC count': 3.9, PCV: 31, 'Glucose (fasting)': 182 } },
-  { sid: '04010053', name: 'Prakash Natarajan', age: 58, sex: 'M', uhid: 'NH-UH-020117', phone: '+91 98431 55021', src: 'OPD', token: 1, pri: 'ROUTINE', doc: 'Dr. S. Nivetha', at: 210, tests: ['HBA1C'], stage: 'send', values: { HbA1c: 8.1 } },
-  { sid: '04010054', name: 'Kavya Suresh', age: 29, sex: 'F', uhid: 'NH-UH-026380', phone: '+91 90037 41180', src: 'Self', token: 3, pri: 'ROUTINE', doc: 'Self request', at: 185, tests: ['URINE'], stage: 'send', values: { Colour: 'Pale yellow', Protein: 'Nil', Sugar: 'Nil', 'Pus cells': 3 } }
+  { sid: '04010062', name: 'Murugan Kannan', age: 61, sex: 'M', uhid: 'NH-UH-024318', src: 'Ward', bed: 'S-4', ward: 'Surgical', pri: 'STAT', doc: 'Dr. R. Balaji', dept: 'Surgery', at: 46, tests: ['CBC', 'CRP'], stage: 'collect' },
+  { sid: '04010059', name: 'Syed Imran', age: 41, sex: 'M', uhid: 'NH-UH-025190', src: 'OPD', token: 7, pri: 'ROUTINE', doc: 'Dr. P. Lakshmi Narayanan', dept: 'Referral', at: 132, tests: ['URINE'], stage: 'collect', redo: 'Earlier sample was haemolysed. Collect a fresh sample.' },
+  { sid: '04010060', name: 'Priyanka Ravi', age: 27, sex: 'F', uhid: 'NH-UH-026012', src: 'OPD', token: 8, pri: 'URGENT', doc: 'Dr. S. Nivetha', dept: 'General Medicine', at: 18, tests: ['RFT', 'FBS'], stage: 'collect' },
+  { sid: '04010061', name: 'Lakshmi Devi', age: 54, sex: 'F', uhid: 'NH-UH-022871', src: 'OPD', token: 6, pri: 'ROUTINE', doc: 'Dr. S. Nivetha', dept: 'General Medicine', at: 52, tests: ['LIPID', 'HBA1C'], stage: 'receive' },
+  { sid: '04010057', name: 'Revathi Mohan', age: 33, sex: 'F', uhid: 'NH-UH-026434', src: 'OPD', token: 4, pri: 'ROUTINE', doc: 'Dr. R. Senthil Kumar', dept: 'Referral', at: 95, tests: ['CBC', 'NS1'], stage: 'results' },
+  { sid: '04010058', name: 'Arjun Prakash', age: 8, sex: 'M', uhid: 'NH-UH-026511', src: 'Casualty', pri: 'STAT', doc: 'Dr. K. Anand', dept: 'Casualty', at: 38, tests: ['CBC', 'RFT'], stage: 'results' },
+  { sid: '04010055', name: 'Geetha Venkat', age: 47, sex: 'F', uhid: 'NH-UH-021904', src: 'OPD', token: 2, pri: 'ROUTINE', doc: 'Dr. S. Nivetha', dept: 'General Medicine', at: 160, tests: ['CBC', 'FBS'], stage: 'verify', values: { Haemoglobin: 9.8, 'Total WBC count': 7.2, 'Platelet count': 260, 'RBC count': 3.9, PCV: 31, 'Glucose (fasting)': 182 } },
+  { sid: '04010053', name: 'Prakash Natarajan', age: 58, sex: 'M', uhid: 'NH-UH-020117', phone: '+91 98431 55021', src: 'OPD', token: 1, pri: 'ROUTINE', doc: 'Dr. S. Nivetha', dept: 'General Medicine', at: 210, tests: ['HBA1C'], stage: 'send', values: { HbA1c: 8.1 } },
+  { sid: '04010054', name: 'Kavya Suresh', age: 29, sex: 'F', uhid: 'NH-UH-026380', phone: '+91 90037 41180', src: 'OPD', token: 3, pri: 'ROUTINE', doc: 'Self request', dept: 'Walk-in', at: 185, tests: ['URINE'], stage: 'send', values: { Colour: 'Pale yellow', Protein: 'Nil', Sugar: 'Nil', 'Pus cells': 3 } }
 ];
 const ORDER = ['collect', 'receive', 'results', 'verify', 'send', 'done'];
+const PHONES = ['+91 98402 11836', '+91 94441 70325', '+91 99620 48117', '+91 98840 22964', '+91 90031 65572', '+91 97909 31408', '+91 94452 80713'];
 const build = () => SEED.map((s, i) => {
   const st = ORDER.indexOf(s.stage); const byTube = {};
   s.tests.forEach((c) => (byTube[T[c].tube] ||= []).push(c));
   const tubes = Object.entries(byTube).map(([cap, tests], k) => ({ code: `T-${s.sid.slice(-4)}-${k + 1}`, cap, tests, collected: st >= 1 ? ago(s.at - 8) : null, received: st >= 2 ? ago(s.at - 14) : null }));
   const values = {}; s.tests.forEach((c) => T[c].params.forEach((p) => { values[p[0]] = s.values?.[p[0]] ?? ''; }));
-  return { ...s, id: 'V' + i, createdAt: ago(s.at), tubes, values, phone: s.phone || '+91 98' + (40000000 + i * 135791), resultsAt: st >= 3 ? ago(30) : null, verifiedAt: st >= 4 ? ago(20) : null };
+  return { ...s, id: 'V' + i, createdAt: ago(s.at), tubes, values, phone: s.phone || PHONES[i % PHONES.length], resultsAt: st >= 3 ? ago(30) : null, verifiedAt: st >= 4 ? ago(20) : null, sentAt: null };
 });
 let V = build(); let undoSnap = null;
 
@@ -252,28 +366,33 @@ let V = build(); let undoSnap = null;
 const $ = (s, r = document) => r.querySelector(s); const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const esc = (v) => String(v ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const mins = (iso) => Math.round((Date.now() - new Date(iso)) / 60000);
-const dur = (m) => (m < 60 ? `${m}m` : `${Math.floor(m / 60)}h ${String(m % 60).padStart(2, '0')}m`);
+const dur = (m) => (m < 60 ? `${m} min` : `${Math.floor(m / 60)}h ${String(m % 60).padStart(2, '0')}m`);
 const clock = (iso) => new Date(iso).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
 const STEPS = [['collect', 'Collect'], ['receive', 'Receive'], ['results', 'Results'], ['verify', 'Verify'], ['send', 'Send']];
 const LATE = { collect: 30, receive: 20, results: 90, verify: 30, send: 60 };
-const place = (v) => (v.bed ? `Bed ${v.bed}` : v.token ? `Token ${v.token}` : 'Casualty');
+const AV = [['#E8F6F5', '#037C79'], ['#EFF8FF', '#175CD3'], ['#F4F3FF', '#6941C6'], ['#FDF2FA', '#C11574'], ['#FFFAEB', '#B54708'], ['#ECFDF3', '#067647']];
+const avatar = (v) => { const [bg, fg] = AV[[...v.name].reduce((a, c) => a + c.charCodeAt(0), 0) % AV.length]; return `<span class="av" style="background:${bg};color:${fg}">${v.name.split(' ').map((w) => w[0]).join('').slice(0, 2)}</span>`; };
+const where = (v) => (v.bed ? `Bed ${v.bed}` : v.token ? `Token ${v.token}` : 'Casualty');
+const priPill = (v) => (v.pri === 'STAT' ? '<span class="pill stat">STAT</span>' : v.pri === 'URGENT' ? '<span class="pill urgent">Urgent</span>' : '');
 const params = (v) => v.tests.flatMap((c) => T[c].params.map((p) => ({ name: p[0], unit: p[1], qual: typeof p[2] === 'string', ref: p[2], low: p[2], high: p[3], cl: p[4], ch: p[5], prev: p[6] })));
 function flagOf(p, val) {
   if (val === '' || val == null) return '';
-  if (p.qual) return val !== p.ref ? 'A' : '';
+  if (p.qual) return val !== p.ref ? 'A' : 'N';
   const x = Number(val); if (Number.isNaN(x)) return '';
   if (p.cl != null && x <= p.cl) return 'LL'; if (p.ch != null && x >= p.ch) return 'HH';
-  return x < p.low ? 'L' : x > p.high ? 'H' : '';
+  return x < p.low ? 'L' : x > p.high ? 'H' : 'N';
 }
-const ARROW = { H: '↑', L: '↓', HH: '↑↑', LL: '↓↓', A: '•' };
+const FLAG = { H: '↑ High', L: '↓ Low', HH: '↑↑ Critical', LL: '↓↓ Critical', A: 'Abnormal', N: 'Normal' };
+const flagHtml = (f) => (f ? `<span class="flag ${f}">${FLAG[f]}</span>` : '');
 const crits = (v) => params(v).filter((p) => ['HH', 'LL'].includes(flagOf(p, v.values[p.name])));
+$('#today').textContent = new Date().toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long' }) + ' · Morning shift';
 
 // ---------- state ----------
-const S = { step: 'collect', src: 'All', sel: null, compare: false, drawer: null, dtab: 'details' };
-const matchSrc = (v) => S.src === 'All' || (S.src === 'OPD' ? ['OPD', 'Referral', 'Self'].includes(v.src) : v.src === S.src);
+const S = { step: 'collect', src: 'All', sel: null, drawer: null, dtab: 'details' };
+const matchSrc = (v, s = S.src) => s === 'All' || v.src === s;
 const rank = { STAT: 0, URGENT: 1, ROUTINE: 2 };
 const inStep = (k) => V.filter((v) => v.stage === k).sort((a, b) => rank[a.pri] - rank[b.pri] || a.createdAt.localeCompare(b.createdAt));
-const visible = () => inStep(S.step).filter(matchSrc);
+const visible = () => inStep(S.step).filter((v) => matchSrc(v));
 const snap = () => { undoSnap = JSON.stringify(V); };
 function undo() { if (!undoSnap) return; V = JSON.parse(undoSnap); undoSnap = null; hideToast(); render(); }
 
@@ -281,143 +400,160 @@ function undo() { if (!undoSnap) return; V = JSON.parse(undoSnap); undoSnap = nu
 function render() {
   const vis = visible();
   if (!vis.some((v) => v.id === S.sel)) S.sel = vis[0]?.id || null;
-  $('#steps').innerHTML = STEPS.map(([k, l]) => `<button class="step ${S.step === k ? 'on' : ''}" data-step="${k}">${l}<b>${inStep(k).length}</b></button>`).join('')
-    + `<span class="sp"></span><button class="tbtn" id="todayBtn">Today ▾</button>`;
-  $('#lhead').innerHTML = `<span>${vis.length} patient${vis.length === 1 ? '' : 's'}</span><select id="src" title="Where the patient is from">${['All', 'OPD', 'Ward', 'Casualty'].map((s) => `<option ${S.src === s ? 'selected' : ''} value="${s}">${s === 'All' ? 'All sources' : s}</option>`).join('')}</select>`;
+  $('#steps').innerHTML = STEPS.map(([k, l]) => { const n = inStep(k).length; const hasStat = inStep(k).some((v) => v.pri === 'STAT');
+    return `<button class="step ${S.step === k ? 'on' : ''}" data-step="${k}">${ic(k)}${l}<span class="badge ${hasStat && S.step !== k ? 'red' : ''}">${n}</span></button>`; }).join('');
+  const all = inStep(S.step);
+  $('#lhead').innerHTML = ['All', 'OPD', 'Ward', 'Casualty'].map((s) => `<button class="chipbtn ${S.src === s ? 'on' : ''}" data-src="${s}">${s}<span>${all.filter((v) => matchSrc(v, s)).length}</span></button>`).join('');
   $('#rows').innerHTML = vis.length ? vis.map((v) => {
     const m = mins(v.createdAt);
-    return `<div class="row ${v.id === S.sel ? 'sel' : ''}" data-id="${v.id}">
-      <div class="mk" title="${place(v)}">${v.bed || v.token || 'C'}</div>
-      <div style="min-width:0"><div class="nm">${esc(v.name)}</div><div class="ts">${v.tests.join(', ')}</div></div>
-      <div class="rt">${v.pri !== 'ROUTINE' ? `<span class="pri ${v.pri === 'URGENT' ? 'u' : ''}">${v.pri}</span>` : ''}<span class="${m > LATE[S.step] ? 'late' : ''}">${dur(m)}</span></div></div>`;
-  }).join('') : `<div class="none">All done at this step.</div>`;
+    return `<div class="row ${v.id === S.sel ? 'sel' : ''}" data-id="${v.id}">${avatar(v)}
+      <div style="min-width:0"><div class="rn"><b>${esc(v.name)}</b><small>${v.age} ${v.sex}</small></div>
+        <div class="rs"><span class="tag">${where(v)}</span>${v.tests.map((c) => `<span class="tag code">${c}</span>`).join('')}</div></div>
+      <div class="rr">${priPill(v)}<span class="wait ${m > LATE[S.step] ? 'late' : ''}">${ic('clock')}${dur(m)}</span></div></div>`;
+  }).join('') : `<div class="empty">${ic('done')}<b>All caught up</b>No patients waiting at this step.</div>`;
   renderDetail(); renderDrawer();
 }
 
 function renderDetail() {
   const v = V.find((x) => x.id === S.sel); const d = $('#detail');
-  if (!v) { d.innerHTML = `<div class="none" style="margin-top:120px">Select a patient, or scan a tube.</div>`; return; }
-  let body = ''; let status = ''; let primary = ''; let more = [];
+  if (!v) { d.innerHTML = `<div class="empty" style="margin:auto">${ic('user')}<b>No patient selected</b>Pick one from the list, or scan a tube.</div>`; return; }
+  const m = mins(v.createdAt);
+  const header = `<div class="ph">${avatar(v)}<div class="grow"><h2>${esc(v.name)} ${priPill(v)}</h2>
+      <div class="sub">${v.age} years · ${v.sex === 'M' ? 'Male' : 'Female'}<span>·</span>${v.src}${v.bed ? ` · ${v.ward} ward` : ''}</div></div>
+      <button class="btn sm" id="detBtn">${ic('info')}Patient details</button></div>
+    <div class="facts"><div class="fact"><label>${v.bed ? 'Bed' : v.token ? 'Token' : 'Arrived via'}</label><div>${v.bed || v.token || 'Casualty'}</div></div>
+      <div class="fact"><label>Sample ID</label><div class="mono">${v.sid}</div></div>
+      <div class="fact"><label>Referred by</label><div title="${esc(v.doc)}">${esc(v.doc)}</div></div>
+      <div class="fact"><label>Waiting</label><div style="${m > LATE[v.stage] ? 'color:var(--red)' : ''}">${dur(m)}</div></div></div>`;
+  let body = ''; let secondary = ''; let primary = '';
   if (v.stage === 'collect' || v.stage === 'receive') {
-    const col = v.stage === 'collect'; const key = col ? 'collected' : 'received'; const left = v.tubes.filter((t) => !t[key]).length;
-    body = `${v.redo ? `<p class="note">${esc(v.redo)}</p>` : ''}<div class="tubes">${v.tubes.map((t) => `<div class="tube"><span class="cap" style="--c:${CAPS[t.cap][1]}"></span><span class="tn">${CAPS[t.cap][0]}</span><span class="tt">${t.tests.join(', ')}</span>
-      ${t[key] ? `<span class="ok">✓ ${col ? 'Collected' : 'Received'}</span>` : `<button class="link" data-tube="${t.code}">${col ? 'Mark collected' : 'Receive'}</button>`}</div>`).join('')}</div>`;
-    status = `${v.tubes.length - left} of ${v.tubes.length} tubes`;
-    primary = col ? (left === v.tubes.length ? 'Collect all' : `Collect ${left} left`) : (left > 1 ? `Receive all ${left}` : 'Receive');
-    more = col ? [['labels', 'Reprint labels'], v.token ? ['call', `Call token ${v.token}`] : null, ['-'], ['cancel', 'Patient not available', 'danger']] : [['labels', 'Reprint labels'], ['-'], ['reject', 'Reject sample', 'danger']];
+    const col = v.stage === 'collect'; const key = col ? 'collected' : 'received'; const done = v.tubes.filter((t) => t[key]).length;
+    body = `${v.redo ? `<div class="banner warn">${ic('alert')}<div><b>Recollect.</b> ${esc(v.redo)}</div></div>` : ''}
+      <div class="sec"><div class="sech"><h3>${col ? 'Samples to collect' : 'Samples to receive'}</h3><span class="meta">${col ? 'Label each tube, then scan or mark it' : 'Scan each tube as it arrives at the bench'}</span><span class="grow"></span>
+        <span class="prog">${done} of ${v.tubes.length}<i><b style="width:${(done / v.tubes.length) * 100}%"></b></i></span></div>
+      <div class="tubes">${v.tubes.map((t) => `<div class="tube"><span class="cap" style="--c:${CAPS[t.cap][2]}"></span>
+        <div class="tn"><b>${CAPS[t.cap][0]}</b><span class="mono">${t.code}</span></div>
+        <div class="tt">${t.tests.map((c) => `<span class="tag">${T[c].name}</span>`).join('')}</div>
+        <div class="ta">${t[key] ? `<span class="pill ok">${col ? 'Collected' : 'Received'} ${clock(t[key])}</span>`
+          : `${col ? `<button class="btn sm ghost" data-label="${t.code}" title="Print label">${ic('printer')}</button>` : `<span class="pill info nodot">Collected ${clock(t.collected)}</span>`}<button class="btn sm" data-tube="${t.code}">${ic('check')}${col ? 'Mark collected' : 'Receive'}</button>`}</div></div>`).join('')}</div></div>`;
+    const left = v.tubes.length - done;
+    secondary = col ? `${v.token ? `<button class="btn" data-act="call">${ic('call')}Call token ${v.token}</button>` : ''}<button class="btn" data-act="labels">${ic('printer')}Print all labels</button><button class="btn ghost" data-act="later">${ic('later')}Not available</button>`
+      : `<button class="btn danger" data-act="reject">${ic('ban')}Reject sample</button>`;
+    primary = col ? (left === v.tubes.length ? 'Collect all' : `Collect remaining ${left}`) : (left > 1 ? `Receive all ${left}` : 'Receive');
+    body = header + body; d.innerHTML = frame(body, `<span class="st">${ic(col ? 'collect' : 'receive')}${done} of ${v.tubes.length} tube${v.tubes.length > 1 ? 's' : ''} ${col ? 'collected' : 'received'}</span>`, secondary, primary);
   } else if (v.stage === 'results' || v.stage === 'verify') {
     const edit = v.stage === 'results';
-    body = `<table class="res"><thead><tr><th>Test</th><th class="r">Result</th><th>Unit</th><th>Normal range</th><th class="r col-pv">Last result</th></tr></thead><tbody>
-      ${v.tests.map((c) => `<tr class="g"><td colspan="5">${T[c].name}</td></tr>` + T[c].params.map((raw) => {
-        const p = params(v).find((x) => x.name === raw[0]); const val = v.values[p.name]; const f = flagOf(p, val);
-        const cell = edit ? (p.qual ? `<select class="vsel" data-in="${esc(p.name)}">${(CHOICES[p.ref] || [p.ref]).map((o) => `<option ${o === (val || p.ref) ? 'selected' : ''}>${o}</option>`).join('')}</select>`
-          : `<input class="vin" inputmode="decimal" data-in="${esc(p.name)}" value="${esc(val)}">`) : `<span class="ro">${esc(val) || '—'}</span>`;
-        return `<tr class="${f}"><td>${esc(p.name)}</td><td class="r"><span class="fa" data-fa="${esc(p.name)}">${ARROW[f] || ''}</span>${cell}</td><td class="u">${esc(p.unit)}</td><td class="rg num">${p.qual ? esc(p.ref) : `${p.low} – ${p.high}`}</td><td class="r pv col-pv num">${p.prev ?? '—'}</td></tr>`;
-      }).join('')).join('')}</tbody></table>
-      ${!edit && crits(v).length ? `<div class="inf">Critical value told to <input id="infName" value="${esc(v.doc)}" style="flex:1"> at <input id="infAt" style="width:90px" value="${clock(new Date().toISOString())}"></div>` : ''}`;
-    primary = edit ? 'Save results' : 'Verify & release';
-    more = edit ? [['draft', 'Save as draft'], ['-'], ['reject', 'Reject sample', 'danger']] : [['back', 'Send back for re-entry']];
+    const rows = v.tests.map((c) => `<tr class="g"><td colspan="6">${T[c].name}</td></tr>` + T[c].params.map((raw) => {
+      const p = params(v).find((x) => x.name === raw[0]); const val = v.values[p.name]; const f = flagOf(p, val);
+      const cell = edit ? (p.qual ? `<select class="vsel" data-in="${esc(p.name)}"><option value="">Select…</option>${(CHOICES[p.ref] || [p.ref]).map((o) => `<option ${o === val ? 'selected' : ''}>${o}</option>`).join('')}</select>`
+        : `<input class="vin" inputmode="decimal" data-in="${esc(p.name)}" value="${esc(val)}" placeholder="—">`) : `<span class="ro">${esc(val) || '—'}</span>`;
+      return `<tr class="${f}"><td>${esc(p.name)}</td><td>${cell}</td><td data-flag="${esc(p.name)}">${flagHtml(f)}</td><td class="u">${esc(p.unit)}</td><td class="rg num">${p.qual ? esc(p.ref) : `${p.low} – ${p.high}`}</td><td class="pv num">${p.prev != null ? `${p.prev}<small>3 Oct</small>` : '<small>First test</small>'}</td></tr>`;
+    }).join('')).join('');
+    body = `${header}<div id="critBox"></div>
+      <div class="sec"><div class="sech"><h3>${edit ? 'Enter results' : 'Review results'}</h3><span class="meta">${edit ? 'Press Enter to move to the next box' : `Entered by Vignesh Raj at ${clock(v.resultsAt)}`}</span><span class="grow"></span><span class="prog" id="prog"></span></div>
+      <div class="tbl"><table class="res"><thead><tr><th style="width:26%">Test</th><th>Result</th><th>Flag</th><th>Unit</th><th>Normal range</th><th>Last result</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
+    secondary = edit ? `<button class="btn danger" data-act="reject">${ic('ban')}Reject sample</button><button class="btn" data-act="draft">${ic('save')}Save draft</button>`
+      : `<button class="btn" data-act="back">${ic('back')}Send back</button>`;
+    d.innerHTML = frame(body, '<span class="st" id="st"></span>', secondary, edit ? 'Save results' : 'Verify & release');
   } else if (v.stage === 'send') {
-    body = `<div class="opts"><label class="opt"><input type="checkbox" name="ch" value="wa" checked>WhatsApp to patient<span>${v.phone}</span></label>
-      <label class="opt"><input type="checkbox" name="ch" value="doc">WhatsApp to doctor<span>${esc(v.doc)}</span></label>
-      <label class="opt"><input type="checkbox" name="ch" value="print">Print for counter<span>Patient collects</span></label></div>`;
-    status = ''; primary = 'Send report'; more = [['preview', 'Preview report'], ['print', 'Print now']];
+    body = `${header}<div class="sec"><div class="sech"><h3>Send report</h3><span class="meta">Verified at ${clock(v.verifiedAt)} · ${v.tests.map((c) => T[c].name).join(', ')}</span><span class="grow"></span><button class="lnk" data-act="preview">${ic('eye')}Preview report</button></div>
+      <div class="opts"><label class="opt"><input type="checkbox" name="ch" value="wa" checked><span class="oi">${ic('chat')}</span><b>WhatsApp to patient</b><span>${v.phone}</span></label>
+        <label class="opt"><input type="checkbox" name="ch" value="doc"><span class="oi">${ic('doctor')}</span><b>WhatsApp to doctor</b><span>${esc(v.doc)}</span></label>
+        <label class="opt"><input type="checkbox" name="ch" value="print"><span class="oi">${ic('printer')}</span><b>Print copy</b><span>Patient collects at the lab counter</span></label></div></div>`;
+    d.innerHTML = frame(body, `<span class="st">${ic('verify')}Report verified and ready</span>`, '', 'Send report');
   }
-  more = more.filter(Boolean);
-  const tableStep = v.stage === 'results' || v.stage === 'verify';
-  d.innerHTML = `<div class="dscroll ${S.compare ? 'cmp' : ''}"><div class="dwrap">
-      <div class="dh"><h1>${esc(v.name)}<span>${v.age} ${v.sex}</span></h1>${v.pri !== 'ROUTINE' ? `<span class="chip ${v.pri === 'URGENT' ? 'u' : ''}">${v.pri}</span>` : ''}<span class="sp"></span>
-        ${tableStep ? `<button class="lbtn ${S.compare ? 'on' : ''}" id="cmpBtn">Compare with last</button>` : ''}<button class="lbtn" id="detBtn">Details</button></div>
-      ${body}</div></div>
-    <div class="act"><span class="st" id="st"></span><span class="sp"></span>
-      <div class="more"><button class="btn" id="moreBtn" title="More actions">More ⋯</button><div class="menu" id="menu" hidden>${more.map(([k, l, c]) => (k === '-' ? '<hr>' : `<button data-act="${k}" class="${c || ''}">${l}</button>`)).join('')}</div></div>
-      <button class="btn pri" id="go">${primary}</button></div>`;
-  if (status) $('#st').textContent = status;
-  wire(v); if (tableStep) refreshStatus(v);
+  wire(v);
+  if (v.stage === 'results' || v.stage === 'verify') refreshStatus(v);
 }
+const frame = (body, status, secondary, primary) => `<div class="dscroll">${body}</div><div class="act">${status}<span class="grow"></span>${secondary}<button class="btn pri" id="go">${primary}<kbd>${primary === 'Save results' ? 'Ctrl ↵' : '↵'}</kbd></button></div>`;
 
 function refreshStatus(v) {
-  const cs = crits(v); const st = $('#st'); const total = params(v).length; const done = params(v).filter((p) => v.values[p.name] !== '').length;
-  if (cs.length) { st.className = 'st crit'; st.textContent = `${cs.length} critical value${cs.length > 1 ? 's' : ''} — ${v.stage === 'results' ? `recheck before saving${done < total ? ` · ${done} of ${total} entered` : ''}` : 'inform the doctor'}`; }
-  else { st.className = 'st'; st.textContent = v.stage === 'results' ? `${done} of ${total} entered` : 'Check, then release'; }
+  const cs = crits(v); const total = params(v).length; const done = params(v).filter((p) => v.values[p.name] !== '').length;
+  $('#prog').innerHTML = `${done} of ${total}<i><b style="width:${(done / total) * 100}%"></b></i>`;
+  const st = $('#st');
+  if (cs.length) { st.className = 'st crit'; st.innerHTML = `${ic('alert')}${cs.length} critical value${cs.length > 1 ? 's' : ''}${v.stage === 'results' && done < total ? `<span style="color:var(--text-2);font-weight:400">· ${total - done} left to enter</span>` : ''}`; }
+  else { st.className = 'st'; st.innerHTML = v.stage === 'results' ? `${ic('results')}${done < total ? `${total - done} left to enter` : 'All results entered'}` : `${ic('verify')}Check against the last result, then release`; }
+  const box = $('#critBox');
+  if (cs.length) box.innerHTML = `<div class="banner crit">${ic('alert')}<div class="grow"><b>Critical: ${cs.map((p) => `${p.name} ${v.values[p.name]} ${p.unit}`).join(', ')}</b><br>${v.stage === 'results' ? 'Re-run or re-check the sample before saving.' : 'Phone the doctor before releasing, and note who you spoke to.'}
+      ${v.stage === 'verify' ? `<div style="display:flex;gap:8px;margin-top:10px;align-items:center"><input id="infName" placeholder="Doctor informed" value="${esc(v.doc)}" style="flex:1"><input id="infAt" value="${clock(new Date().toISOString())}" style="width:100px"></div>` : ''}</div></div>`;
+  else box.innerHTML = '';
   if (v.stage === 'results') $('#go').disabled = done < total;
 }
 
-// ---------- drawer (all the extra detail lives here) ----------
+// ---------- drawer: the extra detail ----------
 function renderDrawer() {
   document.body.classList.toggle('open', !!S.drawer);
   const v = V.find((x) => x.id === S.drawer); if (!v) return;
-  const tl = [['Billed & paid', v.createdAt, 'Reception'], ['Sample collected', v.tubes.every((t) => t.collected) && v.tubes[0].collected, 'Vignesh Raj'], ['Received in lab', v.tubes.every((t) => t.received) && v.tubes[0].received, 'Vignesh Raj'], ['Results entered', v.resultsAt, 'Vignesh Raj'], ['Verified', v.verifiedAt, 'Dr. M. Kavitha (Pathologist)'], ['Report sent', v.sentAt, '']];
-  const tabs = { details: 'Details', timeline: 'Timeline', tubes: 'Tubes', history: 'Past results' };
+  const tl = [['pay', 'Billed and paid', v.createdAt, 'Reception · Bill NH-B-' + v.sid.slice(-4)], ['collect', 'Sample collected', v.tubes.every((t) => t.collected) && v.tubes[0].collected, 'Vignesh Raj'], ['receive', 'Received in lab', v.tubes.every((t) => t.received) && v.tubes[0].received, 'Vignesh Raj'], ['results', 'Results entered', v.resultsAt, 'Vignesh Raj'], ['verify', 'Verified', v.verifiedAt, 'Dr. M. Kavitha, Pathologist'], ['send', 'Report sent', v.sentAt, 'WhatsApp']];
   let b = '';
-  if (S.dtab === 'details') b = `<dl class="kv"><dt>Age / sex</dt><dd>${v.age} y · ${v.sex === 'M' ? 'Male' : 'Female'}</dd><dt>Sample ID</dt><dd class="num">${v.sid}</dd><dt>UHID</dt><dd class="num">${v.uhid}</dd><dt>Mobile</dt><dd class="num">${v.phone}</dd>
-    <dt>From</dt><dd>${v.src}${v.bed ? ` · ${v.ward} ward, bed ${v.bed}` : v.token ? ` · token ${v.token}` : ''}</dd><dt>Doctor</dt><dd>${esc(v.doc)}</dd><dt>Priority</dt><dd>${v.pri[0] + v.pri.slice(1).toLowerCase()}</dd>
-    <dt>Tests</dt><dd>${v.tests.map((c) => `${T[c].name}<br><span style="color:var(--text-3);font-size:12.5px">${T[c].method}</span>`).join('<br>')}</dd><dt>Waiting</dt><dd>${dur(mins(v.createdAt))} since billing</dd></dl>`;
-  if (S.dtab === 'timeline') b = `<ul class="tl">${tl.map(([l, t, by]) => `<li class="${t ? 'd' : ''}"><div>${l}${t && by ? `<small>${by}</small>` : ''}</div><span class="t">${t ? clock(t) : '—'}</span></li>`).join('')}</ul>`;
-  if (S.dtab === 'tubes') b = `<table class="h">${v.tubes.map((t) => `<tr><td><b>${CAPS[t.cap][0]}</b><br><span style="color:var(--text-3)">${t.code} · ${t.tests.join(', ')}</span></td><td class="r">${t.received ? 'In lab' : t.collected ? 'Collected' : 'Not collected'}</td></tr>`).join('')}</table>
-    <p style="color:var(--text-3);font-size:12.5px;margin-top:14px">Reagents and tubes are taken off lab stock automatically when a tube is collected.</p>`;
-  if (S.dtab === 'history') b = `<p style="color:var(--text-3);margin:0 0 10px">Last visit · 3 Oct</p><table class="h">${params(v).filter((p) => p.prev != null).map((p) => `<tr><td>${p.name}</td><td class="r">${p.prev} <span style="color:var(--text-3)">${p.unit}</span></td></tr>`).join('') || '<tr><td>No earlier results</td></tr>'}</table>`;
-  $('#drawer').innerHTML = `<div class="dr-h"><b>${esc(v.name)}</b><button id="drClose" title="Close (Esc)">×</button></div>
-    <div class="dr-t">${Object.entries(tabs).map(([k, l]) => `<button data-dtab="${k}" class="${S.dtab === k ? 'on' : ''}">${l}</button>`).join('')}</div><div class="dr-b">${b}</div>`;
+  if (S.dtab === 'details') b = `<dl class="kv"><dt>UHID</dt><dd class="mono">${v.uhid}</dd><dt>Sample ID</dt><dd class="mono">${v.sid}</dd><dt>Mobile</dt><dd>${v.phone}</dd><dt>Age / sex</dt><dd>${v.age} years · ${v.sex === 'M' ? 'Male' : 'Female'}</dd>
+    <dt>From</dt><dd>${v.src}${v.bed ? ` · ${v.ward} ward, bed ${v.bed}` : v.token ? ` · token ${v.token}` : ''}</dd><dt>Doctor</dt><dd>${esc(v.doc)}<br><span style="color:var(--text-3);font-weight:400">${esc(v.dept)}</span></dd>
+    <dt>Tests</dt><dd>${v.tests.map((c) => T[c].name).join('<br>')}</dd><dt>Tubes</dt><dd>${v.tubes.map((t) => `${CAPS[t.cap][0]} <span class="mono" style="color:var(--text-3)">${t.code}</span>`).join('<br>')}</dd></dl>`;
+  if (S.dtab === 'timeline') b = `<ul class="tl">${tl.map(([i, l, t, by]) => `<li class="${t ? 'd' : ''}"><span class="ic">${ic(i)}</span><div><b>${l}</b>${t ? `<small>${by}</small>` : '<small>Pending</small>'}</div><span class="t">${t ? clock(t) : ''}</span></li>`).join('')}</ul>`;
+  if (S.dtab === 'history') { const ps = params(v).filter((p) => p.prev != null); b = ps.length ? `<p style="margin:0 0 12px;color:var(--text-2);font-size:13px">Last visit · 3 October · ${esc(v.doc)}</p><table class="hist"><tr><th>Test</th><th class="r">Result</th></tr>${ps.map((p) => `<tr><td>${p.name}</td><td class="r">${p.prev} <span style="color:var(--text-3)">${p.unit}</span></td></tr>`).join('')}</table>` : '<p style="color:var(--text-3)">No earlier results.</p>'; }
+  $('#drawer').innerHTML = `<div class="dr-h">${avatar(v)}<div><b>${esc(v.name)}</b><small>${v.age} ${v.sex} · ${where(v)}</small></div><button class="x" id="drClose" title="Close (Esc)">${ic('x')}</button></div>
+    <div class="seg">${[['details', 'Details'], ['timeline', 'Timeline'], ['history', 'Past results']].map(([k, l]) => `<button data-dtab="${k}" class="${S.dtab === k ? 'on' : ''}">${l}</button>`).join('')}</div><div class="dr-b">${b}</div>`;
 }
 
 // ---------- actions ----------
 function next(v, msg) { v.stage = ORDER[ORDER.indexOf(v.stage) + 1]; toast(msg); render(); }
 function primaryAct(v) {
-  snap(); const now = new Date().toISOString();
-  if (v.stage === 'collect') { v.tubes.forEach((t) => { t.collected ||= now; }); v.redo = null; next(v, `${v.name} — collected`); }
-  else if (v.stage === 'receive') { v.tubes.forEach((t) => { t.received ||= now; }); next(v, `${v.name} — in lab`); }
-  else if (v.stage === 'results') { if ($('#go').disabled) return; v.resultsAt = now; next(v, `${v.name} — results saved`); }
-  else if (v.stage === 'verify') { if (crits(v).length && !$('#infName').value.trim()) { toast('Write who was told about the critical value', false); return; } v.verifiedAt = now; next(v, `${v.name} — report released`); }
-  else if (v.stage === 'send') { const ch = $$('[name=ch]:checked').map((c) => c.value); if (!ch.length) { toast('Pick at least one way to send', false); return; } v.sentAt = now; next(v, `${v.name} — report sent`); }
+  const now = new Date().toISOString();
+  if (v.stage === 'results' && $('#go').disabled) { toast('Enter every result first', false); return; }
+  if (v.stage === 'verify' && crits(v).length && !$('#infName').value.trim()) { toast('Write which doctor was informed', false); $('#infName').focus(); return; }
+  if (v.stage === 'send' && !$$('[name=ch]:checked').length) { toast('Choose how to send the report', false); return; }
+  snap();
+  if (v.stage === 'collect') { v.tubes.forEach((t) => { t.collected ||= now; }); v.redo = null; next(v, `${v.name} — samples collected`); }
+  else if (v.stage === 'receive') { v.tubes.forEach((t) => { t.received ||= now; }); next(v, `${v.name} — received in lab`); }
+  else if (v.stage === 'results') { v.resultsAt = now; next(v, `${v.name} — results saved for verification`); }
+  else if (v.stage === 'verify') { v.verifiedAt = now; next(v, `${v.name} — report released`); }
+  else if (v.stage === 'send') { v.sentAt = now; next(v, `${v.name} — report sent`); }
 }
 function doTube(code) {
-  const v = V.find((x) => x.tubes.some((t) => t.code === code)); if (!v) return false;
-  const t = v.tubes.find((x) => x.code === code); S.step = v.stage === 'done' ? S.step : v.stage; S.sel = v.id; S.src = 'All';
+  const v = V.find((x) => x.tubes.some((t) => t.code === code)); if (!v) return;
+  const t = v.tubes.find((x) => x.code === code); if (v.stage !== 'done') S.step = v.stage; S.sel = v.id; S.src = 'All';
   const key = v.stage === 'collect' ? 'collected' : v.stage === 'receive' ? 'received' : null;
-  if (!key || t[key]) { toast(`${code} — ${v.name} is already past this`, false); render(); return true; }
+  if (!key || t[key]) { toast(`${v.name} is already at ${v.stage === 'done' ? 'done' : v.stage}`, false); render(); return; }
   snap(); t[key] = new Date().toISOString(); beep();
-  if (v.tubes.every((x) => x[key])) { if (key === 'collected') v.redo = null; next(v, `${v.name} — ${key === 'collected' ? 'collected' : 'in lab'}`); }
-  else { toast(`${CAPS[t.cap][0]} tube ${key}`); render(); }
-  return true;
+  if (v.tubes.every((x) => x[key])) { if (key === 'collected') v.redo = null; next(v, `${v.name} — ${key === 'collected' ? 'samples collected' : 'received in lab'}`); }
+  else { toast(`${CAPS[t.cap][0]} ${key}`); render(); }
 }
 function wire(v) {
   $('#go').onclick = () => primaryAct(v);
   $('#detBtn').onclick = () => { S.drawer = v.id; S.dtab = 'details'; renderDrawer(); };
-  const cb = $('#cmpBtn'); if (cb) cb.onclick = () => { S.compare = !S.compare; renderDetail(); };
-  $('#moreBtn').onclick = (e) => { e.stopPropagation(); $('#menu').hidden = !$('#menu').hidden; };
   $$('[data-act]').forEach((b) => b.onclick = () => {
-    const a = b.dataset.act; $('#menu').hidden = true;
+    const a = b.dataset.act;
     if (a === 'back') { snap(); v.stage = 'results'; toast(`${v.name} — sent back for re-entry`); render(); }
-    else if (a === 'reject') { snap(); v.stage = 'collect'; v.redo = 'Earlier sample rejected — collect again'; v.tubes.forEach((t) => { t.collected = null; t.received = null; }); toast(`${v.name} — sample rejected, recollect`); render(); }
-    else if (a === 'cancel') toast(`${v.name} — moved to the end of the queue`, false);
-    else toast({ labels: 'Labels sent to printer', call: `Token ${v.token} called on the display`, draft: 'Draft saved', preview: 'Opening report preview…', print: 'Sent to printer' }[a], false);
+    else if (a === 'reject') { snap(); v.stage = 'collect'; v.redo = 'Sample rejected at the bench. Collect a fresh sample.'; v.tubes.forEach((t) => { t.collected = null; t.received = null; }); toast(`${v.name} — sample rejected, back to Collect`); render(); }
+    else if (a === 'later') { snap(); v.createdAt = new Date().toISOString(); toast(`${v.name} moved to the end of the queue`); render(); }
+    else toast({ labels: 'Labels sent to the printer', call: `Token ${v.token} called on the display`, draft: 'Draft saved', preview: 'Opening report preview…' }[a], false);
   });
   $$('[data-tube]').forEach((b) => b.onclick = () => doTube(b.dataset.tube));
+  $$('[data-label]').forEach((b) => b.onclick = () => toast(`Label ${b.dataset.label} printed`, false));
   const ins = $$('[data-in]');
   ins.forEach((inp, i) => {
     const upd = () => { v.values[inp.dataset.in] = inp.value; const p = params(v).find((x) => x.name === inp.dataset.in); const f = flagOf(p, inp.value);
-      inp.closest('tr').className = f; $(`[data-fa="${CSS.escape(p.name)}"]`).textContent = ARROW[f] || ''; refreshStatus(v); };
+      inp.closest('tr').className = f + ' cur'; $(`[data-flag="${CSS.escape(p.name)}"]`).innerHTML = flagHtml(f); refreshStatus(v); };
     inp.addEventListener('input', upd); inp.addEventListener('change', upd);
+    inp.addEventListener('focus', () => { $$('tr.cur').forEach((r) => r.classList.remove('cur')); inp.closest('tr').classList.add('cur'); });
     inp.addEventListener('keydown', (e) => {
       e.stopPropagation();
       if (e.key === 'Escape') { inp.blur(); return; }
       if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); primaryAct(v); document.activeElement?.blur(); return; }
       if (e.key === 'Enter' || (e.key === 'ArrowDown' && inp.tagName === 'INPUT')) { e.preventDefault(); (ins[i + 1] || $('#go')).focus(); }
       if (e.key === 'ArrowUp' && inp.tagName === 'INPUT') { e.preventDefault(); ins[i - 1]?.focus(); }
-      if (e.key === 'Escape') inp.blur();
     });
   });
 }
 
 // ---------- scan / search ----------
 const q = $('#q'); const drop = $('#drop'); let dsel = 0;
-const find = (s) => { s = s.trim().toLowerCase(); if (!s) return []; return V.filter((v) => String(v.token) === s || [v.name, v.sid, v.uhid, v.phone, ...v.tubes.map((t) => t.code)].join(' ').toLowerCase().includes(s)).slice(0, 6); };
-function drawDrop() { const m = find(q.value); drop.hidden = !m.length; drop.innerHTML = m.map((v, i) => `<button class="${i === dsel ? 'on' : ''}" data-go="${v.id}"><span>${esc(v.name)} <small>${place(v)}</small></span><small>${(STEPS.find((s) => s[0] === v.stage) || [0, 'Done'])[1]}</small></button>`).join(''); $$('[data-go]', drop).forEach((b) => b.onmousedown = () => openPatient(b.dataset.go)); }
+const find = (s) => { s = s.trim().toLowerCase(); if (!s) return []; return V.filter((v) => String(v.token) === s || [v.name, v.sid, v.uhid, v.phone.replace(/\s/g, ''), ...v.tubes.map((t) => t.code)].join(' ').toLowerCase().includes(s.replace(/\s/g, ''))).slice(0, 6); };
+function drawDrop() { const m = find(q.value); drop.hidden = !m.length; drop.innerHTML = m.map((v, i) => `<button class="${i === dsel ? 'on' : ''}" data-go="${v.id}">${avatar(v).replace('class="av"', 'class="av" style="width:30px;height:30px;font-size:12px;"')}<span><b style="font-weight:600">${esc(v.name)}</b> <span style="color:var(--text-3);font-size:12.5px">${where(v)} · ${v.sid}</span></span><span class="st tag">${(STEPS.find((s) => s[0] === v.stage) || [0, 'Done'])[1]}</span></button>`).join(''); $$('[data-go]', drop).forEach((b) => b.onmousedown = () => openPatient(b.dataset.go)); }
 function openPatient(id) { const v = V.find((x) => x.id === id); if (v.stage !== 'done') S.step = v.stage; S.sel = id; S.src = 'All'; q.value = ''; drop.hidden = true; render(); }
 q.oninput = () => { dsel = 0; drawDrop(); };
 q.onkeydown = (e) => {
-  const m = find(q.value);
+  e.stopPropagation(); const m = find(q.value);
   if (e.key === 'ArrowDown') { e.preventDefault(); dsel = Math.min(dsel + 1, m.length - 1); drawDrop(); }
   else if (e.key === 'ArrowUp') { e.preventDefault(); dsel = Math.max(dsel - 1, 0); drawDrop(); }
   else if (e.key === 'Escape') { q.value = ''; drop.hidden = true; q.blur(); }
@@ -432,35 +568,34 @@ function flash(c) { $('#scan').classList.add(c); setTimeout(() => $('#scan').cla
 let actx; function beep() { try { actx ||= new AudioContext(); const o = actx.createOscillator(); const g = actx.createGain(); o.frequency.value = 1320; g.gain.value = 0.05; o.connect(g).connect(actx.destination); o.start(); o.stop(actx.currentTime + 0.07); } catch {} }
 
 // ---------- popovers ----------
-function popover(html) { closePop(); const p = document.createElement('div'); p.className = 'pop'; p.id = 'pop'; p.innerHTML = html; $('#steps').style.position = 'relative'; $('#steps').append(p); }
+function popover(id, html) { const was = $('#pop')?.dataset.id; closePop(); if (was === id) return; const p = document.createElement('div'); p.className = 'pop'; p.id = 'pop'; p.dataset.id = id; p.innerHTML = html; $('.main').style.position = 'relative'; $('.main').append(p); }
 const closePop = () => $('#pop')?.remove();
-const TODAY = `<h4>Today</h4><dl class="kv"><dt>Reports sent</dt><dd>14</dd><dt>Average bill → report</dt><dd>2h 50m</dd><dt>Waiting for payment</dt><dd>1</dd><dt>Samples rejected</dt><dd>1</dd><dt>Critical values called</dt><dd>2</dd></dl>`;
-const KEYS = `<h4>Keyboard</h4><dl class="kv"><dt>Scan / search</dt><dd><kbd>/</kbd></dd><dt>Next / previous patient</dt><dd><kbd>↓</kbd> <kbd>↑</kbd></dd><dt>Change step</dt><dd><kbd>1</kbd>–<kbd>5</kbd></dd><dt>Main action</dt><dd><kbd>Enter</kbd></dd><dt>Save results</dt><dd><kbd>Ctrl</kbd>+<kbd>Enter</kbd></dd><dt>Patient details</dt><dd><kbd>D</kbd></dd><dt>Undo</dt><dd><kbd>Ctrl</kbd>+<kbd>Z</kbd></dd><dt>Start over (demo)</dt><dd><a href="#" id="reset" style="color:var(--teal-2)">Reset</a></dd></dl>`;
+const TODAY = `<h4>Today so far</h4><div class="stats"><div class="stat"><label>Reports sent</label><b>14</b></div><div class="stat"><label>Bill → report</label><b>2h 50m</b></div><div class="stat"><label>Samples rejected</label><b>1</b></div><div class="stat"><label>Critical values</label><b style="color:var(--red)">2</b></div></div>`;
+const KEYS = `<h4>Keyboard shortcuts</h4><div class="keys"><span>Scan or search</span><span><kbd>/</kbd></span><span>Next / previous patient</span><span><kbd>↓</kbd> <kbd>↑</kbd></span><span>Go to a step</span><span><kbd>1</kbd> – <kbd>5</kbd></span><span>Main action / start entering</span><span><kbd>Enter</kbd></span><span>Save results</span><span><kbd>Ctrl</kbd> <kbd>Enter</kbd></span><span>Patient details</span><span><kbd>D</kbd></span><span>Undo</span><span><kbd>Ctrl</kbd> <kbd>Z</kbd></span></div><p style="margin:14px 0 0;font-size:12.5px;color:var(--text-3)">Demo: <a href="#" id="reset" style="color:var(--brand-2)">reset sample patients</a></p>`;
 
 // ---------- global events ----------
 document.addEventListener('click', (e) => {
-  if (!e.target.closest('.more')) $$('.menu').forEach((m) => { m.hidden = true; });
   if (!e.target.closest('.pop') && !e.target.closest('#todayBtn') && !e.target.closest('#helpBtn')) closePop();
-  const st = e.target.closest('[data-step]'); if (st) { S.step = st.dataset.step; S.sel = null; render(); }
+  const st = e.target.closest('[data-step]'); if (st) { S.step = st.dataset.step; S.sel = null; S.src = 'All'; render(); }
+  const sr = e.target.closest('[data-src]'); if (sr) { S.src = sr.dataset.src; render(); }
   const r = e.target.closest('.row'); if (r) { S.sel = r.dataset.id; render(); }
   const dt = e.target.closest('[data-dtab]'); if (dt) { S.dtab = dt.dataset.dtab; renderDrawer(); }
   if (e.target.closest('#drClose') || e.target.id === 'scrim') { S.drawer = null; renderDrawer(); }
-  if (e.target.closest('#todayBtn')) { $('#pop') ? closePop() : popover(TODAY); }
-  if (e.target.closest('#helpBtn')) { $('#pop') ? closePop() : popover(KEYS); }
+  if (e.target.closest('#todayBtn')) popover('today', TODAY);
+  if (e.target.closest('#helpBtn')) popover('keys', KEYS);
   if (e.target.id === 'reset') { e.preventDefault(); V = build(); undoSnap = null; Object.assign(S, { step: 'collect', src: 'All', sel: null, drawer: null }); closePop(); render(); }
 });
-document.addEventListener('change', (e) => { if (e.target.id === 'src') { S.src = e.target.value; render(); } });
 document.addEventListener('keydown', (e) => {
   const typing = ['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName);
-  if (e.key === 'Escape') { if (S.drawer) { S.drawer = null; renderDrawer(); } closePop(); $$('.menu').forEach((m) => { m.hidden = true; }); }
+  if (e.key === 'Escape') { if (S.drawer) { S.drawer = null; renderDrawer(); } closePop(); }
   if (typing) return;
   if (e.key === '/') { e.preventDefault(); q.focus(); return; }
   const vis = visible(); const i = vis.findIndex((v) => v.id === S.sel); const v = V.find((x) => x.id === S.sel);
   if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); S.sel = vis[Math.max(0, Math.min(vis.length - 1, i + (e.key === 'ArrowDown' ? 1 : -1)))]?.id; render(); $('.row.sel')?.scrollIntoView({ block: 'nearest' }); }
-  else if (e.key >= '1' && e.key <= '5') { e.preventDefault(); S.step = STEPS[+e.key - 1][0]; S.sel = null; render(); }
+  else if (e.key >= '1' && e.key <= '5') { e.preventDefault(); S.step = STEPS[+e.key - 1][0]; S.sel = null; S.src = 'All'; render(); }
   else if ((e.key === 'd' || e.key === 'D') && v) { S.drawer = S.drawer ? null : v.id; S.dtab = 'details'; renderDrawer(); }
-  else if (e.key === '?') { $('#pop') ? closePop() : popover(KEYS); }
-  else if (e.key === 'Enter' && v && document.activeElement.tagName !== 'BUTTON') {
+  else if (e.key === '?') popover('keys', KEYS);
+  else if (e.key === 'Enter' && v && !S.drawer && document.activeElement.tagName !== 'BUTTON') {
     e.preventDefault();
     if (v.stage === 'results') { const ins = $$('[data-in]'); (ins.find((x) => !x.value) || ins[0])?.focus(); } else primaryAct(v);
   }
@@ -468,7 +603,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ---------- toast ----------
-let tt; function toast(msg, canUndo = true) { $('#toastMsg').textContent = msg; $('#undo').style.display = canUndo && undoSnap ? '' : 'none'; $('#toast').classList.add('show'); clearTimeout(tt); tt = setTimeout(hideToast, 4000); }
+let tt; function toast(msg, canUndo = true) { const t = $('#toast'); $('#toastMsg').textContent = msg; t.classList.toggle('bad', !canUndo && /first|Write|Choose|Nothing/.test(msg)); $('.ti', t).innerHTML = ic(t.classList.contains('bad') ? 'x' : 'check'); $('#undo').style.display = canUndo && undoSnap ? '' : 'none'; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(hideToast, 4000); }
 function hideToast() { $('#toast').classList.remove('show'); }
 $('#undo').onclick = undo;
 render();
