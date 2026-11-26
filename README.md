@@ -130,6 +130,10 @@ Navigation: **Billing · Pharmacy → Pharmacy Sale · Pharmacy Bills · Sales R
 
 **Accounting scope.** This is an internal pharmacy sales tally and daily payment reconciliation. It does **not** integrate with Tally Prime, GST filing software or bank reconciliation; the payment-transaction and closing records are structured for a future export.
 
+## Documentation
+
+- [Laboratory module specification](docs/LAB_MODULE_SPECIFICATION.md) — full build reference for the production lab module (flows, rules, data model, APIs, WhatsApp design, test cases).
+
 ## Backend integration notes
 
 Each JSON file maps to a future REST resource / MySQL table (`medicines`, `medicine_batches`, `goods_receipts` + `goods_receipt_items`, `stock_movements`, `stock_adjustments`, `notifications`, `audit_logs`, `settings`…). `services.js` holds the transaction boundaries that should become Spring Boot service methods; `data-service.js` is the single place to swap localStorage for API calls.
