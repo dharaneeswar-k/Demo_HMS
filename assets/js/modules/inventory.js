@@ -119,8 +119,8 @@ export function renderMedicine(view, params) {
   const days = {}; pts.forEach((p) => { days[ymd(p.x)] = p.y; });
   const labels = Object.keys(days);
   chart(view.querySelector('#ch-trend'), { type: 'line', data: { labels: labels.map((d) => fmtDate(d).slice(0, 6)), datasets: [
-    { label: 'On hand', data: labels.map((d) => days[d]), borderColor: '#049794', backgroundColor: 'rgba(4,151,148,.1)', fill: true, tension: .25, pointRadius: 0, borderWidth: 2 },
-    { label: 'Reorder level', data: labels.map(() => m.reorderLevel), borderColor: '#E8A23A', borderDash: [5, 4], pointRadius: 0, borderWidth: 1.5 }] },
+    { label: 'On hand', data: labels.map((d) => days[d]), borderColor: '#0A7C86', backgroundColor: 'rgba(10,124,134,.08)', fill: true, tension: .25, pointRadius: 0, borderWidth: 2 },
+    { label: 'Reorder level', data: labels.map(() => m.reorderLevel), borderColor: '#C27C0E', borderDash: [5, 4], pointRadius: 0, borderWidth: 1.5 }] },
   options: { interaction: { mode: 'index', intersect: false }, scales: { y: { beginAtZero: true, grid: { color: '#EEF2F5' } }, x: { grid: { display: false }, ticks: { maxTicksLimit: 10 } } }, plugins: { legend: { position: 'top', align: 'end' } } } });
 }
 

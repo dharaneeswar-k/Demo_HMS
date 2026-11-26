@@ -21,8 +21,11 @@ export function brandMark(size = 'md') {
 }
 function applyTheme() {
   const t = store.settings().theme || {};
-  document.documentElement.style.setProperty('--navy', t.primary || '#023459');
-  document.documentElement.style.setProperty('--teal', t.accent || '#049794');
+  // The official palette lives in theme.css; a hospital that picks its own colours in Settings overrides it here.
+  const root = document.documentElement.style; const custom = (v, off) => v && v.toLowerCase() !== off;
+  if (custom(t.primary, '#023459')) root.setProperty('--h-navy', t.primary); else root.removeProperty('--h-navy');
+  if (custom(t.accent, '#049794')) root.setProperty('--h-brand', t.accent); else root.removeProperty('--h-brand');
+  root.removeProperty('--navy'); root.removeProperty('--teal');
   document.title = `${store.settings().hospitalName} · Hospital Management System`;
 }
 

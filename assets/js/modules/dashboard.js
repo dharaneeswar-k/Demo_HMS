@@ -78,15 +78,15 @@ export function render(view) {
   // charts
   const io = monthlyInOut(6);
   chart(view.querySelector('#ch-inout'), { type: 'bar', data: { labels: io.labels, datasets: [
-    { label: 'Stock In', data: io.inn, backgroundColor: '#049794', borderRadius: 6, maxBarThickness: 28 },
-    { label: 'Stock Out', data: io.out, backgroundColor: '#023459', borderRadius: 6, maxBarThickness: 28 }] },
+    { label: 'Stock In', data: io.inn, backgroundColor: '#0A7C86', borderRadius: 2, maxBarThickness: 28 },
+    { label: 'Stock Out', data: io.out, backgroundColor: '#0F2C44', borderRadius: 2, maxBarThickness: 28 }] },
   options: { scales: { y: { beginAtZero: true, grid: { color: '#EEF2F5' } }, x: { grid: { display: false } } }, plugins: { legend: { position: 'top', align: 'end' } } } });
   const cat = categoryDistribution();
   chart(view.querySelector('#ch-cat'), { type: 'doughnut', data: { labels: cat.map((c) => c[0]), datasets: [{ data: cat.map((c) => Math.round(c[1])), backgroundColor: PALETTE, borderWidth: 2, borderColor: '#fff' }] },
     options: { cutout: '62%', plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } }, tooltip: { callbacks: { label: (c) => ` ${c.label}: ${fmtINR(c.raw, true)}` } } } } });
   const sc = grnKPIs().statusCounts;
   const order = ['DRAFT', 'VALIDATION_REQUIRED', 'SUBMITTED', 'PENDING_APPROVAL', 'POSTED', 'REJECTED', 'CANCELLED'];
-  chart(view.querySelector('#ch-grn'), { type: 'bar', data: { labels: order.map((s) => s.replace('_', ' ').toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())), datasets: [{ data: order.map((s) => sc[s]), backgroundColor: ['#8FA3B3', '#E8A23A', '#3685C5', '#6E56CF', '#16A36A', '#D9534F', '#C3CED6'], borderRadius: 5 }] },
+  chart(view.querySelector('#ch-grn'), { type: 'bar', data: { labels: order.map((s) => s.replace('_', ' ').toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())), datasets: [{ data: order.map((s) => sc[s]), backgroundColor: ['#8FA3B3', '#C27C0E', '#1D5FB4', '#6E56CF', '#1E7B45', '#C4281C', '#C3CED6'], borderRadius: 5 }] },
     options: { indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { beginAtZero: true, ticks: { precision: 0 }, grid: { color: '#EEF2F5' } }, y: { grid: { display: false } } } } });
 
   // low stock

@@ -200,13 +200,13 @@ export function dropzone({ accept = 'image/*,application/pdf', multiple = false,
 
 // ---------------- charts ----------------
 const charts = new Set();
-export const PALETTE = ['#049794', '#023459', '#3685C5', '#E8A23A', '#16A36A', '#D9534F', '#7A5AF8', '#5BB8B4', '#8FA3B3', '#B86E00', '#2F6F9F', '#9BC53D'];
+export const PALETTE = ['#0A7C86', '#0F2C44', '#1D5FB4', '#C27C0E', '#1E7B45', '#C4281C', '#7A5AF8', '#5BB8B4', '#8FA3B3', '#B86E00', '#2F6F9F', '#9BC53D'];
 export function chart(canvas, config) {
   if (!window.Chart) { canvas.replaceWith(Object.assign(document.createElement('div'), { className: 'muted small', textContent: 'Charts unavailable offline (Chart.js not loaded).' })); return null; }
   const Chart = window.Chart;
   Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
-  Chart.defaults.color = '#687987';
-  Chart.defaults.borderColor = '#E5EBEF';
+  Chart.defaults.color = '#4A5866';
+  Chart.defaults.borderColor = '#E7EBEF';
   const c = new Chart(canvas, { ...config, options: { responsive: true, maintainAspectRatio: false, ...config.options, plugins: { legend: { labels: { boxWidth: 10, boxHeight: 10, usePointStyle: true } }, ...config.options?.plugins } } });
   charts.add(c);
   return c;

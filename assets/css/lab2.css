@@ -4,10 +4,7 @@
    To go back to the old look: remove this file's <link> in index.html (and the h-* markup).
    ===================================================================================================== */
 body[data-module="lab"] {
-  --h-navy: #0F2C44; --h-ink: #1B2733; --h-ink-2: #4A5866; --h-ink-3: #7B8896;
-  --h-line: #D8DEE5; --h-line-2: #E7EBEF; --h-head: #EEF2F6; --h-bg: #F3F5F8; --h-hover: #F6F9FC; --h-sel: #E3F1F7;
-  --h-brand: #0A7C86; --h-brand-2: #086770; --h-brand-50: #E4F3F4;
-  --h-red: #C4281C; --h-red-50: #FCEDEB; --h-amber: #A45A00; --h-amber-50: #FFF5E0; --h-blue: #1D5FB4; --h-blue-50: #EAF2FC; --h-green: #1E7B45; --h-green-50: #E8F5EC;
+  /* palette: theme.css (:root) */
   /* old lab2 names still used by a few pieces */
   --l2-brand: var(--h-brand); --l2-brand-50: var(--h-brand-50); --l2-line: var(--h-line); --l2-line-2: var(--h-line); --l2-text: var(--h-ink); --l2-text-2: var(--h-ink-2); --l2-text-3: var(--h-ink-3);
   --l2-red: var(--h-red); --l2-red-50: var(--h-red-50); --l2-hover: var(--h-hover); --l2-shadow: none; --l2-shadow-lg: 0 10px 30px rgba(15,44,68,.22);

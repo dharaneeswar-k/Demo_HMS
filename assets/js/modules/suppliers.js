@@ -105,6 +105,6 @@ export function renderDetails(view, params) {
   const months = {};
   st.posted.forEach((g) => { const k = ymd(g.postedAt || g.receivedAt).slice(0, 7); months[k] = (months[k] || 0) + grnTotals(g).grand; });
   const keys = Object.keys(months).sort();
-  chart(view.querySelector('#ch-ph'), { type: 'bar', data: { labels: keys.map((k) => new Date(k + '-01T00:00').toLocaleString('en-IN', { month: 'short', year: '2-digit' })), datasets: [{ label: 'Value', data: keys.map((k) => Math.round(months[k])), backgroundColor: '#049794', borderRadius: 6, maxBarThickness: 36 }] },
+  chart(view.querySelector('#ch-ph'), { type: 'bar', data: { labels: keys.map((k) => new Date(k + '-01T00:00').toLocaleString('en-IN', { month: 'short', year: '2-digit' })), datasets: [{ label: 'Value', data: keys.map((k) => Math.round(months[k])), backgroundColor: '#0A7C86', borderRadius: 2, maxBarThickness: 36 }] },
     options: { plugins: { legend: { display: false }, tooltip: { callbacks: { label: (c) => fmtINR(c.raw) } } }, scales: { y: { beginAtZero: true, ticks: { callback: (v) => fmtCompactINR(v) } }, x: { grid: { display: false } } } } });
 }

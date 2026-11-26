@@ -113,7 +113,7 @@ export function render(view) {
   view.querySelectorAll('[data-s]').forEach((el) => { el.oninput = el.onchange = () => { draft[el.dataset.s] = el.value; }; });
   view.querySelectorAll('[data-n]').forEach((el) => { el.oninput = () => { draft[el.dataset.n] = Number(el.value); }; });
   view.querySelectorAll('[data-b]').forEach((el) => { el.oninput = () => { draft.banner[el.dataset.b] = el.value; }; });
-  view.querySelectorAll('[data-t]').forEach((el) => { el.oninput = () => { draft.theme[el.dataset.t] = el.value; el.nextElementSibling.textContent = el.value; document.documentElement.style.setProperty(el.dataset.t === 'primary' ? '--navy' : '--teal', el.value); }; });
+  view.querySelectorAll('[data-t]').forEach((el) => { el.oninput = () => { draft.theme[el.dataset.t] = el.value; el.nextElementSibling.textContent = el.value; document.documentElement.style.setProperty(el.dataset.t === 'primary' ? '--h-navy' : '--h-brand', el.value); }; });
   view.querySelectorAll('[data-a]').forEach((el) => { el.onchange = () => { draft.approval[el.dataset.a] = el.checked; }; });
   view.querySelectorAll('[data-an]').forEach((el) => { el.oninput = () => { draft.approval[el.dataset.an] = Number(el.value); }; });
   const phd = JSON.parse(JSON.stringify(store.ph()));
