@@ -3,7 +3,7 @@
 // line for the list (line). The workbench lists them; the patient panel (sid.js) does the work.
 import { store } from '../../data-service.js';
 import { svc, isCritical } from '../../hospital.js';
-import { visitStatus, visitAccess, reportReadyAt, priorityRank, tubeOf } from '../../labflow.js';
+import { visitStatus, visitAccess, reportReadyAt, priorityRank, tubeOf, wardWaPending } from '../../labflow.js';
 import { userName } from '../../calculations.js';
 import { esc } from '../../utils.js';
 import { icon } from './bi.js';
@@ -20,7 +20,7 @@ const IN = {
   receive: (v) => liveTubes(v).some((t) => t.collectedAt && !t.receivedAt),
   results: (v) => liveOrders(v).some((o) => o.status === 'SAMPLE_COLLECTED' && o.lab.receivedAt),
   verify: (v) => liveOrders(v).some((o) => o.status === 'RESULTED'),
-  send: (v) => v.source !== 'IP' && visitStatus(v) === 'READY'
+  send: (v) => (v.source !== 'IP' && visitStatus(v) === 'READY') || wardWaPending(v)
 };
 
 const stage = (s) => ({

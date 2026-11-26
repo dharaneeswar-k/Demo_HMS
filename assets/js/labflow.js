@@ -107,7 +107,7 @@ export function createVisitForBill(bill, labOrders, lab, user) {
 }
 
 /** IP ward order (until the IP module posts orders itself): no counter payment — charged to the IP account. */
-export function createIpOrder({ recordId, serviceIds, doctor, priority = 'ROUTINE', notes = '' }, user) {
+export function createIpOrder({ recordId, serviceIds, doctor, priority = 'ROUTINE', notes = '', sendToPatient = false }, user) {
   if (!can('lab.order.ip', user)) throw new Error('You cannot place ward lab orders.');
   const rec = store.get('medicalRecords', recordId);
   if (!rec || rec.dischargedAt) throw new Error('Choose an admitted patient.');
@@ -123,7 +123,7 @@ export function createIpOrder({ recordId, serviceIds, doctor, priority = 'ROUTIN
     const [ward, bed] = String(rec.ward || '').split(/\s*[—-]\s*Bed\s*/i);
     const v = store.insert('labVisits', { id: store.nextId('labVisits', 'LV-', 5), sid, patientId: rec.patientId, source: 'IP', priority, billId: null, billingRoute: 'IP_ACCOUNT', doctor: doctor || rec.doctor, referralDoctorId: null,
       rxBasis: 'DOCTOR_ORDER', prescription: null, consent: null, token: null, tokenDay: null, tokenStatus: 'WAITING', calledAt: null, collectionPoint: 'WARD', ipNo: rec.ipNo, ward: ward || rec.ward, bed: bed || '', recordId,
-      clinicalNotes: notes, createdAt: at, createdBy: user.id, reportDueAt: new Date(Math.max(...tests.map((s) => Date.now() + s.lab.tatHours * 3600000))).toISOString(), tubes: [], deliveries: [], handover: null });
+      clinicalNotes: notes, createdAt: at, createdBy: user.id, reportDueAt: new Date(Math.max(...tests.map((s) => Date.now() + s.lab.tatHours * 3600000))).toISOString(), tubes: [], deliveries: [], handover: null, sendToPatient: !!sendToPatient });
     os.forEach((o) => { o.labVisitId = v.id; });
     v.tubes = groupTubes(sid, os);
     audit(user, 'LAB_IP_ORDER', 'LABVISIT', v.id, `SID ${sid} · ${rec.ipNo} · ${tests.map((t) => t.code).join(', ')} · charged to IP account`);
@@ -183,10 +183,18 @@ export function onOrderVerified(o, user) {
   const v = visitOfOrder(o); if (!v || !reportReadyAt(v)) return;
   if (v.source === 'IP') v.deliveries.push({ channel: 'WARD', to: `${v.ward} ${v.bed}`.trim(), at: now(), by: user.id, status: 'POSTED_TO_IP_RECORD' });
   const p = store.get('patients', v.patientId);
-  notify({ type: 'LAB_REPORT_READY', category: 'Laboratory', severity: 'success', title: `Report ready — SID ${v.sid}`, message: `${p.name}: ${visitOrders(v).map((x) => x.name).join(', ')}. ${v.source === 'IP' ? 'Posted to the IP record.' : 'Send it on WhatsApp or hand it over at the counter.'}`, refType: 'LABVISIT', refId: v.id, targetRoles: v.source === 'IP' ? ['LAB'] : ['LAB', 'RECEPTION'] });
+  // Ward order marked "send to the patient's WhatsApp too": with the WhatsApp server on it goes out now; otherwise it waits in "Ready to send".
+  let waNote = '';
+  if (wardWaPending(v)) {
+    if (ms().provider === 'WA_CLOUD' && ms().cloud?.enabled) { try { deliverReport(v.id, 'WHATSAPP', {}, user); waNote = ' Sent to the patient on WhatsApp.'; } catch { waNote = ' Send it to the patient on WhatsApp.'; } }
+    else waNote = ' Send it to the patient on WhatsApp.';
+  }
+  notify({ type: 'LAB_REPORT_READY', category: 'Laboratory', severity: 'success', title: `Report ready — SID ${v.sid}`, message: `${p.name}: ${visitOrders(v).map((x) => x.name).join(', ')}. ${v.source === 'IP' ? 'Posted to the IP record.' + waNote : 'Send it on WhatsApp or hand it over at the counter.'}`, refType: 'LABVISIT', refId: v.id, targetRoles: v.source === 'IP' ? ['LAB'] : ['LAB', 'RECEPTION'] });
 }
 
 // ---------------- report delivery ----------------
+/** A ward (IP) report the ward asked to send to the patient's WhatsApp too, not sent yet. */
+export const wardWaPending = (v) => v.source === 'IP' && !!v.sendToPatient && !!reportReadyAt(v) && !v.deliveries.some((d) => d.channel === 'WHATSAPP' && !d.toDoctor);
 export function reportVars(v, { toDoctor = false } = {}) {
   const p = store.get('patients', v.patientId); const s = store.settings();
   const base = ms().publicReportBaseUrl; const link = base ? `View / download: ${base.replace(/\/$/, '')}/r/${v.sid}\n` : '';

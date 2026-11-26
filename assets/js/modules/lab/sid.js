@@ -8,7 +8,7 @@ import { store } from '../../data-service.js';
 import { currentUser, can } from '../../auth.js';
 import { userName } from '../../calculations.js';
 import { svc, labParams, flagFor, refText, isCritical, enterResults, verifyReport, hbillBalance } from '../../hospital.js';
-import { SOURCE, visit, visitAccess, visitStatus, reportReadyAt, isUncollected, tubesFor, deliverReport, handOver, collectTube, callToken } from '../../labflow.js';
+import { SOURCE, visit, visitAccess, visitStatus, reportReadyAt, isUncollected, tubesFor, deliverReport, handOver, collectTube, callToken, wardWaPending } from '../../labflow.js';
 import { CHANNEL_LABEL } from '../../messaging.js';
 import { attachmentURL } from '../../attachment-store.js';
 import { openModal, confirmDialog } from '../../components.js';
@@ -71,7 +71,7 @@ export function mountSid(host, id, { step } = {}) {
           ${crit ? `<div class="h-msg red">${icon('exclamation-diamond-fill')}<div><b>Critical value — ${critParams.join(', ')}.</b> ${os.some((o) => o.status === 'RESULTED' && isCritical(o)) ? 'Re-check the sample, verify, then phone the doctor.' : 'The doctor and owner have been alerted.'}</div></div>` : ''}
           ${tubes.length && !(allIn && showResults) ? tubeSection(vv, tubes, a) : ''}
           ${showResults ? resultsSection(vv) : ''}
-          ${ready && vv.source !== 'IP' ? sendSection(vv) : ''}
+          ${ready ? sendSection(vv) : ''}
           ${!tubes.length && !showResults ? `<div class="h-empty">${icon('hourglass')}<b>Nothing to do here yet.</b></div>` : ''}
         </div><footer class="h-act" data-bar></footer></section>
         <aside class="h-side">
@@ -142,11 +142,12 @@ export function mountSid(host, id, { step } = {}) {
     const sent = (ch, dr = false) => vv.deliveries.some((d) => d.channel === ch && !!d.toDoctor === dr);
     const dis = can('lab.deliver') ? '' : 'disabled';
     const opt = (k, ic, label, sub, on = true, done = false) => `<button class="h-opt" data-send="${k}" ${on ? dis : 'disabled'}>${icon(ic)}<span><b>${label}</b><small>${esc(sub)}</small></span>${done ? `<em>${icon('check2')}Sent</em>` : ''}</button>`;
-    return `<div class="h-sech"><h2>Send the report</h2><span class="h-muted">Verified ${clock(reportReadyAt(vv))}</span>${isUncollected(vv) ? '<span class="danger">Not collected</span>' : ''}</div>
+    const ip = vv.source === 'IP';
+    return `<div class="h-sech"><h2>${ip ? 'Send a copy to the patient' : 'Send the report'}</h2><span class="h-muted">Verified ${clock(reportReadyAt(vv))}${ip ? ' · already posted to the ward' : ''}</span>${isUncollected(vv) ? '<span class="danger">Not collected</span>' : ''}${wardWaPending(vv) ? '<span class="h-warn">Ward asked for WhatsApp</span>' : ''}</div>
       <div class="h-opts">${opt('WHATSAPP', 'whatsapp', 'WhatsApp to patient', p.phone || 'No mobile', !!p.phone, sent('WHATSAPP'))}
         ${rd ? opt('DOCTOR', 'person-badge', 'Referring doctor', `${rd.name}${rd.phone ? '' : ' · no mobile'}`, !!rd.phone, sent('WHATSAPP', true)) : ''}
         ${opt('PRINT', 'printer', 'Print / save PDF', 'Open the report')}
-        ${opt('COUNTER', 'person-check', vv.handover ? `Handed to ${vv.handover.name}` : 'Hand over at counter', due > 0 ? `₹${due} still due on the bill` : 'Patient or attender collects', !vv.handover, !!vv.handover)}
+        ${ip ? '' : opt('COUNTER', 'person-check', vv.handover ? `Handed to ${vv.handover.name}` : 'Hand over at counter', due > 0 ? `₹${due} still due on the bill` : 'Patient or attender collects', !vv.handover, !!vv.handover)}
         ${opt('SMS', 'phone', 'SMS', p.phone || 'No mobile', !!p.phone, sent('SMS'))}
         ${opt('EMAIL', 'envelope', 'Email', p.email || 'No email on record', !!p.email, sent('EMAIL'))}</div>`;
   };
@@ -175,6 +176,10 @@ export function mountSid(host, id, { step } = {}) {
       const n = tubes.filter((t) => t.collectedAt && !t.receivedAt).length;
       status = `${icon('scan-barcode')}${n} tube${n > 1 ? 's' : ''} on the way to the bench`;
       pri = `<button class="btn btn-primary" data-receive-all>${icon('check-check')}${n > 1 ? `Receive all ${n}` : 'Receive'}</button>`;
+    } else if (wardWaPending(vv) && canDo('send')) {
+      const p = pat(vv.patientId);
+      status = `${icon('check-circle-2')}Posted to the ward · the ward asked to send it to the patient's WhatsApp`;
+      pri = `<button class="btn btn-primary" data-send="WHATSAPP" ${p.phone ? '' : 'disabled'}>${icon('message-circle')}Send on WhatsApp</button>`;
     } else if (nx.key === 'send' && canDo('send')) {
       const p = pat(vv.patientId);
       status = `${icon('check-circle-2')}Report verified and ready`;
