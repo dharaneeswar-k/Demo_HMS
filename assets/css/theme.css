@@ -240,8 +240,9 @@ a.cell-main:hover { color: var(--h-brand); }
 .home-h { font-size: 11.5px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--h-ink-2); }
 .task-grid { gap: 10px; }
 .task-tile, .task-tile.tone-teal:first-child { padding: 12px 14px; gap: 12px; border-radius: 4px; background: var(--h-surface); border: 1px solid var(--h-line); box-shadow: none; transition: border-color .12s, background .12s; }
-.task-tile:hover { transform: none; box-shadow: none; border-color: var(--h-brand); background: #FBFDFD; }
-.tt-icon, [class*="tone-"] .tt-icon, .task-tile.tone-teal:first-child .tt-icon { width: 36px; height: 36px; border-radius: 4px; background: var(--h-brand-50); color: var(--h-brand); }
+.task-tile:hover { transform: none; box-shadow: none; border-color: var(--h-ink-3); background: var(--h-hover); }
+.task-tile:hover .tt-icon { color: var(--h-ink); }
+.tt-icon, [class*="tone-"] .tt-icon, .task-tile.tone-teal:first-child .tt-icon { width: 36px; height: 36px; border-radius: 4px; background: var(--h-head); color: var(--h-ink-2); }
 .tt-icon svg { width: 18px; height: 18px; }
 .tt-text strong, .task-tile.tone-teal:first-child strong { font-size: 13.5px; font-weight: 600; color: var(--h-title); }
 .tt-text small, .task-tile.tone-teal:first-child small { color: var(--h-ink-3); font-size: 12px; }
