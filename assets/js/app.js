@@ -351,6 +351,7 @@ async function route() {
     return;
   }
   currentMeta = r;
+  document.body.dataset.module = /^lab(\/|desk$)/.test(r.route.mod) ? 'lab' : ''; // lab pages use the lab2 look (assets/css/lab2.css)
   setMeta({ title: r.route.title, crumbs: r.route.crumbs });
   view.innerHTML = skeleton(8);
   try {

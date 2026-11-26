@@ -11,12 +11,13 @@ import { CHANNEL_LABEL, STATUS_LABEL } from '../messaging.js';
 import { businessDate } from '../pharmacy-calc.js';
 import { patientAge } from '../patients.js';
 import { attachmentURL } from '../attachment-store.js';
-import { badge, dataTable, emptyState, openModal, confirmDialog, kpi, tabs, combo, exportTable } from '../components.js';
+import { badge, dataTable, openModal, confirmDialog, kpi, tabs, combo, exportTable } from '../components.js';
 import { toast } from '../notifications.js';
 import { barcodeSVG } from '../barcode.js';
 import { letterhead, docMeta, signBlock } from '../docs.js';
 import { setMeta } from '../app.js';
-import { esc, icon, fmtNum, fmtDate, fmtDateTime, relTime, refreshIcons, ymd } from '../utils.js';
+import { esc, fmtNum, fmtDate, fmtDateTime, relTime, refreshIcons, ymd } from '../utils.js';
+import { icon, emptyState } from './lab/bi.js';
 
 const pat = (id) => store.get('patients', id);
 const srcTag = (v) => `<span class="tag tag-${SOURCE[v.source].tone}">${icon(SOURCE[v.source].icon, 'ic-inline')} ${SOURCE[v.source].short}</span>`;
@@ -86,8 +87,8 @@ export function renderReportDesk(view, params, query) {
     const q = view.querySelector('[data-q]').value.trim().toLowerCase();
     const all = store.all('labVisits').filter((v) => reportReadyAt(v) || visitOrders(v).some((o) => o.status === 'COMPLETED')).filter((v) => { const p = pat(v.patientId); return !q || [v.sid, p.name, p.phone, p.uhid].join(' ').toLowerCase().includes(q); });
     const g = { ready: all.filter((v) => visitStatus(v) === 'READY'), partial: all.filter((v) => visitStatus(v) === 'PARTIAL'), sent: all.filter((v) => visitStatus(v) === 'SENT'), handed: all.filter((v) => visitStatus(v) === 'HANDED_OVER'), uncollected: all.filter(isUncollected), all };
-    tabs(view.querySelector('[data-tabs]'), [{ id: 'ready', label: 'Ready to send', icon: 'send', count: g.ready.length }, { id: 'partial', label: 'Partial', icon: 'hourglass', count: g.partial.length || null }, { id: 'sent', label: 'Sent', icon: 'message-circle', count: g.sent.length },
-      { id: 'handed', label: 'Handed over', icon: 'hand', count: g.handed.length }, { id: 'uncollected', label: 'Not collected', icon: 'alert-triangle', count: g.uncollected.length || null }, { id: 'all', label: 'All' }], tab, (x) => { tab = x; draw(); });
+    tabs(view.querySelector('[data-tabs]'), [{ id: 'ready', label: 'Ready to send', icon: icon('send'), count: g.ready.length }, { id: 'partial', label: 'Partial', icon: icon('hourglass'), count: g.partial.length || null }, { id: 'sent', label: 'Sent', icon: icon('message-circle'), count: g.sent.length },
+      { id: 'handed', label: 'Handed over', icon: icon('hand'), count: g.handed.length }, { id: 'uncollected', label: 'Not collected', icon: icon('alert-triangle'), count: g.uncollected.length || null }, { id: 'all', label: 'All' }], tab, (x) => { tab = x; draw(); });
     t.setRows(g[tab]);
   };
   view.querySelector('[data-q]').addEventListener('input', draw);

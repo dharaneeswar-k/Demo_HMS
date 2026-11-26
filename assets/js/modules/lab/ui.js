@@ -5,7 +5,8 @@ import { store } from '../../data-service.js';
 import { SOURCE, PRIORITY, VSTATUS, containers, visitOrders, visitStatus, visitAccess, reportReadyAt } from '../../labflow.js';
 import { svc, isCritical } from '../../hospital.js';
 import { patientAge } from '../../patients.js';
-import { esc, icon } from '../../utils.js';
+import { esc } from '../../utils.js';
+import { icon } from './bi.js';
 
 export const pat = (id) => store.get('patients', id) || { name: 'Unknown patient', uhid: '—', gender: '', phone: '' };
 export const liveOrders = (v) => visitOrders(v).filter((o) => o.status !== 'CANCELLED');
@@ -62,12 +63,12 @@ export function journey(v) {
   const all = (f) => os.length > 0 && os.every(f);
   const delivered = v.handover || v.deliveries.find((d) => !d.toDoctor);
   const steps = [
-    { key: 'paid', label: v.billingRoute === 'IP_ACCOUNT' ? 'Ordered' : 'Paid', sub: a.ok ? a.label : 'Waiting at counter', done: a.ok, at: v.createdAt, icon: 'receipt' },
-    { key: 'collect', label: 'Collected', sub: `${ts.filter((t) => t.collectedAt).length} of ${ts.length} tubes`, done: ts.length > 0 && ts.every((t) => t.collectedAt), at: lst(ts.map((t) => t.collectedAt)), icon: 'test-tube' },
-    { key: 'receive', label: 'In lab', sub: `${ts.filter((t) => t.receivedAt).length} of ${ts.length} received`, done: ts.length > 0 && ts.every((t) => t.receivedAt), at: lst(ts.map((t) => t.receivedAt)), icon: 'scan-barcode' },
-    { key: 'results', label: 'Results', sub: `${os.filter((o) => ['RESULTED', 'COMPLETED'].includes(o.status)).length} of ${os.length} tests`, done: all((o) => ['RESULTED', 'COMPLETED'].includes(o.status)), at: lst(os.map((o) => o.lab.enteredAt)), icon: 'keyboard' },
-    { key: 'verify', label: 'Verified', sub: `${os.filter((o) => o.status === 'COMPLETED').length} of ${os.length} tests`, done: !!ready, at: ready, icon: 'badge-check' },
-    { key: 'deliver', label: v.source === 'IP' ? 'Sent to ward' : 'Delivered', sub: delivered ? (v.handover ? 'Handed over' : delivered.channel === 'WARD' ? 'IP record' : delivered.channel === 'WHATSAPP' ? 'WhatsApp' : delivered.channel === 'EMAIL' ? 'Email' : delivered.channel === 'SMS' ? 'SMS' : delivered.channel) : 'Not yet', done: !!delivered, at: delivered?.at, icon: 'send' }
+    { key: 'paid', label: v.billingRoute === 'IP_ACCOUNT' ? 'Ordered' : 'Paid', sub: a.ok ? a.label : 'Waiting at counter', done: a.ok, at: v.createdAt, icon: icon('receipt') },
+    { key: 'collect', label: 'Collected', sub: `${ts.filter((t) => t.collectedAt).length} of ${ts.length} tubes`, done: ts.length > 0 && ts.every((t) => t.collectedAt), at: lst(ts.map((t) => t.collectedAt)), icon: icon('test-tube') },
+    { key: 'receive', label: 'In lab', sub: `${ts.filter((t) => t.receivedAt).length} of ${ts.length} received`, done: ts.length > 0 && ts.every((t) => t.receivedAt), at: lst(ts.map((t) => t.receivedAt)), icon: icon('scan-barcode') },
+    { key: 'results', label: 'Results', sub: `${os.filter((o) => ['RESULTED', 'COMPLETED'].includes(o.status)).length} of ${os.length} tests`, done: all((o) => ['RESULTED', 'COMPLETED'].includes(o.status)), at: lst(os.map((o) => o.lab.enteredAt)), icon: icon('keyboard') },
+    { key: 'verify', label: 'Verified', sub: `${os.filter((o) => o.status === 'COMPLETED').length} of ${os.length} tests`, done: !!ready, at: ready, icon: icon('badge-check') },
+    { key: 'deliver', label: v.source === 'IP' ? 'Sent to ward' : 'Delivered', sub: delivered ? (v.handover ? 'Handed over' : delivered.channel === 'WARD' ? 'IP record' : delivered.channel === 'WHATSAPP' ? 'WhatsApp' : delivered.channel === 'EMAIL' ? 'Email' : delivered.channel === 'SMS' ? 'SMS' : delivered.channel) : 'Not yet', done: !!delivered, at: delivered?.at, icon: icon('send') }
   ];
   const cur = steps.findIndex((s) => !s.done);
   steps.forEach((s, i) => { s.current = i === cur; });
@@ -80,15 +81,48 @@ export function stepper(v) {
 /** The one thing to do next for this visit. */
 export function nextAction(v) {
   const os = liveOrders(v); const ts = liveTubes(v); const st = visitStatus(v);
-  if (st === 'CANCELLED') return { key: 'none', title: 'This visit was cancelled', text: 'All tests on this SID were cancelled at the counter.', tone: 'muted', icon: 'ban' };
-  if (st === 'ON_HOLD') return { key: 'hold', title: 'Waiting for payment', text: `${visitAccess(v).label}. Do not collect the sample — send the patient to the main counter.`, tone: 'warning', icon: 'lock' };
+  if (st === 'CANCELLED') return { key: 'none', title: 'This visit was cancelled', text: 'All tests on this SID were cancelled at the counter.', tone: 'muted', icon: icon('ban') };
+  if (st === 'ON_HOLD') return { key: 'hold', title: 'Waiting for payment', text: `${visitAccess(v).label}. Do not collect the sample — send the patient to the main counter.`, tone: 'warning', icon: icon('lock') };
   if (ts.some((t) => !t.collectedAt)) { const n = ts.filter((t) => !t.collectedAt).length; const re = ts.find((t) => t.rejected && !t.collectedAt);
-    return { key: 'collect', title: re ? 'Collect a fresh sample' : `Collect ${n} tube${n > 1 ? 's' : ''}`, text: re ? `The earlier sample was rejected: ${re.rejected.reason}.` : `Stick the labels on the tubes in front of the patient, then scan each tube.`, tone: re ? 'danger' : 'info', icon: 'test-tube', btn: 'Collect sample' }; }
-  if (ts.some((t) => !t.receivedAt)) { const n = ts.filter((t) => !t.receivedAt).length; return { key: 'receive', title: `Receive ${n} tube${n > 1 ? 's' : ''} in the lab`, text: 'Scan the tube label when it reaches the lab bench, or press Receive.', tone: 'info', icon: 'scan-barcode', btn: 'Receive all' }; }
+    return { key: 'collect', title: re ? 'Collect a fresh sample' : `Collect ${n} tube${n > 1 ? 's' : ''}`, text: re ? `The earlier sample was rejected: ${re.rejected.reason}.` : `Stick the labels on the tubes in front of the patient, then scan each tube.`, tone: re ? 'danger' : 'info', icon: icon('test-tube'), btn: 'Collect sample' }; }
+  if (ts.some((t) => !t.receivedAt)) { const n = ts.filter((t) => !t.receivedAt).length; return { key: 'receive', title: `Receive ${n} tube${n > 1 ? 's' : ''} in the lab`, text: 'Scan the tube label when it reaches the lab bench, or press Receive.', tone: 'info', icon: icon('scan-barcode'), btn: 'Receive all' }; }
   const toEnter = os.filter((o) => o.status === 'SAMPLE_COLLECTED');
-  if (toEnter.length) return { key: 'results', title: `Enter results for ${toEnter.length} test${toEnter.length > 1 ? 's' : ''}`, text: toEnter.map((o) => o.name).join(', '), tone: 'purple', icon: 'keyboard', btn: 'Enter results' };
+  if (toEnter.length) return { key: 'results', title: `Enter results for ${toEnter.length} test${toEnter.length > 1 ? 's' : ''}`, text: toEnter.map((o) => o.name).join(', '), tone: 'purple', icon: icon('keyboard'), btn: 'Enter results' };
   const toVerify = os.filter((o) => o.status === 'RESULTED');
-  if (toVerify.length) return { key: 'verify', title: `Check and verify ${toVerify.length} test${toVerify.length > 1 ? 's' : ''}`, text: toVerify.some(isCritical) ? 'Contains a CRITICAL value — inform the doctor after verifying.' : 'Read each value against the range, then release the report.', tone: toVerify.some(isCritical) ? 'danger' : 'purple', icon: 'badge-check', btn: 'Verify & release' };
-  if (st === 'READY') return { key: 'send', title: 'Report ready — send it to the patient', text: 'WhatsApp, SMS or email the patient, or hand over the printed copy.', tone: 'success', icon: 'send', btn: 'Send report' };
-  return { key: 'done', title: v.source === 'IP' ? 'Report posted to the ward' : v.handover ? `Handed over to ${v.handover.name}` : 'Report sent', text: 'Nothing left to do for this SID. You can still print or resend the report.', tone: 'success', icon: 'check-circle-2' };
+  if (toVerify.length) return { key: 'verify', title: `Check and verify ${toVerify.length} test${toVerify.length > 1 ? 's' : ''}`, text: toVerify.some(isCritical) ? 'Contains a CRITICAL value — inform the doctor after verifying.' : 'Read each value against the range, then release the report.', tone: toVerify.some(isCritical) ? 'danger' : 'purple', icon: icon('badge-check'), btn: 'Verify & release' };
+  if (st === 'READY') return { key: 'send', title: 'Report ready — send it to the patient', text: 'WhatsApp, SMS or email the patient, or hand over the printed copy.', tone: 'success', icon: icon('send'), btn: 'Send report' };
+  return { key: 'done', title: v.source === 'IP' ? 'Report posted to the ward' : v.handover ? `Handed over to ${v.handover.name}` : 'Report sent', text: 'Nothing left to do for this SID. You can still print or resend the report.', tone: 'success', icon: icon('check-circle-2') };
+}
+
+// ---------- lab2 look: avatar, facts, side drawer ----------
+const AV_TONES = [['#E8F6F5', '#037C79'], ['#EFF8FF', '#175CD3'], ['#F4F3FF', '#6941C6'], ['#FDF2FA', '#C11574'], ['#FFFAEB', '#B54708'], ['#ECFDF3', '#067647']];
+/** Round initials badge; the colour is fixed per name so a patient always looks the same. */
+export function avatar(name = '', size = '') {
+  const [bg, fg] = AV_TONES[[...name].reduce((a, c) => a + c.charCodeAt(0), 0) % AV_TONES.length];
+  return `<span class="l2-av ${size}" style="background:${bg};color:${fg}">${esc(initials(name) || '?')}</span>`;
+}
+/** Where the patient is: token, ward bed or casualty — as a small tag. */
+export function placeTag(v) {
+  if (v.collectionPoint === 'WARD') return `<span class="l2-tag">${icon('bed-double')}${esc(v.bed || 'Ward')}</span>`;
+  if (v.collectionPoint === 'CASUALTY') return `<span class="l2-tag danger">${icon('siren')}Casualty</span>`;
+  return `<span class="l2-tag ${v.tokenStatus === 'CALLED' ? 'ok' : ''}">${icon('ticket')}Token ${v.token ?? '—'}</span>`;
+}
+/** Right-hand drawer with tabs. tabs: [{ id, label, html }]. */
+export function openDrawer({ head, tabs, active }) {
+  document.querySelector('.l2-drawer-wrap')?.remove();
+  const w = document.createElement('div'); w.className = 'l2-drawer-wrap';
+  let cur = active || tabs[0].id;
+  const draw = () => {
+    w.innerHTML = `<div class="l2-scrim" data-close></div><aside class="l2-drawer" role="dialog" aria-modal="true">
+      <header class="l2-dr-h">${head}<button class="l2-x" data-close title="Close (Esc)">${icon('x')}</button></header>
+      ${tabs.length > 1 ? `<div class="l2-seg">${tabs.map((t) => `<button data-t="${t.id}" class="${t.id === cur ? 'on' : ''}">${esc(t.label)}</button>`).join('')}</div>` : ''}
+      <div class="l2-dr-b">${tabs.find((t) => t.id === cur).html}</div></aside>`;
+    w.querySelectorAll('[data-t]').forEach((b) => { b.onclick = () => { cur = b.dataset.t; draw(); w.classList.add('open'); }; });
+    w.querySelectorAll('[data-close]').forEach((b) => { b.onclick = close; });
+  };
+  const onKey = (e) => { if (e.key === 'Escape') close(); };
+  const close = () => { w.classList.remove('open'); document.removeEventListener('keydown', onKey); setTimeout(() => w.remove(), 220); };
+  draw(); document.body.append(w); requestAnimationFrame(() => w.classList.add('open'));
+  document.addEventListener('keydown', onKey);
+  return close;
 }

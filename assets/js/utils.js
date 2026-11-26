@@ -53,7 +53,7 @@ export const titleCase = (s) => String(s || '').toLowerCase().replace(/_/g, ' ')
 export const initials = (name) => String(name || '?').replace(/^Dr\.?\s*/i, '').split(/\s+/).map((p) => p[0]).slice(0, 2).join('').toUpperCase();
 export const qs = (sel, root = document) => root.querySelector(sel);
 export const qsa = (sel, root = document) => [...root.querySelectorAll(sel)];
-export const icon = (name, cls = '') => `<i data-lucide="${name}" class="ic ${cls}"></i>`;
+export const icon = (name, cls = '') => (String(name).trimStart().startsWith('<') ? name : `<i data-lucide="${name}" class="ic ${cls}"></i>`); // HTML (e.g. a Bootstrap icon) passes through
 export function refreshIcons(root) {
   if (window.lucide) window.lucide.createIcons({ attrs: { 'stroke-width': 1.9 }, nameAttr: 'data-lucide', ...(root ? { root } : {}) });
 }

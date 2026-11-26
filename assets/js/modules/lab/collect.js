@@ -5,8 +5,9 @@ import { currentUser } from '../../auth.js';
 import { visit, visitAccess, tubesFor, collectTube, receiveTube, rejectTube, callToken } from '../../labflow.js';
 import { openModal, confirmDialog } from '../../components.js';
 import { toast } from '../../notifications.js';
-import { esc, icon, refreshIcons } from '../../utils.js';
+import { esc, refreshIcons } from '../../utils.js';
 import { pat, ageSex, cap, tubeInfo, clock, srcPill, priPill } from './ui.js';
+import { icon } from './bi.js';
 
 export function openCollection(visitId, done) {
   const user = currentUser(); const v0 = visit(visitId); const p = pat(v0.patientId); const a = visitAccess(v0);
@@ -48,7 +49,7 @@ export function openCollection(visitId, done) {
 }
 
 export async function rejectTubeDialog(code, done) {
-  const r = await confirmDialog({ title: `Reject tube ${code}?`, tone: 'danger', iconName: 'x-circle', confirmLabel: 'Reject & ask for new sample', reason: true, reasonLabel: 'Why is the sample rejected?', reasonPlaceholder: 'Haemolysed · clotted · not enough · wrong tube · no label',
+  const r = await confirmDialog({ title: `Reject tube ${code}?`, tone: 'danger', iconName: icon('x-circle'), confirmLabel: 'Reject & ask for new sample', reason: true, reasonLabel: 'Why is the sample rejected?', reasonPlaceholder: 'Haemolysed · clotted · not enough · wrong tube · no label',
     message: 'The patient (or the ward) is asked for a fresh sample. The kit already used is logged as a repeat test.' });
   if (!r) return false;
   try { rejectTube(code, r.reason, currentUser()); toast('Sample rejected — recollection requested.', 'warning'); done?.(); return true; } catch (e) { toast(e.message, 'error'); return false; }

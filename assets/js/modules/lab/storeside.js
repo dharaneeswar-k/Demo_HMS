@@ -4,14 +4,15 @@
 import { store } from '../../data-service.js';
 import { currentUser } from '../../auth.js';
 import { userName } from '../../calculations.js';
-import { dataTable, openModal, confirmDialog, tabs, emptyState } from '../../components.js';
+import { dataTable, openModal, confirmDialog, tabs } from '../../components.js';
 import { toast } from '../../notifications.js';
-import { esc, icon, fmtDateTime, relTime, refreshIcons } from '../../utils.js';
+import { esc, fmtDateTime, relTime, refreshIcons } from '../../utils.js';
 import {
   KINDS, STORAGE, MOVE, items, item, lot, storeBalance, labBalance, storeState, lotsAt, nextExpiry, unitTxt, packTxt, packInfo, storeAttention,
   planIssue, issueRequest, rejectRequest, receiveFromSupplier, storeDiscard, canRunStore, requestedUnits
 } from '../../labstock.js';
 import { kindIcon, statePill, coldTag, qtyBlock, levelBar, expiryTxt, lotChip, reqJourney, reqStatus, reqLines, openItem } from './stockui.js';
+import { icon, emptyState } from './bi.js';
 
 export function renderStoreLab(view, params, query) {
   const user = currentUser(); const run = canRunStore(user);
@@ -27,7 +28,7 @@ export function renderStoreLab(view, params, query) {
       ${tile('stock', 'shopping-cart', 'danger', a.toOrder.length, 'Order from supplier', a.toOrder.length ? 'Store stock at or below reorder' : 'Store stock is fine')}
       ${tile('stock', 'calendar-clock', 'purple', a.expiring.length, 'Store lots expiring ≤ 60 d', a.expiring.length ? 'Issue these first' : 'Nothing close to expiry')}`;
     view.querySelectorAll('[data-go]').forEach((b) => { b.onclick = () => { S.tab = b.dataset.go; drawAll(); }; });
-    tabs(view.querySelector('[data-tabs]'), [{ id: 'requests', label: 'Lab requests', icon: 'inbox', count: a.requests.length || null }, { id: 'stock', label: 'Lab items in store', icon: 'warehouse' }, { id: 'history', label: 'History', icon: 'history' }], S.tab, (t) => { S.tab = t; drawBody(); });
+    tabs(view.querySelector('[data-tabs]'), [{ id: 'requests', label: 'Lab requests', icon: icon('inbox'), count: a.requests.length || null }, { id: 'stock', label: 'Lab items in store', icon: icon('warehouse') }, { id: 'history', label: 'History', icon: icon('history') }], S.tab, (t) => { S.tab = t; drawBody(); });
     drawBody(); refreshIcons(view);
   };
   const drawBody = () => { ({ requests: requestsTab, stock: stockTab, history: historyTab })[S.tab](body, user, S, drawAll); refreshIcons(body); };
@@ -54,7 +55,7 @@ function requestsTab(host, user, S, redraw) {
       try { issueRequest(r.id, { packs, note: card.querySelector('[data-note]').value }, user); toast(`${r.id} issued. Store stock reduced — the lab will confirm when it arrives.`, 'success', 'Issued to lab'); redraw(); } catch (e) { toast(e.message, 'error'); }
     });
     card.querySelector('[data-no]')?.addEventListener('click', async () => {
-      const res = await confirmDialog({ title: `Cannot issue ${r.id}?`, tone: 'danger', iconName: 'x-circle', reason: true, reasonLabel: 'Tell the lab why', reasonPlaceholder: 'e.g. Out of stock — ordered from supplier, expected Friday', confirmLabel: 'Send to lab' });
+      const res = await confirmDialog({ title: `Cannot issue ${r.id}?`, tone: 'danger', iconName: icon('x-circle'), reason: true, reasonLabel: 'Tell the lab why', reasonPlaceholder: 'e.g. Out of stock — ordered from supplier, expected Friday', confirmLabel: 'Send to lab' });
       if (!res) return; try { rejectRequest(r.id, res.reason, user); toast('The lab has been told.'); redraw(); } catch (e) { toast(e.message, 'error'); }
     });
   });
@@ -124,7 +125,7 @@ function supplierDialog(user, kitId, done) {
       <div class="field col-6"><label>Invoice / DC number</label><input class="input" data-i></div>
       <div class="field col-12 ls-coldcheck" data-coldf><label class="checkbox"><input type="checkbox" data-c> <span>${icon('snowflake')}<b>Arrived cold</b> — ice packs / cold box intact, items cool to touch. If not, do not accept.</span></label></div>
     </div>`,
-    footer: [{ label: 'Cancel', onClick: (c) => c() }, { label: 'Add to store stock', cls: 'btn-primary', icon: 'package-plus', onClick: (c, w) => {
+    footer: [{ label: 'Cancel', onClick: (c) => c() }, { label: 'Add to store stock', cls: 'btn-primary', icon: icon('package-plus'), onClick: (c, w) => {
       const v = (s) => w.querySelector(s).value;
       try { const r = receiveFromSupplier({ kitId: v('[data-k]'), packs: v('[data-p]'), lotNo: v('[data-l]'), expiry: v('[data-e]'), supplier: v('[data-s]'), invoiceNo: v('[data-i]'), coldOk: w.querySelector('[data-c]').checked }, user); c(); toast(`${item(r.lot.kitId).name}: lot ${r.lot.lot} added to the store.`); done?.(); } catch (e) { toast(e.message, 'error'); }
     } }],

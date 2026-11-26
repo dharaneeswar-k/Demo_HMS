@@ -3,14 +3,15 @@
 import { store } from '../../data-service.js';
 import { currentUser, can } from '../../auth.js';
 import { userName } from '../../calculations.js';
-import { dataTable, openModal, confirmDialog, tabs, exportTable, emptyState } from '../../components.js';
+import { dataTable, openModal, confirmDialog, tabs, exportTable } from '../../components.js';
 import { toast } from '../../notifications.js';
-import { esc, icon, fmtNum, fmtDate, fmtDateTime, relTime, refreshIcons, ymd } from '../../utils.js';
+import { esc, fmtNum, fmtDate, fmtDateTime, relTime, refreshIcons, ymd } from '../../utils.js';
 import {
   KINDS, STORAGE, MOVE, items, item, lot, labBalance, labState, lotsAt, nextExpiry, daysLeft, unitTxt, packTxt, packInfo, suggestion, labAttention, openPacks,
   daysOfStock, requestStock, cancelRequest, receiveRequest, submitCount, reviewCount, canRunLab, canEditItems, saveItem, validateItem, blankItem, testsUsing, kitReconciliation, pendingFor
 } from '../../labstock.js';
 import { kindIcon, statePill, coldTag, qtyBlock, levelBar, expiryTxt, lotChip, reqJourney, reqStatus, reqLines, openItem, useDialog } from './stockui.js';
+import { icon, emptyState } from './bi.js';
 
 export function renderLabStock(view, params, query) {
   const user = currentUser(); const run = canRunLab(user);
@@ -90,8 +91,8 @@ export function renderLabStock(view, params, query) {
   const drawTabs = () => {
     const open = store.all('labIndents').filter((r) => ['REQUESTED', 'ISSUED'].includes(r.status)).length;
     const pendingCounts = store.all('kitCounts').filter((c) => c.status === 'SUBMITTED').length;
-    tabs(view.querySelector('[data-tabs]'), [{ id: 'stock', label: 'Stock in lab', icon: 'boxes' }, { id: 'requests', label: 'Requests to store', icon: 'send', count: open || null }, { id: 'count', label: 'Counts', icon: 'clipboard-check', count: pendingCounts || null },
-      { id: 'history', label: 'History', icon: 'history' }, ...(canEditItems(user) ? [{ id: 'items', label: 'Item list', icon: 'settings-2' }] : []), ...(can('management.view', user) ? [{ id: 'recon', label: 'Used vs billed', icon: 'scale' }] : [])], S.tab, (t) => { S.tab = t; S.only = ''; drawBody(); });
+    tabs(view.querySelector('[data-tabs]'), [{ id: 'stock', label: 'Stock in lab', icon: icon('boxes') }, { id: 'requests', label: 'Requests to store', icon: icon('send'), count: open || null }, { id: 'count', label: 'Counts', icon: icon('clipboard-check'), count: pendingCounts || null },
+      { id: 'history', label: 'History', icon: icon('history') }, ...(canEditItems(user) ? [{ id: 'items', label: 'Item list', icon: icon('settings-2') }] : []), ...(can('management.view', user) ? [{ id: 'recon', label: 'Used vs billed', icon: icon('scale') }] : [])], S.tab, (t) => { S.tab = t; S.only = ''; drawBody(); });
   };
   const drawBody = () => {
     ({ stock: stockTab, requests: requestsTab, count: countTab, history: historyTab, items: itemsTab, recon: reconTab })[S.tab]?.(body, user, S, drawAll, requestOne);
@@ -145,7 +146,7 @@ function requestsTab(host, user, S, redraw) {
       ${reqJourney(r)}${reqLines(r)}</article>`).join('')}</div>`
     : emptyState('send', 'No requests yet', 'When something runs low, the request appears at the top of this page — one tap sends it to the store.');
   host.querySelectorAll('[data-recv]').forEach((b) => { b.onclick = () => receiveDialog(b.dataset.recv, user, redraw); });
-  host.querySelectorAll('[data-cancel]').forEach((b) => { b.onclick = async () => { const ok = await confirmDialog({ title: `Cancel ${b.dataset.cancel}?`, tone: 'danger', iconName: 'ban', confirmLabel: 'Cancel request', message: 'The store will no longer see this request.' }); if (!ok) return; try { cancelRequest(b.dataset.cancel, user); toast('Request cancelled.'); redraw(); } catch (e) { toast(e.message, 'error'); } }; });
+  host.querySelectorAll('[data-cancel]').forEach((b) => { b.onclick = async () => { const ok = await confirmDialog({ title: `Cancel ${b.dataset.cancel}?`, tone: 'danger', iconName: icon('ban'), confirmLabel: 'Cancel request', message: 'The store will no longer see this request.' }); if (!ok) return; try { cancelRequest(b.dataset.cancel, user); toast('Request cancelled.'); redraw(); } catch (e) { toast(e.message, 'error'); } }; });
 }
 
 /** The lab checks what physically arrived against what the store sent. */
@@ -157,7 +158,7 @@ export function receiveDialog(id, user, done) {
         <td class="ta-right"><b>${unitTxt(k, x.qty)}</b>${k.packSize > 1 ? `<div class="muted small">${packTxt(k, x.qty / k.packSize)}</div>` : ''}</td><td class="ta-right"><div class="ls-arrived"><input class="input" type="number" min="0" max="${x.qty}" value="${x.qty}" data-got="${i}"><span>${esc(k.unit)}s</span></div><small class="ls-diff" data-diff="${i}"></small></td></tr>`; }).join('')}
       </tbody></table>${r.issue.note ? `<p class="ls-note">${icon('warehouse')}<span><b>Store note:</b> ${esc(r.issue.note)}</span></p>` : ''}
       <div class="field mt-2 hidden" data-shortf><label>What happened to the missing items? <span class="req">*</span></label><input class="input" data-note placeholder="e.g. Box had 20 cards, not 25 — told the store"></div>`,
-    footer: [{ label: 'Not now', onClick: (c) => c() }, { label: 'Confirm received', cls: 'btn-primary', icon: 'package-check', onClick: (c, w) => {
+    footer: [{ label: 'Not now', onClick: (c) => c() }, { label: 'Confirm received', cls: 'btn-primary', icon: icon('package-check'), onClick: (c, w) => {
       const got = Object.fromEntries([...w.querySelectorAll('[data-got]')].map((i) => [i.dataset.got, i.value]));
       try { const res = receiveRequest(id, got, user, w.querySelector('[data-note]').value); c(); toast(res.status === 'SHORT' ? 'Received. The shortage was reported to the owner and the store.' : 'Received — lab stock updated.', res.status === 'SHORT' ? 'warning' : 'success'); done?.(); } catch (e) { toast(e.message, 'error'); }
     } }],
@@ -182,7 +183,7 @@ function countDialog(user, done) {
   const groups = Object.entries(KINDS).map(([kk, kd]) => [kd, items().filter((k) => k.kind === kk)]).filter(([, ks]) => ks.length);
   openModal({ title: 'Count lab stock', subtitle: 'Count sealed packs × pack size + loose units. Leave an item empty to skip it.', size: 'lg',
     body: `<div class="ls-countform">${groups.map(([kd, ks]) => `<fieldset><legend>${icon(kd.icon)}${kd.label}</legend>${ks.map((k) => `<label class="ls-countrow"><span>${esc(k.name)}<small class="muted">${esc(packInfo(k))}</small></span><span class="ls-countin"><input class="input" type="number" min="0" data-c="${k.id}" placeholder="—"><em>${esc(k.unit)}s</em></span></label>`).join('')}</fieldset>`).join('')}</div>`,
-    footer: [{ label: 'Cancel', onClick: (c) => c() }, { label: 'Submit count', cls: 'btn-primary', icon: 'check', onClick: (c, w) => {
+    footer: [{ label: 'Cancel', onClick: (c) => c() }, { label: 'Submit count', cls: 'btn-primary', icon: icon('check'), onClick: (c, w) => {
       try { const res = submitCount(Object.fromEntries([...w.querySelectorAll('[data-c]')].map((i) => [i.dataset.c, i.value])), user); c(); const short = res.lines.filter((l) => l.diff < 0);
         toast(short.length ? `${short.length} item(s) short — the owner has been told. Stock corrected to your count.` : 'Count matches the system.', short.length ? 'warning' : 'success'); done?.(); } catch (e) { toast(e.message, 'error'); }
     } }] });
@@ -236,7 +237,7 @@ function itemEditor(id, user, done) {
       <div class="field col-4" data-contf><label>Tube type (used one per tube)</label><select class="input" data-f="container"><option value="">—</option>${Object.entries(conts).map(([c, x]) => `<option value="${c}" ${c === d.container ? 'selected' : ''}>${esc(x.label)}</option>`).join('')}</select></div>
       ${k ? `<div class="field col-12"><label class="checkbox"><input type="checkbox" data-f="active" ${d.active !== false ? 'checked' : ''}> In use (untick to stop stocking it — history is kept)</label></div>` : ''}
     </div><div class="tm-err hidden mt-2" data-err></div>`,
-    footer: [{ label: 'Cancel', onClick: (c) => c() }, { label: k ? 'Save changes' : 'Add item', cls: 'btn-primary', icon: 'check', onClick: (c, w) => {
+    footer: [{ label: 'Cancel', onClick: (c) => c() }, { label: k ? 'Save changes' : 'Add item', cls: 'btn-primary', icon: icon('check'), onClick: (c, w) => {
       const v = {}; w.querySelectorAll('[data-f]').forEach((i) => { v[i.dataset.f] = i.type === 'checkbox' ? i.checked : i.value; });
       const errs = validateItem(v, id); const el = w.querySelector('[data-err]');
       if (errs.length) { el.innerHTML = errs.map((x) => `<div>${icon('alert-circle')}${esc(x)}</div>`).join(''); el.classList.remove('hidden'); refreshIcons(el); return; }

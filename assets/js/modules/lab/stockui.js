@@ -4,7 +4,8 @@ import { store } from '../../data-service.js';
 import { userName } from '../../calculations.js';
 import { openModal, confirmDialog } from '../../components.js';
 import { toast } from '../../notifications.js';
-import { esc, icon, fmtDate, fmtDateTime, relTime, refreshIcons } from '../../utils.js';
+import { esc, fmtDate, fmtDateTime, relTime, refreshIcons } from '../../utils.js';
+import { icon } from './bi.js';
 import {
   KINDS, STORAGE, MOVE, REQ_STATUS, item, lot, labBalance, storeBalance, labState, storeState, lotsAt, isExpired, daysLeft, packsOf, unitTxt, packTxt, packInfo,
   openPacks, plural, testsUsing, dailyUse, daysOfStock, canRunLab, openPack, closePack, discardExpiredLot, recordLabUse, onTheWay, requestedUnits
@@ -86,20 +87,20 @@ export function openItem(kitId, user, { side = 'LAB', onChange = () => {}, onReq
     </div>`;
     const re = () => { onChange(); draw(w); refreshIcons(w); };
     w.querySelector('[data-open]')?.addEventListener('click', async () => {
-      const ok = await confirmDialog({ title: `Open a new ${k.kind === 'CONTROL' ? 'vial' : k.packLabel}?`, iconName: 'package-open', confirmLabel: 'Mark as opened', message: `The oldest-expiry lot in the lab is used. ${packs.length ? 'The pack open now is marked finished.' : ''} The use-by date is set to ${k.openDays} days from now (or the lot expiry, if sooner).` });
+      const ok = await confirmDialog({ title: `Open a new ${k.kind === 'CONTROL' ? 'vial' : k.packLabel}?`, iconName: icon('package-open'), confirmLabel: 'Mark as opened', message: `The oldest-expiry lot in the lab is used. ${packs.length ? 'The pack open now is marked finished.' : ''} The use-by date is set to ${k.openDays} days from now (or the lot expiry, if sooner).` });
       if (!ok) return; try { openPack(k.id, user); toast(k.kind === 'CONTROL' ? 'Vial marked as opened — 1 vial used for QC.' : 'Pack marked as opened.'); re(); } catch (e) { toast(e.message, 'error'); }
     });
     w.querySelectorAll('[data-closepack]').forEach((b) => { b.onclick = () => { try { closePack(b.dataset.closepack, 'Finished', user); toast('Marked finished.'); re(); } catch (e) { toast(e.message, 'error'); } }; });
     w.querySelectorAll('[data-discard]').forEach((b) => { b.onclick = async () => {
       const x = lots.find((y) => y.lotId === b.dataset.discard);
-      const ok = await confirmDialog({ title: 'Discard expired stock?', tone: 'danger', iconName: 'trash-2', confirmLabel: `Discard ${unitTxt(k, x.qty)}`, message: `Lot <b>${esc(x.lot.lot)}</b> expired on ${fmtDate(x.lot.expiry)}. Its ${unitTxt(k, x.qty)} will be written off as expired.` });
+      const ok = await confirmDialog({ title: 'Discard expired stock?', tone: 'danger', iconName: icon('trash-2'), confirmLabel: `Discard ${unitTxt(k, x.qty)}`, message: `Lot <b>${esc(x.lot.lot)}</b> expired on ${fmtDate(x.lot.expiry)}. Its ${unitTxt(k, x.qty)} will be written off as expired.` });
       if (!ok) return; try { discardExpiredLot(k.id, x.lotId, user); toast('Expired stock written off.'); re(); } catch (e) { toast(e.message, 'error'); }
     }; });
   };
   const run = canRunLab(user) && side === 'LAB';
   const m = openModal({ title: k.name, size: 'lg', body: '<div></div>',
-    footer: [...(run ? [{ label: 'Record QC / wastage', icon: 'minus-circle', onClick: () => useDialog(k.id, user, () => { onChange(); draw(m.el); refreshIcons(m.el); }) }] : []),
-      ...(run && onRequest ? [{ label: 'Request more', icon: 'send', cls: 'btn-primary', onClick: (c) => { c(); onRequest(k.id); } }] : []), { label: 'Close', onClick: (c) => c() }],
+    footer: [...(run ? [{ label: 'Record QC / wastage', icon: icon('minus-circle'), onClick: () => useDialog(k.id, user, () => { onChange(); draw(m.el); refreshIcons(m.el); }) }] : []),
+      ...(run && onRequest ? [{ label: 'Request more', icon: icon('send'), cls: 'btn-primary', onClick: (c) => { c(); onRequest(k.id); } }] : []), { label: 'Close', onClick: (c) => c() }],
     onOpen: (w) => { draw(w); refreshIcons(w); } });
 }
 
@@ -112,7 +113,7 @@ export function useDialog(kitId, user, done, { type = 'USED_QC' } = {}) {
       <div class="form-grid mt-2"><div class="field col-8"><label>Item</label><select class="input" data-k>${ks.map((k) => `<option value="${k.id}" ${k.id === kitId ? 'selected' : ''}>${esc(k.name)} — ${labBalance(k.id)} ${esc(k.unit)}s in lab</option>`).join('')}</select></div>
       <div class="field col-4"><label>Quantity</label><input class="input" type="number" min="1" value="1" data-q></div>
       <div class="field col-12"><label>Details <span class="req">*</span></label><input class="input" data-n placeholder="e.g. Level 1 & 2 controls, morning run"></div></div>`,
-    footer: [{ label: 'Cancel', onClick: (c) => c() }, { label: 'Record', cls: 'btn-primary', icon: 'check', onClick: (c, w) => {
+    footer: [{ label: 'Cancel', onClick: (c) => c() }, { label: 'Record', cls: 'btn-primary', icon: icon('check'), onClick: (c, w) => {
       try { recordLabUse({ kitId: w.querySelector('[data-k]').value, qty: w.querySelector('[data-q]').value, type: w.querySelector('[name=ut]:checked').value, note: w.querySelector('[data-n]').value }, user); c(); toast('Recorded.'); done?.(); } catch (e) { toast(e.message, 'error'); }
     } }],
     onOpen: (w) => { const ph = { USED_QC: 'e.g. Level 1 & 2 controls, morning run', REPEAT: 'e.g. Haemolysed — re-run on same sample', WASTAGE: 'e.g. Card dropped / foil torn' }; w.querySelectorAll('[name=ut]').forEach((r) => { r.onchange = () => { w.querySelector('[data-n]').placeholder = ph[r.value]; }; }); }

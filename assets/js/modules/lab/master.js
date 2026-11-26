@@ -6,12 +6,13 @@ import { userName } from '../../calculations.js';
 import { refText } from '../../hospital.js';
 import { labTests, departments, SAMPLE_TYPES, canManageTests, labTestUsage, saveLabTest, setLabTestActive, toDraft, normalise, validateLabTest, isQualitative } from '../../labmaster.js';
 import { containers } from '../../labflow.js';
-import { emptyState, openModal, confirmDialog, downloadCSV } from '../../components.js';
+import { openModal, confirmDialog, downloadCSV } from '../../components.js';
 import { toast } from '../../notifications.js';
 import { setMeta } from '../../app.js';
 import { navigate } from '../../router.js';
-import { esc, icon, fmtINR, fmtDate, fmtDateTime, refreshIcons, ymd } from '../../utils.js';
+import { esc, fmtINR, fmtDate, fmtDateTime, refreshIcons, ymd } from '../../utils.js';
 import { cap, tubeInfo } from './ui.js';
+import { icon, emptyState } from './bi.js';
 
 // =====================================================================================================
 export function renderTestList(view, params, query) {
@@ -146,7 +147,7 @@ export function renderTestEditor(view, params) {
     const n = normalise(d);
     const errs = validateLabTest(n, t?.id || null); if (errs.length) { toast(errs[0], 'error'); return; }
     if (t && !reason.trim()) { toast('Write the reason for this change (it is kept in the history).', 'error'); view.querySelector('[data-reason]')?.focus(); return; }
-    if (t && n.price !== t.price && !(await confirmDialog({ title: 'Change the price?', iconName: 'indian-rupee', confirmLabel: 'Yes, change price', message: `<strong>${esc(t.name)}</strong>: ${fmtINR(t.price)} → <strong>${fmtINR(n.price)}</strong><br>Reception bills the new price from now. Bills already made keep the old price.` }))) return;
+    if (t && n.price !== t.price && !(await confirmDialog({ title: 'Change the price?', iconName: icon('indian-rupee'), confirmLabel: 'Yes, change price', message: `<strong>${esc(t.name)}</strong>: ${fmtINR(t.price)} → <strong>${fmtINR(n.price)}</strong><br>Reception bills the new price from now. Bills already made keep the old price.` }))) return;
     try { const rec = saveLabTest(d, { id: t?.id || null, reason }, user); dirty = false; toast(t ? `${rec.name} saved — version ${rec.version}. Reception and lab see it now.` : `${rec.name} added. Reception can bill it now.`, 'success'); navigate(`#/lab/tests/${rec.id}`); }
     catch (e) { toast(e.message, 'error'); if (e.message.startsWith('Write the reason')) view.querySelector('[data-reason]')?.focus(); }
   };
