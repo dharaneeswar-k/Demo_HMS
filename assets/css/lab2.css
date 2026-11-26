@@ -327,14 +327,19 @@ body[data-module="lab"] /* small parts */
 .ls-kind { border-radius: 4px; }
 body[data-module="lab"] .tm-search { height: 38px; border-radius: 4px; }
 
-/* ---------- patient type tags (OP / IP / Casualty / Outside Dr / Self / Package) ---------- */
-.h-type { display: inline-block; padding: 1px 7px; border-radius: 3px; font-size: 11.5px; font-weight: 600; line-height: 18px; white-space: nowrap; border: 1px solid transparent; }
-.h-type.t-op   { background: #EAF2FC; color: #1D5FB4; border-color: #C9DCF5; }
-.h-type.t-ip   { background: #F0ECFA; color: #5B3BB0; border-color: #DCD2F4; }
-.h-type.t-cas  { background: #FCEDEB; color: #C4281C; border-color: #F3C9C4; }
-.h-type.t-ref  { background: #FFF5E0; color: #A45A00; border-color: #F2DDB0; }
-.h-type.t-self { background: #F1F3F5; color: #4A5866; border-color: #DDE2E7; }
-.h-type.t-pkg  { background: #E8F5EC; color: #1E7B45; border-color: #C6E6D1; }
-.h-typecell { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
-.h-typecell small { color: var(--h-ink-2); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 175px; }
+/* ---------- patient type: icon tile + where (worklist), icon + label (banner) ---------- */
+body[data-module="lab"] { --t-op: #1D5FB4; --t-op-bg: #E6EFFB; --t-ip: #6A3FC1; --t-ip-bg: #EFE9FB; --t-cas: #C4281C; --t-cas-bg: #FCE9E7;
+  --t-ref: #B05E00; --t-ref-bg: #FDF1DC; --t-self: #4A5866; --t-self-bg: #ECEFF2; --t-pkg: #1E7B45; --t-pkg-bg: #E3F3E9; }
+.t-op { --tc: var(--t-op); --tb: var(--t-op-bg); } .t-ip { --tc: var(--t-ip); --tb: var(--t-ip-bg); } .t-cas { --tc: var(--t-cas); --tb: var(--t-cas-bg); }
+.t-ref { --tc: var(--t-ref); --tb: var(--t-ref-bg); } .t-self { --tc: var(--t-self); --tb: var(--t-self-bg); } .t-pkg { --tc: var(--t-pkg); --tb: var(--t-pkg-bg); }
+.h-wltable td.h-wcell { box-shadow: inset 4px 0 0 var(--tc); padding-left: 14px; }
+.h-wltable tbody tr.sel td:first-child.h-wcell { box-shadow: inset 4px 0 0 var(--tc); }
+.h-where { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.h-wic { width: 32px; height: 32px; flex: none; border-radius: 6px; display: grid; place-items: center; background: var(--tb); color: var(--tc); font-size: 16px; }
+.h-where > div { min-width: 0; display: flex; flex-direction: column; line-height: 1.25; }
+.h-where b { font-size: 13.5px; font-weight: 700; color: var(--h-ink); white-space: nowrap; }
+.h-where small { font-size: 11.5px; font-weight: 600; color: var(--tc); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
+.h-where small em { font-style: normal; color: var(--h-green); }
+.h-ptype { display: inline-flex; align-items: center; gap: 6px; color: var(--tc); font-weight: 600; }
+.h-ptype .bi { width: 22px; height: 22px; border-radius: 5px; background: var(--tb); display: inline-grid; place-items: center; font-size: 12px; vertical-align: middle; }
 .h-filters select[data-ptype] { min-width: 210px; }

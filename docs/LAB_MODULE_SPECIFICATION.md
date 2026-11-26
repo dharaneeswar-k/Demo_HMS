@@ -1321,7 +1321,7 @@ Cloud (recommended — owner wants remote access) or on-premise server: 4 vCPU, 
 |---|---|---|---|---|
 | S1 | Hospital Bill `#/hbill` | Reception | Bill lab tests | Patient search + register, doctor, pending doctor requests, catalogue (category chips, search, price, sample, TAT), bill lines, **Lab request card**, discount with approval, payment modes (Cash, UPI, Card, Split, Credit, Emergency), validation messages, shift chip |
 | S2 | Bill receipt `#/hbills/{id}/receipt` | Reception | Print bill | SID, token, report date, 15-day note, department routing |
-| S3 | Lab Worklist `#/lab?stage=…&v=…` | Lab | Daily work | Scan box (scan tube = collect / receive, scan SID = open, type = search); tabs **To collect · To receive · Enter results · To verify · Ready to send** with live counts; one table, one action button per row; first column **Type / where** — a coloured tag (**OP** blue, **IP · Ward** purple, **Casualty** red, **Outside Dr** amber, **Self** grey, **Package** green) with *Token 7* or *Bed S-4 · Surgical ward* under it; filters **Patient type** (with counts) and *STAT only*; "waiting for payment" as a button, not a step; clicking a row opens the patient screen (S5) in place, Esc goes back |
+| S3 | Lab Worklist `#/lab?stage=…&v=…` | Lab | Daily work | Scan box (scan tube = collect / receive, scan SID = open, type = search); tabs **To collect · To receive · Enter results · To verify · Ready to send** with live counts; one table, one action button per row; first column **Patient type / where** — coloured icon tile and left stripe per type (OP blue, IP purple, Casualty red, Outside doctor amber, Self grey, Package green), *Token 7* / *Bed S-4* in bold and the type underneath (§38); filters **Patient type** (with counts) and *STAT only*; "waiting for payment" as a button, not a step; clicking a row opens the patient screen (S5) in place, Esc goes back |
 | S4 | Collection dialog | Lab | Collect tubes | Patient identity banner, 3 numbered steps, print labels, scan-to-confirm (wrong label refused), drawn tubes in cap colours, progress bar, closes itself when every tube is in |
 | S5 | Patient screen (in the worklist, or full page `#/lab/visit/{id}`) | Lab, Reception | Everything for one visit | **Hospital-style layout (v1.1):** patient banner (name, age/sex, UHID, SID, token or bed, patient-type tag, doctor, waiting, priority, allergy / critical alerts); result grid Parameter · Result · Unit · Flag · Normal range · Previous; one action bar; side panel with sample tubes, visit facts and links (labels, report, progress, activity log, patient file). Behaviour kept from v1.0: patient header (name, age/sex, ID, mobile, allergy, SID barcode); 6-step progress (Paid → Collected → In lab → Results → Verified → Delivered); a **Next step** banner with one button; each tube with its tests and **result entry for all tests together** (live High / Low / Critical flags, previous result, Enter = next box, Ctrl+S = save, sticky save / verify bar); per-test Correct / Verify; send card; details; activity timeline |
 | S6 | Labels & request sheet `#/lab/visit/{id}/labels` | Lab | Print | 50 × 25 mm labels + A4 request sheet |
@@ -1726,20 +1726,20 @@ The billing catalogue endpoint returns only active tests; the server re-checks `
 - Code: `labflow.js` (`createIpOrder`, `onOrderVerified`, `wardWaPending`), `lab/stages.js` (send step), `labdesk.js` (ward order form), `lab/sid.js` (send card and action bar).
 
 **Change 2 — Patient type shown in the Lab Worklist.**
-- First column **Type / where**: a coloured tag plus where to find the patient.
+- First column **Patient type / where**: a coloured icon tile, where to find the patient in bold, and the patient type underneath in the same colour. The row also has a 4 px left stripe in that colour, so the type can be read from across the room.
 
-| Source | Tag | Colour | Second line |
-|---|---|---|---|
-| OP | OP | blue | Token 7 (· called) |
-| IP | IP · Ward | purple | Bed S-4 · Surgical ward |
-| EMERGENCY | Casualty | red | Casualty room |
-| REFERRAL | Outside Dr | amber | Token 7 |
-| SELF | Self | grey | Token 8 |
-| PACKAGE | Package | green | Token 9 |
+| Source | Icon (Bootstrap) | Colour | Bold line | Small line |
+|---|---|---|---|---|
+| OP | `person-fill` | blue | Token 7 | OP · hospital doctor (· called) |
+| IP | `hospital-fill` | purple | Bed S-4 | IP · Surgical ward |
+| EMERGENCY | `heart-pulse-fill` | red | Casualty | Emergency |
+| REFERRAL | `file-earmark-medical-fill` | amber | Token 7 | Outside doctor |
+| SELF | `person-walking` | grey | Token 8 | Self request |
+| PACKAGE | `box2-heart-fill` | green | Token 9 | Health package |
 
 - Filter **Patient type** lists each type with its count on the current step (types with none are greyed out).
-- The patient banner shows the same tag.
-- Code: `lab/ui.js` (`PTYPES`, `ptypeTag`, `ptypeWhere`), `lab/workbench.js`, `lab/sid.js`, `css/lab2.css`.
+- The patient banner shows the same icon and type.
+- Code: `lab/ui.js` (`PTYPES`, `ptypeCell`, `ptypeTag`, `ptypeWhere`), `lab/workbench.js`, `lab/sid.js`, `css/lab2.css`.
 
 **Change 3 — Token screen shows only counter-token patients.**
 - Shown: today's counter tokens (OP, outside doctor, self, package) with payment cleared and a tube still to collect.
@@ -1753,7 +1753,7 @@ The billing catalogue endpoint returns only active tests; the server re-checks `
 |---|---|---|---|
 | T37 | Ward report to WhatsApp | Ward Lab Order → admitted patient with a mobile → tick stays on → FBS → Send to lab; collect, receive, enter, verify | Report posted to the ward **and** listed in Ready to send with *Send on WhatsApp*; after sending it leaves the list |
 | T38 | Ward report without WhatsApp | Same, tick box off | Report posted to the ward only; not in Ready to send; WhatsApp still possible from the patient screen |
-| T39 | Patient type in the worklist | Open To collect with an OP, a ward and an outside-doctor patient | Tags OP / IP · Ward / Outside Dr with token or bed; *Patient type* filter shows only the chosen type |
+| T39 | Patient type in the worklist | Open To collect with an OP, a ward and an outside-doctor patient | Blue / purple / amber icon and stripe with token or bed; *Patient type* filter shows only the chosen type |
 | T40 | Token screen | Place a ward order and bill an OP test; call the OP token | Token screen shows the OP token only; the ward patient never appears; the token drops off once all its tubes are collected |
 
 ---

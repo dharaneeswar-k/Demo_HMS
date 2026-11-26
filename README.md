@@ -23,7 +23,7 @@ Chart.js, Lucide icons and the Inter font load from CDNs; the app still works of
 | `saranya` | Reception (evening) | Same as reception — receives the morning cash handover |
 | `pharmacy`, `ravi` | Pharmacy | Pharmacy sale, returns, daily stock count, counter closing, shift |
 | `store` | Store | Supplier receipts (incl. invoice CSV import), Store → Pharmacy transfers, **Lab Supplies** (issue lab requests, receive reagents with lot / expiry / cold-chain check), stock corrections |
-| `lab` | Lab | Lab Worklist: collect → receive → results → verify → send (patient type tags OP / IP · Ward / Casualty / Outside Dr / Self / Package); **Lab Stock**: request from store, receive, open packs, QC use, blind counts; Test Master (read only) |
+| `lab` | Lab | Lab Worklist: collect → receive → results → verify → send (colour-coded patient type: OP / IP ward / Casualty / Outside doctor / Self / Package); **Lab Stock**: request from store, receive, open packs, QC use, blind counts; Test Master (read only) |
 | `service` | Service Counter | ECG / injection / nebulization / other services — only after billing or approved credit |
 | `mrd` | MRD | Medical records, ICD-10 coding & filing, discharge summaries, file retrieval register |
 | `admin` | Admin | **Lab Test Master**: add / edit / stop lab tests, prices, normal ranges and kits (the Super Admin can too); read-only lab reports, bills, audit log |

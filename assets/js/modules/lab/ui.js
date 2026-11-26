@@ -130,16 +130,20 @@ export function openDrawer({ head, tabs, active }) {
 // ---------- patient type: OP / IP / Casualty / Outside doctor / Self / Package ----------
 /** Patient types in the order the worklist filter lists them. */
 export const PTYPES = [
-  { id: 'OP', label: 'OP', long: 'OP — hospital doctor', cls: 'op' },
-  { id: 'IP', label: 'IP · Ward', long: 'IP — admitted (ward)', cls: 'ip' },
-  { id: 'EMERGENCY', label: 'Casualty', long: 'Casualty / emergency', cls: 'cas' },
-  { id: 'REFERRAL', label: 'Outside Dr', long: 'Outside doctor (prescription)', cls: 'ref' },
-  { id: 'SELF', label: 'Self', long: 'Self request', cls: 'self' },
-  { id: 'PACKAGE', label: 'Package', long: 'Health package', cls: 'pkg' }
+  { id: 'OP', label: 'OP', long: 'OP — hospital doctor', sub: 'OP · hospital doctor', cls: 'op', ic: 'bi-person-fill' },
+  { id: 'IP', label: 'IP', long: 'IP — admitted (ward)', sub: 'IP · admitted', cls: 'ip', ic: 'bi-hospital-fill' },
+  { id: 'EMERGENCY', label: 'Casualty', long: 'Casualty / emergency', sub: 'Emergency', cls: 'cas', ic: 'bi-heart-pulse-fill' },
+  { id: 'REFERRAL', label: 'Outside Dr', long: 'Outside doctor (prescription)', sub: 'Outside doctor', cls: 'ref', ic: 'bi-file-earmark-medical-fill' },
+  { id: 'SELF', label: 'Self', long: 'Self request', sub: 'Self request', cls: 'self', ic: 'bi-person-walking' },
+  { id: 'PACKAGE', label: 'Package', long: 'Health package', sub: 'Health package', cls: 'pkg', ic: 'bi-box2-heart-fill' }
 ];
 export const ptype = (v) => PTYPES.find((t) => t.id === v.source) || PTYPES[0];
-/** Where to find the patient: ward bed, casualty, or the counter token. */
-export const ptypeWhere = (v) => (v.collectionPoint === 'WARD' ? `Bed ${esc(v.bed || '—')}${v.ward ? ` · ${esc(v.ward)}` : ''}`
-  : v.collectionPoint === 'CASUALTY' ? 'Casualty room' : v.token ? `Token ${v.token}${v.tokenStatus === 'CALLED' ? ' · called' : ''}` : '—');
-/** Small coloured type tag, e.g. [IP · Ward]. */
-export const ptypeTag = (v) => { const t = ptype(v); return `<span class="h-type t-${t.cls}" title="${esc(t.long)}">${esc(t.label)}</span>`; };
+/** Where to find the patient, as one bold line: ward bed, casualty or the counter token. */
+export const ptypeWhere = (v) => (v.collectionPoint === 'WARD' ? `Bed ${esc(v.bed || '—')}` : v.collectionPoint === 'CASUALTY' ? 'Casualty' : v.token ? `Token ${v.token}` : '—');
+/** Worklist cell: coloured icon tile + where (bold) + patient type (small, coloured). */
+export function ptypeCell(v) {
+  const t = ptype(v); const ward = v.collectionPoint === 'WARD' && v.ward ? ` · ${esc(v.ward)}` : '';
+  return `<div class="h-where t-${t.cls}" title="${esc(t.long)}"><span class="h-wic">${icon(t.ic)}</span><div><b>${ptypeWhere(v)}</b><small>${esc(t.id === 'IP' ? 'IP' : t.sub)}${ward}${v.tokenStatus === 'CALLED' && v.collectionPoint === 'OPD' ? ' · <em>called</em>' : ''}</small></div></div>`;
+}
+/** Inline type for the patient banner: coloured icon + label. */
+export const ptypeTag = (v) => { const t = ptype(v); return `<span class="h-ptype t-${t.cls}" title="${esc(t.long)}">${icon(t.ic)}${esc(t.id === 'IP' ? 'IP · Ward' : t.sub)}</span>`; };

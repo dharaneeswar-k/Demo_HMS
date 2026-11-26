@@ -15,7 +15,8 @@ import { esc } from '../../utils.js';
 import { icon } from './bi.js';
 import { STAGES, stageById, stageOf, onHold, scanTarget, codesOf } from './stages.js';
 import { receiveCodes, openCollection } from './collect.js';
-import { pat, dur, minsSince, liveOrders, ageSex, PTYPES, ptypeTag, ptypeWhere } from './ui.js';
+import { pat, dur, minsSince, liveOrders, ageSex, PTYPES, ptypeCell, ptype } from './ui.js';
+const ptypeCls = (v) => ptype(v).cls;
 import { isCritical } from '../../hospital.js';
 import { mountSid } from './sid.js';
 
@@ -43,7 +44,7 @@ export function renderWorkbench(view, params, query) {
         <div class="h-filters"><label>Patient type <select class="input input-sm" data-ptype></select></label>
           <label class="h-check"><input type="checkbox" data-stat> STAT only</label><span data-bulk></span>
           <span class="h-hint">Click a row to open · <kbd>↑</kbd> <kbd>↓</kbd> move · <kbd>Enter</kbd> open · <kbd>1</kbd>–<kbd>5</kbd> step</span></div>
-        <div class="h-tablewrap"><table class="h-table h-wltable"><thead><tr><th style="width:190px">Type / where</th><th style="width:96px">SID</th><th>Patient</th><th>Tests</th><th style="width:78px">Priority</th><th style="width:96px">Waiting</th><th style="width:150px"></th></tr></thead><tbody data-rows></tbody></table></div>
+        <div class="h-tablewrap"><table class="h-table h-wltable"><thead><tr><th style="width:210px">Patient type / where</th><th style="width:96px">SID</th><th>Patient</th><th>Tests</th><th style="width:78px">Priority</th><th style="width:96px">Waiting</th><th style="width:150px"></th></tr></thead><tbody data-rows></tbody></table></div>
       </div>
     </section>
     <section data-pt class="h-ptview" hidden>
@@ -82,7 +83,7 @@ export function renderWorkbench(view, params, query) {
     $('[data-rows]').innerHTML = list.length ? list.map((v) => { const p = pat(v.patientId); const m = minsSince(s.since(v) || v.createdAt); const line = s.line(v); const codes = codesOf(v);
       const crit = stage !== 'verify' && liveOrders(v).some(isCritical);
       return `<tr class="${v.id === sel ? 'sel' : ''}" data-id="${v.id}">
-        <td><div class="h-typecell">${ptypeTag(v)}<small>${ptypeWhere(v)}</small></div></td><td class="mono">${v.sid}</td>
+        <td class="h-wcell t-${ptypeCls(v)}">${ptypeCell(v)}</td><td class="mono">${v.sid}</td>
         <td class="h-pt"><b>${esc(p.name)}</b><small>${esc(ageSex(p))}</small></td>
         <td class="h-tests">${esc(codes.join(', '))}${line ? `<div class="h-line">${line}</div>` : ''}${crit ? '<div class="h-line"><span class="danger">Critical value</span></div>' : ''}</td>
         <td>${priTxt(v)}</td>
