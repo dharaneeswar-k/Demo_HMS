@@ -44,7 +44,7 @@ export function renderWorkbench(view, params, query) {
         <div class="h-filters"><label>Patient type <select class="input input-sm" data-ptype></select></label>
           <label class="h-check"><input type="checkbox" data-stat> STAT only</label><span data-bulk></span>
           <span class="h-hint">Click a row to open · <kbd>↑</kbd> <kbd>↓</kbd> move · <kbd>Enter</kbd> open · <kbd>1</kbd>–<kbd>5</kbd> step</span></div>
-        <div class="h-tablewrap"><table class="h-table h-wltable"><thead><tr><th style="width:210px">Patient type / where</th><th style="width:96px">SID</th><th>Patient</th><th>Tests</th><th style="width:78px">Priority</th><th style="width:96px">Waiting</th><th style="width:150px"></th></tr></thead><tbody data-rows></tbody></table></div>
+        <div class="h-tablewrap"><table class="h-table h-wltable"><thead><tr><th class="h-sno" style="width:52px">S.No</th><th style="width:210px">Patient type / where</th><th style="width:96px">SID</th><th>Patient</th><th>Tests</th><th style="width:78px">Priority</th><th style="width:96px">Waiting</th><th style="width:150px"></th></tr></thead><tbody data-rows></tbody></table></div>
       </div>
     </section>
     <section data-pt class="h-ptview" hidden>
@@ -80,16 +80,16 @@ export function renderWorkbench(view, params, query) {
     const all = s.select(q()); const pt = $('[data-ptype]');
     pt.innerHTML = `<option value="">All (${all.length})</option>${PTYPES.map((t) => { const n = all.filter((v) => v.source === t.id).length; return `<option value="${t.id}" ${t.id === ptf ? 'selected' : ''} ${n ? '' : 'disabled'}>${esc(t.long)} (${n})</option>`; }).join('')}`;
     const [act] = ACT[stage];
-    $('[data-rows]').innerHTML = list.length ? list.map((v) => { const p = pat(v.patientId); const m = minsSince(s.since(v) || v.createdAt); const line = s.line(v); const codes = codesOf(v);
+    $('[data-rows]').innerHTML = list.length ? list.map((v, i) => { const p = pat(v.patientId); const m = minsSince(s.since(v) || v.createdAt); const line = s.line(v); const codes = codesOf(v);
       const crit = stage !== 'verify' && liveOrders(v).some(isCritical);
       return `<tr class="${v.id === sel ? 'sel' : ''}" data-id="${v.id}">
-        <td class="h-wcell t-${ptypeCls(v)}">${ptypeCell(v)}</td><td class="mono">${v.sid}</td>
+        <td class="h-sno t-${ptypeCls(v)}">${i + 1}</td><td class="h-wcell t-${ptypeCls(v)}">${ptypeCell(v)}</td><td class="mono">${v.sid}</td>
         <td class="h-pt"><b>${esc(p.name)}</b><small>${esc(ageSex(p))}</small></td>
         <td class="h-tests">${esc(codes.join(', '))}${line ? `<div class="h-line">${line}</div>` : ''}${crit ? '<div class="h-line"><span class="danger">Critical value</span></div>' : ''}</td>
         <td>${priTxt(v)}</td>
         <td class="${m > s.late ? 'h-late' : ''}">${dur(m)}</td>
         <td class="ta-right">${can(stage === 'verify' ? 'lab.verify' : stage === 'send' ? 'lab.deliver' : 'lab.work') ? `<button class="btn btn-sm ${v.id === sel ? 'btn-primary' : 'btn-secondary'}" data-act="${v.id}">${act}</button>` : ''}</td></tr>`; }).join('')
-      : `<tr><td colspan="7" class="h-empty">${icon(q() ? 'search' : 'check2-circle')}<b>${q() ? 'No match' : esc(s.empty[1])}</b><span>${q() ? `Nobody here matches “${esc(scan.value.trim())}”.` : esc(s.empty[2])}</span></td></tr>`;
+      : `<tr><td colspan="8" class="h-empty">${icon(q() ? 'search' : 'check2-circle')}<b>${q() ? 'No match' : esc(s.empty[1])}</b><span>${q() ? `Nobody here matches “${esc(scan.value.trim())}”.` : esc(s.empty[2])}</span></td></tr>`;
     view.querySelectorAll('[data-rows] tr[data-id]').forEach((r) => { r.onclick = (e) => { if (e.target.closest('[data-act]')) return; openPatient(r.dataset.id); }; });
     view.querySelectorAll('[data-act]').forEach((b) => { b.onclick = () => rowAction(b.dataset.act); });
   };
