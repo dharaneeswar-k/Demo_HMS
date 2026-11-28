@@ -47,7 +47,8 @@
 35. [Open questions for the hospital](#35-open-questions-for-the-hospital)
 36. [Demo code map](#36-demo-code-map)
 37. [Lab Test Master (managing the test list)](#37-lab-test-master-managing-the-test-list)
-38. [Change log](#38-change-log)
+38. [Compliance controls (F1–F6)](#38-compliance-controls-f1f6)
+39. [Change log](#39-change-log)
 
 ---
 
@@ -573,10 +574,11 @@ For a text parameter with expected `ref`: case-insensitive match → `''`, other
 ### 13.3 Critical values
 - On saving results with any `LL`/`HH`, a **critical alert** goes to the lab and the Super Admin: "Critical result — <patient>… Inform <doctor> now."
 - The visit shows a pulsing *Critical value* tag; the Verify step lists it first and the SID page highlights the row in red.
-- **[PROD]** mandatory "critical value communicated to <name> at <time> by <user>" log before verification (NABL practice), and an SMS/WhatsApp to the ordering doctor.
+- **Built (§38.6):** a logged call — *Informed* with read-back — is required before a critical result can be verified; failed tries are kept; the owner is alerted after 15 minutes. **[PROD]** also an SMS/WhatsApp to the ordering doctor.
 
 ### 13.4 Verification
-- Only users with `lab.verify`. Optional setting **"report must be verified by a different person from the one who entered the results"** (`requireSecondPersonVerification`).
+- Only users with `lab.verify` **who are authorised signatories** (qualification + registration no., §38.1). Setting **"report must be verified by a different person from the one who entered the results"** (`requireSecondPersonVerification`, default on).
+- Saving changed results needs a reason and keeps the old values (§38.2). A released report is changed only by an **amendment** (§38.3).
 - On verification: report number `LR-YYYY-NNNNN`, `verifiedBy/At`, order → **`COMPLETED`**, the order appears on the patient timeline.
 - When **every non-cancelled order of the SID** is completed → visit **report ready** → IP: posted to the IP record; others: report desk + notification "Report ready — SID …".
 
@@ -597,8 +599,9 @@ For a text parameter with expected `ref`: case-insensitive match → `''`, other
 6. "— End of report —".
 
 ### 14.3 Printing
-- Print / Save as PDF from the browser (demo). Every print increments `printCount`.
-- **[PROD]** server-generated PDF (e.g. OpenPDF / iText / wkhtmltopdf / Puppeteer), digitally signed, stored with a hash; QR verification code; reprints marked "Duplicate copy".
+- Print / Save as PDF from the browser (demo). Every print increments `printCount` and is audited; reprints say **"Duplicate copy"**; pages are numbered "Page x of y" (§38.1, §38.3).
+- The report also prints the Clinical Establishment Reg. No., the received time, the range used per row, the critical call, the signer's qualification, Reg. No. and signature, and *AMENDED* details (§38).
+- **[PROD]** server-generated PDF (e.g. OpenPDF / iText / wkhtmltopdf / Puppeteer), digitally signed, stored with a hash; QR verification code.
 
 ---
 
@@ -675,6 +678,7 @@ Requirements:
 - **Pay before hand-over** (setting, default on): blocked if the bill still has a balance (emergency excepted).
 - Record collected by (*Self / Attender / Referring doctor's staff*) and the person's name → delivery `COUNTER`, `HANDED_OVER`; report prints.
 - **Uncollected list**: ready reports (non-IP) with no hand-over after **15 days** (setting).
+- **Confidential tests** (§38.4): hand-over only, in person, after post-test counselling; written authorisation if someone else collects. No WhatsApp / SMS / email.
 
 ### 15.6 Visit report statuses (report desk tabs)
 | Status | Meaning |
@@ -991,7 +995,9 @@ Every row: `id, at (UTC), userId, action, entity, entityId, details`.
 | `HOSPITAL_SETUP_CHANGED` | SETUP | Area changed |
 | `LAB_TEST_CREATED` / `LAB_TEST_UPDATED` / `LAB_TEST_DEACTIVATED` / `LAB_TEST_ACTIVATED` | SERVICE | Code, version, every change, reason (§37) |
 
-**[PROD]** store before/after values (JSON diff) for result corrections; audit table append-only (no update/delete grants).
+Compliance actions (corrections with old → new, amendments, critical calls, report views / prints, notifiable register) are listed in §38.9.
+
+**[PROD]** audit table append-only (no update/delete grants) with a hash chain.
 
 ---
 
@@ -1364,6 +1370,8 @@ UI principles kept from the demo: plain language ("Waiting for sample", "Payment
 | Staff discount limit | 10 % | Settings (pharmacy & billing) |
 | Workstation restriction | Off | Workstations |
 
+Lab compliance rules (signatories, critical call, alert minutes, notifiable deadline, establishment Reg. No.) are in **Rules** — see §38.7.
+
 ---
 
 ## 29. Master data — test catalogue, containers, kits
@@ -1503,7 +1511,7 @@ Lab Test Master tests T29–T36 are in §37.10.
 
 ## 34. Future enhancements (phase 2+)
 
-> Legal / compliance gaps and the must-fix list before go-live are in [LAB_COMPLIANCE_AUDIT.md](LAB_COMPLIANCE_AUDIT.md).
+> Legal / compliance gaps and the must-fix list before go-live are in [LAB_COMPLIANCE_AUDIT.md](LAB_COMPLIANCE_AUDIT.md). The must-fix items F1–F6 are built — see §38.
 >
 > The full phase 2 flows (data, rules, screens, tests and build order) are in [LAB_PHASE2_SPECIFICATION.md](LAB_PHASE2_SPECIFICATION.md).
 
@@ -1566,6 +1574,8 @@ Lab Test Master tests T29–T36 are in §37.10.
 | `assets/js/labmaster.js` | Lab Test Master logic: validation, save with version history, freezing old report formats, stop / restart, usage, diff |
 | `assets/js/modules/lab/master.js` | Lab Test Master screens: list (`#/lab/tests`) and editor (`#/lab/tests/{id}`) |
 | `assets/js/modules/setup.js` | Kits, messaging settings, referral doctors (the lab tests tab links to the Test Master) |
+| `assets/js/labrules.js` | Compliance rules: age / sex / pregnancy ranges, signatories, confidential and notifiable tests (§38.10) |
+| `assets/js/modules/lab/notifiable.js` | Notification register `#/lab/notifiable` (§38.5) |
 | `assets/js/docs.js` | Letterhead, document meta, signature blocks |
 | `assets/js/barcode.js` | Code 128 SVG barcodes |
 | `tools/hospital-data.mjs` | Seed data: catalogue, kits, packages, visits, messages, referral doctors |
@@ -1717,7 +1727,175 @@ The billing catalogue endpoint returns only active tests; the server re-checks `
 | T36 | Super Admin | `owner` edits a test | Allowed, same rules as Admin |
 
 
-## 38. Change log
+## 38. Compliance controls (F1–F6)
+
+The six must-fix items from the compliance review ([LAB_COMPLIANCE_AUDIT.md](LAB_COMPLIANCE_AUDIT.md) §4) are built in the demo. This section is the full rule book for them; §13–§15, §21 and §28 point here.
+
+**In plain words.** A lab report is a legal medical document. It must say who is responsible for it (F1). Nobody may quietly change a result: every correction keeps the old value and the reason (F2). Once a report has gone out, it is fixed only by an *amended* report, and the old one stays on record (F3). Some tests, such as HIV, are private by law (F4). Some diseases, such as TB and dengue, must be reported to the government (F5). A dangerous (critical) value must be phoned to the doctor before the report is released, and the normal range must suit the patient's age, sex and pregnancy (F6).
+
+### 38.1 F1 — Who signs the report
+
+| Rule | Detail |
+|---|---|
+| Signatory | A user is an **authorised signatory** when User Management has *Lab signatory* ticked, plus a **qualification** (e.g. *MBBS, MD (Pathology)*) and a **registration no.** (e.g. *TNMC 61234*). The box cannot be ticked without both. |
+| Signature image | Optional PNG/JPG/SVG ≤ 300 KB, uploaded in User Management, printed above the signer's name. *Remove* clears it. |
+| Who may verify / amend | Setting **Only authorised signatories can verify and amend** (`hs.lab.signatoryOnly`, default **on**). On: needs `lab.verify` **and** `user.signatory`. Off: `lab.verify` alone, as before. A non-signatory sees "n tests waiting — only an authorised signatory (doctor) can verify" instead of the Verify button. |
+| Second person | `requireSecondPersonVerification` now defaults to **on**: the person who entered the results cannot verify them. |
+| On the report | Letterhead line **Clinical Establishment Reg. No.** (`hs.lab.establishmentRegNo`); **Received** time next to Collected / Reported; signature block: *Tested by* (technician name + qualification) and *Verified & signed* (signature image, name, qualification, Reg. No.). |
+| Page numbers | Printed copies carry "Page x of y" (CSS `@page labrep`). |
+| Confirm dialog | Verify says "It is signed as Dr. … — MBBS, MD (Pathology), Reg. No. TNMC 61234". |
+
+Demo users: **owner** (Dr. Meenakshi Sundaram, *Director & Consultant Pathologist*, signatory with a sample signature) signs; **lab** (Vignesh Raj, DMLT) enters results but cannot verify.
+
+### 38.2 F2 — Result corrections keep history
+
+- Saving results again on a test that already has results compares old and new values. Unchanged → nothing happens.
+- Any changed value needs a **reason** (dialog). Without one the save is refused: "give the reason for correcting the result".
+- Stored in `order.lab.history[]`: `{ at, by, kind: 'CORRECTED', reason, changes: [{ param, from, to }] }`. Audit `LAB_RESULTS_CORRECTED` lists every *old → new*. First entry is audited `LAB_RESULTS_ENTERED` **with the values**.
+- The results table marks a corrected value with a small *changed* tag; hovering shows the history.
+- SID page → drawer → **Changes** tab lists every correction and amendment with old / new values, who, when and why.
+
+### 38.3 F3 — Amended reports
+
+| Step | Rule |
+|---|---|
+| Who | Signatories only (`canSign`). Status must be **COMPLETED** (released). |
+| How | SID page → **Amend** on the test → change the value(s) → *Save amendment* → a reason is required (e.g. "Wrong value typed — 4.8 entered instead of 1.8"). |
+| Stored | `order.lab.amendments[]`: `{ no, at, by, reason, changes, prev: { results, signedBy, signedAt } }`; `lab.amendedAt / amendedBy`. `verifiedAt` and the report number stay the same, so TAT figures do not move. Audit `LAB_REPORT_AMENDED`. |
+| Report | Title **LABORATORY REPORT — AMENDED**; the changed rows say *amended*; under the test: "Amended <date> by <name>. Reason: …. Changed: Platelet count 4.8 → 1.8. This report replaces the one released on …". |
+| Old copy | Never deleted. *Changes* tab → **View the report as it was before** opens `#/lab/visit/{id}/report?asof=<time>` — the old values with a grey **SUPERSEDED — not valid for clinical use** watermark. Viewing it is audited. |
+| Who has the old copy | Every delivery made **before** the amendment is listed on the SID page: "Send the corrected report again. These people have the old copy: …". Send counts only deliveries after the amendment. Ward (IP) reports are re-posted to the ward automatically (`WARD` delivery with `amended: n`) and the lab is notified. |
+| Reprints | Every print is counted and audited (`LAB_REPORT_PRINTED`). From the second print the report says **DUPLICATE COPY — printed n times before**. |
+| Critical | If the amended value is critical, the critical-call rule (F6) applies again after release, and the owner is alerted if no call is logged. |
+
+### 38.4 F4 — Confidential tests (e.g. HIV)
+
+**The choice is the hospital's.** Test Master → test → **Confidential result** switch. Ticked: the rules below apply. **Not ticked: the test is treated like any other test** — WhatsApp, timeline, any role can open it. The demo ticks it only for HIV.
+
+| Where | Rule when the test is confidential |
+|---|---|
+| Billing | Tests with *Signed consent needed* show a **consent form**: *Counselled by* (name, required), *Pre-test counselling done*, *Signed consent form received*. The bill cannot be saved until all three are filled. Stored on the visit: `consent { at, by, counsellor, preTest, signed }`. |
+| Who sees the result | Only lab roles (`lab.work` or `lab.verify`). Other roles see "Confidential test — the result is visible to lab staff only"; the report page shows a lock; the patient timeline shows "Lab report — confidential test" with no link. Each refusal is audited `LAB_REPORT_VIEW_REFUSED`. (The bill itself still lists the test — the person who billed it already knows.) |
+| Sending | WhatsApp, SMS, email and *Send to doctor* are not offered (and refused in code). The action bar offers **Hand over in person**. |
+| Hand-over | Dialog needs **Post-test counselling done** ticked; if someone other than the patient collects, **Written authorisation from the patient seen** must also be ticked. Stored in `handover { counselled, authorised }`, audited. |
+| Every view | Every opening of a confidential report is audited `LAB_REPORT_VIEWED … — confidential` (other reports: once per user per 10 minutes). |
+
+### 38.5 F5 — Notifiable diseases
+
+- Test Master → **Notifiable disease**: *No* / *TB — notify on Ni-kshay* / *IDSP — notify to IHIP*. Demo: Sputum AFB = TB, Dengue NS1 = IDSP.
+- When such a test is verified (or amended) with a **positive** result (any flag, i.e. not the expected *Negative / Not seen*), `order.lab.notification = { program, status: 'PENDING', at, dueAt }` is set, audited `NOTIFIABLE_POSITIVE`, and the lab and owner are notified.
+- **Notification register** (`#/lab/notifiable`, menu *Laboratory → Notification Register*, badge = pending count): tabs *To report / Reported / All*, search, S.No table, **Mark reported** (portal ID required, note optional → `status: 'NOTIFIED', refNo, notifiedAt, notifiedBy`, audit `NOTIFIABLE_REPORTED`), **Export CSV**.
+- Deadline: `hs.lab.notifyWithinHours` (default **24**). Past `dueAt` → red *Overdue* and the live alert **Notifiable Not Reported** (lab and owner). Lab home "Fix these first" shows *Notifiable disease to report*.
+- **[PROD]** direct Ni-kshay / IHIP API upload when the hospital gets credentials; until then the lab enters the case on the portal by hand and records the ID here.
+
+### 38.6 F6 — Critical call log and age / sex / pregnancy ranges
+
+**Critical call (read-back).**
+- Setting **A critical value must be phoned to the doctor and logged** (`hs.lab.criticalCallRequired`, default **on**).
+- A test with any `LL` / `HH` value cannot be verified until there is a call with outcome **Informed** and **Read back** ticked, logged **after** the current critical values were entered.
+- *Log call* dialog: spoke to (name), role (doctor / ward nurse / duty doctor), phone, outcome (*Informed / Not reachable / Left a message*), read-back tick (required for *Informed*), note. Stored in `order.lab.criticalCalls[]`, audit `LAB_CRITICAL_CALL`. Failed attempts are kept too.
+- Correcting a **normal** value does not cancel the call; changing a **critical** value does (`lab.criticalSince`).
+- The SID page shows a red box per test ("Not released — phone … and log the call") or an amber one after a failed try; the report prints "Critical value informed to … at … (read back)".
+- No call after `hs.lab.criticalEscalateMins` (default **15**) → live alert **Critical Not Informed** (verifiers and owner); lab home shows *Critical value — doctor not informed*.
+
+**Reference ranges by age, sex and pregnancy.**
+- Test Master → each numeric result row → **+ Age / sex / pregnancy range**: name, sex (*Any / Male / Female*), age from / to (days, months or years), *Pregnant only*, low, high, critical low, critical high (blank = same as the default row).
+- The **most specific** matching range is used (narrowest age span, then pregnancy, then exact sex). A patient matching none gets the default row. Overlapping ranges for the same patient group are refused on save.
+- Age is counted **on the collection date** from the date of birth (or the age given).
+- **Pregnancy**: for women aged 12–55 whose tests have a pregnancy range, billing asks *Is the patient pregnant? Yes / No / Not known* (`visit.pregnant`); the SID page can change it until the report is released (audit `LAB_PREGNANCY_SET`, ranges re-applied).
+- The range used is frozen on the order at result entry. The SID page and the report print its name, e.g. *12 – 15 (Adult female)*, *11 – 14 (Pregnancy)*, *11 – 14 (Child 1–12 y)*.
+
+### 38.7 Settings (Hospital Setup → Rules)
+
+| Setting | Key (`hospitalSettings.lab`) | Default |
+|---|---|---|
+| Report verified by a different person | `requireSecondPersonVerification` | on |
+| Only authorised signatories verify and amend | `signatoryOnly` | on |
+| Critical value must be phoned and logged | `criticalCallRequired` | on |
+| Alert owner if critical not informed after (min) | `criticalEscalateMins` | 15 |
+| Report notifiable disease within (hours) | `notifyWithinHours` | 24 |
+| Clinical Establishment registration no. | `establishmentRegNo` | sample value |
+
+### 38.8 Data model additions
+
+```
+users[]           + qualification, regNo, signatory (bool), signature (data URL)
+labTest.lab       + confidential (bool), notifiable ('TB' | 'IDSP' | null)
+parameter         + ranges[]: { label, sex 'ANY'|'M'|'F', ageFromDays, ageToDays|null, pregnant true|null,
+                                low, high, critLow, critHigh }
+labVisit          + consent { at, by, counsellor, preTest, signed }, pregnant (true|false|null),
+                    handover + { counselled, authorised }, deliveries[] + { amended: n }
+order.lab         + history[]        { at, by, kind:'CORRECTED', reason, changes[] }
+                  + amendments[]     { no, at, by, reason, changes[], prev { results, signedBy, signedAt } }
+                  + amendedAt, amendedBy, criticalSince
+                  + criticalCalls[]  { at, by, toName, toRole, phone, outcome, readBack, note, parameters[] }
+                  + notification     { program, status 'PENDING'|'NOTIFIED', at, dueAt, refNo, note, notifiedAt, notifiedBy }
+                  + params[] carry rangeLabel (the range used)
+```
+
+**[PROD] tables:** `lab_result_history`, `lab_report_amendment` (with the full previous result set as JSON), `lab_critical_call`, `lab_notification`, `lab_reference_range` (FK to parameter); columns on `users` and `lab_test`. All append-only except `lab_notification.status`.
+
+### 38.9 Audit actions added
+
+`LAB_RESULTS_CORRECTED`, `LAB_REPORT_AMENDED`, `LAB_CRITICAL_CALL`, `LAB_PREGNANCY_SET`, `LAB_REPORT_PRINTED` (original / copy n), `LAB_REPORT_VIEWED`, `LAB_REPORT_VIEW_REFUSED`, `NOTIFIABLE_POSITIVE`, `NOTIFIABLE_REPORTED`; `USER_UPDATED` now records signatory changes; `LAB_RESULTS_ENTERED` now includes the values.
+
+### 38.10 Code
+
+| File | What |
+|---|---|
+| `assets/js/labrules.js` (new) | Range matching (`pickBand`, `resolveParam`, `rangeCtx`, `bandProblems`), pregnancy helpers, `canSign`, `signatoryText`, `isConfidential`, `canSeeConfidential`, `notifiableOf`, `NOTIFIABLE` |
+| `assets/js/hospital.js` | `enterResults` (reason + history), `verifyReport` (signatory + call check), `logCriticalCall`, `criticalCallOk`, `criticalSince`, `amendReport`, `markNotified`, per-patient `labParams` |
+| `assets/js/labflow.js` | Consent form check, `visitConfidential`, `staleDeliveries`, `lastAmendAt`, `onReportAmended`, `setPregnant`, hand-over counselling / authorisation, no WhatsApp for confidential |
+| `assets/js/labmaster.js`, `modules/lab/master.js` | Confidential switch, Notifiable select, range table per parameter, validation |
+| `assets/js/modules/lab/sid.js` | Critical box and *Log call* dialog, reason dialog, Amend, *Changes* tab, pregnancy switch, confidential sending |
+| `assets/js/modules/labdesk.js` | Report: AMENDED, superseded view, duplicate copy, Reg. No., signatures, ranges, view / print audit, confidential lock |
+| `assets/js/modules/lab/notifiable.js` (new) | Notification register |
+| `assets/js/modules/users.js` | Qualification, Reg. No., signatory, signature upload |
+| `assets/js/modules/hbilling.js` | Consent form, pregnancy question |
+| `assets/js/alert-rules.js`, `modules/home.js`, `app.js`, `router.js`, `modules/setup.js`, `patients.js` | Alerts, home items, menu + badge, route, settings, timeline |
+
+### 38.11 Demo data (reset demo data to see it)
+
+| Patient | What it shows |
+|---|---|
+| Harini Suresh (new, girl, 4 y) | CBC: Hb 11.6 is **normal** on the *Child 1–12 y* range (would be low for an adult woman) |
+| Priyanka Ravi | Pregnant = Yes: Hb 11.3 normal on the *Pregnancy* range; TSH judged on the pregnancy range |
+| Joseph Dominic | RFT potassium 6.9 (critical); first call *Not reachable* — Verify blocked until an *Informed + read back* call is logged |
+| Geetha Venkat | Sputum AFB *Seen (1+)* — on the notification register, **To report** on Ni-kshay |
+| Revathi Mohan | Dengue NS1 positive 4 days ago — **Reported** on IHIP with an ID |
+| Prakash Natarajan | HIV non-reactive, consent with counsellor Sr. Jency Mary — confidential, hand over only |
+| Lakshmi Devi | CBC **amended** (platelets 4.8 → 1.8) after it went on WhatsApp — old recipient listed, superseded copy viewable, duplicate print |
+
+### 38.12 Acceptance tests
+
+| # | Scenario | Expected |
+|---|---|---|
+| T43 | Sign in as **lab**, open a test waiting for verification | No Verify button: "only an authorised signatory (doctor) can verify" |
+| T44 | As **owner**, verify Joseph Dominic's RFT | Refused until a call is logged; *Informed* without *Read back* refused; after a proper call, verify works and the report prints the call |
+| T45 | Correct a normal value on a critical test | Reason asked; history kept; the earlier call still counts. Change the critical value → a new call is needed |
+| T46 | Amend Lakshmi Devi's CBC again | Reason required; amendment no. 2 is listed in *Changes*; *View the report as it was before* shows the superseded watermark |
+| T47 | Sign in as **reception**, open Prakash Natarajan's report | Lock page; patient file shows "confidential test"; audit `LAB_REPORT_VIEW_REFUSED` |
+| T48 | Test Master → HIV → untick *Confidential result* → save | HIV report can now be sent on WhatsApp and seen like any other test |
+| T49 | Notification register → Geetha Venkat → Mark reported without an ID | Refused; with an ID → moves to *Reported*, badge drops, CSV has the row |
+| T50 | Test Master → CBC → add an overlapping *Adult female* range | Save refused with the overlap message |
+| T51 | Bill CBC for a woman of 25 | "Is the patient pregnant?" appears; *Yes* → report shows *(Pregnancy)* range |
+| T52 | Bill HIV without the consent form filled | Bill refused with the consent message |
+
+---
+
+## 39. Change log
+
+### v1.2 — 28 Nov 2026
+
+**Compliance controls F1–F6 built** (from [LAB_COMPLIANCE_AUDIT.md](LAB_COMPLIANCE_AUDIT.md); full rules in §38):
+- **F1** authorised signatories (qualification, Reg. No., signature image) — only they verify and amend; Clinical Establishment Reg. No., received time and page numbers on the report; second-person verification on by default.
+- **F2** every result correction needs a reason and keeps old → new in the history; *Changes* tab on the SID page.
+- **F3** amended reports: AMENDED title, reason, old version kept and viewable (superseded watermark), earlier recipients listed for re-sending, ward re-posted, reprints marked *Duplicate copy*.
+- **F4** confidential tests — a **per-test choice** in the Test Master (*Confidential result* switch; unticked = normal test). Consent form with counsellor at billing; results hidden from non-lab roles; hand-over in person only, with post-test counselling; every view audited.
+- **F5** notifiable diseases (TB → Ni-kshay, IDSP → IHIP) per test; Notification register with deadline, overdue alert and CSV.
+- **F6** critical call log with read-back blocks verification; owner alerted after 15 min; reference ranges by age, sex and pregnancy, with a pregnancy question at billing.
+- New settings in Hospital Setup → Rules (§38.7); demo data for each rule (§38.11, demo data version 11); acceptance tests T43–T52.
+- Not done yet: unit conversion (SI units), direct Ni-kshay / IHIP upload, digital signature of the PDF.
 
 ### v1.1 — 27 Nov 2026
 

@@ -1,6 +1,7 @@
 // Central Billing counter (BRD 08): one bill per patient for lab tests, ECG, injection, nebulization, other services
 // and packages. Package services are billed at ₹0, doctor requests raised at the service counter are picked up,
 // and nothing reaches a department until the bill is paid or credit / emergency is approved.
+import { mayBePregnant, hasPregnancyBand } from '../labrules.js';
 import { store } from '../data-service.js';
 import { currentUser, can } from '../auth.js';
 import { CATS, catLabel, catIcon, svc, pkg, activeEnrolments, packageUsage, priceHospitalDraft, validateHospitalDraft, completeHospitalBill, discountLimit, requestHospitalDiscount, patientOf } from '../hospital.js';
@@ -17,7 +18,7 @@ import { SOURCE, PRIORITY, saveReferralDoctor } from '../labflow.js';
 import { saveBlob } from '../attachment-store.js';
 
 const KEY = 'nallam_hms_hbill_draft';
-const blank = () => ({ patientId: '', doctor: '', lines: [], discountPct: 0, discountRequestId: null, payMode: 'CASH', payments: [{ mode: 'CASH', amount: '', tendered: '', reference: '' }], credit: { type: '', reason: '' }, remarks: '', lab: { source: 'OP', referralDoctorId: '', priority: 'ROUTINE', prescription: null, consent: false, notes: '' } });
+const blank = () => ({ patientId: '', doctor: '', lines: [], discountPct: 0, discountRequestId: null, payMode: 'CASH', payments: [{ mode: 'CASH', amount: '', tendered: '', reference: '' }], credit: { type: '', reason: '' }, remarks: '', lab: { source: 'OP', referralDoctorId: '', priority: 'ROUTINE', prescription: null, consent: { counsellor: '', preTest: false, signed: false }, pregnant: null, notes: '' } });
 const PAY = [['CASH', 'Cash', 'banknote'], ['UPI', 'UPI', 'smartphone'], ['CARD', 'Card', 'credit-card'], ['SPLIT', 'Split', 'split'], ['CREDIT', 'Credit', 'hand-coins'], ['EMERGENCY', 'Emergency', 'siren']];
 
 export function render(view, params, query) {
@@ -183,6 +184,8 @@ export function render(view, params, query) {
     if (d.lines.some((l) => l.orderIds?.length) && d.lab.source !== 'OP' && !d.lab.touched) d.lab.source = 'OP';
     const L = d.lab; const rd = L.referralDoctorId && store.get('referralDoctors', L.referralDoctorId);
     const rx = tests.filter((t) => t.lab.rxRequired); const cons = tests.filter((t) => t.lab.consentRequired);
+    if (typeof L.consent !== 'object' || !L.consent) L.consent = { counsellor: '', preTest: false, signed: false }; const C = L.consent;
+    const askPreg = mayBePregnant(d.patientId && store.get('patients', d.patientId)) && hasPregnancyBand(tests);
     $('[data-lab]').innerHTML = d.payMode === 'EMERGENCY' ? `<div class="alert alert-danger">${icon('siren')}<div><strong>Emergency (STAT).</strong> Samples are collected in casualty and the report goes to the duty doctor first.</div></div>` : `
       <div class="src-pick">${['OP', 'REFERRAL', 'SELF'].map((k) => `<button class="src-opt ${L.source === k ? 'active' : ''}" data-src="${k}">${icon(SOURCE[k].icon)}<strong>${{ OP: 'Hospital doctor', REFERRAL: 'Outside prescription', SELF: 'Self request' }[k]}</strong><small>${{ OP: 'Ordered by our doctor — no prescription needed', REFERRAL: 'Upload or scan the prescription', SELF: 'No prescription — only allowed tests' }[k]}</small></button>`).join('')}</div>
       ${L.source === 'REFERRAL' ? `<div class="form-grid mt-2"><div class="field col-8"><label>Referring doctor <span class="req">*</span></label><div data-rd></div></div><div class="col-4" style="align-self:end"><button class="btn btn-secondary btn-block" data-addrd>${icon('user-plus')}New doctor</button></div>
@@ -192,12 +195,16 @@ export function render(view, params, query) {
       ${L.source === 'SELF' && !rx.length ? `<p class="muted small mt-1">${icon('info', 'ic-inline')} The report will say “Self” as the referrer.</p>` : ''}`;
     $('[data-lab]').innerHTML += `<div class="form-grid mt-2"><div class="field col-6"><label>Priority</label><div class="seg seg-full">${Object.entries(PRIORITY).reverse().map(([k, x]) => `<button class="seg-btn ${(d.payMode === 'EMERGENCY' ? 'STAT' : L.priority) === k ? 'active' : ''}" data-pri="${k}" ${d.payMode === 'EMERGENCY' ? 'disabled' : ''}>${x.label}</button>`).join('')}</div></div>
       <div class="field col-6"><label>Clinical notes</label><input class="input" data-lnotes value="${esc(L.notes || '')}" placeholder="Optional — e.g. fasting 12 h"></div>
-      ${cons.length ? `<label class="check col-12 consent"><input type="checkbox" data-consent ${L.consent ? 'checked' : ''}> Signed consent taken for <strong>${esc(cons.map((t) => t.name).join(', '))}</strong> (pre-test counselling done)</label>` : ''}</div>`;
+      ${askPreg ? `<div class="field col-12"><label>Is the patient pregnant? <span class="muted">(the normal ranges of ${esc(tests.filter((t) => hasPregnancyBand([t])).map((t) => t.code).join(', '))} depend on it)</span></label><div class="seg">${[[true, 'Yes'], [false, 'No'], [null, 'Not known']].map(([k, l]) => `<button class="seg-btn ${(L.pregnant ?? null) === k ? 'active' : ''}" data-preg="${k}">${l}</button>`).join('')}</div></div>` : ''}
+      ${cons.length ? `<div class="col-12 consent-form"><strong>Consent for ${esc(cons.map((t) => t.name).join(', '))}</strong>
+        <div class="form-grid mt-1"><div class="field col-6"><label>Counselled by <span class="req">*</span></label><input class="input" data-cons="counsellor" value="${esc(C.counsellor || '')}" placeholder="Name of the counsellor / doctor"></div>
+        <div class="col-6" style="align-self:end"><label class="check"><input type="checkbox" data-cons="preTest" ${C.preTest ? 'checked' : ''}> Pre-test counselling done</label><label class="check"><input type="checkbox" data-cons="signed" ${C.signed ? 'checked' : ''}> Signed consent form received</label></div></div></div>` : ''}</div>`;
     const H = $('[data-lab]');
     H.querySelectorAll('[data-src]').forEach((b) => { b.onclick = () => { L.source = b.dataset.src; L.touched = true; save(); drawLab(); drawMsgs(); }; });
     H.querySelectorAll('[data-pri]').forEach((b) => { b.onclick = () => { L.priority = b.dataset.pri; save(); drawLab(); }; });
     H.querySelector('[data-lnotes]')?.addEventListener('input', (e) => { L.notes = e.target.value; save(); });
-    H.querySelector('[data-consent]')?.addEventListener('change', (e) => { L.consent = e.target.checked; save(); drawMsgs(); });
+    H.querySelectorAll('[data-cons]').forEach((el) => { el.addEventListener(el.type === 'checkbox' ? 'change' : 'input', () => { L.consent = { ...C, ...(L.consent || {}), [el.dataset.cons]: el.type === 'checkbox' ? el.checked : el.value }; save(); drawMsgs(); }); });
+    H.querySelectorAll('[data-preg]').forEach((b) => { b.onclick = () => { L.pregnant = b.dataset.preg === 'true' ? true : b.dataset.preg === 'false' ? false : null; save(); drawLab(); }; });
     H.querySelector('[data-rxrm]')?.addEventListener('click', () => { L.prescription = null; save(); drawLab(); drawMsgs(); });
     H.querySelector('[data-rx]')?.addEventListener('change', async (e) => { const f = e.target.files[0]; if (!f) return; if (f.size > 8 * 1048576) return toast('File is larger than 8 MB.', 'error');
       const id = 'RXF-' + Date.now().toString(36).toUpperCase(); await saveBlob(id, f); L.prescription = { id, name: f.name, type: f.type || 'image/jpeg', size: f.size, at: new Date().toISOString(), by: user.id }; save(); drawLab(); drawMsgs(); toast('Prescription attached.'); });

@@ -9,7 +9,8 @@ import { businessDate } from './pharmacy-calc.js';
 import { openShiftFor } from './shifts.js';
 import { fmtINR } from './utils.js';
 import { useForTest, markRepeat } from './labstock.js';
-import { validateLabRequest, createVisitForBill, onOrderVerified, visitOfOrder, visitAccess } from './labflow.js';
+import { validateLabRequest, createVisitForBill, onOrderVerified, onReportAmended, visitOfOrder, visitAccess } from './labflow.js';
+import { resolveParam, rangeCtx, canSign, notifiableOf, NOTIFIABLE, labCfg } from './labrules.js';
 
 const now = () => new Date().toISOString();
 const OWNER = ['SUPER_ADMIN'];
@@ -306,7 +307,25 @@ export function flagFor(p, value) {
 }
 export const refText = (p) => (p.ref !== undefined ? p.ref : `${p.low} – ${p.high}`);
 /** Report format of an order: the copy frozen when its results were entered, otherwise the current test master. */
-export function labParams(o) { return o?.lab?.params || svc(o.serviceId)?.lab?.parameters || []; }
+/** The report format of an order: the frozen copy once results exist, else the Test Master rows with the patient's range band applied. */
+export function labParams(o) { if (o?.lab?.params) return o.lab.params; return freshParams(o); }
+/** Same, ignoring the frozen copy (used when pregnancy is changed before the report is verified). */
+export function freshParams(o) { const ctx = rangeCtx(o); return (svc(o.serviceId)?.lab?.parameters || []).map((p) => resolveParam(p, ctx)); }
+/** Any flag at all (H / L / critical / abnormal text) — for notifiable tests this means "positive". */
+export const isAbnormal = (o) => (o.lab?.results || []).some((r) => { const p = labParams(o).find((x) => x.name === r.param); return p && flagFor(p, r.value); });
+/** A critical value needs a logged call (INFORMED + read back) made after the results were entered / amended (F6, phase 2 P2-02). */
+/** When the current critical values were set. Correcting a normal value does not need a new call; changing a critical one does. */
+export const criticalSince = (o) => o.lab?.criticalSince || (o.status === 'COMPLETED' && o.lab?.amendedAt) || o.lab?.enteredAt || '';
+export function criticalCallOk(o) {
+  if (!isCritical(o) || labCfg().criticalCallRequired === false) return true;
+  const since = criticalSince(o);
+  return (o.lab.criticalCalls || []).some((c) => c.outcome === 'INFORMED' && c.readBack && c.at >= since);
+}
+const markCriticalSince = (o, before, at, prev) => { const now_ = criticalText(o).join('|'); o.lab.criticalSince = !now_ ? null : now_ !== before ? at : prev || at; };
+/** Critical values of an order as text, e.g. "Potassium 6.9 mmol/L (HH)". */
+export const criticalText = (o) => (o.lab?.results || []).map((r) => { const q = labParams(o).find((x) => x.name === r.param); const f = q && flagFor(q, r.value); return ['LL', 'HH'].includes(f) ? `${r.param} ${r.value}${q.unit ? ' ' + q.unit : ''} (${f})` : null; }).filter(Boolean);
+const valuesOf = (o) => Object.fromEntries((o.lab.results || []).map((r) => [r.param, String(r.value)]));
+const diffValues = (params, before, after) => params.map((p) => ({ param: p.name, from: before[p.name] ?? '', to: String(after[p.name] ?? '').trim() })).filter((c) => String(c.from) !== c.to);
 export const isCritical = (o) => (o.lab?.results || []).some((r) => { const p = labParams(o).find((x) => x.name === r.param); return p && ['LL', 'HH'].includes(flagFor(p, r.value)); });
 
 function mustLab(user) { if (!can('lab.work', user)) throw new Error('Only lab staff can do this.'); }
@@ -336,7 +355,7 @@ export function rejectSample(orderId, reason, user) {
     return o;
   });
 }
-export function enterResults(orderId, results, user) {
+export function enterResults(orderId, results, user, reason = '') {
   mustLab(user);
   const o = store.get('orders', orderId);
   if (!['SAMPLE_COLLECTED', 'RESULTED'].includes(o.status)) throw new Error('Collect the sample first.');
@@ -344,20 +363,30 @@ export function enterResults(orderId, results, user) {
   const params = labParams(o);
   const missing = params.filter((p) => !String(results[p.name] ?? '').trim());
   if (missing.length) throw new Error(`Enter all results: ${missing.map((p) => p.name).join(', ')}.`);
+  // F2: a correction keeps the old value, who changed it, when and why — nothing is overwritten silently
+  const had = (o.lab.results || []).length; const changes = had ? diffValues(params, valuesOf(o), results) : [];
+  if (had && !changes.length) return o;
+  if (changes.length && !String(reason).trim()) throw new Error(`${o.name}: give the reason for correcting the result.`);
   return store.transaction(() => {
+    const at = now(); const critBefore = had ? criticalText(o).join('|') : ''; const prevSince = criticalSince(o);
     o.lab.results = params.map((p) => ({ param: p.name, value: String(results[p.name]).trim() }));
     o.lab.params = params.map((p) => ({ ...p })); // freeze the format: later master edits never change this report
-    Object.assign(o.lab, { enteredBy: user.id, enteredAt: now(), verifiedBy: null, verifiedAt: null });
+    markCriticalSince(o, critBefore, at, prevSince);
+    if (changes.length) (o.lab.history ||= []).push({ at, by: user.id, kind: 'CORRECTED', reason: reason.trim(), changes });
+    Object.assign(o.lab, { enteredBy: user.id, enteredAt: at, verifiedBy: null, verifiedAt: null });
     o.status = 'RESULTED';
-    audit(user, 'LAB_RESULTS_ENTERED', 'ORDER', orderId, o.accession);
+    if (changes.length) audit(user, 'LAB_RESULTS_CORRECTED', 'ORDER', orderId, `${o.accession} ${o.name}: ${changes.map((c) => `${c.param} ${c.from} → ${c.to}`).join('; ')} — ${reason.trim()}`);
+    else audit(user, 'LAB_RESULTS_ENTERED', 'ORDER', orderId, `${o.accession} ${o.name}: ${o.lab.results.map((r) => `${r.param} ${r.value}`).join('; ')}`);
     if (isCritical(o)) notify({ type: 'CRITICAL_RESULT', category: 'Laboratory', severity: 'critical', title: `Critical result — ${patientOf(o.patientId)?.name}`, message: `${o.name} (${o.accession}): value in the critical range. Inform ${o.doctor || 'the doctor'} now.`, refType: 'LABORDER', refId: orderId, targetRoles: ['SUPER_ADMIN', 'LAB'] });
     return o;
   });
 }
 export function verifyReport(orderId, user) {
   if (!can('lab.verify', user)) throw new Error('You cannot verify reports.');
+  if (!canSign(user)) throw new Error('Only an authorised signatory can verify reports — a doctor marked “Authorised signatory” in User Management.');
   const o = store.get('orders', orderId);
   if (o.status !== 'RESULTED') throw new Error('Results are not entered yet.');
+  if (!criticalCallOk(o)) throw new Error(`${o.name}: critical value — log the call to the doctor (with read-back) before releasing the report.`);
   if (hs().lab.requireSecondPersonVerification && o.lab.enteredBy === user.id) throw new Error('A second person must verify this report.');
   return store.transaction(() => {
     const yr = new Date().getFullYear();
@@ -365,11 +394,79 @@ export function verifyReport(orderId, user) {
     Object.assign(o.lab, { verifiedBy: user.id, verifiedAt: now(), reportNo: `${hs().lab.reportPrefix}-${yr}-${String(no).padStart(5, '0')}` });
     Object.assign(o, { status: 'COMPLETED', performedBy: o.lab.enteredBy, performedAt: now() });
     audit(user, 'LAB_REPORT_VERIFIED', 'ORDER', orderId, o.lab.reportNo);
+    flagNotifiable(o, user);
     onOrderVerified(o, user);
     return o;
   });
 }
 export function markPrinted(orderId) { const o = store.get('orders', orderId); if (o?.lab) { o.lab.printedAt = now(); o.lab.printCount = (o.lab.printCount || 0) + 1; store.commit(); } }
+
+// ---------------- F6 / P2-02: critical value call log ----------------
+export const CALL_OUTCOME = { INFORMED: 'Informed', NOT_REACHABLE: 'Not reachable', LEFT_MESSAGE: 'Left a message' };
+export function logCriticalCall(orderId, { toName, toRole = 'DOCTOR', phone = '', outcome, readBack = false, note = '' }, user) {
+  if (!can('lab.work', user) && !can('lab.verify', user)) throw new Error('Only lab staff can log a critical call.');
+  const o = store.get('orders', orderId); if (!o?.lab) throw new Error('Test not found.');
+  if (!isCritical(o)) throw new Error('This test has no critical value.');
+  if (!String(toName || '').trim()) throw new Error('Enter who you spoke to.');
+  if (!CALL_OUTCOME[outcome]) throw new Error('Choose what happened on the call.');
+  if (outcome === 'INFORMED' && !readBack) throw new Error('Ask the doctor to read the value back, then tick “Read back”.');
+  return store.transaction(() => {
+    const c = { at: now(), by: user.id, toName: toName.trim(), toRole, phone: String(phone).trim(), outcome, readBack: !!readBack, note: String(note).trim(), parameters: criticalText(o) };
+    (o.lab.criticalCalls ||= []).push(c);
+    audit(user, 'LAB_CRITICAL_CALL', 'ORDER', orderId, `${o.name}: ${c.parameters.join(', ')} → ${CALL_OUTCOME[outcome]} — ${c.toName}${c.phone ? ' ' + c.phone : ''}${c.readBack ? ' (read back)' : ''}${c.note ? ' · ' + c.note : ''}`);
+    return c;
+  });
+}
+
+// ---------------- F3: amended report ----------------
+/** Correct a released (verified) report. The old values stay in `amendments`; the report prints "AMENDED". */
+export function amendReport(orderId, results, reason, user) {
+  if (!canSign(user)) throw new Error('Only an authorised signatory can amend a released report.');
+  const o = store.get('orders', orderId);
+  if (o?.status !== 'COMPLETED') throw new Error('Only a verified report can be amended.');
+  if (!String(reason || '').trim()) throw new Error('Give the reason for amending the report.');
+  const params = labParams(o);
+  const missing = params.filter((p) => !String(results[p.name] ?? '').trim());
+  if (missing.length) throw new Error(`Enter all results: ${missing.map((p) => p.name).join(', ')}.`);
+  const changes = diffValues(params, valuesOf(o), results);
+  if (!changes.length) throw new Error('Change at least one value to amend the report.');
+  return store.transaction(() => {
+    const at = now(); const no = (o.lab.amendments || []).length + 1;
+    (o.lab.amendments ||= []).push({ no, at, by: user.id, reason: reason.trim(), changes, prev: { results: o.lab.results.map((r) => ({ ...r })), signedBy: o.lab.amendedBy || o.lab.verifiedBy, signedAt: o.lab.amendedAt || o.lab.verifiedAt } });
+    o.lab.params = params.map((p) => ({ ...p }));
+    const critBefore = criticalText(o).join('|'); const prevSince = criticalSince(o);
+    o.lab.results = params.map((p) => ({ param: p.name, value: String(results[p.name]).trim() }));
+    Object.assign(o.lab, { amendedAt: at, amendedBy: user.id });
+    markCriticalSince(o, critBefore, at, prevSince);
+    audit(user, 'LAB_REPORT_AMENDED', 'ORDER', orderId, `${o.lab.reportNo} amendment ${no}: ${changes.map((c) => `${c.param} ${c.from} → ${c.to}`).join('; ')} — ${reason.trim()}`);
+    if (isCritical(o)) notify({ type: 'CRITICAL_RESULT', category: 'Laboratory', severity: 'critical', title: `Critical result (amended report) — ${patientOf(o.patientId)?.name}`, message: `${o.name}: value in the critical range. Log the call to ${o.doctor || 'the doctor'} now.`, refType: 'LABORDER', refId: orderId, targetRoles: ['SUPER_ADMIN', 'LAB'] });
+    flagNotifiable(o, user);
+    onReportAmended(o, no, user);
+    return o;
+  });
+}
+
+// ---------------- F5: notifiable diseases ----------------
+/** A positive result of a notifiable test goes on the notification register (pending until someone reports it). */
+function flagNotifiable(o, user) {
+  const prog = notifiableOf(o); if (!prog || o.lab.notification || !isAbnormal(o)) return;
+  const hrs = Number(labCfg().notifyWithinHours) || 24; const portal = NOTIFIABLE[prog]?.portal || prog;
+  o.lab.notification = { program: prog, status: 'PENDING', at: now(), dueAt: new Date(Date.now() + hrs * 3600000).toISOString() };
+  audit(user, 'NOTIFIABLE_POSITIVE', 'ORDER', o.id, `${o.name} positive — to notify on ${portal}`);
+  notify({ type: 'NOTIFIABLE_DISEASE', category: 'Laboratory', severity: 'critical', title: `Notify ${NOTIFIABLE[prog]?.short || prog} — ${patientOf(o.patientId)?.name}`, message: `${o.name} is positive. Report it on ${portal} within ${hrs} hours and record the ID in the notification register.`, refType: 'LABORDER', refId: o.id, targetRoles: ['SUPER_ADMIN', 'LAB'] });
+}
+export function markNotified(orderId, { refNo, note = '' }, user) {
+  if (!can('lab.work', user) && !can('lab.verify', user)) throw new Error('Only lab staff can record a notification.');
+  const o = store.get('orders', orderId); const n = o?.lab?.notification;
+  if (!n) throw new Error('This result is not on the notification register.');
+  if (n.status === 'NOTIFIED') throw new Error('Already notified.');
+  if (!String(refNo || '').trim()) throw new Error(`Enter the ${NOTIFIABLE[n.program]?.portal || ''} ID / acknowledgement number.`);
+  return store.transaction(() => {
+    Object.assign(n, { status: 'NOTIFIED', refNo: refNo.trim(), note: String(note).trim(), notifiedAt: now(), notifiedBy: user.id });
+    audit(user, 'NOTIFIABLE_REPORTED', 'ORDER', orderId, `${o.name} notified on ${NOTIFIABLE[n.program]?.portal || n.program} — ID ${n.refNo}`);
+    return o;
+  });
+}
 
 // ---------------- lab stock (reagents, cartridges, cards, tubes) — see labstock.js ----------------
 export { kitBalance, kitStatus, kitReconciliation } from './labstock.js';

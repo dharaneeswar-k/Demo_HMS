@@ -26,6 +26,10 @@ function saveUser(d, existing, actor) {
   if (users.some((u) => u.username === uname && u.id !== existing?.id)) throw new Error(`Username "${uname}" is already taken.`);
   if (!store.get('roles', d.role)) throw new Error('Select a role.');
   if (d.phone && !/^[+\d][\d\s-]{9,15}$/.test(d.phone)) throw new Error('Enter a valid phone number.');
+  const signatory = d.signatory === 'on' || d.signatory === true;
+  if (signatory && (!String(d.qualification || '').trim() || !String(d.regNo || '').trim())) throw new Error('An authorised signatory needs a qualification and a medical council registration number.');
+  const prof = { qualification: String(d.qualification || '').trim(), regNo: String(d.regNo || '').trim(), signatory, signature: d.signature || existing?.signature || '' };
+  if (d.signature === '-') prof.signature = '';
   if (!existing) {
     if (users.filter((u) => u.active).length >= maxUsers()) throw new Error(`The licence allows ${maxUsers()} active user accounts. Deactivate an account first.`);
     if (!d.password || d.password.length < 6) throw new Error('Password must be at least 6 characters.');
@@ -34,12 +38,13 @@ function saveUser(d, existing, actor) {
   if (existing && existing.role === 'SUPER_ADMIN' && d.role !== 'SUPER_ADMIN' && users.filter((u) => u.role === 'SUPER_ADMIN' && u.active).length <= 1) throw new Error('At least one active Super Admin is required.');
   return store.transaction(() => {
     if (existing) {
-      const before = `${existing.role}`;
-      Object.assign(existing, { name: d.name.trim(), username: uname, role: d.role, designation: d.designation || '', phone: d.phone || '' });
-      audit(actor, 'USER_UPDATED', 'USER', existing.id, `${existing.name} (${uname}) role ${before} → ${d.role}`);
+      const before = `${existing.role}`; const sigBefore = `${existing.signatory ? 'signatory' : 'not signatory'} ${existing.qualification || ''} ${existing.regNo || ''}`.trim();
+      Object.assign(existing, { name: d.name.trim(), username: uname, role: d.role, designation: d.designation || '', phone: d.phone || '', ...prof });
+      const sigAfter = `${prof.signatory ? 'signatory' : 'not signatory'} ${prof.qualification} ${prof.regNo}`.trim();
+      audit(actor, 'USER_UPDATED', 'USER', existing.id, `${existing.name} (${uname}) role ${before} → ${d.role}${sigBefore !== sigAfter ? ` · ${sigBefore} → ${sigAfter}` : ''}`);
       return existing;
     }
-    const u = store.insert('users', { id: store.nextId('users', 'USR-'), username: uname, password: d.password, name: d.name.trim(), role: d.role, designation: d.designation || '', email: '', phone: d.phone || '', active: true, createdAt: new Date().toISOString(), createdBy: actor.id });
+    const u = store.insert('users', { id: store.nextId('users', 'USR-'), username: uname, password: d.password, name: d.name.trim(), role: d.role, designation: d.designation || '', email: '', phone: d.phone || '', ...prof, active: true, createdAt: new Date().toISOString(), createdBy: actor.id });
     audit(actor, 'USER_CREATED', 'USER', u.id, `${u.name} (${uname}) as ${store.get('roles', d.role).name}`);
     return u;
   });
@@ -55,6 +60,10 @@ function userForm(u, onDone) {
       <div class="field col-6"><label>Phone</label><input class="input" name="phone" value="${esc(u?.phone || '')}" placeholder="+91 90000 00000"></div>
       <div class="field col-12"><label>Role <span class="req">*</span></label><div class="role-pick">${roles.map((r) => `<label class="role-opt"><input type="radio" name="role" value="${r.id}" ${u?.role === r.id || (!u && r.id === 'PHARMACY_STAFF') ? 'checked' : ''}><span><strong>${esc(r.name)}</strong><small>${esc(r.description)}</small></span></label>`).join('')}</div></div>
       <div class="field col-12"><label>Designation</label><input class="input" name="designation" value="${esc(u?.designation || '')}" placeholder="e.g. Pharmacist, Store Incharge"></div>
+      <div class="field col-6"><label>Qualification</label><input class="input" name="qualification" value="${esc(u?.qualification || '')}" placeholder="e.g. MBBS, MD (Pathology) · DMLT"><small class="field-hint">Printed on lab reports</small></div>
+      <div class="field col-6"><label>Medical council reg. no.</label><input class="input" name="regNo" value="${esc(u?.regNo || '')}" placeholder="e.g. TNMC 61234"></div>
+      <label class="switch col-12"><input type="checkbox" name="signatory" ${u?.signatory ? 'checked' : ''}> <span><strong>Authorised signatory for lab reports</strong><small>Only signatories can verify, sign and amend reports. Give this to registered doctors (pathologist / MD) only.</small></span></label>
+      <div class="field col-12"><label>Signature image <span class="muted">(printed above the name on reports)</span></label><div class="row" style="gap:10px;align-items:center">${u?.signature ? `<img src="${esc(u.signature)}" alt="" style="height:40px;background:#fff;border:1px solid var(--h-line);padding:2px" data-sigprev>` : '<span class="muted small" data-sigprev>No signature uploaded</span>'}<input type="file" accept="image/png,image/jpeg" data-sigfile><input type="hidden" name="signature" value="">${u?.signature ? '<button type="button" class="btn btn-ghost btn-sm" data-sigrm>Remove</button>' : ''}</div></div>
       ${u ? '' : `<div class="field col-6"><label>Temporary password <span class="req">*</span></label><input class="input" type="password" name="password" autocomplete="new-password"></div>
       <div class="field col-6"><label>Confirm password <span class="req">*</span></label><input class="input" type="password" name="confirm" autocomplete="new-password"></div>
       <div class="col-12 field-hint">Share the temporary password with the person directly. Each person must use their own account — every action is recorded under it.</div>`}
@@ -65,6 +74,10 @@ function userForm(u, onDone) {
       try { const x = saveUser(d, u, me); toast(u ? 'User updated.' : `Account created for ${x.name}.`); close(); onDone(); } catch (e) { toast(e.message, 'error'); }
     } }] });
   m.el.querySelector('[name=username]').addEventListener('input', (e) => { e.target.value = e.target.value.toLowerCase().replace(/\s/g, ''); });
+  const sig = m.el.querySelector('[name=signature]');
+  m.el.querySelector('[data-sigfile]').addEventListener('change', (e) => { const f = e.target.files[0]; if (!f) return; if (f.size > 300 * 1024) { toast('Use a signature image under 300 KB.', 'error'); e.target.value = ''; return; }
+    const r = new FileReader(); r.onload = () => { sig.value = r.result; const pv = m.el.querySelector('[data-sigprev]'); pv.outerHTML = `<img src="${r.result}" alt="" style="height:40px;background:#fff;border:1px solid var(--h-line);padding:2px" data-sigprev>`; }; r.readAsDataURL(f); });
+  m.el.querySelector('[data-sigrm]')?.addEventListener('click', (e) => { sig.value = '-'; e.target.remove(); m.el.querySelector('[data-sigprev]').outerHTML = '<span class="muted small" data-sigprev>Signature will be removed</span>'; });
 }
 
 export function render(view) {
@@ -81,7 +94,7 @@ export function render(view) {
         ${kpi({ label: 'Deactivated', value: users.length - active, iconName: 'user-x', tone: 'danger' })}
       </div>
       ${card('User accounts', `<table class="table"><thead><tr><th>Person</th><th>Username</th><th>Role</th><th>Phone</th><th>Last activity</th><th>Status</th><th></th></tr></thead><tbody>
-        ${users.map((u) => { const last = lastActivity(u.id); return `<tr class="${u.active ? '' : 'row-muted'}"><td><div class="row"><span class="avatar">${esc(initials(u.name))}</span><div><div class="cell-main">${esc(u.name)}${u.id === me.id ? ' <span class="tag tag-info">You</span>' : ''}</div><div class="cell-sub">${esc(u.designation || '')}</div></div></div></td>
+        ${users.map((u) => { const last = lastActivity(u.id); return `<tr class="${u.active ? '' : 'row-muted'}"><td><div class="row"><span class="avatar">${esc(initials(u.name))}</span><div><div class="cell-main">${esc(u.name)}${u.id === me.id ? ' <span class="tag tag-info">You</span>' : ''}</div><div class="cell-sub">${esc(u.designation || '')}${u.signatory ? ' · <b>Lab signatory</b>' : ''}${u.regNo ? ' · ' + esc(u.regNo) : ''}</div></div></div></td>
           <td class="mono">${esc(u.username)}</td><td>${esc(store.get('roles', u.role)?.name || u.role)}</td><td class="small">${esc(u.phone || '—')}</td><td class="small">${last ? fmtDateTime(last) : 'No activity yet'}</td>
           <td>${badge(u.active ? 'ACTIVE' : 'INACTIVE', u.active ? 'Active' : 'Deactivated')}</td>
           <td><div class="row-actions"><button class="btn btn-ghost btn-sm" data-edit="${u.id}" title="Edit">${icon('pencil')}</button><button class="btn btn-ghost btn-sm" data-pw="${u.id}" title="Reset password">${icon('key-round')}</button>${u.id !== me.id ? `<button class="btn btn-ghost btn-sm" data-toggle="${u.id}" title="${u.active ? 'Deactivate' : 'Activate'}">${icon(u.active ? 'user-x' : 'user-check')}</button>` : ''}</div></td></tr>`; }).join('')}</tbody></table>`, { cls: 'flush' })}

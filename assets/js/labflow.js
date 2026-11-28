@@ -12,7 +12,8 @@ import { audit } from './services.js';
 import { notify } from './notifications.js';
 import { r2 } from './pricing.js';
 import { businessDate } from './pharmacy-calc.js';
-import { svc, billClears, hbillBalance, isCritical, hs } from './hospital.js';
+import { svc, billClears, hbillBalance, isCritical, hs, freshParams } from './hospital.js';
+import { isConfidential, mayBePregnant, hasPregnancyBand } from './labrules.js';
 import { useForTest, useTube, markRepeat } from './labstock.js';
 import { fill, sendWhatsApp, logMessage, smsLink, mailLink, ms } from './messaging.js';
 
@@ -82,7 +83,8 @@ export function validateLabRequest(lab, serviceIds) {
   if (lab.source === 'REFERRAL' && !lab.referralDoctorId && !lab.doctor) errs.push('Choose the referring doctor.');
   if (lab.source === 'SELF') { const rx = tests.filter((t) => t.lab.rxRequired); if (rx.length) errs.push(`${rx.map((t) => t.name).join(', ')} cannot be done on a self request — a doctor's prescription is needed.`); }
   const cons = tests.filter((t) => t.lab.consentRequired);
-  if (cons.length && !lab.consent) errs.push(`Get the patient's signed consent for ${cons.map((t) => t.name).join(', ')} and tick the consent box.`);
+  const c = lab.consent || {};
+  if (cons.length && !(c.signed && c.preTest && String(c.counsellor || '').trim())) errs.push(`${cons.map((t) => t.name).join(', ')}: fill the consent form — counsellor's name, pre-test counselling done and the signed consent form received.`);
   return errs;
 }
 /** Called inside completeHospitalBill's transaction once the lab orders exist. */
@@ -96,7 +98,7 @@ export function createVisitForBill(bill, labOrders, lab, user) {
   labOrders.forEach((o) => { o.doctor = doctor; });
   const v = store.insert('labVisits', { id: store.nextId('labVisits', 'LV-', 5), sid, patientId: bill.patientId, source, priority: source === 'EMERGENCY' ? 'STAT' : lab.priority || 'ROUTINE', billId: bill.id,
     billingRoute: source === 'EMERGENCY' ? 'EMERGENCY' : source === 'PACKAGE' ? 'PACKAGE' : 'COUNTER', doctor, referralDoctorId: rd?.id || null,
-    rxBasis: { OP: 'DOCTOR_ORDER', EMERGENCY: 'DOCTOR_ORDER', REFERRAL: 'OUTSIDE_PRESCRIPTION', SELF: 'SELF_REQUEST', PACKAGE: 'PACKAGE' }[source], prescription: lab.prescription || null, consent: lab.consent ? { at, by: user.id } : null,
+    rxBasis: { OP: 'DOCTOR_ORDER', EMERGENCY: 'DOCTOR_ORDER', REFERRAL: 'OUTSIDE_PRESCRIPTION', SELF: 'SELF_REQUEST', PACKAGE: 'PACKAGE' }[source], prescription: lab.prescription || null, consent: lab.consent?.signed ? { at, by: user.id, counsellor: String(lab.consent.counsellor || '').trim(), preTest: !!lab.consent.preTest, signed: true } : null, pregnant: lab.pregnant ?? null,
     token: opd ? nextToken(day) : null, tokenDay: opd ? day : null, tokenStatus: 'WAITING', calledAt: null, collectionPoint: source === 'EMERGENCY' ? 'CASUALTY' : 'OPD', ipNo: null, ward: null, bed: null, clinicalNotes: lab.notes || '',
     createdAt: at, createdBy: user.id, reportDueAt: new Date(Math.max(...labOrders.map((o) => new Date(at).getTime() + svc(o.serviceId).lab.tatHours * 3600000))).toISOString(), tubes: [], deliveries: [], handover: null });
   labOrders.forEach((o) => { o.labVisitId = v.id; });
@@ -194,9 +196,39 @@ export function onOrderVerified(o, user) {
   notify({ type: 'LAB_REPORT_READY', category: 'Laboratory', severity: 'success', title: `Report ready — SID ${v.sid}`, message: `${p.name}: ${visitOrders(v).map((x) => x.name).join(', ')}. ${v.source === 'IP' ? 'Posted to the IP record.' + waNote : 'Send it on WhatsApp or hand it over at the counter.'}`, refType: 'LABVISIT', refId: v.id, targetRoles: v.source === 'IP' ? ['LAB'] : ['LAB', 'RECEPTION'] });
 }
 
+/** After a released report is amended (F3): IP → posted to the record again; everyone holding an old copy must get the new one. */
+export function onReportAmended(o, no, user) {
+  const v = visitOfOrder(o); if (!v) return;
+  if (v.source === 'IP') v.deliveries.push({ channel: 'WARD', to: `${v.ward} ${v.bed}`.trim(), at: now(), by: user.id, status: 'POSTED_TO_IP_RECORD', amended: no });
+  const old = staleDeliveries(v).filter((d) => d.channel !== 'WARD');
+  const p = store.get('patients', v.patientId);
+  notify({ type: 'LAB_REPORT_AMENDED', category: 'Laboratory', severity: 'warning', title: `Amended report — SID ${v.sid}`, message: `${p?.name}: ${o.name} corrected after release.${old.length ? ` Send the corrected report to ${old.length} earlier recipient(s).` : ''}`, refType: 'LABVISIT', refId: v.id, targetRoles: ['SUPER_ADMIN', 'LAB'] });
+}
+
+// ---------------- pregnancy (reference ranges, F6) ----------------
+/** Record whether the patient is pregnant. Re-applies the range band to tests not verified yet. */
+export function setPregnant(id, value, user) {
+  if (!can('lab.work', user) && !can('hbill.create', user)) throw new Error('You cannot change this.');
+  const v = visit(id); const val = value === true || value === false ? value : null;
+  return store.transaction(() => {
+    v.pregnant = val;
+    visitOrders(v).filter((o) => o.lab && o.status !== 'COMPLETED' && o.lab.params).forEach((o) => { o.lab.params = freshParams(o); });
+    audit(user, 'LAB_PREGNANCY_SET', 'LABVISIT', v.id, `${v.sid}: pregnant = ${val === true ? 'Yes' : val === false ? 'No' : 'Not known'}`);
+    return v;
+  });
+}
+/** Ask about pregnancy? Only women aged 12–55 with a test that has a pregnancy range. */
+export const asksPregnancy = (v) => mayBePregnant(store.get('patients', v.patientId)) && hasPregnancyBand(visitOrders(v).filter((o) => o.status !== 'CANCELLED').map((o) => svc(o.serviceId)).filter(Boolean));
+
 // ---------------- report delivery ----------------
 /** A ward (IP) report the ward asked to send to the patient's WhatsApp too, not sent yet. */
-export const wardWaPending = (v) => v.source === 'IP' && !!v.sendToPatient && !!reportReadyAt(v) && !v.deliveries.some((d) => d.channel === 'WHATSAPP' && !d.toDoctor);
+export const wardWaPending = (v) => v.source === 'IP' && !!v.sendToPatient && !!reportReadyAt(v) && !visitConfidential(v) && !v.deliveries.some((d) => d.channel === 'WHATSAPP' && !d.toDoctor && d.at >= (lastAmendAt(v) || ''));
+/** The SID has a test marked "Confidential" in the Test Master (e.g. HIV): hand over in person only (F4). */
+export const visitConfidential = (v) => visitOrders(v).some((o) => o.status !== 'CANCELLED' && isConfidential(o));
+/** Latest amendment time across the SID's tests (copies sent before it are out of date). */
+export const lastAmendAt = (v) => visitOrders(v).map((o) => o.lab?.amendedAt).filter(Boolean).sort().at(-1) || null;
+/** Deliveries made before the latest amendment — the people who hold an out-of-date copy. */
+export const staleDeliveries = (v) => { const a = lastAmendAt(v); return a ? v.deliveries.filter((d) => d.at < a) : []; };
 export function reportVars(v, { toDoctor = false } = {}) {
   const p = store.get('patients', v.patientId); const s = store.settings();
   const base = ms().publicReportBaseUrl; const link = base ? `View / download: ${base.replace(/\/$/, '')}/r/${v.sid}\n` : '';
@@ -205,6 +237,7 @@ export function reportVars(v, { toDoctor = false } = {}) {
 export function deliverReport(id, channel, { toDoctor = false } = {}, user) {
   if (!can('lab.deliver', user)) throw new Error('You cannot send reports.');
   const v = visit(id); if (!reportReadyAt(v)) throw new Error('The report is not complete yet.');
+  if (visitConfidential(v)) throw new Error('This report has a confidential test. Hand it over in person after post-test counselling — it cannot be sent by WhatsApp, SMS or email.');
   const p = store.get('patients', v.patientId);
   const rd = v.referralDoctorId && store.get('referralDoctors', v.referralDoctorId);
   const to = toDoctor ? rd?.phone : channel === 'EMAIL' ? p.email : p.phone;
@@ -219,14 +252,17 @@ export function deliverReport(id, channel, { toDoctor = false } = {}, user) {
     return { ...out, body };
   });
 }
-export function handOver(id, { collectedBy, name }, user) {
+export function handOver(id, { collectedBy, name, counselled = false, authorised = false }, user) {
   if (!can('lab.deliver', user)) throw new Error('You cannot hand over reports.');
   const v = visit(id); if (!reportReadyAt(v)) throw new Error('The report is not complete yet.');
   if (!name?.trim()) throw new Error('Enter who is collecting the report.');
   const b = v.billId && store.get('hbills', v.billId);
   if (hs().lab.payBeforeHandover && b && hbillBalance(b) > 0.005 && v.source !== 'EMERGENCY') throw new Error(`₹${hbillBalance(b)} is still due on bill ${b.id}. Collect it before handing over the report.`);
+  const conf = visitConfidential(v);
+  if (conf && !counselled) throw new Error('Confidential test: tick that post-test counselling was done before handing over.');
+  if (conf && (collectedBy || 'Self') !== 'Self' && !authorised) throw new Error('Confidential test: only the patient, or a person with the patient’s written authorisation, may collect it.');
   return store.transaction(() => {
-    v.handover = { at: now(), by: user.id, collectedBy: collectedBy || 'Self', name: name.trim(), printCount: 1 };
+    v.handover = { at: now(), by: user.id, collectedBy: collectedBy || 'Self', name: name.trim(), printCount: 1, ...(conf ? { counselled: true, authorised: !!authorised } : {}) };
     v.deliveries.push({ channel: 'COUNTER', to: name.trim(), at: now(), by: user.id, status: 'HANDED_OVER' });
     audit(user, 'LAB_REPORT_HANDED_OVER', 'LABVISIT', v.id, `${v.sid} to ${name} (${collectedBy})`);
     return v;

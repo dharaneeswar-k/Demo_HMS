@@ -37,8 +37,8 @@ The order puts **patient safety first**, then items that change daily lab work, 
 
 | # | Item | Why it matters | Depends on | Size | Status |
 |---|---|---|---|---|---|
-| P2-01 | Age / sex / pregnancy ranges, unit conversion | Wrong range = wrong flag for children, women, pregnancy | Test Master (§37) | S | Designed |
-| P2-02 | Critical value call log | NABL: critical result must be phoned and logged before release | P2-01 (flags) | S | Designed |
+| P2-01 | Age / sex / pregnancy ranges, unit conversion | Wrong range = wrong flag for children, women, pregnancy | Test Master (§37) | S | **Built** (ranges; unit conversion not yet) |
+| P2-02 | Critical value call log | NABL: critical result must be phoned and logged before release | P2-01 (flags) | S | **Built** |
 | P2-03 | Delta checks + auto-verification | Catches sample mix-ups; speeds up normal reports | P2-01, P2-04 | M | Designed |
 | P2-04 | QC module | No patient report on a failed QC run | Lab stock QC lots (§16) | M | Designed |
 | P2-05 | Analyser interface (simulated) | No retyping; fewer transcription errors | P2-04 (QC gate) | M | Designed |
@@ -74,6 +74,8 @@ Insurance / TPA pre-authorisation is **not** in this list: it belongs to Central
 ---
 
 ## 3. P2-01 Age / sex / pregnancy reference ranges and unit conversion
+
+> **Built 28 Nov 2026** (except unit conversion) — as-built rules in [LAB_MODULE_SPECIFICATION.md](LAB_MODULE_SPECIFICATION.md) §38.6.
 
 ### 3.1 Purpose
 Today each parameter has one `low / high / critLow / critHigh`. Children, women and pregnant women need their own ranges (for example Haemoglobin 11–14 g/dL in a child, 11–15 in pregnancy, 13–17 in an adult man).
@@ -139,6 +141,8 @@ Bands for Haemoglobin, Platelets, Creatinine (male/female), TSH (pregnancy trime
 ---
 
 ## 4. P2-02 Critical value call log
+
+> **Built 28 Nov 2026** — as-built rules in [LAB_MODULE_SPECIFICATION.md](LAB_MODULE_SPECIFICATION.md) §38.6.
 
 ### 4.1 Purpose
 A critical result (LL / HH) must be **phoned to the doctor and written down before the report is released** (NABL practice). Today the demo only alerts.
@@ -853,3 +857,11 @@ Every build of a phase 2 item adds a row here **and** a short entry under it: wh
 | Date | Version | Item | Change |
 |---|---|---|---|
 | 2026-11-27 | 0.1 | All | Phase 2 flows designed (this document). Nothing built yet. |
+| 2026-11-28 | 0.2 | P2-01, P2-02 | Built together with the compliance must-fix items F1–F6. |
+
+**0.2 — P2-01 and P2-02 built (28 Nov 2026).**
+- *Built:* per-parameter ranges by sex, age (days / months / years) and pregnancy in the Test Master; most specific range wins; overlap check; pregnancy question at billing and on the SID page; range name printed. Critical call log (Informed / Not reachable / Left a message, read-back) blocks verification; alert after 15 min; call printed on the report.
+- *Files:* `labrules.js` (new), `hospital.js`, `labmaster.js`, `labflow.js`, `modules/lab/master.js`, `modules/lab/sid.js`, `modules/labdesk.js`, `modules/hbilling.js`, `alert-rules.js`, `modules/home.js`, `modules/setup.js`, `tools/hospital-data.mjs`.
+- *Data:* `parameter.ranges[]`, `labVisit.pregnant`, `order.lab.criticalCalls[]`, `order.lab.criticalSince`; settings `criticalCallRequired`, `criticalEscalateMins`.
+- *Tests:* checked in the browser — child Hb on the child range, pregnancy Hb and TSH on the pregnancy range, verify refused without a call and without read-back, verify after a proper call, call kept after correcting a normal value and required again after changing the critical value.
+- *Differences from this design:* unit conversion (`altUnit`) is not built yet; an amendment that gives a critical value is allowed and then asks for a call after release (alert to the owner) instead of blocking the amendment.

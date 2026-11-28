@@ -13,6 +13,7 @@ import { navigate } from '../../router.js';
 import { esc, fmtINR, fmtDate, fmtDateTime, refreshIcons, ymd } from '../../utils.js';
 import { cap, tubeInfo } from './ui.js';
 import { icon, emptyState } from './bi.js';
+import { NOTIFIABLE } from '../../labrules.js';
 
 // =====================================================================================================
 export function renderTestList(view, params, query) {
@@ -36,7 +37,7 @@ export function renderTestList(view, params, query) {
         <td><strong>${esc(t.name)}</strong><div class="cell-sub"><span class="mono">${esc(t.code)}</span>${t.version > 1 ? ` · v${t.version}, changed ${fmtDate(t.updatedAt)}` : ''}</div></td>
         <td>${esc(t.lab.department)}</td><td><span class="tm-tube">${cap(t.lab.container)}<span>${esc(t.lab.sample)}<small>${esc(ti.name)}</small></span></span></td>
         <td class="small">${t.lab.parameters.slice(0, 3).map((p) => esc(p.name)).join(', ')}${t.lab.parameters.length > 3 ? ` <span class="muted">+${t.lab.parameters.length - 3} more</span>` : ''}</td>
-        <td>${t.lab.tatHours} h</td><td>${t.lab.rxRequired ? `<span class="lx-pill lx-warning" title="Not allowed on a self request">${icon('file-text')}Rx</span> ` : ''}${t.lab.consentRequired ? `<span class="lx-pill lx-purple" title="Signed consent needed">${icon('pen-line')}Consent</span>` : ''}${!t.lab.rxRequired && !t.lab.consentRequired ? '<span class="muted">—</span>' : ''}</td>
+        <td>${t.lab.tatHours} h</td><td>${t.lab.rxRequired ? `<span class="lx-pill lx-warning" title="Not allowed on a self request">${icon('file-text')}Rx</span> ` : ''}${t.lab.consentRequired ? `<span class="lx-pill lx-purple" title="Signed consent needed">${icon('pen-line')}Consent</span> ` : ''}${t.lab.confidential ? `<span class="lx-pill" title="Confidential — in-person hand-over only">${icon('lock')}Confidential</span> ` : ''}${t.lab.notifiable ? `<span class="lx-pill lx-warning" title="Notifiable disease">${icon('megaphone')}${esc(t.lab.notifiable)}</span> ` : ''}${t.lab.parameters.some((p) => (p.ranges || []).length) ? `<span class="lx-pill" title="Age / sex / pregnancy ranges">${icon('people')}Ranges</span>` : ''}${!t.lab.rxRequired && !t.lab.consentRequired && !t.lab.confidential && !t.lab.notifiable && !t.lab.parameters.some((p) => (p.ranges || []).length) ? '<span class="muted">—</span>' : ''}</td>
         <td class="ta-right strong">${fmtINR(t.price)}</td><td>${t.active ? '<span class="lx-status lx-st-success"><i></i>Offered</span>' : '<span class="lx-status lx-st-muted"><i></i>Stopped</span>'}</td></tr>`; }).join('')}</tbody></table></div>`
       : emptyState('flask-conical', q ? 'No test matches' : 'No tests here', q ? `Nothing matches “${esc(qEl.value)}”.` : '', edit ? '<a class="btn btn-primary" href="#/lab/tests/new">Add a test</a>' : '');
     view.querySelectorAll('[data-st]').forEach((b) => { b.onclick = () => { status = b.dataset.st; draw(); }; });
@@ -79,10 +80,12 @@ export function renderTestEditor(view, params) {
             <div class="field tm-c6"><label>Method <span class="muted">(optional, printed on report)</span></label><input class="input" data-k="method" value="${esc(d.method)}" placeholder="e.g. Automated analyser, Rapid card" ${dis}></div>
             <div class="field tm-c6"><label>Note under the result <span class="muted">(optional)</span></label><input class="input" data-k="note" value="${esc(d.note)}" placeholder="e.g. Fasting sample of 10–12 hours preferred" ${dis}></div>
             <div class="tm-c12 tm-rules"><label class="switch"><input type="checkbox" data-k="rxRequired" ${d.rxRequired ? 'checked' : ''} ${dis}> <span><strong>Prescription needed</strong><small>Cannot be billed as a self request</small></span></label>
-              <label class="switch"><input type="checkbox" data-k="consentRequired" ${d.consentRequired ? 'checked' : ''} ${dis}> <span><strong>Signed consent needed</strong><small>Reception must confirm consent before billing</small></span></label></div>
+              <label class="switch"><input type="checkbox" data-k="consentRequired" ${d.consentRequired ? 'checked' : ''} ${dis}> <span><strong>Signed consent needed</strong><small>Reception fills the consent form (counsellor, pre-test counselling) before billing</small></span></label>
+              <label class="switch"><input type="checkbox" data-k="confidential" ${d.confidential ? 'checked' : ''} ${dis}> <span><strong>Confidential result</strong><small>e.g. HIV — handed over in person only, never sent by WhatsApp / SMS / email, hidden from non-lab staff. Untick to treat it like any other test.</small></span></label></div>
+            <div class="field tm-c6"><label>Notifiable disease</label><select class="input" data-k="notifiable" ${dis}><option value="">No — not notifiable</option>${Object.entries(NOTIFIABLE).map(([k, x]) => `<option value="${k}" ${d.notifiable === k ? 'selected' : ''}>${esc(x.label)}</option>`).join('')}</select><small class="field-hint">A positive result goes on the notification register (report within 24 h)</small></div>
           </div></section>
 
-        <section class="sid-card"><header class="sid-card-head"><h2>${icon('list-checks')}What the report shows</h2><span class="muted small">One row per result. Numbers get High / Low / Critical flags automatically.</span></header>
+        <section class="sid-card"><header class="sid-card-head"><h2>${icon('list-checks')}What the report shows</h2><span class="muted small">One row per result. Numbers get High / Low / Critical flags automatically. Add age / sex / pregnancy ranges where the normal values differ.</span></header>
           <div class="table-scroll"><table class="tm-params"><thead><tr><th></th><th>Result name</th><th>Type</th><th>Unit</th><th>Normal low</th><th>Normal high</th><th>Critical low</th><th>Critical high</th><th></th></tr></thead><tbody data-params></tbody></table></div>
           ${edit ? `<div class="tm-add"><button class="btn btn-ghost btn-sm" data-addp="NUM">${icon('plus')}Number result</button><button class="btn btn-ghost btn-sm" data-addp="TEXT">${icon('plus')}Text result (e.g. Negative)</button></div>` : ''}</section>
 
@@ -109,10 +112,28 @@ export function renderTestEditor(view, params) {
       <td><input class="input input-sm tm-unit" data-p="unit" value="${esc(p.unit)}" placeholder="g/dL" ${dis}></td>
       ${p.type === 'TEXT' ? `<td colspan="4"><input class="input input-sm" data-p="ref" value="${esc(p.ref || '')}" placeholder="Normal result, e.g. Negative / Nil / Non-reactive" ${dis}></td>`
         : ['low', 'high', 'critLow', 'critHigh'].map((k) => `<td><input class="input input-sm tm-num ${k.startsWith('crit') ? 'crit' : ''}" type="number" step="any" data-p="${k}" value="${esc(p[k])}" placeholder="${k.startsWith('crit') ? 'optional' : ''}" ${dis}></td>`).join('')}
-      <td>${edit ? `<button class="icon-btn lx-danger-text" data-delp="${i}" title="Remove" ${d.parameters.length > 1 ? '' : 'disabled'}>${icon('trash-2')}</button>` : ''}</td></tr>`).join('');
+      <td>${edit ? `<button class="icon-btn lx-danger-text" data-delp="${i}" title="Remove" ${d.parameters.length > 1 ? '' : 'disabled'}>${icon('trash-2')}</button>` : ''}</td></tr>
+      ${p.type === 'NUM' && ((p.ranges || []).length || edit) ? `<tr class="tm-bandrow" data-i="${i}"><td></td><td colspan="8">${bandsHtml(p, i)}</td></tr>` : ''}`).join('');
     tb.querySelectorAll('[data-p]').forEach((el) => { el.addEventListener(el.tagName === 'SELECT' ? 'change' : 'input', () => { const i = +el.closest('tr').dataset.i; const k = el.dataset.p; d.parameters[i][k] = el.value; dirty = true; if (k === 'type') { drawParams(); refreshIcons(tb); } drawPreview(); check(); }); });
     tb.querySelectorAll('[data-up],[data-down]').forEach((b) => { b.onclick = () => { const i = +(b.dataset.up ?? b.dataset.down); const j = b.dataset.up != null ? i - 1 : i + 1; [d.parameters[i], d.parameters[j]] = [d.parameters[j], d.parameters[i]]; dirty = true; drawParams(); drawPreview(); refreshIcons(tb); }; });
     tb.querySelectorAll('[data-delp]').forEach((b) => { b.onclick = () => { d.parameters.splice(+b.dataset.delp, 1); dirty = true; drawParams(); drawPreview(); refreshIcons(tb); }; });
+    tb.querySelectorAll('[data-addb]').forEach((b) => { b.onclick = () => { const p = d.parameters[+b.dataset.addb]; (p.ranges ||= []).push({ label: '', sex: 'ANY', ageFrom: '', ageFromUnit: 'y', ageTo: '', ageToUnit: 'y', pregnant: '', low: '', high: '', critLow: '', critHigh: '' }); dirty = true; drawParams(); refreshIcons(tb); tb.querySelector(`.tm-bandrow[data-i="${b.dataset.addb}"] tr:last-child [data-b=label]`)?.focus(); check(); }; });
+    tb.querySelectorAll('[data-delb]').forEach((b) => { b.onclick = () => { const [i, j] = b.dataset.delb.split(':').map(Number); d.parameters[i].ranges.splice(j, 1); dirty = true; drawParams(); refreshIcons(tb); check(); }; });
+    tb.querySelectorAll('[data-b]').forEach((el) => { el.addEventListener(el.tagName === 'SELECT' || el.type === 'checkbox' ? 'change' : 'input', () => { const i = +el.closest('.tm-bandrow').dataset.i; const j = +el.closest('tr[data-j]').dataset.j;
+      d.parameters[i].ranges[j][el.dataset.b] = el.type === 'checkbox' ? (el.checked ? 'Y' : '') : el.value; dirty = true; check(); }); });
+  };
+  const bandsHtml = (p, i) => {
+    const bs = p.ranges || [];
+    const unit = (k, v) => `<select class="input input-sm tm-age-u" data-b="${k}" ${dis}>${[['d', 'days'], ['m', 'months'], ['y', 'years']].map(([u, l]) => `<option value="${u}" ${v === u ? 'selected' : ''}>${l}</option>`).join('')}</select>`;
+    return `<div class="tm-bands">${bs.length ? `<table class="tm-bandtbl"><thead><tr><th>Range name</th><th>Sex</th><th>Age from</th><th>Age to</th><th>Pregnant</th><th>Low</th><th>High</th><th>Crit. low</th><th>Crit. high</th><th></th></tr></thead><tbody>
+      ${bs.map((b, j) => `<tr data-j="${j}"><td><input class="input input-sm" data-b="label" value="${esc(b.label)}" placeholder="e.g. Child 1–12 y" ${dis}></td>
+        <td><select class="input input-sm" data-b="sex" ${dis}>${[['ANY', 'Any'], ['M', 'Male'], ['F', 'Female']].map(([k, l]) => `<option value="${k}" ${b.sex === k ? 'selected' : ''}>${l}</option>`).join('')}</select></td>
+        <td><span class="tm-age"><input class="input input-sm tm-num" type="number" min="0" data-b="ageFrom" value="${esc(b.ageFrom)}" placeholder="0" ${dis}>${unit('ageFromUnit', b.ageFromUnit)}</span></td>
+        <td><span class="tm-age"><input class="input input-sm tm-num" type="number" min="0" data-b="ageTo" value="${esc(b.ageTo)}" placeholder="no limit" ${dis}>${unit('ageToUnit', b.ageToUnit)}</span></td>
+        <td class="ta-center"><input type="checkbox" data-b="pregnant" ${b.pregnant ? 'checked' : ''} ${dis} title="Only for pregnant women"></td>
+        ${['low', 'high', 'critLow', 'critHigh'].map((k) => `<td><input class="input input-sm tm-num ${k.startsWith('crit') ? 'crit' : ''}" type="number" step="any" data-b="${k}" value="${esc(b[k])}" placeholder="${k.startsWith('crit') ? 'as default' : ''}" ${dis}></td>`).join('')}
+        <td>${edit ? `<button class="icon-btn lx-danger-text" data-delb="${i}:${j}" title="Remove range">${icon('x')}</button>` : ''}</td></tr>`).join('')}</tbody></table>` : ''}
+      ${edit ? `<button class="btn btn-ghost btn-sm" data-addb="${i}">${icon('plus')}Age / sex / pregnancy range</button>` : ''}${bs.length ? '<small class="muted"> The most specific matching range is used; patients who match none get the default range above.</small>' : ''}</div>`;
   };
   const drawKits = () => {
     const el = view.querySelector('[data-kits]');
@@ -136,7 +157,7 @@ export function renderTestEditor(view, params) {
       if (k === 'code') el.value = el.value.toUpperCase().replace(/\s/g, '');
       drawPreview(); check(); }); });
     view.querySelectorAll('[data-tube]').forEach((b) => { b.onclick = () => { d.container = b.dataset.tube; dirty = true; view.querySelectorAll('[data-tube]').forEach((x) => x.classList.toggle('active', x === b)); drawPreview(); }; });
-    view.querySelectorAll('[data-addp]').forEach((b) => { b.onclick = () => { d.parameters.push(b.dataset.addp === 'TEXT' ? { type: 'TEXT', name: '', unit: '', ref: '' } : { type: 'NUM', name: '', unit: '', low: '', high: '', critLow: '', critHigh: '' }); drawParams(); refreshIcons(view); view.querySelector(`[data-params] tr:last-child [data-p=name]`).focus(); check(); }; });
+    view.querySelectorAll('[data-addp]').forEach((b) => { b.onclick = () => { d.parameters.push(b.dataset.addp === 'TEXT' ? { type: 'TEXT', name: '', unit: '', ref: '' } : { type: 'NUM', name: '', unit: '', low: '', high: '', critLow: '', critHigh: '' }); drawParams(); refreshIcons(view); [...view.querySelectorAll('[data-params] [data-p=name]')].at(-1)?.focus(); check(); }; });
     view.querySelector('[data-addk]')?.addEventListener('click', () => { d.kits.push({ kitId: '', qty: 1 }); drawKits(); refreshIcons(view); });
     view.querySelector('[data-save]')?.addEventListener('click', save);
     view.querySelectorAll('[data-active]').forEach((b) => { b.onclick = () => toggleActive(b.dataset.active === '1'); });

@@ -1,4 +1,6 @@
 // Patient Management (BRD module 01) — registration, unique Patient ID (UHID), duplicate check and visit history.
+import { isConfidential, canSeeConfidential } from './labrules.js';
+import { currentUser } from './auth.js';
 import { store } from './data-service.js';
 import { can } from './auth.js';
 import { audit } from './services.js';
@@ -70,7 +72,8 @@ export function patientHistory(patientId) {
   bills.forEach((b) => items.push({ kind: 'BILL', at: b.at, title: `Pharmacy sale ${b.id}`, detail: `${b.lineCount} item(s)${b.doctor ? ' · ' + b.doctor : ''}`, amount: b.grandTotal, status: b.status, ref: b.id, by: b.cashierId }));
   store.all('pReturns').filter((r) => billIds.has(r.billId)).forEach((r) => items.push({ kind: 'RETURN', at: r.at, title: `Medicine return ${r.id}`, detail: `Against ${r.billId} · ${r.reason}`, amount: -r.refundAmount, status: r.status, ref: r.id, by: r.requestedBy }));
   (store.all('hbills') || []).filter((b) => b.patientId === patientId).forEach((b) => items.push({ kind: 'HBILL', at: b.at, title: `Hospital bill ${b.id}`, detail: b.items.map((x) => x.name).slice(0, 4).join(', ') + (b.items.length > 4 ? ` +${b.items.length - 4}` : '') + (b.doctor ? ' · ' + b.doctor : ''), amount: b.grandTotal, status: b.status, ref: b.id, by: b.counterUserId }));
-  (store.all('orders') || []).filter((o) => o.patientId === patientId && o.category === 'LAB' && o.status === 'COMPLETED').forEach((o) => items.push({ kind: 'LAB', at: o.lab.verifiedAt, title: `Lab report — ${o.name}`, detail: `${o.lab.reportNo} · ${o.accession}`, ref: o.id, by: o.lab.verifiedBy }));
+  (store.all('orders') || []).filter((o) => o.patientId === patientId && o.category === 'LAB' && o.status === 'COMPLETED').forEach((o) => { const hide = isConfidential(o) && !canSeeConfidential(currentUser());
+    items.push({ kind: 'LAB', at: o.lab.verifiedAt, title: hide ? 'Lab report — confidential test' : `Lab report — ${o.name}${o.lab.amendedAt ? ' (amended)' : ''}`, detail: hide ? 'Restricted — the patient collects it at the lab' : `${o.lab.reportNo} · ${o.accession}`, ref: hide ? null : o.id, by: o.lab.verifiedBy }); });
   (store.all('orders') || []).filter((o) => o.patientId === patientId && o.category !== 'LAB' && o.status === 'COMPLETED').forEach((o) => items.push({ kind: 'SERVICE', at: o.performedAt, title: o.name, detail: o.notes || 'Done', ref: o.id, by: o.performedBy }));
   (store.all('patientPackages') || []).filter((x) => x.patientId === patientId).forEach((x) => items.push({ kind: 'PACKAGE', at: x.startAt, title: `Package — ${store.get('packages', x.packageId)?.name}`, detail: `Valid till ${x.validUntil} · ${x.status.toLowerCase()}`, ref: x.id, by: null }));
   (store.all('medicalRecords') || []).filter((r) => r.patientId === patientId).forEach((r) => items.push({ kind: 'ADMISSION', at: r.admittedAt, title: `${r.episodeType === 'IP' ? 'Admission' : r.episodeType === 'DAYCARE' ? 'Day care' : 'Visit'} — ${r.diagnosis || 'diagnosis pending'}`, detail: `${r.mrdNo}${r.ipNo ? ' · ' + r.ipNo : ''} · ${r.ward || ''}${r.dischargedAt ? ' · discharged ' + r.dischargedAt.slice(0, 10) : ' · admitted'}`, ref: r.id, by: r.createdBy }));

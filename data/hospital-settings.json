@@ -78,7 +78,12 @@
   "lab": {
     "reportPrefix": "LR",
     "accessionPrefix": "LAB",
-    "requireSecondPersonVerification": false,
+    "requireSecondPersonVerification": true,
+    "signatoryOnly": true,
+    "criticalCallRequired": true,
+    "criticalEscalateMins": 15,
+    "notifyWithinHours": 24,
+    "establishmentRegNo": "TN/CEA/KRI/2025/00187 (sample)",
     "kitVarianceTolerance": 2,
     "reportCollectDays": 15,
     "payBeforeHandover": true,

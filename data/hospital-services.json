@@ -13,6 +13,8 @@
       "tatHours": 4,
       "rxRequired": false,
       "consentRequired": false,
+      "confidential": false,
+      "notifiable": null,
       "kits": [
         {
           "kitId": "KIT-0001",
@@ -26,7 +28,75 @@
           "low": 12,
           "high": 17,
           "critLow": 7,
-          "critHigh": 20
+          "critHigh": 20,
+          "ranges": [
+            {
+              "label": "Newborn (0–30 d)",
+              "sex": "ANY",
+              "ageFromDays": 0,
+              "ageToDays": 30,
+              "pregnant": null,
+              "low": 14,
+              "high": 22,
+              "critLow": 10,
+              "critHigh": 24
+            },
+            {
+              "label": "Infant (1–12 m)",
+              "sex": "ANY",
+              "ageFromDays": 31,
+              "ageToDays": 364,
+              "pregnant": null,
+              "low": 10,
+              "high": 14,
+              "critLow": 7,
+              "critHigh": 20
+            },
+            {
+              "label": "Child (1–12 y)",
+              "sex": "ANY",
+              "ageFromDays": 365,
+              "ageToDays": 4744,
+              "pregnant": null,
+              "low": 11,
+              "high": 14,
+              "critLow": 7,
+              "critHigh": 20
+            },
+            {
+              "label": "Adult female",
+              "sex": "F",
+              "ageFromDays": 4745,
+              "ageToDays": null,
+              "pregnant": null,
+              "low": 12,
+              "high": 15,
+              "critLow": null,
+              "critHigh": null
+            },
+            {
+              "label": "Pregnancy",
+              "sex": "F",
+              "ageFromDays": 4745,
+              "ageToDays": null,
+              "pregnant": true,
+              "low": 11,
+              "high": 14,
+              "critLow": 7,
+              "critHigh": 20
+            },
+            {
+              "label": "Adult male",
+              "sex": "M",
+              "ageFromDays": 4745,
+              "ageToDays": null,
+              "pregnant": null,
+              "low": 13,
+              "high": 17,
+              "critLow": null,
+              "critHigh": null
+            }
+          ]
         },
         {
           "name": "Total WBC count",
@@ -34,7 +104,31 @@
           "low": 4000,
           "high": 11000,
           "critLow": 2000,
-          "critHigh": 30000
+          "critHigh": 30000,
+          "ranges": [
+            {
+              "label": "Newborn (0–30 d)",
+              "sex": "ANY",
+              "ageFromDays": 0,
+              "ageToDays": 30,
+              "pregnant": null,
+              "low": 9000,
+              "high": 30000,
+              "critLow": 4000,
+              "critHigh": 40000
+            },
+            {
+              "label": "Child (1–12 y)",
+              "sex": "ANY",
+              "ageFromDays": 365,
+              "ageToDays": 4744,
+              "pregnant": null,
+              "low": 5000,
+              "high": 14500,
+              "critLow": 2000,
+              "critHigh": 30000
+            }
+          ]
         },
         {
           "name": "Platelet count",
@@ -111,6 +205,8 @@
       "tatHours": 6,
       "rxRequired": false,
       "consentRequired": false,
+      "confidential": false,
+      "notifiable": null,
       "kits": [
         {
           "kitId": "KIT-0002",
@@ -209,6 +305,8 @@
       "tatHours": 6,
       "rxRequired": false,
       "consentRequired": false,
+      "confidential": false,
+      "notifiable": null,
       "kits": [
         {
           "kitId": "KIT-0003",
@@ -230,7 +328,42 @@
           "low": 0.6,
           "high": 1.3,
           "critLow": null,
-          "critHigh": 5
+          "critHigh": 5,
+          "ranges": [
+            {
+              "label": "Child (1–12 y)",
+              "sex": "ANY",
+              "ageFromDays": 365,
+              "ageToDays": 4744,
+              "pregnant": null,
+              "low": 0.2,
+              "high": 0.7,
+              "critLow": null,
+              "critHigh": 3
+            },
+            {
+              "label": "Adult female",
+              "sex": "F",
+              "ageFromDays": 4745,
+              "ageToDays": null,
+              "pregnant": null,
+              "low": 0.5,
+              "high": 1.1,
+              "critLow": null,
+              "critHigh": null
+            },
+            {
+              "label": "Adult male",
+              "sex": "M",
+              "ageFromDays": 4745,
+              "ageToDays": null,
+              "pregnant": null,
+              "low": 0.7,
+              "high": 1.3,
+              "critLow": null,
+              "critHigh": null
+            }
+          ]
         },
         {
           "name": "Uric acid",
@@ -291,6 +424,8 @@
       "tatHours": 2,
       "rxRequired": false,
       "consentRequired": false,
+      "confidential": false,
+      "notifiable": null,
       "kits": [
         {
           "kitId": "KIT-0004",
@@ -341,6 +476,8 @@
       "tatHours": 2,
       "rxRequired": false,
       "consentRequired": false,
+      "confidential": false,
+      "notifiable": null,
       "kits": [
         {
           "kitId": "KIT-0004",
@@ -391,6 +528,8 @@
       "tatHours": 6,
       "rxRequired": false,
       "consentRequired": false,
+      "confidential": false,
+      "notifiable": null,
       "kits": [
         {
           "kitId": "KIT-0005",
@@ -449,6 +588,8 @@
       "tatHours": 6,
       "rxRequired": false,
       "consentRequired": false,
+      "confidential": false,
+      "notifiable": null,
       "kits": [
         {
           "kitId": "KIT-0006",
@@ -531,6 +672,8 @@
       "tatHours": 8,
       "rxRequired": false,
       "consentRequired": false,
+      "confidential": false,
+      "notifiable": null,
       "kits": [
         {
           "kitId": "KIT-0007",
@@ -560,7 +703,20 @@
           "low": 0.27,
           "high": 4.2,
           "critLow": null,
-          "critHigh": null
+          "critHigh": null,
+          "ranges": [
+            {
+              "label": "Pregnancy",
+              "sex": "F",
+              "ageFromDays": 4745,
+              "ageToDays": null,
+              "pregnant": true,
+              "low": 0.1,
+              "high": 3,
+              "critLow": null,
+              "critHigh": null
+            }
+          ]
         }
       ],
       "method": "CLIA",
@@ -597,6 +753,8 @@
       "tatHours": 2,
       "rxRequired": false,
       "consentRequired": false,
+      "confidential": false,
+      "notifiable": null,
       "kits": [
         {
           "kitId": "KIT-0008",
@@ -683,6 +841,8 @@
       "tatHours": 1,
       "rxRequired": false,
       "consentRequired": false,
+      "confidential": false,
+      "notifiable": "IDSP",
       "kits": [
         {
           "kitId": "KIT-0009",
@@ -730,6 +890,8 @@
       "tatHours": 3,
       "rxRequired": false,
       "consentRequired": false,
+      "confidential": false,
+      "notifiable": null,
       "kits": [
         {
           "kitId": "KIT-0010",
@@ -782,6 +944,8 @@
       "tatHours": 3,
       "rxRequired": false,
       "consentRequired": false,
+      "confidential": false,
+      "notifiable": null,
       "kits": [
         {
           "kitId": "KIT-0011",
@@ -841,6 +1005,8 @@
       "tatHours": 2,
       "rxRequired": true,
       "consentRequired": true,
+      "confidential": true,
+      "notifiable": null,
       "kits": [
         {
           "kitId": "KIT-0012",
@@ -1009,5 +1175,49 @@
     "category": "OTHER",
     "price": 500,
     "active": true
+  },
+  {
+    "id": "SRV-0031",
+    "code": "AFB",
+    "name": "Sputum for AFB (ZN stain)",
+    "category": "LAB",
+    "price": 200,
+    "active": true,
+    "lab": {
+      "sample": "Sputum",
+      "container": "URINE",
+      "department": "Microbiology",
+      "tatHours": 24,
+      "rxRequired": false,
+      "consentRequired": false,
+      "confidential": false,
+      "notifiable": "TB",
+      "kits": [],
+      "parameters": [
+        {
+          "name": "Acid-fast bacilli (AFB)",
+          "unit": "",
+          "ref": "Not seen"
+        }
+      ],
+      "method": "Ziehl–Neelsen stain, light microscopy",
+      "note": ""
+    },
+    "version": 1,
+    "createdAt": "2026-08-01T04:30:00.000Z",
+    "createdBy": "USR-0003",
+    "updatedAt": "2026-08-01T04:30:00.000Z",
+    "updatedBy": "USR-0003",
+    "history": [
+      {
+        "at": "2026-08-01T04:30:00.000Z",
+        "by": "USR-0003",
+        "version": 1,
+        "reason": "Initial test list set up",
+        "changes": [
+          "Test created"
+        ]
+      }
+    ]
   }
 ]

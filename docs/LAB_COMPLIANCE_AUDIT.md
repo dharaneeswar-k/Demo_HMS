@@ -1,7 +1,7 @@
 # Nallam Hospital HMS — Lab Module Compliance & Audit Review
 
 **Scope:** BRD Module 06 Laboratory, as built in the demo (branch `feature_d`)
-**Date:** 2026-11-27 · **Version:** 0.1 · **Status:** Review. No code was changed by this review.
+**Date:** 2026-11-28 · **Version:** 0.2 · **Status:** F1–F6 built in the demo (see §4.1 and [LAB_MODULE_SPECIFICATION.md](LAB_MODULE_SPECIFICATION.md) §38).
 **Read with:** [LAB_MODULE_SPECIFICATION.md](LAB_MODULE_SPECIFICATION.md), [LAB_PHASE2_SPECIFICATION.md](LAB_PHASE2_SPECIFICATION.md)
 
 > **Not legal advice.** This review lists the Indian laws and standards that touch a hospital lab, and checks what the software must do for each. The hospital must confirm the final position with its legal adviser, the Tamil Nadu Clinical Establishments authority and (if it applies for accreditation) NABL. Where a source could not be fully confirmed, the table says **"confirm"**.
@@ -13,8 +13,8 @@
 | Question | Answer |
 |---|---|
 | Is the lab flow complete? | Yes, for phase 1. |
-| Is it legally ready for real patients? | **Not yet.** 6 items are **must fix before go-live** (§4.1). Most are small. |
-| Is the audit trail good? | **Good for a demo, not enough for production.** Every key action is logged with who and when, but old → new values, report views and tamper-proofing are missing (§5). |
+| Is it legally ready for real patients? | The 6 **must fix** items (§4.1) are **built in the demo** (28 Nov 2026). Production still needs the server-side items in §4.3 and the hospital's answers in §6. |
+| Is the audit trail good? | **Good for a demo, not enough for production.** Every key action is logged with who and when; old → new values for results, report views and prints are now logged. Tamper-proofing is still missing (§5). |
 
 ---
 
@@ -94,17 +94,19 @@ Legend: ✅ met · ⚠️ partly · ❌ missing · **Must** = before real patien
 ## 4. What to fix, in order
 
 ### 4.1 Must fix before real patients (all can be built in the demo on JSON)
-| # | Fix | Size |
-|---|---|---|
-| F1 | **Signatory details**: add `qualification`, `councilRegNo`, `signatory: true`, signature image to users; only signatories can verify; report prints name, qualification, reg no and signature | S |
-| F2 | **Result history**: keep every previous value (`results[].history[]` with old value, new value, who, when, reason); correction after first entry needs a reason; audit stores old → new | S |
-| F3 | **Amended report**: Super Admin / signatory can *amend* a released report with a reason → new version, printed "AMENDED REPORT — replaces report LR-… of <date>. Reason: …", the original stays viewable, and everyone it was sent to is listed for re-sending | M |
-| F4 | **HIV / confidential tests**: test flag `confidential: true`; consent record with counsellor name and pre-/post-test counselling; delivery only by hand at the counter (no WhatsApp / SMS / email / referral copy); hidden from the patient timeline for roles other than lab and the treating doctor; every view audited | M |
-| F5 | **Notifiable diseases**: test flag `notifiable: 'TB' | 'IDSP'`; a positive verified result creates an entry in a **Notification register** (patient, test, result, date) with "Notified on Ni-kshay / IHIP — ID ___ — by ___" and an overdue alert after 24 h | S |
-| F6 | **P2-01 ranges + P2-02 critical call log** (already designed in the phase 2 spec) | S + S |
+**All six are built (v0.2).** The *Built* column says what the demo does; the full rules are in the lab spec §38.
+
+| # | Fix | Size | Built |
+|---|---|---|---|
+| F1 | **Signatory details**: add `qualification`, `councilRegNo`, `signatory: true`, signature image to users; only signatories can verify; report prints name, qualification, reg no and signature | S | Yes — users have qualification, `regNo`, `signatory`, signature image; only signatories verify / amend (setting); report prints them plus the establishment Reg. No. (§38.1) |
+| F2 | **Result history**: keep every previous value (`results[].history[]` with old value, new value, who, when, reason); correction after first entry needs a reason; audit stores old → new | S | Yes — `order.lab.history[]` with old → new, who, when, reason; reason required; *Changes* tab (§38.2) |
+| F3 | **Amended report**: Super Admin / signatory can *amend* a released report with a reason → new version, printed "AMENDED REPORT — replaces report LR-… of <date>. Reason: …", the original stays viewable, and everyone it was sent to is listed for re-sending | M | Yes — `order.lab.amendments[]`, AMENDED report, superseded copy viewable, earlier recipients listed, ward re-posted (§38.3) |
+| F4 | **HIV / confidential tests**: test flag `confidential: true`; consent record with counsellor name and pre-/post-test counselling; delivery only by hand at the counter (no WhatsApp / SMS / email / referral copy); hidden from the patient timeline for roles other than lab and the treating doctor; every view audited | M | Yes — **per-test switch** in the Test Master (unticked = normal test); consent form with counsellor; hand-over only with post-test counselling; hidden from non-lab roles; every view audited (§38.4). The treating doctor sees it once OP/IP doctor logins exist. |
+| F5 | **Notifiable diseases**: test flag `notifiable: 'TB' | 'IDSP'`; a positive verified result creates an entry in a **Notification register** (patient, test, result, date) with "Notified on Ni-kshay / IHIP — ID ___ — by ___" and an overdue alert after 24 h | S | Yes — per-test Notifiable select; Notification register `#/lab/notifiable` with ID, overdue alert, CSV (§38.5) |
+| F6 | **P2-01 ranges + P2-02 critical call log** (already designed in the phase 2 spec) | S + S | Yes — age / sex / pregnancy ranges and the critical call log with read-back (§38.6) |
 
 ### 4.2 Should do (quality / NABL / DPDP)
-Second-person verification on by default; received time, establishment reg no, page numbers and "Reprint — copy n" on the report; staff qualification on user records; WhatsApp / referral-copy consent at registration with a privacy notice; idle auto sign-out; QC module (P2-04); equipment log; reagent lot on each result; written retention policy.
+~~Second-person verification on by default; received time, establishment reg no, page numbers and "Reprint — copy n" on the report; staff qualification on user records~~ (built with F1–F3); WhatsApp / referral-copy consent at registration with a privacy notice; idle auto sign-out; QC module (P2-04); equipment log; reagent lot on each result; written retention policy.
 
 ### 4.3 Production only
 Hashed passwords, lockout, server time, an append-only audit table with a hash chain, backups, encryption, breach-response tooling, real OTP.
@@ -123,8 +125,8 @@ Hashed passwords, lockout, server time, an append-only audit table with a hash c
 ### 5.2 What is missing
 | Gap | Why it matters | Fix (demo) | Fix (production) |
 |---|---|---|---|
-| **No old → new values** on result changes and most edits | In a dispute you cannot prove what the report said before | F2; add `before` / `after` to `audit()` for results, patient edits and settings | Same, stored as JSON columns |
-| **Viewing and printing are not logged** | EHR standard asks for view logging; HIV and other private results need it | Audit `REPORT_VIEWED`, `REPORT_PRINTED` (with copy number), `PATIENT_VIEWED` | Same |
+| **No old → new values** on result changes and most edits — *built for results (F2/F3); settings and patient edits still to do* | In a dispute you cannot prove what the report said before | F2; add `before` / `after` to `audit()` for results, patient edits and settings | Same, stored as JSON columns |
+| **Viewing and printing are not logged** — *built: `LAB_REPORT_VIEWED`, `LAB_REPORT_VIEW_REFUSED`, `LAB_REPORT_PRINTED`* | EHR standard asks for view logging; HIV and other private results need it | Audit `REPORT_VIEWED`, `REPORT_PRINTED` (with copy number), `PATIENT_VIEWED` | Same |
 | **Audit can be changed or wiped** — it lives in the browser; *Reset demo data* clears it; anyone with browser tools can edit it | Not acceptable as legal evidence | Add a **hash chain** (each entry stores the SHA-256 of the previous one) and a *Check audit integrity* button — shows the design | Append-only table, no UPDATE / DELETE rights for the app user, hash chain, off-site copy |
 | **Time comes from the user's computer clock** | A wrong PC clock gives wrong times (we already see seed times ahead of the clock) | Note only | Server time (NTP) for every record |
 | **No reason on some changes** (result re-entry, settings) | Auditors ask *why* | Required reason box on corrections | Same |
@@ -164,3 +166,4 @@ Hashed passwords, lockout, server time, an append-only audit table with a hash c
 | Date | Version | Change |
 |---|---|---|
 | 2026-11-27 | 0.1 | First compliance and audit review of the lab module. |
+| 2026-11-28 | 0.2 | F1–F6 built in the demo; confidential made a per-test choice in the Test Master; view / print audit added. Details in the lab spec §38. |

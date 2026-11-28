@@ -23,14 +23,16 @@ const pad = (n, l = 4) => String(n).padStart(l, '0');
 const iso = (d) => new Date(d).toISOString();
 
 // ---------------- users / roles ----------------
+// Sample signature for the demo pathologist (printed on lab reports). Fictional.
+const SIGNATURE = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="220" height="60" viewBox="0 0 220 60"><path d="M8 42c10-22 18-30 22-24s-8 26-2 26 14-30 20-30-4 28 2 28 10-18 16-18 2 16 8 16 8-12 14-12 0 10 6 10 10-8 16-8 4 6 10 6 12-4 18-4 10 2 20 0" fill="none" stroke="#1B2733" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 50c40 2 90 0 150-6" fill="none" stroke="#1B2733" stroke-width="1.4" stroke-linecap="round"/></svg>');
 const users = [
   { id: 'USR-0001', username: 'pharmacy', password: 'demo123', name: 'Kavitha Selvam', role: 'PHARMACY_STAFF', designation: 'Pharmacist', email: '', phone: '+91 90000 11111', active: true, createdAt: '2026-07-20T10:00:00.000Z' },
   { id: 'USR-0002', username: 'store', password: 'demo123', name: 'Arun Prakash', role: 'STORE_INCHARGE', designation: 'Store Incharge', email: '', phone: '+91 90000 22222', active: true, createdAt: '2026-07-20T10:00:00.000Z' },
-  { id: 'USR-0003', username: 'owner', password: 'demo123', name: 'Dr. Meenakshi Sundaram', role: 'SUPER_ADMIN', designation: 'Hospital Owner / Director', email: '', phone: '+91 90000 33333', active: true, createdAt: '2026-07-20T10:00:00.000Z' },
+  { id: 'USR-0003', username: 'owner', password: 'demo123', name: 'Dr. Meenakshi Sundaram', role: 'SUPER_ADMIN', designation: 'Director & Consultant Pathologist', qualification: 'MBBS, MD (Pathology)', regNo: 'TNMC 61234', signatory: true, signature: SIGNATURE, email: '', phone: '+91 90000 33333', active: true, createdAt: '2026-07-20T10:00:00.000Z' },
   { id: 'USR-0004', username: 'ravi', password: 'demo123', name: 'Ravi Kumar', role: 'PHARMACY_STAFF', designation: 'Pharmacy Assistant', email: '', phone: '+91 90000 44444', active: true, createdAt: '2026-07-20T10:00:00.000Z' },
   { id: 'USR-0005', username: 'reception', password: 'demo123', name: 'Divya Shankar', role: 'RECEPTION', designation: 'Front Office Executive', email: '', phone: '+91 90000 55555', active: true, createdAt: '2026-07-20T10:00:00.000Z' },
   { id: 'USR-0006', username: 'saranya', password: 'demo123', name: 'Saranya Murthy', role: 'RECEPTION', designation: 'Billing Executive (evening)', email: '', phone: '+91 90000 66666', active: true, createdAt: '2026-08-02T10:00:00.000Z' },
-  { id: 'USR-0007', username: 'lab', password: 'demo123', name: 'Vignesh Raj', role: 'LAB', designation: 'Lab Technician (DMLT)', email: '', phone: '+91 90000 77777', active: true, createdAt: '2026-08-02T10:00:00.000Z' },
+  { id: 'USR-0007', username: 'lab', password: 'demo123', name: 'Vignesh Raj', role: 'LAB', designation: 'Lab Technician (DMLT)', qualification: 'DMLT', regNo: '', signatory: false, email: '', phone: '+91 90000 77777', active: true, createdAt: '2026-08-02T10:00:00.000Z' },
   { id: 'USR-0008', username: 'service', password: 'demo123', name: 'Sr. Jency Mary', role: 'SERVICE_COUNTER', designation: 'Staff Nurse — procedure room', email: '', phone: '+91 90000 88888', active: true, createdAt: '2026-08-02T10:00:00.000Z' },
   { id: 'USR-0009', username: 'mrd', password: 'demo123', name: 'Karthik Selvan', role: 'MRD', designation: 'Medical Records Officer', email: '', phone: '+91 90000 99999', active: true, createdAt: '2026-08-02T10:00:00.000Z' },
   { id: 'USR-0010', username: 'admin', password: 'demo123', name: 'Anitha Rajendran', role: 'ADMIN', designation: 'Hospital Administrator', email: '', phone: '+91 90000 10101', active: true, createdAt: '2026-08-02T10:00:00.000Z' }
@@ -727,7 +729,7 @@ const settings = {
     { id: 'NET-02', label: 'Backup 4G router — pharmacy', address: '49.204.118.0/24', active: true, addedBy: 'USR-0003', addedAt: '2026-09-12' }] },
   approval: { ownerApprovalForExpiredOrShortDated: true, shortDatedDays: 30, discrepancyPctThreshold: 10, highValueThreshold: 250000,
     adjustmentQtyThreshold: 50, adjustmentValueThreshold: 5000, notifyOwnerOnPost: true },
-  demo: { dataVersion: 10, generatedAt: '2026-11-23' }
+  demo: { dataVersion: 11, generatedAt: '2026-11-23' }
 };
 
 out('users.json', users);

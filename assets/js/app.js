@@ -133,6 +133,7 @@ const NAV = [
   { section: 'Laboratory' },
   { id: 'lab', label: 'Lab Worklist', icon: 'test-tube', href: '#/lab', perm: 'lab.work', more: [OWNER] },
   { id: 'lab-reports', label: 'Report Desk', icon: 'send', href: '#/lab/reports', perm: 'lab.view', more: [OWNER, MRD] },
+  { id: 'lab-notify', label: 'Notification Register', icon: 'megaphone', href: '#/lab/notifiable', perm: 'lab.work', badge: 'notifiable', more: [OWNER] },
   { id: 'lab-ward', label: 'Ward Lab Order', icon: 'bed-double', href: '#/lab/ward-order', perm: 'lab.order.ip', more: [OWNER] },
   { id: 'lab-tests', label: 'Test Master', icon: 'list-checks', href: '#/lab/tests', perm: 'labtest.view', more: [RECEPTION, MRD] },
   { id: 'lab-kits', label: 'Lab Stock', icon: 'boxes', href: '#/lab/stock', perm: 'lab.kits', badge: 'labstock', more: [OWNER] },
@@ -321,6 +322,8 @@ function updateBadges() {
   if (lr) { const n = store.all('labIndents').filter((r) => r.status === 'REQUESTED').length; lr.textContent = n; lr.classList.toggle('hidden', !n); }
   const ls = qs('[data-badge="labstock"]');
   if (ls) { const n = can('lab.work', u) ? store.all('labIndents').filter((r) => r.status === 'ISSUED').length : 0; ls.textContent = n; ls.classList.toggle('hidden', !n); }
+  const nf = qs('[data-badge="notifiable"]');
+  if (nf) { const n = store.all('orders').filter((o) => o.lab?.notification?.status === 'PENDING').length; nf.textContent = n; nf.classList.toggle('hidden', !n); }
   const ap = qs('[data-badge="approvals"]');
   if (ap) { const n = approvalItems(u).length; ap.textContent = n; ap.classList.toggle('hidden', !n); }
 }

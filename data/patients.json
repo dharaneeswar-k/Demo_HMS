@@ -286,5 +286,23 @@
     "registeredAt": "2026-10-18T04:30:00.000Z",
     "registeredBy": "USR-0005",
     "active": true
+  },
+  {
+    "id": "PAT-0017",
+    "uhid": "NH-UH-026693",
+    "name": "Harini Suresh",
+    "gender": "F",
+    "age": 4,
+    "dob": "2022-08-14",
+    "phone": "+91 98940 61277",
+    "address": "10, Bagalur Road",
+    "city": "Hosur",
+    "pincode": "635109",
+    "guardianName": "Suresh Kumar (father)",
+    "bloodGroup": "O+",
+    "allergies": "",
+    "registeredAt": "2026-11-23T02:22:00.000Z",
+    "registeredBy": "USR-0005",
+    "active": true
   }
 ]

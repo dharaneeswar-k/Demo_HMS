@@ -2098,5 +2098,89 @@
     "ref": "ORD-00165",
     "by": "USR-0007",
     "note": "RFT"
+  },
+  {
+    "id": "KMV-00176",
+    "at": "2026-11-23T02:33:00.000Z",
+    "kitId": "KIT-0001",
+    "loc": "LAB",
+    "lotId": "LOT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00185",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00177",
+    "at": "2026-11-23T02:38:00.000Z",
+    "kitId": "KIT-0001",
+    "loc": "LAB",
+    "lotId": "LOT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00186",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00178",
+    "at": "2026-11-23T02:38:00.000Z",
+    "kitId": "KIT-0007",
+    "loc": "LAB",
+    "lotId": "LOT-0007",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00187",
+    "by": "USR-0007",
+    "note": "THYROID"
+  },
+  {
+    "id": "KMV-00179",
+    "at": "2026-11-23T02:43:00.000Z",
+    "kitId": "KIT-0003",
+    "loc": "LAB",
+    "lotId": "LOT-0003",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00188",
+    "by": "USR-0007",
+    "note": "RFT"
+  },
+  {
+    "id": "KMV-00180",
+    "at": "2026-11-23T02:18:00.000Z",
+    "kitId": "KIT-0012",
+    "loc": "LAB",
+    "lotId": "LOT-0012",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00190",
+    "by": "USR-0007",
+    "note": "HIV"
+  },
+  {
+    "id": "KMV-00181",
+    "at": "2026-11-22T06:18:00.000Z",
+    "kitId": "KIT-0001",
+    "loc": "LAB",
+    "lotId": "LOT-0001",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00191",
+    "by": "USR-0007",
+    "note": "CBC"
+  },
+  {
+    "id": "KMV-00182",
+    "at": "2026-11-20T04:58:00.000Z",
+    "kitId": "KIT-0009",
+    "loc": "LAB",
+    "lotId": "LOT-0009",
+    "type": "USED_TEST",
+    "qty": -1,
+    "ref": "ORD-00192",
+    "by": "USR-0007",
+    "note": "NS1"
   }
 ]

@@ -53,7 +53,7 @@
     "notifyOwnerOnPost": true
   },
   "demo": {
-    "dataVersion": 10,
+    "dataVersion": 11,
     "generatedAt": "2026-11-23"
   }
 }

@@ -894,5 +894,19 @@
     "at": "2026-11-23T07:25:00.000Z",
     "by": "USR-0007",
     "body": "Dear Geetha Venkat,\nYour lab report (SID 04010056) from Nallam Hospital is ready.\nTests: Thyroid Profile (T3, T4, TSH)\nShow this SID at the lab counter to collect the printed copy within 15 days.\n— Nallam Hospital, +91 4344 220 000"
+  },
+  {
+    "id": "MSG-00065",
+    "channel": "WHATSAPP",
+    "provider": "WA_LINK",
+    "to": "+91 9787657740",
+    "patientId": "PAT-0003",
+    "refType": "LABVISIT",
+    "refId": "LV-00076",
+    "template": "REPORT_READY",
+    "status": "SENT_VIA_LINK",
+    "at": "2026-11-22T07:36:00.000Z",
+    "by": "USR-0007",
+    "body": "Dear Lakshmi Devi,\nYour lab report (SID 04010076) from Nallam Hospital is ready.\nTests: Complete Blood Count (CBC)\nShow this SID at the lab counter to collect the printed copy within 15 days.\n— Nallam Hospital, +91 4344 220 000"
   }
 ]

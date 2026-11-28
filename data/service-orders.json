@@ -751,7 +751,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-17T14:05:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-17T14:30:00.000Z",
       "reportNo": "LR-2026-00009",
       "printedAt": "2026-11-17T14:50:00.000Z",
@@ -999,7 +999,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-18T08:04:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-18T08:35:00.000Z",
       "reportNo": "LR-2026-00013",
       "printedAt": "2026-11-18T08:55:00.000Z",
@@ -1045,7 +1045,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-18T07:16:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-18T07:39:00.000Z",
       "reportNo": "LR-2026-00014",
       "printedAt": "2026-11-18T07:59:00.000Z",
@@ -1527,7 +1527,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-18T13:43:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-18T14:01:00.000Z",
       "reportNo": "LR-2026-00021",
       "printedAt": "2026-11-18T14:21:00.000Z",
@@ -1593,7 +1593,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-18T13:26:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-18T13:47:00.000Z",
       "reportNo": "LR-2026-00022",
       "printedAt": "2026-11-18T14:07:00.000Z",
@@ -1899,7 +1899,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-19T07:37:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-19T08:00:00.000Z",
       "reportNo": "LR-2026-00027",
       "printedAt": "2026-11-19T08:20:00.000Z",
@@ -2073,7 +2073,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-19T09:53:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-19T10:22:00.000Z",
       "reportNo": "LR-2026-00030",
       "printedAt": "2026-11-19T10:42:00.000Z",
@@ -2573,7 +2573,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-20T06:07:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-20T06:42:00.000Z",
       "reportNo": "LR-2026-00038",
       "printedAt": "2026-11-20T07:02:00.000Z",
@@ -3197,7 +3197,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-21T04:35:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-21T05:07:00.000Z",
       "reportNo": "LR-2026-00048",
       "printedAt": "2026-11-21T05:27:00.000Z",
@@ -3541,7 +3541,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-21T08:31:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-21T08:53:00.000Z",
       "reportNo": "LR-2026-00054",
       "printedAt": "2026-11-21T09:13:00.000Z",
@@ -3669,7 +3669,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-21T10:03:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-21T10:19:00.000Z",
       "reportNo": "LR-2026-00056",
       "printedAt": "2026-11-21T10:39:00.000Z",
@@ -3801,7 +3801,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-21T10:50:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-21T11:21:00.000Z",
       "reportNo": "LR-2026-00058",
       "printedAt": "2026-11-21T11:41:00.000Z",
@@ -4087,7 +4087,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-21T14:41:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-21T15:12:00.000Z",
       "reportNo": "LR-2026-00063",
       "printedAt": "2026-11-21T15:32:00.000Z",
@@ -4403,7 +4403,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-22T10:52:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-22T11:30:00.000Z",
       "reportNo": "LR-2026-00067",
       "printedAt": "2026-11-22T11:50:00.000Z",
@@ -4445,7 +4445,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-22T12:14:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-22T12:39:00.000Z",
       "reportNo": "LR-2026-00068",
       "printedAt": "2026-11-22T12:59:00.000Z",
@@ -4705,7 +4705,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-21T04:31:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-21T04:52:00.000Z",
       "reportNo": "LR-2026-00072",
       "printedAt": "2026-11-21T05:12:00.000Z",
@@ -4821,7 +4821,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-21T05:08:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-21T05:18:00.000Z",
       "reportNo": "LR-2026-00074",
       "printedAt": "2026-11-21T05:38:00.000Z",
@@ -5067,7 +5067,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-21T04:43:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-21T05:23:00.000Z",
       "reportNo": "LR-2026-00079",
       "printedAt": "2026-11-21T05:43:00.000Z",
@@ -5681,7 +5681,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-22T20:00:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-22T20:30:00.000Z",
       "reportNo": "LR-2026-00084",
       "printedAt": "2026-11-22T20:50:00.000Z",
@@ -5960,7 +5960,7 @@
       ],
       "enteredBy": "USR-0007",
       "enteredAt": "2026-11-23T04:55:00.000Z",
-      "verifiedBy": "USR-0007",
+      "verifiedBy": "USR-0003",
       "verifiedAt": "2026-11-23T05:07:00.000Z",
       "reportNo": "LR-2026-00086",
       "printedAt": "2026-11-23T05:27:00.000Z",
@@ -7398,5 +7398,519 @@
     },
     "coveredBy": null,
     "labVisitId": "LV-00070"
+  },
+  {
+    "id": "ORD-00185",
+    "billId": "HB-2026-00096",
+    "itemId": "HB-2026-00096-1",
+    "patientId": "PAT-0017",
+    "serviceId": "SRV-0001",
+    "category": "LAB",
+    "name": "Complete Blood Count (CBC)",
+    "doctor": "Dr. M. Harish (Orthopaedics)",
+    "requestedBy": "USR-0005",
+    "requestedAt": "2026-11-23T02:25:00.000Z",
+    "billedAt": "2026-11-23T02:25:00.000Z",
+    "status": "RESULTED",
+    "accession": "04010071-1",
+    "performedBy": null,
+    "performedAt": null,
+    "notes": "",
+    "lab": {
+      "sampleType": "Blood (EDTA)",
+      "collectedAt": "2026-11-23T02:33:00.000Z",
+      "collectedBy": "USR-0007",
+      "receivedAt": "2026-11-23T02:39:00.000Z",
+      "receivedBy": "USR-0007",
+      "rejected": null,
+      "results": [
+        {
+          "param": "Haemoglobin",
+          "value": "11.6"
+        },
+        {
+          "param": "Total WBC count",
+          "value": "9800"
+        },
+        {
+          "param": "Platelet count",
+          "value": "3"
+        },
+        {
+          "param": "RBC count",
+          "value": "5.1"
+        },
+        {
+          "param": "PCV",
+          "value": "43"
+        },
+        {
+          "param": "Neutrophils",
+          "value": "57.5"
+        },
+        {
+          "param": "Lymphocytes",
+          "value": "32.5"
+        }
+      ],
+      "enteredBy": "USR-0007",
+      "enteredAt": "2026-11-23T03:13:00.000Z",
+      "verifiedBy": null,
+      "verifiedAt": null,
+      "reportNo": null,
+      "printedAt": null,
+      "printCount": 0,
+      "tube": "04010071-1"
+    },
+    "coveredBy": null,
+    "labVisitId": "LV-00071"
+  },
+  {
+    "id": "ORD-00186",
+    "billId": "HB-2026-00097",
+    "itemId": "HB-2026-00097-1",
+    "patientId": "PAT-0014",
+    "serviceId": "SRV-0001",
+    "category": "LAB",
+    "name": "Complete Blood Count (CBC)",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "requestedBy": "USR-0005",
+    "requestedAt": "2026-11-23T02:30:00.000Z",
+    "billedAt": "2026-11-23T02:30:00.000Z",
+    "status": "RESULTED",
+    "accession": "04010072-1",
+    "performedBy": null,
+    "performedAt": null,
+    "notes": "",
+    "lab": {
+      "sampleType": "Blood (EDTA)",
+      "collectedAt": "2026-11-23T02:38:00.000Z",
+      "collectedBy": "USR-0007",
+      "receivedAt": "2026-11-23T02:44:00.000Z",
+      "receivedBy": "USR-0007",
+      "rejected": null,
+      "results": [
+        {
+          "param": "Haemoglobin",
+          "value": "11.3"
+        },
+        {
+          "param": "Total WBC count",
+          "value": "7500"
+        },
+        {
+          "param": "Platelet count",
+          "value": "3"
+        },
+        {
+          "param": "RBC count",
+          "value": "5.1"
+        },
+        {
+          "param": "PCV",
+          "value": "43"
+        },
+        {
+          "param": "Neutrophils",
+          "value": "57.5"
+        },
+        {
+          "param": "Lymphocytes",
+          "value": "32.5"
+        }
+      ],
+      "enteredBy": "USR-0007",
+      "enteredAt": "2026-11-23T03:18:00.000Z",
+      "verifiedBy": null,
+      "verifiedAt": null,
+      "reportNo": null,
+      "printedAt": null,
+      "printCount": 0,
+      "tube": "04010072-1"
+    },
+    "coveredBy": null,
+    "labVisitId": "LV-00072"
+  },
+  {
+    "id": "ORD-00187",
+    "billId": "HB-2026-00097",
+    "itemId": "HB-2026-00097-2",
+    "patientId": "PAT-0014",
+    "serviceId": "SRV-0008",
+    "category": "LAB",
+    "name": "Thyroid Profile (T3, T4, TSH)",
+    "doctor": "Dr. K. Sangeetha (Obstetrics & Gynaecology)",
+    "requestedBy": "USR-0005",
+    "requestedAt": "2026-11-23T02:30:00.000Z",
+    "billedAt": "2026-11-23T02:30:00.000Z",
+    "status": "RESULTED",
+    "accession": "04010072-2",
+    "performedBy": null,
+    "performedAt": null,
+    "notes": "",
+    "lab": {
+      "sampleType": "Blood (Plain)",
+      "collectedAt": "2026-11-23T02:38:00.000Z",
+      "collectedBy": "USR-0007",
+      "receivedAt": "2026-11-23T02:44:00.000Z",
+      "receivedBy": "USR-0007",
+      "rejected": null,
+      "results": [
+        {
+          "param": "T3",
+          "value": "1.4"
+        },
+        {
+          "param": "T4",
+          "value": "9.6"
+        },
+        {
+          "param": "TSH",
+          "value": "2.8"
+        }
+      ],
+      "enteredBy": "USR-0007",
+      "enteredAt": "2026-11-23T03:18:00.000Z",
+      "verifiedBy": null,
+      "verifiedAt": null,
+      "reportNo": null,
+      "printedAt": null,
+      "printCount": 0,
+      "tube": "04010072-2"
+    },
+    "coveredBy": null,
+    "labVisitId": "LV-00072"
+  },
+  {
+    "id": "ORD-00188",
+    "billId": "HB-2026-00098",
+    "itemId": "HB-2026-00098-1",
+    "patientId": "PAT-0008",
+    "serviceId": "SRV-0003",
+    "category": "LAB",
+    "name": "Renal Function Test (RFT)",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "requestedBy": "USR-0005",
+    "requestedAt": "2026-11-23T02:35:00.000Z",
+    "billedAt": "2026-11-23T02:35:00.000Z",
+    "status": "RESULTED",
+    "accession": "04010073-1",
+    "performedBy": null,
+    "performedAt": null,
+    "notes": "",
+    "lab": {
+      "sampleType": "Blood (Plain)",
+      "collectedAt": "2026-11-23T02:43:00.000Z",
+      "collectedBy": "USR-0007",
+      "receivedAt": "2026-11-23T02:49:00.000Z",
+      "receivedBy": "USR-0007",
+      "rejected": null,
+      "results": [
+        {
+          "param": "Blood urea",
+          "value": "27.5"
+        },
+        {
+          "param": "Serum creatinine",
+          "value": "1.2"
+        },
+        {
+          "param": "Uric acid",
+          "value": "5.2"
+        },
+        {
+          "param": "Sodium",
+          "value": "140"
+        },
+        {
+          "param": "Potassium",
+          "value": "6.9"
+        }
+      ],
+      "enteredBy": "USR-0007",
+      "enteredAt": "2026-11-23T03:23:00.000Z",
+      "verifiedBy": null,
+      "verifiedAt": null,
+      "reportNo": null,
+      "printedAt": null,
+      "printCount": 0,
+      "criticalCalls": [
+        {
+          "at": "2026-11-23T03:27:00.000Z",
+          "by": "USR-0007",
+          "toName": "Dr. A. Ravichandran (General Medicine)",
+          "toRole": "DOCTOR",
+          "phone": "+91 90000 40404",
+          "outcome": "NOT_REACHABLE",
+          "readBack": false,
+          "note": "Phone switched off — trying the duty doctor",
+          "parameters": [
+            "Potassium 6.9 mmol/L (HH)"
+          ]
+        }
+      ],
+      "tube": "04010073-1"
+    },
+    "coveredBy": null,
+    "labVisitId": "LV-00073"
+  },
+  {
+    "id": "ORD-00189",
+    "billId": "HB-2026-00099",
+    "itemId": "HB-2026-00099-1",
+    "patientId": "PAT-0012",
+    "serviceId": "SRV-0031",
+    "category": "LAB",
+    "name": "Sputum for AFB (ZN stain)",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "requestedBy": "USR-0005",
+    "requestedAt": "2026-11-23T02:00:00.000Z",
+    "billedAt": "2026-11-23T02:00:00.000Z",
+    "status": "COMPLETED",
+    "accession": "04010074-1",
+    "performedBy": "USR-0007",
+    "performedAt": "2026-11-23T03:18:00.000Z",
+    "notes": "",
+    "lab": {
+      "sampleType": "Sputum",
+      "collectedAt": "2026-11-23T02:08:00.000Z",
+      "collectedBy": "USR-0007",
+      "receivedAt": "2026-11-23T02:14:00.000Z",
+      "receivedBy": "USR-0007",
+      "rejected": null,
+      "results": [
+        {
+          "param": "Acid-fast bacilli (AFB)",
+          "value": "Seen (1+)"
+        }
+      ],
+      "enteredBy": "USR-0007",
+      "enteredAt": "2026-11-23T02:48:00.000Z",
+      "verifiedBy": "USR-0003",
+      "verifiedAt": "2026-11-23T03:18:00.000Z",
+      "reportNo": "LR-2026-00093",
+      "printedAt": null,
+      "printCount": 0,
+      "notification": {
+        "program": "TB",
+        "status": "PENDING",
+        "at": "2026-11-23T03:18:00.000Z",
+        "dueAt": "2026-11-24T03:18:00.000Z"
+      },
+      "tube": "04010074-1"
+    },
+    "coveredBy": null,
+    "labVisitId": "LV-00074"
+  },
+  {
+    "id": "ORD-00190",
+    "billId": "HB-2026-00100",
+    "itemId": "HB-2026-00100-1",
+    "patientId": "PAT-0006",
+    "serviceId": "SRV-0013",
+    "category": "LAB",
+    "name": "HIV 1 & 2 Antibody (rapid)",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "requestedBy": "USR-0005",
+    "requestedAt": "2026-11-23T02:10:00.000Z",
+    "billedAt": "2026-11-23T02:10:00.000Z",
+    "status": "COMPLETED",
+    "accession": "04010075-1",
+    "performedBy": "USR-0007",
+    "performedAt": "2026-11-23T03:28:00.000Z",
+    "notes": "",
+    "lab": {
+      "sampleType": "Blood (Plain)",
+      "collectedAt": "2026-11-23T02:18:00.000Z",
+      "collectedBy": "USR-0007",
+      "receivedAt": "2026-11-23T02:24:00.000Z",
+      "receivedBy": "USR-0007",
+      "rejected": null,
+      "results": [
+        {
+          "param": "HIV 1 & 2 antibodies",
+          "value": "Non-reactive"
+        }
+      ],
+      "enteredBy": "USR-0007",
+      "enteredAt": "2026-11-23T02:58:00.000Z",
+      "verifiedBy": "USR-0003",
+      "verifiedAt": "2026-11-23T03:28:00.000Z",
+      "reportNo": "LR-2026-00094",
+      "printedAt": null,
+      "printCount": 0,
+      "tube": "04010075-1"
+    },
+    "coveredBy": null,
+    "labVisitId": "LV-00075"
+  },
+  {
+    "id": "ORD-00191",
+    "billId": "HB-2026-00101",
+    "itemId": "HB-2026-00101-1",
+    "patientId": "PAT-0003",
+    "serviceId": "SRV-0001",
+    "category": "LAB",
+    "name": "Complete Blood Count (CBC)",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "requestedBy": "USR-0005",
+    "requestedAt": "2026-11-22T06:10:00.000Z",
+    "billedAt": "2026-11-22T06:10:00.000Z",
+    "status": "COMPLETED",
+    "accession": "04010076-1",
+    "performedBy": "USR-0007",
+    "performedAt": "2026-11-22T07:28:00.000Z",
+    "notes": "",
+    "lab": {
+      "sampleType": "Blood (EDTA)",
+      "collectedAt": "2026-11-22T06:18:00.000Z",
+      "collectedBy": "USR-0007",
+      "receivedAt": "2026-11-22T06:24:00.000Z",
+      "receivedBy": "USR-0007",
+      "rejected": null,
+      "results": [
+        {
+          "param": "Haemoglobin",
+          "value": "14.5"
+        },
+        {
+          "param": "Total WBC count",
+          "value": "7500"
+        },
+        {
+          "param": "Platelet count",
+          "value": "1.8"
+        },
+        {
+          "param": "RBC count",
+          "value": "5.1"
+        },
+        {
+          "param": "PCV",
+          "value": "43"
+        },
+        {
+          "param": "Neutrophils",
+          "value": "57.5"
+        },
+        {
+          "param": "Lymphocytes",
+          "value": "32.5"
+        }
+      ],
+      "enteredBy": "USR-0007",
+      "enteredAt": "2026-11-22T06:58:00.000Z",
+      "verifiedBy": "USR-0003",
+      "verifiedAt": "2026-11-22T07:28:00.000Z",
+      "reportNo": "LR-2026-00095",
+      "printedAt": null,
+      "printCount": 1,
+      "amendments": [
+        {
+          "no": 1,
+          "at": "2026-11-22T10:28:00.000Z",
+          "by": "USR-0003",
+          "reason": "Wrong value typed — 4.8 entered instead of 1.8",
+          "changes": [
+            {
+              "param": "Platelet count",
+              "from": "4.8",
+              "to": "1.8"
+            }
+          ],
+          "prev": {
+            "results": [
+              {
+                "param": "Haemoglobin",
+                "value": "14.5"
+              },
+              {
+                "param": "Total WBC count",
+                "value": "7500"
+              },
+              {
+                "param": "Platelet count",
+                "value": "4.8"
+              },
+              {
+                "param": "RBC count",
+                "value": "5.1"
+              },
+              {
+                "param": "PCV",
+                "value": "43"
+              },
+              {
+                "param": "Neutrophils",
+                "value": "57.5"
+              },
+              {
+                "param": "Lymphocytes",
+                "value": "32.5"
+              }
+            ],
+            "signedBy": "USR-0003",
+            "signedAt": "2026-11-22T07:28:00.000Z"
+          }
+        }
+      ],
+      "amendedAt": "2026-11-22T10:28:00.000Z",
+      "amendedBy": "USR-0003",
+      "tube": "04010076-1"
+    },
+    "coveredBy": null,
+    "labVisitId": "LV-00076"
+  },
+  {
+    "id": "ORD-00192",
+    "billId": "HB-2026-00102",
+    "itemId": "HB-2026-00102-1",
+    "patientId": "PAT-0010",
+    "serviceId": "SRV-0010",
+    "category": "LAB",
+    "name": "Dengue NS1 Antigen (rapid)",
+    "doctor": "Dr. A. Ravichandran (General Medicine)",
+    "requestedBy": "USR-0005",
+    "requestedAt": "2026-11-20T04:50:00.000Z",
+    "billedAt": "2026-11-20T04:50:00.000Z",
+    "status": "COMPLETED",
+    "accession": "04010077-1",
+    "performedBy": "USR-0007",
+    "performedAt": "2026-11-20T06:08:00.000Z",
+    "notes": "",
+    "lab": {
+      "sampleType": "Blood (Plain)",
+      "collectedAt": "2026-11-20T04:58:00.000Z",
+      "collectedBy": "USR-0007",
+      "receivedAt": "2026-11-20T05:04:00.000Z",
+      "receivedBy": "USR-0007",
+      "rejected": null,
+      "results": [
+        {
+          "param": "Dengue NS1 antigen",
+          "value": "Positive"
+        }
+      ],
+      "enteredBy": "USR-0007",
+      "enteredAt": "2026-11-20T05:38:00.000Z",
+      "verifiedBy": "USR-0003",
+      "verifiedAt": "2026-11-20T06:08:00.000Z",
+      "reportNo": "LR-2026-00096",
+      "printedAt": null,
+      "printCount": 0,
+      "tube": "04010077-1",
+      "notification": {
+        "program": "IDSP",
+        "status": "NOTIFIED",
+        "at": "2026-11-20T06:08:00.000Z",
+        "dueAt": "2026-11-21T06:08:00.000Z",
+        "refNo": "IHIP/TN/26/11/00041",
+        "note": "",
+        "notifiedAt": "2026-11-20T08:38:00.000Z",
+        "notifiedBy": "USR-0007"
+      }
+    },
+    "coveredBy": null,
+    "labVisitId": "LV-00077"
   }
 ]

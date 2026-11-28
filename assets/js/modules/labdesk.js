@@ -4,9 +4,11 @@
 import { store } from '../data-service.js';
 import { currentUser, can } from '../auth.js';
 import { userName } from '../calculations.js';
-import { svc, labParams, flagFor, refText, isCritical, markPrinted, hbillBalance } from '../hospital.js';
+import { svc, labParams, flagFor, refText, isCritical, markPrinted, hbillBalance, CALL_OUTCOME } from '../hospital.js';
+import { canSeeConfidential, signatoryText } from '../labrules.js';
+import { audit } from '../services.js';
 import { SOURCE, PRIORITY, VSTATUS, containers, visit, visitOrders, visitAccess, visitStatus, reportReadyAt, isUncollected, tubesFor, priorityRank, findBySid, tubeOf,
-  callToken, collectTube, receiveTube, rejectTube, deliverReport, handOver, createIpOrder, criticalInVisit } from '../labflow.js';
+  callToken, collectTube, receiveTube, rejectTube, deliverReport, handOver, createIpOrder, criticalInVisit, visitConfidential } from '../labflow.js';
 import { CHANNEL_LABEL, STATUS_LABEL } from '../messaging.js';
 import { businessDate } from '../pharmacy-calc.js';
 import { patientAge } from '../patients.js';
@@ -45,26 +47,56 @@ export function renderLabels(view, params) {
   refreshIcons(view);
 }
 
-export function renderVisitReport(view, params) {
+export function renderVisitReport(view, params, query = {}) {
   const user = currentUser(); const v = visit(params.id); if (!v) { view.innerHTML = emptyState('file-x', 'Not found'); return; }
-  const p = pat(v.patientId); const os = visitOrders(v).filter((o) => o.status === 'COMPLETED'); const pending = visitOrders(v).filter((o) => !['COMPLETED', 'CANCELLED'].includes(o.status));
+  const p = pat(v.patientId); const conf = visitConfidential(v);
+  if (conf && !canSeeConfidential(user)) { view.innerHTML = emptyState('lock-fill', 'Confidential report', 'This report has a confidential test. Only lab staff can open it — the patient collects it in person at the lab.'); auditView(user, v, 'REFUSED'); return; }
+  // ?asof=<time>: the report exactly as it was before an amendment (shown with a "superseded" mark, F3)
+  const asof = query.asof || null;
+  const asWas = (o) => { if (!asof) return { results: o.lab.results, signedBy: o.lab.amendedBy || o.lab.verifiedBy, signedAt: o.lab.amendedAt || o.lab.verifiedAt, amended: o.lab.amendments || [] };
+    const later = (o.lab.amendments || []).filter((a) => a.at >= asof); const before = (o.lab.amendments || []).filter((a) => a.at < asof);
+    return later.length ? { results: later[0].prev.results, signedBy: later[0].prev.signedBy, signedAt: later[0].prev.signedAt, amended: before } : { results: o.lab.results, signedBy: o.lab.amendedBy || o.lab.verifiedBy, signedAt: o.lab.amendedAt || o.lab.verifiedAt, amended: o.lab.amendments || [] }; };
+  const os = visitOrders(v).filter((o) => o.status === 'COMPLETED'); const pending = visitOrders(v).filter((o) => !['COMPLETED', 'CANCELLED'].includes(o.status));
   if (!os.length) { view.innerHTML = emptyState('hourglass', 'No verified results yet', 'The report is available after verification.'); return; }
   setMeta({ title: `Report — SID ${v.sid}`, crumbs: [{ label: 'Laboratory', href: '#/lab' }, { label: 'SID ' + v.sid, href: `#/lab/visit/${v.id}` }, 'Report'] });
+  const ver = os.map((o) => ({ o, ...asWas(o) }));
+  const amendedNow = ver.some((x) => x.amended.length);
   const depts = [...new Set(os.map((o) => svc(o.serviceId).lab.department))];
   const first = (k) => os.map((o) => o.lab[k]).filter(Boolean).sort()[0]; const last = (k) => os.map((o) => o.lab[k]).filter(Boolean).sort().at(-1);
-  view.innerHTML = `<div class="row mb-2 no-print" style="justify-content:center"><button class="btn btn-primary" data-print>${icon('printer')}Print / Save PDF</button><a class="btn btn-ghost" href="#/lab/visit/${v.id}">${icon('arrow-left')}SID ${v.sid}</a></div>
-    <article class="doc">${letterhead(pending.length ? 'LABORATORY REPORT (PARTIAL)' : 'LABORATORY REPORT', { sub: depts.join(' · '), code: v.sid })}
-      ${docMeta([['Patient', esc(p.name)], ['Patient ID', `<span class="mono">${esc(p.uhid)}</span>`], ['Age / Sex', `${patientAge(p) ?? '—'} Y / ${esc(p.gender)}`], ['Referred by', esc(v.doctor || 'Self')],
-        ['SID', `<span class="mono">${v.sid}</span>`], ['Collected', fmtDateTime(first('collectedAt'))], ['Reported', fmtDateTime(last('verifiedAt'))], [v.ipNo ? 'IP no / bed' : 'Patient type', v.ipNo ? `${esc(v.ipNo)} · ${esc(v.bed)}` : SOURCE[v.source].short]])}
-      ${os.map((o) => `<h3 class="doc-h">${esc(o.name)} <small class="muted">· ${esc(o.lab.sampleType)}${svc(o.serviceId)?.lab?.method ? ' · Method: ' + esc(svc(o.serviceId).lab.method) : ''} · ${o.lab.reportNo}</small></h3>
+  const copies = Math.max(0, ...os.map((o) => o.lab.printCount || 0));
+  const lab = store.hs().lab || {};
+  const title = `${pending.length ? 'LABORATORY REPORT (PARTIAL)' : 'LABORATORY REPORT'}${amendedNow && !asof ? ' — AMENDED' : ''}`;
+  // signatures: who tested, who signed (qualification + registration number + signature image) — F1
+  const techs = [...new Set(os.map((o) => o.lab.enteredBy).filter(Boolean))].map((id) => store.get('users', id)).filter(Boolean);
+  const signers = [...new Set(ver.map((x) => x.signedBy).filter(Boolean))].map((id) => store.get('users', id)).filter(Boolean);
+  const sigs = `<div class="doc-signs lab-signs">${techs.map((u) => `<div><div class="sig-img"></div><div class="sig-line"></div><strong>${esc(u.name)}</strong><span>Tested by${u.qualification ? ' · ' + esc(u.qualification) : ''}</span></div>`).join('')}
+    ${signers.map((u) => `<div>${u.signature ? `<img class="sig-img" src="${esc(u.signature)}" alt="">` : '<div class="sig-img"></div>'}<div class="sig-line"></div><strong>${esc(u.name)}</strong><span>${esc(signatoryText(u) || u.designation || '')}</span><span>Verified &amp; signed${u.signatory ? '' : ' (not an authorised signatory)'}</span></div>`).join('')}</div>`;
+  const amendNote = (x) => x.amended.map((a) => `<p class="rep-amend"><b>Amended ${fmtDateTime(a.at)}</b> by ${esc(userName(a.by))}. Reason: ${esc(a.reason)}. Changed: ${a.changes.map((c) => `${esc(c.param)} ${esc(c.from || '—')} → ${esc(c.to)}`).join(', ')}. This report replaces the one released on ${fmtDateTime(a.prev.signedAt)}.</p>`).join('');
+  const calls = (o) => (o.lab.criticalCalls || []).filter((c) => c.outcome === 'INFORMED' && c.readBack).map((c) => `<p class="rep-call">Critical value informed to ${esc(c.toName)} at ${fmtDateTime(c.at)} by ${esc(userName(c.by))} (read back).</p>`).join('');
+  view.innerHTML = `<div class="row mb-2 no-print" style="justify-content:center">${asof ? `<a class="btn btn-primary" href="#/lab/visit/${v.id}/report">${icon('file-earmark-text')}Open the current report</a>` : `<button class="btn btn-primary" data-print>${icon('printer')}Print / Save PDF</button>`}<a class="btn btn-ghost" href="#/lab/visit/${v.id}">${icon('arrow-left')}SID ${v.sid}</a></div>
+    <article class="doc lab-report ${asof ? 'rep-superseded' : ''}">${letterhead(title, { sub: depts.join(' · '), code: v.sid })}
+      ${lab.establishmentRegNo ? `<p class="rep-reg">Clinical Establishment Reg. No. ${esc(lab.establishmentRegNo)}</p>` : ''}
+      ${asof ? `<p class="rep-stamp">SUPERSEDED — this version was replaced by an amended report. Not valid for clinical use.</p>` : copies ? `<p class="rep-copy" data-copy>Duplicate copy — printed ${copies} time${copies > 1 ? 's' : ''} before</p>` : ''}
+      ${docMeta([['Patient', esc(p.name)], ['Patient ID', `<span class="mono">${esc(p.uhid)}</span>`], ['Age / Sex', `${patientAge(p) ?? '—'} Y / ${esc(p.gender)}${v.pregnant ? ' · Pregnant' : ''}`], ['Referred by', esc(v.doctor || 'Self')],
+        ['SID', `<span class="mono">${v.sid}</span>`], ['Collected', fmtDateTime(first('collectedAt'))], ['Received', fmtDateTime(first('receivedAt'))], ['Reported', fmtDateTime(last('verifiedAt'))], [v.ipNo ? 'IP no / bed' : 'Patient type', v.ipNo ? `${esc(v.ipNo)} · ${esc(v.bed)}` : SOURCE[v.source].short]])}
+      ${ver.map((x) => { const o = x.o; const changed = new Set(x.amended.flatMap((a) => a.changes.map((c) => c.param)));
+        return `<h3 class="doc-h">${esc(o.name)} <small class="muted">· ${esc(o.lab.sampleType)}${svc(o.serviceId)?.lab?.method ? ' · Method: ' + esc(svc(o.serviceId).lab.method) : ''} · ${o.lab.reportNo}${x.amended.length ? ' · AMENDED' : ''}</small></h3>
         <table class="rc-table lab-rep"><thead><tr><th>Investigation</th><th>Result</th><th>Unit</th><th>Biological reference interval</th></tr></thead><tbody>
-        ${labParams(o).map((q) => { const val = o.lab.results.find((r) => r.param === q.name)?.value; const f = flagFor(q, val); return `<tr class="${f ? 'abn' : ''}"><td>${esc(q.name)}</td><td><strong>${esc(val ?? '—')}</strong> ${f ? `<span class="rep-flag">${f === 'A' ? '*' : f}${f.length === 2 ? ' (critical)' : ''}</span>` : ''}</td><td>${esc(q.unit)}</td><td>${esc(refText(q))}</td></tr>`; }).join('')}</tbody></table>${svc(o.serviceId)?.lab?.note ? `<p class="rc-small" style="text-align:left">Note: ${esc(svc(o.serviceId).lab.note)}</p>` : ''}`).join('')}
+        ${labParams(o).map((q) => { const val = x.results.find((r) => r.param === q.name)?.value; const f = flagFor(q, val); return `<tr class="${f ? 'abn' : ''}"><td>${esc(q.name)}</td><td><strong>${esc(val ?? '—')}</strong> ${f ? `<span class="rep-flag">${f === 'A' ? '*' : f}${f.length === 2 ? ' (critical)' : ''}</span>` : ''}${changed.has(q.name) ? ' <span class="rep-flag">amended</span>' : ''}</td><td>${esc(q.unit)}</td><td>${esc(refText(q))}${q.rangeLabel && q.rangeLabel !== 'Default range' ? ` <small class="rep-band">(${esc(q.rangeLabel)})</small>` : ''}</td></tr>`; }).join('')}</tbody></table>
+        ${svc(o.serviceId)?.lab?.note ? `<p class="rc-small" style="text-align:left">Note: ${esc(svc(o.serviceId).lab.note)}</p>` : ''}${asof ? '' : calls(o) + amendNote(x)}`; }).join('')}
       ${pending.length ? `<p class="rep-pending">Pending: ${pending.map((o) => esc(o.name)).join(', ')} — will follow in a separate report.</p>` : ''}
-      <p class="rc-small mt-2" style="text-align:left">H = above range · L = below range · HH / LL = critical · * = abnormal finding. Results relate only to the sample received. Please correlate clinically.</p>
-      ${signBlock([['Lab technician', userName(os[0].lab.enteredBy)], ['Verified by', userName(os.at(-1).lab.verifiedBy)]])}
+      <p class="rc-small mt-2" style="text-align:left">H = above range · L = below range · HH / LL = critical · * = abnormal finding. Results relate only to the sample received. Please correlate clinically.${conf ? ' Confidential — handed to the patient in person.' : ''}</p>
+      ${sigs}
       <p class="rc-thanks">— End of report —</p></article>`;
-  view.querySelector('[data-print]').onclick = () => { os.forEach((o) => markPrinted(o.id)); window.print(); };
+  auditView(user, v, asof ? 'OLD_VERSION' : 'VIEW');
+  view.querySelector('[data-print]')?.addEventListener('click', () => { os.forEach((o) => markPrinted(o.id)); audit(user, 'LAB_REPORT_PRINTED', 'LABVISIT', v.id, `${v.sid} — ${copies ? `copy ${copies + 1} (duplicate)` : 'original'}`); window.print(); });
   refreshIcons(view);
+}
+/** Every report view is in the audit log (confidential: always; others: once per user per 10 minutes). */
+function auditView(user, v, kind) {
+  const conf = visitConfidential(v); const since = new Date(Date.now() - 600000).toISOString();
+  if (!conf && kind === 'VIEW' && store.all('audit').some((a) => a.action === 'LAB_REPORT_VIEWED' && a.entityId === v.id && a.userId === user.id && a.at >= since)) return;
+  audit(user, kind === 'REFUSED' ? 'LAB_REPORT_VIEW_REFUSED' : 'LAB_REPORT_VIEWED', 'LABVISIT', v.id, `${v.sid}${kind === 'OLD_VERSION' ? ' — superseded version' : ''}${conf ? ' — confidential' : ''}`); store.commit();
 }
 /** Older links to a single-test report open the combined SID report. */
 export function renderOrderReport(view, params) { const o = store.get('orders', params.id); const v = o?.labVisitId; if (v) { location.replace(`#/lab/visit/${v}/report`); return; } view.innerHTML = emptyState('file-x', 'Report not found'); }

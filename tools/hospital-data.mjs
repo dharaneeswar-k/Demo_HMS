@@ -41,6 +41,15 @@ const labKits = KITS.map(([name, kind, unit, packLabel, packSize, storage, openD
 const K = (n) => labKits[n - 1].id;
 
 const P = (name, unit, low, high, critLow = null, critHigh = null) => ({ name, unit, low, high, critLow, critHigh });
+// Age / sex / pregnancy reference ranges (F6). Days: 1–12 y = 365–4744, adult = 4745+ (13 y). Sample values — the hospital confirms its own.
+const B = (label, sex, ageFromDays, ageToDays, pregnant, low, high, critLow = null, critHigh = null) => ({ label, sex, ageFromDays, ageToDays, pregnant, low, high, critLow, critHigh });
+const RANGES = {
+  'CBC|Haemoglobin': [B('Newborn (0–30 d)', 'ANY', 0, 30, null, 14, 22, 10, 24), B('Infant (1–12 m)', 'ANY', 31, 364, null, 10, 14, 7, 20), B('Child (1–12 y)', 'ANY', 365, 4744, null, 11, 14, 7, 20),
+    B('Adult female', 'F', 4745, null, null, 12, 15), B('Pregnancy', 'F', 4745, null, true, 11, 14, 7, 20), B('Adult male', 'M', 4745, null, null, 13, 17)],
+  'CBC|Total WBC count': [B('Newborn (0–30 d)', 'ANY', 0, 30, null, 9000, 30000, 4000, 40000), B('Child (1–12 y)', 'ANY', 365, 4744, null, 5000, 14500, 2000, 30000)],
+  'RFT|Serum creatinine': [B('Child (1–12 y)', 'ANY', 365, 4744, null, 0.2, 0.7, null, 3), B('Adult female', 'F', 4745, null, null, 0.5, 1.1), B('Adult male', 'M', 4745, null, null, 0.7, 1.3)],
+  'THYROID|TSH': [B('Pregnancy', 'F', 4745, null, true, 0.1, 3.0)]
+};
 const T = (name, unit, ref) => ({ name, unit, ref });
 const LAB = [
   ['CBC', 'Complete Blood Count (CBC)', 350, 'Blood (EDTA)', 'Haematology', 4, [[1, 1]], [
@@ -65,7 +74,7 @@ const LAB = [
   ['HIV', 'HIV 1 & 2 Antibody (rapid)', 500, 'Blood (Plain)', 'Serology', 2, [[12, 1]], [T('HIV 1 & 2 antibodies', '', 'Non-reactive')]]
 ];
 // Tests that may not be done on a self request, and tests that need a signed consent form.
-const RX_REQUIRED = new Set(['HIV']); const CONSENT = new Set(['HIV']);
+const RX_REQUIRED = new Set(['HIV']); const CONSENT = new Set(['HIV']); const CONFIDENTIAL = new Set(['HIV']); const NOTIFY = { NS1: 'IDSP', AFB: 'TB' };
 const containerOf = (sample) => (/EDTA/.test(sample) ? 'EDTA' : /Fluoride/.test(sample) ? 'FLUORIDE' : /Urine/.test(sample) ? 'URINE' : 'PLAIN');
 const OTHER = [
   ['ECG', 'ECG', 'ECG — 12 lead', 250], ['INJ', 'INJECTION', 'Injection administration (IM / IV)', 50], ['CANN', 'INJECTION', 'IV cannulation', 150], ['INF', 'INJECTION', 'IV infusion set-up', 200],
@@ -77,8 +86,12 @@ const OTHER = [
 ];
 const services = [
   ...LAB.map(([code, name, price, sample, dept, tatHours, kits, params]) => ({ code, name, category: 'LAB', price, active: true,
-    lab: { sample, container: containerOf(sample), department: dept, tatHours, rxRequired: RX_REQUIRED.has(code), consentRequired: CONSENT.has(code), kits: kits.map(([k, q]) => ({ kitId: K(k), qty: q })), parameters: params } })),
-  ...OTHER.map(([code, category, name, price]) => ({ code, name, category, price, active: true }))
+    lab: { sample, container: containerOf(sample), department: dept, tatHours, rxRequired: RX_REQUIRED.has(code), consentRequired: CONSENT.has(code), confidential: CONFIDENTIAL.has(code), notifiable: NOTIFY[code] || null, kits: kits.map(([k, q]) => ({ kitId: K(k), qty: q })),
+      parameters: params.map((p) => (RANGES[`${code}|${p.name}`] ? { ...p, ranges: RANGES[`${code}|${p.name}`] } : p)) } })),
+  ...OTHER.map(([code, category, name, price]) => ({ code, name, category, price, active: true })),
+  // added after the original list so the earlier service IDs stay the same: sputum AFB — TB is notifiable (F5)
+  { code: 'AFB', name: 'Sputum for AFB (ZN stain)', category: 'LAB', price: 200, active: true,
+    lab: { sample: 'Sputum', container: 'URINE', department: 'Microbiology', tatHours: 24, rxRequired: false, consentRequired: false, confidential: false, notifiable: 'TB', kits: [], parameters: [T('Acid-fast bacilli (AFB)', '', 'Not seen')] } }
 ].map((x, i) => ({ id: 'SRV-' + pad(i + 1), ...x }));
 const S = (code) => services.find((x) => x.code === code);
 
@@ -114,7 +127,7 @@ const hospitalSettings = {
   denominations: [500, 200, 100, 50, 20, 10, 5, 2, 1],
   credit: { emergencyAllowed: true, creditNeedsOwner: true },
   cancellation: { reasonRequired: true, ownerApproves: true },
-  lab: { reportPrefix: 'LR', accessionPrefix: 'LAB', requireSecondPersonVerification: false, kitVarianceTolerance: 2, reportCollectDays: 15, payBeforeHandover: true,
+  lab: { reportPrefix: 'LR', accessionPrefix: 'LAB', requireSecondPersonVerification: true, signatoryOnly: true, criticalCallRequired: true, criticalEscalateMins: 15, notifyWithinHours: 24, establishmentRegNo: 'TN/CEA/KRI/2025/00187 (sample)', kitVarianceTolerance: 2, reportCollectDays: 15, payBeforeHandover: true,
     containers: { EDTA: { label: 'EDTA — lavender top', color: '#8E6BBF' }, PLAIN: { label: 'Plain / serum — red top', color: '#D64541' }, FLUORIDE: { label: 'Fluoride — grey top', color: '#7D8A93' }, URINE: { label: 'Urine container', color: '#E0A526' } } },
   messaging: { provider: 'WA_LINK', countryCode: '91', autoQueueOnReport: true, publicReportBaseUrl: '', senderPhone: '+91 4344 220 000',
     cloud: { enabled: false, phoneNumberId: '', businessAccountId: '', templateName: 'lab_report_ready', language: 'en' },
@@ -143,7 +156,7 @@ const hospitalSettings = {
 export function buildHospitalData({ patients, doctors, pharmacyPayments, USERS }) {
   const { OWNER, RECEP, RECEP2, LABU, MRDU, SERVU, STAFF, RAVI, MGR } = USERS;
   // Lab Test Master metadata: version, who set it up and the change history (CRP price revised once, as a sample).
-  const METHOD = { CBC: '5-part automated haematology analyser', LFT: 'Semi-auto biochemistry analyser', RFT: 'Semi-auto biochemistry analyser', FBS: 'GOD-POD', PPBS: 'GOD-POD', HBA1C: 'HPLC', LIPID: 'Enzymatic', THYROID: 'CLIA', NS1: 'Rapid card (immunochromatography)', HIV: 'Rapid card (immunochromatography)', CRP: 'Turbidimetry' };
+  const METHOD = { AFB: 'Ziehl–Neelsen stain, light microscopy', CBC: '5-part automated haematology analyser', LFT: 'Semi-auto biochemistry analyser', RFT: 'Semi-auto biochemistry analyser', FBS: 'GOD-POD', PPBS: 'GOD-POD', HBA1C: 'HPLC', LIPID: 'Enzymatic', THYROID: 'CLIA', NS1: 'Rapid card (immunochromatography)', HIV: 'Rapid card (immunochromatography)', CRP: 'Turbidimetry' };
   const NOTE = { FBS: 'Fasting sample of 8–12 hours.', LIPID: 'Fasting sample of 10–12 hours preferred.', HIV: 'A reactive rapid result must be confirmed by a supplementary test.' };
   services.filter((x) => x.category === 'LAB').forEach((x) => {
     const setUp = { at: '2026-08-01T04:30:00.000Z', by: OWNER, version: 1, reason: 'Initial test list set up', changes: ['Test created'] };
@@ -232,7 +245,7 @@ export function buildHospitalData({ patients, doctors, pharmacyPayments, USERS }
           o.lab = { sampleType: sv.lab.sample, collectedAt: null, collectedBy: null, receivedAt: null, receivedBy: null, rejected: null, results: [], enteredBy: null, enteredAt: null, verifiedBy: null, verifiedAt: null, reportNo: null, printedAt: null, printCount: 0 };
           if (ok && done) {
             const c = addMin(at, randInt(5, 25)); const rcv = addMin(c, randInt(5, 15)); const ent = addMin(rcv, randInt(40, 150)); const ver = addMin(ent, randInt(10, 40));
-            Object.assign(o.lab, { collectedAt: c, collectedBy: LABU, receivedAt: rcv, receivedBy: LABU, results: sv.lab.parameters.map((p) => ({ param: p.name, value: resultFor(p) })), enteredBy: LABU, enteredAt: ent, verifiedBy: rnd() < 0.7 ? OWNER : LABU, verifiedAt: ver, reportNo: `LR-2026-${pad(++lrNo, 5)}`, printedAt: addMin(ver, 20), printCount: 1 });
+            Object.assign(o.lab, { collectedAt: c, collectedBy: LABU, receivedAt: rcv, receivedBy: LABU, results: sv.lab.parameters.map((p) => ({ param: p.name, value: resultFor(p) })), enteredBy: LABU, enteredAt: ent, verifiedBy: (rnd(), OWNER), verifiedAt: ver, reportNo: `LR-2026-${pad(++lrNo, 5)}`, printedAt: addMin(ver, 20), printCount: 1 });
             o.status = 'COMPLETED'; o.performedBy = LABU; o.performedAt = ver;
             sv.lab.kits.forEach((k) => kitMove(c, k.kitId, 'USED_TEST', -k.qty, o.id, LABU, sv.code));
           }
@@ -471,6 +484,46 @@ export function buildHospitalData({ patients, doctors, pharmacyPayments, USERS }
   { const [b, lo] = showBill('13:10', patients[15], ['CBC', 'FBS'], { doctor: doctors[1] });
     const c = ist(TODAY, '13:18'); const edta = lo.find((o) => S('CBC').id === o.serviceId); Object.assign(edta.lab, { collectedAt: c, collectedBy: LABU }); edta.status = 'SAMPLE_COLLECTED';
     makeVisit(b, lo, { source: 'OP', doctor: doctors[1] }); }
+
+  // ---- compliance showcase (F1–F6, docs/LAB_COMPLIANCE_AUDIT.md): one patient for each new rule ----
+  const setRes = (o, at, vals = {}, verify = false) => { const sv = services.find((x) => x.id === o.serviceId); const c = addMin(at, 8);
+    Object.assign(o.lab, { collectedAt: c, collectedBy: LABU, receivedAt: addMin(c, 6), receivedBy: LABU, enteredBy: LABU, enteredAt: addMin(c, 40),
+      results: sv.lab.parameters.map((p) => ({ param: p.name, value: String(vals[p.name] ?? (p.ref !== undefined ? p.ref : Math.round(((p.low + p.high) / 2) * 10) / 10)) })) });
+    o.status = 'RESULTED'; sv.lab.kits.forEach((k) => kitMove(c, k.kitId, 'USED_TEST', -k.qty, o.id, LABU, sv.code));
+    if (verify) { Object.assign(o.lab, { verifiedBy: OWNER, verifiedAt: addMin(c, 70), reportNo: `LR-2026-${pad(++lrNo, 5)}`, printCount: 0 }); Object.assign(o, { status: 'COMPLETED', performedBy: LABU, performedAt: o.lab.verifiedAt }); } };
+  const sb = (day, hm, pt, codes, opt = {}) => { const b = makeBill(ist(day, hm), RECEP, pt, codes.map((c) => [c, 1]), { done: false, pay: 'UPI', doctor: doctors[0], ...opt }); return [b, orders.filter((o) => o.billId === b.id && lab(o))]; };
+  // a child (age 4): Hb 11.6 is normal for a child (11–14) but would be LOW on the adult range
+  const child = { ...patients[0], id: 'PAT-' + pad(patients.length + 1), uhid: 'NH-UH-026693', name: 'Harini Suresh', gender: 'F', age: 4, dob: '2022-08-14', phone: '+91 98940 61277', guardianName: 'Suresh Kumar (father)', bloodGroup: 'O+', allergies: '', registeredAt: ist(TODAY, '07:52'), registeredBy: RECEP };
+  patients.push(child);
+  { const [b, lo] = sb(TODAY, '07:55', child, ['CBC'], { doctor: doctors[2] || doctors[0] }); lo.forEach((o) => setRes(o, b.at, { Haemoglobin: '11.6', 'Total WBC count': '9800' })); makeVisit(b, lo, { source: 'OP', doctor: doctors[2] || doctors[0] }); }
+  // a pregnant woman: Hb 11.3 is normal in pregnancy (11–14), LOW for a non-pregnant woman (12–15)
+  { const [b, lo] = sb(TODAY, '08:00', patients[13], ['CBC', 'THYROID'], { doctor: doctors[1] }); lo.forEach((o) => setRes(o, b.at, { Haemoglobin: '11.3', TSH: '2.8' })); const v = makeVisit(b, lo, { source: 'OP', doctor: doctors[1] }); v.pregnant = true; }
+  // a critical potassium: doctor not reachable on the first call — the report cannot be verified until someone is informed
+  { const [b, lo] = sb(TODAY, '08:05', patients[7], ['RFT'], { pay: 'CASH' }); lo.forEach((o) => { setRes(o, b.at, { Potassium: '6.9', 'Serum creatinine': '1.2' });
+      o.lab.criticalCalls = [{ at: addMin(o.lab.enteredAt, 4), by: LABU, toName: o.doctor || 'Dr. on duty', toRole: 'DOCTOR', phone: '+91 90000 40404', outcome: 'NOT_REACHABLE', readBack: false, note: 'Phone switched off — trying the duty doctor', parameters: ['Potassium 6.9 mmol/L (HH)'] }]; });
+    makeVisit(b, lo, { source: 'OP', priority: 'URGENT' }); }
+  // sputum AFB positive (TB) — verified, waiting to be reported on Ni-kshay
+  { const [b, lo] = sb(TODAY, '07:30', patients[11], ['AFB'], { pay: 'CASH' }); lo.forEach((o) => { setRes(o, b.at, { 'Acid-fast bacilli (AFB)': 'Seen (1+)' }, true);
+      o.lab.notification = { program: 'TB', status: 'PENDING', at: o.lab.verifiedAt, dueAt: addMin(o.lab.verifiedAt, 24 * 60) }; });
+    makeVisit(b, lo, { source: 'OP' }); }
+  // HIV (confidential): consent with counselling, verified, to be handed over in person only
+  { const [b, lo] = sb(TODAY, '07:40', patients[5], ['HIV'], { pay: 'CASH' }); lo.forEach((o) => setRes(o, b.at, {}, true));
+    const v = makeVisit(b, lo, { source: 'OP' }); v.consent = { at: b.at, by: RECEP, counsellor: 'Sr. Jency Mary', preTest: true, signed: true }; }
+  // an amended report: platelets typed wrongly yesterday, corrected after it was sent on WhatsApp — the old copy must be replaced
+  { const day = DAYS.at(-2); const [b, lo] = sb(day, '11:40', patients[2], ['CBC'], { pay: 'CASH' });
+    lo.forEach((o) => { setRes(o, b.at, { 'Platelet count': '1.8' }, true);
+      const at = addMin(o.lab.verifiedAt, 180); const prev = o.lab.results.map((r) => ({ ...r, value: r.param === 'Platelet count' ? '4.8' : r.value }));
+      o.lab.amendments = [{ no: 1, at, by: OWNER, reason: 'Wrong value typed — 4.8 entered instead of 1.8', changes: [{ param: 'Platelet count', from: '4.8', to: '1.8' }], prev: { results: prev, signedBy: OWNER, signedAt: o.lab.verifiedAt } }];
+      Object.assign(o.lab, { amendedAt: at, amendedBy: OWNER, printCount: 1 }); });
+    const v = makeVisit(b, lo, { source: 'OP' }); const pt = patients[2]; const sentAt = addMin(lo[0].lab.verifiedAt, 8); const mid = sendMsg(sentAt, v, pt.phone);
+    v.deliveries.push({ channel: 'WHATSAPP', to: pt.phone, at: sentAt, by: LABU, status: 'SENT_VIA_LINK', messageId: mid }); }
+  // a dengue NS1 positive three days ago (fever case) — verified and already reported on IHIP
+  { const [b, lo] = sb(DAYS.at(-4), '10:20', patients[9], ['NS1'], { pay: 'UPI' }); lo.forEach((o) => setRes(o, b.at, { 'Dengue NS1 antigen': 'Positive' }, true)); const v = makeVisit(b, lo, { source: 'OP' });
+    const pt = patients[9]; const at = addMin(lo[0].lab.verifiedAt, 25); v.handover = { at, by: LABU, collectedBy: 'Self', name: pt.name, printCount: 1 }; v.deliveries.push({ channel: 'COUNTER', to: pt.name, at, by: LABU, status: 'HANDED_OVER' }); }
+  // earlier positive dengue NS1 results were already reported on IHIP
+  let ihip = 40;
+  orders.filter((o) => o.status === 'COMPLETED' && o.lab && services.find((x) => x.id === o.serviceId)?.code === 'NS1' && o.lab.results.some((r) => r.value !== 'Negative')).forEach((o) => {
+    o.lab.notification = { program: 'IDSP', status: 'NOTIFIED', at: o.lab.verifiedAt, dueAt: addMin(o.lab.verifiedAt, 1440), refNo: `IHIP/TN/26/11/${pad(++ihip, 5)}`, note: '', notifiedAt: addMin(o.lab.verifiedAt, 150), notifiedBy: LABU }; });
 
   return {
     services, labKits, labLots, labIndents, labOpenPacks, packages, hospitalSettings, labVisits, referralDoctors, messages, hospitalBills: bills, orders, kitMovements: kitMoves, kitCounts, patientPackages, medicalRecords, dischargeSummaries, mrdRetrievals: retrievals, shifts,

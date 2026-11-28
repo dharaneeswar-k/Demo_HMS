@@ -14,6 +14,7 @@ import { codingOverdue } from '../mrd.js';
 import { stageById, stageOf, codesOf, onHold } from './lab/stages.js';
 import { pat, liveOrders, liveTubes, minsSince, dur, ptypeCode, ptypeCell, ptype } from './lab/ui.js';
 import { isUncollected } from '../labflow.js';
+import { criticalCallOk } from '../hospital.js';
 import { labAttention, storeAttention } from '../labstock.js';
 import { alertsFor } from '../alert-rules.js';
 
@@ -186,7 +187,11 @@ export function render(view) {
     const crit = work.filter((w) => w.crit);
     const hold = onHold(); const notCollected = store.all('labVisits').filter(isUncollected);
     const la = labAttention();
+    const noCall = store.all('orders').filter((o) => o.lab && ['RESULTED', 'COMPLETED'].includes(o.status) && isCritical(o) && !criticalCallOk(o));
+    const toNotify = store.all('orders').filter((o) => o.lab?.notification?.status === 'PENDING');
     const issues = [
+      noCall.length && { n: noCall.length, t: 'Critical value — doctor not informed', s: 'Phone the doctor and log the call (read back)', href: `#/lab/visit/${noCall[0].labVisitId}`, b: 'Log call', red: true },
+      toNotify.length && { n: toNotify.length, t: 'Notifiable disease to report', s: toNotify.slice(0, 2).map((o) => `${o.name.split(' (')[0]} — ${pat(o.patientId).name}`).join(', '), href: '#/lab/notifiable', b: 'Report', red: true },
       crit.length && { n: crit.length, t: 'Critical result to verify', s: 'Verify and phone the doctor now', href: `#/lab?stage=verify&v=${crit[0].v.id}`, b: 'Verify', red: true },
       redo.length && { n: redo.length, t: 'Sample rejected — collect again', s: redo.slice(0, 2).map((v) => pat(v.patientId).name).join(', '), href: `#/lab?stage=collect&v=${redo[0].id}`, b: 'Recollect', red: true },
       lateN && { n: lateN, t: 'Patients past the target time', s: 'Waiting longer than the step allows', href: '#/lab', b: 'Open', red: true },

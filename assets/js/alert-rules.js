@@ -5,7 +5,8 @@
 import { store } from './data-service.js';
 import { can } from './auth.js';
 import { derivedAlerts } from './calculations.js';
-import { svc, isCritical, hbillBalance } from './hospital.js';
+import { svc, isCritical, hbillBalance, criticalCallOk, criticalSince } from './hospital.js';
+import { NOTIFIABLE } from './labrules.js';
 import { items, labBalance, labState, storeBalance, storeState, lotsAt, daysLeft, openPacks, unitTxt, item as labItem } from './labstock.js';
 import { visitStatus, reportReadyAt, isUncollected } from './labflow.js';
 import { codingOverdue } from './mrd.js';
@@ -18,7 +19,7 @@ export const ALERT_PERM = {
   'Stock Adjustment Approval': 'adjustment.approve', 'Stock Shortage': 'stockcount.review',
   'Refund Approval': 'pharmacy.return.approve', 'Bill Cancellation': 'pharmacy.cancel', 'Daily Closing': 'pharmacy.closing.all', 'Cash Variance': 'pharmacy.closing.verify',
   // laboratory
-  'Critical Result': 'lab.verify', 'Sample Waiting': 'lab.work', 'Lab Stock Low': 'lab.work', 'Lab Stock Expiring': 'lab.work', 'Open Pack Past Use-by': 'lab.work', 'Lab Stock Arrived': 'lab.work', 'Report Not Sent': 'lab.deliver', 'Report Not Collected': 'lab.deliver',
+  'Critical Result': 'lab.verify', 'Critical Not Informed': 'lab.verify', 'Notifiable Not Reported': 'lab.work', 'Sample Waiting': 'lab.work', 'Lab Stock Low': 'lab.work', 'Lab Stock Expiring': 'lab.work', 'Open Pack Past Use-by': 'lab.work', 'Lab Stock Arrived': 'lab.work', 'Report Not Sent': 'lab.deliver', 'Report Not Collected': 'lab.deliver',
   // central store — lab supplies
   'Lab Request Waiting': 'labstock.issue', 'Lab Supplies to Order': 'labstock.issue',
   // reception / billing
@@ -31,7 +32,7 @@ export const ALERT_ICON = {
   'Low Stock': 'trending-down', 'Out of Stock': 'ban', 'Near Expiry': 'calendar-clock', 'Expired Stock': 'calendar-x', 'GRN Pending Verification': 'clipboard-check', 'GRN Discrepancy': 'shield-alert',
   'Stock Adjustment Approval': 'scale', 'Missing Documentation': 'file-warning', 'Stock Shortage': 'clipboard-x', 'Pharmacy Refill': 'arrow-right-left', 'Refund Approval': 'undo-2',
   'Bill Cancellation': 'circle-slash', 'Daily Closing': 'lock', 'Cash Variance': 'scale',
-  'Critical Result': 'siren', 'Sample Waiting': 'test-tube', 'Lab Stock Low': 'boxes', 'Lab Stock Expiring': 'calendar-clock', 'Open Pack Past Use-by': 'package-open', 'Lab Stock Arrived': 'truck', 'Lab Request Waiting': 'inbox', 'Lab Supplies to Order': 'shopping-cart', 'Report Not Sent': 'send', 'Report Not Collected': 'file-clock',
+  'Critical Result': 'siren', 'Critical Not Informed': 'telephone', 'Notifiable Not Reported': 'megaphone', 'Sample Waiting': 'test-tube', 'Lab Stock Low': 'boxes', 'Lab Stock Expiring': 'calendar-clock', 'Open Pack Past Use-by': 'package-open', 'Lab Stock Arrived': 'truck', 'Lab Request Waiting': 'inbox', 'Lab Supplies to Order': 'shopping-cart', 'Report Not Sent': 'send', 'Report Not Collected': 'file-clock',
   'Lab Payment Pending': 'lock', 'Advised, Not Billed': 'clipboard-list', 'Credit Approval': 'hand-coins', 'MRD Coding Overdue': 'file-code-2'
 };
 
@@ -54,6 +55,15 @@ export function hospitalAlerts() {
   for (const r of store.all('labIndents')) {
     if (r.status === 'REQUESTED') out.push({ key: 'LRQ-' + r.id, category: 'Lab Request Waiting', severity: r.urgent ? 'critical' : 'warning', message: `${r.urgent ? 'URGENT — ' : ''}Lab asked for ${r.lines.length} item(s): ${r.lines.map((l) => labItem(l.kitId).name).join(', ')}.`, refType: 'LABINDENT', refId: r.id, label: r.id, date: r.at, href: '#/store/lab' });
     if (r.status === 'ISSUED') out.push({ key: 'LAR-' + r.id, category: 'Lab Stock Arrived', severity: 'info', message: `Store sent ${r.id}. Count the items and press Receive — lab stock goes up only after that.`, refType: 'LABINDENT', refId: r.id, label: r.id, date: r.issue.at, href: '#/lab/stock' });
+  }
+  // a critical value nobody has been told about for 15 minutes (F6 / P2-02) and notifiable diseases past the deadline (F5)
+  const escMins = Number(store.hs().lab?.criticalEscalateMins) || 15;
+  for (const o of store.all('orders')) {
+    if (!o.lab || !['RESULTED', 'COMPLETED'].includes(o.status)) continue;
+    const since = criticalSince(o);
+    if (since && isCritical(o) && !criticalCallOk(o) && mins(since) > escMins) out.push({ key: 'CNI-' + o.id, category: 'Critical Not Informed', severity: 'critical', message: `${pname(o.patientId)}: critical value in ${o.name} for ${Math.round(mins(since))} min — the doctor has not been informed yet.`, refType: 'LABVISIT', refId: o.labVisitId, label: o.name, date: since, step: 'verify' });
+    const n = o.lab.notification;
+    if (n?.status === 'PENDING' && n.dueAt < new Date().toISOString()) out.push({ key: 'NNR-' + o.id, category: 'Notifiable Not Reported', severity: 'critical', message: `${pname(o.patientId)}: ${o.name} positive — not yet reported on ${NOTIFIABLE[n.program]?.portal || n.program} (due ${new Date(n.dueAt).toLocaleString('en-IN')}).`, refType: 'LABVISIT', refId: o.labVisitId, label: o.name, date: n.at });
   }
   for (const v of store.all('labVisits')) {
     const st = visitStatus(v); const p = pname(v.patientId);
