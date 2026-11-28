@@ -19,15 +19,15 @@ export function clinicalHome(u, { tile, stat }) {
   const pendingIndents = store.all('ipIndents').filter((i) => i.status === 'RAISED');
   const discharging = open.filter((a) => a.status !== 'ADMITTED');
   const T = {
-    queue: tile('#/op/queue', 'list-ordered', 'My OP Queue', q ? `${q.waiting.length} waiting · now ${q.current[0]?.token || '—'}` : 'Today’s patients', 'teal', q?.waiting.length || null),
-    myIp: tile('#/ip/admissions', 'folder-heart', 'My Inpatients', `${myPatients.length} admitted under you`, 'navy', myPatients.length || null),
+    queue: tile('#/op/queue', 'list-ordered', 'My OP Queue', 'Today’s patients', 'teal', null, q?.waiting.length ? { text: `${q.waiting.length} waiting · now ${q.current[0]?.token || '—'}`, tone: 'teal' } : null),
+    myIp: tile('#/ip/admissions', 'folder-heart', 'My Inpatients', `${myPatients.length} admitted under you`, 'navy', null, myPatients.length ? { text: `${myPatients.length} admitted`, tone: 'info' } : null),
     beds: tile('#/ip', 'bed-double', 'Bed Board', `${beds.occupied}/${beds.total} beds occupied`, 'info'),
-    opDesk: tile('#/op', 'stethoscope', 'OP Desk', `${op.waiting} waiting for vitals / doctor`, 'teal', op.waiting || null),
-    indents: tile('#/ip/indents', 'pill-bottle', 'Ward Indents', pendingIndents.length ? 'Waiting for pharmacy' : 'Request medicines', 'warning', pendingIndents.length || null),
+    opDesk: tile('#/op', 'stethoscope', 'OP Desk', 'Patients at OP desk', 'teal', null, op.waiting ? { text: `${op.waiting} waiting`, tone: 'teal' } : null),
+    indents: tile('#/ip/indents', 'pill-bottle', 'Ward Indents', 'Request medicines', 'warning', null, pendingIndents.length ? { text: `${pendingIndents.length} pending`, tone: 'warning' } : null),
     newVisit: tile('#/op/new', 'user-round-plus', 'New OP Visit', 'Token and consultation fee', 'teal'),
     admit: tile('#/ip/admit', 'hospital', 'Admit Patient', 'Bed, deposit and wristband', 'navy'),
-    ipList: tile('#/ip/admissions', 'folder-heart', 'IP Patients', `${ip.admitted} in hospital · ${ip.low} low deposit`, 'info', ip.low || null),
-    discharge: tile('#/ip/admissions?tab=discharging', 'log-out', 'Discharges', discharging.length ? 'Final bills to make & settle' : 'None in progress', 'purple', discharging.length || null),
+    ipList: tile('#/ip/admissions', 'folder-heart', 'IP Patients', `${ip.admitted} in hospital`, 'info', null, ip.low ? { text: `${ip.low} low deposit`, tone: 'warning' } : null),
+    discharge: tile('#/ip/admissions?tab=discharging', 'log-out', 'Discharges', 'None in progress', 'purple', null, discharging.length ? { text: `${discharging.length} in progress`, tone: 'purple' } : null),
     tpa: tile('#/ip/tpa', 'shield-plus', 'Insurance / TPA', 'Pre-auth, approvals, claims', 'info'),
     cash: tile('#/hospital/closing', 'wallet', 'Cash Closing', 'Close the OP / IP counter', 'purple')
   };

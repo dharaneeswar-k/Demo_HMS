@@ -22,7 +22,7 @@ const MAP = {
   scale: 'speedometer2', 'scan-barcode': 'upc-scan', search: 'search', 'search-x': 'search', send: 'send',
   'settings-2': 'sliders', siren: 'exclamation-diamond', smartphone: 'phone', snowflake: 'snow', stethoscope: 'person-badge',
   sun: 'brightness-high', tag: 'tag', target: 'bullseye', 'test-tube': 'droplet-half', ticket: 'ticket-perforated',
-  'trash-2': 'trash3', truck: 'truck', upload: 'upload', 'user-round': 'person', 'users-round': 'people', warehouse: 'building',
+  'trash-2': 'trash3', 'trending-down': 'graph-down-arrow', truck: 'truck', upload: 'upload', 'user-round': 'person', 'users-round': 'people', warehouse: 'building',
   x: 'x-lg', 'x-circle': 'x-circle', zap: 'lightning-charge-fill', home: 'house', 'more-horizontal': 'three-dots',
   undo: 'arrow-return-left', 'sort-down': 'sort-down', 'person-lines': 'person-lines-fill', grid: 'grid', list: 'list-ul'
 };

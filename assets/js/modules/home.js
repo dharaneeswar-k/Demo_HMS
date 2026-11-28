@@ -20,8 +20,8 @@ import { canSign } from '../labrules.js';
 import { labAttention, storeAttention } from '../labstock.js';
 import { alertsFor } from '../alert-rules.js';
 
-const tile = (href, ic, title, desc, tone = 'teal', count) => `<a class="task-tile tone-${tone}" href="${href}">
-  <span class="tt-icon">${icon(ic)}</span><span class="tt-text"><strong>${esc(title)}</strong><small>${esc(desc)}</small></span>
+const tile = (href, ic, title, desc, tone = 'teal', count, pill) => `<a class="task-tile tone-${tone}" href="${href}">
+  <span class="tt-icon">${icon(ic)}</span><span class="tt-text"><strong>${esc(title)}</strong>${pill ? `<span class="tt-pill tt-pill-${pill.tone || tone}">${esc(pill.text)}</span>` : `<small>${esc(desc)}</small>`}</span>
   ${count ? `<span class="tt-count">${count}</span>` : icon('chevron-right', 'tt-arrow')}</a>`;
 const stat = (label, value, sub = '', href) => `<${href ? `a href="${href}"` : 'div'} class="stat">
   <span class="stat-label">${esc(label)}</span><span class="stat-value">${value}</span>${sub ? `<span class="stat-sub">${sub}</span>` : ''}</${href ? 'a' : 'div'}>`;
@@ -45,8 +45,8 @@ export function render(view) {
     receive: tile('#/grn/new', 'package-plus', 'Receive Stock', 'Enter a supplier delivery', 'navy'),
     find: tile('#/inventory', 'search', 'Find Medicine', 'Check stock and expiry', 'info'),
     ret: tile('#/pharmacy/returns', 'undo-2', 'Return / Refund', 'Take back medicines from a bill', 'warning'),
-    close: tile('#/pharmacy/closing', 'lock', 'Counter Closing', closingFor(today, u.id) ? 'Your counter is closed today' : 'Count cash and submit', 'purple'),
-    approvals: tile('#/approvals', 'inbox', 'Approvals', approvals.length ? 'Waiting for your decision' : 'Nothing waiting', approvals.length ? 'danger' : 'success', approvals.length || null),
+    close: tile('#/pharmacy/closing', 'lock', 'Counter Closing', closingFor(today, u.id) ? 'Your counter is closed today' : 'Count cash and submit', 'purple', null, closingFor(today, u.id) ? { text: 'Closed today', tone: 'success' } : null),
+    approvals: tile('#/approvals', 'inbox', 'Approvals', 'Nothing waiting', approvals.length ? 'danger' : 'success', null, approvals.length ? { text: `${approvals.length} waiting`, tone: 'danger' } : null),
     reports: tile('#/reports', 'bar-chart-3', 'Reports', 'Sales, stock and expiry reports', 'info'),
     closings: tile('#/pharmacy/closing-report', 'clipboard-list', 'Day Closings', 'Cash and collection by staff', 'purple'),
     sales: tile('#/pharmacy', 'trending-up', 'Sales Today', 'Charts and payment modes', 'teal'),
@@ -54,18 +54,18 @@ export function render(view) {
     settings: tile('#/settings', 'settings', 'Settings', 'Limits, approvals, branding', 'navy'),
     register: tile('#/patients/new', 'user-plus', 'Register Patient', 'New patient — generates Patient ID', 'teal'),
     findPatient: tile('#/patients', 'user-search', 'Find Patient', 'Search by name, ID or mobile', 'info'),
-    transfer: tile('#/transfers', 'arrow-right-left', 'Send to Pharmacy', 'Store → Pharmacy transfer', 'navy', refillSuggestions().length || null),
+    transfer: tile('#/transfers', 'arrow-right-left', 'Send to Pharmacy', 'Store → Pharmacy transfer', 'navy', null, refillSuggestions().length ? { text: `${refillSuggestions().length} to refill`, tone: 'warning' } : null),
     grnList: tile('#/grn', 'package-check', 'Received Stock', 'Supplier deliveries and status', 'info'),
     users: tile('#/users', 'user-cog', 'User Accounts', 'Staff logins and roles', 'navy'),
     mgmt: tile('#/management', 'layout-dashboard', 'Management Dashboard', 'Whole hospital — billing, lab, stock, cash', 'navy'),
     hbill: tile('#/hbill', 'receipt', 'Hospital Bill', 'Lab tests, ECG, injection, services, packages', 'teal'),
     hbills: tile('#/hbills', 'files', 'Hospital Bills', 'Collect balance, receipts, cancellations', 'info'),
-    shift: tile('#/shifts', 'timer', 'My Shift', 'Opening cash, collections, handover', 'purple', pendingHandoversFor(u).length || null),
+    shift: tile('#/shifts', 'timer', 'My Shift', 'Opening cash, collections, handover', 'purple', null, pendingHandoversFor(u).length ? { text: `${pendingHandoversFor(u).length} handover`, tone: 'warning' } : null),
     packages: tile('#/packages', 'package', 'Packages', 'Health check-ups and surgery packages', 'warning'),
     lab: tile('#/lab', 'test-tube', 'Lab Worklist', 'Collect → receive → results → verify → send', 'teal'),
     labReports: tile('#/lab/reports', 'file-check-2', 'Lab Reports', 'Find and reprint reports', 'info'),
-    kits: tile('#/lab/stock', 'boxes', 'Lab Stock', labAttention().low.length ? `${labAttention().low.length} running low — request from store` : 'Reagents, cards, tubes, QC', labAttention().low.length ? 'warning' : 'navy', labAttention().arriving.length || null),
-    labSupplies: tile('#/store/lab', 'flask-conical', 'Lab Supplies', storeAttention().requests.length ? 'Lab is waiting — issue now' : 'Lab requests and reagent stock', storeAttention().requests.length ? 'danger' : 'purple', storeAttention().requests.length || null),
+    kits: tile('#/lab/stock', 'boxes', 'Lab Stock', 'Reagents, cards, tubes, QC', labAttention().low.length ? 'danger' : 'navy', labAttention().arriving.length || null, labAttention().low.length ? { text: `${labAttention().low.length} item${labAttention().low.length === 1 ? '' : 's'} low`, tone: 'danger' } : null),
+    labSupplies: tile('#/store/lab', 'flask-conical', 'Lab Supplies', 'Lab requests and reagent stock', storeAttention().requests.length ? 'danger' : 'purple', null, storeAttention().requests.length ? { text: `${storeAttention().requests.length} lab request${storeAttention().requests.length > 1 ? 's' : ''}`, tone: 'danger' } : null),
     labTests: tile('#/lab/tests', 'list-checks', 'Lab Test Master', 'Tests, prices, normal ranges, kits', 'purple'),
     addTest: tile('#/lab/tests/new', 'plus-circle', 'Add a Lab Test', 'New test — billable at reception at once', 'teal'),
     audit: tile('#/audit', 'history', 'Audit Log', 'Who changed what, and when', 'navy'),
@@ -226,11 +226,24 @@ export function render(view) {
   const recentCard = hosp && !can('hbill.view') ? `<section class="card"><header class="card-head"><h2>Recently completed</h2></header><div class="todo-list">${workRecent.join('') || emptyState('inbox', 'Nothing yet')}</div></section>` : hosp ? `<section class="card"><header class="card-head"><h2>Latest hospital bills</h2><a class="btn btn-ghost btn-sm" href="#/hbills">All ${icon('arrow-right')}</a></header>
         <div class="todo-list">${hrecent.map((b) => `<a class="todo" href="#/hbills/${b.id}"><span class="todo-ic sev-info">${icon('receipt')}</span><span class="todo-txt"><strong>${esc(b.patientName)} · ${fmtINR(b.grandTotal)}</strong><small>${b.id} · ${esc(b.items.map((x) => x.name).slice(0, 2).join(', '))} · ${relTime(b.at)}</small></span>${badge(b.status === 'PAID' ? 'PAID' : b.status === 'CANCELLED' ? 'CANCELLED' : 'UNPAID', b.status === 'PAID' ? 'Paid' : b.status === 'CANCELLED' ? 'Cancelled' : b.credit ? 'Credit' : 'Due')}</a>`).join('')}</div></section>` : null;
 
+  const heroImg = ['LAB', 'ADMIN'].includes(role) ? 'assets/images/hero-lab.jpg'
+    : ['DOCTOR', 'NURSE'].includes(role) ? 'assets/images/hero-clinical.jpg'
+    : ['PHARMACY_STAFF', 'STORE_INCHARGE'].includes(role) ? 'assets/images/hero-pharmacy.jpg'
+    : 'assets/images/hero-hospital.jpg';
+
   view.innerHTML = `
-    <div class="home-hero"><div><h1>${greet}, ${esc(first)}</h1><p>${dateLine} · ${esc(roleLabel())}</p></div>
-      ${role !== 'SUPER_ADMIN' && closingFor(today, u.id) ? `<span class="pill-soft">${icon('lock')} Your counter is closed for today</span>` : ''}</div>
-    <h2 class="home-h">What would you like to do?</h2>
-    <div class="task-grid n${tiles.length}">${tiles.join('')}</div>
+    <section class="home-banner">
+      <svg class="hb-waves" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,150 C360,210 720,40 1440,120 L1440,220 L0,220 Z" fill="#E3F2F3" opacity="0.55"/>
+        <path d="M0,180 C440,110 880,210 1440,60 L1440,220 L0,220 Z" fill="#D5ECEE" opacity="0.45"/>
+      </svg>
+      <img class="hb-art" src="${heroImg}" alt="" aria-hidden="true">
+      <div class="home-hero"><div><h1>${greet}, ${esc(first)}</h1><p>${dateLine} · ${esc(roleLabel())}</p></div>
+        ${role !== 'SUPER_ADMIN' && closingFor(today, u.id) ? `<span class="pill-soft">${icon('lock')} Your counter is closed for today</span>` : ''}</div>
+    </section>
+    <div class="home-dock">
+      <div class="task-grid n${tiles.length}">${tiles.join('')}</div>
+    </div>
     <h2 class="home-h">Today at a glance</h2>
     <div class="stat-grid">${stats.join('')}</div>
     ${labPanels || `<div class="home-cols">

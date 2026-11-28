@@ -5,6 +5,7 @@ import { resolve, navigate } from './router.js';
 import { esc, icon, refreshIcons, initials, fmtDate, relTime, debounce, qs } from './utils.js';
 import { toast, unreadCount, visibleNotifications, isRead, markRead, markAllRead, notificationLink } from './notifications.js';
 import { destroyCharts, confirmDialog, openModal, emptyState, skeleton } from './components.js';
+import { mountModuleBanner } from './module-banners.js';
 import { medName, supplierName } from './calculations.js';
 import { alertsFor } from './alert-rules.js';
 import { approvalItems } from './approvals.js';
@@ -12,6 +13,7 @@ import { approvalItems } from './approvals.js';
 const app = document.getElementById('app');
 let cleanup = null;
 let currentMeta = null;
+let bannerObs = null;
 
 // ---------------- branding ----------------
 export function brandMark(size = 'md') {
@@ -227,7 +229,7 @@ function renderShell() {
         <button class="icon-btn mobile-only" data-sb-open aria-label="Open menu">${icon('menu')}</button>
         <div class="tb-title"><nav class="crumbs" aria-label="Breadcrumb" data-crumbs></nav><div class="tb-h" data-title></div></div>
         <div class="tb-search">
-          ${icon('search')}<input class="input" type="search" placeholder="Search medicine, bill, patient, supplier…" data-gsearch aria-label="Global search">
+          ${icon('search')}<input class="input" type="search" placeholder="Search medicine, bill, patient, supplier…" data-gsearch aria-label="Global search"><kbd class="tb-kbd" aria-hidden="true">/</kbd>
           <div class="gs-results hidden" data-gresults></div>
         </div>
         <div class="tb-right">
@@ -395,11 +397,19 @@ async function route() {
   document.body.dataset.module = /^lab(\/|desk$)/.test(r.route.mod) ? 'lab' : ''; // lab pages use the lab2 look (assets/css/lab2.css)
   setMeta({ title: r.route.title, crumbs: r.route.crumbs });
   view.innerHTML = skeleton(8);
+  if (bannerObs) { bannerObs.disconnect(); bannerObs = null; }
   try {
     const mod = await import(`./modules/${r.route.mod}.js`);
     if (currentMeta !== r) return; // navigated away while loading
     view.innerHTML = '';
     cleanup = (await mod[r.route.fn](view, r.params, r.query)) || null;
+    mountModuleBanner(view, r.route);
+    bannerObs = new MutationObserver(() => {
+      if (currentMeta === r && !view.querySelector('.mod-banner, .home-banner')) {
+        mountModuleBanner(view, r.route);
+      }
+    });
+    bannerObs.observe(view, { childList: true });
     refreshIcons(view);
     view.focus({ preventScroll: true });
     window.scrollTo(0, 0);
