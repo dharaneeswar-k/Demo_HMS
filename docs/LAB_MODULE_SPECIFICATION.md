@@ -577,7 +577,7 @@ For a text parameter with expected `ref`: case-insensitive match → `''`, other
 - **Built (§38.6):** a logged call — *Informed* with read-back — is required before a critical result can be verified; failed tries are kept; the owner is alerted after 15 minutes. **[PROD]** also an SMS/WhatsApp to the ordering doctor.
 
 ### 13.4 Verification
-- Only users with `lab.verify` **who are authorised signatories** (qualification + registration no., §38.1). Setting **"report must be verified by a different person from the one who entered the results"** (`requireSecondPersonVerification`, default on).
+- Only users with `lab.verify` **who are authorised signatories** (qualification + registration no., §38.1). Technicians see the patient as *With Dr. …*; the doctor is notified when results are saved (hand-off in §38.1). Setting **"report must be verified by a different person from the one who entered the results"** (`requireSecondPersonVerification`, default on).
 - Saving changed results needs a reason and keeps the old values (§38.2). A released report is changed only by an **amendment** (§38.3).
 - On verification: report number `LR-YYYY-NNNNN`, `verifiedBy/At`, order → **`COMPLETED`**, the order appears on the patient timeline.
 - When **every non-cancelled order of the SID** is completed → visit **report ready** → IP: posted to the IP record; others: report desk + notification "Report ready — SID …".
@@ -1745,6 +1745,24 @@ The six must-fix items from the compliance review ([LAB_COMPLIANCE_AUDIT.md](LAB
 | Page numbers | Printed copies carry "Page x of y" (CSS `@page labrep`). |
 | Confirm dialog | Verify says "It is signed as Dr. … — MBBS, MD (Pathology), Reg. No. TNMC 61234". |
 
+**Verification hand-off (technician → doctor).** One rule, `verifyBlock(order, user)` in `hospital.js`, decides whether a user can verify a test; the service and every screen use it, so a Verify button is never shown that would then fail.
+
+| `verifyBlock` code | Meaning | What the screens show |
+|---|---|---|
+| *(none)* | This user can sign | **Verify** (worklist row, patient screen, home) |
+| `CALL_NEEDED` | Critical value, no *Informed + read back* call yet | **Log call** for lab staff and doctors; Verify stays blocked |
+| `NOT_SIGNATORY` | User is not an authorised signatory | Worklist row: **With Dr. …** (no button); patient screen: "n tests waiting for Dr. … to verify — sent to their alerts"; home tile **With the doctor** |
+| `OWN_ENTRY` | User entered these results (second-person check) | "Another doctor to sign" |
+| `NOT_ENTERED` | Results not entered | — |
+
+Workflow:
+1. Technician saves the results → each signatory (except the person who entered them) gets a bell notification **"Results to verify — <patient>"** (`LAB_TO_SIGN`, one open notice per visit and doctor; opens the patient screen).
+2. If a value is critical, the technician phones the treating doctor and logs the call (read back).
+3. The signatory opens **Lab Worklist → To verify** (critical first) or the notification, checks the values and clicks **Verify & release**.
+4. When no test of the visit is left waiting, the notification closes (`DONE`) and the report moves to **Ready to send**.
+
+For a non-signatory the *To verify* tab is labelled as the **doctor's queue** ("Dr. … verifies. Your part: log the call for critical values."); patients waiting only for the doctor drop to the bottom of the home *Next patients* list.
+
 Demo users: **owner** (Dr. Meenakshi Sundaram, *Director & Consultant Pathologist*, signatory with a sample signature) signs; **lab** (Vignesh Raj, DMLT) enters results but cannot verify.
 
 ### 38.2 F2 — Result corrections keep history
@@ -1880,6 +1898,8 @@ order.lab         + history[]        { at, by, kind:'CORRECTED', reason, changes
 | T50 | Test Master → CBC → add an overlapping *Adult female* range | Save refused with the overlap message |
 | T51 | Bill CBC for a woman of 25 | "Is the patient pregnant?" appears; *Yes* → report shows *(Pregnancy)* range |
 | T52 | Bill HIV without the consent form filled | Bill refused with the consent message |
+| T53 | As **lab**, open Lab Worklist → To verify | Rows show *With Dr. Meenakshi Sundaram* (no Verify button); the critical one shows *Log call*; note "Doctor's queue" above the table |
+| T54 | As **lab**, save results for a patient | Owner's bell: "Results to verify — <patient>"; after the owner verifies all tests of that SID the notice closes |
 
 ---
 
@@ -1895,6 +1915,7 @@ order.lab         + history[]        { at, by, kind:'CORRECTED', reason, changes
 - **F5** notifiable diseases (TB → Ni-kshay, IDSP → IHIP) per test; Notification register with deadline, overdue alert and CSV.
 - **F6** critical call log with read-back blocks verification; owner alerted after 15 min; reference ranges by age, sex and pregnancy, with a pregnancy question at billing.
 - New settings in Hospital Setup → Rules (§38.7); demo data for each rule (§38.11, demo data version 11); acceptance tests T43–T52.
+- **Verify hand-off:** one rule `verifyBlock` for service and screens; technicians see *With Dr. …* / *Log call* instead of a Verify button that could not work; signatories are notified when results are saved (§38.1).
 - Not done yet: unit conversion (SI units), direct Ni-kshay / IHIP upload, digital signature of the PDF.
 
 ### v1.1 — 27 Nov 2026

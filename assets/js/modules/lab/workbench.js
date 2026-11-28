@@ -16,7 +16,8 @@ import { icon } from './bi.js';
 import { STAGES, stageById, stageOf, onHold, scanTarget, codesOf } from './stages.js';
 import { receiveCodes, openCollection } from './collect.js';
 import { pat, dur, minsSince, liveOrders, ageSex, PTYPES, ptypeCell, ptypeCode, ptype } from './ui.js';
-import { isCritical } from '../../hospital.js';
+import { isCritical, verifyState } from '../../hospital.js';
+import { signatories } from '../../labrules.js';
 import { mountSid } from './sid.js';
 
 const ACT = { collect: ['Collect', 'droplet-half'], receive: ['Receive', 'check2'], results: ['Enter results', 'keyboard'], verify: ['Verify', 'patch-check'], send: ['Send report', 'send'] };
@@ -74,20 +75,23 @@ export function renderWorkbench(view, params, query) {
   const drawList = () => {
     const s = stageById(stage); const list = items();
     if (!list.some((v) => v.id === sel)) sel = list[0]?.id || null;
-    $('[data-bulk]').innerHTML = stage === 'receive' && list.length > 1 && can('lab.work') ? `<button class="btn btn-secondary btn-sm" data-recv-all>${icon('check2-all')}Receive all ${list.length}</button>` : '';
+    const signers = signatories(); const iSign = signers.some((u) => u.id === currentUser()?.id);
+    $('[data-bulk]').innerHTML = stage === 'verify' && !iSign ? `<span class="h-wait" style="white-space:normal">${icon('info-circle')}Doctor's queue — ${signers.length ? esc(signers.map((u) => u.name).join(', ')) : 'no signatory set up yet (User Management)'} verif${signers.length > 1 ? 'y' : 'ies'}. Your part: log the call for critical values.</span>` : stage === 'receive' && list.length > 1 && can('lab.work') ? `<button class="btn btn-secondary btn-sm" data-recv-all>${icon('check2-all')}Receive all ${list.length}</button>` : '';
     $('[data-recv-all]')?.addEventListener('click', () => receiveCodes(list.flatMap((v) => v.tubes.filter((t) => t.collectedAt && !t.receivedAt).map((t) => t.code))));
     const all = s.select(q()); const pt = $('[data-ptype]');
     pt.innerHTML = `<option value="">All (${all.length})</option>${PTYPES.map((t) => { const n = all.filter((v) => v.source === t.id).length; return `<option value="${t.id}" ${t.id === ptf ? 'selected' : ''} ${n ? '' : 'disabled'}>${esc(t.long)} (${n})</option>`; }).join('')}`;
     const [act] = ACT[stage];
     $('[data-rows]').innerHTML = list.length ? list.map((v, i) => { const p = pat(v.patientId); const m = minsSince(s.since(v) || v.createdAt); const line = s.line(v); const codes = codesOf(v);
       const crit = stage !== 'verify' && liveOrders(v).some(isCritical);
+      const vs = stage === 'verify' ? verifyState(v.id, currentUser()) : null;
+      const critNote = vs && vs.all.some(isCritical) ? (vs.call.length ? '<span class="danger">Phone the doctor first</span>' : '<span class="h-warn">Doctor informed</span>') : '';
       return `<tr class="${v.id === sel ? 'sel' : ''}" data-id="${v.id}">
         <td class="h-sno">${i + 1}</td><td class="h-type" title="${esc(ptype(v).long)}">${ptypeCode(v)}</td><td>${ptypeCell(v)}</td><td class="mono">${v.sid}</td>
         <td class="h-pt"><b>${esc(p.name)}</b><small>${esc(ageSex(p))}</small></td>
-        <td class="h-tests">${esc(codes.join(', '))}${line ? `<div class="h-line">${line}</div>` : ''}${crit ? '<div class="h-line"><span class="danger">Critical value</span></div>' : ''}</td>
+        <td class="h-tests">${esc(codes.join(', '))}${line ? `<div class="h-line">${line}</div>` : ''}${crit ? '<div class="h-line"><span class="danger">Critical value</span></div>' : ''}${critNote ? `<div class="h-line">${critNote}</div>` : ''}</td>
         <td>${priTxt(v)}</td>
         <td class="${m > s.late ? 'h-late' : ''}">${dur(m)}</td>
-        <td class="ta-right">${can(stage === 'verify' ? 'lab.verify' : stage === 'send' ? 'lab.deliver' : 'lab.work') ? `<span class="h-rowbtns">${stage === 'collect' && v.token && v.collectionPoint === 'OPD' ? `<button class="btn btn-sm btn-secondary" data-call="${v.id}" title="Show token ${v.token} on the waiting-room screen">${icon('megaphone')}${v.tokenStatus === 'CALLED' ? 'Call again' : 'Call'}</button>` : ''}<button class="btn btn-sm ${v.id === sel ? 'btn-primary' : 'btn-secondary'}" data-act="${v.id}">${act}</button></span>` : ''}</td></tr>`; }).join('')
+        <td class="ta-right">${vs ? verifyCell(v, vs) : can(stage === 'send' ? 'lab.deliver' : 'lab.work') ? `<span class="h-rowbtns">${stage === 'collect' && v.token && v.collectionPoint === 'OPD' ? `<button class="btn btn-sm btn-secondary" data-call="${v.id}" title="Show token ${v.token} on the waiting-room screen">${icon('megaphone')}${v.tokenStatus === 'CALLED' ? 'Call again' : 'Call'}</button>` : ''}<button class="btn btn-sm ${v.id === sel ? 'btn-primary' : 'btn-secondary'}" data-act="${v.id}">${act}</button></span>` : ''}</td></tr>`; }).join('')
       : `<tr><td colspan="9" class="h-empty">${icon(q() ? 'search' : 'check2-circle')}<b>${q() ? 'No match' : esc(s.empty[1])}</b><span>${q() ? `Nobody here matches “${esc(scan.value.trim())}”.` : esc(s.empty[2])}</span></td></tr>`;
     view.querySelectorAll('[data-rows] tr[data-id]').forEach((r) => { r.onclick = (e) => { if (e.target.closest('[data-act], [data-call]')) return; openPatient(r.dataset.id); }; });
     view.querySelectorAll('[data-call]').forEach((b) => { b.onclick = () => { try { const v = callToken(b.dataset.call, currentUser()); toast(`Token ${v.token} called — ${pat(v.patientId).name}. Shown on the token screen.`); } catch (err) { toast(err.message, 'error'); } }; });
@@ -95,6 +99,14 @@ export function renderWorkbench(view, params, query) {
   };
   const TAB = { collect: 'To collect', receive: 'To receive', results: 'Enter results', verify: 'To verify', send: 'Ready to send' };
 
+  // Verify step: the button depends on what THIS user may do (hospital.js verifyBlock) — never a Verify button that would fail.
+  const verifyCell = (v, vs) => {
+    const b = (ic, label) => `<span class="h-rowbtns"><button class="btn btn-sm ${v.id === sel ? 'btn-primary' : 'btn-secondary'}" data-act="${v.id}">${icon(ic)}${label}</button></span>`;
+    if (vs.next === 'CALL' && (can('lab.work') || can('lab.verify'))) return b('telephone', 'Log call');
+    if (vs.next === 'SIGN') return b('patch-check', 'Verify');
+    const who = vs.doctor.length ? (vs.doctors[0]?.name || 'the doctor') : '';
+    return `<span class="h-wait" title="Waiting for an authorised signatory to verify">${icon('hourglass-split')}${who ? `With ${esc(who)}` : 'Another doctor to sign'}</span>`;
+  };
   const rowAction = (id) => {
     sel = id;
     if (stage === 'collect') { openCollection(id, () => {}); return; }

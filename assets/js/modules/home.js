@@ -14,7 +14,8 @@ import { codingOverdue } from '../mrd.js';
 import { stageById, stageOf, codesOf, onHold } from './lab/stages.js';
 import { pat, liveOrders, liveTubes, minsSince, dur, ptypeCode, ptypeCell, ptype } from './lab/ui.js';
 import { isUncollected } from '../labflow.js';
-import { criticalCallOk } from '../hospital.js';
+import { criticalCallOk, verifyState } from '../hospital.js';
+import { canSign } from '../labrules.js';
 import { labAttention, storeAttention } from '../labstock.js';
 import { alertsFor } from '../alert-rules.js';
 
@@ -95,7 +96,7 @@ export function render(view) {
   ] : role === 'LAB' ? [
     stat('Waiting for sample', fmtNum(stageById('collect').select('').length), 'patients to collect', '#/lab?stage=collect'),
     stat('Results to enter', fmtNum(stageById('results').select('').length), 'patients on the bench', '#/lab?stage=results'),
-    stat('To verify', fmtNum(stageById('verify').select('').length), `${labQ.filter((o) => o.status === 'RESULTED' && isCritical(o)).length} critical`, '#/lab?stage=verify'),
+    stat(canSign(u) ? 'To verify' : 'With the doctor', fmtNum(stageById('verify').select('').length), canSign(u) ? `${labQ.filter((o) => o.status === 'RESULTED' && isCritical(o)).length} critical` : 'waiting for the signature', '#/lab?stage=verify'),
     stat('Reports to send', fmtNum(stageById('send').select('').length), 'WhatsApp or hand over', '#/lab?stage=send')
   ] : role === 'SERVICE_COUNTER' ? [
     stat('Ready to do', fmtNum(svcQ.filter((o) => o.status === 'READY' && orderAccess(o).ok).length), 'billed & paid', '#/services'),
@@ -169,22 +170,24 @@ export function render(view) {
     const work = store.all('labVisits').map((v) => {
       const st = stageOf(v); if (!st) return null;
       const s = stageById(st); const m = minsSince(s.since(v) || v.createdAt);
-      return { v, s, m, late: m > s.late, crit: st === 'verify' && liveOrders(v).some((o) => o.status === 'RESULTED' && isCritical(o)) };
+      // verify step: what THIS user can do — sign, log a critical call, or nothing (waiting for the doctor)
+      const vs = st === 'verify' ? verifyState(v.id, u) : null;
+      return { v, s, m, late: m > s.late, vs, wait: vs?.next === 'WAIT_DOCTOR', crit: st === 'verify' && liveOrders(v).some((o) => o.status === 'RESULTED' && isCritical(o)) };
     }).filter(Boolean);
-    const rank = (w) => (w.crit ? 0 : w.v.priority === 'STAT' ? 1 : w.v.priority === 'URGENT' ? 2 : w.late ? 3 : 4);
+    const rank = (w) => (w.wait ? 9 : w.crit ? 0 : w.v.priority === 'STAT' ? 1 : w.v.priority === 'URGENT' ? 2 : w.late ? 3 : 4);
     const next = work.slice().sort((a, b) => rank(a) - rank(b) || b.m / b.s.late - a.m / a.s.late).slice(0, 8);
     const pri = (v) => (v.priority === 'STAT' ? '<span class="h-stat">STAT</span>' : v.priority === 'URGENT' ? '<span class="h-urg">Urgent</span>' : '<span class="h-muted">Routine</span>');
     const rows = next.map((w, i) => {
       const p = pat(w.v.patientId); const href = `#/lab?stage=${w.s.id}&v=${w.v.id}`;
       return `<tr data-href="${href}"><td class="h-sno">${i + 1}</td><td class="h-type" title="${esc(ptype(w.v).long)}">${ptypeCode(w.v)}</td><td>${ptypeCell(w.v)}</td>
         <td><b>${esc(p.name)}</b><div class="h-line">${esc(codesOf(w.v).join(', '))}</div></td>
-        <td>${w.crit ? '<span class="h-stat">Critical — verify</span>' : esc(w.s.label)}</td><td>${pri(w.v)}</td>
+        <td>${w.vs?.next === 'CALL' ? '<span class="h-stat">Critical — call doctor</span>' : w.wait ? '<span class="h-muted">With doctor to verify</span>' : w.crit ? '<span class="h-stat">Critical — verify</span>' : esc(w.s.label)}</td><td>${pri(w.v)}</td>
         <td class="${w.late ? 'h-late' : ''}">${dur(w.m)}${w.late ? ' · late' : ''}</td>
-        <td class="ta-right"><a class="btn btn-sm ${i === 0 ? 'btn-primary' : 'btn-secondary'}" href="${href}">${ACT[w.s.id]}</a></td></tr>`;
+        <td class="ta-right"><a class="btn btn-sm ${i === 0 && !w.wait ? 'btn-primary' : 'btn-secondary'}" href="${href}">${w.vs?.next === 'CALL' ? 'Log call' : w.wait ? 'View' : ACT[w.s.id]}</a></td></tr>`;
     }).join('');
     const lateN = work.filter((w) => w.late).length;
     const redo = store.all('labVisits').filter((v) => liveTubes(v).some((t) => t.rejected && !t.collectedAt));
-    const crit = work.filter((w) => w.crit);
+    const crit = work.filter((w) => w.crit && w.vs?.next === 'SIGN');
     const hold = onHold(); const notCollected = store.all('labVisits').filter(isUncollected);
     const la = labAttention();
     const noCall = store.all('orders').filter((o) => o.lab && ['RESULTED', 'COMPLETED'].includes(o.status) && isCritical(o) && !criticalCallOk(o));

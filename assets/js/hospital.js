@@ -10,7 +10,7 @@ import { openShiftFor } from './shifts.js';
 import { fmtINR } from './utils.js';
 import { useForTest, markRepeat } from './labstock.js';
 import { validateLabRequest, createVisitForBill, onOrderVerified, onReportAmended, visitOfOrder, visitAccess } from './labflow.js';
-import { resolveParam, rangeCtx, canSign, notifiableOf, NOTIFIABLE, labCfg } from './labrules.js';
+import { resolveParam, rangeCtx, canSign, notifiableOf, NOTIFIABLE, labCfg, signatories } from './labrules.js';
 
 const now = () => new Date().toISOString();
 const OWNER = ['SUPER_ADMIN'];
@@ -377,17 +377,49 @@ export function enterResults(orderId, results, user, reason = '') {
     o.status = 'RESULTED';
     if (changes.length) audit(user, 'LAB_RESULTS_CORRECTED', 'ORDER', orderId, `${o.accession} ${o.name}: ${changes.map((c) => `${c.param} ${c.from} → ${c.to}`).join('; ')} — ${reason.trim()}`);
     else audit(user, 'LAB_RESULTS_ENTERED', 'ORDER', orderId, `${o.accession} ${o.name}: ${o.lab.results.map((r) => `${r.param} ${r.value}`).join('; ')}`);
+    askToSign(o, user);
     if (isCritical(o)) notify({ type: 'CRITICAL_RESULT', category: 'Laboratory', severity: 'critical', title: `Critical result — ${patientOf(o.patientId)?.name}`, message: `${o.name} (${o.accession}): value in the critical range. Inform ${o.doctor || 'the doctor'} now.`, refType: 'LABORDER', refId: orderId, targetRoles: ['SUPER_ADMIN', 'LAB'] });
     return o;
   });
 }
+/**
+ * Why `user` cannot verify test `o` right now — null when they can. The single verification rule: verifyReport and
+ * every screen (worklist button, home, patient screen) ask this, so a button is never shown that would then fail.
+ *   NOT_ENTERED   results not entered yet
+ *   CALL_NEEDED   critical value, no "Informed + read back" call logged yet   → lab staff log the call
+ *   NOT_SIGNATORY user is not an authorised signatory                        → waits for the doctor
+ *   OWN_ENTRY     user entered these results (second-person rule on)          → another signatory signs
+ */
+export function verifyBlock(o, user) {
+  if (!o?.lab || o.status !== 'RESULTED') return { code: 'NOT_ENTERED', text: 'Results are not entered yet.' };
+  if (!criticalCallOk(o)) return { code: 'CALL_NEEDED', text: `${o.name}: critical value — log the call to the doctor (with read-back) before releasing the report.` };
+  if (!can('lab.verify', user) || !canSign(user)) return { code: 'NOT_SIGNATORY', text: 'Only an authorised signatory (doctor) can verify reports.' };
+  if (hs().lab.requireSecondPersonVerification && o.lab.enteredBy === user.id) return { code: 'OWN_ENTRY', text: 'You entered these results — another signatory must verify them.' };
+  return null;
+}
+/** The tests of a visit waiting for verification, sorted by what has to happen next for this user. */
+export function verifyState(visitId, user) {
+  const os = store.all('orders').filter((o) => o.labVisitId === visitId && o.status === 'RESULTED');
+  const by = (c) => os.filter((o) => verifyBlock(o, user)?.code === c);
+  const sign = os.filter((o) => !verifyBlock(o, user));
+  const call = by('CALL_NEEDED'); const doctor = by('NOT_SIGNATORY'); const own = by('OWN_ENTRY');
+  const enteredBy = new Set(os.map((o) => o.lab.enteredBy));
+  const others = signatories().filter((u) => !(hs().lab.requireSecondPersonVerification && enteredBy.size === 1 && enteredBy.has(u.id)));
+  return { all: os, sign, call, doctor, own, next: call.length ? 'CALL' : sign.length ? 'SIGN' : os.length ? 'WAIT_DOCTOR' : 'NONE', doctors: others };
+}
+/** Tell each signatory that a patient's results are waiting for their signature (one open notice per visit and doctor). */
+function askToSign(o, user) {
+  const p = patientOf(o.patientId); const v = visitOfOrder(o);
+  signatories().filter((u) => u.id !== user.id).forEach((u) => {
+    if (store.all('notifications').some((n) => n.type === 'LAB_TO_SIGN' && n.refId === o.labVisitId && n.assignedTo === u.id && n.status === 'OPEN')) return;
+    notify({ type: 'LAB_TO_SIGN', category: 'Laboratory', severity: 'info', title: `Results to verify — ${p?.name || ''}`, message: `SID ${v?.sid || ''}: ${o.name} entered by ${user.name}. Waiting for your signature.`, refType: 'LABVISIT', refId: o.labVisitId, assignedTo: u.id });
+  });
+}
+const closeToSign = (visitId) => { if (store.all('orders').some((o) => o.labVisitId === visitId && o.status === 'RESULTED')) return; store.all('notifications').filter((n) => n.type === 'LAB_TO_SIGN' && n.refId === visitId && n.status === 'OPEN').forEach((n) => { n.status = 'DONE'; }); };
+
 export function verifyReport(orderId, user) {
-  if (!can('lab.verify', user)) throw new Error('You cannot verify reports.');
-  if (!canSign(user)) throw new Error('Only an authorised signatory can verify reports — a doctor marked “Authorised signatory” in User Management.');
   const o = store.get('orders', orderId);
-  if (o.status !== 'RESULTED') throw new Error('Results are not entered yet.');
-  if (!criticalCallOk(o)) throw new Error(`${o.name}: critical value — log the call to the doctor (with read-back) before releasing the report.`);
-  if (hs().lab.requireSecondPersonVerification && o.lab.enteredBy === user.id) throw new Error('A second person must verify this report.');
+  const block = verifyBlock(o, user); if (block) throw new Error(block.text);
   return store.transaction(() => {
     const yr = new Date().getFullYear();
     const no = store.all('orders').map((x) => x.lab?.reportNo).filter(Boolean).reduce((m, r) => Math.max(m, +String(r).split('-').pop() || 0), 0) + 1;
@@ -396,6 +428,7 @@ export function verifyReport(orderId, user) {
     audit(user, 'LAB_REPORT_VERIFIED', 'ORDER', orderId, o.lab.reportNo);
     flagNotifiable(o, user);
     onOrderVerified(o, user);
+    closeToSign(o.labVisitId);
     return o;
   });
 }

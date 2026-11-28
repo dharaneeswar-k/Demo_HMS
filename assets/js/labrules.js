@@ -81,6 +81,8 @@ export function bandProblems(p, at) {
 // ---------------- who signs ----------------
 /** May this user verify (sign) a report? Needs lab.verify, and — when the setting is on — to be an authorised signatory. */
 export const canSign = (user) => can('lab.verify', user) && (!labCfg().signatoryOnly || !!user?.signatory);
+/** Active users who may sign lab reports (the doctors the verify queue waits for). */
+export const signatories = () => store.all('users').filter((u) => u.active !== false && canSign(u));
 export const signatoryText = (u) => (u ? [u.qualification, u.regNo ? `Reg. No. ${u.regNo}` : ''].filter(Boolean).join(' · ') : '');
 
 // ---------------- confidential & notifiable tests ----------------

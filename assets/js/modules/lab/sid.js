@@ -7,7 +7,7 @@
 import { store } from '../../data-service.js';
 import { currentUser, can } from '../../auth.js';
 import { userName } from '../../calculations.js';
-import { svc, labParams, flagFor, refText, isCritical, enterResults, verifyReport, hbillBalance, criticalCallOk, criticalText, logCriticalCall, amendReport, CALL_OUTCOME } from '../../hospital.js';
+import { svc, labParams, flagFor, refText, isCritical, enterResults, verifyReport, hbillBalance, criticalCallOk, criticalText, logCriticalCall, amendReport, CALL_OUTCOME, verifyBlock, verifyState } from '../../hospital.js';
 import { canSign, signatoryText, isConfidential, canSeeConfidential } from '../../labrules.js';
 import { SOURCE, visit, visitAccess, visitStatus, reportReadyAt, isUncollected, tubesFor, deliverReport, handOver, collectTube, callToken, wardWaPending, visitConfidential, lastAmendAt, staleDeliveries, setPregnant, asksPregnancy } from '../../labflow.js';
 import { CHANNEL_LABEL } from '../../messaging.js';
@@ -129,7 +129,7 @@ export function mountSid(host, id, { step } = {}) {
       const changed = new Map(); (o.lab.history || []).concat(o.lab.amendments || []).forEach((h) => h.changes.forEach((c) => (changed.get(c.param) || changed.set(c.param, []).get(c.param)).push(`${c.from || '—'} → ${c.to} · ${userName(h.by)} ${fmtDateTime(h.at)} · ${h.reason}`)));
       const head = `<tr class="g"><td colspan="6"><div class="h-grp"><b>${esc(o.name)}</b><span class="h-state ${st}">${sl}</span>${o.lab.reportNo ? `<span class="mono h-muted">${o.lab.reportNo}</span>` : ''}<span class="h-grow"></span><span class="h-muted">${who}</span>
         ${o.status === 'RESULTED' && !editing.has(o.id) && can('lab.work') ? `<button class="h-link" data-edit="${o.id}">${icon('pencil')}Correct</button>` : ''}
-        ${o.status === 'RESULTED' && canSign(user) && !editing.has(o.id) && criticalCallOk(o) && os.filter((x) => x.status === 'RESULTED').length > 1 ? `<button class="h-link" data-verify-one="${o.id}">${icon('patch-check')}Verify this</button>` : ''}
+        ${!verifyBlock(o, user) && !editing.has(o.id) && os.filter((x) => x.status === 'RESULTED').length > 1 ? `<button class="h-link" data-verify-one="${o.id}">${icon('patch-check')}Verify this</button>` : ''}
         ${o.status === 'COMPLETED' && canSign(user) && !editing.has(o.id) && !hidden ? `<button class="h-link" data-amend="${o.id}" title="Correct a released report — it will print as AMENDED">${icon('pencil-square')}Amend</button>` : ''}
         ${amending ? `<button class="h-link" data-unedit="${o.id}">Cancel amend</button>` : ''}</div></td></tr>`;
       if (hidden) return head + `<tr><td colspan="6" class="h-muted h-note">${icon('lock-fill')} Confidential test — the result is visible to lab staff only.</td></tr>`;
@@ -170,20 +170,24 @@ export function mountSid(host, id, { step } = {}) {
     if (!alive) return;
     const vv = visit(id); const bar = host.querySelector('[data-bar]'); if (!bar) return;
     const inputs = [...host.querySelectorAll('.l2-in')]; const os = liveOrders(vv); const resulted = os.filter((o) => o.status === 'RESULTED' && !editing.has(o.id));
-    const blocked = resulted.filter((o) => !criticalCallOk(o)); const toVerify = resulted.filter((o) => criticalCallOk(o)); const amendingNow = os.some((o) => o.status === 'COMPLETED' && editing.has(o.id));
+    const blocked = resulted.filter((o) => !criticalCallOk(o)); const toVerify = resulted.filter((o) => !verifyBlock(o, user));
+    const waiting = resulted.filter((o) => ['NOT_SIGNATORY', 'OWN_ENTRY'].includes(verifyBlock(o, user)?.code)); const vst = verifyState(vv.id, user);
+    const waitText = () => { const n = waiting.length; const t = `${n} test${n > 1 ? 's' : ''}`;
+      if (waiting.every((o) => verifyBlock(o, user).code === 'OWN_ENTRY')) return `${t} waiting — you entered ${n > 1 ? 'them' : 'it'}, so another signatory must verify (second-person check)`;
+      return `${t} waiting for ${vst.doctors.length ? esc(vst.doctors.map((u) => u.name).join(' or ')) : 'an authorised signatory'} to verify — sent to their alerts`; }; const amendingNow = os.some((o) => o.status === 'COMPLETED' && editing.has(o.id));
     const nx = nextAction(vv); const tubes = liveTubes(vv); let status = ''; let sec = ''; let pri = '';
     if (inputs.length) {
       const filled = inputs.filter((i) => i.value.trim()).length; const crit = host.querySelectorAll('tr.f-crit .l2-in').length;
       status = `${crit ? `<span class="danger">${icon('siren')}${crit} critical</span><i>·</i>` : ''}<span class="h-prog">${filled} of ${inputs.length} entered<i><b style="width:${(filled / inputs.length) * 100}%"></b></i></span>`;
-      sec = '<span class="h-keys"><kbd>Ctrl S</kbd> save</span>' + (toVerify.length && canSign(user) && !amendingNow ? `<button class="btn btn-secondary" data-verify-all>${icon('badge-check')}Verify ${toVerify.length} entered</button>` : '');
+      sec = '<span class="h-keys"><kbd>Ctrl S</kbd> save</span>' + (toVerify.length && !amendingNow ? `<button class="btn btn-secondary" data-verify-all>${icon('badge-check')}Verify ${toVerify.length} entered</button>` : '');
       pri = `<button class="btn btn-primary" data-save>${icon('save')}${amendingNow ? 'Save amended report' : 'Save results'}</button>`;
-    } else if (blocked.length && can('lab.verify')) {
+    } else if (blocked.length && (can('lab.work') || can('lab.verify'))) {
       status = `<span class="danger">${icon('siren')}Critical value — log the call to the doctor before release</span>`;
-      sec = toVerify.length && canSign(user) ? `<button class="btn btn-secondary" data-verify-all>${icon('badge-check')}Verify the other ${toVerify.length}</button>` : '';
+      sec = toVerify.length ? `<button class="btn btn-secondary" data-verify-all>${icon('badge-check')}Verify the other ${toVerify.length}</button>` : '';
       pri = `<button class="btn btn-primary" data-call-log="${blocked[0].id}">${icon('telephone')}Log call to doctor</button>`;
-    } else if (toVerify.length && can('lab.verify') && !canSign(user)) {
-      status = `${icon('lock-fill')}${toVerify.length} test${toVerify.length > 1 ? 's' : ''} waiting — only an authorised signatory (doctor) can verify`;
-    } else if (toVerify.length && canSign(user)) {
+    } else if (waiting.length && !toVerify.length) {
+      status = `${icon('hourglass-split')}${waitText()}`;
+    } else if (toVerify.length) {
       status = `${icon('badge-check')}${toVerify.length} test${toVerify.length > 1 ? 's' : ''} waiting for verification`;
       pri = `<button class="btn btn-primary" data-verify-all>${icon('badge-check')}Verify &amp; release${toVerify.length > 1 ? ` all ${toVerify.length}` : ''}</button>`;
     } else if (nx.key === 'collect' && canDo('collect')) {

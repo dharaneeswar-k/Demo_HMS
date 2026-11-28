@@ -61,6 +61,8 @@ body[data-module="lab"] kbd { font: 11px/1 ui-monospace, Consolas, monospace; bo
 .h-ok { color: var(--h-green); font-weight: 600; }
 .h-info { color: var(--h-blue); font-weight: 600; }
 .h-warn { color: var(--h-amber); font-weight: 600; }
+.h-wait { display: inline-flex; align-items: center; gap: 6px; color: var(--h-ink-3); font-size: 12.5px; white-space: nowrap; }
+.h-wait .bi, .h-wait svg { width: 14px; height: 14px; }
 .h-lab .danger, .h-act .danger { color: var(--h-red); font-weight: 600; }
 .h-lab .ok { color: var(--h-green); }
 .h-stat { color: var(--h-red); font-weight: 700; font-size: 12px; letter-spacing: .02em; }

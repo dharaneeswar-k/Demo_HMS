@@ -40,6 +40,7 @@ export function notificationLink(n) {
   if (n.refType === 'LABINDENT') return (can('labstock.issue') && !can('lab.work') ? '#/store/lab' : '#/lab/stock?tab=requests');
   if (n.refType === 'ORDER') return '#/services?tab=req';
   if (n.refType === 'LABORDER') return '#/lab/orders/' + n.refId;
+  if (n.refType === 'LABVISIT') return '#/lab/visit/' + n.refId;
   if (n.refType === 'SHIFT') return '#/shifts/' + n.refId;
   if (n.refType === 'DS') return '#/mrd/summary/' + n.refId;
   if (n.refType === 'PATIENT') return '#/hbill?patient=' + n.refId;
