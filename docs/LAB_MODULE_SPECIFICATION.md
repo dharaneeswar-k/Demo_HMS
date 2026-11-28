@@ -125,8 +125,10 @@ The demo implements **100 % of the functional flow** in this document. Productio
 | SID, token, tube grouping, labels | ✅ Code 128 SVG | Direct printing to a 50 × 25 mm thermal label printer (ZPL / TSPL) |
 | Token display | ✅ in-browser page | Separate TV device, audio announcement (text-to-speech), live push |
 | Scan to collect / receive | ✅ keyboard-wedge scanner | Same (USB / Bluetooth scanner) |
-| Results, flags, critical values, verification | ✅ | Delta check rules per test, age/sex-specific ranges, analyser interface |
-| Combined report per SID | ✅ HTML → browser PDF | Server-side PDF (digitally signed), QR verification code |
+| Results, flags, critical values, verification | ✅ incl. age / sex / pregnancy ranges, critical call log, signatories, correction history (§38) | Delta check rules per test, unit conversion, analyser interface |
+| Amended reports, confidential tests, notifiable register | ✅ (§38) | Direct Ni-kshay / IHIP upload |
+| Combined report per SID | ✅ HTML → browser PDF, signer qualification + Reg. No. + signature, AMENDED / duplicate copy, page numbers | Server-side PDF (digitally signed), QR verification code |
+| Automated tests | ✅ 100 browser tests (§33.1) | JUnit / integration tests for the same rules |
 | WhatsApp | ✅ click-to-send (`wa.me`) + outbox log | **WhatsApp Business Platform (Cloud API)** automatic sending with PDF via a server worker |
 | SMS / email | ✅ opens device app | SMS gateway (DLT-registered templates, India) and SMTP/transactional email |
 | Kits & reconciliation | ✅ | Lot / expiry per kit, link to Store purchases |
@@ -271,7 +273,9 @@ Rules:
 
 The **Admin** role (`ADMIN`) has `labtest.view`, `labtest.manage`, `lab.view`, `lab.kits`, `hbill.view`, `package.view`, `orders.view`, `patient.view`, `alerts.view` and `audit.view`. It keeps the Lab Test Master (§37) and has no billing, cash or result-entry rights.
 
-**[PROD]** Add a dedicated `PATHOLOGIST` role (only role with `lab.verify`) once the hospital confirms who signs reports (open question §35).
+**Who signs.** Having `lab.verify` is not enough: with the setting *Only authorised signatories* (on by default) the user must also be marked **Lab signatory** in User Management with a qualification and a council registration number (§38.1). In the demo only the owner (Dr. Meenakshi Sundaram, MD Pathology) signs; the lab technician has `lab.verify` but is not a signatory, so the verify queue shows him *With Dr. …*.
+
+**[PROD]** Optionally add a dedicated `PATHOLOGIST` role; the signatory flag on the user already controls who signs.
 
 ---
 
@@ -928,6 +932,13 @@ Evaluated in this order:
 | **LR-20** | Every action is written to the audit log with user and timestamp. |
 | **LR-21** | Discounts above 10 % need Super Admin approval (BRD Module 09). |
 | **LR-22** | Every payment belongs to the cashier's open shift (BRD Module 12). |
+| **LR-23** | Only an authorised signatory (qualification + registration no.) verifies or amends; the person who entered the results cannot verify them (second-person rule). One function decides this for the service and every screen (`verifyBlock`, §38.1). |
+| **LR-24** | Changing a saved result needs a reason; the old value is kept (§38.2). |
+| **LR-25** | A released report is changed only by an amendment: reason required, previous version kept and viewable, earlier recipients listed for re-sending (§38.3). |
+| **LR-26** | Tests marked *Confidential* in the Test Master: consent form at billing, results only for lab roles, hand-over in person after counselling, every view audited (§38.4). Unticked = normal test. |
+| **LR-27** | A positive result of a test marked *Notifiable* goes on the notification register and must be reported to Ni-kshay / IHIP within 24 h (§38.5). |
+| **LR-28** | A critical value must be phoned to the doctor and logged with read-back before the report is released; owner alerted after 15 min (§38.6). |
+| **LR-29** | Reference range is chosen by the patient's sex, age on the collection date and pregnancy; the range used is frozen on the order (§38.6). |
 
 ---
 
@@ -946,6 +957,10 @@ Evaluated in this order:
 | Service / test advised but not billed | warning | Super Admin, Reception | Billing |
 | Discount approval requested | warning | Super Admin | Discounts |
 | New lab test / lab price changed / test stopped or restarted | info / warning | Reception, Lab, Admin, Super Admin | Test Master (§37.7) |
+| **Results to verify — <patient>** (`LAB_TO_SIGN`, closes when verified) | info | Each authorised signatory (assigned to the user) | SID page |
+| Critical result in an amended report | critical | Lab, Super Admin | SID page |
+| Notifiable disease positive — report on Ni-kshay / IHIP | critical | Lab, Super Admin | Notification register |
+| Amended report — earlier copies to replace | warning | Lab | SID page |
 
 **[PROD]** real-time push (WebSocket / Server-Sent Events) and optional WhatsApp alerts to the owner for critical events.
 
@@ -957,6 +972,8 @@ Live alerts (the Alerts page, the sidebar badge and the Home "Needs your attenti
 |---|---|---|
 | Sample Waiting (over 1 h, not collected) | Lab (`lab.work`) | SID page |
 | Critical Result (resulted, not verified) | Lab (`lab.verify`) | SID page, verify step |
+| Critical Not Informed (critical value, no logged call after 15 min) | Signatories / owner (`lab.verify`) | SID page |
+| Notifiable Not Reported (past the 24 h deadline) | Lab (`lab.work`) | SID page |
 | Report Not Sent (ready over 2 h) / Report Not Collected | Lab (`lab.deliver`) | SID page, send step |
 | Reagent Kit Low / out | Lab, Admin (`lab.kits`) | Kits |
 | Lab Payment Pending (sample on hold for payment) | Reception (`hbill.collect`) | Bill |
@@ -1067,7 +1084,9 @@ Hand-over: `at, by, collectedBy, name, printCount`.
 
 **labKits** — `id`, `name`, `unit`, `reorderLevel`, `active`. **kitMovements** — `id`, `at`, `kitId`, `type`, `qty (±)`, `ref`, `by`, `note`. **kitCounts** — `id`, `at`, `businessDate`, `countedBy`, `lines[{kitId, system, counted, diff}]`, `status`, `reviewedBy/At`, `reviewNote`.
 
-**hospitalSettings.lab** — `reportPrefix`, `accessionPrefix`, `requireSecondPersonVerification`, `kitVarianceTolerance`, `reportCollectDays`, `payBeforeHandover`, `containers{code:{label,color}}`. **hospitalSettings.messaging** — `provider`, `countryCode`, `autoQueueOnReport`, `publicReportBaseUrl`, `senderPhone`, `cloud{enabled, phoneNumberId, businessAccountId, templateName, language}`, `templates{…}`.
+Fields added for the compliance controls (signatory, history, amendments, critical calls, notification, ranges, consent, pregnancy) are listed in §38.8.
+
+**hospitalSettings.lab** — `reportPrefix`, `accessionPrefix` (fallback only — a lab order's accession is its tube label), `requireSecondPersonVerification`, `signatoryOnly`, `criticalCallRequired`, `criticalEscalateMins`, `notifyWithinHours`, `establishmentRegNo`, `kitVarianceTolerance`, `reportCollectDays`, `payBeforeHandover`, `containers{code:{label,color}}`. **hospitalSettings.messaging** — `provider`, `countryCode`, `autoQueueOnReport`, `publicReportBaseUrl`, `senderPhone`, `cloud{enabled, phoneNumberId, businessAccountId, templateName, language}`, `templates{…}`.
 
 ---
 
@@ -1100,6 +1119,8 @@ CREATE TABLE lab_tests (
   container_code VARCHAR(12) NOT NULL REFERENCES lab_containers(code),
   price DECIMAL(10,2) NOT NULL, tat_hours SMALLINT NOT NULL,
   rx_required BOOLEAN NOT NULL DEFAULT FALSE, consent_required BOOLEAN NOT NULL DEFAULT FALSE,
+  confidential BOOLEAN NOT NULL DEFAULT FALSE,              -- §38.4 (per-test choice)
+  notifiable ENUM('TB','IDSP') NULL,                        -- §38.5
   active BOOLEAN NOT NULL DEFAULT TRUE
 );
 
@@ -1110,10 +1131,23 @@ CREATE TABLE lab_test_parameters (
   result_type ENUM('NUMERIC','TEXT') NOT NULL,
   ref_low DECIMAL(12,4) NULL, ref_high DECIMAL(12,4) NULL,
   crit_low DECIMAL(12,4) NULL, crit_high DECIMAL(12,4) NULL,
-  ref_text VARCHAR(60) NULL,
-  sex ENUM('ANY','M','F') NOT NULL DEFAULT 'ANY', age_from_days INT NULL, age_to_days INT NULL,  -- [PROD] age/sex ranges
-  UNIQUE KEY uq_param (test_id, name, sex, age_from_days)
+  ref_text VARCHAR(60) NULL,                                -- the default range is ref_low / ref_high
+  UNIQUE KEY uq_param (test_id, name)
 );
+
+-- Age / sex / pregnancy ranges of a numeric parameter (§38.6). Most specific match wins; none = default range.
+CREATE TABLE lab_reference_ranges (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  parameter_id BIGINT NOT NULL REFERENCES lab_test_parameters(id),
+  label VARCHAR(60) NOT NULL, sex ENUM('ANY','M','F') NOT NULL DEFAULT 'ANY',
+  age_from_days INT NOT NULL DEFAULT 0, age_to_days INT NULL, pregnant BOOLEAN NULL,   -- NULL = any; TRUE = pregnant only
+  ref_low DECIMAL(12,4) NOT NULL, ref_high DECIMAL(12,4) NOT NULL, crit_low DECIMAL(12,4) NULL, crit_high DECIMAL(12,4) NULL
+  -- no two ranges of one parameter may overlap in age for the same sex + pregnancy (checked by the service)
+);
+
+-- Signatory details on the users table (§38.1)
+ALTER TABLE users ADD qualification VARCHAR(80) NULL, ADD council_reg_no VARCHAR(40) NULL,
+  ADD lab_signatory BOOLEAN NOT NULL DEFAULT FALSE, ADD signature_file_id BIGINT NULL;   -- signatory requires qualification + reg no
 
 CREATE TABLE lab_kits (id BIGINT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(120) NOT NULL, unit VARCHAR(20) NOT NULL, reorder_level INT NOT NULL, active BOOLEAN NOT NULL DEFAULT TRUE);
 CREATE TABLE lab_test_kits (test_id BIGINT NOT NULL REFERENCES lab_tests(id), kit_id BIGINT NOT NULL REFERENCES lab_kits(id), qty_per_test DECIMAL(8,2) NOT NULL, PRIMARY KEY (test_id, kit_id));
@@ -1131,11 +1165,14 @@ CREATE TABLE lab_visits (
   doctor_name VARCHAR(150) NULL, doctor_user_id BIGINT NULL, referral_doctor_id BIGINT NULL REFERENCES referral_doctors(id),
   rx_basis ENUM('DOCTOR_ORDER','OUTSIDE_PRESCRIPTION','SELF_REQUEST','PACKAGE') NOT NULL,
   prescription_file_id BIGINT NULL, consent_at DATETIME(3) NULL, consent_by BIGINT NULL,
+  consent_counsellor VARCHAR(120) NULL, consent_pre_test BOOLEAN NULL, consent_signed BOOLEAN NULL,   -- §38.4
+  pregnant BOOLEAN NULL,                                                                              -- §38.6 (NULL = not known)
   token SMALLINT NULL, token_day DATE NULL, token_status ENUM('WAITING','CALLED','DONE') NOT NULL DEFAULT 'WAITING', called_at DATETIME(3) NULL,
   collection_point ENUM('OPD','WARD','CASUALTY') NOT NULL,
   ip_admission_id BIGINT NULL, ip_no VARCHAR(20) NULL, ward VARCHAR(60) NULL, bed VARCHAR(20) NULL,
   clinical_notes VARCHAR(500) NULL, report_due_at DATETIME(3) NOT NULL,
   handed_over_at DATETIME(3) NULL, handed_over_by BIGINT NULL, collected_by_relation VARCHAR(40) NULL, collected_by_name VARCHAR(120) NULL,
+  post_test_counselled BOOLEAN NULL, authorisation_seen BOOLEAN NULL,                                 -- confidential hand-over
   UNIQUE KEY uq_token (token_day, token),
   INDEX ix_visit_patient (patient_id), INDEX ix_visit_queue (collection_point, token_status, priority)
 );
@@ -1158,6 +1195,9 @@ CREATE TABLE lab_orders (
   requested_by BIGINT NULL, requested_at DATETIME(3) NOT NULL, billed_at DATETIME(3) NULL,
   entered_by BIGINT NULL, entered_at DATETIME(3) NULL, verified_by BIGINT NULL, verified_at DATETIME(3) NULL,
   report_no VARCHAR(16) NULL UNIQUE, print_count SMALLINT NOT NULL DEFAULT 0, critical BOOLEAN NOT NULL DEFAULT FALSE,
+  critical_since DATETIME(3) NULL,                          -- when the current critical values were set (a call must be after it)
+  amended_at DATETIME(3) NULL, amended_by BIGINT NULL, amendment_no SMALLINT NOT NULL DEFAULT 0,
+  params_snapshot JSON NULL,                                -- frozen format incl. the range used (range_label)
   INDEX ix_order_status (status), INDEX ix_order_patient (patient_id, test_id, verified_at)
 );
 
@@ -1167,13 +1207,28 @@ CREATE TABLE lab_results (
   value_text VARCHAR(60) NOT NULL, value_num DECIMAL(12,4) NULL, flag ENUM('','L','H','LL','HH','A') NOT NULL DEFAULT '',
   UNIQUE KEY uq_result (order_id, parameter_id)
 );
-CREATE TABLE lab_result_history (id BIGINT PRIMARY KEY AUTO_INCREMENT, order_id BIGINT NOT NULL, snapshot JSON NOT NULL, changed_by BIGINT NOT NULL, changed_at DATETIME(3) NOT NULL, reason VARCHAR(200) NULL);
-CREATE TABLE lab_critical_calls (id BIGINT PRIMARY KEY AUTO_INCREMENT, order_id BIGINT NOT NULL, informed_to VARCHAR(120) NOT NULL, informed_at DATETIME(3) NOT NULL, informed_by BIGINT NOT NULL, read_back BOOLEAN NOT NULL);
+-- Append-only. One row per changed value before release (§38.2).
+CREATE TABLE lab_result_history (id BIGINT PRIMARY KEY AUTO_INCREMENT, order_id BIGINT NOT NULL REFERENCES lab_orders(id), parameter_id BIGINT NOT NULL,
+  old_value VARCHAR(60) NOT NULL, new_value VARCHAR(60) NOT NULL, reason VARCHAR(200) NOT NULL, changed_by BIGINT NOT NULL, changed_at DATETIME(3) NOT NULL);
+-- Append-only. A released report changed after verification (§38.3); prev_results keeps the whole superseded version.
+CREATE TABLE lab_report_amendments (id BIGINT PRIMARY KEY AUTO_INCREMENT, order_id BIGINT NOT NULL REFERENCES lab_orders(id), amendment_no SMALLINT NOT NULL,
+  reason VARCHAR(300) NOT NULL, changes JSON NOT NULL, prev_results JSON NOT NULL, prev_signed_by BIGINT NOT NULL, prev_signed_at DATETIME(3) NOT NULL,
+  amended_by BIGINT NOT NULL, amended_at DATETIME(3) NOT NULL, UNIQUE KEY uq_amend (order_id, amendment_no));
+-- Append-only. Every attempt, including "not reachable" (§38.6).
+CREATE TABLE lab_critical_calls (id BIGINT PRIMARY KEY AUTO_INCREMENT, order_id BIGINT NOT NULL REFERENCES lab_orders(id), to_name VARCHAR(120) NOT NULL,
+  to_role ENUM('DOCTOR','WARD_NURSE','DUTY_DOCTOR') NOT NULL, phone VARCHAR(20) NULL, outcome ENUM('INFORMED','NOT_REACHABLE','LEFT_MESSAGE') NOT NULL,
+  read_back BOOLEAN NOT NULL, note VARCHAR(200) NULL, critical_values VARCHAR(300) NOT NULL, called_by BIGINT NOT NULL, called_at DATETIME(3) NOT NULL,
+  CHECK (outcome <> 'INFORMED' OR read_back = TRUE));
+-- Notification register (§38.5)
+CREATE TABLE lab_notifications (id BIGINT PRIMARY KEY AUTO_INCREMENT, order_id BIGINT NOT NULL UNIQUE REFERENCES lab_orders(id), program ENUM('TB','IDSP') NOT NULL,
+  status ENUM('PENDING','NOTIFIED') NOT NULL, positive_at DATETIME(3) NOT NULL, due_at DATETIME(3) NOT NULL,
+  portal_ref VARCHAR(60) NULL, note VARCHAR(200) NULL, notified_by BIGINT NULL, notified_at DATETIME(3) NULL, INDEX ix_notif_status (status, due_at));
 
 CREATE TABLE lab_deliveries (
   id BIGINT PRIMARY KEY AUTO_INCREMENT, visit_id BIGINT NOT NULL REFERENCES lab_visits(id),
   channel ENUM('WHATSAPP','SMS','EMAIL','COUNTER','WARD') NOT NULL, to_doctor BOOLEAN NOT NULL DEFAULT FALSE,
-  recipient VARCHAR(150) NOT NULL, status VARCHAR(30) NOT NULL, message_id BIGINT NULL, at DATETIME(3) NOT NULL, by_user BIGINT NULL
+  recipient VARCHAR(150) NOT NULL, status VARCHAR(30) NOT NULL, message_id BIGINT NULL, at DATETIME(3) NOT NULL, by_user BIGINT NULL,
+  amendment_no SMALLINT NULL                                -- set when this delivery carries an amended report
 );
 
 CREATE TABLE message_outbox (
@@ -1255,23 +1310,29 @@ Response:
 | POST | `/lab/tubes/{code}/receive` | Receive by scan |
 | POST | `/lab/tubes/{code}/reject` | `{ reason }` |
 | GET | `/lab/orders?status=SAMPLE_COLLECTED|RESULTED` | Results / verify queues |
-| PUT | `/lab/orders/{id}/results` | `{ results: [{ parameterId, value }] }` → flags computed server-side |
-| POST | `/lab/orders/{id}/verify` | Verify → report number `[lab.verify]` |
-| POST | `/lab/orders/{id}/critical-calls` | Log critical value communication **[PROD]** |
+| PUT | `/lab/orders/{id}/results` | `{ results: [{ parameterId, value }], reason? }` → flags and range computed server-side; `reason` required when a saved value changes (§38.2) |
+| GET | `/lab/visits/{id}/verify-state` | `{ next: SIGN\|CALL\|WAIT_DOCTOR\|NONE, sign[], call[], doctors[] }` for the signed-in user — drives the buttons (§38.1) |
+| POST | `/lab/orders/{id}/verify` | Verify → report number. Refused with the `verifyBlock` code: `NOT_SIGNATORY`, `OWN_ENTRY`, `CALL_NEEDED`, `NOT_ENTERED` `[lab.verify + signatory]` |
+| POST | `/lab/orders/{id}/critical-calls` | `{ toName, toRole, phone, outcome, readBack, note }` — `INFORMED` needs `readBack: true` (§38.6) |
+| POST | `/lab/orders/{id}/amendments` | `{ results, reason }` → new amendment; COMPLETED orders only `[signatory]` (§38.3) |
+| GET | `/lab/orders/{id}/history` | Corrections and amendments with old / new values |
+| PUT | `/lab/visits/{id}/pregnancy` | `{ pregnant: true\|false\|null }` — re-applies ranges to tests not yet released |
 | POST | `/lab/ip-orders` | Ward order `[lab.order.ip]` |
 
 ### 25.4 Reports and delivery
 | Method | Path | Purpose |
 |---|---|---|
-| GET | `/lab/visits/{id}/report.pdf` | Combined report (partial allowed) |
+| GET | `/lab/visits/{id}/report.pdf?asOf=` | Combined report (partial allowed). `asOf` returns a superseded version with the watermark. Every call is audited (`LAB_REPORT_VIEWED` / `LAB_REPORT_PRINTED`); confidential reports return 403 to non-lab roles and audit `LAB_REPORT_VIEW_REFUSED` |
+| GET | `/lab/notifications?status=PENDING\|NOTIFIED` · `/lab/notifications.csv` | Notification register (§38.5) |
+| POST | `/lab/notifications/{id}/reported` | `{ portalRef, note }` |
 | GET | `/lab/report-desk?tab=ready|partial|sent|handed|uncollected` | Report desk |
 | POST | `/lab/visits/{id}/deliveries` | `{ channel, toDoctor }` → queues message / returns link |
-| POST | `/lab/visits/{id}/handover` | `{ collectedBy, name }` |
+| POST | `/lab/visits/{id}/handover` | `{ collectedBy, name, counselled, authorised }` — confidential tests need `counselled`, and `authorised` when not the patient |
 | GET | `/r/{sid}?k=` | Public signed report link **[PROD]** (no login, rate-limited) |
 | POST | `/webhooks/whatsapp` | Meta delivery status webhook **[PROD]** |
 
 ### 25.5 Kits and masters
-`GET/POST /lab/kits`, `POST /lab/kits/{id}/receipts`, `POST /lab/kits/{id}/usage`, `POST /lab/kit-counts`, `POST /lab/kit-counts/{id}/review`, `GET /lab/kit-reconciliation?from=&to=`, `GET/POST/PUT /referral-doctors`, `GET/PUT /lab/tests/{id}`, `GET/PUT /settings/messaging`.
+`PUT /users/{id}/signatory` `{ qualification, councilRegNo, signatory, signatureFileId }`, `GET/PUT /settings/lab` (§38.7), `GET/POST /lab/kits`, `POST /lab/kits/{id}/receipts`, `POST /lab/kits/{id}/usage`, `POST /lab/kit-counts`, `POST /lab/kit-counts/{id}/review`, `GET /lab/kit-reconciliation?from=&to=`, `GET/POST/PUT /referral-doctors`, `GET/PUT /lab/tests/{id}`, `GET/PUT /settings/messaging`.
 
 ---
 
@@ -1505,7 +1566,27 @@ CBC reagent pack, LFT kit, RFT kit, glucose reagent/strips, HbA1c cartridge, lip
 | T27 | Shift | Reception without open shift → complete bill | Prompted to start shift |
 | T28 | Audit | After T4–T15 | Audit rows for every step with user and time |
 
-Lab Test Master tests T29–T36 are in §37.10.
+Lab Test Master tests T29–T36 are in §37.10; compliance tests T43–T54 in §38.12.
+
+### 33.1 Automated test suite (100 tests, runs in the browser)
+
+`tests/lab.tests.js` holds **100 automated tests (LT-001 … LT-100)** that call the same functions the screens use, plus a few that render the real screens. No install or build is needed. How to run them is in [tests/README.md](../tests/README.md). The run resets the demo data before and after.
+
+| Group | IDs | What is checked |
+|---|---|---|
+| Seed | LT-001–008 | Signatory users, lab settings, test flags (confidential / notifiable), every test passes Test Master validation, no overlapping ranges, showcase data |
+| Ranges | LT-009–021 | Child, adult female / male, pregnancy, newborn, infant ranges; default range; band validation; who is asked about pregnancy; same value normal for a child and low for an adult |
+| Billing | LT-022–032 | Visit, SID, token, tubes, accession = tube label, tube grouping, self / referral / consent refusals, consent and pregnancy stored, unpaid bill refused |
+| Sample | LT-033–043 | Token call, collect, wrong label, idempotent collect, receive rules, reject with reason and back to collect, kit used, ward (IP) order |
+| Results | LT-044–055 | All parameters required, frozen range, audit with values, flags, correction reason and history, no-op save, critical detection and alert, doctor notified, frozen format |
+| Verify | LT-056–068 | Signatory and second-person rules (and their settings), report number, notification closed, partial vs ready, verify state per user, patient history, report due time |
+| Critical | LT-069–077 | Call required, read-back, not reachable, informed, correction keeps / needs call, setting off, owner alert after 15 min |
+| Amend | LT-078–086 | Who / when / reason / change rules, old version and report no. kept, second amendment, stale recipients, ward re-post |
+| Confidential | LT-087–094 | Roles, no WhatsApp / SMS / email, counselling and authorisation at hand-over, switch off = normal test, hidden in history, locked report page with audit |
+| Notifiable | LT-095–098 | TB positive on the register (24 h), negative not listed, portal ID required, overdue alert |
+| Master / Report | LT-099–100 | Overlapping range refused on save; printed report shows AMENDED, Reg. Nos., signer and range |
+
+**Last run:** 28 Nov 2026 — **100 / 100 passed** (Chrome, demo data version 11). The production team should port these to backend unit / integration tests (JUnit) against the same rules — the test names are written as the rule they prove.
 
 ---
 
@@ -1516,9 +1597,9 @@ Lab Test Master tests T29–T36 are in §37.10.
 > The full phase 2 flows (data, rules, screens, tests and build order) are in [LAB_PHASE2_SPECIFICATION.md](LAB_PHASE2_SPECIFICATION.md).
 
 1. **Analyser interface** — bidirectional HL7 v2 (ORM/ORU) or ASTM E1394 via a middleware (e.g. Mirth Connect): worklist download by tube barcode, automatic result upload, technician validates instead of typing.
-2. **Age / sex / pregnancy-specific reference ranges** and units conversion.
+2. ~~Age / sex / pregnancy-specific reference ranges~~ — **built (§38.6)**; units conversion still to do.
 3. **Delta checks and auto-verification rules** for normal results (pathologist-approved).
-4. **Critical value call log** (mandatory before release).
+4. ~~Critical value call log~~ — **built (§38.6)**.
 5. **QC module** — control levels, Levey-Jennings charts, Westgard rules, block patient reporting when QC fails.
 6. **Outsourced tests** — send-out to a reference lab with tracking and imported PDF.
 7. **Home sample collection** — booking, phlebotomist route, payment link.
@@ -1579,6 +1660,7 @@ Lab Test Master tests T29–T36 are in §37.10.
 | `assets/js/docs.js` | Letterhead, document meta, signature blocks |
 | `assets/js/barcode.js` | Code 128 SVG barcodes |
 | `tools/hospital-data.mjs` | Seed data: catalogue, kits, packages, visits, messages, referral doctors |
+| `tests/lab.tests.js`, `tests/README.md` | 100 automated lab tests run in the browser (§33.1) |
 | `data/lab-visits.json`, `service-orders.json`, `hospital-services.json`, `lab-kits.json`, `lab-kit-movements.json`, `referral-doctors.json`, `messages.json`, `hospital-settings.json` | Demo data |
 
 ---
@@ -1916,6 +1998,8 @@ order.lab         + history[]        { at, by, kind:'CORRECTED', reason, changes
 - **F6** critical call log with read-back blocks verification; owner alerted after 15 min; reference ranges by age, sex and pregnancy, with a pregnancy question at billing.
 - New settings in Hospital Setup → Rules (§38.7); demo data for each rule (§38.11, demo data version 11); acceptance tests T43–T52.
 - **Verify hand-off:** one rule `verifyBlock` for service and screens; technicians see *With Dr. …* / *Log call* instead of a Verify button that could not work; signatories are notified when results are saved (§38.1).
+- **Automated tests:** `tests/lab.tests.js` — 100 tests, 100 passed (§33.1).
+- **Production docs updated:** database schema §24 (ranges, amendments, critical calls, notification register, signatory, consent, pregnancy), API §25, roles §5.3, rules LR-23…29, notifications §20.
 - Not done yet: unit conversion (SI units), direct Ni-kshay / IHIP upload, digital signature of the PDF.
 
 ### v1.1 — 27 Nov 2026

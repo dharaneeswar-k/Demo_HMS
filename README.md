@@ -136,7 +136,8 @@ Navigation: **Billing · Pharmacy → Pharmacy Sale · Pharmacy Bills · Sales R
 - [Laboratory module specification](docs/LAB_MODULE_SPECIFICATION.md) — full build reference for the production lab module (flows, rules, data model, APIs, WhatsApp design, test cases).
 - [Design system](docs/DESIGN_SYSTEM.md) — the one look every module uses (`assets/css/theme.css`): tokens, building blocks, do / don't.
 - [Lab phase 2 specification](docs/LAB_PHASE2_SPECIFICATION.md) — designed flows for the 12 phase 2 items (ranges, critical call log, QC, analyser, send-out, home collection, microbiology, histopathology, blood bank, portal, Tamil, token audio), built in the demo on JSON and logged in its change log.
-- [Lab compliance & audit review](docs/LAB_COMPLIANCE_AUDIT.md) — Indian laws and standards that apply to the lab (TN CEA, NMC, HIV Act, TB notification, DPDP, EHR standards, NABL), gap check against the demo, must-fix list and audit-trail assessment.
+- [Lab compliance & audit review](docs/LAB_COMPLIANCE_AUDIT.md) — Indian laws and standards that apply to the lab (TN CEA, NMC, HIV Act, TB notification, DPDP, EHR standards, NABL), gap check against the demo, must-fix list (F1–F6, now built — spec §38) and audit-trail assessment.
+- [Lab tests](tests/README.md) — 100 automated lab tests that run in the browser (`await (await import('./tests/lab.tests.js')).runLabTests()` in the console). Last run: 100 / 100 passed.
 
 ## Backend integration notes
 
