@@ -44,6 +44,7 @@ export function visitAccess(v) {
   if (visitOrders(v).every((o) => o.status === 'CANCELLED')) return { ok: false, label: 'Cancelled', tone: 'muted' };
   if (v.billingRoute === 'IP_ACCOUNT') return { ok: true, label: 'IP account', tone: 'purple' };
   if (v.billingRoute === 'PACKAGE') return { ok: true, label: 'In package', tone: 'purple' };
+  if (v.billingRoute === 'OP_BILL') return opBillAccess(store.get('opBills', v.opBillId));
   const b = v.billId && store.get('hbills', v.billId);
   if (!b) return { ok: false, label: 'Not billed', tone: 'danger' };
   if (b.credit?.status === 'EMERGENCY') return { ok: true, label: 'Emergency', tone: 'danger' };
@@ -108,29 +109,81 @@ export function createVisitForBill(bill, labOrders, lab, user) {
   return v;
 }
 
-/** IP ward order (until the IP module posts orders itself): no counter payment — charged to the IP account. */
+const blankLab = (s) => ({ sampleType: s.lab.sample, collectedAt: null, collectedBy: null, receivedAt: null, receivedBy: null, rejected: null, results: [], enteredBy: null, enteredAt: null, verifiedBy: null, verifiedAt: null, reportNo: null, printedAt: null, printCount: 0 });
+const accessionFor = (id, day) => `${hs().lab.accessionPrefix}-${day.replace(/-/g, '').slice(2)}-${id.replace(/\D/g, '').slice(-4)}`;
+/** Lab tests that can be ordered: known, in the Lab Test Master and not stopped. */
+export function labTestsFor(serviceIds) {
+  const tests = serviceIds.map(svc).filter((s) => s?.category === 'LAB');
+  if (!tests.length) throw new Error('Select at least one test.');
+  const off = tests.find((s) => !s.active); if (off) throw new Error(`${off.name} has been stopped in the master list.`);
+  return tests;
+}
+/** One ward lab visit (SID, bedside collection, no counter payment). Used by the MRD ward order and by the IP module (03). */
+export function insertWardVisit({ patientId, ipNo, ward, bed, doctor, tests, priority = 'ROUTINE', notes = '', sendToPatient = false, recordId = null, admissionId = null }, user) {
+  const at = now(); const sid = nextSid();
+  const os = tests.map((s) => { const id = store.nextId('orders', 'ORD-', 5); return store.insert('orders', { id, billId: null, itemId: null, patientId, serviceId: s.id, category: 'LAB', name: s.name, doctor: doctor || '',
+    requestedBy: user.id, requestedAt: at, billedAt: at, status: 'READY', accession: accessionFor(id, businessDate()), performedBy: null, performedAt: null, notes, coveredBy: null, labVisitId: null,
+    ipCharge: { amount: s.price, ipNo, posted: false }, lab: blankLab(s) }); });
+  const v = store.insert('labVisits', { id: store.nextId('labVisits', 'LV-', 5), sid, patientId, source: 'IP', priority, billId: null, billingRoute: 'IP_ACCOUNT', doctor: doctor || '', referralDoctorId: null,
+    rxBasis: 'DOCTOR_ORDER', prescription: null, consent: null, token: null, tokenDay: null, tokenStatus: 'WAITING', calledAt: null, collectionPoint: 'WARD', ipNo, ward: ward || '', bed: bed || '', recordId, admissionId,
+    clinicalNotes: notes, createdAt: at, createdBy: user.id, reportDueAt: new Date(Math.max(...tests.map((s) => Date.now() + s.lab.tatHours * 3600000))).toISOString(), tubes: [], deliveries: [], handover: null, sendToPatient: !!sendToPatient });
+  os.forEach((o) => { o.labVisitId = v.id; });
+  v.tubes = groupTubes(sid, os);
+  audit(user, 'LAB_IP_ORDER', 'LABVISIT', v.id, `SID ${sid} · ${ipNo} · ${tests.map((t) => t.code).join(', ')} · charged to IP account`);
+  notify({ type: 'WARD_LAB', category: 'Laboratory', severity: priority === 'STAT' ? 'critical' : 'info', title: `${priority === 'STAT' ? 'STAT ' : ''}ward collection — ${v.ward} ${v.bed}`, message: `${store.get('patients', patientId).name}: ${tests.map((t) => t.name).join(', ')}`, refType: 'LABVISIT', refId: v.id, targetRoles: ['LAB'] });
+  return { v, orders: os };
+}
+
+/** IP ward order for a Medical Records (MRD) admission: no counter payment — charged to the IP account. */
 export function createIpOrder({ recordId, serviceIds, doctor, priority = 'ROUTINE', notes = '', sendToPatient = false }, user) {
   if (!can('lab.order.ip', user)) throw new Error('You cannot place ward lab orders.');
   const rec = store.get('medicalRecords', recordId);
   if (!rec || rec.dischargedAt) throw new Error('Choose an admitted patient.');
-  const tests = serviceIds.map(svc).filter((s) => s?.category === 'LAB');
-  if (!tests.length) throw new Error('Select at least one test.');
-  const off = tests.find((s) => !s.active); if (off) throw new Error(`${off.name} has been stopped in the master list.`);
+  const tests = labTestsFor(serviceIds);
   return store.transaction(() => {
-    const at = now(); const sid = nextSid();
-    const os = tests.map((s) => store.insert('orders', { id: store.nextId('orders', 'ORD-', 5), billId: null, itemId: null, patientId: rec.patientId, serviceId: s.id, category: 'LAB', name: s.name, doctor: doctor || rec.doctor,
-      requestedBy: user.id, requestedAt: at, billedAt: at, status: 'READY', accession: null, performedBy: null, performedAt: null, notes, coveredBy: null, labVisitId: null,
-      ipCharge: { amount: s.price, ipNo: rec.ipNo, posted: false },
-      lab: { sampleType: s.lab.sample, collectedAt: null, collectedBy: null, receivedAt: null, receivedBy: null, rejected: null, results: [], enteredBy: null, enteredAt: null, verifiedBy: null, verifiedAt: null, reportNo: null, printedAt: null, printCount: 0 } }));
     const [ward, bed] = String(rec.ward || '').split(/\s*[—-]\s*Bed\s*/i);
-    const v = store.insert('labVisits', { id: store.nextId('labVisits', 'LV-', 5), sid, patientId: rec.patientId, source: 'IP', priority, billId: null, billingRoute: 'IP_ACCOUNT', doctor: doctor || rec.doctor, referralDoctorId: null,
-      rxBasis: 'DOCTOR_ORDER', prescription: null, consent: null, token: null, tokenDay: null, tokenStatus: 'WAITING', calledAt: null, collectionPoint: 'WARD', ipNo: rec.ipNo, ward: ward || rec.ward, bed: bed || '', recordId,
-      clinicalNotes: notes, createdAt: at, createdBy: user.id, reportDueAt: new Date(Math.max(...tests.map((s) => Date.now() + s.lab.tatHours * 3600000))).toISOString(), tubes: [], deliveries: [], handover: null, sendToPatient: !!sendToPatient });
-    os.forEach((o) => { o.labVisitId = v.id; });
-    v.tubes = groupTubes(sid, os);
-    audit(user, 'LAB_IP_ORDER', 'LABVISIT', v.id, `SID ${sid} · ${rec.ipNo} · ${tests.map((t) => t.code).join(', ')} · charged to IP account`);
-    notify({ type: 'WARD_LAB', category: 'Laboratory', severity: priority === 'STAT' ? 'critical' : 'info', title: `${priority === 'STAT' ? 'STAT ' : ''}ward collection — ${v.ward} ${v.bed}`, message: `${store.get('patients', rec.patientId).name}: ${tests.map((t) => t.name).join(', ')}`, refType: 'LABVISIT', refId: v.id, targetRoles: ['LAB'] });
-    return v;
+    return insertWardVisit({ patientId: rec.patientId, ipNo: rec.ipNo, ward: ward || rec.ward, bed: bed || '', doctor: doctor || rec.doctor, tests, priority, notes, sendToPatient, recordId }, user).v;
+  });
+}
+
+// ---------------- OP bill (module 02) → lab ----------------
+// A tariff row with labServiceId is a lab test. When an OP bill carries one, the lab gets a visit (SID + OPD token) at once;
+// the sample is collected only after the OP bill is paid — the same gate as the Hospital Bill.
+const OP_CLOSED = ['CANCELLED', 'REFUNDED', 'REFUND_PENDING', 'REFUND_APPROVED'];
+export function opBillAccess(b) {
+  if (!b) return { ok: false, label: 'Not billed', tone: 'danger' };
+  if (OP_CLOSED.includes(b.status)) return { ok: false, label: 'OP bill cancelled', tone: 'muted' };
+  if (b.status === 'PAID') return { ok: true, label: 'Paid (OP bill)', tone: 'success' };
+  if (b.status === 'DISCOUNT_PENDING') return { ok: false, label: 'Discount awaiting approval', tone: 'warning' };
+  return { ok: false, label: 'Payment pending (OP bill)', tone: 'warning' };
+}
+/** Called inside the OP bill's transaction. Returns the lab visit, or null when the bill has no lab test. */
+export function createVisitForOpBill(bill, { doctor = '', opVisitId = null } = {}, user) {
+  const lines = (bill.lines || []).filter((l) => l.labServiceId && svc(l.labServiceId)?.category === 'LAB');
+  if (!lines.length) return null;
+  const at = bill.at; const day = businessDate(); const sid = nextSid(); const ok = opBillAccess(bill).ok;
+  const os = lines.flatMap((l) => Array.from({ length: Math.max(1, Number(l.qty) || 1) }, () => {
+    const s = svc(l.labServiceId); const id = store.nextId('orders', 'ORD-', 5);
+    return store.insert('orders', { id, billId: null, opBillId: bill.id, itemId: null, patientId: bill.patientId, serviceId: s.id, category: 'LAB', name: s.name, doctor, requestedBy: user.id, requestedAt: at, billedAt: at,
+      status: ok ? 'READY' : 'ON_HOLD', accession: accessionFor(id, day), performedBy: null, performedAt: null, notes: '', coveredBy: null, labVisitId: null, lab: blankLab(s) });
+  }));
+  const v = store.insert('labVisits', { id: store.nextId('labVisits', 'LV-', 5), sid, patientId: bill.patientId, source: 'OP', priority: 'ROUTINE', billId: null, opBillId: bill.id, opVisitId, billingRoute: 'OP_BILL', doctor, referralDoctorId: null,
+    rxBasis: 'DOCTOR_ORDER', prescription: null, consent: null, pregnant: null, token: nextToken(day), tokenDay: day, tokenStatus: 'WAITING', calledAt: null, collectionPoint: 'OPD', ipNo: null, ward: null, bed: null, clinicalNotes: '',
+    createdAt: at, createdBy: user.id, reportDueAt: new Date(Math.max(...os.map((o) => new Date(at).getTime() + svc(o.serviceId).lab.tatHours * 3600000))).toISOString(), tubes: [], deliveries: [], handover: null });
+  os.forEach((o) => { o.labVisitId = v.id; });
+  v.tubes = groupTubes(sid, os);
+  bill.labVisitId = v.id;
+  audit(user, 'LAB_VISIT_CREATED', 'LABVISIT', v.id, `SID ${sid} · OP bill ${bill.id} · ${os.length} test(s) · token ${v.token}`);
+  return v;
+}
+/** Keep the lab in step with the OP bill: paid → ready to collect, unpaid → on hold, cancelled / refunded → tests not yet collected are cancelled. */
+export function syncOpBillLab(bill) {
+  if (!bill?.labVisitId) return;
+  const ok = opBillAccess(bill).ok; const closed = OP_CLOSED.includes(bill.status);
+  store.all('orders').filter((o) => o.opBillId === bill.id).forEach((o) => {
+    if (closed && ['READY', 'ON_HOLD'].includes(o.status)) { o.status = 'CANCELLED'; o.notes = 'OP bill cancelled'; }
+    else if (!closed && o.status === 'ON_HOLD' && ok) o.status = 'READY';
+    else if (!closed && o.status === 'READY' && !ok) o.status = 'ON_HOLD';
   });
 }
 

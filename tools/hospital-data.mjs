@@ -91,7 +91,14 @@ const services = [
   ...OTHER.map(([code, category, name, price]) => ({ code, name, category, price, active: true })),
   // added after the original list so the earlier service IDs stay the same: sputum AFB — TB is notifiable (F5)
   { code: 'AFB', name: 'Sputum for AFB (ZN stain)', category: 'LAB', price: 200, active: true,
-    lab: { sample: 'Sputum', container: 'URINE', department: 'Microbiology', tatHours: 24, rxRequired: false, consentRequired: false, confidential: false, notifiable: 'TB', kits: [], parameters: [T('Acid-fast bacilli (AFB)', '', 'Not seen')] } }
+    lab: { sample: 'Sputum', container: 'URINE', department: 'Microbiology', tatHours: 24, rxRequired: false, consentRequired: false, confidential: false, notifiable: 'TB', kits: [], parameters: [T('Acid-fast bacilli (AFB)', '', 'Not seen')] } },
+  // added with the OP / IP link: tests the doctors order in OP and on the ward that the lab did not have yet
+  ...[['ESR', 'Erythrocyte Sedimentation Rate (ESR)', 150, 'Blood (EDTA)', 'Haematology', 2, [], [P('ESR', 'mm/hr', 0, 20)]],
+    ['RBS', 'Blood Sugar — Random (RBS)', 80, 'Blood (Fluoride)', 'Biochemistry', 1, [[4, 1]], [P('Random blood glucose', 'mg/dL', 70, 140, 40, 400)]],
+    ['ELEC', 'Serum Electrolytes', 600, 'Blood (Plain)', 'Biochemistry', 4, [], [P('Sodium', 'mmol/L', 135, 145, 120, 160), P('Potassium', 'mmol/L', 3.5, 5.1, 2.5, 6.5), P('Chloride', 'mmol/L', 98, 107)]],
+    ['GROUP', 'Blood Grouping & Rh Typing', 150, 'Blood (EDTA)', 'Immunohaematology', 1, [], [T('ABO group', '', '—'), T('Rh (D) type', '', '—')]]
+  ].map(([code, name, price, sample, dept, tatHours, kits, params]) => ({ code, name, category: 'LAB', price, active: true,
+    lab: { sample, container: containerOf(sample), department: dept, tatHours, rxRequired: false, consentRequired: false, confidential: false, notifiable: null, kits: kits.map(([k, q]) => ({ kitId: K(k), qty: q })), parameters: params } }))
 ].map((x, i) => ({ id: 'SRV-' + pad(i + 1), ...x }));
 const S = (code) => services.find((x) => x.code === code);
 

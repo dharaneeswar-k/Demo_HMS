@@ -12,7 +12,8 @@
       "IP"
     ],
     "nonPayable": false,
-    "active": true
+    "active": true,
+    "labServiceId": "SRV-0001"
   },
   {
     "id": "SRV-002",
@@ -27,7 +28,8 @@
       "IP"
     ],
     "nonPayable": false,
-    "active": true
+    "active": true,
+    "labServiceId": "SRV-0032"
   },
   {
     "id": "SRV-003",
@@ -42,7 +44,8 @@
       "IP"
     ],
     "nonPayable": false,
-    "active": true
+    "active": true,
+    "labServiceId": "SRV-0033"
   },
   {
     "id": "SRV-004",
@@ -57,7 +60,8 @@
       "IP"
     ],
     "nonPayable": false,
-    "active": true
+    "active": true,
+    "labServiceId": "SRV-0006"
   },
   {
     "id": "SRV-005",
@@ -72,12 +76,29 @@
       "IP"
     ],
     "nonPayable": false,
-    "active": true
+    "active": true,
+    "labServiceId": "SRV-0002"
   },
   {
     "id": "SRV-006",
     "code": "RFT",
     "name": "Renal function test",
+    "category": "INVESTIGATION",
+    "group": "INVESTIGATION",
+    "rate": 550,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true,
+    "labServiceId": "SRV-0003"
+  },
+  {
+    "id": "SRV-007",
+    "code": "LIPID",
+    "name": "Lipid profile",
     "category": "INVESTIGATION",
     "group": "INVESTIGATION",
     "rate": 600,
@@ -87,22 +108,8 @@
       "IP"
     ],
     "nonPayable": false,
-    "active": true
-  },
-  {
-    "id": "SRV-007",
-    "code": "LIPID",
-    "name": "Lipid profile",
-    "category": "INVESTIGATION",
-    "group": "INVESTIGATION",
-    "rate": 700,
-    "unit": "each",
-    "applicableIn": [
-      "OP",
-      "IP"
-    ],
-    "nonPayable": false,
-    "active": true
+    "active": true,
+    "labServiceId": "SRV-0007"
   },
   {
     "id": "SRV-008",
@@ -117,7 +124,8 @@
       "IP"
     ],
     "nonPayable": false,
-    "active": true
+    "active": true,
+    "labServiceId": "SRV-0009"
   },
   {
     "id": "SRV-009",
@@ -125,14 +133,15 @@
     "name": "Dengue NS1 antigen",
     "category": "INVESTIGATION",
     "group": "INVESTIGATION",
-    "rate": 800,
+    "rate": 600,
     "unit": "each",
     "applicableIn": [
       "OP",
       "IP"
     ],
     "nonPayable": false,
-    "active": true
+    "active": true,
+    "labServiceId": "SRV-0010"
   },
   {
     "id": "SRV-010",
@@ -147,7 +156,8 @@
       "IP"
     ],
     "nonPayable": false,
-    "active": true
+    "active": true,
+    "labServiceId": "SRV-0034"
   },
   {
     "id": "SRV-011",
@@ -207,7 +217,8 @@
       "IP"
     ],
     "nonPayable": false,
-    "active": true
+    "active": true,
+    "labServiceId": "SRV-0035"
   },
   {
     "id": "SRV-015",

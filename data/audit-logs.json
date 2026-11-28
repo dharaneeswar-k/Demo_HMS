@@ -537,7 +537,7 @@
     "action": "IP_FINAL_BILL",
     "entity": "IP_BILL",
     "entityId": "IB-2026-0002",
-    "details": "Net ₹53866, patient ₹53866"
+    "details": "Net ₹53816, patient ₹53816"
   },
   {
     "id": "AUD-00061",
@@ -762,7 +762,7 @@
     "action": "IP_FINAL_BILL",
     "entity": "IP_BILL",
     "entityId": "IB-2026-0008",
-    "details": "Net ₹46559, patient ₹986"
+    "details": "Net ₹46509, patient ₹986"
   },
   {
     "id": "AUD-00086",
@@ -852,7 +852,7 @@
     "action": "IP_FINAL_BILL",
     "entity": "IP_BILL",
     "entityId": "IB-2026-0011",
-    "details": "Net ₹41903, patient ₹41903"
+    "details": "Net ₹41858, patient ₹41858"
   },
   {
     "id": "AUD-00096",
@@ -861,7 +861,7 @@
     "action": "IP_FINAL_BILL",
     "entity": "IP_BILL",
     "entityId": "IB-2026-0007",
-    "details": "Net ₹13404, patient ₹13404"
+    "details": "Net ₹13214, patient ₹13214"
   },
   {
     "id": "AUD-00097",
@@ -1176,7 +1176,7 @@
     "action": "IP_FINAL_BILL",
     "entity": "IP_BILL",
     "entityId": "IB-2026-0021",
-    "details": "Net ₹25835, patient ₹25835"
+    "details": "Net ₹25785, patient ₹25785"
   },
   {
     "id": "AUD-00132",
@@ -1212,7 +1212,7 @@
     "action": "IP_FINAL_BILL",
     "entity": "IP_BILL",
     "entityId": "IB-2026-0016",
-    "details": "Net ₹24602, patient ₹24602"
+    "details": "Net ₹24557, patient ₹24557"
   },
   {
     "id": "AUD-00136",
@@ -1779,7 +1779,7 @@
     "action": "IP_FINAL_BILL",
     "entity": "IP_BILL",
     "entityId": "IB-2026-0020",
-    "details": "Net ₹21320, patient ₹21320"
+    "details": "Net ₹21270, patient ₹21270"
   },
   {
     "id": "AUD-00199",
@@ -1797,7 +1797,7 @@
     "action": "IP_FINAL_BILL",
     "entity": "IP_BILL",
     "entityId": "IB-2026-0022",
-    "details": "Net ₹11915, patient ₹11915"
+    "details": "Net ₹11715, patient ₹11715"
   },
   {
     "id": "AUD-00201",
@@ -1923,7 +1923,7 @@
     "action": "IP_FINAL_BILL",
     "entity": "IP_BILL",
     "entityId": "IB-2026-0028",
-    "details": "Net ₹20312, patient ₹20312"
+    "details": "Net ₹20262, patient ₹20262"
   },
   {
     "id": "AUD-00215",
@@ -1932,7 +1932,7 @@
     "action": "IP_FINAL_BILL",
     "entity": "IP_BILL",
     "entityId": "IB-2026-0023",
-    "details": "Net ₹49774, patient ₹1024"
+    "details": "Net ₹49724, patient ₹1024"
   },
   {
     "id": "AUD-00216",
@@ -2031,7 +2031,7 @@
     "action": "IP_FINAL_BILL",
     "entity": "IP_BILL",
     "entityId": "IB-2026-0018",
-    "details": "Net ₹22730, patient ₹22730"
+    "details": "Net ₹22685, patient ₹22685"
   },
   {
     "id": "AUD-00227",

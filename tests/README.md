@@ -1,6 +1,6 @@
 # Lab module tests
 
-`lab.tests.js` holds **100 automated acceptance tests** for the Laboratory module (LT-001 … LT-100). They run inside the demo in the browser, so nothing needs installing or building.
+`lab.tests.js` holds **116 automated acceptance tests** for the Laboratory module (LT-001 … LT-116). They run inside the demo in the browser, so nothing needs installing or building.
 
 ## How to run
 
@@ -31,6 +31,7 @@
 | Confidential | 8 | HIV-type tests: roles, hand-over, audit, per-test switch |
 | Notifiable | 4 | TB / IDSP notification register |
 | Master / Report | 2 | Test Master range check, printed report content |
+| OP / IP link | 16 | OP bills and IP charges with lab tests reach the lab; one price; ward orders on the IP bill |
 
 The full list with what each group proves is in [docs/LAB_MODULE_SPECIFICATION.md §33.1](../docs/LAB_MODULE_SPECIFICATION.md#331-automated-test-suite-100-tests-runs-in-the-browser).
 

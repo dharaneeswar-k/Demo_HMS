@@ -304,13 +304,13 @@
     "openingFloat": 2000,
     "expected": {
       "CASH": 2000,
-      "UPI": 41111,
+      "UPI": 41061,
       "CARD": 0,
       "OTHER": 0
     },
     "actual": {
       "CASH": 2000,
-      "UPI": 41111,
+      "UPI": 41061,
       "CARD": 0,
       "OTHER": 0
     },
@@ -318,11 +318,11 @@
     "cashDifference": 0,
     "totals": {
       "receipts": 3,
-      "collected": 41111,
+      "collected": 41061,
       "refunds": 0,
       "op": 0,
       "deposits": 5000,
-      "settlements": 36111
+      "settlements": 36061
     },
     "remarks": "Counter balanced.",
     "status": "VERIFIED",
@@ -336,13 +336,13 @@
     "submittedAt": "2026-11-11T12:47:00.000Z",
     "openingFloat": 2000,
     "expected": {
-      "CASH": 7780,
+      "CASH": 7680,
       "UPI": 3900,
       "CARD": 500,
       "OTHER": 0
     },
     "actual": {
-      "CASH": 7780,
+      "CASH": 7680,
       "UPI": 3900,
       "CARD": 500,
       "OTHER": 0
@@ -351,9 +351,9 @@
     "cashDifference": 0,
     "totals": {
       "receipts": 17,
-      "collected": 10180,
+      "collected": 10080,
       "refunds": 0,
-      "op": 10180,
+      "op": 10080,
       "deposits": 0,
       "settlements": 0
     },
@@ -370,13 +370,13 @@
     "openingFloat": 2000,
     "expected": {
       "CASH": 16350,
-      "UPI": 24150,
+      "UPI": 23950,
       "CARD": 0,
       "OTHER": 0
     },
     "actual": {
       "CASH": 16350,
-      "UPI": 24150,
+      "UPI": 23950,
       "CARD": 0,
       "OTHER": 0
     },
@@ -384,9 +384,9 @@
     "cashDifference": 0,
     "totals": {
       "receipts": 20,
-      "collected": 38500,
+      "collected": 38300,
       "refunds": 0,
-      "op": 8500,
+      "op": 8300,
       "deposits": 30000,
       "settlements": 0
     },
@@ -402,14 +402,14 @@
     "submittedAt": "2026-11-12T13:05:00.000Z",
     "openingFloat": 2000,
     "expected": {
-      "CASH": 10100,
-      "UPI": 4000,
+      "CASH": 10000,
+      "UPI": 3900,
       "CARD": 1150,
       "OTHER": 0
     },
     "actual": {
-      "CASH": 10100,
-      "UPI": 4000,
+      "CASH": 10000,
+      "UPI": 3900,
       "CARD": 1150,
       "OTHER": 0
     },
@@ -417,9 +417,9 @@
     "cashDifference": 0,
     "totals": {
       "receipts": 22,
-      "collected": 13250,
+      "collected": 13050,
       "refunds": 0,
-      "op": 13250,
+      "op": 13050,
       "deposits": 0,
       "settlements": 0
     },
@@ -469,13 +469,13 @@
     "openingFloat": 2000,
     "expected": {
       "CASH": 7380,
-      "UPI": 10100,
+      "UPI": 10050,
       "CARD": 900,
       "OTHER": 0
     },
     "actual": {
       "CASH": 7380,
-      "UPI": 10100,
+      "UPI": 10050,
       "CARD": 900,
       "OTHER": 0
     },
@@ -483,9 +483,9 @@
     "cashDifference": 0,
     "totals": {
       "receipts": 19,
-      "collected": 16380,
+      "collected": 16330,
       "refunds": 0,
-      "op": 11380,
+      "op": 11330,
       "deposits": 5000,
       "settlements": 0
     },
@@ -502,13 +502,13 @@
     "openingFloat": 2000,
     "expected": {
       "CASH": 33500,
-      "UPI": 29100,
+      "UPI": 28900,
       "CARD": 0,
       "OTHER": 0
     },
     "actual": {
       "CASH": 33500,
-      "UPI": 29100,
+      "UPI": 28900,
       "CARD": 0,
       "OTHER": 0
     },
@@ -516,9 +516,9 @@
     "cashDifference": 0,
     "totals": {
       "receipts": 15,
-      "collected": 60600,
+      "collected": 60400,
       "refunds": 0,
-      "op": 5600,
+      "op": 5400,
       "deposits": 55000,
       "settlements": 0
     },
@@ -534,14 +534,14 @@
     "submittedAt": "2026-11-14T13:13:00.000Z",
     "openingFloat": 2000,
     "expected": {
-      "CASH": 7050,
-      "UPI": 9850,
+      "CASH": 7000,
+      "UPI": 9800,
       "CARD": 2880,
       "OTHER": 0
     },
     "actual": {
-      "CASH": 7050,
-      "UPI": 9850,
+      "CASH": 7000,
+      "UPI": 9800,
       "CARD": 2880,
       "OTHER": 0
     },
@@ -549,9 +549,9 @@
     "cashDifference": 0,
     "totals": {
       "receipts": 18,
-      "collected": 17780,
+      "collected": 17680,
       "refunds": 0,
-      "op": 12780,
+      "op": 12680,
       "deposits": 5000,
       "settlements": 0
     },
@@ -633,14 +633,14 @@
     "submittedAt": "2026-11-15T15:50:00.000Z",
     "openingFloat": 2000,
     "expected": {
-      "CASH": 89889,
-      "UPI": 23404,
+      "CASH": 89844,
+      "UPI": 23214,
       "CARD": 0,
       "OTHER": 0
     },
     "actual": {
-      "CASH": 89889,
-      "UPI": 23404,
+      "CASH": 89844,
+      "UPI": 23214,
       "CARD": 0,
       "OTHER": 0
     },
@@ -648,11 +648,11 @@
     "cashDifference": 0,
     "totals": {
       "receipts": 6,
-      "collected": 116903,
-      "refunds": 5610,
+      "collected": 116858,
+      "refunds": 5800,
       "op": 0,
       "deposits": 90000,
-      "settlements": 26903
+      "settlements": 26858
     },
     "remarks": "Counter balanced.",
     "status": "VERIFIED",
@@ -666,14 +666,14 @@
     "submittedAt": "2026-11-16T12:53:00.000Z",
     "openingFloat": 2000,
     "expected": {
-      "CASH": 11900,
-      "UPI": 14550,
+      "CASH": 11800,
+      "UPI": 14400,
       "CARD": 500,
       "OTHER": 0
     },
     "actual": {
-      "CASH": 11900,
-      "UPI": 14550,
+      "CASH": 11800,
+      "UPI": 14400,
       "CARD": 500,
       "OTHER": 0
     },
@@ -681,9 +681,9 @@
     "cashDifference": 0,
     "totals": {
       "receipts": 17,
-      "collected": 24950,
+      "collected": 24700,
       "refunds": 0,
-      "op": 9950,
+      "op": 9700,
       "deposits": 15000,
       "settlements": 0
     },
@@ -765,13 +765,13 @@
     "submittedAt": "2026-11-17T15:47:00.000Z",
     "openingFloat": 2000,
     "expected": {
-      "CASH": 45389,
+      "CASH": 45189,
       "UPI": 39503,
       "CARD": 450,
       "OTHER": 0
     },
     "actual": {
-      "CASH": 45389,
+      "CASH": 45189,
       "UPI": 39503,
       "CARD": 450,
       "OTHER": 0
@@ -780,9 +780,9 @@
     "cashDifference": 0,
     "totals": {
       "receipts": 16,
-      "collected": 87690,
+      "collected": 87490,
       "refunds": 4348,
-      "op": 6250,
+      "op": 6050,
       "deposits": 55000,
       "settlements": 26440
     },
@@ -798,14 +798,14 @@
     "submittedAt": "2026-11-18T12:43:00.000Z",
     "openingFloat": 2000,
     "expected": {
-      "CASH": 10850,
-      "UPI": 8300,
+      "CASH": 10750,
+      "UPI": 8250,
       "CARD": 800,
       "OTHER": 0
     },
     "actual": {
-      "CASH": 10850,
-      "UPI": 8300,
+      "CASH": 10750,
+      "UPI": 8250,
       "CARD": 800,
       "OTHER": 0
     },
@@ -813,9 +813,9 @@
     "cashDifference": 0,
     "totals": {
       "receipts": 19,
-      "collected": 18200,
+      "collected": 18050,
       "refunds": 250,
-      "op": 13200,
+      "op": 13050,
       "deposits": 5000,
       "settlements": 0
     },
@@ -866,22 +866,22 @@
     "expected": {
       "CASH": 25850,
       "UPI": 1680,
-      "CARD": 1600,
+      "CARD": 1400,
       "OTHER": 0
     },
     "actual": {
       "CASH": 25850,
       "UPI": 1680,
-      "CARD": 1600,
+      "CARD": 1400,
       "OTHER": 0
     },
     "difference": 0,
     "cashDifference": 0,
     "totals": {
       "receipts": 16,
-      "collected": 27530,
+      "collected": 27330,
       "refunds": 400,
-      "op": 7530,
+      "op": 7330,
       "deposits": 20000,
       "settlements": 0
     },
@@ -898,13 +898,13 @@
     "openingFloat": 2000,
     "expected": {
       "CASH": -323,
-      "UPI": -38663,
+      "UPI": -38758,
       "CARD": 0,
       "OTHER": 0
     },
     "actual": {
       "CASH": -323,
-      "UPI": -38663,
+      "UPI": -38758,
       "CARD": 0,
       "OTHER": 0
     },
@@ -913,7 +913,7 @@
     "totals": {
       "receipts": 9,
       "collected": 12600,
-      "refunds": 53586,
+      "refunds": 53681,
       "op": 2600,
       "deposits": 10000,
       "settlements": 0
@@ -930,14 +930,14 @@
     "submittedAt": "2026-11-20T12:36:00.000Z",
     "openingFloat": 2000,
     "expected": {
-      "CASH": 6500,
-      "UPI": 17550,
+      "CASH": 6450,
+      "UPI": 17300,
       "CARD": 250,
       "OTHER": 0
     },
     "actual": {
-      "CASH": 6500,
-      "UPI": 17550,
+      "CASH": 6450,
+      "UPI": 17300,
       "CARD": 250,
       "OTHER": 0
     },
@@ -945,9 +945,9 @@
     "cashDifference": 0,
     "totals": {
       "receipts": 19,
-      "collected": 22300,
+      "collected": 22000,
       "refunds": 0,
-      "op": 12300,
+      "op": 12000,
       "deposits": 10000,
       "settlements": 0
     },
@@ -963,13 +963,13 @@
     "submittedAt": "2026-11-20T16:03:00.000Z",
     "openingFloat": 2000,
     "expected": {
-      "CASH": 36200,
+      "CASH": 36100,
       "UPI": 40900,
       "CARD": 10300,
       "OTHER": 0
     },
     "actual": {
-      "CASH": 36200,
+      "CASH": 36100,
       "UPI": 40900,
       "CARD": 10300,
       "OTHER": 0
@@ -978,9 +978,9 @@
     "cashDifference": 0,
     "totals": {
       "receipts": 15,
-      "collected": 85400,
+      "collected": 85300,
       "refunds": 0,
-      "op": 5400,
+      "op": 5300,
       "deposits": 80000,
       "settlements": 0
     },
@@ -996,14 +996,14 @@
     "submittedAt": "2026-11-21T12:52:00.000Z",
     "openingFloat": 2000,
     "expected": {
-      "CASH": 6750,
-      "UPI": 70750,
+      "CASH": 6550,
+      "UPI": 70700,
       "CARD": 480,
       "OTHER": 0
     },
     "actual": {
-      "CASH": 6750,
-      "UPI": 70750,
+      "CASH": 6550,
+      "UPI": 70700,
       "CARD": 480,
       "OTHER": 0
     },
@@ -1011,9 +1011,9 @@
     "cashDifference": 0,
     "totals": {
       "receipts": 25,
-      "collected": 76230,
+      "collected": 75980,
       "refunds": 250,
-      "op": 11230,
+      "op": 10980,
       "deposits": 65000,
       "settlements": 0
     },
@@ -1029,13 +1029,13 @@
     "submittedAt": "2026-11-21T15:38:00.000Z",
     "openingFloat": 2000,
     "expected": {
-      "CASH": -26612,
+      "CASH": -26862,
       "UPI": 2985,
       "CARD": 0,
       "OTHER": 0
     },
     "actual": {
-      "CASH": -26612,
+      "CASH": -26862,
       "UPI": 2985,
       "CARD": 0,
       "OTHER": 0
@@ -1045,7 +1045,7 @@
     "totals": {
       "receipts": 7,
       "collected": 21650,
-      "refunds": 47277,
+      "refunds": 47527,
       "op": 1650,
       "deposits": 20000,
       "settlements": 0
@@ -1095,13 +1095,13 @@
     "submittedAt": "2026-11-22T15:47:00.000Z",
     "openingFloat": 2000,
     "expected": {
-      "CASH": -6508,
+      "CASH": -6603,
       "UPI": -1976,
       "CARD": 1381,
       "OTHER": 0
     },
     "actual": {
-      "CASH": -6508,
+      "CASH": -6603,
       "UPI": -1976,
       "CARD": 1381,
       "OTHER": 0
@@ -1110,11 +1110,11 @@
     "cashDifference": 0,
     "totals": {
       "receipts": 6,
-      "collected": 28698,
-      "refunds": 37801,
+      "collected": 28653,
+      "refunds": 37851,
       "op": 0,
       "deposits": 22000,
-      "settlements": 6698
+      "settlements": 6653
     },
     "remarks": "Counter balanced.",
     "status": "SUBMITTED",

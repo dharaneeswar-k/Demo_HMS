@@ -96,7 +96,7 @@ export function mountSid(host, id, { step } = {}) {
     const p = pat(v.patientId); const a = visitAccess(v); const b = v.billId && store.get('hbills', v.billId); const rd = v.referralDoctorId && store.get('referralDoctors', v.referralDoctorId);
     const row = (k, val) => (val ? `<dt>${k}</dt><dd>${val}</dd>` : '');
     return `<dl class="h-kv">${row('Mobile', esc(p.phone || '—'))}${row('Payment', `<span class="${a.ok ? 'h-ok' : 'h-warn'}">${esc(a.label)}</span>`)}
-      ${b ? row('Bill', `<a class="mono" href="#/hbills/${b.id}">${b.id}</a>`) : v.billingRoute === 'IP_ACCOUNT' ? row('Charges', `IP account ${esc(v.ipNo || '')}`) : ''}
+      ${b ? row('Bill', `<a class="mono" href="#/hbills/${b.id}">${b.id}</a>`) : v.billingRoute === 'OP_BILL' ? row('Bill', `OP bill <a class="mono" href="#/op/visits/${v.opVisitId}">${esc(v.opBillId)}</a>`) : v.billingRoute === 'IP_ACCOUNT' ? row('Charges', v.admissionId ? `IP bill <a class="mono" href="#/ip/admissions/${v.admissionId}">${esc(v.ipNo)}</a>` : `IP account ${esc(v.ipNo || '')}`) : ''}
       ${rd ? row('Clinic', esc(rd.clinic)) : ''}${row('Report due', fmtDateTime(v.reportDueAt))}
       ${row('Prescription', v.prescription ? '<button class="h-link" data-rx>View</button>' : esc({ DOCTOR_ORDER: 'Doctor order', SELF_REQUEST: 'Self request', PACKAGE: 'Package' }[v.rxBasis] || '—'))}
       ${v.consent ? row('Consent', `<span class="h-ok">Signed</span>${v.consent.counsellor ? `<small class="h-muted"> · counselled by ${esc(v.consent.counsellor)}</small>` : ''}`) : ''}${v.clinicalNotes ? row('Notes', esc(v.clinicalNotes)) : ''}

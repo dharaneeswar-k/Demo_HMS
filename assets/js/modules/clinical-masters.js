@@ -2,7 +2,9 @@
 import { store } from '../data-service.js';
 import { currentUser, can } from '../auth.js';
 import { audit } from '../services.js';
-import { deptName, cs, bedCategories, categoryLabel } from '../clinical.js';
+import { deptName, cs, bedCategories, categoryLabel, service, labTestOf } from '../clinical.js';
+// an investigation with the same code as a lab test is that lab test: linked, priced from the Lab Test Master
+const labByCode = (code, category) => (category === 'INVESTIGATION' ? store.all('services').find((x) => x.category === 'LAB' && x.code === code) || null : null);
 import { bedStatus } from '../ip.js';
 import { tabs, openModal, card } from '../components.js';
 import { toast } from '../notifications.js';
@@ -60,12 +62,12 @@ export function render(view, params, query) {
   const tariff = (h) => {
     h.innerHTML = `<div class="row-between mb-2"><span class="muted small">Rates apply to new charges only — bills already made keep their rates. Non-payable items are not covered by insurance and are charged to the patient.</span><button class="btn btn-primary btn-sm" data-add>${icon('plus')}Add service</button></div>
       <div class="table-scroll"><table class="table dense"><thead><tr><th>Code</th><th>Service</th><th>Category</th><th>Used in</th><th class="ta-right">Rate</th><th>Insurance</th><th>Status</th><th></th></tr></thead><tbody>
-      ${store.all('tariff').map((s) => `<tr class="${s.active ? '' : 'reversed'}"><td class="mono">${esc(s.code)}</td><td>${esc(s.name)}</td><td>${esc(CATS.find((c) => c[0] === s.category)?.[1] || s.category)}</td><td>${s.applicableIn.join(' · ')}</td><td class="ta-right">${fmtINR(s.rate)}${s.unit !== 'each' ? `<span class="cell-sub"> /${esc(s.unit)}</span>` : ''}</td>
+      ${store.all('tariff').map((s) => `<tr class="${s.active ? '' : 'reversed'}"><td class="mono">${esc(s.code)}</td><td>${esc(s.name)}</td><td>${esc(CATS.find((c) => c[0] === s.category)?.[1] || s.category)}</td><td>${s.applicableIn.join(' · ')}</td><td class="ta-right">${fmtINR(service(s.id).rate)}${s.unit !== 'each' ? `<span class="cell-sub"> /${esc(s.unit)}</span>` : ''}${s.labServiceId ? '<div class="cell-sub" title="Price comes from the Lab Test Master">Lab price</div>' : ''}</td>
         <td>${s.nonPayable ? '<span class="tag tag-warning">Non-payable</span>' : '<span class="tag tag-success">Payable</span>'}</td><td>${s.active ? 'Active' : 'Inactive'}</td><td><button class="btn btn-ghost btn-sm" data-edit="${s.id}">${icon('pencil')}</button></td></tr>`).join('')}</tbody></table></div>`;
     const edit = (s) => {
       const isNew = !s; s = s || { code: '', name: '', category: 'INVESTIGATION', rate: 0, unit: 'each', applicableIn: ['OP', 'IP'], nonPayable: false, active: true };
       const m = openModal({ title: isNew ? 'Add service' : `Edit ${s.name}`, body: `<form class="form-grid"><div class="field col-4"><label>Code</label><input class="input" name="code" value="${esc(s.code)}" ${isNew ? '' : 'readonly'}></div><div class="field col-8"><label>Name</label><input class="input" name="name" value="${esc(s.name)}"></div>
-        <div class="field col-6"><label>Category</label><select class="input" name="category">${CATS.map(([k, l]) => `<option value="${k}" ${k === s.category ? 'selected' : ''}>${l}</option>`).join('')}</select></div><div class="field col-3"><label>Rate (₹)</label><input class="input" type="number" min="0" name="rate" value="${s.rate}"></div><div class="field col-3"><label>Unit</label><select class="input" name="unit">${['each', 'hour', 'day'].map((x) => `<option ${x === s.unit ? 'selected' : ''}>${x}</option>`).join('')}</select></div>
+        <div class="field col-6"><label>Category</label><select class="input" name="category">${CATS.map(([k, l]) => `<option value="${k}" ${k === s.category ? 'selected' : ''}>${l}</option>`).join('')}</select></div><div class="field col-3"><label>Rate (₹)</label><input class="input" type="number" min="0" name="rate" value="${labTestOf(s) ? labTestOf(s).price : s.rate}" ${labTestOf(s) ? 'readonly title="Lab test — change the price in the Lab Test Master"' : ''}></div><div class="field col-3"><label>Unit</label><select class="input" name="unit">${['each', 'hour', 'day'].map((x) => `<option ${x === s.unit ? 'selected' : ''}>${x}</option>`).join('')}</select></div>
         <div class="field col-12"><label>Settings</label><div class="row"><label class="check"><input type="checkbox" name="op" ${s.applicableIn.includes('OP') ? 'checked' : ''}> OP</label><label class="check"><input type="checkbox" name="ip" ${s.applicableIn.includes('IP') ? 'checked' : ''}> IP</label><label class="check"><input type="checkbox" name="np" ${s.nonPayable ? 'checked' : ''}> Non-payable by insurance</label><label class="check"><input type="checkbox" name="active" ${s.active ? 'checked' : ''}> Active</label></div></div></form>`,
         footer: [{ label: 'Cancel', onClick: (c) => c() }, { label: 'Save', cls: 'btn-primary', icon: 'save', onClick: (c) => {
           const f = m.el.querySelector('form');
@@ -75,7 +77,8 @@ export function render(view, params, query) {
             if (isNew && store.all('tariff').some((x) => x.code === code)) throw new Error('That code is already used.');
             if (!(Number(f.rate.value) >= 0)) throw new Error('Enter a valid rate.');
             const applicableIn = [f.op.checked && 'OP', f.ip.checked && 'IP'].filter(Boolean); if (!applicableIn.length) throw new Error('Choose OP and/or IP.');
-            const patch = { code, name: f.name.value.trim(), category: f.category.value, group: CATS.find((x) => x[0] === f.category.value)[2], rate: Number(f.rate.value), unit: f.unit.value, applicableIn, nonPayable: f.np.checked, active: f.active.checked };
+            const lt = labByCode(code, f.category.value);
+            const patch = { code, name: f.name.value.trim(), category: f.category.value, group: CATS.find((x) => x[0] === f.category.value)[2], rate: lt ? lt.price : Number(f.rate.value), unit: f.unit.value, applicableIn, nonPayable: f.np.checked, active: f.active.checked, labServiceId: lt?.id || null };
             save(() => { if (isNew) store.insert('tariff', { id: store.nextId('tariff', 'SRV-', 3), ...patch }); else Object.assign(store.get('tariff', s.id), patch); }, 'Service saved.', 'TARIFF_UPDATED', s.id || code, `${patch.name} ₹${patch.rate}`);
             c(); draw();
           } catch (e) { toast(e.message, 'error'); }

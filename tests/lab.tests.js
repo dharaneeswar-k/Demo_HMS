@@ -1,4 +1,4 @@
-// Lab module — 100 automated acceptance tests that run inside the demo in the browser (no install, no build).
+// Lab module — 116 automated acceptance tests that run inside the demo in the browser (no install, no build).
 //
 // How to run: open the demo, sign in (any user), open the browser console and type
 //     await (await import('./tests/lab.tests.js')).runLabTests()
@@ -18,6 +18,9 @@ import * as S from '../assets/js/labstock.js';
 import { hospitalAlerts } from '../assets/js/alert-rules.js';
 import { stageOf } from '../assets/js/modules/lab/stages.js';
 import { patientHistory } from '../assets/js/patients.js';
+import * as OP from '../assets/js/op.js';
+import * as IP from '../assets/js/ip.js';
+import * as C from '../assets/js/clinical.js';
 
 // ---------------- tiny harness ----------------
 const TESTS = [];
@@ -312,6 +315,107 @@ T('LT-100', 'Report', 'Printed report shows AMENDED, Reg. Nos., signer and the r
 });
 
 // ---------------- runner ----------------
+// =====================================================================================================
+// M. OP / IP link (16) — lab tests billed in OP (module 02) or charged on the ward (module 03) reach the lab
+const TF = (code) => store.all('tariff').find((s) => s.code === code);
+const cashier = () => owner();
+const opDoctor = () => store.all('doctors').find((d) => d.active);
+const opPatient = (n) => store.all('patients').filter((p) => !store.all('opVisits').some((v) => v.patientId === p.id && OP.ACTIVE_STATES.includes(v.status)))[n];
+/** New OP visit (consultation fee paid), then an OP services bill with the given tariff codes. */
+function opBill(codes, { pay = true, n = 0 } = {}) {
+  const { visit: ov } = OP.createVisit({ patientId: opPatient(n).id, doctorId: opDoctor().id, pay: null }, cashier());
+  const items = codes.map((c) => ({ serviceId: TF(c).id, qty: 1 }));
+  const total = items.reduce((t, i) => t + C.service(i.serviceId).rate, 0);
+  const b = OP.addServicesBill(ov.id, { items, pay: pay ? { mode: 'CASH', amount: total } : null }, cashier());
+  return { ov: OP.visit(ov.id), b: store.get('opBills', b.id), v: b.labVisitId && F.visit(b.labVisitId) };
+}
+const admitted = () => IP.openAdmissions().find((a) => !IP.finalBill(a));
+const nurse = () => U('nurse'); const doctorU = () => U('doctor');
+
+T('LT-101', 'OP / IP link', 'Every investigation the lab does is linked to its Lab Test Master test; X-ray, ECG and USG are not', () => {
+  ['CBC', 'ESR', 'RBS', 'HBA1C', 'LFT', 'RFT', 'LIPID', 'URINE', 'NS1', 'ELEC', 'GROUP'].forEach((c) => eq(TF(c).labServiceId, SV(c).id, c));
+  ['XRAY', 'ECG', 'USG', 'DRS'].forEach((c) => eq(TF(c).labServiceId || null, null, c));
+});
+T('LT-102', 'OP / IP link', 'One price: OP / IP use the Lab Test Master price, and follow it when the lab changes it', () => {
+  eq(C.service(TF('NS1').id).rate, SV('NS1').price); eq(C.servicesFor('OP').find((s) => s.code === 'RFT').rate, SV('RFT').price);
+  const t = store.get('services', SV('CBC').id); const old = t.price;
+  try { t.price = 399; eq(C.service(TF('CBC').id).rate, 399); eq(C.servicesFor('IP').find((s) => s.code === 'CBC').rate, 399); } finally { t.price = old; }
+});
+T('LT-103', 'OP / IP link', 'A test stopped in the Lab Test Master cannot be billed in OP', () => {
+  const t = store.get('services', SV('ESR').id);
+  try { t.active = false; ok(!C.servicesFor('OP').some((s) => s.code === 'ESR')); } finally { t.active = true; }
+});
+T('LT-104', 'OP / IP link', 'Paid OP bill with lab tests → one lab visit: SID, OPD token, tests ready to collect', () => {
+  const { b, v } = opBill(['CBC', 'LFT']);
+  ok(v, 'lab visit made'); eq(v.source, 'OP'); eq(v.billingRoute, 'OP_BILL'); eq(v.opBillId, b.id); ok(v.token > 0); ok(/^\d{8}$/.test(v.sid));
+  eq(ordersOf(v).map((o) => o.status), ['READY', 'READY']); eq(F.visitAccess(v).ok, true); eq(ordersOf(v)[0].doctor, opDoctor().name);
+});
+T('LT-105', 'OP / IP link', 'OP bill without a lab test (dressing, X-ray) makes no lab visit', () => {
+  const { b } = opBill(['DRS', 'XRAY'], { n: 1 }); eq(b.labVisitId, undefined); ok(!store.all('labVisits').some((v) => v.opBillId === b.id));
+});
+T('LT-106', 'OP / IP link', 'Unpaid OP bill: tests wait "Payment pending (OP bill)" and the sample cannot be collected', () => {
+  const { v } = opBill(['RBS'], { pay: false, n: 2 });
+  eq(ordersOf(v)[0].status, 'ON_HOLD'); eq(F.visitAccess(v).label, 'Payment pending (OP bill)'); eq(F.visitStatus(v), 'ON_HOLD');
+  throws(() => F.collectTube(v.id, v.tubes[0].code, lab()), /Payment is not cleared/);
+});
+T('LT-107', 'OP / IP link', 'Paying the OP bill at the billing desk releases the tests to the lab', () => {
+  const { b, v } = opBill(['RBS'], { pay: false, n: 3 });
+  OP.collectOpBill(b.id, { mode: 'UPI', amount: b.total, reference: 'UTR1' }, cashier());
+  eq(fresh(ordersOf(v)[0]).status, 'READY'); ok(F.visitAccess(F.visit(v.id)).ok); F.collectTube(v.id, v.tubes[0].code, lab());
+});
+T('LT-108', 'OP / IP link', 'Doctor orders tests in the consultation → unpaid OP bill → lab visit on hold until paid', () => {
+  const { visit: ov } = OP.createVisit({ patientId: opPatient(4).id, doctorId: opDoctor().id, pay: null }, cashier());
+  OP.callVisit(ov.id, owner());
+  OP.completeVisit(ov.id, { diagnosis: ['Fever, cause to be found'], investigations: [{ serviceId: TF('CBC').id }, { serviceId: TF('NS1').id }] }, owner());
+  const b = OP.visitBills(OP.visit(ov.id)).find((x) => x.kind === 'SERVICES'); const v = F.visit(b.labVisitId);
+  eq(ordersOf(v).map((o) => o.status), ['ON_HOLD', 'ON_HOLD']); ok(ordersOf(v).some((o) => o.serviceId === SV('NS1').id));
+  OP.collectOpBill(b.id, { mode: 'CASH', amount: b.total }, cashier()); eq(ordersOf(v).map((o) => fresh(o).status), ['READY', 'READY']);
+});
+T('LT-109', 'OP / IP link', 'Cancelling the OP visit cancels its lab tests that were not collected', () => {
+  const { ov, v } = opBill(['ESR'], { pay: false, n: 5 });
+  OP.cancelVisit(ov.id, 'Patient left', owner()); eq(fresh(ordersOf(v)[0]).status, 'CANCELLED'); eq(F.visitStatus(F.visit(v.id)), 'CANCELLED');
+});
+T('LT-110', 'OP / IP link', 'OP-billed test goes through the whole lab flow to a verified report', () => {
+  const { v } = opBill(['RBS'], { n: 6 }); collectAll(v); receiveAll(v); const o = ordersOf(v)[0]; enter(o); H.verifyReport(o.id, owner());
+  eq(fresh(o).status, 'COMPLETED'); ok(F.reportReadyAt(F.visit(v.id)));
+});
+T('LT-111', 'OP / IP link', 'Ward lab order for an IP admission posts each test to the IP bill at the lab price', () => {
+  const a = admitted(); const before = IP.chargesOf(a.id).length;
+  const r = IP.orderLabTests(a.id, { serviceIds: [SV('CBC').id, SV('THYROID').id], priority: 'URGENT' }, nurse());
+  eq(r.visit.source, 'IP'); eq(r.visit.admissionId, a.id); eq(r.visit.ipNo, a.id); ok(r.visit.bed); eq(r.visit.priority, 'URGENT');
+  eq(IP.chargesOf(a.id).length, before + 2); eq(r.charges.map((c) => c.amount), [SV('CBC').price, SV('THYROID').price]); eq(r.charges.map((c) => c.group), ['INVESTIGATION', 'INVESTIGATION']);
+  eq(r.orders.map((o) => o.ipCharge.chargeId), r.charges.map((c) => c.id)); eq(r.orders.map((o) => o.status), ['READY', 'READY']); ok(F.visitAccess(r.visit).ok);
+});
+T('LT-112', 'OP / IP link', 'Posting a lab test on the IP folio sends it to the lab; other charges do not', () => {
+  const a = admitted(); const n = store.all('labVisits').length;
+  const c = IP.postCharge(a.id, { serviceId: TF('URINE').id, qty: 1 }, nurse());
+  eq(c.source, 'LAB'); eq(c.rate, SV('URINE').price); const o = store.get('orders', c.refId); eq(o.serviceId, SV('URINE').id); eq(store.all('labVisits').length, n + 1);
+  IP.postCharge(a.id, { serviceId: TF('NEB').id, qty: 1 }, nurse()); eq(store.all('labVisits').length, n + 1);
+});
+T('LT-113', 'OP / IP link', 'Reversing a lab charge before collection cancels the test; after collection it is refused', () => {
+  const a = admitted();
+  const c1 = IP.postCharge(a.id, { serviceId: TF('ESR').id }, nurse()); IP.reverseCharge(c1.id, 'Ordered twice', nurse()); eq(store.get('orders', c1.refId).status, 'CANCELLED');
+  const c2 = IP.postCharge(a.id, { serviceId: TF('GROUP').id }, nurse()); const v = F.visit(store.get('orders', c2.refId).labVisitId); collectAll(v);
+  throws(() => IP.reverseCharge(c2.id, 'Not needed', nurse()), /already collected/);
+});
+T('LT-114', 'OP / IP link', 'Doctors and nurses can place ward lab orders; the pharmacy cannot', () => {
+  ok(A.can('lab.order.ip', doctorU())); ok(A.can('lab.order.ip', nurse()));
+  const a = admitted(); ok(IP.orderLabTests(a.id, { serviceIds: [SV('CRP').id] }, doctorU()).visit);
+  throws(() => IP.orderLabTests(a.id, { serviceIds: [SV('CRP').id] }, U('pharmacy')), /cannot place ward lab orders/);
+});
+T('LT-115', 'OP / IP link', 'No lab order on a discharged patient or after the final IP bill', () => {
+  const gone = store.all('ipAdmissions').find((a) => a.status === 'DISCHARGED');
+  throws(() => IP.orderLabTests(gone.id, { serviceIds: [SV('CBC').id] }, nurse()), /discharged/);
+  const fin = store.all('ipAdmissions').find((a) => IP.OPEN_STATES.includes(a.status) && IP.finalBill(a) && IP.finalBill(a).status !== 'CANCELLED');
+  if (fin) throws(() => IP.orderLabTests(fin.id, { serviceIds: [SV('CBC').id] }, nurse()), /final bill/);
+});
+T('LT-116', 'OP / IP link', 'Screens: Ward Lab Order lists IP admissions, the folio shows the SID, the lab shows the OP bill', async () => {
+  const a = admitted(); const r = IP.orderLabTests(a.id, { serviceIds: [SV('FBS').id] }, owner());
+  const w = await view('#/lab/ward-order'); ok(w.includes('Patients admitted in IP are listed'), 'ward order hint');
+  const f = await view(`#/ip/admissions/${a.id}`); ok(f.includes(`SID ${r.visit.sid}`), 'SID on the folio');
+  const { b, v } = opBill(['CBC'], { n: 7 }); const s = await view(`#/lab/visit/${v.id}`); ok(s.includes(b.id), 'OP bill on the lab visit'); ok(s.includes('Paid (OP bill)'), 'payment label');
+});
+
 export async function runLabTests({ keepData = false } = {}) {
   const session = { s: sessionStorage.getItem('nallam_hms_session'), l: localStorage.getItem('nallam_hms_session') };
   await resetDemoData(); A.logout(); A.login('owner', 'demo123', false);

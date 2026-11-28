@@ -7,6 +7,7 @@ import { notify } from './notifications.js';
 import { businessDate } from './pharmacy-calc.js';
 import { r2 } from './pricing.js';
 import { opVisitPolicy, priceServices, bmi, vitalFlags } from './clinical-rules.js';
+import { createVisitForOpBill, syncOpBillLab } from './labflow.js';
 import { cs, doctor, department, service, patient, addReceipt, netReceived, createRequest, discountNeedsApproval, discountLimit, pendingRequestFor, yearOf, label } from './clinical.js';
 
 const now = () => new Date().toISOString();
@@ -62,11 +63,15 @@ export function opDaySummary(date = businessDate()) {
 // ---------------- writes ----------------
 function nextToken(doctorId, date) { return visitsOn(date).filter((v) => v.doctorId === doctorId).reduce((m, v) => Math.max(m, v.tokenNo), 0) + 1; }
 function refreshBill(b) {
-  if (['CANCELLED', 'REFUNDED', 'REFUND_PENDING', 'REFUND_APPROVED', 'DISCOUNT_PENDING'].includes(b.status)) return b;
+  if (['CANCELLED', 'REFUNDED', 'REFUND_PENDING', 'REFUND_APPROVED', 'DISCOUNT_PENDING'].includes(b.status)) { syncOpBillLab(b); return b; }
   const paid = netReceived(b.id); b.paid = paid;
   b.status = b.total <= 0 || paid >= b.total - 0.005 ? 'PAID' : paid > 0 ? 'PARTIALLY_PAID' : 'UNPAID';
+  syncOpBillLab(b);
   return b;
 }
+const svcLine = (s, qty = 1) => ({ serviceId: s.id, code: s.code, name: s.name, category: s.category, qty, rate: s.rate, labServiceId: s.labServiceId || null });
+/** Lab tests on an OP bill go to the lab at once (on hold until the bill is paid). */
+const sendToLab = (b, v, user) => createVisitForOpBill(b, { doctor: doctor(v.doctorId)?.name || '', opVisitId: v.id }, user);
 function newBill(v, kind, lines, discountPct, user) {
   const p = priceServices(lines, discountPct);
   const id = store.nextId('opBills', `OB-${yearOf()}-`, 5);
@@ -193,7 +198,7 @@ export function completeVisit(visitId, data, user, { referToIp = false, referRea
     Object.assign(v.consultation, c, { completedAt: now() });
     const already = new Set(visitBills(v).flatMap((b) => b.lines.map((l) => l.serviceId)).filter(Boolean));
     const toBill = c.investigations.filter((i) => !already.has(i.serviceId)).map((i) => service(i.serviceId)).filter(Boolean);
-    if (toBill.length) newBill(v, 'SERVICES', toBill.map((s) => ({ serviceId: s.id, code: s.code, name: s.name, category: s.category, qty: 1, rate: s.rate })), 0, user);
+    if (toBill.length) sendToLab(newBill(v, 'SERVICES', toBill.map((s) => svcLine(s)), 0, user), v, user);
     v.status = referToIp ? 'REFERRED_IP' : 'COMPLETED';
     if (referToIp) v.referral = { reason: referReason.trim() || 'Admission advised', at: now(), by: user.id };
     audit(user, referToIp ? 'OP_REFERRED_IP' : 'OP_COMPLETED', 'OP_VISIT', v.id, `${v.token} · ${c.diagnosis.join('; ')}`);
@@ -213,12 +218,13 @@ export function addServicesBill(visitId, { items, discountPct = 0, discountReaso
   if (!can('op.bill', user)) throw new Error('You are not allowed to bill OP services.');
   const v = visit(visitId);
   if (v.status === 'CANCELLED') throw new Error('This visit is cancelled.');
-  const lines = items.filter((i) => i.serviceId && Number(i.qty) > 0).map((i) => { const s = service(i.serviceId); return { serviceId: s.id, code: s.code, name: s.name, category: s.category, qty: Number(i.qty), rate: s.rate }; });
+  const lines = items.filter((i) => i.serviceId && Number(i.qty) > 0).map((i) => svcLine(service(i.serviceId), Number(i.qty)));
   if (!lines.length) throw new Error('Add at least one service.');
   return store.transaction(() => {
     const b = newBill(v, 'SERVICES', lines, Number(discountPct) || 0, user);
     applyDiscountRule(b, v, discountPct, discountReason, user); refreshBill(b);
     if (b.status !== 'DISCOUNT_PENDING') collect(b, pay, user);
+    sendToLab(b, v, user);
     audit(user, 'OP_SERVICES_BILLED', 'OP_BILL', b.id, `${lines.length} service(s) · ₹${b.total}`);
     return b;
   });
@@ -240,6 +246,7 @@ export function cancelVisit(visitId, reason, user) {
         if (can('hospital.approve', user)) { b.status = 'REFUND_APPROVED'; }
         else { const rq = createRequest({ type: 'REFUND', source: 'OP', refType: 'OP_BILL', refId: b.id, patientId: v.patientId, base: paid, amount: paid, reason: `Visit ${v.token} cancelled — ${reason.trim()}` }, user); b.status = 'REFUND_PENDING'; b.requestId = rq.id; }
       } else { b.status = 'CANCELLED'; b.cancelled = v.cancel; }
+      syncOpBillLab(b);
     }
     audit(user, 'OP_VISIT_CANCELLED', 'OP_VISIT', v.id, `${v.token}: ${reason}`);
     return v;
@@ -254,7 +261,7 @@ export function payOpRefund(billId, mode, user) {
     const amt = netReceived(b.id);
     const orig = store.all('hospitalReceipts').find((r) => r.refId === b.id && r.kind === 'PAYMENT');
     addReceipt({ kind: 'REFUND', source: 'OP', refType: 'OP_BILL', refId: b.id, patientId: b.patientId, mode: mode || orig?.mode || 'CASH', amount: amt, note: 'Visit cancelled — fee refunded' }, user);
-    b.status = 'REFUNDED'; b.paid = 0;
+    b.status = 'REFUNDED'; b.paid = 0; syncOpBillLab(b);
     audit(user, 'OP_REFUND_PAID', 'OP_BILL', b.id, `₹${amt}`);
     return b;
   });
@@ -268,7 +275,7 @@ export function applyOpDecision(rq, approve, user) {
     b.status = 'UNPAID'; refreshBill(b);
   } else if (rq.type === 'REFUND') {
     b.status = approve ? 'REFUND_APPROVED' : 'PAID';
-    if (!approve) refreshBill(b);
+    refreshBill(b);
   }
 }
 export { discountLimit };

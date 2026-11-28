@@ -21,8 +21,11 @@ export const department = (id) => store.get('departments', id);
 export const deptName = (id) => department(id)?.name || '—';
 export const activeDoctors = () => store.all('doctors').filter((d) => d.active);
 export const doctorForUser = (user) => (user ? store.all('doctors').find((d) => d.userId === user.id) || null : null);
-export const service = (id) => store.get('tariff', id);
-export const servicesFor = (where) => store.all('tariff').filter((s) => s.active && s.applicableIn.includes(where));
+// A tariff row with labServiceId is a lab test: its price (and whether it is stopped) comes from the Lab Test Master — one price everywhere.
+export const labTestOf = (s) => (s?.labServiceId ? store.get('services', s.labServiceId) || null : null);
+const priced = (s) => { const t = labTestOf(s); return t ? { ...s, rate: t.price, active: s.active && t.active } : s; };
+export const service = (id) => priced(store.get('tariff', id));
+export const servicesFor = (where) => store.all('tariff').map(priced).filter((s) => s.active && s.applicableIn.includes(where));
 export const patient = (id) => store.get('patients', id);
 export const patientLabel = (p) => (p ? `${p.name} · ${p.uhid}` : '—');
 export const ward = (id) => store.get('wards', id);

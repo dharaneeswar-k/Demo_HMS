@@ -37,8 +37,8 @@ export function buildClinical(ctx) {
   add('RECEPTION', ['op.view', 'op.register', 'op.bill', 'op.cancel', 'ip.view', 'ip.admit', 'ip.deposit', 'ip.transfer', 'bed.manage', 'hospital.closing']);
   add('PHARMACY_STAFF', ['ip.view', 'ip.indents', 'ip.indent.issue', 'ip.clear.pharmacy']);
   role('RECEPTION').description = 'Front office: patient registration, OP visits and tokens, admissions, deposits and the hospital cash counter.';
-  const DOCTOR_PERMS = ['patient.view', 'alerts.view', 'op.view', 'op.consult', 'ip.view', 'ip.round', 'ip.discharge.initiate', 'ip.summary'];
-  const NURSE_PERMS = ['patient.view', 'alerts.view', 'op.view', 'op.vitals', 'ip.view', 'ip.nursing', 'ip.indents', 'ip.indent.raise', 'ip.charge', 'ip.transfer', 'ip.clear.nursing', 'bed.manage'];
+  const DOCTOR_PERMS = ['patient.view', 'alerts.view', 'op.view', 'op.consult', 'ip.view', 'ip.round', 'ip.discharge.initiate', 'ip.summary', 'lab.order.ip'];
+  const NURSE_PERMS = ['patient.view', 'alerts.view', 'op.view', 'op.vitals', 'ip.view', 'ip.nursing', 'ip.indents', 'ip.indent.raise', 'ip.charge', 'ip.transfer', 'ip.clear.nursing', 'bed.manage', 'lab.order.ip'];
   const BILLING_PERMS = ['patient.view', 'patient.register', 'alerts.view', 'op.view', 'op.register', 'op.bill', 'op.cancel', 'ip.view', 'ip.admit', 'ip.deposit', 'ip.charge', 'ip.transfer',
     'ip.bill.final', 'ip.tpa', 'hospital.closing'];
   roles.push(
@@ -90,6 +90,8 @@ export function buildClinical(ctx) {
     S('ADM', 'Admission & registration charges', 'OTHER', 'SERVICE', 500, ['IP'], { nonPayable: true }), S('MRD', 'Medical records (MRD) charges', 'OTHER', 'SERVICE', 200, ['IP'], { nonPayable: true }),
     S('ATTD', 'Attender diet (per day)', 'OTHER', 'SERVICE', 250, ['IP'], { unit: 'day', nonPayable: true }), S('AMB', 'Ambulance — local', 'OTHER', 'SERVICE', 1000, ['OP', 'IP'])
   ];
+  // one price for a lab test: an investigation the lab does links to the Lab Test Master (labServiceId) and uses its price
+  for (const s of services) { const t = (ctx.labServices || []).find((x) => x.category === 'LAB' && x.code === s.code); if (s.category === 'INVESTIGATION' && t) Object.assign(s, { labServiceId: t.id, rate: t.price }); }
   const svc = Object.fromEntries(services.map((s) => [s.code, s]));
 
   const clinicalSettings = {

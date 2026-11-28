@@ -10,6 +10,8 @@ import { audit } from '../services.js';
 import { SOURCE, PRIORITY, VSTATUS, containers, visit, visitOrders, visitAccess, visitStatus, reportReadyAt, isUncollected, tubesFor, priorityRank, findBySid, tubeOf,
   callToken, collectTube, receiveTube, rejectTube, deliverReport, handOver, createIpOrder, criticalInVisit, visitConfidential } from '../labflow.js';
 import { CHANNEL_LABEL, STATUS_LABEL } from '../messaging.js';
+import { openAdmissions, currentBedId, orderLabTests } from '../ip.js';
+import { bed as bedOf, ward as wardOf, doctorName } from '../clinical.js';
 import { businessDate } from '../pharmacy-calc.js';
 import { patientAge } from '../patients.js';
 import { attachmentURL } from '../attachment-store.js';
@@ -176,11 +178,14 @@ export function renderDisplay(view) {
 // =====================================================================================================
 export function renderWardOrder(view) {
   const user = currentUser();
-  const admitted = store.all('medicalRecords').filter((r) => !r.dischargedAt && r.episodeType === 'IP');
+  // admitted patients: the IP module's admissions first (tests go on their IP bill), then any MRD-only admission
+  const ipAdm = openAdmissions().map((a) => { const b = bedOf(currentBedId(a)); const w = b && wardOf(b.wardId); return { id: 'A:' + a.id, patientId: a.patientId, ipNo: a.id, where: [w?.name, b?.code].filter(Boolean).join(' — '), doctor: doctorName(a.doctorId) }; });
+  const admitted = [...ipAdm, ...store.all('medicalRecords').filter((r) => !r.dischargedAt && r.episodeType === 'IP' && !ipAdm.some((a) => a.patientId === r.patientId))
+    .map((r) => ({ id: 'M:' + r.id, patientId: r.patientId, ipNo: r.ipNo, where: r.ward, doctor: r.doctor }))];
   let rid = ''; const sel = new Set();
   view.innerHTML = `<p class="page-intro">For admitted patients. No payment at the counter — the tests are charged to the patient's IP account and settled with the final IP bill. The lab sees the order in <strong>Ward rounds</strong> with the ward and bed.</p>
     <div class="grid grid-3-1"><section class="card"><div class="card-body"><div class="form-grid">
-      <div class="field col-12"><label>Admitted patient <span class="req">*</span></label><div data-p></div><p class="field-hint">${admitted.length} patient(s) in the wards. When the IP module goes live, its orders arrive here automatically.</p></div>
+      <div class="field col-12"><label>Admitted patient <span class="req">*</span></label><div data-p></div><p class="field-hint">${admitted.length} patient(s) in the wards. Patients admitted in IP are listed with their bed; the tests are posted to their IP bill.</p></div>
       <div class="field col-6"><label>Ordering doctor</label><input class="input" data-doc list="wo-docs"><datalist id="wo-docs">${(store.ph().doctors || []).map((x) => `<option value="${esc(x)}">`).join('')}</datalist></div>
       <div class="field col-6"><label>Priority</label><div class="seg seg-full" data-pri>${Object.entries(PRIORITY).reverse().map(([k, x]) => `<button type="button" class="seg-btn ${k === 'ROUTINE' ? 'active' : ''}" data-v="${k}">${x.label}</button>`).join('')}</div></div>
       <div class="field col-12"><label>Tests</label><div class="svc-pick">${store.all('services').filter((s) => s.category === 'LAB' && s.active).map((s) => `<label class="check"><input type="checkbox" value="${s.id}"> ${esc(s.name)} <span class="muted small">${esc(containers()[s.lab.container].label.split(' — ')[0])}</span></label>`).join('')}</div></div>
@@ -189,11 +194,13 @@ export function renderWardOrder(view) {
       <div class="row mt-2" style="justify-content:flex-end"><button class="btn btn-primary" data-save>${icon('send')}Send to lab</button></div></div></section>
       <section class="card"><header class="card-head"><h2>Today's ward orders</h2></header><div class="card-body" data-recent></div></section></div>`;
   let pri = 'ROUTINE';
-  combo(view.querySelector('[data-p]'), { options: () => admitted.map((r) => ({ value: r.id, label: pat(r.patientId).name, sub: `${r.ipNo} · ${r.ward}` })), placeholder: admitted.length ? 'Search admitted patient…' : 'No admitted patients', onChange: (v) => { rid = v; const r = store.get('medicalRecords', v); view.querySelector('[data-doc]').value = r.doctor || ''; const ph = pat(r.patientId).phone; const wa = view.querySelector('[data-wa]'); wa.disabled = !ph; wa.checked = !!ph; view.querySelector('[data-wa-no]').textContent = ph ? `— ${ph}` : '— no mobile number on the patient record'; } });
+  combo(view.querySelector('[data-p]'), { options: () => admitted.map((r) => ({ value: r.id, label: pat(r.patientId).name, sub: `${r.ipNo} · ${r.where}` })), placeholder: admitted.length ? 'Search admitted patient…' : 'No admitted patients', onChange: (v) => { rid = v; const r = admitted.find((x) => x.id === v); view.querySelector('[data-doc]').value = r.doctor || ''; const ph = pat(r.patientId).phone; const wa = view.querySelector('[data-wa]'); wa.disabled = !ph; wa.checked = !!ph; view.querySelector('[data-wa-no]').textContent = ph ? `— ${ph}` : '— no mobile number on the patient record'; } });
   view.querySelectorAll('[data-pri] [data-v]').forEach((b) => { b.onclick = () => { pri = b.dataset.v; view.querySelectorAll('[data-pri] [data-v]').forEach((x) => x.classList.toggle('active', x === b)); }; });
   const recent = () => { view.querySelector('[data-recent]').innerHTML = store.all('labVisits').filter((v) => v.source === 'IP').sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 6).map((v) => `<a class="kv" href="#/lab/visit/${v.id}"><span>${esc(pat(v.patientId).name)}<small class="muted"> · ${esc(v.bed)}</small></span>${vBadge(v)}</a>`).join('') || '<p class="muted">None.</p>'; refreshIcons(view); };
   view.querySelector('[data-save]').onclick = () => {
-    try { const v = createIpOrder({ recordId: rid, serviceIds: [...view.querySelectorAll('.svc-pick input:checked')].map((i) => i.value), doctor: view.querySelector('[data-doc]').value, priority: pri, notes: view.querySelector('[data-notes]').value, sendToPatient: view.querySelector('[data-wa]').checked }, user);
+    try { const form = { serviceIds: [...view.querySelectorAll('.svc-pick input:checked')].map((i) => i.value), doctor: view.querySelector('[data-doc]').value, priority: pri, notes: view.querySelector('[data-notes]').value, sendToPatient: view.querySelector('[data-wa]').checked };
+      if (!rid) throw new Error('Choose an admitted patient.');
+      const v = rid.startsWith('A:') ? orderLabTests(rid.slice(2), form, user).visit : createIpOrder({ recordId: rid.slice(2), ...form }, user);
       toast(`SID ${v.sid} sent to the lab — ${v.ward} ${v.bed}. Charged to ${v.ipNo}.`); location.hash = `#/lab/visit/${v.id}`; } catch (e) { toast(e.message, 'error'); }
   };
   recent();

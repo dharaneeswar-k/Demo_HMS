@@ -1219,5 +1219,216 @@
         ]
       }
     ]
+  },
+  {
+    "id": "SRV-0032",
+    "code": "ESR",
+    "name": "Erythrocyte Sedimentation Rate (ESR)",
+    "category": "LAB",
+    "price": 150,
+    "active": true,
+    "lab": {
+      "sample": "Blood (EDTA)",
+      "container": "EDTA",
+      "department": "Haematology",
+      "tatHours": 2,
+      "rxRequired": false,
+      "consentRequired": false,
+      "confidential": false,
+      "notifiable": null,
+      "kits": [],
+      "parameters": [
+        {
+          "name": "ESR",
+          "unit": "mm/hr",
+          "low": 0,
+          "high": 20,
+          "critLow": null,
+          "critHigh": null
+        }
+      ],
+      "method": "",
+      "note": ""
+    },
+    "version": 1,
+    "createdAt": "2026-08-01T04:30:00.000Z",
+    "createdBy": "USR-0003",
+    "updatedAt": "2026-08-01T04:30:00.000Z",
+    "updatedBy": "USR-0003",
+    "history": [
+      {
+        "at": "2026-08-01T04:30:00.000Z",
+        "by": "USR-0003",
+        "version": 1,
+        "reason": "Initial test list set up",
+        "changes": [
+          "Test created"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "SRV-0033",
+    "code": "RBS",
+    "name": "Blood Sugar — Random (RBS)",
+    "category": "LAB",
+    "price": 80,
+    "active": true,
+    "lab": {
+      "sample": "Blood (Fluoride)",
+      "container": "FLUORIDE",
+      "department": "Biochemistry",
+      "tatHours": 1,
+      "rxRequired": false,
+      "consentRequired": false,
+      "confidential": false,
+      "notifiable": null,
+      "kits": [
+        {
+          "kitId": "KIT-0004",
+          "qty": 1
+        }
+      ],
+      "parameters": [
+        {
+          "name": "Random blood glucose",
+          "unit": "mg/dL",
+          "low": 70,
+          "high": 140,
+          "critLow": 40,
+          "critHigh": 400
+        }
+      ],
+      "method": "",
+      "note": ""
+    },
+    "version": 1,
+    "createdAt": "2026-08-01T04:30:00.000Z",
+    "createdBy": "USR-0003",
+    "updatedAt": "2026-08-01T04:30:00.000Z",
+    "updatedBy": "USR-0003",
+    "history": [
+      {
+        "at": "2026-08-01T04:30:00.000Z",
+        "by": "USR-0003",
+        "version": 1,
+        "reason": "Initial test list set up",
+        "changes": [
+          "Test created"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "SRV-0034",
+    "code": "ELEC",
+    "name": "Serum Electrolytes",
+    "category": "LAB",
+    "price": 600,
+    "active": true,
+    "lab": {
+      "sample": "Blood (Plain)",
+      "container": "PLAIN",
+      "department": "Biochemistry",
+      "tatHours": 4,
+      "rxRequired": false,
+      "consentRequired": false,
+      "confidential": false,
+      "notifiable": null,
+      "kits": [],
+      "parameters": [
+        {
+          "name": "Sodium",
+          "unit": "mmol/L",
+          "low": 135,
+          "high": 145,
+          "critLow": 120,
+          "critHigh": 160
+        },
+        {
+          "name": "Potassium",
+          "unit": "mmol/L",
+          "low": 3.5,
+          "high": 5.1,
+          "critLow": 2.5,
+          "critHigh": 6.5
+        },
+        {
+          "name": "Chloride",
+          "unit": "mmol/L",
+          "low": 98,
+          "high": 107,
+          "critLow": null,
+          "critHigh": null
+        }
+      ],
+      "method": "",
+      "note": ""
+    },
+    "version": 1,
+    "createdAt": "2026-08-01T04:30:00.000Z",
+    "createdBy": "USR-0003",
+    "updatedAt": "2026-08-01T04:30:00.000Z",
+    "updatedBy": "USR-0003",
+    "history": [
+      {
+        "at": "2026-08-01T04:30:00.000Z",
+        "by": "USR-0003",
+        "version": 1,
+        "reason": "Initial test list set up",
+        "changes": [
+          "Test created"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "SRV-0035",
+    "code": "GROUP",
+    "name": "Blood Grouping & Rh Typing",
+    "category": "LAB",
+    "price": 150,
+    "active": true,
+    "lab": {
+      "sample": "Blood (EDTA)",
+      "container": "EDTA",
+      "department": "Immunohaematology",
+      "tatHours": 1,
+      "rxRequired": false,
+      "consentRequired": false,
+      "confidential": false,
+      "notifiable": null,
+      "kits": [],
+      "parameters": [
+        {
+          "name": "ABO group",
+          "unit": "",
+          "ref": "—"
+        },
+        {
+          "name": "Rh (D) type",
+          "unit": "",
+          "ref": "—"
+        }
+      ],
+      "method": "",
+      "note": ""
+    },
+    "version": 1,
+    "createdAt": "2026-08-01T04:30:00.000Z",
+    "createdBy": "USR-0003",
+    "updatedAt": "2026-08-01T04:30:00.000Z",
+    "updatedBy": "USR-0003",
+    "history": [
+      {
+        "at": "2026-08-01T04:30:00.000Z",
+        "by": "USR-0003",
+        "version": 1,
+        "reason": "Initial test list set up",
+        "changes": [
+          "Test created"
+        ]
+      }
+    ]
   }
 ]

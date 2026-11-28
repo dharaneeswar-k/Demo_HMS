@@ -48,7 +48,8 @@
 36. [Demo code map](#36-demo-code-map)
 37. [Lab Test Master (managing the test list)](#37-lab-test-master-managing-the-test-list)
 38. [Compliance controls (F1–F6)](#38-compliance-controls-f1f6)
-39. [Change log](#39-change-log)
+39. [OP and IP modules → lab](#39-op-and-ip-modules--lab-one-pipeline)
+40. [Change log](#40-change-log)
 
 ---
 
@@ -1568,9 +1569,9 @@ CBC reagent pack, LFT kit, RFT kit, glucose reagent/strips, HbA1c cartridge, lip
 
 Lab Test Master tests T29–T36 are in §37.10; compliance tests T43–T54 in §38.12.
 
-### 33.1 Automated test suite (100 tests, runs in the browser)
+### 33.1 Automated test suite (116 tests, runs in the browser)
 
-`tests/lab.tests.js` holds **100 automated tests (LT-001 … LT-100)** that call the same functions the screens use, plus a few that render the real screens. No install or build is needed. How to run them is in [tests/README.md](../tests/README.md). The run resets the demo data before and after.
+`tests/lab.tests.js` holds **116 automated tests (LT-001 … LT-116)** that call the same functions the screens use, plus a few that render the real screens. No install or build is needed. How to run them is in [tests/README.md](../tests/README.md). The run resets the demo data before and after.
 
 | Group | IDs | What is checked |
 |---|---|---|
@@ -1585,8 +1586,9 @@ Lab Test Master tests T29–T36 are in §37.10; compliance tests T43–T54 in §
 | Confidential | LT-087–094 | Roles, no WhatsApp / SMS / email, counselling and authorisation at hand-over, switch off = normal test, hidden in history, locked report page with audit |
 | Notifiable | LT-095–098 | TB positive on the register (24 h), negative not listed, portal ID required, overdue alert |
 | Master / Report | LT-099–100 | Overlapping range refused on save; printed report shows AMENDED, Reg. Nos., signer and range |
+| OP / IP link | LT-101–116 | Tariff ↔ Lab Test Master link and one price; OP bill → lab visit (paid = ready, unpaid = on hold, paying releases, doctor's orders, cancel); full flow from an OP bill; ward order for an IP admission posts to the IP bill; folio charge → lab; reverse before / after collection; who may order; discharged / final-billed refused; screens (§39) |
 
-**Last run:** 28 Nov 2026 — **100 / 100 passed** (Chrome, demo data version 11). The production team should port these to backend unit / integration tests (JUnit) against the same rules — the test names are written as the rule they prove.
+**Last run:** 28 Nov 2026 — **116 / 116 passed** (Chrome, demo data version 13). The production team should port these to backend unit / integration tests (JUnit) against the same rules — the test names are written as the rule they prove.
 
 ---
 
@@ -1660,7 +1662,7 @@ Lab Test Master tests T29–T36 are in §37.10; compliance tests T43–T54 in §
 | `assets/js/docs.js` | Letterhead, document meta, signature blocks |
 | `assets/js/barcode.js` | Code 128 SVG barcodes |
 | `tools/hospital-data.mjs` | Seed data: catalogue, kits, packages, visits, messages, referral doctors |
-| `tests/lab.tests.js`, `tests/README.md` | 100 automated lab tests run in the browser (§33.1) |
+| `tests/lab.tests.js`, `tests/README.md` | 116 automated lab tests run in the browser (§33.1) |
 | `data/lab-visits.json`, `service-orders.json`, `hospital-services.json`, `lab-kits.json`, `lab-kit-movements.json`, `referral-doctors.json`, `messages.json`, `hospital-settings.json` | Demo data |
 
 ---
@@ -1985,7 +1987,66 @@ order.lab         + history[]        { at, by, kind:'CORRECTED', reason, changes
 
 ---
 
-## 39. Change log
+## 39. OP and IP modules → lab (one pipeline)
+
+Before this link only two screens fed the lab: the **Hospital Bill** and the **Ward Lab Order** (for Medical Records admissions). A test billed on the OP module's bill or charged on the IP module's folio was charged but never reached the lab. Now **every place a lab test is billed or charged creates the lab order**, whichever screen or login was used.
+
+### 39.1 Where lab orders come from
+
+| Entry point | Who | Lab visit | Payment gate |
+|---|---|---|---|
+| Hospital Bill (reception counter) | Reception, owner | SID + OPD token | Hospital Bill paid / credit approved / emergency |
+| **OP bill** — services added at the billing desk, or tests the doctor orders in the consultation (module 02) | Reception, billing, owner | SID + OPD token, source OP, `billingRoute = OP_BILL` | **OP bill paid** — until then *Payment pending (OP bill)* and the sample cannot be collected |
+| **IP folio → Post charge** with a lab test (module 03) | Nurse, billing, owner | SID, bedside collection, ward + bed from the current bed | None — charged to the IP bill |
+| **Ward Lab Order** — patient admitted in the IP module | Nurse, doctor, lab, owner | SID, bedside collection | None — each test posted to the IP bill |
+| Ward Lab Order — Medical Records admission only | as above | as above | IP account (`ipCharge.posted = false`, as before) |
+
+### 39.2 Rules
+
+- **LR-30 Link.** A tariff row (`service-tariff.json`) is a lab test when it has `labServiceId` → `hospital-services.json`. Saving a tariff row of category *Investigation* whose code matches a lab test links it automatically. X-ray, ECG and ultrasound are not lab tests and stay unlinked.
+- **LR-31 One price.** A linked row always uses the **Lab Test Master price** (and is unavailable when the lab test is stopped). The rate box in *Doctors, Beds & Tariff* is read-only for these rows and shows *Lab price*. Bills already made keep their own rate.
+- **LR-32 OP gate.** OP-billed tests are `ON_HOLD` until the OP bill is `PAID`, then `READY`. A discount waiting for approval keeps them on hold. Cancelling the visit or refunding the bill cancels the tests that were not collected yet.
+- **LR-33 IP charge.** Each ward test is one IP charge (group *Investigations*, `source = LAB`, `refId` = order) at the lab price; the order keeps `ipCharge.chargeId`. Reversing the charge cancels the test **only before the sample is collected**; after that the charge stays.
+- **LR-34 IP limits.** No lab order for a discharged patient or once the final IP bill is made (re-open the bill first).
+- **LR-35 Who orders on the ward.** `lab.order.ip` is given to Doctor and Nurse (as well as Lab, Service counter and the owner); `ip.charge` also allows it.
+
+### 39.3 Data added
+
+| Where | Field | Meaning |
+|---|---|---|
+| tariff row | `labServiceId` | Lab test this row sells (null for non-lab services) |
+| OP bill line | `labServiceId` | Copied from the tariff when billed |
+| OP bill | `labVisitId` | Lab visit made from this bill |
+| lab visit | `billingRoute = 'OP_BILL'`, `opBillId`, `opVisitId` | OP-billed visit and where it came from |
+| lab visit | `admissionId` | IP admission (module 03) for ward orders |
+| order | `opBillId` | OP bill that paid for the test |
+| order | `ipCharge.chargeId` | IP charge that bills the test |
+| IP charge | `source = 'LAB'`, `refId` | Charge made by a lab order |
+
+Production schema: `lab_visits.billing_route` gets the value `OP_BILL` plus nullable `op_bill_id`, `op_visit_id`, `ip_admission_id`; `service_orders.op_bill_id`, `service_orders.ip_charge_id`; `tariff.lab_service_id` (FK, unique). One trigger / service method per entry point calls the same *create lab visit* routine.
+
+### 39.4 Screens
+
+- **IP folio** — a lab charge shows a tag *SID 0401xxxx · Ready* that opens the lab visit; posting a lab test says *Charge posted and sent to the lab — SID …*.
+- **Lab visit** side panel — *Bill: OP bill OB-…* (opens the OP visit) or *Charges: IP bill IPA-…* (opens the folio).
+- **Ward Lab Order** — lists the IP module's admitted patients with ward and bed first, then Medical Records admissions not already listed.
+- **Lab home** counts critical results from every lab visit (ward and OP orders were missed before).
+
+### 39.5 New tests in the lab master
+
+ESR, Random blood sugar (RBS), Serum electrolytes and Blood grouping & Rh were added to the Lab Test Master so that every investigation the doctors order in OP / IP has a lab test behind it (demo data version 13).
+
+### 39.6 Code
+
+`assets/js/labflow.js` — `createVisitForOpBill`, `syncOpBillLab`, `opBillAccess`, `insertWardVisit`, `labTestsFor` · `assets/js/op.js` — `sendToLab`, sync in `refreshBill` / cancel / refund · `assets/js/ip.js` — `orderLabTests`, lab branch in `postCharge` / `reverseCharge` · `assets/js/clinical.js` — `labTestOf`, lab price in `service` / `servicesFor` · seed link in `tools/generate-clinical.mjs`.
+
+---
+
+## 40. Change log
+
+### v1.3 — 28 Nov 2026
+
+**OP and IP modules connected to the lab (§39).** OP bills and IP charges with lab tests now create the lab order; the Ward Lab Order lists IP admissions and posts to the IP bill; one price from the Lab Test Master; ESR, RBS, electrolytes and blood group added; doctors and nurses can order ward tests; Help page no longer crashes for roles without a guide. Tests: 116 / 116 (§33.1).
 
 ### v1.2 — 28 Nov 2026
 

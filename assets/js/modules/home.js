@@ -89,7 +89,7 @@ export function render(view) {
   const float = store.ph().openingCashFloat;
   const stockIssues = inv.low + inv.out;
   const hsum = hospitalDaySummary(today); const mysh = openShiftFor(u);
-  const labQ = store.all('orders').filter((o) => o.category === 'LAB' && o.billId);
+  const labQ = store.all('orders').filter((o) => o.category === 'LAB' && (o.billId || o.labVisitId));
   const svcQ = store.all('orders').filter((o) => ['ECG', 'INJECTION', 'NEBULIZATION', 'OTHER'].includes(o.category));
   const stats = isClin ? clin.stats : role === 'RECEPTION' ? [
     stat('Billed today', fmtINR(hsum.billed, true), `${hsum.bills} hospital bill(s)`, '#/hbills'),

@@ -8,7 +8,8 @@ import { businessDate } from './pharmacy-calc.js';
 import { PHARMACY, fefoBatches, medicineStock, medName, batchBalance } from './calculations.js';
 import { r2 } from './pricing.js';
 import { bedDayPlan, bedChargeLines, payerSplit } from './clinical-rules.js';
-import { cs, doctor, service, patient, bed, bedCategories, addReceipt, netReceived, receiptsFor, createRequest, discountNeedsApproval, yearOf, dayKey, hourOf, label } from './clinical.js';
+import { insertWardVisit, labTestsFor } from './labflow.js';
+import { cs, doctor, service, labTestOf, ward, patient, bed, bedCategories, addReceipt, netReceived, receiptsFor, createRequest, discountNeedsApproval, yearOf, dayKey, hourOf, label } from './clinical.js';
 
 const now = () => new Date().toISOString();
 export const OPEN_STATES = ['ADMITTED', 'DISCHARGE_INITIATED', 'BILL_FINALISED'];
@@ -177,6 +178,8 @@ export function postCharge(admId, { serviceId, qty = 1, description, rate, group
   if (!can('ip.charge', user)) throw new Error('You are not allowed to post charges.');
   const adm = admission(admId); mustOpen(adm); mustNotFinal(adm);
   qty = Number(qty); if (!(qty > 0)) throw new Error('Quantity must be more than zero.');
+  const lt = serviceId && labTestOf(store.get('tariff', serviceId));
+  if (lt) { if (!Number.isInteger(qty)) throw new Error('Lab tests are charged in whole numbers.'); return orderLabTests(admId, { serviceIds: Array(qty).fill(lt.id) }, user).charges[0]; }
   return store.transaction(() => {
     let c;
     if (serviceId) { const s = service(serviceId); c = insertCharge(adm, { group: s.group, serviceId: s.id, description: s.name, qty, rate: s.rate, nonPayable: s.nonPayable }, user); }
@@ -194,7 +197,31 @@ export function reverseCharge(chargeId, reason, user) {
   const c = store.get('ipCharges', chargeId); const adm = admission(c.admissionId); mustOpen(adm); mustNotFinal(adm);
   if (['INDENT', 'INDENT_RETURN'].includes(c.source)) throw new Error('Medicine charges are corrected by a ward return, not reversed.');
   if (!String(reason || '').trim()) throw new Error('Give a reason.');
-  return store.transaction(() => { c.reversed = { by: user.id, at: now(), reason: reason.trim() }; audit(user, 'IP_CHARGE_REVERSED', 'IP_ADMISSION', adm.id, `${c.description}: ${reason}`); return c; });
+  const lo = c.source === 'LAB' && store.get('orders', c.refId);
+  if (lo && !['READY', 'ON_HOLD', 'CANCELLED'].includes(lo.status)) throw new Error('The lab has already collected this sample, so the charge stays.');
+  return store.transaction(() => { if (lo && lo.status !== 'CANCELLED') { lo.status = 'CANCELLED'; lo.notes = `Charge reversed: ${reason.trim()}`; } c.reversed = { by: user.id, at: now(), reason: reason.trim() }; audit(user, 'IP_CHARGE_REVERSED', 'IP_ADMISSION', adm.id, `${c.description}: ${reason}`); return c; });
+}
+
+/**
+ * Ward lab order for an admitted patient (module 03 → lab). One SID for all the tests, bedside collection, no counter payment:
+ * each test is posted to the IP bill (Investigations) at the Lab Test Master price and the order carries the charge id.
+ */
+export function orderLabTests(admId, { serviceIds, priority = 'ROUTINE', notes = '', doctor: orderedBy = '', sendToPatient = false }, user) {
+  if (!can('lab.order.ip', user) && !can('ip.charge', user)) throw new Error('You cannot place ward lab orders.');
+  const adm = admission(admId); mustOpen(adm); mustNotFinal(adm);
+  const tests = labTestsFor(serviceIds || []);
+  return store.transaction(() => {
+    const b = bed(currentBedId(adm)); const w = b && ward(b.wardId);
+    const { v, orders } = insertWardVisit({ patientId: adm.patientId, ipNo: adm.id, ward: w?.name || '', bed: b?.code || '', doctor: String(orderedBy || '').trim() || doctor(adm.doctorId)?.name || '', tests, priority, notes, sendToPatient, admissionId: adm.id }, user);
+    const charges = orders.map((o) => {
+      const t = store.all('tariff').find((x) => x.labServiceId === o.serviceId && x.active);
+      const c = insertCharge(adm, { group: 'INVESTIGATION', serviceId: t?.id || null, description: o.name, qty: 1, rate: tests.find((s) => s.id === o.serviceId).price, source: 'LAB', refId: o.id }, user);
+      o.ipCharge = { amount: c.amount, ipNo: adm.id, posted: true, chargeId: c.id };
+      return c;
+    });
+    audit(user, 'IP_LAB_ORDERED', 'IP_ADMISSION', adm.id, `SID ${v.sid} · ${tests.map((t) => t.code).join(', ')} · ₹${r2(charges.reduce((s, c) => s + c.amount, 0))} posted`);
+    return { visit: v, orders, charges };
+  });
 }
 
 // ---------------- clinical notes ----------------
