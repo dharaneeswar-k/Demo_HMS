@@ -271,3 +271,8 @@ tr.reversed td { color: var(--text-2); text-decoration: line-through; }
 .rx-table input[data-k=dose] { min-width: 80px; }
 .rx-table td:first-child { min-width: 220px; }
 .table a.mono, .table td .mono, .table .cell-main.mono { white-space: nowrap; }
+.tv-now .tv-name { display: block; font-size: 24px; font-weight: 600; color: #fff; margin-top: 2px; }
+.tv-next { flex-direction: column; align-items: stretch; }
+.tv-row { display: flex; align-items: center; gap: 10px; font-size: 17px; }
+.tv-row b { font-weight: 500; color: #e6f0f7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+body.tv-mode .shell { display: block; } body.tv-mode .main { padding-left: 0 !important; width: 100%; }

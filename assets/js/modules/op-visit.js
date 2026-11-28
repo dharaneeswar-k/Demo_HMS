@@ -4,7 +4,7 @@ import { currentUser, can } from '../auth.js';
 import { businessDate } from '../pharmacy-calc.js';
 import { activeDoctors, doctor, doctorName, department, deptName, patient, cbadge, label, doctorWorksOn, servicesFor, service, discountLimit, receiptsFor, modeLabel, pendingRequestFor, doctorForUser } from '../clinical.js';
 import { createVisit, visitPolicy, doctorQueue, avgConsultMinutes, visit as getVisit, visitBills, opBillDue, opBillPaid, recordVitals, callVisit, skipVisit, backToQueue, saveConsultation, completeVisit,
-  addAddendum, addServicesBill, collectOpBill, cancelVisit, payOpRefund, patientVisits, visitDue } from '../op.js';
+  addAddendum, addServicesBill, collectOpBill, cancelVisit, payOpRefund, patientVisits, visitDue, consultPaid } from '../op.js';
 import { patientAdmissions, activeAdmissionOf } from '../ip.js';
 import { medicineStock } from '../calculations.js';
 import { userName } from '../calculations.js';
@@ -42,7 +42,7 @@ export function renderNew(view, params, query) {
       <div class="col-stack">
         <section class="card"><header class="card-head"><div><h2>${icon('user-round', 'ic-inline')} 1 · Patient</h2><p class="muted small">Find the patient by name, Patient ID or mobile, or scan the patient card. New patients are registered here.</p></div></header>
           <div class="card-body"><div data-search></div><div data-pt class="mt-2"></div></div></section>
-        <section class="card"><header class="card-head"><div><h2>${icon('stethoscope', 'ic-inline')} 2 · Doctor</h2><p class="muted small">Doctors on duty today come first. The fee depends on the visit type.</p></div></header>
+        <section class="card"><header class="card-head"><div><h2>${icon('stethoscope', 'ic-inline')} 2 · Doctor</h2><p class="muted small">Only doctors available today can be chosen. The fee shown is for this patient's visit type.</p></div></header>
           <div class="card-body"><div class="doc-pick" data-docs></div></div></section>
         <section class="card"><header class="card-head"><div><h2>${icon('clipboard-plus', 'ic-inline')} 3 · Visit details</h2></div></header>
           <div class="card-body"><div class="form-grid">
@@ -55,7 +55,7 @@ export function renderNew(view, params, query) {
       <aside><div class="sticky-side"><div class="summary-box"><h3>Fee & payment</h3><div data-fee></div></div>
         <section class="card mt-2"><div class="card-body"><div data-disc></div><div data-pay class="mt-1"></div>
           <button class="btn btn-primary btn-lg btn-block mt-2" data-go>${icon('ticket')}Create visit & issue token</button>
-          <p class="muted small mt-1">${icon('info', 'ic-inline')} Discounts up to ${discountLimit()}% are allowed. Above that the bill is held for Super Admin approval; the token is still issued.</p></div></section></div></aside>
+          <p class="muted small mt-1">${icon('info', 'ic-inline')} The OP sheet is generated once the fee is paid. Discounts up to ${discountLimit()}% are allowed; above that the bill waits for Super Admin approval and the patient joins the queue after paying.</p></div></section></div></aside>
     </div>`;
   const q = (s) => view.querySelector(s);
   patientSearch(q('[data-search]'), { onPick: (p) => { st.patient = p; draw(); } });
@@ -77,8 +77,8 @@ export function renderNew(view, params, query) {
     const today = businessDate();
     const docs = [...activeDoctors()].sort((a, b) => Number(doctorWorksOn(b, today)) - Number(doctorWorksOn(a, today)));
     q('[data-docs]').innerHTML = docs.map((d) => { const qd = doctorQueue(d.id, today); const on = doctorWorksOn(d, today); const pol = st.patient ? visitPolicy(st.patient.id, d.id, st.emergency) : null;
-      return `<button type="button" class="doc-opt ${st.doctorId === d.id ? 'active' : ''} ${on ? '' : 'off'}" data-doc="${d.id}"><span class="doc-av">${esc(department(d.departmentId).code)}</span>
-        <span class="grow"><strong>${esc(d.name)}</strong><small>${esc(deptName(d.departmentId))} · ${esc(d.room)} · ${on ? `${esc(d.start)}–${esc(d.end)}` : 'Not on duty today'}</small>
+      return `<button type="button" class="doc-opt ${st.doctorId === d.id ? 'active' : ''} ${on ? '' : 'off'}" data-doc="${d.id}" ${on ? '' : 'disabled title="Not available today"'}><span class="doc-av">${esc(department(d.departmentId).code)}</span>
+        <span class="grow"><strong>${esc(d.name)}</strong><small>${esc(deptName(d.departmentId))} · ${esc(d.room)} · ${on ? `${esc(d.start)}–${esc(d.end)}` : 'Not available today'}</small>
         <span class="doc-opt-foot"><span>${pol ? `<strong>${fmtINR(pol.fee, true)}</strong> ${esc(label(pol.visitType))}` : `New ${fmtINR(d.fees.new, true)} · Revisit ${fmtINR(d.fees.revisit, true)}`}</span><span class="tag tag-${qd.waiting.length > 5 ? 'warning' : 'info'}">${qd.waiting.length} waiting</span></span></span></button>`; }).join('');
     q('[data-docs]').querySelectorAll('[data-doc]').forEach((b) => { b.onclick = () => { st.doctorId = b.dataset.doc; draw(); }; });
   }
@@ -119,9 +119,15 @@ export function renderNew(view, params, query) {
 }
 function tokenModal(v, b) {
   const d = doctor(v.doctorId); const qd = doctorQueue(v.doctorId); const ahead = qd.waiting.findIndex((x) => x.id === v.id);
-  openModal({ title: 'Token issued', size: 'sm', body: `<div class="token-issued"><div class="ti-label">Token number</div><div class="ti-token">${esc(v.token)}</div>
+  if (!consultPaid(v)) {
+    openModal({ title: 'Visit created — fee pending', size: 'sm', body: `<div class="token-issued"><div class="ti-label">Token (after payment)</div><div class="ti-token">${esc(v.token)}</div><div class="ti-sub">${esc(d.name)} · ${esc(d.room)}</div>
+      <div class="ti-meta"><span>${cbadge('DISCOUNT_PENDING')}</span></div><p class="muted small mt-1">The OP sheet is generated and the patient joins the queue once the fee is paid at reception.</p></div>`,
+      footer: [{ label: 'Open visit', onClick: (c) => { c(); navigate('#/op/visits/' + v.id); } }, { label: 'Next patient', cls: 'btn-primary', icon: 'user-round-plus', onClick: (c) => { c(); navigate('#/op/new?r=' + Date.now()); } }] });
+    return;
+  }
+  openModal({ title: 'Fee paid — OP sheet ready', size: 'sm', body: `<div class="token-issued"><div class="ti-label">Token number</div><div class="ti-token">${esc(v.token)}</div>
     <div class="ti-sub">${esc(d.name)} · ${esc(d.room)}</div><div class="ti-meta"><span>${ahead > 0 ? `${ahead} ahead · about ${ahead * avgConsultMinutes(d.id)} min` : 'Next in line'}</span><span>${b.status === 'DISCOUNT_PENDING' ? cbadge('DISCOUNT_PENDING') : b.total ? `Paid ${fmtINR(opBillPaid(b))}` : 'No fee'}</span></div></div>`,
-    footer: [{ label: 'Open visit', onClick: (c) => { c(); navigate('#/op/visits/' + v.id); } }, { label: 'Print OP slip', cls: 'btn-secondary', icon: 'printer', onClick: (c) => { c(); navigate(`#/op/print/${v.id}?doc=slip`); } },
+    footer: [{ label: 'Open visit', onClick: (c) => { c(); navigate('#/op/visits/' + v.id); } }, { label: 'Print OP sheet', cls: 'btn-secondary', icon: 'printer', onClick: (c) => { c(); navigate(`#/op/print/${v.id}?doc=slip`); } },
       { label: 'Next patient', cls: 'btn-primary', icon: 'user-round-plus', onClick: (c) => { c(); navigate('#/op/new?r=' + Date.now()); } }] });
 }
 
@@ -143,7 +149,7 @@ export function renderVisit(view, params) {
     if (can('op.cancel') && ['WAITING', 'VITALS_DONE'].includes(v.status)) actions.push(`<button class="btn btn-danger-outline" data-act="cancel">${icon('circle-slash')}Cancel visit</button>`);
     if (v.status === 'REFERRED_IP' && !v.admissionId && can('ip.admit')) actions.push(`<a class="btn btn-primary" href="#/ip/admit?visit=${v.id}">${icon('hospital')}Admit patient</a>`);
     if (v.admissionId) actions.push(`<a class="btn btn-secondary" href="#/ip/admissions/${v.admissionId}">${icon('folder-heart')}Open admission</a>`);
-    actions.push(`<a class="btn btn-ghost" href="#/op/print/${v.id}?doc=slip">${icon('ticket')}OP slip</a>`);
+    if (consultPaid(v)) actions.push(`<a class="btn btn-ghost" href="#/op/print/${v.id}?doc=slip">${icon('ticket')}OP sheet</a>`);
     if (c && ['COMPLETED', 'REFERRED_IP'].includes(v.status)) actions.push(`<a class="btn btn-ghost" href="#/op/print/${v.id}?doc=rx">${icon('file-text')}Prescription</a>`);
     if (can('pharmacy.bill') && c?.prescription?.length && v.status === 'COMPLETED') actions.push(`<a class="btn btn-ghost" href="#/pharmacy/bill?patient=${p.id}">${icon('shopping-cart')}Pharmacy sale</a>`);
 
@@ -330,17 +336,19 @@ function servicesModal(v) {
 export function renderPrint(view, params, query) {
   const v = getVisit(params.id); if (!v) { view.innerHTML = emptyState('file-x', 'Visit not found'); return; }
   const p = patient(v.patientId); const d = doctor(v.doctorId); const doc = query.doc || 'slip';
-  setMeta({ title: { slip: 'OP Slip', rx: 'Prescription', bill: 'OP Receipt' }[doc] || 'Print', crumbs: [{ label: 'Outpatient' }, { label: v.token, href: '#/op/visits/' + v.id }, 'Print'] });
+  setMeta({ title: { slip: 'OP Sheet', rx: 'Prescription', bill: 'OP Receipt' }[doc] || 'Print', crumbs: [{ label: 'Outpatient' }, { label: v.token, href: '#/op/visits/' + v.id }, 'Print'] });
   const back = `<a class="btn btn-ghost" href="#/op/visits/${v.id}">${icon('arrow-left')}Back to visit</a>`;
   let body = '';
-  if (doc === 'slip') {
+  if (doc === 'slip' && !consultPaid(v)) {
+    body = emptyState('hourglass', 'OP sheet not generated yet', 'The OP sheet is generated after the consultation fee is paid at reception.', `<a class="btn btn-primary" href="#/op/visits/${v.id}">Open visit</a>`);
+  } else if (doc === 'slip') {
     const b = visitBills(v).find((x) => x.kind === 'CONSULTATION');
-    body = `<article class="receipt doc-slip">${docHead('OP SLIP')}
+    body = `<article class="receipt doc-slip">${docHead('OP SHEET')}
       <div class="slip-main"><div><div class="rc-meta slip-meta"><div><span>Patient</span><strong>${esc(p.name)}</strong></div><div><span>Patient ID</span><strong class="mono">${esc(p.uhid)}</strong></div><div><span>Age / Sex</span><strong>${esc(ageSex(p))}</strong></div><div><span>Mobile</span><strong>${esc(p.phone)}</strong></div>
         <div><span>Doctor</span><strong>${esc(d.name)}</strong></div><div><span>Department / Room</span><strong>${esc(deptName(v.departmentId))} · ${esc(d.room)}</strong></div><div><span>Visit</span><strong>${esc(label(v.visitType))}${v.mlc ? ' · MLC' : ''}</strong></div><div><span>Date & time</span><strong>${fmtDateTime(v.at)}</strong></div></div></div>
         <div class="slip-token"><span>TOKEN</span><strong>${esc(v.token)}</strong></div></div>
       <div class="rc-foot"><div class="rc-gst">${barcodeSVG(v.id, { height: 34 })}<span class="mono">${esc(v.id)}</span></div><div class="rc-totals"><div class="kv"><span>Consultation fee</span><span>${fmtINR(b?.gross || 0)}</span></div>${b?.discount ? `<div class="kv"><span>Discount</span><span>− ${fmtINR(b.discount)}</span></div>` : ''}<div class="kv strong"><span>Paid</span><span>${fmtINR(b ? opBillPaid(b) : 0)}</span></div></div></div>
-      <p class="rc-small">Please wait for your token on the display. Bring this slip and your patient card on every visit. ${d.followUpDays ? `Free follow-up with the same doctor within ${d.followUpDays} days of a paid visit.` : ''}</p></article>`;
+      <p class="rc-small">Wait until your name and token appear on the display, then hand this OP sheet to the attendant at the doctor's room. Bring your patient card on every visit. ${d.followUpDays ? `Free follow-up with the same doctor within ${d.followUpDays} days of a paid visit.` : ''}</p></article>`;
   } else if (doc === 'rx') {
     const c = v.consultation || {};
     body = `<article class="receipt doc-a4 rx-doc">${docHead('PRESCRIPTION', `${esc(d.name)} · ${esc(d.qualification)} · Reg. ${esc(d.registrationNo)}`)}
@@ -361,7 +369,8 @@ export function renderPrint(view, params, query) {
       <table class="rc-table"><thead><tr><th>#</th><th>Service</th><th class="r">Qty</th><th class="r">Rate</th><th class="r">Amount</th></tr></thead><tbody>${b.lines.map((l, i) => `<tr><td>${i + 1}</td><td>${esc(l.name)}</td><td class="r">${l.qty}</td><td class="r">${fmtINR(l.rate)}</td><td class="r">${fmtINR(l.amount)}</td></tr>`).join('')}</tbody></table>
       <div class="rc-foot"><div class="rc-gst"><strong>Payments</strong>${recs.map((r) => `<div>${r.kind === 'REFUND' ? 'Refund' : 'Paid'} ${fmtINR(r.amount)} · ${esc(modeLabel(r.mode))}${r.reference ? ' · ' + esc(r.reference) : ''} · ${fmtDateTime(r.at)} · ${esc(r.id)}</div>`).join('') || '<div>No payment yet</div>'}<div class="tiny">Healthcare services are exempt from GST.</div></div>
         <div class="rc-totals"><div class="kv"><span>Gross</span><span>${fmtINR(b.gross)}</span></div>${b.discount ? `<div class="kv"><span>Discount ${b.discountPct}%</span><span>− ${fmtINR(b.discount)}</span></div>` : ''}${b.roundOff ? `<div class="kv"><span>Round off</span><span>${fmtINR(b.roundOff)}</span></div>` : ''}
-          <div class="kv strong"><span>Total</span><span>${fmtINR(b.total)}</span></div><div class="kv"><span>Paid</span><span>${fmtINR(opBillPaid(b))}</span></div><div class="kv"><span>Balance</span><span>${fmtINR(opBillDue(b))}</span></div></div></div>${docFoot()}</article>`;
+          <div class="kv strong"><span>Total</span><span>${fmtINR(b.total)}</span></div><div class="kv"><span>Paid</span><span>${fmtINR(opBillPaid(b))}</span></div><div class="kv"><span>Balance</span><span>${fmtINR(opBillDue(b))}</span></div></div></div>
+      ${b.kind === 'SERVICES' && opBillDue(b) === 0 && b.status === 'PAID' ? '<p class="rc-thanks">Show this receipt at the lab / test counter to have the test done and collect the report.</p>' : ''}${docFoot()}</article>`;
   }
   view.innerHTML = `<div class="row mb-2 no-print print-bar"><button class="btn btn-primary" data-print>${icon('printer')}Print</button>${back}</div>${body}`;
   view.querySelector('[data-print]').onclick = () => window.print();

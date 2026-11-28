@@ -51,7 +51,7 @@ export const LABEL = {
   NOT_SUBMITTED: 'Claim not submitted', SUBMITTED: 'Claim submitted', PENDING: 'Pending', VERIFIED: 'Verified', STAT: 'STAT', ROUTINE: 'Routine',
   SELF: 'Self-pay', INSURANCE: 'Insurance / TPA', CORPORATE: 'Corporate',
   NORMAL: 'Normal discharge', LAMA: 'LAMA / DAMA', REFERRED: 'Referred to higher centre', DEATH: 'Death',
-  PLANNED: 'Planned', FROM_OP: 'From OP'
+  PLANNED: 'Direct IP', FROM_OP: 'From OP (OP → IP)'
 };
 export const label = (s) => LABEL[s] || s;
 export const cbadge = (status, text) => badge(status, text || label(status));

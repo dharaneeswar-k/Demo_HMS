@@ -7,7 +7,7 @@ import { notify } from './notifications.js';
 import { businessDate } from './pharmacy-calc.js';
 import { r2 } from './pricing.js';
 import { opVisitPolicy, priceServices, bmi, vitalFlags } from './clinical-rules.js';
-import { cs, doctor, department, service, patient, addReceipt, netReceived, createRequest, discountNeedsApproval, discountLimit, pendingRequestFor, yearOf, label } from './clinical.js';
+import { cs, doctor, department, service, patient, addReceipt, netReceived, createRequest, discountNeedsApproval, discountLimit, pendingRequestFor, yearOf, label, doctorWorksOn } from './clinical.js';
 
 const now = () => new Date().toISOString();
 const pad = (n, l = 3) => String(n).padStart(l, '0');
@@ -22,6 +22,8 @@ export const opBillPaid = (b) => netReceived(b.id);
 export const opBillDue = (b) => (['CANCELLED', 'REFUNDED', 'REFUND_PENDING', 'REFUND_APPROVED', 'DISCOUNT_PENDING'].includes(b.status) ? 0 : r2(Math.max(0, b.total - opBillPaid(b))));
 export const visitDue = (v) => r2(visitBills(v).reduce((t, b) => t + opBillDue(b), 0));
 export const visitBilled = (v) => r2(visitBills(v).filter((b) => !['CANCELLED', 'REFUNDED'].includes(b.status)).reduce((t, b) => t + b.total, 0));
+/** The OP sheet is generated and the token joins the doctor's queue only after the consultation fee is paid (or is free). */
+export const consultPaid = (v) => { const b = visitBills(v).find((x) => x.kind === 'CONSULTATION'); return !b || b.status === 'PAID'; };
 export const patientVisits = (patientId) => store.all('opVisits').filter((v) => v.patientId === patientId).sort((a, b) => b.at.localeCompare(a.at));
 
 /** Visit type and fee for a patient + doctor today (free follow-up window, revisit, new, emergency). */
@@ -36,11 +38,12 @@ export function doctorQueue(doctorId, date = businessDate()) {
   const all = visitsOn(date).filter((v) => v.doctorId === doctorId);
   const step = Number(cs().op.skipPlaces) || 3;
   const order = (v) => (v.priority === 'EMERGENCY' ? -1000 : 0) + v.tokenNo + (v.skips || 0) * step + (v.status === 'VITALS_DONE' ? -0.5 : 0);
-  const waiting = all.filter((v) => v.status === 'WAITING' || v.status === 'VITALS_DONE').sort((a, b) => order(a) - order(b));
+  const waiting = all.filter((v) => (v.status === 'WAITING' || v.status === 'VITALS_DONE') && consultPaid(v)).sort((a, b) => order(a) - order(b));
+  const unpaid = all.filter((v) => (v.status === 'WAITING' || v.status === 'VITALS_DONE') && !consultPaid(v));
   const current = all.filter((v) => v.status === 'IN_CONSULTATION').sort((a, b) => (b.calledAt || '').localeCompare(a.calledAt || ''));
   const done = all.filter((v) => ['COMPLETED', 'REFERRED_IP'].includes(v.status)).sort((a, b) => (b.consultation?.completedAt || b.at).localeCompare(a.consultation?.completedAt || a.at));
   const other = all.filter((v) => ['NO_SHOW', 'CANCELLED'].includes(v.status));
-  return { all, waiting, current, done, other, total: all.length };
+  return { all, waiting, unpaid, current, done, other, total: all.length };
 }
 export function avgConsultMinutes(doctorId) {
   const xs = store.all('opVisits').filter((v) => v.doctorId === doctorId && v.consultation?.completedAt && v.consultation?.startedAt).slice(-40)
@@ -97,10 +100,11 @@ export function createVisit({ patientId, doctorId, emergency = false, mlc = fals
   const p = patient(patientId); if (!p) throw new Error('Select a registered patient.');
   const d = doctor(doctorId); if (!d || !d.active) throw new Error('Select a doctor.');
   const date = businessDate();
+  if (!doctorWorksOn(d, date)) throw new Error(`${d.name} is not available today. Choose an available doctor.`);
   const dup = visitsOn(date).find((v) => v.patientId === patientId && v.doctorId === doctorId && ['WAITING', 'VITALS_DONE', 'IN_CONSULTATION'].includes(v.status));
   if (dup) throw new Error(`${p.name} already has token ${dup.token} with ${d.name} today.`);
   const pol = visitPolicy(patientId, doctorId, emergency);
-  const pct = Number(discountPct) || 0;
+  const pct = pol.fee > 0 ? Number(discountPct) || 0 : 0; // nothing to discount on a free visit
   if (pct < 0 || pct > 100) throw new Error('Discount must be between 0 and 100%.');
   return store.transaction(() => {
     const tokenNo = nextToken(doctorId, date);
@@ -141,6 +145,7 @@ export function callVisit(visitId, user) {
   if (!can('op.consult', user)) throw new Error('Only the doctor can call a patient in.');
   const v = visit(visitId);
   if (!['WAITING', 'VITALS_DONE'].includes(v.status)) throw new Error('This patient is not waiting.');
+  if (!consultPaid(v)) throw new Error('The consultation fee is not paid yet. The patient pays at reception first.');
   return store.transaction(() => {
     Object.assign(v, { status: 'IN_CONSULTATION', calledAt: now() });
     v.consultation ||= { startedAt: now(), completedAt: null, complaints: v.chiefComplaint || '', history: '', examination: '', diagnosis: [], prescription: [], investigations: [], advice: '', followUpDate: '', doctorId: v.doctorId, addenda: [] };

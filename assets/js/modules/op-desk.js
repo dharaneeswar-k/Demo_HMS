@@ -3,7 +3,7 @@ import { store } from '../data-service.js';
 import { currentUser, can } from '../auth.js';
 import { businessDate } from '../pharmacy-calc.js';
 import { activeDoctors, doctorName, department, deptName, patient, cbadge, label, doctorWorksOn, doctorForUser } from '../clinical.js';
-import { doctorQueue, opDaySummary, visitDue, visitBilled, avgConsultMinutes, visitsOn } from '../op.js';
+import { doctorQueue, opDaySummary, visitDue, visitBilled, avgConsultMinutes, visitsOn, consultPaid } from '../op.js';
 import { kpi, dataTable, emptyState, exportTable } from '../components.js';
 import { esc, icon, fmtINR, fmtNum, fmtDateTime, refreshIcons, debounce, ymd } from '../utils.js';
 import { openVitals } from './op-visit.js';
@@ -38,7 +38,7 @@ export function render(view) {
       { key: 'patient', label: 'Patient', value: (v) => patient(v.patientId)?.name, render: (v) => { const p = patient(v.patientId); return `<div class="cell-main">${esc(p.name)}</div><div class="cell-sub">${esc(p.uhid)} · ${esc(v.chiefComplaint || '')}</div>`; } },
       { key: 'doctor', label: 'Doctor', value: (v) => doctorName(v.doctorId), render: (v) => `<div class="cell-main">${esc(doctorName(v.doctorId))}</div><div class="cell-sub">${esc(deptName(v.departmentId))}</div>` },
       { key: 'type', label: 'Type', value: (v) => v.visitType, render: typeTag },
-      { key: 'status', label: 'Status', value: (v) => v.status, render: (v) => cbadge(v.status) },
+      { key: 'status', label: 'Status', value: (v) => v.status, render: (v) => ['WAITING', 'VITALS_DONE'].includes(v.status) && !consultPaid(v) ? cbadge('DISCOUNT_PENDING', 'Fee pending — not in queue') : cbadge(v.status) },
       { key: 'due', label: 'Billing', align: 'right', value: (v) => visitDue(v), render: (v) => { const d = visitDue(v); return d ? `<span class="text-danger strong">${fmtINR(d)} due</span>` : `<span class="muted">${fmtINR(visitBilled(v))}</span>`; } },
       { key: 'act', label: '', sortable: false, render: (v) => ['WAITING', 'VITALS_DONE'].includes(v.status) && can('op.vitals') ? `<button class="btn btn-secondary btn-sm" data-vitals="${v.id}">${icon('heart-pulse')}${v.vitals ? 'Edit vitals' : 'Vitals'}</button>` : '' }
     ];
@@ -130,9 +130,9 @@ export function renderDisplay(view) {
         <a class="btn btn-ghost tv-exit no-print" href="#/op">${icon('x')}Exit</a></header>
       <div class="tv-grid">${docs.length ? docs.map((d) => { const q = doctorQueue(d.id, today); const cur = q.current[0];
         return `<div class="tv-card"><div class="tv-room">${esc(d.room)}</div><div class="tv-doc">${esc(d.name)}<small>${esc(deptName(d.departmentId))}</small></div>
-          <div class="tv-now"><small>Now serving</small><span>${cur ? esc(cur.token) : '—'}</span></div>
-          <div class="tv-next"><small>Next</small>${q.waiting.slice(0, 4).map((v) => `<span class="${v.priority === 'EMERGENCY' ? 'er' : ''}">${esc(v.token)}</span>`).join('') || '<em>—</em>'}</div></div>`; }).join('') : '<div class="tv-empty">OP will begin shortly.</div>'}</div>
-      <footer class="tv-foot">Please wait for your token number to be displayed. Emergency patients are seen first. · For help, contact the front office.</footer></div>`;
+          <div class="tv-now"><small>Now serving</small><span>${cur ? esc(cur.token) : '—'}</span>${cur ? `<b class="tv-name">${esc(patient(cur.patientId).name)}</b>` : ''}</div>
+          <div class="tv-next"><small>Next</small>${q.waiting.slice(0, 4).map((v) => `<div class="tv-row"><span class="${v.priority === 'EMERGENCY' ? 'er' : ''}">${esc(v.token)}</span><b>${esc(patient(v.patientId).name)}</b></div>`).join('') || '<em>—</em>'}</div></div>`; }).join('') : '<div class="tv-empty">OP will begin shortly.</div>'}</div>
+      <footer class="tv-foot">Please wait until your name and token number appear, then hand your OP sheet to the attendant at the doctor's room. Emergency patients are seen first.</footer></div>`;
     refreshIcons(view);
   };
   draw();
