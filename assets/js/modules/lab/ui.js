@@ -5,7 +5,7 @@ import { store } from '../../data-service.js';
 import { SOURCE, PRIORITY, VSTATUS, containers, visitOrders, visitStatus, visitAccess, reportReadyAt } from '../../labflow.js';
 import { svc, isCritical } from '../../hospital.js';
 import { patientAge } from '../../patients.js';
-import { esc } from '../../utils.js';
+import { esc, avatarTone } from '../../utils.js';
 import { icon } from './bi.js';
 
 export const pat = (id) => store.get('patients', id) || { name: 'Unknown patient', uhid: '—', gender: '', phone: '' };
@@ -95,11 +95,9 @@ export function nextAction(v) {
 }
 
 // ---------- lab2 look: avatar, facts, side drawer ----------
-const AV_TONES = [['#E8F6F5', '#037C79'], ['#EFF8FF', '#175CD3'], ['#F4F3FF', '#6941C6'], ['#FDF2FA', '#C11574'], ['#FFFAEB', '#B54708'], ['#ECFDF3', '#067647']];
 /** Round initials badge; the colour is fixed per name so a patient always looks the same. */
 export function avatar(name = '', size = '') {
-  const [bg, fg] = AV_TONES[[...name].reduce((a, c) => a + c.charCodeAt(0), 0) % AV_TONES.length];
-  return `<span class="l2-av ${size}" style="background:${bg};color:${fg}">${esc(initials(name) || '?')}</span>`;
+  return `<span class="l2-av ${size} ${avatarTone(name)}">${esc(initials(name) || '?')}</span>`;
 }
 /** Where the patient is: token, ward bed or casualty — as a small tag. */
 export function placeTag(v) {

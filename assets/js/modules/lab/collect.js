@@ -5,7 +5,7 @@ import { currentUser } from '../../auth.js';
 import { visit, visitAccess, tubesFor, collectTube, receiveTube, rejectTube, callToken } from '../../labflow.js';
 import { openModal, confirmDialog } from '../../components.js';
 import { toast } from '../../notifications.js';
-import { esc, refreshIcons } from '../../utils.js';
+import { esc, refreshIcons, avatarTone } from '../../utils.js';
 import { pat, ageSex, cap, tubeInfo, clock, srcPill, priPill } from './ui.js';
 import { icon } from './bi.js';
 
@@ -33,7 +33,7 @@ export function openCollection(visitId, done) {
   };
   openModal({ title: 'Collect sample', subtitle: `SID ${v0.sid}`, size: 'md',
     body: `<div class="lc">
-      <div class="lc-patient"><span class="lx-avatar">${esc(p.name.split(' ').map((x) => x[0]).slice(0, 2).join(''))}</span><div><strong>${esc(p.name)}</strong><small>${esc(ageSex(p))} · <span class="mono">${esc(p.uhid)}</span>${v0.collectionPoint === 'WARD' ? ` · ${esc(v0.ward)} bed ${esc(v0.bed)}` : v0.token ? ` · Token ${v0.token}` : ''}</small></div><div class="lc-pills">${srcPill(v0)}${priPill(v0)}</div></div>
+      <div class="lc-patient"><span class="lx-avatar ${avatarTone(p.name)}">${esc(p.name.split(' ').map((x) => x[0]).slice(0, 2).join(''))}</span><div><strong>${esc(p.name)}</strong><small>${esc(ageSex(p))} · <span class="mono">${esc(p.uhid)}</span>${v0.collectionPoint === 'WARD' ? ` · ${esc(v0.ward)} bed ${esc(v0.bed)}` : v0.token ? ` · Token ${v0.token}` : ''}</small></div><div class="lc-pills">${srcPill(v0)}${priPill(v0)}</div></div>
       ${p.allergies ? `<div class="lx-note danger">${icon('alert-triangle')}Allergy: ${esc(p.allergies)}</div>` : ''}
       <ol class="lc-how"><li><b>1</b>Ask the patient's name${v0.collectionPoint === 'WARD' ? ' and check the wrist band' : ''}. It must match the name above.</li><li><b>2</b>Print the labels and stick one on each tube <strong>in front of the patient</strong>.</li><li><b>3</b>Scan each tube after collection, or press <em>Collected</em>.</li></ol>
       <div class="lc-actions"><button class="btn btn-secondary" data-print>${icon('printer')}Print labels</button><div class="input-icon grow">${icon('scan-barcode')}<input class="input" data-scan placeholder="Scan the tube label here"></div></div>

@@ -5,7 +5,7 @@ import { patientAge } from '../patients.js';
 import { modeLabel, payModes, cs } from '../clinical.js';
 import { vitalFlags } from '../clinical-rules.js';
 import { openPatientForm } from './patients.js';
-import { esc, icon, fmtINR, refreshIcons, debounce } from '../utils.js';
+import { esc, icon, fmtINR, refreshIcons, debounce, avatarTone } from '../utils.js';
 import { r2 } from '../pricing.js';
 
 export const money = (v) => fmtINR(v);
@@ -23,7 +23,7 @@ export function patientSearch(host, { onPick, placeholder = 'Search name, Patien
   };
   const draw = () => {
     const q = input.value;
-    list.innerHTML = rows.map((p, i) => `<button type="button" class="ps-item ${i === active ? 'active' : ''}" data-i="${i}"><span class="avatar">${esc(p.name.split(' ').map((x) => x[0]).slice(0, 2).join(''))}</span>
+    list.innerHTML = rows.map((p, i) => `<button type="button" class="ps-item ${i === active ? 'active' : ''}" data-i="${i}"><span class="avatar ${avatarTone(p.name)}">${esc(p.name.split(' ').map((x) => x[0]).slice(0, 2).join(''))}</span>
       <span class="grow"><strong>${esc(p.name)}</strong><small>${esc(p.uhid)} · ${esc(ageSex(p))} · ${esc(p.phone)}</small></span>${p.allergies ? `<span class="tag tag-danger">Allergy</span>` : ''}</button>`).join('')
       + (q.trim().length >= 2 && !rows.length ? `<div class="ps-empty">${icon('user-x')}No patient found for “${esc(q)}”.</div>` : '')
       + (allowRegister && q.trim().length >= 2 ? `<button type="button" class="ps-item ps-new" data-new>${icon('user-plus')}<span class="grow"><strong>Register a new patient</strong><small>Creates a Patient ID, then continues here</small></span></button>` : '');
@@ -57,7 +57,7 @@ export function patientSearch(host, { onPick, placeholder = 'Search name, Patien
 
 /** Compact identity strip used at the top of visit / admission screens. */
 export function patientStrip(p, { extra = '', dark = false } = {}) {
-  return `<div class="pstrip ${dark ? 'pstrip-dark' : ''}"><span class="avatar avatar-lg">${esc(p.name.split(' ').map((x) => x[0]).slice(0, 2).join(''))}</span>
+  return `<div class="pstrip ${dark ? 'pstrip-dark' : ''}"><span class="avatar avatar-lg ${avatarTone(p.name)}">${esc(p.name.split(' ').map((x) => x[0]).slice(0, 2).join(''))}</span>
     <div class="grow"><div class="pstrip-name">${esc(p.name)} <span class="pstrip-meta">${esc(ageSex(p))}</span></div>
     <div class="pstrip-sub"><span class="mono">${esc(p.uhid)}</span> · ${esc(p.phone)}${p.bloodGroup ? ` · Blood ${esc(p.bloodGroup)}` : ''}${p.guardianName ? ` · ${esc(p.guardianName)}` : ''}</div></div>
     ${p.allergies ? `<span class="allergy">${icon('alert-triangle')}Allergy: ${esc(p.allergies)}</span>` : `<span class="pill-soft">${icon('shield-check')}No known allergy</span>`}${extra}</div>`;

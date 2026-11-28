@@ -5,7 +5,7 @@ import { businessDate } from '../pharmacy-calc.js';
 import { activeDoctors, doctorName, department, deptName, patient, cbadge, label, doctorWorksOn, doctorForUser } from '../clinical.js';
 import { doctorQueue, opDaySummary, visitDue, visitBilled, avgConsultMinutes, visitsOn } from '../op.js';
 import { kpi, dataTable, emptyState, exportTable } from '../components.js';
-import { esc, icon, fmtINR, fmtNum, fmtDateTime, refreshIcons, debounce, ymd } from '../utils.js';
+import { esc, icon, fmtINR, fmtNum, fmtDateTime, refreshIcons, debounce, ymd, personAv } from '../utils.js';
 import { openVitals } from './op-visit.js';
 import { setMeta } from '../app.js';
 
@@ -35,7 +35,7 @@ export function render(view) {
     const rows = visitsOn(today).sort((a, b) => b.at.localeCompare(a.at));
     const cols = [
       { key: 'token', label: 'Token', render: (v) => `<strong class="mono">${esc(v.token)}</strong>`, value: (v) => v.at },
-      { key: 'patient', label: 'Patient', value: (v) => patient(v.patientId)?.name, render: (v) => { const p = patient(v.patientId); return `<div class="cell-main">${esc(p.name)}</div><div class="cell-sub">${esc(p.uhid)} · ${esc(v.chiefComplaint || '')}</div>`; } },
+      { key: 'patient', label: 'Patient', value: (v) => patient(v.patientId)?.name, render: (v) => { const p = patient(v.patientId); return `<div class="who">${personAv(p.name)}<div><div class="cell-main">${esc(p.name)}</div><div class="cell-sub">${esc(p.uhid)} · ${esc(v.chiefComplaint || '')}</div></div></div>`; } },
       { key: 'doctor', label: 'Doctor', value: (v) => doctorName(v.doctorId), render: (v) => `<div class="cell-main">${esc(doctorName(v.doctorId))}</div><div class="cell-sub">${esc(deptName(v.departmentId))}</div>` },
       { key: 'type', label: 'Type', value: (v) => v.visitType, render: typeTag },
       { key: 'status', label: 'Status', value: (v) => v.status, render: (v) => cbadge(v.status) },
@@ -91,7 +91,7 @@ export function renderRegister(view, params, query) {
     { key: 'id', label: 'Visit', render: (v) => `<div class="cell-main mono">${esc(v.id)}</div><div class="cell-sub">${fmtDateTime(v.at)}</div>`, value: (v) => v.at, csv: (v) => v.id },
     { key: 'date', label: 'Date', value: (v) => v.businessDate, render: (v) => esc(v.businessDate), csv: (v) => v.businessDate },
     { key: 'token', label: 'Token', render: (v) => `<span class="mono strong">${esc(v.token)}</span>` },
-    { key: 'patient', label: 'Patient', value: (v) => patient(v.patientId)?.name, render: (v) => { const p = patient(v.patientId); return `<div class="cell-main">${esc(p.name)}</div><div class="cell-sub">${esc(p.uhid)}</div>`; }, csv: (v) => `${patient(v.patientId).name} (${patient(v.patientId).uhid})` },
+    { key: 'patient', label: 'Patient', value: (v) => patient(v.patientId)?.name, render: (v) => { const p = patient(v.patientId); return `<div class="who">${personAv(p.name)}<div><div class="cell-main">${esc(p.name)}</div><div class="cell-sub">${esc(p.uhid)}</div></div></div>`; }, csv: (v) => `${patient(v.patientId).name} (${patient(v.patientId).uhid})` },
     { key: 'doctor', label: 'Doctor', value: (v) => doctorName(v.doctorId), render: (v) => esc(doctorName(v.doctorId)) },
     { key: 'type', label: 'Type', value: (v) => label(v.visitType), render: typeTag },
     { key: 'dx', label: 'Diagnosis', value: (v) => (v.consultation?.diagnosis || []).join('; '), render: (v) => `<span class="small">${esc((v.consultation?.diagnosis || []).join('; ') || '—')}</span>` },

@@ -4,7 +4,7 @@ import { currentUser } from '../auth.js';
 import { audit } from '../services.js';
 import { badge, openModal, confirmDialog, kpi, card } from '../components.js';
 import { toast } from '../notifications.js';
-import { esc, icon, initials, fmtDateTime, refreshIcons } from '../utils.js';
+import { esc, icon, initials, fmtDateTime, refreshIcons, avatarTone } from '../utils.js';
 
 // What each permission unlocks, in plain words (used for the access matrix).
 const MODULES = [
@@ -97,7 +97,7 @@ export function render(view) {
         ${kpi({ label: 'Deactivated', value: users.length - active, iconName: 'user-x', tone: 'danger' })}
       </div>
       ${card('User accounts', `<table class="table"><thead><tr><th>Person</th><th>Username</th><th>Role</th><th>Phone</th><th>Last activity</th><th>Status</th><th></th></tr></thead><tbody>
-        ${users.map((u) => { const last = lastActivity(u.id); return `<tr class="${u.active ? '' : 'row-muted'}"><td><div class="row"><span class="avatar">${esc(initials(u.name))}</span><div><div class="cell-main">${esc(u.name)}${u.id === me.id ? ' <span class="tag tag-info">You</span>' : ''}</div><div class="cell-sub">${esc(u.designation || '')}${u.signatory ? ' · <b>Lab signatory</b>' : ''}${u.regNo ? ' · ' + esc(u.regNo) : ''}</div></div></div></td>
+        ${users.map((u) => { const last = lastActivity(u.id); return `<tr class="${u.active ? '' : 'row-muted'}"><td><div class="row"><span class="avatar ${avatarTone(u.name)}">${esc(initials(u.name))}</span><div><div class="cell-main">${esc(u.name)}${u.id === me.id ? ' <span class="tag tag-info">You</span>' : ''}</div><div class="cell-sub">${esc(u.designation || '')}${u.signatory ? ' · <b>Lab signatory</b>' : ''}${u.regNo ? ' · ' + esc(u.regNo) : ''}</div></div></div></td>
           <td class="mono">${esc(u.username)}</td><td>${esc(store.get('roles', u.role)?.name || u.role)}</td><td class="small">${esc(u.phone || '—')}</td><td class="small">${last ? fmtDateTime(last) : 'No activity yet'}</td>
           <td>${badge(u.active ? 'ACTIVE' : 'INACTIVE', u.active ? 'Active' : 'Deactivated')}</td>
           <td><div class="row-actions"><button class="btn btn-ghost btn-sm" data-edit="${u.id}" title="Edit">${icon('pencil')}</button><button class="btn btn-ghost btn-sm" data-pw="${u.id}" title="Reset password">${icon('key-round')}</button>${u.id !== me.id ? `<button class="btn btn-ghost btn-sm" data-toggle="${u.id}" title="${u.active ? 'Deactivate' : 'Activate'}">${icon(u.active ? 'user-x' : 'user-check')}</button>` : ''}</div></td></tr>`; }).join('')}</tbody></table>`, { cls: 'flush' })}

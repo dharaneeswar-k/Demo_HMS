@@ -85,7 +85,7 @@ select.input-sm { padding-right: 26px; background-position: right 7px center; }
 .chart-box.sm { height: 220px; }
 
 /* KPI */
-.kpis { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; }
 .kpi { display: flex; gap: 14px; align-items: center; background: var(--h-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 16px 18px; box-shadow: var(--shadow-sm); color: var(--text); text-decoration: none !important; transition: border-color .15s, box-shadow .15s, transform .15s; }
 a.kpi:hover { border-color: #c4dcdb; box-shadow: var(--shadow); transform: none; }
 .kpi-icon { width: 44px; height: 44px; border-radius: 4px; display: grid; place-items: center; flex: none; }

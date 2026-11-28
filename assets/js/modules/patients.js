@@ -6,7 +6,7 @@ import { registerPatient, updatePatient, findDuplicates, validatePatient, patien
 import { badge, dataTable, emptyState, openModal, kpi, card, dl, exportTable } from '../components.js';
 import { barcodeSVG } from '../barcode.js';
 import { toast } from '../notifications.js';
-import { esc, icon, fmtINR, fmtNum, fmtDate, fmtDateTime, relTime, refreshIcons, debounce, ymd } from '../utils.js';
+import { esc, icon, fmtINR, fmtNum, fmtDate, fmtDateTime, relTime, refreshIcons, debounce, ymd, avatarTone, personAv } from '../utils.js';
 import { setMeta } from '../app.js';
 import { navigate } from '../router.js';
 
@@ -98,7 +98,7 @@ export function renderList(view, params, query) {
       <select class="input" data-gender><option value="">All genders</option><option value="M">Male</option><option value="F">Female</option><option value="O">Other</option></select></div><div data-table></div></section>`;
   const columns = [
     { key: 'uhid', label: 'Patient ID', render: (p) => `<a class="mono strong" href="#/patients/${p.id}">${esc(p.uhid)}</a>` },
-    { key: 'name', label: 'Name', render: (p) => `<div class="cell-main">${esc(p.name)}</div>${p.allergies ? `<span class="tag tag-danger">Allergy: ${esc(p.allergies)}</span>` : ''}` },
+    { key: 'name', label: 'Name', render: (p) => `<div class="who">${personAv(p.name)}<div><div class="cell-main">${esc(p.name)}</div>${p.allergies ? `<span class="tag tag-danger">Allergy: ${esc(p.allergies)}</span>` : ''}</div></div>` },
     { key: 'age', label: 'Age / Gender', value: (p) => patientAge(p), render: (p) => `${patientAge(p) ?? '—'} y · ${esc(p.gender)}`, csv: (p) => `${patientAge(p)} ${p.gender}` },
     { key: 'phone', label: 'Mobile', render: (p) => `<span class="mono small">${esc(p.phone)}</span>` },
     { key: 'city', label: 'Area', render: (p) => `<span class="cell-sub">${esc(p.address)}, ${esc(p.city)}</span>`, csv: (p) => `${p.address}, ${p.city}` },
@@ -144,7 +144,7 @@ export function renderProfile(view, params, query) {
   const age = patientAge(p);
   view.innerHTML = `
     ${query.new ? `<div class="alert alert-success mb-2">${icon('check-circle-2')}<div><strong>Patient registered.</strong> Patient ID <span class="mono">${esc(p.uhid)}</span> is ready. Print the patient card for the next visit.</div></div>` : ''}
-    <section class="pt-hero card"><div class="pt-avatar">${esc(p.name.split(' ').map((x) => x[0]).slice(0, 2).join(''))}</div>
+    <section class="pt-hero card"><div class="pt-avatar ${avatarTone(p.name)}">${esc(p.name.split(' ').map((x) => x[0]).slice(0, 2).join(''))}</div>
       <div class="grow"><div class="row"><h1>${esc(p.name)}</h1>${p.allergies ? `<span class="tag tag-danger">${icon('alert-triangle', 'ic-inline')} Allergy: ${esc(p.allergies)}</span>` : ''}</div>
         <div class="pt-meta"><span class="mono strong">${esc(p.uhid)}</span><span>${age ?? '—'} years · ${p.gender === 'M' ? 'Male' : p.gender === 'F' ? 'Female' : 'Other'}</span><span>${icon('phone', 'ic-inline')}${esc(p.phone)}</span>${p.bloodGroup ? `<span>${icon('droplet', 'ic-inline')}${esc(p.bloodGroup)}</span>` : ''}</div></div>
       <div class="page-actions">${can('patient.edit') || can('patient.register') ? `<button class="btn btn-secondary" data-edit>${icon('pencil')}Edit</button>` : ''}<button class="btn btn-secondary" data-card>${icon('id-card')}Patient card</button>${can('hbill.create') ? `<a class="btn btn-primary" href="#/hbill?patient=${p.id}">${icon('receipt')}Hospital bill</a>` : ''}${can('service.request') ? `<button class="btn btn-secondary" data-req>${icon('clipboard-plus')}Doctor request</button>` : ''}${can('op.register') ? `<a class="btn btn-secondary" href="#/op/new?patient=${p.id}">${icon('stethoscope')}New OP visit</a>` : ''}${can('ip.admit') ? `<a class="btn btn-secondary" href="#/ip/admit?patient=${p.id}">${icon('hospital')}Admit</a>` : ''}${can('pharmacy.bill') ? `<a class="btn btn-primary" href="#/pharmacy/bill?patient=${p.id}">${icon('receipt')}New bill</a>` : ''}</div></section>

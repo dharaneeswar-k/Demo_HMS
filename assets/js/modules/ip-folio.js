@@ -12,7 +12,7 @@ import { patientStrip, payPanel, vitalsChips, vitalsForm, wireVitalsForm, ageSex
 import { openTransfer } from './ip-beds.js';
 import { dataTable, kpi, openModal, confirmDialog, emptyState, tabs, combo, exportTable } from '../components.js';
 import { toast } from '../notifications.js';
-import { esc, icon, fmtINR, fmtNum, fmtDate, fmtDateTime, relTime, refreshIcons, debounce, localDateTimeValue } from '../utils.js';
+import { esc, icon, fmtINR, fmtNum, fmtDate, fmtDateTime, relTime, refreshIcons, debounce, localDateTimeValue, personAv } from '../utils.js';
 import { setMeta } from '../app.js';
 import { navigate } from '../router.js';
 
@@ -39,7 +39,7 @@ export function renderList(view, params, query) {
     <section class="card flush mt-2"><div data-tabs></div><div class="toolbar"><div class="search">${icon('search')}<input class="input" data-q placeholder="IP no., patient, Patient ID, bed, diagnosis…"></div></div><div data-table></div></section>`;
   const cols = [
     { key: 'id', label: 'IP no.', render: (a) => `<div class="cell-main mono">${esc(a.id)}</div><div class="cell-sub">${fmtDate(a.admittedAt)}</div>`, value: (a) => a.admittedAt, csv: (a) => a.id },
-    { key: 'patient', label: 'Patient', value: (a) => patient(a.patientId).name, render: (a) => { const p = patient(a.patientId); return `<div class="cell-main">${esc(p.name)}</div><div class="cell-sub">${esc(p.uhid)} · ${esc(ageSex(p))}</div>`; } },
+    { key: 'patient', label: 'Patient', value: (a) => patient(a.patientId).name, render: (a) => { const p = patient(a.patientId); return `<div class="who">${personAv(p.name)}<div><div class="cell-main">${esc(p.name)}</div><div class="cell-sub">${esc(p.uhid)} · ${esc(ageSex(p))}</div></div></div>`; } },
     { key: 'bed', label: 'Bed', value: (a) => bedCode(currentBedId(a)), render: (a) => `<span class="mono strong">${esc(bedCode(currentBedId(a)))}</span>` },
     { key: 'doc', label: 'Consultant', value: (a) => doctorName(a.doctorId), render: (a) => `<div class="cell-main">${esc(doctorName(a.doctorId))}</div><div class="cell-sub">${esc(a.provisionalDiagnosis)}</div>` },
     { key: 'payer', label: 'Payer', value: (a) => a.payer.type, render: payerTag },

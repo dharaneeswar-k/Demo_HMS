@@ -11,7 +11,7 @@ import { businessDate } from '../../pharmacy-calc.js';
 import { openModal } from '../../components.js';
 import { toast } from '../../notifications.js';
 import { setMeta } from '../../app.js';
-import { esc } from '../../utils.js';
+import { esc, personAv } from '../../utils.js';
 import { icon } from './bi.js';
 import { STAGES, stageById, stageOf, onHold, scanTarget, codesOf } from './stages.js';
 import { receiveCodes, openCollection } from './collect.js';
@@ -87,7 +87,7 @@ export function renderWorkbench(view, params, query) {
       const critNote = vs && vs.all.some(isCritical) ? (vs.call.length ? '<span class="danger">Phone the doctor first</span>' : '<span class="h-warn">Doctor informed</span>') : '';
       return `<tr class="${v.id === sel ? 'sel' : ''}" data-id="${v.id}">
         <td class="h-sno">${i + 1}</td><td class="h-type" title="${esc(ptype(v).long)}">${ptypeCode(v)}</td><td>${ptypeCell(v)}</td><td class="mono">${v.sid}</td>
-        <td class="h-pt"><b>${esc(p.name)}</b><small>${esc(ageSex(p))}</small></td>
+        <td class="h-pt"><div class="who">${personAv(p.name)}<div><b>${esc(p.name)}</b><small>${esc(ageSex(p))}</small></div></div></td>
         <td class="h-tests">${esc(codes.join(', '))}${line ? `<div class="h-line">${line}</div>` : ''}${crit ? '<div class="h-line"><span class="danger">Critical value</span></div>' : ''}${critNote ? `<div class="h-line">${critNote}</div>` : ''}</td>
         <td>${priTxt(v)}</td>
         <td class="${m > s.late ? 'h-late' : ''}">${dur(m)}</td>

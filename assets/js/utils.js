@@ -50,6 +50,10 @@ export const clone = (o) => JSON.parse(JSON.stringify(o));
 export const debounce = (fn, ms = 200) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; };
 export const round2 = (v) => Math.round((Number(v) || 0) * 100) / 100;
 export const titleCase = (s) => String(s || '').toLowerCase().replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+/** Avatar colour class (av-0 … av-7) fixed per name — the same patient always gets the same colour. Colours live in look.css. */
+export const avatarTone = (name) => 'av-' + ([...String(name || '')].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7) % 8);
+/** Small round initials badge for a person in a list row (colour fixed per name). */
+export const personAv = (name) => `<span class="avatar avatar-sm ${avatarTone(name)}">${esc(initials(name) || '?')}</span>`;
 export const initials = (name) => String(name || '?').replace(/^Dr\.?\s*/i, '').split(/\s+/).map((p) => p[0]).slice(0, 2).join('').toUpperCase();
 export const qs = (sel, root = document) => root.querySelector(sel);
 export const qsa = (sel, root = document) => [...root.querySelectorAll(sel)];

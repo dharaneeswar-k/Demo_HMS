@@ -9,7 +9,7 @@ import { openVitals } from './op-visit.js';
 import { typeTag } from './op-desk.js';
 import { emptyState } from '../components.js';
 import { toast } from '../notifications.js';
-import { esc, icon, relTime, refreshIcons, debounce, fmtDateTime } from '../utils.js';
+import { esc, icon, relTime, refreshIcons, debounce, fmtDateTime, personAv } from '../utils.js';
 import { setMeta } from '../app.js';
 import { navigate } from '../router.js';
 
@@ -38,7 +38,7 @@ export function render(view, params, query) {
           <div class="card-actions"><span class="pill-soft">${icon('timer')}~${mins} min per patient</span></div></header>
           <div class="table-scroll"><table class="table"><thead><tr><th>Token</th><th>Patient</th><th>Type</th><th>Vitals</th><th>Waiting</th><th></th></tr></thead><tbody>
           ${q.waiting.map((v, i) => { const p = patient(v.patientId); return `<tr class="${v.priority === 'EMERGENCY' ? 'row-er' : ''}"><td><strong class="mono">${esc(v.token)}</strong>${v.skips ? `<div class="cell-sub">skipped ${v.skips}×</div>` : ''}</td>
-            <td><a href="#/op/visits/${v.id}" class="cell-main">${esc(p.name)}</a><div class="cell-sub">${esc(ageSex(p))}${p.allergies ? ' · <span class="text-danger">allergy</span>' : ''}${v.chiefComplaint ? ' · ' + esc(v.chiefComplaint) : ''}</div></td>
+            <td><div class="who">${personAv(p.name)}<div><a href="#/op/visits/${v.id}" class="cell-main">${esc(p.name)}</a><div class="cell-sub">${esc(ageSex(p))}${p.allergies ? ' · <span class="text-danger">allergy</span>' : ''}${v.chiefComplaint ? ' · ' + esc(v.chiefComplaint) : ''}</div></div></div></td>
             <td>${typeTag(v)}</td><td>${v.vitals ? vitalsChips(v.vitals, { compact: true }) : can('op.vitals') ? `<button class="btn btn-ghost btn-sm" data-vit="${v.id}">${icon('heart-pulse')}Record</button>` : '<span class="muted small">Pending</span>'}</td>
             <td class="small">${relTime(v.at)}<div class="cell-sub">~${i * mins} min to go</div></td>
             <td class="ta-right nowrap">${canCall ? `<button class="btn btn-${i === 0 && !cur ? 'primary' : 'secondary'} btn-sm" data-call="${v.id}">${icon('door-open')}Call</button> <button class="btn btn-ghost btn-sm" data-skip="${v.id}" title="Patient not present">${icon('skip-forward')}</button>` : ''}</td></tr>`; }).join('')

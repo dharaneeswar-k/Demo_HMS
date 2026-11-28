@@ -132,8 +132,8 @@ textarea.input { height: auto; padding: 7px 10px; }
 
 /* ---------- KPI / stat tiles: plain numbers, no coloured blobs ---------- */
 .kpis, .stat-grid { gap: 10px; }
-.kpi, .stat { background: var(--h-surface); border: 1px solid var(--h-line); border-radius: 4px; box-shadow: none; padding: 12px 14px; gap: 12px; transition: border-color .12s; }
-a.kpi:hover, a.stat:hover { border-color: #B9C3CD; transform: none; box-shadow: none; }
+.kpi, .stat-grid > .stat { background: var(--h-surface); border: 1px solid var(--h-line); border-radius: 4px; box-shadow: none; padding: 12px 14px; gap: 12px; transition: border-color .12s; }
+a.kpi:hover, .stat-grid > a.stat:hover { border-color: #B9C3CD; transform: none; box-shadow: none; }
 .kpi-icon { width: 34px; height: 34px; border-radius: 4px; background: var(--h-head) !important; color: var(--h-ink-2) !important; }
 .kpi-icon svg { width: 17px; height: 17px; }
 .kpi-label, .stat-label { font-size: 12px; color: var(--h-ink-3); font-weight: 500; }
@@ -408,3 +408,24 @@ html[data-theme="dark"] .theme-btn .t-moon { display: none; }
 /* printed lab reports: page x of y in the footer (Chrome supports @page margin boxes) */
 @media print { .doc.lab-report { page: labrep; } }
 @page labrep { margin: 12mm 12mm 16mm; @bottom-right { content: "Page " counter(page) " of " counter(pages); font: 9pt Inter, sans-serif; color: #4A5866; } @bottom-left { content: "Nallam Hospital — Laboratory report"; font: 9pt Inter, sans-serif; color: #4A5866; } }
+
+/* ---------- person avatars: one fixed soft colour per name (utils.js avatarTone → av-0 … av-7), round like a contacts app ---------- */
+.av-0 { --av-bg: #DDF1EF; --av-fg: #0B6E6B; } .av-1 { --av-bg: #E1ECF7; --av-fg: #1F4E79; }
+.av-2 { --av-bg: #E8E6F7; --av-fg: #4338A0; } .av-3 { --av-bg: #F7E3EA; --av-fg: #9D2953; }
+.av-4 { --av-bg: #F8EBD9; --av-fg: #8A5300; } .av-5 { --av-bg: #E1F0E3; --av-fg: #2F6B37; }
+.av-6 { --av-bg: #E6EBEF; --av-fg: #3A4B5C; } .av-7 { --av-bg: #EFE3F2; --av-fg: #6E3480; }
+[class*=" av-"]:is(.avatar, .pt-avatar, .lx-avatar, .l2-av) { background: var(--av-bg) !important; color: var(--av-fg) !important; border: 0 !important; border-radius: 50% !important; font-weight: 700; letter-spacing: .02em; }
+.l2-av { display: inline-grid; place-items: center; flex: none; width: 32px; height: 32px; font-size: 12px; }
+.l2-av.sm { width: 26px; height: 26px; font-size: 10.5px; } .l2-av.lg { width: 44px; height: 44px; font-size: 15px; }
+html[data-theme="dark"] [class*=" av-"]:is(.avatar, .pt-avatar, .lx-avatar, .l2-av) { background: color-mix(in srgb, var(--av-fg) 34%, #0F1A24) !important; color: color-mix(in srgb, var(--av-bg) 85%, #fff) !important; }
+
+/* Cards placed side by side by a grid take their spacing from the grid gap. Without this the
+   ".card + .card { margin-top }" stacking rule (components.css) pushed the 2nd/3rd card in a row lower than the 1st. */
+:is(.grid, .home-cols, .home-lab, .mgmt-grid, .pt-new) > :is(.card, .grid, section) { margin-top: 0; }
+/* name cell with a small avatar in front (patients, OP, IP, lab lists) */
+.who { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.who > div { min-width: 0; }
+.avatar.avatar-sm { width: 30px; height: 30px; font-size: 11px; }
+.h-pt .who b { display: block; white-space: nowrap; }
+.h-pt .who small { display: block; margin-left: 0; white-space: nowrap; }
+.who .cell-main { white-space: nowrap; }

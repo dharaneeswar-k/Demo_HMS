@@ -5,7 +5,7 @@ import { userName, locationName } from '../calculations.js';
 import { audit } from '../services.js';
 import { card, dataTable, exportTable, confirmDialog, emptyState, badge, dl } from '../components.js';
 import { toast } from '../notifications.js';
-import { esc, icon, fmtDateTime, ymd, debounce, titleCase, initials, refreshIcons } from '../utils.js';
+import { esc, icon, fmtDateTime, ymd, debounce, titleCase, initials, refreshIcons, avatarTone } from '../utils.js';
 import { rerender, brandMark } from '../app.js';
 
 function resizeImage(file, maxW, type = 'image/png', quality = 0.85) {
@@ -103,7 +103,7 @@ export function render(view) {
       ${can('network.manage') ? `<div class="row mt-2"><input class="input" style="flex:1;min-width:200px" data-netlabel placeholder="Name, e.g. Ground floor reception broadband"><input class="input mono" style="width:220px" data-netaddr placeholder="IP, e.g. 117.193.52.40 or 49.204.118.0/24"><button class="btn btn-secondary" data-netadd>${icon('plus')}Add connection</button></div>
         <p class="field-hint mt-1">Ask your internet provider for the hospital's static IP address. Use a range (…/24) for routers that change address.</p>` : ''}`, { cls: 'mt-2' })}
     <div class="grid grid-2">
-      ${card('Users & Roles', `<table class="table dense"><thead><tr><th>User</th><th>Username</th><th>Role</th><th>Status</th></tr></thead><tbody>${store.all('users').map((u) => `<tr><td><div class="row"><span class="avatar">${esc(initials(u.name))}</span><div><div class="cell-main">${esc(u.name)}</div><div class="cell-sub">${esc(u.designation)}</div></div></div></td><td class="mono">${esc(u.username)}</td><td>${esc(store.get('roles', u.role).name)}</td><td>${badge(u.active ? 'ACTIVE' : 'INACTIVE')}</td></tr>`).join('')}</tbody></table>
+      ${card('Users & Roles', `<table class="table dense"><thead><tr><th>User</th><th>Username</th><th>Role</th><th>Status</th></tr></thead><tbody>${store.all('users').map((u) => `<tr><td><div class="row"><span class="avatar ${avatarTone(u.name)}">${esc(initials(u.name))}</span><div><div class="cell-main">${esc(u.name)}</div><div class="cell-sub">${esc(u.designation)}</div></div></div></td><td class="mono">${esc(u.username)}</td><td>${esc(store.get('roles', u.role).name)}</td><td>${badge(u.active ? 'ACTIVE' : 'INACTIVE')}</td></tr>`).join('')}</tbody></table>
         <p class="muted small" style="padding:12px 20px">${can('users.manage') ? '<a href="#/users">Manage user accounts →</a>' : 'Ask the Super Admin to change user accounts.'}</p>`, { cls: 'flush' })}
       ${card('Data & Backup', `<p class="muted mb-2">Download a full backup of pharmacy, stock and billing records, or restore the system to its initial data set.</p>
         <div class="row"><button class="btn btn-secondary" data-export-json>${icon('download')}Download backup</button><button class="btn btn-danger-outline" data-reset>${icon('rotate-ccw')}Restore initial data</button></div>`)}
