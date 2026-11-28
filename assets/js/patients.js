@@ -77,6 +77,12 @@ export function patientHistory(patientId) {
   (store.all('orders') || []).filter((o) => o.patientId === patientId && o.category !== 'LAB' && o.status === 'COMPLETED').forEach((o) => items.push({ kind: 'SERVICE', at: o.performedAt, title: o.name, detail: o.notes || 'Done', ref: o.id, by: o.performedBy }));
   (store.all('patientPackages') || []).filter((x) => x.patientId === patientId).forEach((x) => items.push({ kind: 'PACKAGE', at: x.startAt, title: `Package — ${store.get('packages', x.packageId)?.name}`, detail: `Valid till ${x.validUntil} · ${x.status.toLowerCase()}`, ref: x.id, by: null }));
   (store.all('medicalRecords') || []).filter((r) => r.patientId === patientId).forEach((r) => items.push({ kind: 'ADMISSION', at: r.admittedAt, title: `${r.episodeType === 'IP' ? 'Admission' : r.episodeType === 'DAYCARE' ? 'Day care' : 'Visit'} — ${r.diagnosis || 'diagnosis pending'}`, detail: `${r.mrdNo}${r.ipNo ? ' · ' + r.ipNo : ''} · ${r.ward || ''}${r.dischargedAt ? ' · discharged ' + r.dischargedAt.slice(0, 10) : ' · admitted'}`, ref: r.id, by: r.createdBy }));
+  // OP visits and admissions (modules 02, 03)
+  const docName = (id) => store.get('doctors', id)?.name || '';
+  (store.all('opVisits') || []).filter((v) => v.patientId === patientId).forEach((v) => items.push({ kind: 'OP_VISIT', at: v.at, title: `OP visit ${v.token} · ${docName(v.doctorId)}`, detail: (v.consultation?.diagnosis || []).join('; ') || v.chiefComplaint || v.visitType.replace('_', ' ').toLowerCase(),
+    status: v.status, ref: v.id, href: '#/op/visits/' + v.id, icon: 'stethoscope', by: v.createdBy }));
+  (store.all('ipAdmissions') || []).filter((a) => a.patientId === patientId).forEach((a) => items.push({ kind: 'ADMISSION', at: a.admittedAt, title: `Admission ${a.id} · ${docName(a.doctorId)}`, detail: a.provisionalDiagnosis + (a.discharge?.dischargedAt ? ` · discharged ${a.discharge.dischargedAt.slice(0, 10)}` : ''),
+    status: a.status, ref: a.id, href: '#/ip/admissions/' + a.id, icon: 'bed-double', by: a.createdBy }));
   return items.sort((a, b) => String(b.at).localeCompare(String(a.at)));
 }
 export function patientStats(patientId) {
@@ -84,5 +90,5 @@ export function patientStats(patientId) {
   const hb = (store.all('hbills') || []).filter((b) => b.patientId === patientId && b.status !== 'CANCELLED');
   const hPaid = (b) => b.payments.filter((p) => p.kind === 'PAYMENT').reduce((t, p) => t + p.amount, 0);
   return { bills: bills.length + hb.length, spent: bills.reduce((t, b) => t + b.grandTotal, 0) + hb.reduce((t, b) => t + b.grandTotal, 0),
-    due: bills.reduce((t, b) => t + (b.balanceDue || 0), 0) + hb.reduce((t, b) => t + Math.max(0, b.grandTotal - hPaid(b)), 0), lastVisit: [...bills, ...hb].map((b) => b.at).sort().at(-1) || null };
+    due: bills.reduce((t, b) => t + (b.balanceDue || 0), 0) + hb.reduce((t, b) => t + Math.max(0, b.grandTotal - hPaid(b)), 0), lastVisit: [...bills, ...hb].map((b) => b.at).concat((store.all('opVisits') || []).filter((v) => v.patientId === patientId && v.status !== 'CANCELLED').map((v) => v.at)).sort().at(-1) || null };
 }

@@ -1,0 +1,541 @@
+[
+  {
+    "id": "SRV-001",
+    "code": "CBC",
+    "name": "Complete blood count (CBC)",
+    "category": "INVESTIGATION",
+    "group": "INVESTIGATION",
+    "rate": 350,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-002",
+    "code": "ESR",
+    "name": "ESR",
+    "category": "INVESTIGATION",
+    "group": "INVESTIGATION",
+    "rate": 150,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-003",
+    "code": "RBS",
+    "name": "Random blood sugar",
+    "category": "INVESTIGATION",
+    "group": "INVESTIGATION",
+    "rate": 80,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-004",
+    "code": "HBA1C",
+    "name": "HbA1c",
+    "category": "INVESTIGATION",
+    "group": "INVESTIGATION",
+    "rate": 550,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-005",
+    "code": "LFT",
+    "name": "Liver function test",
+    "category": "INVESTIGATION",
+    "group": "INVESTIGATION",
+    "rate": 650,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-006",
+    "code": "RFT",
+    "name": "Renal function test",
+    "category": "INVESTIGATION",
+    "group": "INVESTIGATION",
+    "rate": 600,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-007",
+    "code": "LIPID",
+    "name": "Lipid profile",
+    "category": "INVESTIGATION",
+    "group": "INVESTIGATION",
+    "rate": 700,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-008",
+    "code": "URINE",
+    "name": "Urine routine",
+    "category": "INVESTIGATION",
+    "group": "INVESTIGATION",
+    "rate": 150,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-009",
+    "code": "NS1",
+    "name": "Dengue NS1 antigen",
+    "category": "INVESTIGATION",
+    "group": "INVESTIGATION",
+    "rate": 800,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-010",
+    "code": "ELEC",
+    "name": "Serum electrolytes",
+    "category": "INVESTIGATION",
+    "group": "INVESTIGATION",
+    "rate": 600,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-011",
+    "code": "XRAY",
+    "name": "X-ray (single view)",
+    "category": "INVESTIGATION",
+    "group": "INVESTIGATION",
+    "rate": 450,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-012",
+    "code": "ECG",
+    "name": "ECG",
+    "category": "INVESTIGATION",
+    "group": "INVESTIGATION",
+    "rate": 300,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-013",
+    "code": "USG",
+    "name": "Ultrasound abdomen",
+    "category": "INVESTIGATION",
+    "group": "INVESTIGATION",
+    "rate": 1200,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-014",
+    "code": "GROUP",
+    "name": "Blood grouping & Rh",
+    "category": "INVESTIGATION",
+    "group": "INVESTIGATION",
+    "rate": 150,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-015",
+    "code": "DRS",
+    "name": "Dressing — small",
+    "category": "PROCEDURE",
+    "group": "PROCEDURE",
+    "rate": 200,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-016",
+    "code": "DRL",
+    "name": "Dressing — large",
+    "category": "PROCEDURE",
+    "group": "PROCEDURE",
+    "rate": 400,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-017",
+    "code": "INJ",
+    "name": "Injection administration",
+    "category": "PROCEDURE",
+    "group": "PROCEDURE",
+    "rate": 100,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-018",
+    "code": "NEB",
+    "name": "Nebulisation",
+    "category": "PROCEDURE",
+    "group": "PROCEDURE",
+    "rate": 150,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-019",
+    "code": "SUT",
+    "name": "Suturing (minor)",
+    "category": "PROCEDURE",
+    "group": "PROCEDURE",
+    "rate": 800,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-020",
+    "code": "POP",
+    "name": "Plaster of Paris application",
+    "category": "PROCEDURE",
+    "group": "PROCEDURE",
+    "rate": 1500,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-021",
+    "code": "WAX",
+    "name": "Ear wax removal",
+    "category": "PROCEDURE",
+    "group": "PROCEDURE",
+    "rate": 300,
+    "unit": "each",
+    "applicableIn": [
+      "OP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-022",
+    "code": "CATH",
+    "name": "Urinary catheterisation",
+    "category": "PROCEDURE",
+    "group": "PROCEDURE",
+    "rate": 500,
+    "unit": "each",
+    "applicableIn": [
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-023",
+    "code": "CVC",
+    "name": "Central line insertion",
+    "category": "PROCEDURE",
+    "group": "PROCEDURE",
+    "rate": 3500,
+    "unit": "each",
+    "applicableIn": [
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-024",
+    "code": "OTMIN",
+    "name": "OT charges — minor",
+    "category": "OT",
+    "group": "PROCEDURE",
+    "rate": 3000,
+    "unit": "each",
+    "applicableIn": [
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-025",
+    "code": "OTMAJ",
+    "name": "OT charges — major",
+    "category": "OT",
+    "group": "PROCEDURE",
+    "rate": 12000,
+    "unit": "each",
+    "applicableIn": [
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-026",
+    "code": "ANAES",
+    "name": "Anaesthesia charges",
+    "category": "OT",
+    "group": "PROCEDURE",
+    "rate": 4000,
+    "unit": "each",
+    "applicableIn": [
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-027",
+    "code": "SURGMAJ",
+    "name": "Surgeon fee — major surgery",
+    "category": "OT",
+    "group": "PROCEDURE",
+    "rate": 15000,
+    "unit": "each",
+    "applicableIn": [
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-028",
+    "code": "SURGMIN",
+    "name": "Surgeon fee — minor surgery",
+    "category": "OT",
+    "group": "PROCEDURE",
+    "rate": 6000,
+    "unit": "each",
+    "applicableIn": [
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-029",
+    "code": "LABOUR",
+    "name": "Labour room charges",
+    "category": "OT",
+    "group": "PROCEDURE",
+    "rate": 5000,
+    "unit": "each",
+    "applicableIn": [
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-030",
+    "code": "NDEL",
+    "name": "Obstetrician fee — normal delivery",
+    "category": "OT",
+    "group": "PROCEDURE",
+    "rate": 8000,
+    "unit": "each",
+    "applicableIn": [
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-031",
+    "code": "O2",
+    "name": "Oxygen (per hour)",
+    "category": "NURSING_SERVICE",
+    "group": "SERVICE",
+    "rate": 80,
+    "unit": "hour",
+    "applicableIn": [
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-032",
+    "code": "MON",
+    "name": "Cardiac monitor (per day)",
+    "category": "NURSING_SERVICE",
+    "group": "SERVICE",
+    "rate": 600,
+    "unit": "day",
+    "applicableIn": [
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-033",
+    "code": "PUMP",
+    "name": "Infusion pump (per day)",
+    "category": "NURSING_SERVICE",
+    "group": "SERVICE",
+    "rate": 300,
+    "unit": "day",
+    "applicableIn": [
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  },
+  {
+    "id": "SRV-034",
+    "code": "ADM",
+    "name": "Admission & registration charges",
+    "category": "OTHER",
+    "group": "SERVICE",
+    "rate": 500,
+    "unit": "each",
+    "applicableIn": [
+      "IP"
+    ],
+    "nonPayable": true,
+    "active": true
+  },
+  {
+    "id": "SRV-035",
+    "code": "MRD",
+    "name": "Medical records (MRD) charges",
+    "category": "OTHER",
+    "group": "SERVICE",
+    "rate": 200,
+    "unit": "each",
+    "applicableIn": [
+      "IP"
+    ],
+    "nonPayable": true,
+    "active": true
+  },
+  {
+    "id": "SRV-036",
+    "code": "ATTD",
+    "name": "Attender diet (per day)",
+    "category": "OTHER",
+    "group": "SERVICE",
+    "rate": 250,
+    "unit": "day",
+    "applicableIn": [
+      "IP"
+    ],
+    "nonPayable": true,
+    "active": true
+  },
+  {
+    "id": "SRV-037",
+    "code": "AMB",
+    "name": "Ambulance — local",
+    "category": "OTHER",
+    "group": "SERVICE",
+    "rate": 1000,
+    "unit": "each",
+    "applicableIn": [
+      "OP",
+      "IP"
+    ],
+    "nonPayable": false,
+    "active": true
+  }
+]

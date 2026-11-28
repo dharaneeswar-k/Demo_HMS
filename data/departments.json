@@ -1,0 +1,38 @@
+[
+  {
+    "id": "DEP-01",
+    "code": "GM",
+    "name": "General Medicine",
+    "active": true
+  },
+  {
+    "id": "DEP-02",
+    "code": "OG",
+    "name": "Obstetrics & Gynaecology",
+    "active": true
+  },
+  {
+    "id": "DEP-03",
+    "code": "OR",
+    "name": "Orthopaedics",
+    "active": true
+  },
+  {
+    "id": "DEP-04",
+    "code": "PD",
+    "name": "Paediatrics",
+    "active": true
+  },
+  {
+    "id": "DEP-05",
+    "code": "SU",
+    "name": "General Surgery",
+    "active": true
+  },
+  {
+    "id": "DEP-06",
+    "code": "EN",
+    "name": "ENT",
+    "active": true
+  }
+]

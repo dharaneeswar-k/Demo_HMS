@@ -1,0 +1,1124 @@
+[
+  {
+    "id": "HCL-2026-0001",
+    "businessDate": "2026-11-03",
+    "cashierId": "USR-0008",
+    "submittedAt": "2026-11-03T16:06:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 2000,
+      "UPI": 15000,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 2000,
+      "UPI": 15000,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 1,
+      "collected": 15000,
+      "refunds": 0,
+      "op": 0,
+      "deposits": 15000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-04T04:06:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0002",
+    "businessDate": "2026-11-04",
+    "cashierId": "USR-0005",
+    "submittedAt": "2026-11-04T12:42:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 2000,
+      "UPI": 10000,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 2000,
+      "UPI": 10000,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 1,
+      "collected": 10000,
+      "refunds": 0,
+      "op": 0,
+      "deposits": 10000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-05T00:42:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0003",
+    "businessDate": "2026-11-05",
+    "cashierId": "USR-0005",
+    "submittedAt": "2026-11-05T13:10:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 2000,
+      "UPI": 5000,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 2000,
+      "UPI": 5000,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 1,
+      "collected": 5000,
+      "refunds": 0,
+      "op": 0,
+      "deposits": 5000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-06T01:10:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0004",
+    "businessDate": "2026-11-05",
+    "cashierId": "USR-0008",
+    "submittedAt": "2026-11-05T16:06:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 2000,
+      "UPI": 10000,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 2000,
+      "UPI": 10000,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 1,
+      "collected": 10000,
+      "refunds": 0,
+      "op": 0,
+      "deposits": 10000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-06T04:06:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0005",
+    "businessDate": "2026-11-06",
+    "cashierId": "USR-0008",
+    "submittedAt": "2026-11-06T16:06:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 12000,
+      "UPI": 0,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 12000,
+      "UPI": 0,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 1,
+      "collected": 10000,
+      "refunds": 0,
+      "op": 0,
+      "deposits": 10000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-07T04:06:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0006",
+    "businessDate": "2026-11-07",
+    "cashierId": "USR-0005",
+    "submittedAt": "2026-11-07T12:43:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 2000,
+      "UPI": 15000,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 2000,
+      "UPI": 15000,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 1,
+      "collected": 15000,
+      "refunds": 0,
+      "op": 0,
+      "deposits": 15000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-08T00:43:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0007",
+    "businessDate": "2026-11-07",
+    "cashierId": "USR-0008",
+    "submittedAt": "2026-11-07T16:14:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 2000,
+      "UPI": 17154,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 2000,
+      "UPI": 17154,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 2,
+      "collected": 17154,
+      "refunds": 0,
+      "op": 0,
+      "deposits": 10000,
+      "settlements": 7154
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-08T04:14:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0008",
+    "businessDate": "2026-11-08",
+    "cashierId": "USR-0005",
+    "submittedAt": "2026-11-08T13:10:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 2000,
+      "UPI": 5000,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 2000,
+      "UPI": 5000,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 1,
+      "collected": 5000,
+      "refunds": 0,
+      "op": 0,
+      "deposits": 5000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-09T01:10:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0009",
+    "businessDate": "2026-11-09",
+    "cashierId": "USR-0008",
+    "submittedAt": "2026-11-09T16:09:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 2000,
+      "UPI": 15000,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 2000,
+      "UPI": 15000,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 2,
+      "collected": 15000,
+      "refunds": 0,
+      "op": 0,
+      "deposits": 15000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-10T04:09:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0010",
+    "businessDate": "2026-11-10",
+    "cashierId": "USR-0008",
+    "submittedAt": "2026-11-10T16:12:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 2000,
+      "UPI": 41111,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 2000,
+      "UPI": 41111,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 3,
+      "collected": 41111,
+      "refunds": 0,
+      "op": 0,
+      "deposits": 5000,
+      "settlements": 36111
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-11T04:12:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0011",
+    "businessDate": "2026-11-11",
+    "cashierId": "USR-0005",
+    "submittedAt": "2026-11-11T12:47:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 7780,
+      "UPI": 3900,
+      "CARD": 500,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 7780,
+      "UPI": 3900,
+      "CARD": 500,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 17,
+      "collected": 10180,
+      "refunds": 0,
+      "op": 10180,
+      "deposits": 0,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-12T00:47:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0012",
+    "businessDate": "2026-11-11",
+    "cashierId": "USR-0008",
+    "submittedAt": "2026-11-11T16:14:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 16350,
+      "UPI": 24150,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 16350,
+      "UPI": 24150,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 20,
+      "collected": 38500,
+      "refunds": 0,
+      "op": 8500,
+      "deposits": 30000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-12T04:14:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0013",
+    "businessDate": "2026-11-12",
+    "cashierId": "USR-0005",
+    "submittedAt": "2026-11-12T13:05:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 10100,
+      "UPI": 4000,
+      "CARD": 1150,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 10100,
+      "UPI": 4000,
+      "CARD": 1150,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 22,
+      "collected": 13250,
+      "refunds": 0,
+      "op": 13250,
+      "deposits": 0,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-13T01:05:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0014",
+    "businessDate": "2026-11-12",
+    "cashierId": "USR-0008",
+    "submittedAt": "2026-11-12T16:07:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 4952,
+      "UPI": 8200,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 4952,
+      "UPI": 8200,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 9,
+      "collected": 11152,
+      "refunds": 0,
+      "op": 4100,
+      "deposits": 5000,
+      "settlements": 2052
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-13T04:07:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0015",
+    "businessDate": "2026-11-13",
+    "cashierId": "USR-0005",
+    "submittedAt": "2026-11-13T12:35:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 7380,
+      "UPI": 10100,
+      "CARD": 900,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 7380,
+      "UPI": 10100,
+      "CARD": 900,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 19,
+      "collected": 16380,
+      "refunds": 0,
+      "op": 11380,
+      "deposits": 5000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-14T00:35:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0016",
+    "businessDate": "2026-11-13",
+    "cashierId": "USR-0008",
+    "submittedAt": "2026-11-13T15:36:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 33500,
+      "UPI": 29100,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 33500,
+      "UPI": 29100,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 15,
+      "collected": 60600,
+      "refunds": 0,
+      "op": 5600,
+      "deposits": 55000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-14T03:36:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0017",
+    "businessDate": "2026-11-14",
+    "cashierId": "USR-0005",
+    "submittedAt": "2026-11-14T13:13:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 7050,
+      "UPI": 9850,
+      "CARD": 2880,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 7050,
+      "UPI": 9850,
+      "CARD": 2880,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 18,
+      "collected": 17780,
+      "refunds": 0,
+      "op": 12780,
+      "deposits": 5000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-15T01:13:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0018",
+    "businessDate": "2026-11-14",
+    "cashierId": "USR-0008",
+    "submittedAt": "2026-11-14T16:04:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 11557,
+      "UPI": 11650,
+      "CARD": 300,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 11557,
+      "UPI": 11650,
+      "CARD": 300,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 11,
+      "collected": 25521,
+      "refunds": 4014,
+      "op": 4300,
+      "deposits": 20000,
+      "settlements": 1221
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-15T04:04:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0019",
+    "businessDate": "2026-11-15",
+    "cashierId": "USR-0005",
+    "submittedAt": "2026-11-15T13:13:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 2000,
+      "UPI": 5000,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 2000,
+      "UPI": 5000,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 1,
+      "collected": 5000,
+      "refunds": 0,
+      "op": 0,
+      "deposits": 5000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-16T01:13:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0020",
+    "businessDate": "2026-11-15",
+    "cashierId": "USR-0008",
+    "submittedAt": "2026-11-15T15:50:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 89889,
+      "UPI": 23404,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 89889,
+      "UPI": 23404,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 6,
+      "collected": 116903,
+      "refunds": 5610,
+      "op": 0,
+      "deposits": 90000,
+      "settlements": 26903
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-16T03:50:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0021",
+    "businessDate": "2026-11-16",
+    "cashierId": "USR-0005",
+    "submittedAt": "2026-11-16T12:53:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 11900,
+      "UPI": 14550,
+      "CARD": 500,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 11900,
+      "UPI": 14550,
+      "CARD": 500,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 17,
+      "collected": 24950,
+      "refunds": 0,
+      "op": 9950,
+      "deposits": 15000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-17T00:53:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0022",
+    "businessDate": "2026-11-16",
+    "cashierId": "USR-0008",
+    "submittedAt": "2026-11-16T16:09:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 2786.4,
+      "UPI": 730,
+      "CARD": 11600,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 2786.4,
+      "UPI": 730,
+      "CARD": 11600,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 12,
+      "collected": 15080,
+      "refunds": 1963.6,
+      "op": 5080,
+      "deposits": 10000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-17T04:09:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0023",
+    "businessDate": "2026-11-17",
+    "cashierId": "USR-0005",
+    "submittedAt": "2026-11-17T12:58:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 10250,
+      "UPI": 2380,
+      "CARD": 1650,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 10250,
+      "UPI": 2380,
+      "CARD": 1650,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 14,
+      "collected": 12280,
+      "refunds": 0,
+      "op": 7280,
+      "deposits": 5000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-18T00:58:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0024",
+    "businessDate": "2026-11-17",
+    "cashierId": "USR-0008",
+    "submittedAt": "2026-11-17T15:47:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 45389,
+      "UPI": 39503,
+      "CARD": 450,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 45389,
+      "UPI": 39503,
+      "CARD": 450,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 16,
+      "collected": 87690,
+      "refunds": 4348,
+      "op": 6250,
+      "deposits": 55000,
+      "settlements": 26440
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-18T03:47:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0025",
+    "businessDate": "2026-11-18",
+    "cashierId": "USR-0005",
+    "submittedAt": "2026-11-18T12:43:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 10850,
+      "UPI": 8300,
+      "CARD": 800,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 10850,
+      "UPI": 8300,
+      "CARD": 800,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 19,
+      "collected": 18200,
+      "refunds": 250,
+      "op": 13200,
+      "deposits": 5000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-19T00:43:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0026",
+    "businessDate": "2026-11-18",
+    "cashierId": "USR-0008",
+    "submittedAt": "2026-11-18T16:12:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 39980,
+      "UPI": 35500,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 39980,
+      "UPI": 35500,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 11,
+      "collected": 73480,
+      "refunds": 0,
+      "op": 3480,
+      "deposits": 70000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-19T04:12:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0027",
+    "businessDate": "2026-11-19",
+    "cashierId": "USR-0005",
+    "submittedAt": "2026-11-19T13:07:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 25850,
+      "UPI": 1680,
+      "CARD": 1600,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 25850,
+      "UPI": 1680,
+      "CARD": 1600,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 16,
+      "collected": 27530,
+      "refunds": 400,
+      "op": 7530,
+      "deposits": 20000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-20T01:07:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0028",
+    "businessDate": "2026-11-19",
+    "cashierId": "USR-0008",
+    "submittedAt": "2026-11-19T15:55:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": -323,
+      "UPI": -38663,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": -323,
+      "UPI": -38663,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 9,
+      "collected": 12600,
+      "refunds": 53586,
+      "op": 2600,
+      "deposits": 10000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-20T03:55:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0029",
+    "businessDate": "2026-11-20",
+    "cashierId": "USR-0005",
+    "submittedAt": "2026-11-20T12:36:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 6500,
+      "UPI": 17550,
+      "CARD": 250,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 6500,
+      "UPI": 17550,
+      "CARD": 250,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 19,
+      "collected": 22300,
+      "refunds": 0,
+      "op": 12300,
+      "deposits": 10000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-21T00:36:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0030",
+    "businessDate": "2026-11-20",
+    "cashierId": "USR-0008",
+    "submittedAt": "2026-11-20T16:03:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 36200,
+      "UPI": 40900,
+      "CARD": 10300,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 36200,
+      "UPI": 40900,
+      "CARD": 10300,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 15,
+      "collected": 85400,
+      "refunds": 0,
+      "op": 5400,
+      "deposits": 80000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "VERIFIED",
+    "verifiedBy": "USR-0003",
+    "verifiedAt": "2026-11-21T04:03:00.000Z"
+  },
+  {
+    "id": "HCL-2026-0031",
+    "businessDate": "2026-11-21",
+    "cashierId": "USR-0005",
+    "submittedAt": "2026-11-21T12:52:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 6750,
+      "UPI": 70750,
+      "CARD": 480,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 6750,
+      "UPI": 70750,
+      "CARD": 480,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 25,
+      "collected": 76230,
+      "refunds": 250,
+      "op": 11230,
+      "deposits": 65000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "SUBMITTED",
+    "verifiedBy": null,
+    "verifiedAt": null
+  },
+  {
+    "id": "HCL-2026-0032",
+    "businessDate": "2026-11-21",
+    "cashierId": "USR-0008",
+    "submittedAt": "2026-11-21T15:38:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": -26612,
+      "UPI": 2985,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": -26612,
+      "UPI": 2985,
+      "CARD": 0,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 7,
+      "collected": 21650,
+      "refunds": 47277,
+      "op": 1650,
+      "deposits": 20000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "SUBMITTED",
+    "verifiedBy": null,
+    "verifiedAt": null
+  },
+  {
+    "id": "HCL-2026-0033",
+    "businessDate": "2026-11-22",
+    "cashierId": "USR-0005",
+    "submittedAt": "2026-11-22T13:10:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": 2000,
+      "UPI": 10000,
+      "CARD": 40000,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": 2000,
+      "UPI": 10000,
+      "CARD": 40000,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 4,
+      "collected": 50000,
+      "refunds": 0,
+      "op": 0,
+      "deposits": 50000,
+      "settlements": 0
+    },
+    "remarks": "Counter balanced.",
+    "status": "SUBMITTED",
+    "verifiedBy": null,
+    "verifiedAt": null
+  },
+  {
+    "id": "HCL-2026-0034",
+    "businessDate": "2026-11-22",
+    "cashierId": "USR-0008",
+    "submittedAt": "2026-11-22T15:47:00.000Z",
+    "openingFloat": 2000,
+    "expected": {
+      "CASH": -6508,
+      "UPI": -1976,
+      "CARD": 1381,
+      "OTHER": 0
+    },
+    "actual": {
+      "CASH": -6508,
+      "UPI": -1976,
+      "CARD": 1381,
+      "OTHER": 0
+    },
+    "difference": 0,
+    "cashDifference": 0,
+    "totals": {
+      "receipts": 6,
+      "collected": 28698,
+      "refunds": 37801,
+      "op": 0,
+      "deposits": 22000,
+      "settlements": 6698
+    },
+    "remarks": "Counter balanced.",
+    "status": "SUBMITTED",
+    "verifiedBy": null,
+    "verifiedAt": null
+  }
+]

@@ -35,7 +35,7 @@ function applyTheme() {
   if (custom(t.primary, '#023459')) root.setProperty('--h-navy', t.primary); else root.removeProperty('--h-navy');
   if (custom(t.accent, '#049794')) root.setProperty('--h-brand', t.accent); else root.removeProperty('--h-brand');
   root.removeProperty('--navy'); root.removeProperty('--teal');
-  document.title = `${store.settings().hospitalName} · Hospital Management System`;
+  document.title = `${store.settings().hospitalName} · ${store.settings().tagline || 'Hospital Management System'}`;
 }
 
 // ---------------- login ----------------
@@ -124,6 +124,21 @@ const NAV = [
   { id: 'hb-list', label: 'Hospital Bills', icon: 'files', href: '#/hbills', perm: 'hbill.view' },
   { id: 'packages', label: 'Packages', icon: 'package', href: '#/packages', perm: 'package.view', more: [RECEPTION] },
   { id: 'shift', label: 'My Shift', icon: 'timer', href: '#/shifts', perm: 'shift.own', more: [OWNER] },
+  // ---- Outpatient / Inpatient (modules 02, 03) ----
+  { section: 'Outpatient (OP)' },
+  { id: 'op-desk', label: 'OP Desk', icon: 'stethoscope', href: '#/op', perm: 'op.view' },
+  { id: 'op-new', label: 'New OP Visit', icon: 'user-round-plus', href: '#/op/new', perm: 'op.register', more: [OWNER] },
+  { id: 'op-queue', label: 'Doctor Queue', icon: 'list-ordered', href: '#/op/queue', perm: 'op.view', more: [OWNER, 'RECEPTION', 'BILLING'] },
+  { id: 'op-visits', label: 'OP Register', icon: 'clipboard-list', href: '#/op/visits', perm: 'op.view', more: ['DOCTOR', 'NURSE'] },
+  { section: 'Inpatient (IP)' },
+  { id: 'ip-beds', label: 'Bed Board', icon: 'bed-double', href: '#/ip', perm: 'ip.view', more: [STAFF] },
+  { id: 'ip-admit', label: 'Admit Patient', icon: 'hospital', href: '#/ip/admit', perm: 'ip.admit', more: [OWNER] },
+  { id: 'ip-list', label: 'IP Patients', icon: 'folder-heart', href: '#/ip/admissions', perm: 'ip.view', more: [STAFF] },
+  { id: 'ip-indents', label: 'Ward Indents', icon: 'pill-bottle', href: '#/ip/indents', perm: 'ip.indents', badge: 'indents' },
+  { id: 'ip-tpa', label: 'Insurance / TPA', icon: 'shield-plus', href: '#/ip/tpa', perm: 'ip.tpa' },
+  { section: 'Billing · Hospital' },
+  { id: 'hosp-closing', label: 'Hospital Cash Closing', icon: 'wallet', href: '#/hospital/closing', perm: 'hospital.closing' },
+  { id: 'hosp-approvals', label: 'Billing Approvals', icon: 'badge-check', href: '#/hospital/approvals', perm: 'hospital.approve', more: [OWNER] },
   { section: 'Billing · Pharmacy' },
   { id: 'ph-bill', label: 'Pharmacy Sale', icon: 'shopping-cart', href: '#/pharmacy/bill', perm: 'pharmacy.bill', more: [OWNER] },
   { id: 'ph-bills', label: 'Pharmacy Bills', icon: 'receipt-text', href: '#/pharmacy/bills', perm: 'pharmacy.history' },
@@ -162,8 +177,9 @@ const NAV = [
   { id: 'suppliers', label: 'Suppliers', icon: 'truck', href: '#/suppliers', perm: 'supplier.view', more: [STAFF, MANAGER] },
   { section: 'System' },
   { id: 'setup', label: 'Hospital Setup', icon: 'sliders-horizontal', href: '#/setup', perm: 'catalog.manage' },
-  { id: 'settings', label: 'Settings', icon: 'settings', href: '#/settings', more: [STAFF, MANAGER, RECEPTION, LAB, MRD, SVC, 'ADMIN'] },
+  { id: 'settings', label: 'Settings', icon: 'settings', href: '#/settings', more: [STAFF, MANAGER, RECEPTION, LAB, MRD, SVC, 'ADMIN', 'DOCTOR', 'NURSE', 'BILLING'] },
   { id: 'users', label: 'User Accounts', icon: 'user-cog', href: '#/users', perm: 'users.manage' },
+  { id: 'clinical-masters', label: 'Doctors, Beds & Tariff', icon: 'building-2', href: '#/clinical/masters', perm: 'clinical.masters', more: [OWNER] },
   { id: 'audit', label: 'Audit Log', icon: 'history', href: '#/audit', perm: 'audit.view' },
   { id: 'help', label: 'Help', icon: 'life-buoy', href: '#/help' }
 ];
@@ -198,7 +214,7 @@ function renderShell() {
   app.innerHTML = `
   <div class="shell">
     <aside class="sidebar" aria-label="Main navigation">
-      <div class="sb-brand"><a href="#/home" class="sb-brand-link">${brandMark('sm')}</a><span class="sb-sub">Hospital Management System</span></div>
+      <div class="sb-brand"><a href="#/home" class="sb-brand-link">${brandMark('sm')}</a><span class="sb-sub">${esc(s.tagline || 'Hospital Management System')}</span></div>
       <nav class="sb-nav">${sidebarHTML()}</nav>
       <div class="sb-foot">
         <div class="sb-user"><span class="avatar">${esc(initials(u.name))}</span><div class="sb-user-txt"><strong>${esc(u.name)}</strong><span>${esc(roleLabel(u))}</span></div></div>
@@ -288,8 +304,14 @@ function drawSearch(q, host) {
   const bills = can('pharmacy.history') ? store.all('bills').filter((b) => [b.id, b.patientName, b.phone, b.uhid].join(' ').toLowerCase().includes(q)).sort((a, b) => b.at.localeCompare(a.at)).slice(0, 5) : [];
   const grns = can('grn.view') ? store.all('grns').filter((g) => [g.id, g.invoiceNo, supplierName(g.supplierId)].join(' ').toLowerCase().includes(q)).slice(0, 5) : [];
   const sups = can('supplier.view') ? store.all('suppliers').filter((s) => [s.name, s.code, s.contactPerson, s.gstNumber].join(' ').toLowerCase().includes(q)).slice(0, 4) : [];
+  const pats = can('patient.view') ? store.all('patients').filter((p) => [p.name, p.uhid, p.phone].join(' ').toLowerCase().includes(q)).slice(0, 5) : [];
+  const ops = can('op.view') ? store.all('opVisits').filter((v) => [v.id, v.token].join(' ').toLowerCase().includes(q)).sort((a, b) => b.at.localeCompare(a.at)).slice(0, 4) : [];
+  const ips = can('ip.view') ? store.all('ipAdmissions').filter((a) => [a.id, store.get('patients', a.patientId)?.name].join(' ').toLowerCase().includes(q)).sort((a, b) => b.admittedAt.localeCompare(a.admittedAt)).slice(0, 4) : [];
   const sec = (title, ic, rows) => rows.length ? `<div class="gs-sec"><div class="gs-h">${icon(ic)}${title}</div>${rows.join('')}</div>` : '';
-  const html = sec('Medicines', 'pill', meds.map((m) => `<a class="gs-item" href="#/inventory/${m.id}"><strong>${esc(m.brandName)}</strong><span>${esc(m.genericName)} · ${esc(m.code)}</span></a>`))
+  const html = sec('Patients', 'users-round', pats.map((p) => `<a class="gs-item" href="#/patients/${p.id}"><strong>${esc(p.name)}</strong><span>${esc(p.uhid)} · ${esc(p.phone)}</span></a>`))
+    + sec('Admissions', 'bed-double', ips.map((a) => `<a class="gs-item" href="#/ip/admissions/${a.id}"><strong>${esc(a.id)} · ${esc(store.get('patients', a.patientId)?.name || '')}</strong><span>${esc(a.provisionalDiagnosis)} · ${esc(a.status.replace(/_/g, ' ').toLowerCase())}</span></a>`))
+    + sec('OP Visits', 'stethoscope', ops.map((v) => `<a class="gs-item" href="#/op/visits/${v.id}"><strong>${esc(v.token)} · ${esc(store.get('patients', v.patientId)?.name || '')}</strong><span>${esc(v.id)} · ${fmtDate(v.businessDate)}</span></a>`))
+    + sec('Medicines', 'pill', meds.map((m) => `<a class="gs-item" href="#/inventory/${m.id}"><strong>${esc(m.brandName)}</strong><span>${esc(m.genericName)} · ${esc(m.code)}</span></a>`))
     + sec('Batches', 'layers', bats.map((b) => `<a class="gs-item" href="#/batches/${b.id}"><strong>${esc(b.batchNo)}</strong><span>${esc(medName(b.medicineId))} · Exp ${fmtDate(b.expiryDate)}</span></a>`))
     + sec('GRNs', 'package-check', grns.map((g) => `<a class="gs-item" href="#/grn/${g.id}"><strong>${esc(g.id)}</strong><span>${esc(supplierName(g.supplierId))} · Inv ${esc(g.invoiceNo)}</span></a>`))
     + sec('Pharmacy Bills', 'receipt', bills.map((b) => `<a class="gs-item" href="#/pharmacy/bills/${b.id}"><strong>${esc(b.id)}</strong><span>${esc(b.patientName)} · ${fmtDate(b.at)}</span></a>`))
@@ -326,6 +348,8 @@ function updateBadges() {
   if (nf) { const n = store.all('orders').filter((o) => o.lab?.notification?.status === 'PENDING').length; nf.textContent = n; nf.classList.toggle('hidden', !n); }
   const ap = qs('[data-badge="approvals"]');
   if (ap) { const n = approvalItems(u).length; ap.textContent = n; ap.classList.toggle('hidden', !n); }
+  const ind = qs('[data-badge="indents"]');
+  if (ind) { const n = store.all('ipIndents').filter((i) => i.status === 'RAISED').length; ind.textContent = n; ind.classList.toggle('hidden', !n); }
 }
 function tickClock() {
   const el = qs('[data-clock]'); if (!el) return;

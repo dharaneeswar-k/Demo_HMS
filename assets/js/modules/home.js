@@ -7,6 +7,7 @@ import { approvalItems, APPROVAL_TYPES } from '../approvals.js';
 import { countForDate } from '../stock-count.js';
 import { refillSuggestions } from './transfers.js';
 import { badge, emptyState } from '../components.js';
+import { clinicalHome, CLINICAL_ROLES } from './home-clinical.js';
 import { esc, icon, fmtINR, fmtNum, relTime } from '../utils.js';
 import { hospitalDaySummary, orderAccess, hbillBalance, isCritical } from '../hospital.js';
 import { openShiftFor, pendingHandoversFor, shiftSummary } from '../shifts.js';
@@ -73,9 +74,11 @@ export function render(view) {
     dsum: tile('#/mrd?tab=summaries', 'file-text', 'Discharge Summaries', 'Prepare and print', 'info')
   };
   T.receive = tile('#/grn/new', 'package-plus', 'Receive Stock', 'Enter a supplier delivery into the store', 'teal');
-  const tiles = role === 'SUPER_ADMIN' ? [T.approvals, T.mgmt, T.sales, T.closings, T.labTests, T.users]
+  const clin = clinicalHome(u, { tile, stat }); // OP / IP (modules 02, 03)
+  const isClin = CLINICAL_ROLES.includes(role);
+  const tiles = isClin ? clin.tiles : role === 'SUPER_ADMIN' ? [T.approvals, T.mgmt, T.sales, T.closings, T.labTests, T.users]
     : role === 'STORE_INCHARGE' ? [T.receive, T.transfer, T.labSupplies, T.approvals, T.find, T.grnList]
-      : role === 'RECEPTION' ? [T.hbill, T.register, T.findPatient, T.hbills, T.shift, T.packages]
+      : role === 'RECEPTION' ? [T.hbill, T.register, T.findPatient, ...clin.tiles, T.hbills, T.shift]
         : role === 'LAB' ? [T.lab, T.labReports, T.kits, T.findPatient]
           : role === 'SERVICE_COUNTER' ? [T.svc, T.findPatient]
             : role === 'MRD' ? [T.mrd, T.dsum, T.labReports, T.findPatient]
@@ -88,7 +91,7 @@ export function render(view) {
   const hsum = hospitalDaySummary(today); const mysh = openShiftFor(u);
   const labQ = store.all('orders').filter((o) => o.category === 'LAB' && o.billId);
   const svcQ = store.all('orders').filter((o) => ['ECG', 'INJECTION', 'NEBULIZATION', 'OTHER'].includes(o.category));
-  const stats = role === 'RECEPTION' ? [
+  const stats = isClin ? clin.stats : role === 'RECEPTION' ? [
     stat('Billed today', fmtINR(hsum.billed, true), `${hsum.bills} hospital bill(s)`, '#/hbills'),
     stat('Cash in my drawer', mysh ? fmtINR(shiftSummary(mysh).expectedCash, true) : '—', mysh ? `${mysh.shiftName} shift` : 'Shift not started', '#/shifts'),
     stat('Balance to collect', fmtINR(store.all('hbills').reduce((t, b) => t + hbillBalance(b), 0), true), 'credit & part-paid', '#/hbills?status=DUE'),
@@ -158,7 +161,8 @@ export function render(view) {
   const unpaid = store.all('bills').filter((b) => b.status !== 'CANCELLED' && b.balanceDue > 0 && (role !== 'PHARMACY_STAFF' || b.cashierId === u.id));
   if (unpaid.length && can('pharmacy.bill') && role !== 'SUPER_ADMIN') todo.push({ ic: 'hourglass', tone: 'warning', text: `${unpaid.length} bill(s) with money still to collect`, sub: fmtINR(unpaid.reduce((s, b) => s + b.balanceDue, 0)) + ' pending', href: '#/pharmacy/bills?status=PENDING', btn: 'View' });
   if (role === 'STORE_INCHARGE' && refillSuggestions().length) todo.unshift({ ic: 'arrow-right-left', tone: 'warning', text: `${refillSuggestions().length} medicine(s) low on the pharmacy shelf`, sub: 'Available in the central store — send them to the pharmacy', href: '#/transfers', btn: 'Transfer' });
-  const hosp = ['RECEPTION', 'LAB', 'MRD', 'SERVICE_COUNTER', 'ADMIN'].includes(role);
+  todo.push(...clin.todo);
+  const hosp = ['RECEPTION', 'LAB', 'MRD', 'SERVICE_COUNTER', 'ADMIN', 'DOCTOR', 'NURSE', 'BILLING'].includes(role);
   if (inv.expired && role !== 'SUPER_ADMIN' && !hosp) todo.push({ ic: 'calendar-x', tone: 'danger', text: `${inv.expired} expired batch(es) on the shelf`, sub: 'Remove them — they cannot be sold', href: '#/batches?status=EXPIRED', btn: 'View' });
   if (inv.out && !hosp) todo.push({ ic: 'ban', tone: 'danger', text: `${inv.out} medicine(s) out of stock`, sub: 'Order from the supplier', href: '#/inventory?status=OUT_OF_STOCK', btn: 'View' });
   const alertsCount = alertsFor(u).length;
@@ -233,7 +237,7 @@ export function render(view) {
       <section class="card"><header class="card-head"><h2>Needs your attention</h2><a class="btn btn-ghost btn-sm" href="#/alerts">All alerts (${alertsCount}) ${icon('arrow-right')}</a></header>
         <div class="todo-list">${todo.length ? todo.slice(0, 7).map((t) => `<a class="todo" href="${t.href}"><span class="todo-ic sev-${t.tone === 'danger' ? 'critical' : t.tone}">${icon(t.ic)}</span><span class="todo-txt"><strong>${esc(t.text)}</strong><small>${esc(t.sub)}</small></span><span class="btn btn-secondary btn-sm">${esc(t.btn)}</span></a>`).join('')
           : emptyState('party-popper', 'All caught up', 'Nothing needs your attention right now.')}</div></section>
-      ${recentCard || `<section class="card"><header class="card-head"><h2>${role === 'PHARMACY_STAFF' ? 'My recent bills' : 'Recent bills'}</h2><a class="btn btn-ghost btn-sm" href="#/pharmacy/bills">All bills ${icon('arrow-right')}</a></header>
+      ${recentCard || clin.recent || `<section class="card"><header class="card-head"><h2>${role === 'PHARMACY_STAFF' ? 'My recent bills' : 'Recent bills'}</h2><a class="btn btn-ghost btn-sm" href="#/pharmacy/bills">All bills ${icon('arrow-right')}</a></header>
         <div class="todo-list">${recent.length ? recent.map((b) => `<a class="todo" href="#/pharmacy/bills/${b.id}"><span class="todo-ic sev-info">${icon('receipt')}</span><span class="todo-txt"><strong>${esc(b.patientName)} · ${fmtINR(b.grandTotal)}</strong><small>${b.id} · ${esc(billModeLabel(b))} · ${relTime(b.at)}${role !== 'PHARMACY_STAFF' ? ' · ' + esc(userName(b.cashierId)) : ''}</small></span>${badge(b.status)}</a>`).join('') : emptyState('receipt', 'No bills yet', 'Your bills will appear here.')}</div></section>`}
     </div>`}`;
   view.querySelectorAll('.home-next tr[data-href]').forEach((tr) => { tr.onclick = (e) => { if (!e.target.closest('a')) location.hash = tr.dataset.href; }; });

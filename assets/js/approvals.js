@@ -18,7 +18,9 @@ export const APPROVAL_TYPES = {
   HCANCEL: { label: 'Hospital bill cancellations', icon: 'circle-slash' },
   KITCOUNT: { label: 'Lab kit shortages', icon: 'flask-conical' },
   DS: { label: 'Discharge summaries', icon: 'file-signature' },
-  SHIFT: { label: 'Cash shortages', icon: 'banknote' }
+  SHIFT: { label: 'Cash shortages', icon: 'banknote' },
+  HOSP_REQUEST: { label: 'OP / IP billing', icon: 'badge-check' },
+  HOSP_CLOSING: { label: 'Hospital cash closings', icon: 'wallet' }
 };
 
 export function approvalItems(user = currentUser()) {
@@ -62,6 +64,13 @@ export function approvalItems(user = currentUser()) {
     type: 'DS', id: d.id, title: `Discharge summary — ${store.get('patients', d.patientId)?.name}`, detail: `${d.id} ready for review and sign-off`, who: userName(d.preparedBy), at: d.preparedAt, amount: null, href: `#/mrd/summary/${d.id}`, action: 'Review', tone: 'info' }));
   if (can('shift.report', user)) store.all('shifts').filter((s) => s.closedAt && !s.verifiedBy && s.difference < -(store.hs().shiftVarianceTolerance || 0)).forEach((s) => out.push({
     type: 'SHIFT', id: s.id, title: `Cash short at ${s.counter === 'PHARMACY' ? 'pharmacy' : 'main counter'} — ${userName(s.userId)}`, detail: `${s.shiftName} shift · ${s.note || 'no reason given'}`, who: userName(s.userId), at: s.closedAt, amount: -s.difference, href: `#/shifts/${s.id}`, action: 'Verify', tone: 'warning' }));
+  // OP / IP (modules 02, 03): discounts above the limit, OP refunds, hospital cash-counter closings
+  if (can('hospital.approve', user)) store.all('hospitalRequests').filter((r) => r.status === 'PENDING').forEach((r) => out.push({
+    type: 'HOSP_REQUEST', id: r.id, title: r.type === 'DISCOUNT' ? `${r.pct}% ${r.source} discount for ${store.get('patients', r.patientId)?.name || ''}` : `${r.source} refund for ${store.get('patients', r.patientId)?.name || ''}`,
+    detail: `“${r.reason}” · ${r.refId} on hold`, who: userName(r.requestedBy), at: r.requestedAt, amount: r.amount, href: `#/hospital/approvals?focus=${r.id}`, action: 'Decide', tone: 'danger' }));
+  if (can('hospital.closing.verify', user)) store.all('hospitalClosings').filter((c) => c.status === 'SUBMITTED').forEach((c) => out.push({
+    type: 'HOSP_CLOSING', id: c.id, title: `Hospital cash closing by ${userName(c.cashierId)}`, detail: `${c.businessDate} · cash ${c.cashDifference === 0 ? 'matched' : (c.cashDifference > 0 ? '+' : '') + '₹' + c.cashDifference}`,
+    who: userName(c.cashierId), at: c.submittedAt, amount: c.totals.collected, href: '#/hospital/closing?tab=report', action: 'Review', tone: c.cashDifference ? 'warning' : 'success' }));
   const rank = { danger: 0, warning: 1, info: 2, success: 3 };
   return out.sort((a, b) => rank[a.tone] - rank[b.tone] || String(b.at).localeCompare(String(a.at)));
 }

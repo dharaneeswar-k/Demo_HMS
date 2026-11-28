@@ -1,0 +1,592 @@
+[
+  {
+    "id": "BST-00001",
+    "admissionId": "IPA-2026-0001",
+    "bedId": "BED-025",
+    "category": "PRIVATE",
+    "from": "2026-11-03T14:40:00.000Z",
+    "to": "2026-11-07T07:00:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00002",
+    "admissionId": "IPA-2026-0002",
+    "bedId": "BED-017",
+    "category": "SEMI_PRIVATE",
+    "from": "2026-11-04T05:10:00.000Z",
+    "to": "2026-11-10T09:45:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00003",
+    "admissionId": "IPA-2026-0003",
+    "bedId": "BED-001",
+    "category": "GENERAL",
+    "from": "2026-11-05T02:30:00.000Z",
+    "to": "2026-11-12T10:15:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00004",
+    "admissionId": "IPA-2026-0004",
+    "bedId": "BED-002",
+    "category": "GENERAL",
+    "from": "2026-11-06T05:30:00.000Z",
+    "to": "2026-11-14T04:30:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00005",
+    "admissionId": "IPA-2026-0005",
+    "bedId": "BED-026",
+    "category": "PRIVATE",
+    "from": "2026-11-07T04:40:00.000Z",
+    "to": "2026-11-10T06:15:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00006",
+    "admissionId": "IPA-2026-0006",
+    "bedId": "BED-003",
+    "category": "GENERAL",
+    "from": "2026-11-08T05:50:00.000Z",
+    "to": "2026-11-15T08:45:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00007",
+    "admissionId": "IPA-2026-0007",
+    "bedId": "BED-004",
+    "category": "GENERAL",
+    "from": "2026-11-09T11:30:00.000Z",
+    "to": "2026-11-15T10:15:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00008",
+    "admissionId": "IPA-2026-0008",
+    "bedId": "BED-018",
+    "category": "SEMI_PRIVATE",
+    "from": "2026-11-10T09:40:00.000Z",
+    "to": "2026-11-14T10:15:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00009",
+    "admissionId": "IPA-2026-0009",
+    "bedId": "BED-005",
+    "category": "GENERAL",
+    "from": "2026-11-11T08:40:00.000Z",
+    "to": "2026-11-14T05:30:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00010",
+    "admissionId": "IPA-2026-0010",
+    "bedId": "BED-006",
+    "category": "GENERAL",
+    "from": "2026-11-11T11:40:00.000Z",
+    "to": "2026-11-16T09:45:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00011",
+    "admissionId": "IPA-2026-0011",
+    "bedId": "BED-017",
+    "category": "SEMI_PRIVATE",
+    "from": "2026-11-11T15:10:00.000Z",
+    "to": "2026-11-15T10:00:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00012",
+    "admissionId": "IPA-2026-0012",
+    "bedId": "BED-008",
+    "category": "GENERAL",
+    "from": "2026-11-12T09:20:00.000Z",
+    "to": "2026-11-17T07:15:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00013",
+    "admissionId": "IPA-2026-0013",
+    "bedId": "BED-009",
+    "category": "GENERAL",
+    "from": "2026-11-12T11:10:00.000Z",
+    "to": "2026-11-17T09:15:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00014",
+    "admissionId": "IPA-2026-0014",
+    "bedId": "BED-001",
+    "category": "GENERAL",
+    "from": "2026-11-13T06:50:00.000Z",
+    "to": "2026-11-17T04:45:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00015",
+    "admissionId": "IPA-2026-0015",
+    "bedId": "BED-025",
+    "category": "PRIVATE",
+    "from": "2026-11-13T08:30:00.000Z",
+    "to": "2026-11-17T10:00:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00016",
+    "admissionId": "IPA-2026-0016",
+    "bedId": "BED-030",
+    "category": "ICU",
+    "from": "2026-11-13T11:00:00.000Z",
+    "to": "2026-11-15T05:30:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00017",
+    "admissionId": "IPA-2026-0016",
+    "bedId": "BED-002",
+    "category": "GENERAL",
+    "from": "2026-11-15T05:30:00.000Z",
+    "to": "2026-11-19T07:00:00.000Z",
+    "reason": "Transfer: stepped down from ICU",
+    "by": "USR-0007"
+  },
+  {
+    "id": "BST-00018",
+    "admissionId": "IPA-2026-0017",
+    "bedId": "BED-019",
+    "category": "SEMI_PRIVATE",
+    "from": "2026-11-14T04:20:00.000Z",
+    "to": "2026-11-19T06:00:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00019",
+    "admissionId": "IPA-2026-0018",
+    "bedId": "BED-018",
+    "category": "SEMI_PRIVATE",
+    "from": "2026-11-14T15:00:00.000Z",
+    "to": "2026-11-22T08:00:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00020",
+    "admissionId": "IPA-2026-0019",
+    "bedId": "BED-005",
+    "category": "GENERAL",
+    "from": "2026-11-15T03:40:00.000Z",
+    "to": "2026-11-17T04:30:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00021",
+    "admissionId": "IPA-2026-0020",
+    "bedId": "BED-030",
+    "category": "ICU",
+    "from": "2026-11-15T12:50:00.000Z",
+    "to": "2026-11-16T09:30:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00022",
+    "admissionId": "IPA-2026-0020",
+    "bedId": "BED-003",
+    "category": "GENERAL",
+    "from": "2026-11-16T09:30:00.000Z",
+    "to": "2026-11-21T09:30:00.000Z",
+    "reason": "Transfer: stepped down from ICU",
+    "by": "USR-0007"
+  },
+  {
+    "id": "BST-00023",
+    "admissionId": "IPA-2026-0021",
+    "bedId": "BED-031",
+    "category": "ICU",
+    "from": "2026-11-15T13:30:00.000Z",
+    "to": "2026-11-17T06:30:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00024",
+    "admissionId": "IPA-2026-0021",
+    "bedId": "BED-017",
+    "category": "SEMI_PRIVATE",
+    "from": "2026-11-17T06:30:00.000Z",
+    "to": "2026-11-19T05:00:00.000Z",
+    "reason": "Transfer: stepped down from ICU",
+    "by": "USR-0007"
+  },
+  {
+    "id": "BST-00025",
+    "admissionId": "IPA-2026-0022",
+    "bedId": "BED-004",
+    "category": "GENERAL",
+    "from": "2026-11-16T04:00:00.000Z",
+    "to": "2026-11-21T10:00:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00026",
+    "admissionId": "IPA-2026-0023",
+    "bedId": "BED-020",
+    "category": "SEMI_PRIVATE",
+    "from": "2026-11-16T07:00:00.000Z",
+    "to": "2026-11-22T05:15:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00027",
+    "admissionId": "IPA-2026-0024",
+    "bedId": "BED-010",
+    "category": "GENERAL",
+    "from": "2026-11-16T07:40:00.000Z",
+    "to": "2026-11-22T05:00:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00028",
+    "admissionId": "IPA-2026-0025",
+    "bedId": "BED-006",
+    "category": "GENERAL",
+    "from": "2026-11-17T06:10:00.000Z",
+    "to": "2026-11-22T07:15:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00029",
+    "admissionId": "IPA-2026-0026",
+    "bedId": "BED-001",
+    "category": "GENERAL",
+    "from": "2026-11-17T09:40:00.000Z",
+    "to": "2026-11-21T07:30:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00030",
+    "admissionId": "IPA-2026-0027",
+    "bedId": "BED-025",
+    "category": "PRIVATE",
+    "from": "2026-11-18T06:10:00.000Z",
+    "to": "2026-11-21T08:45:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00031",
+    "admissionId": "IPA-2026-0028",
+    "bedId": "BED-030",
+    "category": "ICU",
+    "from": "2026-11-18T10:10:00.000Z",
+    "to": "2026-11-19T10:30:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00032",
+    "admissionId": "IPA-2026-0028",
+    "bedId": "BED-017",
+    "category": "SEMI_PRIVATE",
+    "from": "2026-11-19T10:30:00.000Z",
+    "to": "2026-11-22T05:00:00.000Z",
+    "reason": "Transfer: stepped down from ICU",
+    "by": "USR-0007"
+  },
+  {
+    "id": "BST-00033",
+    "admissionId": "IPA-2026-0029",
+    "bedId": "BED-005",
+    "category": "GENERAL",
+    "from": "2026-11-18T12:20:00.000Z",
+    "to": "2026-11-21T05:00:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00034",
+    "admissionId": "IPA-2026-0030",
+    "bedId": "BED-031",
+    "category": "ICU",
+    "from": "2026-11-18T13:30:00.000Z",
+    "to": "2026-11-19T11:30:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00035",
+    "admissionId": "IPA-2026-0030",
+    "bedId": "BED-002",
+    "category": "GENERAL",
+    "from": "2026-11-19T11:30:00.000Z",
+    "to": null,
+    "reason": "Transfer: stepped down from ICU",
+    "by": "USR-0007"
+  },
+  {
+    "id": "BST-00036",
+    "admissionId": "IPA-2026-0031",
+    "bedId": "BED-026",
+    "category": "PRIVATE",
+    "from": "2026-11-19T03:10:00.000Z",
+    "to": "2026-11-22T06:15:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00037",
+    "admissionId": "IPA-2026-0032",
+    "bedId": "BED-008",
+    "category": "GENERAL",
+    "from": "2026-11-19T03:40:00.000Z",
+    "to": null,
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00038",
+    "admissionId": "IPA-2026-0033",
+    "bedId": "BED-032",
+    "category": "ICU",
+    "from": "2026-11-19T09:20:00.000Z",
+    "to": "2026-11-20T05:30:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00039",
+    "admissionId": "IPA-2026-0033",
+    "bedId": "BED-009",
+    "category": "GENERAL",
+    "from": "2026-11-20T05:30:00.000Z",
+    "to": null,
+    "reason": "Transfer: stepped down from ICU",
+    "by": "USR-0007"
+  },
+  {
+    "id": "BST-00040",
+    "admissionId": "IPA-2026-0034",
+    "bedId": "BED-011",
+    "category": "GENERAL",
+    "from": "2026-11-19T09:40:00.000Z",
+    "to": "2026-11-23T05:45:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00041",
+    "admissionId": "IPA-2026-0035",
+    "bedId": "BED-019",
+    "category": "SEMI_PRIVATE",
+    "from": "2026-11-19T13:20:00.000Z",
+    "to": null,
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00042",
+    "admissionId": "IPA-2026-0036",
+    "bedId": "BED-027",
+    "category": "PRIVATE",
+    "from": "2026-11-20T08:10:00.000Z",
+    "to": null,
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00043",
+    "admissionId": "IPA-2026-0037",
+    "bedId": "BED-012",
+    "category": "GENERAL",
+    "from": "2026-11-20T08:10:00.000Z",
+    "to": null,
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00044",
+    "admissionId": "IPA-2026-0038",
+    "bedId": "BED-021",
+    "category": "SEMI_PRIVATE",
+    "from": "2026-11-20T10:10:00.000Z",
+    "to": null,
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00045",
+    "admissionId": "IPA-2026-0039",
+    "bedId": "BED-030",
+    "category": "ICU",
+    "from": "2026-11-20T10:50:00.000Z",
+    "to": "2026-11-21T04:30:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00046",
+    "admissionId": "IPA-2026-0039",
+    "bedId": "BED-022",
+    "category": "SEMI_PRIVATE",
+    "from": "2026-11-21T04:30:00.000Z",
+    "to": null,
+    "reason": "Transfer: stepped down from ICU",
+    "by": "USR-0007"
+  },
+  {
+    "id": "BST-00047",
+    "admissionId": "IPA-2026-0040",
+    "bedId": "BED-013",
+    "category": "GENERAL",
+    "from": "2026-11-20T14:40:00.000Z",
+    "to": "2026-11-23T04:45:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0008"
+  },
+  {
+    "id": "BST-00048",
+    "admissionId": "IPA-2026-0041",
+    "bedId": "BED-031",
+    "category": "ICU",
+    "from": "2026-11-21T02:30:00.000Z",
+    "to": "2026-11-22T11:30:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00049",
+    "admissionId": "IPA-2026-0041",
+    "bedId": "BED-001",
+    "category": "GENERAL",
+    "from": "2026-11-22T11:30:00.000Z",
+    "to": null,
+    "reason": "Transfer: stepped down from ICU",
+    "by": "USR-0007"
+  },
+  {
+    "id": "BST-00050",
+    "admissionId": "IPA-2026-0042",
+    "bedId": "BED-014",
+    "category": "GENERAL",
+    "from": "2026-11-21T04:30:00.000Z",
+    "to": null,
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00051",
+    "admissionId": "IPA-2026-0043",
+    "bedId": "BED-015",
+    "category": "GENERAL",
+    "from": "2026-11-21T06:40:00.000Z",
+    "to": null,
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00052",
+    "admissionId": "IPA-2026-0044",
+    "bedId": "BED-028",
+    "category": "PRIVATE",
+    "from": "2026-11-21T07:10:00.000Z",
+    "to": null,
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00053",
+    "admissionId": "IPA-2026-0045",
+    "bedId": "BED-029",
+    "category": "PRIVATE",
+    "from": "2026-11-21T08:20:00.000Z",
+    "to": null,
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00054",
+    "admissionId": "IPA-2026-0046",
+    "bedId": "BED-030",
+    "category": "ICU",
+    "from": "2026-11-22T03:30:00.000Z",
+    "to": null,
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00055",
+    "admissionId": "IPA-2026-0047",
+    "bedId": "BED-032",
+    "category": "ICU",
+    "from": "2026-11-22T03:40:00.000Z",
+    "to": "2026-11-23T06:30:00.000Z",
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00056",
+    "admissionId": "IPA-2026-0047",
+    "bedId": "BED-003",
+    "category": "GENERAL",
+    "from": "2026-11-23T06:30:00.000Z",
+    "to": null,
+    "reason": "Transfer: stepped down from ICU",
+    "by": "USR-0007"
+  },
+  {
+    "id": "BST-00057",
+    "admissionId": "IPA-2026-0048",
+    "bedId": "BED-025",
+    "category": "PRIVATE",
+    "from": "2026-11-22T05:00:00.000Z",
+    "to": null,
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00058",
+    "admissionId": "IPA-2026-0049",
+    "bedId": "BED-033",
+    "category": "ICU",
+    "from": "2026-11-22T06:40:00.000Z",
+    "to": null,
+    "reason": "Admission",
+    "by": "USR-0005"
+  },
+  {
+    "id": "BST-00059",
+    "admissionId": "IPA-2026-0050",
+    "bedId": "BED-031",
+    "category": "ICU",
+    "from": "2026-11-22T13:30:00.000Z",
+    "to": null,
+    "reason": "Admission",
+    "by": "USR-0008"
+  }
+]

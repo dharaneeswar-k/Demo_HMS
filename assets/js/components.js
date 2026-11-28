@@ -8,7 +8,12 @@ const TONES = {
   ACTIVE: 'success', NEAR_EXPIRY: 'warning', EXPIRED: 'danger', QUARANTINED: 'purple', RETURNED: 'muted', DEPLETED: 'muted', INACTIVE: 'muted',
   PENDING_OWNER_APPROVAL: 'purple', OPEN: 'warning', RESOLVED: 'success',
   COMPLETED: 'success', PARTIALLY_PAID: 'warning', PENDING: 'warning', PARTIALLY_RETURNED: 'info', PAID: 'success', UNPAID: 'danger', SUBMITTED_CLOSING: 'info', VERIFIED: 'success', CORRECTED: 'purple', VARIANCE: 'danger', NOT_SUBMITTED: 'warning',
-  critical: 'danger', warning: 'warning', info: 'info', success: 'success'
+  critical: 'danger', warning: 'warning', info: 'info', success: 'success',
+  // OP / IP
+  WAITING: 'warning', VITALS_DONE: 'info', IN_CONSULTATION: 'purple', NO_SHOW: 'muted', REFERRED_IP: 'purple', REFUNDED: 'muted', DISCOUNT_PENDING: 'purple', REFUND_PENDING: 'purple', REFUND_APPROVED: 'warning',
+  ADMITTED: 'success', DISCHARGE_INITIATED: 'warning', BILL_FINALISED: 'info', DISCHARGED: 'muted', AWAITING_TPA: 'purple', PENDING_SETTLEMENT: 'warning', SETTLED: 'success',
+  RAISED: 'warning', ISSUED: 'success', PARTIAL: 'info', AVAILABLE: 'success', OCCUPIED: 'info', CLEANING: 'warning', BLOCKED: 'muted', RESERVED: 'purple',
+  PREAUTH_PENDING: 'warning', ENHANCEMENT_PENDING: 'warning', FINAL_APPROVED: 'success', EMERGENCY: 'danger', STAT: 'danger', DRAFT_SUMMARY: 'warning', FINAL: 'success'
 };
 const LABELS = {
   PENDING_OWNER_APPROVAL: 'Waiting for owner', VALIDATION_REQUIRED: 'Needs correction', PENDING_APPROVAL: 'Waiting for approval', SUBMITTED: 'Waiting for check',
@@ -17,7 +22,7 @@ const LABELS = {
 };
 export const badge = (status, label) => `<span class="badge badge-${TONES[status] || 'neutral'}"><span class="dot"></span>${esc(label || LABELS[status] || titleCase(status))}</span>`;
 export const movementBadge = (type) => {
-  const inn = ['OPENING_STOCK', 'PURCHASE_RECEIPT', 'STOCK_TRANSFER_IN', 'PATIENT_RETURN', 'STOCK_ADJUSTMENT_IN', 'SALE_CANCELLATION'].includes(type);
+  const inn = ['OPENING_STOCK', 'PURCHASE_RECEIPT', 'STOCK_TRANSFER_IN', 'PATIENT_RETURN', 'STOCK_ADJUSTMENT_IN', 'SALE_CANCELLATION', 'IP_RETURN'].includes(type);
   const tone = type === 'EXPIRED_WRITE_OFF' ? 'danger' : type.startsWith('STOCK_ADJ') ? 'purple' : inn ? 'success' : 'info';
   return `<span class="tag tag-${tone}">${esc(type.replace(/_/g, ' '))}</span>`;
 };

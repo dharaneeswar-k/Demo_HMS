@@ -6,6 +6,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { priceBill, lineRefund, r2 } from '../assets/js/pricing.js';
 import { buildHospitalData } from './hospital-data.mjs';
+import { buildClinical } from './generate-clinical.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const out = (name, data) => {
@@ -729,8 +730,11 @@ const settings = {
     { id: 'NET-02', label: 'Backup 4G router — pharmacy', address: '49.204.118.0/24', active: true, addedBy: 'USR-0003', addedAt: '2026-09-12' }] },
   approval: { ownerApprovalForExpiredOrShortDated: true, shortDatedDays: 30, discrepancyPctThreshold: 10, highValueThreshold: 250000,
     adjustmentQtyThreshold: 50, adjustmentValueThreshold: 5000, notifyOwnerOnPost: true },
-  demo: { dataVersion: 11, generatedAt: '2026-11-23' }
+  demo: { dataVersion: 12, generatedAt: '2026-11-23' }
 };
+
+// ---------------- OP & IP (modules 02, 03) — see tools/generate-clinical.mjs ----------------
+const clinical = buildClinical({ patients, medicines, batches, movements, users, roles, notifications: N, audit, PH });
 
 out('users.json', users);
 out('roles.json', roles);
@@ -778,6 +782,7 @@ out('shifts.json', H.shifts);
 out('lab-visits.json', H.labVisits);
 out('referral-doctors.json', H.referralDoctors);
 out('messages.json', H.messages);
+for (const [file, data] of Object.entries(clinical)) out(file, data);
 console.log('bills today', bills.filter((b) => b.businessDate === '2026-11-23').length, 'sales today', bills.filter((b) => b.businessDate === '2026-11-23' && b.status !== 'CANCELLED').reduce((s, b) => s + b.grandTotal, 0));
 
 // summary

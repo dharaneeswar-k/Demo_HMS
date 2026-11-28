@@ -1,6 +1,60 @@
 [
   {
-    "id": "NTF-0033",
+    "id": "NTF-0045",
+    "readBy": [],
+    "status": "OPEN",
+    "performedBy": "USR-0007",
+    "assignedTo": null,
+    "type": "IP_INDENT_RAISED",
+    "category": "Ward Indent",
+    "severity": "info",
+    "title": "ward indent IND-2026-0091",
+    "message": "2 item(s) for Rajesh Gowda · bed ICU-04",
+    "refType": "IP_INDENT",
+    "refId": "IND-2026-0091",
+    "createdAt": "2026-11-23T07:25:00.000Z",
+    "targetRoles": [
+      "PHARMACY_STAFF"
+    ]
+  },
+  {
+    "id": "NTF-0044",
+    "readBy": [],
+    "status": "OPEN",
+    "performedBy": "USR-0007",
+    "assignedTo": null,
+    "type": "IP_INDENT_RAISED",
+    "category": "Ward Indent",
+    "severity": "critical",
+    "title": "STAT ward indent IND-2026-0090",
+    "message": "3 item(s) for Harini Balaji · bed GM-08",
+    "refType": "IP_INDENT",
+    "refId": "IND-2026-0090",
+    "createdAt": "2026-11-23T07:20:00.000Z",
+    "targetRoles": [
+      "PHARMACY_STAFF"
+    ]
+  },
+  {
+    "id": "NTF-0043",
+    "readBy": [],
+    "status": "OPEN",
+    "performedBy": "USR-0005",
+    "assignedTo": "USR-0003",
+    "type": "HOSPITAL_DISCOUNT_REQUEST",
+    "category": "Discount Approval",
+    "severity": "critical",
+    "title": "Approve 50% OP discount",
+    "message": "Venkatesan Thangavel: ₹250 off ₹500. Reason: Senior citizen, daily-wage family — requested concession by Dr. Harish",
+    "refType": "HOSP_REQUEST",
+    "refId": "HRQ-2026-0002",
+    "createdAt": "2026-11-23T07:12:00.000Z",
+    "targetRoles": [
+      "SUPER_ADMIN"
+    ]
+  },
+  {
+    "id": "NTF-0042",
     "readBy": [],
     "status": "OPEN",
     "type": "CANCELLATION_REQUEST",
@@ -18,7 +72,27 @@
     "performedBy": "USR-0001"
   },
   {
-    "id": "NTF-0032",
+    "id": "NTF-0041",
+    "readBy": [],
+    "status": "OPEN",
+    "performedBy": "USR-0003",
+    "assignedTo": null,
+    "type": "IP_DISCHARGE_INITIATED",
+    "category": "Discharge",
+    "severity": "warning",
+    "title": "Discharge initiated — IPA-2026-0035",
+    "message": "Meena Kumari: clearances and final bill pending.",
+    "refType": "IP_ADMISSION",
+    "refId": "IPA-2026-0035",
+    "createdAt": "2026-11-23T05:45:00.000Z",
+    "targetRoles": [
+      "BILLING",
+      "NURSE",
+      "PHARMACY_STAFF"
+    ]
+  },
+  {
+    "id": "NTF-0040",
     "readBy": [],
     "status": "OPEN",
     "type": "DISCOUNT_REQUEST",
@@ -36,7 +110,7 @@
     "performedBy": "USR-0004"
   },
   {
-    "id": "NTF-0031",
+    "id": "NTF-0039",
     "readBy": [],
     "status": "OPEN",
     "type": "REFUND_APPROVAL",
@@ -54,7 +128,64 @@
     "performedBy": "USR-0001"
   },
   {
-    "id": "NTF-0030",
+    "id": "NTF-0038",
+    "readBy": [],
+    "status": "OPEN",
+    "type": "CREDIT_REQUEST",
+    "category": "Credit approval",
+    "severity": "warning",
+    "title": "Credit requested — Venkatesan Thangavel",
+    "message": "HB-2026-00077: ₹1350 · Long-term patient — family pays monthly. Tests are on hold until you decide.",
+    "refType": "HBILL",
+    "refId": "HB-2026-00077",
+    "targetRoles": [
+      "SUPER_ADMIN"
+    ],
+    "assignedTo": "USR-0003",
+    "performedBy": "USR-0005",
+    "createdAt": "2026-11-23T04:56:00.000Z"
+  },
+  {
+    "id": "NTF-0037",
+    "readBy": [],
+    "status": "OPEN",
+    "performedBy": "USR-0006",
+    "assignedTo": null,
+    "type": "IP_DISCHARGE_INITIATED",
+    "category": "Discharge",
+    "severity": "warning",
+    "title": "Discharge initiated — IPA-2026-0030",
+    "message": "Saroja Mani: clearances and final bill pending.",
+    "refType": "IP_ADMISSION",
+    "refId": "IPA-2026-0030",
+    "createdAt": "2026-11-23T04:35:00.000Z",
+    "targetRoles": [
+      "BILLING",
+      "NURSE",
+      "PHARMACY_STAFF"
+    ]
+  },
+  {
+    "id": "NTF-0036",
+    "readBy": [],
+    "status": "OPEN",
+    "type": "UNBILLED_SERVICE",
+    "category": "Services",
+    "severity": "warning",
+    "title": "Service requested but not billed — ECG",
+    "message": "Revathi Mohan: ECG advised yesterday is still not billed at the main counter.",
+    "refType": "ORDER",
+    "refId": "ORD-00161",
+    "targetRoles": [
+      "SUPER_ADMIN",
+      "RECEPTION"
+    ],
+    "assignedTo": null,
+    "performedBy": null,
+    "createdAt": "2026-11-23T02:30:00.000Z"
+  },
+  {
+    "id": "NTF-0035",
     "readBy": [],
     "status": "RESOLVED",
     "type": "DAILY_CLOSING_SUBMITTED",
@@ -72,7 +203,25 @@
     "performedBy": "USR-0001"
   },
   {
-    "id": "NTF-0029",
+    "id": "NTF-0034",
+    "readBy": [],
+    "status": "OPEN",
+    "performedBy": "USR-0008",
+    "assignedTo": "USR-0003",
+    "type": "HOSPITAL_CLOSING_SUBMITTED",
+    "category": "Cash Closing",
+    "severity": "success",
+    "title": "Hospital cash closing — 2026-11-22",
+    "message": "Sr. Jency Mary closed the OP/IP counter. Cash matched.",
+    "refType": "HOSP_CLOSING",
+    "refId": "HCL-2026-0034",
+    "createdAt": "2026-11-22T15:47:00.000Z",
+    "targetRoles": [
+      "SUPER_ADMIN"
+    ]
+  },
+  {
+    "id": "NTF-0033",
     "readBy": [],
     "status": "OPEN",
     "type": "STOCK_SHORTAGE",
@@ -90,7 +239,43 @@
     "performedBy": "USR-0004"
   },
   {
-    "id": "NTF-0028",
+    "id": "NTF-0032",
+    "readBy": [],
+    "status": "OPEN",
+    "type": "KIT_VARIANCE",
+    "category": "Lab kits",
+    "severity": "critical",
+    "title": "Lab kit shortage — CBC reagent short by 3",
+    "message": "Physical count is 3 tests lower than the system. Check for tests run without a bill.",
+    "refType": "KITCOUNT",
+    "refId": "KC-0001",
+    "targetRoles": [
+      "SUPER_ADMIN"
+    ],
+    "assignedTo": "USR-0003",
+    "performedBy": "USR-0007",
+    "createdAt": "2026-11-22T14:00:00.000Z"
+  },
+  {
+    "id": "NTF-0031",
+    "readBy": [],
+    "status": "OPEN",
+    "performedBy": "USR-0005",
+    "assignedTo": "USR-0003",
+    "type": "HOSPITAL_CLOSING_SUBMITTED",
+    "category": "Cash Closing",
+    "severity": "success",
+    "title": "Hospital cash closing — 2026-11-22",
+    "message": "Divya Shankar closed the OP/IP counter. Cash matched.",
+    "refType": "HOSP_CLOSING",
+    "refId": "HCL-2026-0033",
+    "createdAt": "2026-11-22T13:10:00.000Z",
+    "targetRoles": [
+      "SUPER_ADMIN"
+    ]
+  },
+  {
+    "id": "NTF-0030",
     "readBy": [],
     "status": "OPEN",
     "type": "MISSING_DOCUMENTATION",
@@ -108,7 +293,7 @@
     "performedBy": null
   },
   {
-    "id": "NTF-0027",
+    "id": "NTF-0029",
     "readBy": [],
     "status": "OPEN",
     "type": "ADJUSTMENT_APPROVAL",
@@ -127,7 +312,7 @@
     "performedBy": null
   },
   {
-    "id": "NTF-0026",
+    "id": "NTF-0028",
     "readBy": [],
     "status": "OPEN",
     "type": "GRN_PENDING_VERIFICATION",
@@ -146,7 +331,7 @@
     "performedBy": null
   },
   {
-    "id": "NTF-0025",
+    "id": "NTF-0027",
     "readBy": [
       "USR-0003"
     ],
@@ -166,7 +351,7 @@
     "performedBy": "USR-0001"
   },
   {
-    "id": "NTF-0024",
+    "id": "NTF-0026",
     "readBy": [
       "USR-0003"
     ],
@@ -184,6 +369,42 @@
     ],
     "assignedTo": "USR-0003",
     "performedBy": "USR-0004"
+  },
+  {
+    "id": "NTF-0025",
+    "readBy": [],
+    "status": "OPEN",
+    "performedBy": "USR-0008",
+    "assignedTo": "USR-0003",
+    "type": "HOSPITAL_CLOSING_SUBMITTED",
+    "category": "Cash Closing",
+    "severity": "success",
+    "title": "Hospital cash closing — 2026-11-21",
+    "message": "Sr. Jency Mary closed the OP/IP counter. Cash matched.",
+    "refType": "HOSP_CLOSING",
+    "refId": "HCL-2026-0032",
+    "createdAt": "2026-11-21T15:38:00.000Z",
+    "targetRoles": [
+      "SUPER_ADMIN"
+    ]
+  },
+  {
+    "id": "NTF-0024",
+    "readBy": [],
+    "status": "OPEN",
+    "performedBy": "USR-0005",
+    "assignedTo": "USR-0003",
+    "type": "HOSPITAL_CLOSING_SUBMITTED",
+    "category": "Cash Closing",
+    "severity": "success",
+    "title": "Hospital cash closing — 2026-11-21",
+    "message": "Divya Shankar closed the OP/IP counter. Cash matched.",
+    "refType": "HOSP_CLOSING",
+    "refId": "HCL-2026-0031",
+    "createdAt": "2026-11-21T12:52:00.000Z",
+    "targetRoles": [
+      "SUPER_ADMIN"
+    ]
   },
   {
     "id": "NTF-0023",
@@ -646,60 +867,5 @@
     ],
     "assignedTo": null,
     "performedBy": null
-  },
-  {
-    "id": "NTF-0034",
-    "readBy": [],
-    "status": "OPEN",
-    "type": "CREDIT_REQUEST",
-    "category": "Credit approval",
-    "severity": "warning",
-    "title": "Credit requested — Venkatesan Thangavel",
-    "message": "HB-2026-00077: ₹1350 · Long-term patient — family pays monthly. Tests are on hold until you decide.",
-    "refType": "HBILL",
-    "refId": "HB-2026-00077",
-    "targetRoles": [
-      "SUPER_ADMIN"
-    ],
-    "assignedTo": "USR-0003",
-    "performedBy": "USR-0005",
-    "createdAt": "2026-11-23T04:56:00.000Z"
-  },
-  {
-    "id": "NTF-0035",
-    "readBy": [],
-    "status": "OPEN",
-    "type": "KIT_VARIANCE",
-    "category": "Lab kits",
-    "severity": "critical",
-    "title": "Lab kit shortage — CBC reagent short by 3",
-    "message": "Physical count is 3 tests lower than the system. Check for tests run without a bill.",
-    "refType": "KITCOUNT",
-    "refId": "KC-0001",
-    "targetRoles": [
-      "SUPER_ADMIN"
-    ],
-    "assignedTo": "USR-0003",
-    "performedBy": "USR-0007",
-    "createdAt": "2026-11-22T14:00:00.000Z"
-  },
-  {
-    "id": "NTF-0036",
-    "readBy": [],
-    "status": "OPEN",
-    "type": "UNBILLED_SERVICE",
-    "category": "Services",
-    "severity": "warning",
-    "title": "Service requested but not billed — ECG",
-    "message": "Revathi Mohan: ECG advised yesterday is still not billed at the main counter.",
-    "refType": "ORDER",
-    "refId": "ORD-00161",
-    "targetRoles": [
-      "SUPER_ADMIN",
-      "RECEPTION"
-    ],
-    "assignedTo": null,
-    "performedBy": null,
-    "createdAt": "2026-11-23T02:30:00.000Z"
   }
 ]

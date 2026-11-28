@@ -1,0 +1,38 @@
+[
+  {
+    "id": "HRQ-2026-0001",
+    "type": "DISCOUNT",
+    "source": "OP",
+    "refType": "OP_BILL",
+    "refId": "OB-2026-00162",
+    "patientId": "PAT-0038",
+    "pct": 20,
+    "base": 400,
+    "amount": 80,
+    "reason": "Hospital staff family member",
+    "status": "REJECTED",
+    "requestedBy": "USR-0005",
+    "requestedAt": "2026-11-17T03:21:00.000Z",
+    "decidedBy": "USR-0003",
+    "decidedAt": "2026-11-17T03:29:00.000Z",
+    "decisionNote": "Staff family concession is 10% — apply within the limit."
+  },
+  {
+    "id": "HRQ-2026-0002",
+    "type": "DISCOUNT",
+    "source": "OP",
+    "refType": "OP_BILL",
+    "refId": "OB-2026-00369",
+    "patientId": "PAT-0015",
+    "pct": 50,
+    "base": 500,
+    "amount": 250,
+    "reason": "Senior citizen, daily-wage family — requested concession by Dr. Harish",
+    "status": "PENDING",
+    "requestedBy": "USR-0005",
+    "requestedAt": "2026-11-23T07:12:00.000Z",
+    "decidedBy": null,
+    "decidedAt": null,
+    "decisionNote": ""
+  }
+]

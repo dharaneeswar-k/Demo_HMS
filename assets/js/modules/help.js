@@ -17,7 +17,7 @@ export function render(view) {
   view.innerHTML = `
     <div class="callout mb-2"><div class="grow"><h2>Help for ${esc(roleLabel())}s</h2><p class="small" style="color:#b9d0e0">Quick guides for the stock receiving and inventory workflows at ${esc(store.settings().hospitalName)}.</p></div><a class="btn btn-secondary" href="#/dashboard">${icon('layout-dashboard')}Dashboard</a></div>
     <div class="grid grid-3-1">
-      ${card('Your daily workflow', `<ol style="margin:0;padding-left:20px;display:grid;gap:10px">${guides[u.role].map((g) => `<li>${g}</li>`).join('')}</ol>`)}
+      ${card('Your daily workflow', `<ol style="margin:0;padding-left:20px;display:grid;gap:10px">${(guides[u.role] || ['Start from <a href="#/home">Home</a> — it lists the work waiting for you today.', 'Use the menu on the left; you only see the screens your role can open.', 'Check <a href="#/alerts">Alerts</a> for anything sent to you.', 'Search any patient by name, Patient ID or mobile with the search box at the top.']).map((g) => `<li>${g}</li>`).join('')}</ol>`)}
       ${card('Support', `<div class="kv"><span>Pharmacy Manager</span><span>Ext. 214</span></div><div class="kv"><span>IT Helpdesk</span><span>Ext. 100</span></div><div class="kv"><span>Hours</span><span>24 × 7</span></div>`)}
     </div>
     <div class="grid grid-2">

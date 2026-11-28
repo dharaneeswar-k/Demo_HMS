@@ -8,7 +8,10 @@ import { esc, icon, initials, fmtDateTime, refreshIcons } from '../utils.js';
 
 // What each permission unlocks, in plain words (used for the access matrix).
 const MODULES = [
-  ['Patients', 'users-round', 'patient.view'], ['Pharmacy billing', 'receipt', 'pharmacy.bill'], ['Returns & refunds', 'undo-2', 'pharmacy.return.request'], ['Close the day', 'lock', 'pharmacy.closing'],
+  ['Patients', 'users-round', 'patient.view'], ['OP visits & tokens', 'stethoscope', 'op.register'], ['OP consultation', 'notebook-pen', 'op.consult'], ['Vitals & nursing', 'heart-pulse', 'op.vitals'],
+  ['Admit patients', 'hospital', 'ip.admit'], ['Ward indents (issue)', 'pill-bottle', 'ip.indent.issue'], ['IP final bill & settlement', 'receipt-text', 'ip.bill.final'], ['Insurance / TPA', 'shield-plus', 'ip.tpa'],
+  ['Hospital cash counter', 'wallet', 'hospital.closing'], ['Doctors, beds & tariff', 'building-2', 'clinical.masters'],
+  ['Pharmacy billing', 'receipt', 'pharmacy.bill'], ['Returns & refunds', 'undo-2', 'pharmacy.return.request'], ['Close the day', 'lock', 'pharmacy.closing'],
   ['Daily stock count', 'clipboard-check', 'stockcount.do'], ['Receive stock (GRN)', 'package-plus', 'grn.create'], ['Store → Pharmacy transfer', 'arrow-right-left', 'store.transfer'],
   ['Stock corrections', 'scale', 'adjustment.request'], ['Medicines & suppliers', 'pill', 'medicine.manage'], ['Reports', 'bar-chart-3', 'reports.view'],
   ['Hospital billing (main counter)', 'receipt', 'hbill.create'], ['Packages', 'package', 'package.view'], ['My shift & cash handover', 'timer', 'shift.own'], ['Lab worklist & reports', 'test-tube', 'lab.work'], ['Lab stock (request, receive, use)', 'boxes', 'lab.kits'], ['Issue lab supplies (store)', 'flask-conical', 'labstock.issue'],
@@ -100,7 +103,7 @@ export function render(view) {
           <td><div class="row-actions"><button class="btn btn-ghost btn-sm" data-edit="${u.id}" title="Edit">${icon('pencil')}</button><button class="btn btn-ghost btn-sm" data-pw="${u.id}" title="Reset password">${icon('key-round')}</button>${u.id !== me.id ? `<button class="btn btn-ghost btn-sm" data-toggle="${u.id}" title="${u.active ? 'Deactivate' : 'Activate'}">${icon(u.active ? 'user-x' : 'user-check')}</button>` : ''}</div></td></tr>`; }).join('')}</tbody></table>`, { cls: 'flush' })}
       ${card('What each role can open', `<div class="table-scroll"><table class="table dense access-matrix"><thead><tr><th>Screen</th>${roles.map((r) => `<th class="ta-center">${esc(r.name)}</th>`).join('')}</tr></thead><tbody>
         ${MODULES.map(([label, ic, perm]) => `<tr><td>${icon(ic, 'ic-inline')} ${esc(label)}</td>${roles.map((r) => `<td class="ta-center">${r.permissions.includes(perm) ? `<span class="am-yes">${icon('check')}</span>` : '<span class="am-no">—</span>'}</td>`).join('')}</tr>`).join('')}</tbody></table></div>
-        <p class="muted small" style="padding:12px 20px">Roles follow the hospital's role map: Super Admin, Reception, Pharmacy and Store. Lab, MRD and Service Counter roles are added with their modules.</p>`, { cls: 'flush mt-2' })}`;
+        <p class="muted small" style="padding:12px 20px">Roles follow the hospital's role map: Super Admin, Reception, Doctor, Nurse, Billing, Pharmacy and Store. Lab, MRD and Service Counter roles are added with their modules.</p>`, { cls: 'flush mt-2' })}`;
     refreshIcons(view);
     view.querySelector('[data-add]').onclick = () => userForm(null, draw);
     view.querySelectorAll('[data-edit]').forEach((b) => { b.onclick = () => userForm(store.get('users', b.dataset.edit), draw); });
